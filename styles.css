@@ -1,0 +1,1489 @@
+/*-----------------------------------
+  Google Fonts
+------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Bebas+Neue&family=Barlow+Semi+Condensed&family=Inter&family=Inter+Tight&display=swap'); /* Import Bebas Neue, Inter & Graduate fonts */
+
+/*-----------------------------------
+  Global Styles
+------------------------------------*/
+body {
+  font-family: 'Inter', sans-serif;      /* Use Inter font for body text */
+  background-color: #E0E0E0;             /* Gray background color - Was warm gold background color FFF4C2 */
+  color: #1C1C1C;                        /* Dark charcoal text color */
+  margin: 0 auto;                        /* Center page horizontally */
+  padding: 0;                            /* Remove default padding */
+  max-width: 1280px;                     /* Limit max width for readability */
+  line-height: 1.6;                      /* Increase line spacing */
+}
+
+a {
+  color: #002744;                       /* Deep navy link color */
+  text-decoration: none;                /* Remove underline by default */
+}
+a:hover {
+  color: #004080;                       /* Unified navy on hover */
+  text-decoration: underline;           /* Underline on hover */
+}
+
+img {
+  max-width: 100%;                     /* Make images responsive */
+  height: auto;                        /* Keep image aspect ratio */
+  display: block;                      /* Remove inline spacing */
+  margin: 20px auto;                   /* Center image, add vertical spacing */
+  border: 1px solid #999999;              /* Unified light border around images */
+}
+
+hr {
+  margin: 4px 0;                       /* Vertical spacing around <hr> */
+  border: none;                       /* Remove default border */
+  border-top: 1px solid #999999;          /* Thin unified line on top */
+}
+
+/*-----------------------------------
+  Typography
+------------------------------------*/
+
+h1, h2, h3 {
+  font-family: 'Barlow Semi Condensed', sans-serif;  /* Bold sporty header font */
+  color: #A4161A;                         /* Historic red color */
+  letter-spacing: 1px;                    /* Space between letters */
+  margin-top: 1rem;                     /* Space above headings */
+  margin-bottom: 0.5rem;                  /* Space below headings */
+}
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 32px;
+}
+h3 {
+  font-size: 24px;
+}
+
+.sim-title {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  top: -0.61em;  /* Adjusts the title up due to different formatting for article title */
+  margin-bottom: -0.61em;
+}
+
+.sim-subsection {
+  font-size: 24px;
+  font-family: 'Graduate', sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: #002744;
+}
+
+.article-header {
+  font-size: 32px;
+  font-family: 'Graduate', sans-serif;
+}
+
+.article-title {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.article-title-link {
+  font-size: 24px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  line-height: 1.2;
+}
+
+
+/*--------------------------------------------------------------------------------
+  Season In Review Section - styles for each 'Season In Review' section container
+----------------------------------------------------------------------------------*/
+.season-in-review {
+  font-family: 'Inter', sans-serif;      /* Inter font for all text in subsections */
+  margin-top: 1rem;                      /* Vertical spacing */
+  margin-bottom: 2rem;    /* Add space below each section */
+  padding-left: 1rem;                    /* Left indent for the vertical bar */
+  border-left: 4px solid #A4161A;        /* Historic red vertical bar matching site */
+  color: #1C1C1C;                        /* Dark charcoal text color */
+}
+
+.season-in-review h3 {
+  font-family: 'Barlow Semi Condensed', sans-serif;  /* Heading font */
+  font-size: 24px;                    /* Match your h3 size */
+  color: #A4161A;                    /* Historic red for headings */
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  letter-spacing: 1px;
+}
+
+.season-in-review ul {
+  list-style-type: disc;
+  padding-left: 1.0rem;               /* Indent bullet list */
+  color: #1C1C1C;                   /* Dark charcoal for body text */
+  margin: 0.25rem;                 /* Remove default margin for tight layout */
+}
+
+.season-in-review li {
+  margin-bottom: 0.4rem;
+  line-height: 1.6;                 /* Consistent line height */
+  text-indent: 0rem;      /* Pull bullet left */
+  padding-left: 0rem;      /* Indent text after bullet */
+}
+
+.review-section-container {
+    border-left: 4px solid #A4161A; /* red bar next to heading + tables */
+    padding-left: 1rem;             /* space between bar and content */
+}
+
+.review-table {
+  table-layout: fixed;  
+  width: 100%;
+    font-family: 'Inter', sans-serif;
+    border-collapse: collapse;        /* collapse cell borders */
+    border: 1px solid #ccc;           /* gray border around table */
+/*     flex: 1 1 45%;                    /* side-by-side layout */
+    max-width: none;
+    padding-left: 1rem;               /* space for red bar in first column */
+    border-left: 4px solid #A4161A;   /* red vertical bar in first column */
+}
+
+.review-table th,
+.review-table td {
+    padding: 2px 8px;
+    line-height: 28px;      /* adjusts vertical spacing to fit 30px row perfectly */
+    border: 1px solid #ccc;           /* gray borders between cells */
+    text-align: left;
+}
+
+/* Optional: control column widths */
+.review-table td:first-child {
+    font-weight: bold;
+    width: 50%;
+}
+
+.review-table td:last-child {
+    width: 50%;
+    padding-left: 2ch;
+}
+
+/*--------------------------------------------------------------------------------
+/* Standings table customizations
+----------------------------------------------------------------------------------*/
+
+.standings-table { 
+    table-layout: fixed; 
+    width: 100%; 
+    font-family: 'Inter', sans-serif; 
+    border-collapse: collapse;       /* collapse cell borders */ 
+    border: 1px solid #ccc;          /* gray border around table */ 
+    max-width: none;
+}
+
+/* Table cells and headers */
+.standings-table th,
+.standings-table td { 
+    padding: 2px 8px; 
+    line-height: 28px;       /* adjusts vertical spacing to fit 30px row perfectly */
+    border: 1px solid #ccc;  /* gray borders between cells */ 
+    text-align: left; 
+}
+
+
+/* UEFA override */
+.standings-table.uefa {
+    width: 100%;        /* fills available space */
+    max-width: 900px;   /* never exceeds 900px */
+    margin-left: auto;  /* push left edge away */
+    margin-right: auto; /* push right edge away */
+    table-layout: fixed; /* keeps column widths stable */
+}
+
+.standings-table.uefa th:nth-child(1), .standings-table.uefa td:nth-child(1) {
+    width: 9%;
+    text-align: center;   /* keep centered, or change to left if desired */
+    white-space: nowrap;
+}
+
+.standings-table.uefa th:nth-child(2), .standings-table.uefa td:nth-child(2) {
+    width: 28%;
+    text-align: left;
+}
+
+.standings-table.uefa th:nth-child(3),.standings-table.uefa td:nth-child(3),
+.standings-table.uefa th:nth-child(4),.standings-table.uefa td:nth-child(4),
+.standings-table.uefa th:nth-child(5),.standings-table.uefa td:nth-child(5),
+.standings-table.uefa th:nth-child(6),.standings-table.uefa td:nth-child(6),
+.standings-table.uefa th:nth-child(7),.standings-table.uefa td:nth-child(7),
+.standings-table.uefa th:nth-child(8),.standings-table.uefa td:nth-child(8),
+.standings-table.uefa th:nth-child(9), .standings-table.uefa td:nth-child(9) {
+    width: 9%;
+    text-align: center;
+}
+
+/* .standings-table.uefa th:nth-child(10), .standings-table.uefa td:nth-child(10) {
+    width: 24%;
+    text-align: left;
+} */
+
+/* Make points column bold */
+.standings-table.uefa td:nth-child(6), .standings-table.uefa th:nth-child(6) {
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {  /* Only show position, team, points, and GD for narrow screens */
+  .standings-table.uefa th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(6)):not(:nth-child(9)),
+  .standings-table.uefa td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(6)):not(:nth-child(9)) {
+    display: none;
+  }
+}
+
+
+/* NHL, MLS, and USL (7 columns - Team, W, D, L, Pts, GF, GA) */
+.standings-table.nhl-mls th:nth-child(1), .standings-table.nhl-mls td:nth-child(1) {
+    width: 40%;
+    text-align: left;
+}
+
+.standings-table.nhl-mls th:nth-child(2),.standings-table.nhl-mls td:nth-child(2),
+.standings-table.nhl-mls th:nth-child(3),.standings-table.nhl-mls td:nth-child(3),
+.standings-table.nhl-mls th:nth-child(4),.standings-table.nhl-mls td:nth-child(4),
+.standings-table.nhl-mls th:nth-child(5),.standings-table.nhl-mls td:nth-child(5),
+.standings-table.nhl-mls th:nth-child(6),.standings-table.nhl-mls td:nth-child(6),
+.standings-table.nhl-mls th:nth-child(7),.standings-table.nhl-mls td:nth-child(7) {
+    width: 10%;
+    text-align: center;
+}
+
+@media (max-width: 900px) {  /* Only show position, team, points, and GD for narrow screens */
+  .standings-table.nhl-mls th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(5)),
+  .standings-table.nhl-mls td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(5)) {
+    display: none;
+  }
+}
+
+
+/* Baseball and basketball (5 columns - Team, W, L, WPct, GB) */
+.standings-table.mlb-nba th:nth-child(1),
+.standings-table.mlb-nba td:nth-child(1) { width: 52%; white-space: nowrap; }
+
+.standings-table.mlb-nba th:nth-child(2),
+.standings-table.mlb-nba td:nth-child(2) { width: 10%; text-align: center; }
+
+.standings-table.mlb-nba th:nth-child(3),
+.standings-table.mlb-nba td:nth-child(3) { width: 10%; text-align: center; }
+
+.standings-table.mlb-nba th:nth-child(4),
+.standings-table.mlb-nba td:nth-child(4) { width: 15%; text-align: center; }
+
+.standings-table.mlb-nba th:nth-child(5),
+.standings-table.mlb-nba td:nth-child(5) { width: 13%; text-align: center; }
+
+@media (max-width: 900px) {  /* Only show team, wins, and losses for narrow screens */
+  .standings-table.mlb-nba th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)),
+  .standings-table.mlb-nba td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+    display: none;
+  }
+}
+
+
+/* NFL with no ties */
+.standings-table.nfl-no-ties th:nth-child(1),
+.standings-table.nfl-no-ties td:nth-child(1) { width: 50%; white-space: nowrap; }
+
+.standings-table.nfl-no-ties th:nth-child(2),
+.standings-table.nfl-no-ties td:nth-child(2) { width: 14%; text-align: center; }
+
+.standings-table.nfl-no-ties th:nth-child(3),
+.standings-table.nfl-no-ties td:nth-child(3) { width: 14%; text-align: center; }
+
+.standings-table.nfl-no-ties th:nth-child(4),
+.standings-table.nfl-no-ties td:nth-child(4) { width: 22%; text-align: center; }
+
+@media (max-width: 900px) {  /* Only show team, wins, and losses for narrow screens */
+  .standings-table.nfl-no-ties th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)),
+  .standings-table.nfl-no-ties td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+    display: none;
+  }
+}
+
+
+/* NFL with ties and 1990s NHL */
+.standings-table.nfl-ties th:nth-child(1),
+.standings-table.nfl-ties td:nth-child(1) { width: 46%; white-space: nowrap; }
+
+.standings-table.nfl-ties th:nth-child(2),
+.standings-table.nfl-ties td:nth-child(2) { width: 12%; text-align: center; }
+
+.standings-table.nfl-ties th:nth-child(3),
+.standings-table.nfl-ties td:nth-child(3) { width: 12%; text-align: center; }
+
+.standings-table.nfl-ties th:nth-child(4),
+.standings-table.nfl-ties td:nth-child(4) { width: 12%; text-align: center; }
+
+.standings-table.nfl-ties th:nth-child(5),
+.standings-table.nfl-ties td:nth-child(5) { width: 18%; text-align: center; }
+
+@media (max-width: 900px) {   /* Only show team, wins, and losses for narrow screens */
+  .standings-table.nfl-ties th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)),
+  .standings-table.nfl-ties td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+    display: none;
+  }
+}
+
+
+/*-----------------------------------
+  Site Header
+------------------------------------*/
+#site-header {
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  background: transparent;
+}
+
+#site-header .site-title {
+  margin: 0;
+  line-height: 1;
+}
+
+#site-header a#site-title-link {
+  font-family: 'Graduate', serif;
+  color: #A4161A;
+  letter-spacing: 1.5px;
+  font-size: 48px;
+  display: block;
+  text-decoration: none;
+}
+
+#site-header a#site-title-link:hover,
+#site-header a#site-title-link:focus {
+  color: #A4161A;
+  text-decoration: none;
+}
+
+#site-header .site-title {  /* Spacing around site title */
+  margin-top: 1em; /* Gives space below site name */
+  margin-bottom: 1em; /* Gives space below site name */
+}
+
+/*-----------------------------------
+  Navigation & Dropdowns
+------------------------------------*/
+
+nav {
+  background-color: #002744;          /* Deep navy background */
+  padding: 8px 12px;                  /* Padding inside nav bar */
+  margin: 0;                          /* Removes vertical space around nav bar */
+  display: flex;                      /* Use flexbox layout */
+  justify-content: center;            /* Center nav items horizontally */
+  gap: 16px;                          /* Space between nav items */
+  flex-wrap: wrap;                    /* Wrap items on small screens */
+  font-family: 'Bebas Neue', sans-serif; /* Nav font */
+  font-size: 20px;                    /* Larger nav text */
+  letter-spacing: 1px;                /* Spacing between letters */
+  color: white;                       /* White text color */
+}
+
+.nav-divider {
+  border-left: 1px solid white;      /* Vertical white divider line */
+  height: 24px;                      /* Height of divider */
+  margin: 0 12px;                    /* Spacing left and right */
+  align-self: center;                /* Vertically center in flex container */
+}
+
+#site-header, #usa-header {
+  margin: 0;        /* Remove all outer margin from both header containers */
+  padding: 0;       /* Remove all inner padding from both header containers */
+  line-height: 1;   /* Set line height to 1 to minimize extra vertical spacing */
+}
+
+#site-header * {
+  margin-top: 0;    /* Remove top margin from all elements inside #site-header */
+  margin-bottom: 0; /* Remove bottom margin from all elements inside #site-header */
+}
+
+#usa-header * {
+  margin-top: 0;    /* Remove top margin from all elements inside #usa-header */
+  margin-bottom: 0; /* Remove bottom margin from all elements inside #usa-header */
+}
+
+/* Main Nav Bar Color (default) */
+nav.main-nav {
+  background-color: #002744; /* Deep navy */
+}
+
+/* US Pro Sports Nav (Dark Gold) */
+nav.usa-nav {
+  background-color: #B8860B; /* Goldenrod */
+}
+
+/* UEFA Nav (Green) */
+nav.uefa-nav {
+  background-color: #00642E; /* Emerald green - used to be #00563F */
+}
+
+/* College Nav (Deep Purple) */
+nav.college-nav {
+  background-color: #660000; /* Burgundy */
+}
+
+
+/*-----------------------------------
+  Dropdown Menus
+------------------------------------*/
+
+.dropdown {
+  position: relative;                /* Position relative for absolute child */
+  display: inline-block;             /* Inline block for layout */
+}
+.dropbtn {
+  background-color: #002744;        /* Match nav background */
+  color: white;                     /* White text */
+  padding: 8px 10px;                /* Padding inside button */
+  font-size: 20px;                  /* Large font */
+  border: none;                     /* Remove border */
+  cursor: pointer;                  /* Pointer cursor */
+  border-radius: 4px;               /* Rounded corners */
+  font-family: 'Bebas Neue', sans-serif; /* Button font */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+.dropbtn:hover {
+  background-color: #004080;          /* Slightly lighter navy on hover */
+}
+.dropdown-content {
+  display: none;                     /* Hidden by default */
+  position: absolute;               /* Positioned absolutely */
+  background-color: white;           /* White background */
+  min-width: 100px;                 /* Minimum width */
+  width: max-content;
+  z-index: 1;                      /* Stack above other elements */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Shadow effect */
+  border-radius: 4px;               /* Rounded corners */
+  font-size: 18px;                  /* Slightly larger font */
+}
+
+.dropdown-content a {
+  display: block;                  /* Block link for full clickable area */
+  line-height: 1.25;                /* Controls height of each link within the dropdown menus */
+  padding: 10px 16px;              /* Padding inside links */
+  color: #002744;                  /* Deep navy text */
+  text-decoration: none;           /* Remove underline */
+  font-weight: 600;                /* Semi-bold text */
+  font-family: 'Bebas Neue', sans-serif; /* Dropdown font */
+  white-space: nowrap;             /* Prevent link text wrapping */
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;       /* Light gray background on hover */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;                 /* Show dropdown on hover */
+}
+
+.dropdown-separator {
+  border: none;
+  border-top: 1px dashed #002744;
+  margin: 6px 12px;
+}
+
+/* Customize colors for buttons in dropdown menus for second nav bar */
+nav.usa-nav .dropbtn {
+  background-color: #B8860B;
+}
+
+nav.uefa-nav .dropbtn {
+  background-color: #00642E;
+}
+
+nav.college-nav .dropbtn {
+  background-color: #4C004C;
+}
+
+
+/*-----------------------------------
+  Submenus and Dropdowns
+------------------------------------*/
+
+.submenu {
+  position: relative;              /* For absolute submenu positioning */
+}
+.submenu > a::after {
+  content: " ▶";                  /* Arrow symbol after submenu link */
+  float: right;                   /* Float arrow to right */
+}
+.submenu-content {
+  display: none;                   /* Hidden by default */
+  position: absolute;             /* Absolute positioning */
+  top: 0;
+  left: 100%;                    /* Position to right of parent */
+  background-color: white;         /* White background */
+  min-width: 130px;              /* Minimum width */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Shadow */
+  border-radius: 4px;             /* Rounded corners */
+  z-index: 2;                    /* Above other menus */
+}
+.submenu:hover .submenu-content {
+  display: block;                /* Show submenu on hover */
+}
+.scrollable-menu {
+  max-height: 350px;             /* Limit max height */
+  overflow-y: auto;             /* Scroll vertically if content too tall */
+  border-radius: 4px;            /* Rounded corners */
+}
+
+.dropdown-content, .submenu-content {
+  will-change: opacity, transform;
+}
+
+/* Season header for season simulations */
+.season-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5em;             /* Controls spacing below the whole row */
+}
+
+.season-links {
+  text-align: right;                 /* Align links to the right */
+  font-family: 'Barlow Semi Condensed', sans-serif; /* Use Inter font */
+  color: #002744;                    /* Link color */
+  font-size: 16px;                    /* Slightly smaller font size */
+  margin: 0;                         /* Remove default margins */
+}
+
+/* Style for the season navigation links */
+.season-links a {
+  color: #002744;                    /* Match link color */
+  text-decoration: none;             /* Remove underline */
+  margin-left: 1em;                  /* Space between links */
+}
+
+/* Remove left margin on the first link */
+.season-links a:first-child {
+  margin-left: 0;
+}
+
+/*-----------------------------------
+  Content Containers
+------------------------------------*/
+.content,
+.article-list-page,
+.site-updates {
+  background-color: white;
+  border-left: 6px solid #002744;
+  border-radius: 8px;
+  padding: 10px 30px;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Now define both boxes together — equally */
+.featured-article-box,
+.power-rankings {
+  background-color: white;
+  border-left: 6px solid #002744;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.featured-article-box {
+  max-width: 600px;               /* Limit width */
+  padding: 20px;                 /* Padding inside boxes */
+}
+
+.article-list-page {
+  max-width: 800px;               /* Limit width */
+  padding: 20px;                 /* Padding inside boxes */
+}
+
+/* Optionally limit width for sidebar content boxes */
+.site-updates {
+  max-width: 600px;              /* Match sidebar width */
+  margin-left: 0;               /* Align left edge inside sidebar */
+  margin-right: 0;
+}
+
+/* Places date of last update on page */
+.update-date {
+  font-size: 14px;           /* Slightly smaller font size for subtle appearance */
+  color: #555;               /* Medium gray text for less visual emphasis */
+  margin-top: -10px;         /* Pulls the date closer to the heading above */
+  margin-bottom: 10px;       /* Adds spacing before the list starts */
+  font-style: italic;        /* Italic style to differentiate it as meta information */
+}
+
+/*-----------------------------------
+  Homepage Layout: Left Column + Sidebar
+------------------------------------*/
+
+.home-layout {
+    display: flex;
+    gap: 40px;               /* space between columns */
+    align-items: flex-start;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap;         /* allow stacking if needed */
+}
+
+.main-left,
+.sidebar-right {
+    flex: 1 1 0;     /* Both columns grow and shrink equally */
+    min-width: 0;    /* Prevent overflow, allow equal shrinking */
+    width: 100%;     /* Ensures proper behavior in flex layout */
+}
+
+/*------------------------
+  Sidebar: Weekly Links
+--------------------------*/
+
+/* Space between sections inside sidebar */
+.sidebar-right section {
+    margin-bottom: 25px;
+}
+
+/* Section Headers for Weekly Updates and Polls */
+.sidebar-right h2 {
+    font-size: 1.5em;               /* Section header size */
+    color: #003366;                 /* Deep navy */
+    border-bottom: 1px solid #ccc;  /* Divider line under header */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Sidebar table: same style as power rankings but allows 4 columns */
+.sidebar-table {
+    table-layout: fixed;              /* Ensures column widths are respected */
+    width: 100%;                       /* Table takes up full container width */
+    font-family: 'Inter', sans-serif; /* Use same font as main site */
+    border-collapse: collapse;         /* Collapse borders between cells */
+    border: 1px solid #ccc;            /* Light gray border around the table */
+}
+
+/* Table header and cell styling */
+.sidebar-table th,
+.sidebar-table td {
+    padding: 4px 8px;                  /* Space inside each cell */
+    border: 1px solid #ccc;            /* Gray borders between cells */
+    text-align: left;                   /* Default left-aligned text */
+    white-space: nowrap;                /* Prevent line breaks inside cells */
+}
+
+.power-rankings {
+  width: 100%;      /* fills its container */
+  max-width: 600px; /* optional: keep same width as other boxes */
+  padding: 20px;    /* optional */
+  box-sizing: border-box; /* include padding in width calculation */
+}
+
+/* Tables inside power rankings */
+.power-rankings table {
+    table-layout: fixed;
+    width: 100%;           /* fills the power-rankings container */
+    border-collapse: collapse;
+}
+
+/* Column width adjustments for power ranking tables */
+.power-rankings th:nth-child(1),
+.power-rankings td:nth-child(1) { width: 25%; }
+.power-rankings th:nth-child(2),
+.power-rankings td:nth-child(2) { width: 45%; text-align: center; }
+.power-rankings th:nth-child(3),
+.power-rankings td:nth-child(3) { width: 30%; text-align: center; }
+
+/* Column width adjustments for sidebar tables */
+.sidebar-table th:nth-child(1),
+.sidebar-table td:nth-child(1) { width: 40%; }
+.sidebar-table th:nth-child(2),
+.sidebar-table td:nth-child(2) { width: 15%; text-align: center; }
+.sidebar-table th:nth-child(3),
+.sidebar-table td:nth-child(3) { width: 20%; text-align: center; }
+.sidebar-table th:nth-child(4),
+.sidebar-table td:nth-child(4) { width: 25%; text-align: center; }
+
+
+/* Make each placeholder's wrapper scroll horizontally */
+.sidebar-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Make tables inside those wrappers behave properly */
+.sidebar-table-wrapper table {
+    width: 100%;
+    min-width: 450px;
+    border-collapse: collapse;
+}
+
+@media (max-width: 800px) {
+  .home-layout {
+    flex-direction: column;
+  }
+
+  .main-left,
+  .sidebar-right {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Responsive tweak: allow scrolling instead of breaking */
+@media (max-width: 600px) {
+    .sidebar-right {
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+
+/* Weekly Updates List */
+.site-updates ul {
+    list-style-type: none;          /* Remove bullets */
+    padding-left: 0;                /* Remove default padding */
+    margin: 0;
+}
+
+.site-updates li {
+    margin-bottom: 6px;             /* Space between items */
+}
+
+.site-updates a {
+    text-decoration: none;          /* Remove underline */
+    color: #0055a5;                 /* Brighter link color */
+}
+.site-updates a:hover {
+    text-decoration: underline;     /* Underline on hover */
+}
+
+
+/* Space between Weekly Updates and Polls */
+.site-updates {
+    margin-bottom: 30px;            /* Separate weekly updates from polls */
+}
+
+
+/*---------------------------------------------------
+  Responsive Layout for Smaller Screens for Homepage
+-----------------------------------------------------*/
+
+/* Responsive: stack columns on smaller screens */
+@media (max-width: 900px) {
+    .home-layout {
+        flex-direction: column;
+    }
+
+    .main-left,
+    .sidebar-right {
+        width: 100%;
+        max-width: none;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sidebar-right section {
+        margin-bottom: 15px;
+    }
+}
+
+/*-----------------------------------
+  Article List
+------------------------------------*/
+.article-list {
+  list-style: none;               /* Remove bullets */
+  margin: 0;                     /* Remove default margin */
+  padding: 0;                    /* Remove default padding */
+}
+.article-list li {
+  margin-bottom: 2.5em;          /* Space between articles */
+}
+.article-list h3 {
+  margin-bottom: 0.1em;          /* Reduce space between title and date */
+}
+.extra-top-margin {
+  margin-top: 48px;              /* Spacing between article sections */
+}
+
+/*-----------------------------------
+  Tables
+------------------------------------*/
+table {
+  width: 100%;                   /* Full width */
+  border-collapse: collapse;     /* Merge borders */
+  margin: 8px 0;                 /* Vertical spacing */
+}
+th, td {
+  border: 1px solid #999999;        /* Unified cell borders */
+  padding: 8px 12px;             /* Cell padding */
+  text-align: center;            /* Center content */
+}
+th {
+  background-color: #f1f1f1;     /* Unified light gray header background */
+}
+
+/* Power rankings table on homepage */
+.power-table {
+  width: 100%;                   /* Full width */
+  border-collapse: collapse;     /* Merge borders */
+  font-size: 16px;               /* Font size */
+  text-align: left;              /* Left align text */
+  table-layout: fixed;           /* Enforce equal/fixed column widths */
+}
+
+.power-table thead {
+  background-color: #002744;     /* Dark navy header */
+  color: #333;                  /* White header text */
+  font-weight: bold;             /* Bold header text */
+}
+
+.power-table th, .power-table td {
+  padding: 4px;                  /* Padding for cells */
+  border-bottom: 1px solid #999999; /* Unified light bottom border */
+  overflow: hidden;              /* Prevent content from overflowing cell */
+  white-space: normal;           /* Allow text wrapping */
+  text-overflow: ellipsis;       /* Add "..." for clipped text */
+}
+
+/* Set fixed widths for each column */
+.power-table th:nth-child(1),
+.power-table td:nth-child(1) {
+  width: 15%;                   /* Rank column width */
+}
+
+.power-table th:nth-child(2),
+.power-table td:nth-child(2) {
+  width: 65%;                  /* Team column width */
+}
+
+.power-table th:nth-child(3),
+.power-table td:nth-child(3) {
+  width: 20%;                  /* Elo Rating column width */
+}
+
+.power-table tbody tr:nth-child(even) {
+  background-color: #f1f1f1;     /* Unified light gray even rows */
+}
+
+.power-table tbody tr:hover {
+  background-color: #f1f1f1;     /* Unified highlight on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.power-table-date {
+  font-weight: bold;             /* Bold date label */
+  font-size: 1em;                /* Normal font size */
+  color: #333;                   /* Dark gray text */
+  margin-bottom: 0.5em;          /* Space below */
+  text-align: left;              /* Align left */
+}
+
+/*-----------------------------------
+  Tabs
+------------------------------------*/
+.tab-buttons {
+  display: flex;                /* Flex container */
+  justify-content: center;      /* Center buttons */
+  flex-wrap: wrap;             /* Wrap buttons on smaller screens */
+  gap: 10px;                   /* Space between buttons */
+  margin: 10px 0;              /* Vertical margin */
+}
+.tab-buttons button {
+  padding: 10px 15px;           /* Button padding */
+  border: none;                /* Remove border */
+  background-color: #f1f1f1;       /* Unified light gray background */
+  cursor: pointer;             /* Pointer cursor */
+  border-radius: 4px;           /* Rounded corners */
+  font-family: 'Inter', sans-serif; /* Button font */
+  font-weight: 600;            /* Semi-bold text */
+}
+.tab-buttons button.active {
+  background-color: #002744;    /* Dark navy background */
+  color: white;                /* White text */
+}
+.tab-content {
+  display: none;               /* Hide tab content by default */
+}
+.tab-content.active {
+  display: block;              /* Show active tab content */
+  justify-content: center;     /* Center content on active tab */
+}
+
+/*-----------------------------------
+  Collapsible Sections
+------------------------------------*/
+details {
+  background: white;            /* White background */
+  border: 1px solid #999999;    /* Unified light gray border */
+  border-radius: 5px;           /* Rounded corners */
+  padding: 5px;                 /* Padding inside details */
+  margin-bottom: 5px;           /* Space below */
+}
+summary {
+  font-size: 1.1em !important;  /* Slightly larger font */
+  cursor: pointer !important;   /* Pointer cursor */
+  margin: 4px 0 !important;     /* Vertical margin */
+  padding: 4px 6px !important;  /* Padding inside summary */
+  line-height: 1.3 !important;  /* Taller line height */
+}
+
+/*-----------------------------------
+  Iframes & Graph Labels
+------------------------------------*/
+iframe {
+  display: block;              /* Block-level for spacing */
+  width: 100%;                 /* Full container width */
+  max-width: 1200px;           /* Max width limit */
+  margin: 5px auto;            /* Center horizontally with vertical margin */
+  background: white;           /* White background */
+  border: none;                /* No border */
+  overflow-x: hidden;          /* Prevent horizontal scroll */
+  box-sizing: border-box;      /* Include border/padding in width */
+}
+.iframe-block {
+  display: flex;              /* Flex container */
+  flex-direction: column;     /* Vertical stacking */
+  align-items: center;        /* Center children horizontally */
+  box-sizing: border-box;     /* Include border/padding */
+  overflow-x: hidden;         /* Prevent horizontal overflow */
+  width: 100%;                /* Full width */
+}
+.iframe-wrapper {
+  max-width: 1200px;         /* Max width */
+  width: 100%;               /* Take full width up to max-width */
+  margin: 0 auto;            /* Center horizontally */
+  overflow-x: hidden;        /* Prevent horizontal scroll if iframe content overflows */
+  box-sizing: border-box;
+}
+.iframe-wrapper iframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+.graph-label {
+  align-self: flex-start;     /* Align label to start of container */
+  font-size: 1.25rem;         /* Larger font size */
+  font-weight: 600;           /* Semi-bold */
+  color: #002744;             /* Deep navy color (unchanged as primary) */
+  margin: 0 0 8px 10px;       /* Bottom and left margin */
+}
+
+
+/*--------------------------
+  Related Articles Section
+--------------------------*/
+
+/* Outer container for the related articles */
+.related-articles {
+  margin: 60px 0;
+  padding: 30px;
+  background-color: white;           /* Match article background */
+  border-left: 6px solid #002744;    /* Blue stripe on the left */
+  border-radius: 4px;
+}
+
+/* Section heading style */
+.related-articles h2 {
+  font-family: 'Barlow Semi Condensed', sans-serif;  /* Sporty header font */
+  font-size: 28px;                    /* Medium-large heading */
+  color: #A4161A;                     /* Historic red (unchanged as accent) */
+  margin-bottom: 20px;                /* Space below the heading */
+  letter-spacing: 1px;                /* Slight spacing between letters */
+  margin-top: 0;                      /* Reduce margin above header text */
+}
+
+/* Grid container to hold all article cards */
+.related-grid {
+  display: flex;                      /* Flexbox layout */
+  justify-content: space-between;    /* Evenly distribute cards with space between */
+  gap: 20px;                         /* Horizontal gap between cards */
+  flex-wrap: nowrap;                 /* Keep all 3 cards on the same row */
+  align-items: stretch;              /* Make all cards equal height */
+}
+
+/* Individual article card */
+.related-card {
+  flex: 1 1 0;                       /* Equal width, no shrinking, grow if needed */
+  background-color: white;           /* White card background */
+  border-radius: 8px;                /* Rounded corners */
+  padding: 20px;                    /* Inner padding */
+  text-decoration: none;             /* Remove underline from link */
+  color: #1C1C1C;                   /* Dark text (unchanged) */
+  border: 1px solid #999999;         /* Standardized border color */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover animation */
+  display: flex;                    /* Make the card content flexible */
+  flex-direction: column;           /* Stack title and paragraph vertically */
+  justify-content: flex-start;      /* Align items at top */
+}
+
+/* Spacer div to push content up and keep equal heights */
+.related-card .spacer {
+  flex-grow: 1;                     /* Takes remaining space at bottom */
+}
+
+/* Hover effect on cards */
+.related-card:hover {
+  transform: translateY(-4px);       /* Subtle lift on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Deeper shadow on hover */
+}
+
+/* Title inside each card */
+.related-card h3 {
+  font-size: 20px;                   /* Medium title font */
+  color: #002744;                    /* Deep navy for titles (primary) */
+  margin-bottom: 10px;               /* Space below title */
+  font-family: 'Barlow Semi Condensed', sans-serif; /* Matching header font */
+  letter-spacing: 0.5px;             /* Small letter spacing */
+  margin-top: 0;                     /* Reduce spacing above article name inside tile */
+}
+
+/* Description text inside each card */
+.related-card p {
+  font-size: 16px;                   /* Standard paragraph size */
+  line-height: 1.4;                  /* Comfortable line spacing */
+  margin: 0;                        /* No extra margin */
+  flex-grow: 0;                    /* Prevent description from growing */
+}
+
+/* Responsive fallback: stack cards vertically on narrow screens */
+@media (max-width: 900px) {
+  .related-grid {
+    flex-wrap: wrap;                /* Allow wrapping to new row */
+  }
+  .related-card {
+    flex: 1 1 100%;                 /* Full width per card */
+  }
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------- 
+  Layout & Responsive Styles - Handles tables & images side-by-side and responsive scrolling for wide tables on mobile
+------------------------------------------------------------------------------------------------------------------------*/
+
+/* Flex container for layouts with both images and tables side-by-side */
+.side-by-side-flex-wrapper {
+  display: flex;               /* Use flexbox for side-by-side layout */
+  gap: 20px;                  /* Space between items */
+  align-items: flex-start;    /* Align items at the top */
+  flex-wrap: wrap;            /* Allow wrapping on narrow screens */
+}
+
+/* Flex children (images and tables) inside the container */
+.side-by-side-flex-wrapper img,
+.side-by-side-flex-wrapper table {
+  flex: 1 1 50%;            /* Each takes about half the container width */
+  max-width: 100%;            /* Never exceed container width */
+  height: auto;               /* Maintain aspect ratio for images */
+  box-sizing: border-box;     /* Include borders/padding in sizing */
+  border: 1px solid #ccc;     /* Light border for clarity */
+}
+
+/* Make sure review tables have the red bar, padding, and no visible borders */
+/* .side-by-side-flex-wrapper .review-table { */
+/*   border-left: 4px solid #A4161A;  /* red vertical bar */ */
+/*   padding-left: 1rem; */
+/*   border-collapse: collapse; */
+/*   flex: 1 1 45%;                   /* ensure they sit side by side */ */
+/*   max-width: none;                 /* override max-width if needed */ */
+/*   border: 1px solid #ccc;          /* remove gray border from old CSS */ */
+/* } */
+
+/* .side-by-side-flex-wrapper .review-table td { */
+/*   padding: 4px 8px; */
+/*   border: none; */
+/* } */
+
+.review-section-container {
+    border-left: 4px solid #A4161A;  /* red vertical bar for heading + tables */
+    padding-left: 1rem;              /* spacing between bar and content */
+}
+
+/* Container for each table*/
+.review-table-container {
+    padding-left: 1rem;              /* spacing between bar and table */
+    flex: 1 1 45%;                    /* each container ~half of wrapper width */
+    min-width: 250px;                 /* prevents table from getting too narrow */
+    box-sizing: border-box;
+}
+
+.standings-section-container {
+    border-left: 4px solid #A4161A;  /* red vertical bar for heading + tables */
+    padding-left: 1rem;              /* spacing between bar and content */
+}
+
+/* Container for each table in the standings */
+.standings-table-container {
+    padding-left: 1rem;              /* spacing between bar and table */
+    flex: 1 1 23%;                    /* each container ~half of wrapper width */
+    min-width: 250px;                 /* prevents table from getting too narrow */
+    box-sizing: border-box;
+}
+
+/* For narrow screens below 700px */
+@media (max-width: 700px) {
+    /* Stack tables vertically, full width */
+    .side-by-side-flex-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .review-table-container {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+
+    /* Make review tables scroll horizontally if too wide */
+    .review-table {
+        display: block;       /* allow horizontal scroll */
+        overflow-x: auto;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;     /* slightly smaller font */
+    }
+}
+
+/*-----------------------------------------------------------------------------------
+  Scroll wrapper for standalone wide tables - Enables horizontal scrolling on mobile
+-------------------------------------------------------------------------------------*/
+.table-wrapper {
+  overflow-x: auto;                  /* Horizontal scroll if needed */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  margin: 1em 0;                     /* Vertical spacing */
+}
+
+/* Base styles for responsive tables inside wrapper */
+.responsive-table {
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;                   /* Center table */
+  width: 100%;                     /* Full width */
+  min-width: 600px;                /* Min width to trigger horizontal scroll */
+  text-align: center;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  white-space: nowrap;             /* Prevent wrapping inside cells */
+}
+
+/*---------------------------------------------------------
+  Standalone Images - Makes images responsive and centered
+-----------------------------------------------------------*/
+.standalone-image {
+  display: block;          /* Make image a block element */
+  max-width: 1000px;        /* Max width on large screens */
+  width: 100%;             /* Scale down on small screens */
+  height: auto;            /* Keep aspect ratio */
+  margin: 20px auto;       /* Center horizontally with vertical spacing */
+  border: 1px solid #ccc;  /* Optional light border */
+  box-sizing: border-box;  /* Include border in size calculations */
+}
+
+
+/*---------------------------------------------------------
+  Playoff Bracket and Play-In CSS (Fully Responsive)
+-----------------------------------------------------------*/
+
+/* Wrapper that holds both the bracket and play-in container.  Enables horizontal scrolling of both sections together on mobile. */
+.playoffs-wrapper {
+  overflow-x: auto;                     /* Enable horizontal scroll */
+  -webkit-overflow-scrolling: touch;   /* Smooth scroll on iOS */
+  white-space: nowrap;                  /* Prevent line breaks between containers */
+  width: 100%;                         /* Full width */
+  display: block;                      /* Block layout */
+  text-align: center;                   /* Center inline-block children */
+}
+
+/* Both containers treated as inline blocks so they scroll together */
+.playin-container,
+.bracket-container {
+  display: inline-block;               /* Sit side-by-side inside .playoffs-wrapper */
+  vertical-align: top;                 /* Align tops */
+  min-width: 1160px;                   /* Match bracket width for consistency */
+  white-space: normal;                 /* Allow internal content to wrap normally */
+  text-align: left;                    /* Reset child text alignment */
+}
+
+/* Container for the entire bracket */
+.bracket-container {
+  max-width: 1160px;
+  width: 100%;                        /* Responsive width */
+  overflow-x: auto;                   /* Horizontal scroll if needed */
+  padding-bottom: 10px;               /* Space for scroll bar */
+  margin: 0 auto;                     /* Center horizontally */
+  -webkit-overflow-scrolling: touch;  /* Smooth iOS scrolling */
+  box-sizing: border-box;             /* Include padding in width */
+}
+
+/* Main bracket layout using flex */
+.bracket {
+  display: flex;                      /* Use flexbox for layout */
+  justify-content: center;            /* Center horizontally */
+  align-items: center;                /* Center vertically */
+  gap: 8px;                         /* Space between regions */
+  min-width: 0px;                 /* Prevent layout from shrinking */
+  box-sizing: border-box;            /* Include padding in width */
+}
+
+/* Each conference/finals region */
+.region {
+  display: flex;                     /* Flexbox */
+  flex-direction: row;               /* Horizontal rounds */
+  gap: 8px;                         /* Space between rounds */
+  padding: 8px;                    /* Inner padding */
+  border-radius: 10px;              /* Rounded corners */
+  box-sizing: border-box;
+}
+
+/* Round within a region */
+.round {
+  display: flex;
+  flex-direction: column;        /* Stack matchups vertically */
+  justify-content: center;
+  align-items: center;           /* Centers teams underneath */
+  gap: 16px;
+  position: relative;
+}
+
+/* Round title above each set of matchups */
+.round-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+/* Hide empty rounds everywhere */
+.round:empty {
+  display: none;
+}
+
+/* Each matchup between two teams */
+.matchup {
+  display: flex;
+  flex-direction: column;             /* Stack two teams */
+  gap: 5px;
+}
+
+/* Team container (single team in a matchup) */
+.team {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  width: 150px;
+  border-radius: 6px;
+  border: 1px solid #999999;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* Team container (single team in a matchup) */
+.club {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  width: 256px;
+  border-radius: 6px;
+  border: 1px solid #999999;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* Placeholder for empty slots (e.g. byes) */
+.team.placeholder {
+  height: 28px;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+/* Team seed number */
+.seed {
+  width: 24px;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 14px;
+  user-select: text;
+  box-sizing: border-box;
+}
+
+/* Team name text */
+.name {
+  flex-grow: 1;
+  padding: 4px 2px;
+  box-sizing: border-box;
+}
+
+/* Team score */
+.score {
+  width: 32px;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 14px;
+  user-select: text;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+/* Styling teams based on region - used in ID field */
+#left .team,
+#left .club {
+  background-color: #F0F0F0;
+  border-color: #A4161A;
+  color: #A4161A;
+}
+
+#right .team,
+#right .club {
+  background-color: #F0F0F0;
+  border-color: #002744;
+  color: #002744;
+}
+
+#finals .team,
+#finals .club {
+  background-color: #F0F0F0;
+  border-color: #1C1C1C;
+  color: #1C1C1C;
+}
+
+/*-----------------------------
+  Play-In Section Styling
+------------------------------*/
+
+/* Container below bracket for Wild Card games */
+.playin-container {
+  max-width: 1160px;
+  margin: 4px auto 0 auto;         /* Margin between bracket and play-in */
+  padding: 10px;                   /* Space for scroll bar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* Container for play-in matchups — horizontal row */
+.playin-matchups {
+  display: flex;
+  flex-direction: row;             /* Side-by-side layout */
+  justify-content: center;
+  gap: 8px;                      /* Space between conferences in play-in matchups */
+  overflow-x: auto;               /* Enable scrolling if needed */
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/*------------------------------------------
+  Responsive Tweaks for Smaller Screens
+-------------------------------------------*/
+@media (max-width: 600px) {
+  
+  .playoffs-wrapper {
+    white-space: normal !important; /* allow wrapping, so containers stack vertically */
+  }
+
+  .playin-container,
+  .bracket-container {
+    display: block !important;       /* stack vertically instead of side-by-side */
+    width: 100% !important;          /* full width */
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;       /* remove any horizontal margin */
+    margin-right: 0 !important;
+  }
+
+  /* Bracket flex container:
+     - Use inline-flex to shrink-wrap content width
+     - Prevent wrapping to avoid overlap
+     - Allow horizontal scrolling inside bracket container */
+  .bracket {
+    display: inline-flex !important;        /* Shrink-wrap bracket width */
+    justify-content: flex-start !important; /* Align rounds flush left */
+    flex-wrap: nowrap !important;           /* Prevent rounds from wrapping vertically */
+    min-width: 0 !important;                 /* Remove minimum width restrictions */
+    width: max-content !important;          /* Width equals content width */
+    margin: 0 !important;                    /* Remove default margins */
+    box-sizing: border-box;                  /* Include padding/borders */
+  }
+
+  /* Individual regions inside bracket:
+     - Remove side padding to avoid extra space
+     - Allow shrinking without min-width constraints */
+  .region {
+    padding-left: 0 !important;      /* Remove left padding */
+    padding-right: 0 !important;     /* Remove right padding */
+    flex-shrink: 1 !important;       /* Allow region to shrink */
+    min-width: 0 !important;         /* Remove min-width to allow shrinking */
+    box-sizing: border-box;          /* Include padding/borders */
+  }
+
+  /* Reduce team container widths and font sizes for mobile readability */
+  .team {
+    width: 140px;          /* Narrower container */
+    font-size: 12px;       /* Smaller font size */
+  }
+
+  .seed {
+    width: 25px;           /* Slightly wider for clarity */
+    font-size: 12px;
+  }
+
+  .score {
+    width: 30px;           /* Consistent width */
+    font-size: 12px;
+  }
+
+  /* Increase vertical gaps between rounds and remove margins/padding on sides */
+  .round {
+    gap: 25px;               /* More space between matchups */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Reduce gap between teams in each matchup */
+  .matchup {
+    gap: 3px;
+  }
+
+  /* Play-in games container styling:
+     - Full width
+     - Horizontally centered */
+ /* Play-in container: same as bracket container */
+  .playin-container {
+    display: inline-block !important;     /* Like bracket-container */
+    vertical-align: top !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+    padding-left: 10px !important;        /* padding like bracket-container */
+    padding-right: 10px !important;
+    margin: 0 auto !important;
+    text-align: left !important;          /* align left for no cutoff */
+  }
+
+  /* Play-in matchups: same as bracket flex container */
+  .playin-matchups {
+    display: inline-flex !important;        /* shrink-wrap content */
+    justify-content: flex-start !important; /* align left flush */
+    flex-wrap: nowrap !important;           /* prevent vertical wrap */
+    min-width: 0 !important;                 /* remove min-width */
+    width: max-content !important;          /* width = content width */
+    margin: 0 !important;                    /* no margin */
+    padding-left: 0 !important;              /* no padding */
+    box-sizing: border-box !important;
+    gap: 16px !important;
+    overflow-x: auto !important;            /* enable scrolling */
+    -webkit-overflow-scrolling: touch !important; /* smooth scroll */
+  }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mathematics Behind Sports Simulations</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Explore the math behind our sports simulations, including Elo rating updates, win/tie probabilities, the accuracy of our models, and current season projections.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-simulations/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+            /* Minimal or unique styles can go here */
+        </style>
+        
+        <!-- MathJax for LaTeX Rendering -->
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+    </head>
+    
+    <body>
+        
+        <div id="site-header"></div>
+        
+        <div class="content">
+            
+            <h1 class="article-title">The Math</h1>
+            
+            <p><b>How are win probabilities calculated?</b></p>
+            
+            <p>Given two teams, H and A, we use each team’s Elo rating entering the game.  Let \( E_H \) and \( E_A \) represent the Elo ratings for the home and away teams, respectively.  If the game is not at a neutral site, we add a league-wide and season-specific value of home field advantage, \( \text{HFA} \), to the home team’s Elo rating.</p>
+            
+            <p>The probability that the home team wins is calculated using the following logistic formula:</p>
+            
+            <p>\[P(H) = \frac{1}{1 + 10^{(E_A - (E_H + \text{HFA}))/400}}\]</p>
+            
+            <p>The probability of the away team winning is simply: \[P(A) = 1 - P(H)\]</p>
+            
+            <p>In games played at a neutral site, we do not apply home field advantage to either team.  In these cases, win probabilities are based solely on the teams’ Elo ratings.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are win probabilities calculated?</b></p>
+            
+            <p>We estimate home field advantage by assuming that, over the course of a full season, the Elo ratings of home and away teams are equal on average.  Under this assumption, any observed edge for the home team can be attributed to home field advantage alone.  To estimate the value of home field advantage, we calculate the actual percentage of games won by the home team, let the home and away Elo ratings cancel in the above equation, and solve for \( HFA \).</p>
+            
+            <p>For example, if the home team won 55% of games, we would solve:</p>
+            
+            <p>\[ 0.55 = \frac{1}{10^{-HFA/400} + 1} \]</p>
+            
+            <p>to get \( HFA = 34.8 \).  This means that the average home team plays 34.8 points stronger at home than it would on the road.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are Elo ratings adjusted after each game?</b></p>
+            
+            <p>The change in a team’s Elo rating after a game depends on three components: the weighting factor, the scaling factor, and the game result.</p>
+            
+            <p style="margin-top: 20px;"><u>Weighting Factor</u></p>
+            
+            <p>The weighting factor, denoted by \( k \), dictates how quickly Elo ratings change relative to the importance of the game.  The larger the value of \( k \), the quicker the ratings change.  Leagues with shorter seasons (like the NFL) will have larger weighting factors since each individual game carries more weight and there are fewer opportunities for the ratings to self-correct.  Leagues with longer seasons (such as MLB) will have smaller weighting factors to avoid overreacting to extreme results.  Each league and season has its own weighting factor, calibrated based on the length of the season and the parity of the league.</p>
+            
+            <p style="margin-top: 20px;"><u>Scaling Factor</u></p>
+            
+            <p>The scaling factor, denoted \( f(MoV) \), is a function that dictates how quickly Elo ratings change relative to the margin of victory.  Larger margins of victory lead to larger Elo adjustments, while closer games result in smaller changes.  The function used varies by league, but it is common to use the natural log and square root transformations to avoid inflating the Elo ratings in blowouts.  For tie games, a small positive value (less than 1) is used as the margin of victory to ensure the ratings shift slightly. </p>
+            
+            <p style="margin-top: 20px;"><u>Game Result</u></p>
+            
+            <p>The game result is measured as the difference between the actual result of the game and the probability of the home team winning the game in the simulation.  The actual result is 1 if the home team won, 0 if the away team won, and 0.5 if the game ended in a tie.</p>
+            
+            <p style="margin-top: 20px;"><u>Putting It All Together</u></p>
+            
+            <p>The Elo rating change for the home team is calculated as:</p>
+            
+            <p>\[ \Delta_H = k \times f(MoV) \times (\text{Home Result - Home Win Prob}) \]</p>
+            
+            <p>The away team’s Elo rating is adjusted by the same amount in the opposite direction.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are tie probabilities calculated?</b></p>
+            
+            <p>This was the most complex and sensitive part of the modeling process.  Intuitively, we expect ties to be most likely when teams are evenly matched and become less likely as the difference in the Elo ratings increases.</p>
+            
+            <p>Just like the win probability calculation, we begin by calculating the difference in Elo ratings between the two teams (including adjusting for home field advantage).  We then normalize this difference by a scaling denominator that captures how tie frequency behaves across leagues and seasons.  Specifically, the Elo difference is divided by a function of the:</p>
+            
+            <ul>
+                <li>Weighting factor \( k \)</li>
+                <li>Standard deviation \( \sigma \) of the proportion of games ending in a tie</li>
+                <li>Slope from a regression of seasonal tie proportions on \( k \)</li>
+                <li>Number of points a win is worth in the standings (2 for hockey, 3 for soccer)</li>
+            </ul>
+            
+            <p>Denote the result of this calculation as \( D \).  From there, we treat the probability of the game ending in a tie as a normal distribution centered at 0 and compute:</p>
+            
+            <p> \[ P(T) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} D^2} \]</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How do you know the probabilities are accurate?</b></p>
+            
+            <p>We tested the accuracy of our predicted win and tie probabilities using a chi-squared goodness of fit test, which checked whether the outcomes of the games were consistent with the probabilities assigned by the model. </p>
+            
+            <p>For each season, we divided the range of predicted probabilities into 100 equal-width bins, each spanning 0.01.  Every game was assigned to a bin based on the model’s predicted win probability for the home team.  For example, a game with a win probability of 0.743 was placed in the 0.74-0.75 bin.</p>
+            
+            <p>Within each bin, we counted:</p>
+            
+            <ul>
+                <li><b>Observed wins:</b> How many times the home team actually won</li>
+                <li><b>Expected wins:</b> Total number of games in the bin multiplied by the average predicted win probability for games in the bin</li>
+            </ul>
+            
+            <p>From here, we calculated the chi-squared statistic to compare then observed and expected win counts across all bins to ensure that the win probabilities derived by our model were in accordance with how the games actually played out.  This process was repeated for tie probabilities where applicable.</p>
+            
+            <p>The results show that the model is very well calibrated</p>
+            
+            <ul>
+                <li>In leagues without ties, the p-value for the goodness of fit test exceeded 0.99 in every season, indicating that the actual game outcomes closely matched the predicted win probabilities.</li>
+                <li>In leagues with ties, the goodness of fit test returned a p-value above 0.90 for both win and tie probabilities in each season, again indicating excellent fit.</li>
+            </ul>
+            
+            <p>These results provide strong statistical evidence that our model is calibrated accurately across all seasons and that the probabilities of wins and ties reflect reality</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are the probabilities for the current season projections handled?</b></p>
+            
+            <p>Season projections are handled much like the historic simulations with two key exceptions.</p>
+            
+            <p>First, early-season results are volatile, and it takes time to identify league-wide trends.  For the first 25% of the current season, we use the same weighting factor and home field advantage from the previous season.  After this point, we have enough data to estimate both values more reliably based on how the current season is unfolding.</p>
+            
+            <p>Second, because new games are played every day, we constantly get new information about the league.  Thus, both the weighting factor and home field advantage are recalculated daily as the season progresses.  This means that Elo ratings from earlier in the season are likely to shift as more games and information become available.  However, these differences tend to be negligible and only have minimal impact on the long-term projections once the first quarter of the season is complete. </p>
+        </div>
+        
+        
+        <div id="site-footer"></div>
+
+        
+        <script src="/sports-history-simulations/scripts/main.js"></script>
+    </body>
+</html>

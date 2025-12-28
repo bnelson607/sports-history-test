@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sports Simulation Methodology Basics</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Learn the fundamentals behind our sports simulations, including the games and seasons being analyzed, the Elo rating system, and modeling approaches">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-simulations/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+            /* Minimal or unique styles can go here */
+        </style>
+    </head>
+    
+    <body>
+        
+        <div id="site-header"></div>
+        
+        <div class="content">
+            
+            <h1 class="article-title">The Basics</h1>
+            
+            <p><b>What exactly is the purpose of this site?</b></p>
+            
+            <p>This site runs thousands of full-season simulations on each season in the history of a sports league to understand the roles that variability and luck play in determining the final standings and champions.  For each season, we replay the actual schedule using a statistical model based on team strength – specifically, Elo ratings – to determine the final standings.  After the regular season, we simulate the playoffs using the correct format from that season to estimate each team’s championship chances.</p>
+            
+            <p>The goal isn’t to rewrite history, but rather to measure how things could have turned out differently.  We can only play the season once in reality, but these simulations aim to uncover how we would have expected the season to play out if we could replay the season thousands of times.  Which teams were lucky?  Which teams made historic runs through the playoffs?  Which teams endured historic collapses?  These simulations offer a data-driven exploration into how much randomness shapes the seasons we remember and how close we came to remembering something different.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>What is an Elo rating?</b></p>
+            
+            <p>An Elo rating is a number that represents a team’s current strength based on how it has performed in past games.  In our model, Elo ratings are normalized so that the league-wide average across all active teams is always 1500.  Higher ratings indicate stronger teams; lower ratings indicate weaker teams.</p>
+            
+            <p>After each game, teams always earn points for a win and lose points for a loss.  The number of points the team earns or loses depends on how likely the outcome was and the margin of victory.</p>
+            
+            <p>Elo ratings have two key properties:</p>
+            
+            <ul>
+                <li><b>Zero sum:</b> The number of points a team earns by winning a game equals the number of points that their opponent loses; this guarantees that the average Elo rating for a league is always 1500.</li>
+                <li><b>Self-correcting:</b> If a strong team suddenly loses key players (due to injury, for example), their Elo rating will not immediately reflect the drop in strength. Only when they start losing unexpectedly or by large margins will their Elo rating begin to decrease quickly, eventually converging toward their true new strength.</li>
+            </ul>
+            
+            
+            <p style="margin-top: 40px;"><b>How do these simulations work?</b></p>
+            
+            <p>We run two different types of simulations – regular season and playoffs - both using a Monte Carlo approach.</p>
+            
+            <p>Each regular season simulation replays the full season using the actual schedule from that year.  For every game, we estimate the probability that each team would win (or tie, if applicable) based on the:</p>
+            
+            <ul>
+                <li>Elo ratings of the teams involved in the game</li>
+                <li>Value of home field advantage was in the league that season</li>
+            </ul>
+            
+            <p>We simulate games probabilistically, one by one, updating the standings according to the simulated winner from the Monte Carlo simulation.  After each game has been simulated, we update each team’s Elo rating based on the actual result of the game, which then affects its win probability in future games.  Once the regular season ends, we generate the playoff bracket from the simulated standings according to the actual format used in the league that year.  From there, we simulate the playoffs to determine a simulated champion.</p>
+            
+            <p>In contrast, our playoff simulations begin with the actual playoff bracket from the real regular season – meaning only the teams that made the real postseason can win the simulated championship.  We simulate each round of the playoffs using the same Elo-based win probabilities to determine the outcome of every playoff matchup and, ultimately, the champion.</p>
+            
+            <p>In both simulation types, we use each team’s Elo rating at the end of the regular season to calculate its win probability for the first game of the playoffs.  Because the simulated playoffs will differ from the playoffs in real life, we simulate both the winner and the margin of victory for each game.  The simulated winner advances the team one game closer to the championship, while the margin of victory determines how much each team’s Elo rating changes since there may not be an actual result to use.  As a result, both Elo ratings and playoff brackets evolve uniquely in each simulation.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are ties handled?</b></p>
+            
+            <p>When a game ends in a tie, the team with the higher Elo rating will lose a small number of points, while the lower-rated team gains an equal amount.  Although it may seem counterintuitive for Elo ratings to change after a tie, this logic a based on expectations.  If a weaker team holds a stronger team to a draw, it has overperformed and should be rewarded slightly.  Conversely, the stronger team in that matchup has underperformed and should be penalized for playing below expectations.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are initial Elo ratings determined?</b></p>
+            
+            <p>For each league, our simulations begin with a defined starting season – typically the first in the modern era (e.g. 1901 for MLB, 1933 for the NFL).  At that beginning of that season, all active teams are assigned an initial Elo rating of 1500.  We assume no prior knowledge about team strength, even if a team existed before the simulation begins.  As a result, strong franchises like the 1901 Pittsburgh Pirates often begin underrated, while weaker teams such as the 1901 Cincinnati Reds may appear overrated at first.</p>
+            
+            <p>Expansion teams are assigned an Elo rating based on how a roster comprised of replacement level players would be expected to perform in that league.  Teams absorbed from other leagues (e.g. Cleveland Browns or Edmonton Oilers) retain their ratings from their previous league to reflect known performance.</p>
+            
+            <p>The table below summarizes the range of seasons covered for each league (both active and defunct) included in our simulations, along with the initial Elo rating assigned to expansion teams.</p>
+            
+            <table border="1" cellpadding="1" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>League</th>
+                        <th>First Season</th>
+                        <th>Last Season</th>
+                        <th>Expansion Elo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MLB</td>
+                        <td>1901</td>
+                        <td>—</td>
+                        <td>1425</td>
+                    </tr>
+                    <tr>
+                        <td>NFL</td>
+                        <td>1933</td>
+                        <td>—</td>
+                        <td>1275</td>
+                    </tr>
+                    <tr>
+                        <td>NHL</td>
+                        <td>1917–18</td>
+                        <td>—</td>
+                        <td>1425</td>
+                    </tr>
+                    <tr>
+                        <td>NBA</td>
+                        <td>1946–47</td>
+                        <td>—</td>
+                        <td>1300</td>
+                    </tr>
+                    <tr>
+                        <td>WNBA</td>
+                        <td>1997</td>
+                        <td>—</td>
+                        <td>1350</td>
+                    </tr>
+                    <tr>
+                        <td>MLS</td>
+                        <td>1996</td>
+                        <td>—</td>
+                        <td>1450</td>
+                    </tr>
+                    <tr>
+                        <td>USL</td>
+                        <td>2017</td>
+                        <td>—</td>
+                        <td>1450</td>
+                    </tr>
+                    <tr>
+                        <td>AAFC</td>
+                        <td>1946</td>
+                        <td>1949</td>
+                        <td>1275</td>
+                    </tr>
+                    <tr>
+                        <td>AFL</td>
+                        <td>1960</td>
+                        <td>1969</td>
+                        <td>1275</td>
+                    </tr>
+                    <tr>
+                        <td>WHA</td>
+                        <td>1972–73</td>
+                        <td>1978–79</td>
+                        <td>1425</td>
+                    </tr>
+                    <tr>
+                        <td>ABA</td>
+                        <td>1967–68</td>
+                        <td>1975–76</td>
+                        <td>1400</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+            <p style="margin-top: 40px;"><b>How are Elo ratings adjusted for the beginning of the following season?</b></p>
+            
+            <p>Due to roster turnover, coaching changes, and other offseason variability, we never assume that a team’s Elo rating at the end of one season carries over unchanged to the next season.  Thus, each team’s rating is regressed towards 1500 by some percentage.  The degree of regression depends on how highly correlated the standings were between the two seasons and is specific to each league and season.</p>
+            
+            <p>When teams joint or leave the league – through expansion, contraction, or disbandment – the Elo ratings of the remaining teams are further adjusted by a constant amount to keep the league-wide average at 1500.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How is a team’s personnel taken into consideration?</b></p>
+            
+            <p>In short, it isn’t – at least not in most situations.  Because the primary goal of this site is to understand how a season would have played out historically, we don’t attempt to incorporate every starting pitcher, quarterback, goalie, injury, or trade into a team’s Elo rating.  Doing so would require not only tracking personnel changes in every game, but also estimating their impact at each point in their career.  This would be a monumental task full of speculation and variability.  Instead, we assume that a team’s Elo rating reflects its overall strength regardless of specific personnel.</p>
+            
+            <p>The one exception is in the NFL, where Elo ratings fluctuate more rapidly than in other sports due to the short season.  In games where at least one team has clinched a playoff spot and is locked into a seed, we reduce the Elo adjustment by two-thirds.  This accounts for teams sitting their starters for most or all the game, which can lead to extreme outcomes.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>How are cancelled games handled</b></p>
+            
+            <p>Any games that were cancelled due to extenuating circumstances (usually weather) were added back into the simulation schedule on their original dates to ensure every scheduled game is simulated. Otherwise, teams would play an uneven number of games in each simulation. Each team’s Elo rating on the originally scheduled game day is used to calculate win probabilities. However, Elo ratings are not updated after these simulated games since no actual results exist.</p>
+            
+            
+            <p style="margin-top: 40px;"><b>What about strike-shortened seasons?</b></p>
+            
+            <p>Each strike-shortened season was handled slightly differently depending on the circumstances:</p>
+            
+            <ul>
+                <li>1972 MLB Strike: All cancelled games were added back into the schedule on their originally scheduled dates.</li>
+                <li>1981 MLB Strike: All cancelled games were added back into the schedule on their originally scheduled dates. Instead of separating the season into halves, the top two teams by record in each division made the playoffs in the simulation.</li>
+                <li>1994 MLB Strike: All cancelled games were added back into the schedule on their originally scheduled dates.</li>
+                <li>1995 MLB Strike: Schedule as originally played with 144 games per team was used</li>
+                <li>1982 NFL Strike: Schedule as originally played with 9 games per team was used.  16-team playoff format was retained in the simulation.</li>
+                <li>1987 NFL Strike: Schedule as originally played with 15 games per team was used</li>
+                <li>1994-95 NHL Lockout: Schedule as originally played with 48 games per team was used</li>
+                <li>2004-05 NHL Lockout: Season not simulated</li>
+                <li>2012-13 NHL Lockout: Schedule as originally played with 48 games per team was used</li>
+                <li>1998-99 NBA Lockout: Schedule as originally played with 50 games per team was used</li>
+                <li>2011-12 NBA Lockout: Schedule as originally played with 66 games per team was used</li>
+            </ul>
+            
+            
+            <p style="margin-top: 40px;"><b>How were the leagues interrupted mid-season by the COVID pandemic handled?</b></p>
+            
+            <p>All cancelled games in the NHL and NBA were added back into the schedule on their originally scheduled dates.</p>
+            
+            <p>In the NHL, all cancelled regular season games were simulated.  The normal playoff format was used in the simulation with the top three teams in each division qualifying along with the next two highest point totals among 4th and 5th place teams in the conference.</p>
+            
+            <p>In the NBA, all regular season seeding games played in the bubble were counted towards the regular season standings on the date they were actually played.  The normal playoff format with the top 8 teams from each conference qualifying was used with no play-in games.</p>
+        </div>
+        
+        
+        <div id="site-footer"></div>
+
+
+        <script src="/sports-history-simulations/scripts/main.js"></script>
+    </body>
+</html>
