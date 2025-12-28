@@ -32,13 +32,13 @@
             </div>
 
             
-            <h2 class="sim-subsection">Regular Season</h2>
+            <h2 class="sim-subsection">Phase I</h2>
             
             
             <details>
                 <summary>Simulated Table</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many points does the simulation expect each team to earn in the regular season?</i>
+                    <i>How many points does the simulation expect each team to earn in Phase I?</i>
                 </div>
                 <iframe data-src="regular_season_summary.html" class="extra-padding" style="max-height:800px;"></iframe>
             </details>
@@ -57,7 +57,7 @@
             <details>
                 <summary>Simulated Points by Position</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many points does the simulation believe are needed to earn each position in the regular season?</i>
+                    <i>How many points does the simulation believe are needed to earn each position in Phase I?</i>
                 </div>
 
                 <iframe data-src="Level 1_position_points.html"></iframe>
@@ -104,7 +104,7 @@
             <details>
                 <summary>Elo Ratings</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How did each team's Elo rating change throughout the regular season?</i>
+                    <i>How did each team's Elo rating change throughout Phase I?</i>
                 </div>
 
                 <iframe data-src="Level 1_elo_ratings.html"></iframe>
@@ -114,7 +114,7 @@
             <details>
                 <summary>Simulated Points</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How did each team's expected point total change throughout the regular season?</i>
+                    <i>How did each team's expected point total change throughout Phase I?</i>
                 </div>
 
                 <iframe data-src="Level 1_simulated_points.html"></iframe>
@@ -124,7 +124,7 @@
             <details>
                 <summary>League Champion Probabilities</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How did each team's probability of winning the league change throughout the regular season?</i>
+                    <i>How did each team's probability of winning the league change throughout Phase I?</i>
                 </div>
 
                 <iframe data-src="Level 1_league_probabilities.html"></iframe>
@@ -134,7 +134,7 @@
             <details>
                 <summary>Promotion and Relegation Probabilities</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How did each team's probability of being relegated change throughout the regular season?</i>
+                    <i>How did each team's probability of being relegated change throughout Phase I?</i>
                 </div>
                 
                 <iframe data-src="Level 1_relegation_probabilities.html"></iframe>
@@ -147,12 +147,12 @@
             <details>
                 <summary>Simulated Points by Final Position</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many points does the simulation believe are needed to earn each position in the championship round and relegation round?</i>
+                    <i>How many points does the simulation believe are needed to earn each position in the Phase II and Liga 1 Phase II?</i>
                 </div>
 
                 <div class="tab-buttons">
-                    <button onclick="showTab('position_points', 'position_points_championship_position')" class="active">Championship Round</button>
-                    <button onclick="showTab('position_points', 'position_points_relegation_position')">Relegation Round</button>
+                    <button onclick="showTab('position_points', 'position_points_championship_position')" class="active">Phase II</button>
+                    <button onclick="showTab('position_points', 'position_points_relegation_position')">Liga 1 Phase II</button>
                 </div>
 
                 <div class="tab-content position_points active" id="position_points_championship_position">
@@ -176,12 +176,12 @@
             <details>
                 <summary>Stochastic Playoff Simulation</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How does the simulation expect the playoffs to unfold according to the simulated final table after the regular season?</i>
+                    <i>How does the simulation expect the playoffs to unfold according to the simulated final table after Phase I?</i>
                 </div>
                 
                 <div class="tab-buttons">
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship_group')" class="active">Championship Round</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_relegation_group')">Relegation Round</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship_group')" class="active">Phase II</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_relegation_group')">Liga 1 Phase II</button>
                 </div>
 
                 <!-- Championship Group -->
@@ -199,7 +199,7 @@
             <!-- <details>
                 <summary>Actual Playoff Simulation</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How does the simulation expect the playoffs to unfold according to the actual final table after the regular season?</i>
+                    <i>How does the simulation expect the playoffs to unfold according to the actual final table after Phase I?</i>
                 </div>
                 
                 <div class="tab-buttons">
