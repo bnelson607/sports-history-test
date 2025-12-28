@@ -1,26 +1,26 @@
 // Load main page header HTML dynamically
-fetch('/sports-history-simulations/header.html')
+fetch('/sports-history-test/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('site-header').innerHTML = data;
     });
 
 // Load main page footer HTML dynamically
-fetch('/sports-history-simulations/footer.html')
+fetch('/sports-history-test/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('site-footer').innerHTML = data;
     });
 
 // Load USA header HTML dynamically
-fetch('/sports-history-simulations/usa/header.html')
+fetch('/sports-history-test/usa/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('usa-header').innerHTML = data;
     });
 
 // Load UEFA header HTML dynamically
-fetch('/sports-history-simulations/uefa/header.html')
+fetch('/sports-history-test/uefa/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('uefa-header').innerHTML = data;
