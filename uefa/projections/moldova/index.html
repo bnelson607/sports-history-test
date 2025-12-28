@@ -150,17 +150,7 @@
                     <i>How many points does the simulation believe are needed to earn each position in the Phase II and Liga 1 Phase II?</i>
                 </div>
 
-                <div class="tab-buttons">
-                    <button onclick="showTab('position_points', 'position_points_championship_position')" class="active">Phase II</button>
-                    <button onclick="showTab('position_points', 'position_points_relegation_position')">Liga 1 Phase II</button>
-                </div>
-
-                <div class="tab-content position_points active" id="position_points_championship_position">
-                    <iframe data-src="Moldova_championship_position_points.html"></iframe>
-                </div>
-                <div class="tab-content position_points" id="position_points_relegation_position">
-                    <iframe data-src="Moldova_relegation_position_points.html"></iframe>
-                </div>
+                <iframe data-src="Moldova_championship_position_points.html"></iframe>
             </details>
 
 
@@ -178,21 +168,8 @@
                 <div class="subheading" style="margin: 0.75em 0;">
                     <i>How does the simulation expect Phase II to unfold according to the simulated final table after Phase I?</i>
                 </div>
-                
-                <div class="tab-buttons">
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship_group')" class="active">Phase II</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_relegation_group')">Liga 1 Phase II</button>
-                </div>
-
-                <!-- Championship Group -->
-                <div class="tab-content preseason_playoff active" id="preseason_playoff_championship_group">
-                    <iframe data-src="championship_finish_heatmap.html"></iframe>
-                </div>
-
-                <!-- Relegation Group -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_relegation_group">
-                    <iframe data-src="relegation_finish_heatmap.html"></iframe>
-                </div>
+            
+                <iframe data-src="championship_finish_heatmap.html"></iframe>
             </details>
 
 
