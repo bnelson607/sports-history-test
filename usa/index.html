@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sports History Simulations – Monte Carlo, Elo & Playoffs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Explore Monte Carlo sports simulations, in-depth articles team performances, Elo ratings, and playoff probabilities across MLB, NFL, NBA, NHL, and more.">
+
+        <!-- Apple Touch Icon for iOS / Safari favorites -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/sports-history-test/favicons/apple-touch-icon.png">
+        
+        <!-- Standard favicon -->
+        <link rel="icon" href="/sports-history-test/favicons/favicon.ico" type="image/x-icon">
+        
+        <!-- PNG favicons for modern browsers -->
+        <link rel="icon" href="/sports-history-test/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/sports-history-test/favicons/android-chrome-192x192.png" type="image/png" sizes="192x192">
+
+        <link rel="stylesheet" href="/sports-history-test/styles.css">        
+    </head>
+
+    <body>
+        <div id="site-header"></div>
+        <div id="usa-header"></div>
+
+        <div class="home-layout">
+            <!-- Left side: Featured Article + Power Rankings -->
+            <main class="main-left">
+                <div class="featured-article-box">
+                    <h1 class="article-header" style="margin-top: 0;">Featured Articles</h1>
+
+                    <div class="article-list">
+                        <li>
+                            <h2 class="article-title-link" style="margin: 0.25em 0;">
+                                <a href="/sports-history-test/usa/articles/NHL/canada_stanley_cup_drought/" style="text-decoration: none; color: #003366;">
+                                    Canada's Stanley Cup Drought
+                                </a>
+                            </h2>
+                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
+                                Published: July 10, 2025
+                            </div>
+                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
+                                How unusual is it that Canada hasn't produced a Stanley Cup champion since 1993?
+                            </div>
+                        </li>
+
+                        
+                        <li>
+                            <h2 class="article-title-link" style="margin: 0.25em 0;">
+                                <a href="/sports-history-test/usa/articles/MLB/collapse_of_2007_mets/" style="text-decoration: none; color: #003366;">
+                                    Collapse of the 2007 Mets
+                                </a>
+                            </h2>
+                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
+                                Published: July 10, 2025
+                            </div>
+                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
+                                How likely was it for the Mets to blow a 7-game division lead with 17 games to play?
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <h2 class="article-title-link" style="margin: 0.25em 0;">
+                                <a href="/sports-history-test/usa/articles/NFL/most_unlikely_super_bowl_paths/" style="text-decoration: none; color: #003366;">
+                                    Ranking the Most Unlikely Super Bowl Paths
+                                </a>
+                            </h2>
+                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
+                                Published: July 10, 2025
+                            </div>
+                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
+                                Which teams survived the most improbable odds to win the Super Bowl?
+                            </div>
+                        </li>
+                    </div>
+
+
+                </div>
+
+                <!-- Power Rankings Section -->
+                <div class="power-rankings">
+                    <h1 class="article-header centered">Current Elo Ratings</h1>
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-sport="mlb">MLB</button>
+                        <button class="tab-btn" data-sport="nfl">NFL</button>
+                        <button class="tab-btn" data-sport="nhl">NHL</button>
+                        <button class="tab-btn" data-sport="nba">NBA</button>
+                        <button class="tab-btn" data-sport="wnba">WNBA</button>
+                        <button class="tab-btn" data-sport="mls">MLS</button>
+                        <button class="tab-btn" data-sport="usl">USL</button>
+                    </div>
+                    <div id="mlb" class="tab-content active"><div id="mlb-table-placeholder"></div></div>
+                    <div id="nfl" class="tab-content"><div id="nfl-table-placeholder"></div></div>
+                    <div id="nhl" class="tab-content"><div id="nhl-table-placeholder"></div></div>
+                    <div id="nba" class="tab-content"><div id="nba-table-placeholder"></div></div>
+                    <div id="wnba" class="tab-content"><div id="wnba-table-placeholder"></div></div>
+                    <div id="mls" class="tab-content"><div id="mls-table-placeholder"></div></div>
+                    <div id="usl" class="tab-content"><div id="usl-table-placeholder"></div></div>
+                </div>
+            </main>
+
+            <!-- Right sidebar -->
+            <aside class="sidebar-right">
+
+                <!-- <section class="site-updates" id="mlb-snapshot">
+                    <h2><a href="/sports-history-test/usa/projections/MLB/">MLB Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="mlb-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/MLB/">MLB Season Simulation Archive</a></p>
+                </section> -->
+            
+                <section class="site-updates" id="nfl-snapshot">
+                    <h2><a href="/sports-history-test/usa/projections/NFL/">NFL Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="nfl-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/NFL/">NFL Season Simulation Archive</a></p>
+                </section>
+
+                <section class="site-updates" id="nhl-snapshot">
+                    <h2><a href="/sports-history-test/usa/projections/NHL/">NHL Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="nhl-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/NHL/">NHL Season Simulation Archive</a></p>
+                </section>
+
+                <section class="site-updates" id="nba-snapshot">
+                    <h2><a href="/sports-history-test/usa/projections/NBA/">NBA Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="nba-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/NBA/">NBA Season Simulation Archive</a></p>
+                </section>
+            
+            </aside>
+
+        </div>
+
+        <div id="site-footer"></div>
+
+        <script src="/sports-history-test/scripts/main.js"></script>
+
+        <script>
+            // Load power ranking tables
+            const tables = {
+                mlb: '/sports-history-test/usa/power_rankings/mlb_power_rankings.html',
+                nfl: '/sports-history-test/usa/power_rankings/nfl_power_rankings.html',
+                nhl: '/sports-history-test/usa/power_rankings/nhl_power_rankings.html',
+                nba: '/sports-history-test/usa/power_rankings/nba_power_rankings.html',
+                wnba: '/sports-history-test/usa/power_rankings/wnba_power_rankings.html',
+                mls: '/sports-history-test/usa/power_rankings/mls_power_rankings.html',
+                usl: '/sports-history-test/usa/power_rankings/usl_power_rankings.html'
+            };
+
+            for (const [sport, file] of Object.entries(tables)) {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => document.getElementById(sport + '-table-placeholder').innerHTML = data);
+            }
+
+            // Tab switching logic
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.getAttribute('data-sport')).classList.add('active');
+                });
+            });
+
+            // Sidebar Summaries
+            const sidebarSummaries = {
+                mlb: '/sports-history-test/usa/sidebar_summaries/mlb_sidebar_summary.html',
+                nfl: '/sports-history-test/usa/sidebar_summaries/nfl_sidebar_summary.html',
+                nhl: '/sports-history-test/usa/sidebar_summaries/nhl_sidebar_summary.html',
+                nba: '/sports-history-test/usa/sidebar_summaries/nba_sidebar_summary.html',
+                wnba: '/sports-history-test/usa/sidebar_summaries/wnba_sidebar_summary.html',
+                mls: '/sports-history-test/usa/sidebar_summaries/mls_sidebar_summary.html',
+                usl: '/sports-history-test/usa/sidebar_summaries/usl_sidebar_summary.html'
+            };
+        
+            for (const [sport, file] of Object.entries(sidebarSummaries)) {
+                const placeholder = document.getElementById(sport + '-sidebar-placeholder');
+                if (!placeholder) continue;  // safely skip if no snapshot exists
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => placeholder.innerHTML = data);
+            }
+        </script>
+    </body>
+</html>
