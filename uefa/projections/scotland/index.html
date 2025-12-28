@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>2025-26 Scotland Projection - Elo, Table & Playoff</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Follow the 2025-26 Scottish football season through a Monte Carlo simulation that tracks team performance, Elo ratings, and promotion and relegation odds as they evolve throughout the year.">
+        <meta name="description" content="Follow the 2025-26 Scottish football season through a Monte Carlo simulation that tracks team performance, Elo ratings, and promotion and relegation odds as they evolved throughout the year.">
         
         <!-- Link to external styles -->
         <link rel="stylesheet" href="/sports-history-test/styles.css" />
@@ -22,7 +22,7 @@
         <div class="content">
             
             <div class="season-links">
-                <a href="/sports-history-test/uefa/simulations/scotland/2024/">← 2024-25</a>
+                <a href="/sports-history-test/uefa/simulations/Scotland/2024/">← 2024-25</a>
             </div>
         
         
@@ -32,18 +32,18 @@
             </div>
 
             
-            <h2 class="sim-subsection">League Phase</h2>
+            <h2 class="sim-subsection">Regular Season</h2>
             
             
             <details>
                 <summary>Simulated Table</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many points does the simulation expect each team to earn by the end of the season?</i>
+                    <i>How many points does the simulation expect each team to earn in the regular season?</i>
                 </div>
                 <iframe data-src="regular_season_summary.html" class="extra-padding" style="max-height:800px;"></iframe>
             </details>
-
-
+            
+            
             <details>
                 <summary>League Heatmaps</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
@@ -60,8 +60,26 @@
                     <iframe data-src="Level 2_finish_heatmap.html"></iframe>
                 </div>
             </details>
-                
-            
+
+
+            <details>
+                <summary>Simulated Points by Position</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation believe are needed to earn each position in the regular season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('simulated_points', 'simulated_points_Level_1')" class="active">Premiership</button>
+                    <button onclick="showTab('simulated_points', 'simulated_points_Level_2')">Championship</button>
+                </div>
+                <div class="tab-content simulated_points active" id="simulated_points_Level_1">
+                    <iframe data-src="Level 1_position_points.html"></iframe>
+                </div>
+                <div class="tab-content simulated_points" id="simulated_points_Level_2">
+                    <iframe data-src="Level 2_position_points.html"></iframe>
+                </div>
+            </details>
+
+
             <details>
                 <summary>Point Totals in Context</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
@@ -165,17 +183,17 @@
                     <i>How has each team's probability of getting promoted or relegated changed throughout the season?</i>
                 </div>
 
-                <div class="tab-buttons">
+                <!-- <div class="tab-buttons">
                     <button onclick="showTab('promotion_prob', 'promotion_prob_Level_1')" class="active">Premiership</button>
                     <button onclick="showTab('promotion_prob', 'promotion_prob_Level_2')">Championship</button>
-                </div>
+                </div> -->
                 
-                <div class="tab-content promotion_prob active" id="promotion_prob_Level_1">
+                <!-- <div class="tab-content promotion_prob active" id="promotion_prob_Level_1"> -->
                     <iframe data-src="Level 1_relegation_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content promotion_prob" id="promotion_prob_Level_2">
+                <!-- </div> -->
+                <!-- <div class="tab-content promotion_prob" id="promotion_prob_Level_2">
                     <iframe data-src="Level 2_promotion_probabilities.html"></iframe>
-                </div>
+                </div> -->
             </details>
             
 
@@ -185,19 +203,19 @@
             <details>
                 <summary>Simulated Points by Final Position</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many points does the simulation believe are needed to earn each position?</i>
+                    <i>How many points does the simulation believe are needed to earn each position in the top six and bottom six?</i>
                 </div>
 
                 <div class="tab-buttons">
-                    <button onclick="showTab('position_points', 'position_points_Level_1')" class="active">Premiership</button>
-                    <button onclick="showTab('position_points', 'position_points_Level_2')">Championship</button>
+                    <button onclick="showTab('position_points', 'position_points_championship_position')" class="active">Top Six</button>
+                    <button onclick="showTab('position_points', 'position_points_relegation_position')">Bottom Six</button>
                 </div>
 
-                <div class="tab-content position_points active" id="position_points_Level_1">
-                    <iframe data-src="Level 1_position_points.html"></iframe>
+                <div class="tab-content position_points active" id="position_points_championship_position">
+                    <iframe data-src="Scotland_championship_position_points.html"></iframe>
                 </div>
-                <div class="tab-content position_points" id="position_points_Level_2">
-                    <iframe data-src="Level 2_position_points.html"></iframe>
+                <div class="tab-content position_points" id="position_points_relegation_position">
+                    <iframe data-src="Scotland_relegation_position_points.html"></iframe>
                 </div>
             </details>
 
@@ -220,49 +238,52 @@
                     <iframe data-src="Level 2_next_season_status.html"></iframe>
                 </div>
             </details>
-            
-            
+
+
             <details>
-                <summary>Stochastic Promotion Playoff Simulation</summary>
+                <summary>Stochastic Playoff Simulation</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How does the simulation expect the promotion playoff to unfold according to the simulated final table?</i>
-                </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Playoff Progression</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_finals')">Finals</button>
+                    <i>How does the simulation expect the playoff round to unfold according to the simulated final table after the regular season?</i>
                 </div>
                 
-                <!-- Playoff Advancement -->
-                <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
-                    <iframe data-src="playoff_success_preseason_playoff.html"></iframe>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship_group')" class="active">Top Six</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_relegation_group')">Bottom Six</button>
                 </div>
 
-                <!-- Finals -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_finals">
-                    <iframe data-src="finals_preseason_playoff.html"></iframe>
+                <!-- Top Six -->
+                <div class="tab-content preseason_playoff active" id="preseason_playoff_championship_group">
+                    <iframe data-src="championship_finish_heatmap.html"></iframe>
+                </div>
+
+                <!-- Bottom Six -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_relegation_group">
+                    <iframe data-src="relegation_finish_heatmap.html"></iframe>
                 </div>
             </details>
-                
-                
-<!--             <details>
-                <summary>Actual Promotion Playoff Simulation</summary>
+
+
+            <!-- <details>
+                <summary>Actual Playoff Simulation</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How does the simulation expect the actual promotion playoff to unfold?</i>
+                    <i>How does the simulation expect the playoff round to unfold according to the actual final table after the regular season?</i>
                 </div>
+                
                 <div class="tab-buttons">
-                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_playoff_adv')" class="active">Playoff Progression</button>
-                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_finals')">Finals</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship_group')" class="active">Top Six</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_relegation_group')">Bottom Six</button>
                 </div>
-                
-                <div class="tab-content end_of_season_playoff active" id="end_of_season_playoff_playoff_adv">
-                    <iframe data-src="playoff_success_end_of_regular_season.html"></iframe>
+
+                <div class="tab-content preseason_playoff active" id="preseason_playoff_championship_group">
+                    <iframe data-src="championship_finish_heatmap.html"></iframe>
                 </div>
-                
-                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_finals">
-                    <iframe data-src="finals_end_of_regular_season.html"></iframe>
+
+                <div class="tab-content preseason_playoff" id="preseason_playoff_relegation_group">
+                    <iframe data-src="relegation_finish_heatmap.html"></iframe>
                 </div>
             </details> -->
 
+            
 
             <h2 class="sim-subsection">Game Logs</h2>
 
@@ -289,7 +310,7 @@
             <details>
                 <summary>Biggest Upsets and Elo Changes</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>What have been the biggest upsets and Elo rating changes of the season?</i>
+                    <i>What were the biggest upsets and Elo rating changes of the season?</i>
                 </div>
                 <div class="tab-buttons">
                     <button onclick="showTab('games', 'games_biggest_upsets')" class="active">Biggest Upsets</button>
