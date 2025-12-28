@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sports History Simulations – Monte Carlo, Elo & Playoffs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Explore Monte Carlo sports simulations, in-depth articles team performances, Elo ratings, and promotion and relegation probabilities for UEFA.">
+
+        <!-- Apple Touch Icon for iOS / Safari favorites -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/sports-history-test/favicons/apple-touch-icon.png">
+        
+        <!-- Standard favicon -->
+        <link rel="icon" href="/sports-history-test/favicons/favicon.ico" type="image/x-icon">
+        
+        <!-- PNG favicons for modern browsers -->
+        <link rel="icon" href="/sports-history-test/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+        <link rel="icon" href="/sports-history-test/favicons/android-chrome-192x192.png" type="image/png" sizes="192x192">
+
+        <link rel="stylesheet" href="/sports-history-test/styles.css">        
+    </head>
+
+    <body>
+        <div id="site-header"></div>
+        <div id="uefa-header"></div>
+
+        <div class="home-layout">
+            <!-- Left side: Featured Article + Power Rankings -->
+            <main class="main-left">
+                <div class="featured-article-box">
+                    <h1 class="article-header" style="margin-top: 0;">Featured Articles</h1>
+
+                    <div class="article-list">
+                        <li>
+                            <h2 class="article-title-link" style="margin: 0.25em 0;">
+                                <a href="/sports-history-test/uefa/articles/England/promoted-team-performance/" style="text-decoration: none; color: #003366;">
+                                    How Promoted Teams Fare in the EPL
+                                </a>
+                            </h2>
+                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
+                                Published: October 15, 2025
+                            </div>
+                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
+                                How unusual is it for all three promoted teams to be immediately relegated in the same season?
+                            </div>
+                        </li>
+
+                        
+                        <li>
+                            <h2 class="article-title-link" style="margin: 0.25em 0;">
+                                <a href="/sports-history-test/uefa/articles/Spain/top-three-dominance/" style="text-decoration: none; color: #003366;">
+                                    Spain's Top Three: How Atlético Madrid Challenges Real Madrid and Barcelona
+                                </a>
+                            </h2>
+                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
+                                Published: October 15, 2025
+                            </div>
+                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
+                                How close has Atlético Madrid been to disrupting the dominance the Real Madrid-Barclona duopoly?
+                            </div>
+                        </li>
+
+                    </div>
+
+
+                </div>
+
+                <!-- Power Rankings Section -->
+                <div class="power-rankings">
+                    <h1 class="article-header centered">Current Elo Ratings</h1>
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-sport="england">England</button>
+                        <button class="tab-btn" data-sport="france">France</button>
+                        <button class="tab-btn" data-sport="germany">Germany</button>
+                        <button class="tab-btn" data-sport="italy">Italy</button>
+                        <button class="tab-btn" data-sport="spain">Spain</button>
+<!--                         <button class="tab-btn" data-sport="wales">Wales</button> -->
+                    </div>
+                    <div id="england" class="tab-content active"><div id="england-table-placeholder"></div></div>
+                    <div id="france" class="tab-content"><div id="france-table-placeholder"></div></div>
+                    <div id="germany" class="tab-content"><div id="germany-table-placeholder"></div></div>
+                    <div id="italy" class="tab-content"><div id="italy-table-placeholder"></div></div>
+                    <div id="spain" class="tab-content"><div id="spain-table-placeholder"></div></div>
+<!--                     <div id="wales" class="tab-content"><div id="wales-table-placeholder"></div></div> -->
+                </div>
+            </main>
+
+            <!-- Right sidebar -->
+            <aside class="sidebar-right">
+
+                <section class="site-updates" id="mlb-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/England/">England Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="england-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/England/">England Season Simulation Archive</a></p>
+                </section>
+
+                <section class="site-updates" id="mlb-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/France/">France Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="france-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/France/">France Season Simulation Archive</a></p>
+                </section>
+
+                <section class="site-updates" id="mlb-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/Germany/">Germany Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="germany-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Germany/">Germany Season Simulation Archive</a></p>
+                </section>
+
+                <section class="site-updates" id="mlb-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/Italy/">Italy Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="italy-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Italy/">Italy Season Simulation Archive</a></p>
+                </section>
+
+                <section class="site-updates" id="mlb-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/Spain/">Spain Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="spain-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Spain/">Spain Season Simulation Archive</a></p>
+                </section>
+            
+            </aside>
+        </div>
+
+        <div id="site-footer"></div>
+
+        <script src="/sports-history-test/scripts/main.js"></script>
+
+        <script>
+            // Load power ranking tables
+            const tables = {
+                england: '/sports-history-test/uefa/power_rankings/england_power_rankings.html',
+                france: '/sports-history-test/uefa/power_rankings/france_power_rankings.html',
+                germany: '/sports-history-test/uefa/power_rankings/germany_power_rankings.html',
+                italy: '/sports-history-test/uefa/power_rankings/italy_power_rankings.html',
+                spain: '/sports-history-test/uefa/power_rankings/spain_power_rankings.html',
+                // wales: '/sports-history-test/uefa/power_rankings/wales_power_rankings.html',
+            };
+
+            for (const [sport, file] of Object.entries(tables)) {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => document.getElementById(sport + '-table-placeholder').innerHTML = data);
+            }
+
+            // Tab switching logic
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.getAttribute('data-sport')).classList.add('active');
+                });
+            });
+
+            // Sidebar Summaries
+            const sidebarSummaries = {
+                england: '/sports-history-test/uefa/sidebar_summaries/england_sidebar_summary.html',
+                france: '/sports-history-test/uefa/sidebar_summaries/france_sidebar_summary.html',
+                germany: '/sports-history-test/uefa/sidebar_summaries/germany_sidebar_summary.html',
+                italy: '/sports-history-test/uefa/sidebar_summaries/italy_sidebar_summary.html',
+                spain: '/sports-history-test/uefa/sidebar_summaries/spain_sidebar_summary.html',
+            };
+        
+            for (const [sport, file] of Object.entries(sidebarSummaries)) {
+                const placeholder = document.getElementById(sport + '-sidebar-placeholder');
+                if (!placeholder) continue;  // safely skip if no snapshot exists
+                fetch(file)
+                    .then(response => response.text())
+                    .then(data => placeholder.innerHTML = data);
+            }
+        </script>
+    </body>
+</html>
 
