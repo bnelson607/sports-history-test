@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-06-07</td>
+      <td>28.72</td>
+      <td>Golden State Valkyries (H)</td>
+      <td>1340.93</td>
+      <td>95</td>
+      <td>22.82%</td>
+      <td>Las Vegas Aces</td>
+      <td>1594.25</td>
+      <td>68</td>
+      <td>77.18%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-07-22</td>
+      <td>26.98</td>
+      <td>Dallas Wings</td>
+      <td>1388.84</td>
+      <td>87</td>
+      <td>23.11%</td>
+      <td>Seattle Storm (H)</td>
+      <td>1556.08</td>
+      <td>63</td>
+      <td>76.89%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-09-11</td>
+      <td>25.20</td>
+      <td>Dallas Wings (H)</td>
+      <td>1315.86</td>
+      <td>97</td>
+      <td>23.18%</td>
+      <td>Phoenix Mercury</td>
+      <td>1565.57</td>
+      <td>76</td>
+      <td>76.82%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-06-29</td>
+      <td>24.50</td>
+      <td>Golden State Valkyries (H)</td>
+      <td>1420.56</td>
+      <td>84</td>
+      <td>34.14%</td>
+      <td>Seattle Storm</td>
+      <td>1576.29</td>
+      <td>57</td>
+      <td>65.86%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-09-17</td>
+      <td>23.39</td>
+      <td>Phoenix Mercury</td>
+      <td>1530.84</td>
+      <td>86</td>
+      <td>35.96%</td>
+      <td>New York Liberty (H)</td>
+      <td>1589.51</td>
+      <td>60</td>
+      <td>64.04%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-05-27</td>
+      <td>23.16</td>
+      <td>Dallas Wings</td>
+      <td>1414.56</td>
+      <td>109</td>
+      <td>31.03%</td>
+      <td>Connecticut Sun (H)</td>
+      <td>1511.66</td>
+      <td>87</td>
+      <td>68.97%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-07-27</td>
+      <td>22.81</td>
+      <td>Connecticut Sun (H)</td>
+      <td>1359.45</td>
+      <td>95</td>
+      <td>42.78%</td>
+      <td>Golden State Valkyries</td>
+      <td>1451.56</td>
+      <td>64</td>
+      <td>57.22%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-08-01</td>
+      <td>21.66</td>
+      <td>Connecticut Sun (H)</td>
+      <td>1372.27</td>
+      <td>78</td>
+      <td>24.36%</td>
+      <td>New York Liberty</td>
+      <td>1610.67</td>
+      <td>62</td>
+      <td>75.64%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-07-09</td>
+      <td>21.54</td>
+      <td>Golden State Valkyries</td>
+      <td>1434.00</td>
+      <td>80</td>
+      <td>31.01%</td>
+      <td>Indiana Fever (H)</td>
+      <td>1531.34</td>
+      <td>61</td>
+      <td>68.99%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-08-28</td>
+      <td>21.23</td>
+      <td>Seattle Storm</td>
+      <td>1512.04</td>
+      <td>93</td>
+      <td>20.77%</td>
+      <td>Minnesota Lynx (H)</td>
+      <td>1703.05</td>
+      <td>79</td>
+      <td>79.23%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-06-08</td>
+      <td>20.64</td>
+      <td>Washington Mystics (H)</td>
+      <td>1469.21</td>
+      <td>104</td>
+      <td>52.61%</td>
+      <td>Connecticut Sun</td>
+      <td>1492.68</td>
+      <td>67</td>
+      <td>47.39%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-06-15</td>
+      <td>20.44</td>
+      <td>Atlanta Dream</td>
+      <td>1533.64</td>
+      <td>89</td>
+      <td>50.31%</td>
+      <td>Washington Mystics (H)</td>
+      <td>1489.85</td>
+      <td>56</td>
+      <td>49.69%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-08-02</td>
+      <td>20.03</td>
+      <td>Minnesota Lynx</td>
+      <td>1668.61</td>
+      <td>111</td>
+      <td>61.57%</td>
+      <td>Las Vegas Aces (H)</td>
+      <td>1545.12</td>
+      <td>58</td>
+      <td>38.43%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-09-03</td>
+      <td>19.75</td>
+      <td>Chicago Sky (H)</td>
+      <td>1306.69</td>
+      <td>88</td>
+      <td>43.69%</td>
+      <td>Connecticut Sun</td>
+      <td>1392.36</td>
+      <td>64</td>
+      <td>56.31%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-08-07</td>
+      <td>19.40</td>
+      <td>Phoenix Mercury (H)</td>
+      <td>1539.00</td>
+      <td>95</td>
+      <td>54.20%</td>
+      <td>Indiana Fever</td>
+      <td>1551.37</td>
+      <td>60</td>
+      <td>45.80%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-05-20</td>
+      <td>19.07</td>
+      <td>Las Vegas Aces</td>
+      <td>1573.59</td>
+      <td>87</td>
+      <td>46.72%</td>
+      <td>Connecticut Sun (H)</td>
+      <td>1554.78</td>
+      <td>62</td>
+      <td>53.28%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-07-15</td>
+      <td>18.28</td>
+      <td>Los Angeles Sparks (H)</td>
+      <td>1402.60</td>
+      <td>99</td>
+      <td>41.44%</td>
+      <td>Washington Mystics</td>
+      <td>1504.27</td>
+      <td>80</td>
+      <td>58.56%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-05-17</td>
+      <td>18.16</td>
+      <td>Phoenix Mercury (H)</td>
+      <td>1466.62</td>
+      <td>81</td>
+      <td>45.93%</td>
+      <td>Seattle Storm</td>
+      <td>1536.55</td>
+      <td>59</td>
+      <td>54.07%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-06-14</td>
+      <td>17.92</td>
+      <td>Indiana Fever (H)</td>
+      <td>1513.80</td>
+      <td>102</td>
+      <td>33.09%</td>
+      <td>New York Liberty</td>
+      <td>1677.70</td>
+      <td>88</td>
+      <td>66.91%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-05-25</td>
+      <td>17.79</td>
+      <td>Atlanta Dream (H)</td>
+      <td>1482.87</td>
+      <td>79</td>
+      <td>49.28%</td>
+      <td>Connecticut Sun</td>
+      <td>1529.45</td>
+      <td>55</td>
+      <td>50.72%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-16</td>
+      <td>17.68</td>
+      <td>Indiana Fever (H)</td>
+      <td>1545.59</td>
+      <td>77</td>
+      <td>40.12%</td>
+      <td>Atlanta Dream</td>
+      <td>1656.80</td>
+      <td>60</td>
+      <td>59.88%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-06-24</td>
+      <td>17.37</td>
+      <td>Dallas Wings (H)</td>
+      <td>1391.18</td>
+      <td>68</td>
+      <td>32.73%</td>
+      <td>Atlanta Dream</td>
+      <td>1557.94</td>
+      <td>55</td>
+      <td>67.27%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-07-16</td>
+      <td>17.32</td>
+      <td>Atlanta Dream</td>
+      <td>1528.17</td>
+      <td>86</td>
+      <td>60.24%</td>
+      <td>Chicago Sky (H)</td>
+      <td>1414.36</td>
+      <td>49</td>
+      <td>39.76%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-07-28</td>
+      <td>17.24</td>
+      <td>Dallas Wings (H)</td>
+      <td>1392.05</td>
+      <td>92</td>
+      <td>23.87%</td>
+      <td>New York Liberty</td>
+      <td>1635.10</td>
+      <td>82</td>
+      <td>76.13%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-07-03</td>
+      <td>17.10</td>
+      <td>Indiana Fever (H)</td>
+      <td>1521.78</td>
+      <td>81</td>
+      <td>54.02%</td>
+      <td>Las Vegas Aces</td>
+      <td>1535.37</td>
+      <td>54</td>
+      <td>45.98%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

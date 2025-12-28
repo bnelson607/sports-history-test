@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-08-30</td>
+      <td>12.30%</td>
+      <td>DC United</td>
+      <td>1341.41</td>
+      <td>2</td>
+      <td>New York City FC (H)</td>
+      <td>1550.23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-09-27</td>
+      <td>13.21%</td>
+      <td>Montreal CF</td>
+      <td>1374.33</td>
+      <td>4</td>
+      <td>Charlotte FC (H)</td>
+      <td>1565.21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-08-30</td>
+      <td>14.77%</td>
+      <td>Atlanta United FC</td>
+      <td>1411.90</td>
+      <td>1</td>
+      <td>Nashville SC (H)</td>
+      <td>1575.35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-08-23</td>
+      <td>15.44%</td>
+      <td>New England Revolution</td>
+      <td>1420.38</td>
+      <td>2</td>
+      <td>Columbus Crew (H)</td>
+      <td>1572.93</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-07-16</td>
+      <td>15.47%</td>
+      <td>Toronto FC</td>
+      <td>1420.59</td>
+      <td>1</td>
+      <td>San Diego FC (H)</td>
+      <td>1572.66</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-09-27</td>
+      <td>15.61%</td>
+      <td>San Jose Earthquakes</td>
+      <td>1427.78</td>
+      <td>1</td>
+      <td>San Diego FC (H)</td>
+      <td>1577.69</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-10-18</td>
+      <td>16.43%</td>
+      <td>FC Dallas</td>
+      <td>1483.88</td>
+      <td>2</td>
+      <td>Vancouver Whitecaps (H)</td>
+      <td>1621.42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-06-14</td>
+      <td>16.73%</td>
+      <td>Montreal CF</td>
+      <td>1374.53</td>
+      <td>3</td>
+      <td>Houston Dynamo (H)</td>
+      <td>1507.71</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-08-10</td>
+      <td>16.77%</td>
+      <td>Colorado Rapids</td>
+      <td>1445.77</td>
+      <td>2</td>
+      <td>Minnesota United FC (H)</td>
+      <td>1578.40</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-05-31</td>
+      <td>16.94%</td>
+      <td>DC United</td>
+      <td>1407.68</td>
+      <td>2</td>
+      <td>FC Cincinnati (H)</td>
+      <td>1537.90</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-08-09</td>
+      <td>17.14%</td>
+      <td>St. Louis City FC (H)</td>
+      <td>1373.03</td>
+      <td>3</td>
+      <td>Nashville SC</td>
+      <td>1586.84</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-04-27</td>
+      <td>18.09%</td>
+      <td>FC Dallas</td>
+      <td>1490.42</td>
+      <td>4</td>
+      <td>Inter Miami CF (H)</td>
+      <td>1604.98</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-09-20</td>
+      <td>18.32%</td>
+      <td>Chicago Fire</td>
+      <td>1491.46</td>
+      <td>3</td>
+      <td>Minnesota United FC (H)</td>
+      <td>1602.97</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-02-23</td>
+      <td>18.35%</td>
+      <td>San Diego FC</td>
+      <td>1450.00</td>
+      <td>2</td>
+      <td>Los Angeles Galaxy (H)</td>
+      <td>1561.18</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-04-26</td>
+      <td>18.66%</td>
+      <td>New England Revolution</td>
+      <td>1458.46</td>
+      <td>1</td>
+      <td>Charlotte FC (H)</td>
+      <td>1565.61</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-05-31</td>
+      <td>18.69%</td>
+      <td>Chicago Fire</td>
+      <td>1474.93</td>
+      <td>3</td>
+      <td>Orlando City (H)</td>
+      <td>1581.80</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-04-19</td>
+      <td>18.71%</td>
+      <td>DC United</td>
+      <td>1417.83</td>
+      <td>2</td>
+      <td>New York RB (H)</td>
+      <td>1524.44</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-07-04</td>
+      <td>19.03%</td>
+      <td>Los Angeles Galaxy (H)</td>
+      <td>1403.80</td>
+      <td>3</td>
+      <td>Vancouver Whitecaps</td>
+      <td>1592.86</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-05-10</td>
+      <td>19.10%</td>
+      <td>Montreal CF</td>
+      <td>1409.46</td>
+      <td>1</td>
+      <td>New York City FC (H)</td>
+      <td>1511.15</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-07-05</td>
+      <td>19.47%</td>
+      <td>Houston Dynamo</td>
+      <td>1480.60</td>
+      <td>4</td>
+      <td>San Diego FC (H)</td>
+      <td>1577.82</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-03-22</td>
+      <td>19.99%</td>
+      <td>Chicago Fire</td>
+      <td>1472.64</td>
+      <td>3</td>
+      <td>Vancouver Whitecaps (H)</td>
+      <td>1563.72</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-05-31</td>
+      <td>20.02%</td>
+      <td>Sporting Kansas City</td>
+      <td>1439.38</td>
+      <td>3</td>
+      <td>Houston Dynamo (H)</td>
+      <td>1530.10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-09-30</td>
+      <td>20.53%</td>
+      <td>Chicago Fire</td>
+      <td>1535.69</td>
+      <td>5</td>
+      <td>Inter Miami CF (H)</td>
+      <td>1620.48</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-10-12</td>
+      <td>20.63%</td>
+      <td>Austin FC (H)</td>
+      <td>1459.32</td>
+      <td>1</td>
+      <td>Los Angeles FC</td>
+      <td>1629.44</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-03-16</td>
+      <td>20.90%</td>
+      <td>Nashville SC</td>
+      <td>1474.93</td>
+      <td>3</td>
+      <td>Philadelphia Union (H)</td>
+      <td>1555.58</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>2025-26 NHL Projection – Elo, Playoffs & Standings</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Follow the 2025-26 NHL season through a Monte Carlo simulation that tracks team performance, Elo ratings, and playoff odds as they evolve throughout the year.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-test/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+            /* Minimal or unique styles can go here */
+        </style>
+    </head>
+    
+    <body>
+        <div id="site-header"></div>
+        <div id="usa-header"></div>
+        
+        <div class="content">
+            
+            <div class="season-links">
+                <a href="/sports-history-test/simulations/NHL/2024/">← 2024-25</a>
+            </div>
+            
+            <div class="season-header">
+                <h1 class="sim-title">2025-26 NHL Projection</h1>
+                <p class="update-date">Last updated: <span id="update-date"></span></p>
+            </div>
+            
+                
+            <h2 class="sim-subsection">Regular Season</h2>
+            
+            
+            <details>
+                <summary>Simulated Standings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation expect each team to earn by the end of the season?</i>
+                </div>
+                <iframe data-src="regular_season_summary.html" class="extra-padding"></iframe>
+            </details>
+            
+                
+            <details>
+                <summary>Division Heatmaps</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where is each team expected to finish within their division?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_Atlantic')" class="active">Atlantic</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_Metropolitan')">Metropolitan</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_Central')">Central</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_Pacific')">Pacific</button>
+                </div>
+                <div class="tab-content div_heatmap active" id="div_heatmap_Atlantic">
+                    <iframe data-src="Atlantic_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_Metropolitan">
+                    <iframe data-src="Metropolitan_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_Central">
+                    <iframe data-src="Central_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_Pacific">
+                    <iframe data-src="Pacific_finish_heatmap.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Conference & League Heatmaps</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where is each team expected to finish within their conference and the league as a whole?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_Eastern')" class="active">Eastern</button>
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_Western')">Western</button>
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_NHL')">NHL</button>
+                </div>
+                <div class="tab-content league_heatmap active" id="league_heatmap_Eastern">
+                    <iframe data-src="Eastern_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content league_heatmap" id="league_heatmap_Western">
+                    <iframe data-src="Western_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content league_heatmap" id="league_heatmap_NHL">
+                    <iframe data-src="league_finish_heatmap.html"></iframe>
+                </div>
+            </details>
+
+
+            <details>
+                <summary>Point Totals in Context</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does each team's actual results compare to their simulated results, Elo rating, and opponent average Elo rating in completed and upcoming games?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('comparisons', 'comparisons_sim_vs_actual')" class="active">Simulated Points</button>
+                    <button onclick="showTab('comparisons', 'comparisons_elo_vs_actual')">Team Elo</button>
+                    <button onclick="showTab('comparisons', 'comparisons_opponent_elo_vs_actual')">Opponent Elo: Completed Games</button>
+                    <button onclick="showTab('comparisons', 'comparisons_remaining_opponent_elo_vs_actual')">Opponent Elo: Remaining Games</button>
+                </div>
+                <div class="tab-content comparisons active" id="comparisons_sim_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="sim_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="team_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_remaining_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="upcoming_opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+            </details>
+            
+            
+                
+            <h2 class="sim-subsection">Playoffs</h2>
+            
+            
+            <details>
+                <summary>Playoff Seed Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How likely is each team to earn each playoff seed?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff_seed', 'preseason_playoff_seed_eastern')" class="active">Eastern</button>
+                    <button onclick="showTab('preseason_playoff_seed', 'preseason_playoff_seed_western')">Western</button>
+                </div>
+                <div class="tab-content preseason_playoff_seed active" id="preseason_playoff_seed_eastern">
+                    <iframe data-src="Eastern_playoff_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content preseason_playoff_seed" id="preseason_playoff_seed_western">
+                    <iframe data-src="Western_playoff_heatmap.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Playoff Seed Points</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation believe each seed will have?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_atlantic')" class="active">Atlantic</button>
+                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_metropolitan')">Metropolitan</button>
+                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_central')" class="active">Central</button>
+                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_pacific')">Pacific</button>
+                </div>
+                <div class="tab-content playoff_seed_wins active" id="playoff_seed_wins_atlantic">
+                    <iframe data-src="Atlantic_playoff_seed_wins.html"></iframe>
+                </div>
+                <div class="tab-content playoff_seed_wins" id="playoff_seed_wins_metropolitan">
+                    <iframe data-src="Metropolitan_playoff_seed_wins.html"></iframe>
+                </div>
+                <div class="tab-content playoff_seed_wins" id="playoff_seed_wins_central">
+                    <iframe data-src="Central_playoff_seed_wins.html"></iframe>
+                </div>
+                <div class="tab-content playoff_seed_wins" id="playoff_seed_wins_pacific">
+                    <iframe data-src="Pacific_playoff_seed_wins.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Current Playoff Simulation</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does the simulation expect the playoffs to unfold?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Playoff Progression</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_wild_card_round')">Wild Card Round</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_div_round')">Divisional Round</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_conf_finals')">Conference Finals</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_stanley_cup')">Stanley Cup</button>
+                </div>
+                
+                <!-- Playoff Advancement -->
+                <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
+                    <iframe data-src="playoff_success_preseason_playoff.html"></iframe>
+                </div>
+                
+                <!-- Wild Card Round -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_wild_card_round">
+                    <div class="iframe-block">
+                        <div class="graph-label">Eastern Conference</div>
+                        <iframe data-src="wild_card_preseason_playoff_eastern.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Western Conference</div>
+                        <iframe data-src="wild_card_preseason_playoff_western.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- LDS -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_div_round">
+                    <div class="iframe-block">
+                        <div class="graph-label">Eastern Conference</div>
+                        <iframe data-src="divisional_round_preseason_playoff_eastern.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Western Conference</div>
+                        <iframe data-src="divisional_round_preseason_playoff_western.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- LCS -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_conf_finals">
+                    <div class="iframe-block">
+                        <div class="graph-label">Eastern Conference</div>
+                        <iframe data-src="conference_finals_preseason_playoff_eastern.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Western Conference</div>
+                        <iframe data-src="conference_finals_preseason_playoff_western.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Stanley Cup -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_stanley_cup">
+                    <iframe data-src="stanley_cup_preseason_playoff.html"></iframe>
+                </div>
+            </details>
+
+
+
+            <h2 class="sim-subsection">Season Trends</h2>
+            
+            <details>
+                <summary>Elo Ratings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's Elo rating changed throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('elo', 'elo_Atlantic')" class="active">Atlantic</button>
+                    <button onclick="showTab('elo', 'elo_Metropolitan')">Metropolitan</button>
+                    <button onclick="showTab('elo', 'elo_Central')">Central</button>
+                    <button onclick="showTab('elo', 'elo_Pacific')">Pacific</button>
+                </div>
+                <div class="tab-content elo active" id="elo_Atlantic">
+                    <iframe data-src="Atlantic_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_Metropolitan">
+                    <iframe data-src="Metropolitan_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_Central">
+                    <iframe data-src="Central_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_Pacific">
+                    <iframe data-src="Pacific_elo_ratings.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Simulated Points</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's expected point total changed throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('wins', 'wins_Atlantic')" class="active">Atlantic</button>
+                    <button onclick="showTab('wins', 'wins_Metropolitan')">Metropolitan</button>
+                    <button onclick="showTab('wins', 'wins_Central')">Central</button>
+                    <button onclick="showTab('wins', 'wins_Pacific')">Pacific</button>
+                </div>
+                <div class="tab-content wins active" id="wins_Atlantic">
+                    <iframe data-src="Atlantic_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_Metropolitan">
+                    <iframe data-src="Metropolitan_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_Central">
+                    <iframe data-src="Central_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_Pacific">
+                    <iframe data-src="Pacific_simulated_wins.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Division Champion Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of winning the division changed throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('div_prob', 'div_prob_Atlantic')" class="active">Atlantic</button>
+                    <button onclick="showTab('div_prob', 'div_prob_Metropolitan')">Metropolitan</button>
+                    <button onclick="showTab('div_prob', 'div_prob_Central')">Central</button>
+                    <button onclick="showTab('div_prob', 'div_prob_Pacific')">Pacific</button>
+                </div>
+                <div class="tab-content div_prob active" id="div_prob_Atlantic">
+                    <iframe data-src="Atlantic_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_Metropolitan">
+                    <iframe data-src="Metropolitan_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_Central">
+                    <iframe data-src="Central_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_Pacific">
+                    <iframe data-src="Pacific_division_probabilities.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Playoff Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of making the playoffs changed throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_Atlantic')" class="active">Atlantic</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_Metropolitan')">Metropolitan</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_Central')">Central</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_Pacific')">Pacific</button>
+                </div>
+                <div class="tab-content playoff_prob active" id="playoff_prob_Atlantic">
+                    <iframe data-src="Atlantic_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_Metropolitan">
+                    <iframe data-src="Metropolitan_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_Central">
+                    <iframe data-src="Central_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_Pacific">
+                    <iframe data-src="Pacific_playoff_probabilities.html"></iframe>
+                </div>
+            </details>
+            
+    
+    
+            <h2 class="sim-subsection">Game Logs</h2>
+    
+            <details>
+                <summary>Season Schedule</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's regular season unfolded?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'completed_games')" class="active">Completed Games</button>
+                    <button onclick="showTab('games', 'games_upcoming')">Upcoming Games</button>
+                </div>
+                <div class="tab-content games active" id="completed_games">
+                    <iframe data-src="team_games_table.html" class="double-extra-padding" style="max-height:800px;"></iframe>
+                </div>
+                <div class="tab-content games" id="games_upcoming">
+                    <iframe data-src="upcoming_games_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+    
+            <details>
+                <summary>Upsets</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>What have been the biggest upsets and Elo rating changes of the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'games_biggest_upsets')" class="active">Biggest Upsets</button>
+                    <button onclick="showTab('games', 'games_biggest_elo_changes')">Biggest Elo Changes</button>
+                </div>
+                <div class="tab-content games active" id="games_biggest_upsets">
+                    <iframe data-src="biggest_upsets_table.html" class="double-extra-padding"></iframe>
+                </div>
+                <div class="tab-content games" id="games_biggest_elo_changes">
+                    <iframe data-src="biggest_elo_changes_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+        </div>
+        
+            
+        <div id="site-footer"></div>
+        
+            
+        <!-- Load JavaScript -->
+        <script src="/sports-history-test/scripts/main.js"></script>
+        
+        <!-- Custom script for cache busting -->
+        <script>
+          document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+            const url = new URL(iframe.getAttribute('data-src'), window.location.href);
+            url.searchParams.set('v', new Date().toISOString().slice(0,10).replace(/-/g, ''));
+            iframe.setAttribute('data-src', url.toString());
+          });
+        </script>
+
+         <!-- Original custom script for cache busting -->
+<!--         <script>
+          document.querySelectorAll('iframe').forEach(iframe => {
+            const url = new URL(iframe.src);
+            url.searchParams.set('v', new Date().toISOString().slice(0,10).replace(/-/g, ''));
+            iframe.src = url.toString();
+          });
+        </script> -->
+    </body>
+</html>

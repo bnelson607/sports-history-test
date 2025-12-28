@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Date</th>
+      <th>Home Team</th>
+      <th>Home Elo</th>
+      <th>Away Team</th>
+      <th>Away Elo</th>
+      <th>Home Win Pct.</th>
+      <th>Away Win Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Sacramento Athletics</td>
+      <td>1480.24</td>
+      <td>Kansas City Royals</td>
+      <td>1504.08</td>
+      <td>50.74%</td>
+      <td>49.26%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Atlanta Braves</td>
+      <td>1503.77</td>
+      <td>Pittsburgh Pirates</td>
+      <td>1477.09</td>
+      <td>57.94%</td>
+      <td>42.06%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Boston Red Sox</td>
+      <td>1535.17</td>
+      <td>Detroit Tigers</td>
+      <td>1505.07</td>
+      <td>58.42%</td>
+      <td>41.58%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Chicago Cubs</td>
+      <td>1541.79</td>
+      <td>St. Louis Cardinals</td>
+      <td>1477.38</td>
+      <td>63.12%</td>
+      <td>36.88%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Cleveland Guardians</td>
+      <td>1513.77</td>
+      <td>Texas Rangers</td>
+      <td>1511.33</td>
+      <td>54.51%</td>
+      <td>45.49%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Los Angeles Angels</td>
+      <td>1432.91</td>
+      <td>Houston Astros</td>
+      <td>1510.46</td>
+      <td>43.06%</td>
+      <td>56.94%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Miami Marlins</td>
+      <td>1470.16</td>
+      <td>New York Mets</td>
+      <td>1516.77</td>
+      <td>47.47%</td>
+      <td>52.53%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Milwaukee Brewers</td>
+      <td>1565.77</td>
+      <td>Cincinnati Reds</td>
+      <td>1512.83</td>
+      <td>61.58%</td>
+      <td>38.42%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>New York Yankees</td>
+      <td>1558.00</td>
+      <td>Baltimore Orioles</td>
+      <td>1482.98</td>
+      <td>64.53%</td>
+      <td>35.47%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Philadelphia Phillies</td>
+      <td>1553.63</td>
+      <td>Minnesota Twins</td>
+      <td>1459.17</td>
+      <td>67.05%</td>
+      <td>32.95%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>San Diego Padres</td>
+      <td>1533.11</td>
+      <td>Arizona Diamondbacks</td>
+      <td>1513.68</td>
+      <td>56.92%</td>
+      <td>43.08%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Seattle Mariners</td>
+      <td>1539.93</td>
+      <td>Los Angeles Dodgers</td>
+      <td>1559.59</td>
+      <td>51.34%</td>
+      <td>48.66%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>San Francisco Giants</td>
+      <td>1498.42</td>
+      <td>Colorado Rockies</td>
+      <td>1358.33</td>
+      <td>72.58%</td>
+      <td>27.42%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Toronto Blue Jays</td>
+      <td>1529.35</td>
+      <td>Tampa Bay Rays</td>
+      <td>1499.05</td>
+      <td>58.45%</td>
+      <td>41.55%</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Washington Nationals</td>
+      <td>1429.79</td>
+      <td>Chicago White Sox</td>
+      <td>1426.39</td>
+      <td>54.65%</td>
+      <td>45.35%</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

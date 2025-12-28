@@ -1,0 +1,7345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="">All</option>
+                <option value="Atlanta Dream">Atlanta Dream</option><option value="Chicago Sky">Chicago Sky</option><option value="Connecticut Sun">Connecticut Sun</option><option value="Dallas Wings">Dallas Wings</option><option value="Golden State Valkyries">Golden State Valkyries</option><option value="Indiana Fever">Indiana Fever</option><option value="Las Vegas Aces">Las Vegas Aces</option><option value="Los Angeles Sparks">Los Angeles Sparks</option><option value="Minnesota Lynx">Minnesota Lynx</option><option value="New York Liberty">New York Liberty</option><option value="Phoenix Mercury">Phoenix Mercury</option><option value="Seattle Storm">Seattle Storm</option><option value="Washington Mystics">Washington Mystics</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="2" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Dallas Wings</td>
+      <td>1444.66</td>
+      <td>84</td>
+      <td>Minnesota Lynx</td>
+      <td>1572.59</td>
+      <td>99</td>
+      <td>37.83%</td>
+      <td>62.17%</td>
+      <td>-10.49</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Atlanta Dream</td>
+      <td>1485.56</td>
+      <td>90</td>
+      <td>@ Washington Mystics</td>
+      <td>1489.54</td>
+      <td>94</td>
+      <td>43.48%</td>
+      <td>56.52%</td>
+      <td>-6.22</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Los Angeles Sparks</td>
+      <td>1442.29</td>
+      <td>84</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1350.00</td>
+      <td>67</td>
+      <td>57.24%</td>
+      <td>42.76%</td>
+      <td>12.62</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Minnesota Lynx</td>
+      <td>1572.59</td>
+      <td>99</td>
+      <td>@ Dallas Wings</td>
+      <td>1444.66</td>
+      <td>84</td>
+      <td>62.17%</td>
+      <td>37.83%</td>
+      <td>10.49</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Washington Mystics</td>
+      <td>1489.54</td>
+      <td>94</td>
+      <td>Atlanta Dream</td>
+      <td>1485.56</td>
+      <td>90</td>
+      <td>56.52%</td>
+      <td>43.48%</td>
+      <td>6.22</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Golden State Valkyries</td>
+      <td>1350.00</td>
+      <td>67</td>
+      <td>Los Angeles Sparks</td>
+      <td>1442.29</td>
+      <td>84</td>
+      <td>42.76%</td>
+      <td>57.24%</td>
+      <td>-12.62</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>Indiana Fever</td>
+      <td>1502.10</td>
+      <td>93</td>
+      <td>Chicago Sky</td>
+      <td>1450.03</td>
+      <td>58</td>
+      <td>63.16%</td>
+      <td>36.84%</td>
+      <td>15.60</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>Chicago Sky</td>
+      <td>1450.03</td>
+      <td>58</td>
+      <td>@ Indiana Fever</td>
+      <td>1502.10</td>
+      <td>93</td>
+      <td>36.84%</td>
+      <td>63.16%</td>
+      <td>-15.61</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>Seattle Storm</td>
+      <td>1536.55</td>
+      <td>59</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1466.62</td>
+      <td>81</td>
+      <td>54.07%</td>
+      <td>45.93%</td>
+      <td>-18.16</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>New York Liberty</td>
+      <td>1610.40</td>
+      <td>92</td>
+      <td>Las Vegas Aces</td>
+      <td>1584.41</td>
+      <td>78</td>
+      <td>59.61%</td>
+      <td>40.39%</td>
+      <td>10.82</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>Las Vegas Aces</td>
+      <td>1584.41</td>
+      <td>78</td>
+      <td>@ New York Liberty</td>
+      <td>1610.40</td>
+      <td>92</td>
+      <td>40.39%</td>
+      <td>59.61%</td>
+      <td>-10.82</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>Phoenix Mercury</td>
+      <td>1466.62</td>
+      <td>81</td>
+      <td>Seattle Storm</td>
+      <td>1536.55</td>
+      <td>59</td>
+      <td>45.93%</td>
+      <td>54.07%</td>
+      <td>18.16</td>
+    </tr>
+    <tr>
+      <td>2025-05-18</td>
+      <td>Washington Mystics</td>
+      <td>1495.76</td>
+      <td>90</td>
+      <td>@ Connecticut Sun</td>
+      <td>1565.26</td>
+      <td>85</td>
+      <td>34.53%</td>
+      <td>65.47%</td>
+      <td>10.48</td>
+    </tr>
+    <tr>
+      <td>2025-05-18</td>
+      <td>Minnesota Lynx</td>
+      <td>1583.08</td>
+      <td>89</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1454.91</td>
+      <td>75</td>
+      <td>62.21%</td>
+      <td>37.79%</td>
+      <td>10.13</td>
+    </tr>
+    <tr>
+      <td>2025-05-18</td>
+      <td>Connecticut Sun</td>
+      <td>1565.26</td>
+      <td>85</td>
+      <td>Washington Mystics</td>
+      <td>1495.76</td>
+      <td>90</td>
+      <td>65.47%</td>
+      <td>34.53%</td>
+      <td>-10.48</td>
+    </tr>
+    <tr>
+      <td>2025-05-18</td>
+      <td>Los Angeles Sparks</td>
+      <td>1454.91</td>
+      <td>75</td>
+      <td>Minnesota Lynx</td>
+      <td>1583.08</td>
+      <td>89</td>
+      <td>37.79%</td>
+      <td>62.21%</td>
+      <td>-10.12</td>
+    </tr>
+    <tr>
+      <td>2025-05-19</td>
+      <td>Seattle Storm</td>
+      <td>1518.39</td>
+      <td>79</td>
+      <td>@ Dallas Wings</td>
+      <td>1434.17</td>
+      <td>71</td>
+      <td>56.10%</td>
+      <td>43.90%</td>
+      <td>8.89</td>
+    </tr>
+    <tr>
+      <td>2025-05-19</td>
+      <td>Dallas Wings</td>
+      <td>1434.17</td>
+      <td>71</td>
+      <td>Seattle Storm</td>
+      <td>1518.39</td>
+      <td>79</td>
+      <td>43.90%</td>
+      <td>56.10%</td>
+      <td>-8.89</td>
+    </tr>
+    <tr>
+      <td>2025-05-20</td>
+      <td>Las Vegas Aces</td>
+      <td>1573.59</td>
+      <td>87</td>
+      <td>@ Connecticut Sun</td>
+      <td>1554.78</td>
+      <td>62</td>
+      <td>46.72%</td>
+      <td>53.28%</td>
+      <td>19.07</td>
+    </tr>
+    <tr>
+      <td>2025-05-20</td>
+      <td>Atlanta Dream</td>
+      <td>1479.34</td>
+      <td>91</td>
+      <td>@ Indiana Fever</td>
+      <td>1517.70</td>
+      <td>90</td>
+      <td>38.69%</td>
+      <td>61.31%</td>
+      <td>4.39</td>
+    </tr>
+    <tr>
+      <td>2025-05-20</td>
+      <td>Connecticut Sun</td>
+      <td>1554.78</td>
+      <td>62</td>
+      <td>Las Vegas Aces</td>
+      <td>1573.59</td>
+      <td>87</td>
+      <td>53.28%</td>
+      <td>46.72%</td>
+      <td>-19.07</td>
+    </tr>
+    <tr>
+      <td>2025-05-20</td>
+      <td>Indiana Fever</td>
+      <td>1517.70</td>
+      <td>90</td>
+      <td>Atlanta Dream</td>
+      <td>1479.34</td>
+      <td>91</td>
+      <td>61.31%</td>
+      <td>38.69%</td>
+      <td>-4.39</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Golden State Valkyries</td>
+      <td>1337.38</td>
+      <td>76</td>
+      <td>Washington Mystics</td>
+      <td>1506.24</td>
+      <td>74</td>
+      <td>32.46%</td>
+      <td>67.54%</td>
+      <td>6.84</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Phoenix Mercury</td>
+      <td>1484.78</td>
+      <td>89</td>
+      <td>Los Angeles Sparks</td>
+      <td>1444.79</td>
+      <td>86</td>
+      <td>61.53%</td>
+      <td>38.47%</td>
+      <td>4.77</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Washington Mystics</td>
+      <td>1506.24</td>
+      <td>74</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1337.38</td>
+      <td>76</td>
+      <td>67.54%</td>
+      <td>32.46%</td>
+      <td>-6.84</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Dallas Wings</td>
+      <td>1425.28</td>
+      <td>81</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1593.21</td>
+      <td>85</td>
+      <td>23.04%</td>
+      <td>76.96%</td>
+      <td>-3.30</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Los Angeles Sparks</td>
+      <td>1444.79</td>
+      <td>86</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1484.78</td>
+      <td>89</td>
+      <td>38.47%</td>
+      <td>61.53%</td>
+      <td>-4.78</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Minnesota Lynx</td>
+      <td>1593.21</td>
+      <td>85</td>
+      <td>Dallas Wings</td>
+      <td>1425.28</td>
+      <td>81</td>
+      <td>76.96%</td>
+      <td>23.04%</td>
+      <td>3.30</td>
+    </tr>
+    <tr>
+      <td>2025-05-22</td>
+      <td>Atlanta Dream</td>
+      <td>1483.73</td>
+      <td>76</td>
+      <td>Indiana Fever</td>
+      <td>1513.31</td>
+      <td>81</td>
+      <td>51.73%</td>
+      <td>48.27%</td>
+      <td>-8.28</td>
+    </tr>
+    <tr>
+      <td>2025-05-22</td>
+      <td>Chicago Sky</td>
+      <td>1434.42</td>
+      <td>74</td>
+      <td>New York Liberty</td>
+      <td>1621.22</td>
+      <td>99</td>
+      <td>30.24%</td>
+      <td>69.76%</td>
+      <td>-10.82</td>
+    </tr>
+    <tr>
+      <td>2025-05-22</td>
+      <td>New York Liberty</td>
+      <td>1621.22</td>
+      <td>99</td>
+      <td>@ Chicago Sky</td>
+      <td>1434.42</td>
+      <td>74</td>
+      <td>69.76%</td>
+      <td>30.24%</td>
+      <td>10.83</td>
+    </tr>
+    <tr>
+      <td>2025-05-22</td>
+      <td>Indiana Fever</td>
+      <td>1513.31</td>
+      <td>81</td>
+      <td>@ Atlanta Dream</td>
+      <td>1483.73</td>
+      <td>76</td>
+      <td>48.27%</td>
+      <td>51.73%</td>
+      <td>8.28</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Seattle Storm</td>
+      <td>1527.28</td>
+      <td>77</td>
+      <td>Phoenix Mercury</td>
+      <td>1489.55</td>
+      <td>70</td>
+      <td>61.22%</td>
+      <td>38.78%</td>
+      <td>7.35</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Minnesota Lynx</td>
+      <td>1596.51</td>
+      <td>76</td>
+      <td>Connecticut Sun</td>
+      <td>1535.71</td>
+      <td>70</td>
+      <td>64.33%</td>
+      <td>35.67%</td>
+      <td>6.25</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Los Angeles Sparks</td>
+      <td>1440.01</td>
+      <td>73</td>
+      <td>Golden State Valkyries</td>
+      <td>1344.22</td>
+      <td>82</td>
+      <td>68.80%</td>
+      <td>31.20%</td>
+      <td>-14.77</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Golden State Valkyries</td>
+      <td>1344.22</td>
+      <td>82</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1440.01</td>
+      <td>73</td>
+      <td>31.20%</td>
+      <td>68.80%</td>
+      <td>14.77</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Washington Mystics</td>
+      <td>1499.40</td>
+      <td>72</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1592.66</td>
+      <td>75</td>
+      <td>31.51%</td>
+      <td>68.49%</td>
+      <td>-3.90</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Connecticut Sun</td>
+      <td>1535.71</td>
+      <td>70</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1596.51</td>
+      <td>76</td>
+      <td>35.67%</td>
+      <td>64.33%</td>
+      <td>-6.26</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Phoenix Mercury</td>
+      <td>1489.55</td>
+      <td>70</td>
+      <td>@ Seattle Storm</td>
+      <td>1527.28</td>
+      <td>77</td>
+      <td>38.78%</td>
+      <td>61.22%</td>
+      <td>-7.35</td>
+    </tr>
+    <tr>
+      <td>2025-05-23</td>
+      <td>Las Vegas Aces</td>
+      <td>1592.66</td>
+      <td>75</td>
+      <td>Washington Mystics</td>
+      <td>1499.40</td>
+      <td>72</td>
+      <td>68.49%</td>
+      <td>31.51%</td>
+      <td>3.91</td>
+    </tr>
+    <tr>
+      <td>2025-05-24</td>
+      <td>Atlanta Dream</td>
+      <td>1475.45</td>
+      <td>83</td>
+      <td>Dallas Wings</td>
+      <td>1421.98</td>
+      <td>75</td>
+      <td>63.35%</td>
+      <td>36.65%</td>
+      <td>7.42</td>
+    </tr>
+    <tr>
+      <td>2025-05-24</td>
+      <td>Indiana Fever</td>
+      <td>1521.59</td>
+      <td>88</td>
+      <td>New York Liberty</td>
+      <td>1632.05</td>
+      <td>90</td>
+      <td>40.22%</td>
+      <td>59.78%</td>
+      <td>-4.07</td>
+    </tr>
+    <tr>
+      <td>2025-05-24</td>
+      <td>New York Liberty</td>
+      <td>1632.05</td>
+      <td>90</td>
+      <td>@ Indiana Fever</td>
+      <td>1521.59</td>
+      <td>88</td>
+      <td>59.78%</td>
+      <td>40.22%</td>
+      <td>4.07</td>
+    </tr>
+    <tr>
+      <td>2025-05-24</td>
+      <td>Dallas Wings</td>
+      <td>1421.98</td>
+      <td>75</td>
+      <td>@ Atlanta Dream</td>
+      <td>1475.45</td>
+      <td>83</td>
+      <td>36.65%</td>
+      <td>63.35%</td>
+      <td>-7.42</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Atlanta Dream</td>
+      <td>1482.87</td>
+      <td>79</td>
+      <td>Connecticut Sun</td>
+      <td>1529.45</td>
+      <td>55</td>
+      <td>49.28%</td>
+      <td>50.72%</td>
+      <td>17.79</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Los Angeles Sparks</td>
+      <td>1425.24</td>
+      <td>91</td>
+      <td>Chicago Sky</td>
+      <td>1423.60</td>
+      <td>78</td>
+      <td>56.19%</td>
+      <td>43.81%</td>
+      <td>11.30</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Seattle Storm</td>
+      <td>1534.63</td>
+      <td>102</td>
+      <td>Las Vegas Aces</td>
+      <td>1596.57</td>
+      <td>82</td>
+      <td>47.08%</td>
+      <td>52.92%</td>
+      <td>16.94</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Las Vegas Aces</td>
+      <td>1596.57</td>
+      <td>82</td>
+      <td>@ Seattle Storm</td>
+      <td>1534.63</td>
+      <td>102</td>
+      <td>52.92%</td>
+      <td>47.08%</td>
+      <td>-16.95</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Phoenix Mercury</td>
+      <td>1482.20</td>
+      <td>68</td>
+      <td>Washington Mystics</td>
+      <td>1495.50</td>
+      <td>62</td>
+      <td>54.07%</td>
+      <td>45.93%</td>
+      <td>8.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Chicago Sky</td>
+      <td>1423.60</td>
+      <td>78</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1425.24</td>
+      <td>91</td>
+      <td>43.81%</td>
+      <td>56.19%</td>
+      <td>-11.31</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Connecticut Sun</td>
+      <td>1529.45</td>
+      <td>55</td>
+      <td>@ Atlanta Dream</td>
+      <td>1482.87</td>
+      <td>79</td>
+      <td>50.72%</td>
+      <td>49.28%</td>
+      <td>-17.79</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Washington Mystics</td>
+      <td>1495.50</td>
+      <td>62</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1482.20</td>
+      <td>68</td>
+      <td>45.93%</td>
+      <td>54.07%</td>
+      <td>-8.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Dallas Wings</td>
+      <td>1414.56</td>
+      <td>109</td>
+      <td>@ Connecticut Sun</td>
+      <td>1511.66</td>
+      <td>87</td>
+      <td>31.03%</td>
+      <td>68.97%</td>
+      <td>23.16</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Atlanta Dream</td>
+      <td>1500.66</td>
+      <td>88</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1436.54</td>
+      <td>82</td>
+      <td>53.23%</td>
+      <td>46.77%</td>
+      <td>8.20</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Seattle Storm</td>
+      <td>1551.57</td>
+      <td>77</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1602.76</td>
+      <td>82</td>
+      <td>36.95%</td>
+      <td>63.05%</td>
+      <td>-5.91</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Chicago Sky</td>
+      <td>1412.29</td>
+      <td>89</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1490.26</td>
+      <td>94</td>
+      <td>33.44%</td>
+      <td>66.56%</td>
+      <td>-5.36</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Phoenix Mercury</td>
+      <td>1490.26</td>
+      <td>94</td>
+      <td>Chicago Sky</td>
+      <td>1412.29</td>
+      <td>89</td>
+      <td>66.56%</td>
+      <td>33.44%</td>
+      <td>5.35</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>New York Liberty</td>
+      <td>1636.12</td>
+      <td>95</td>
+      <td>Golden State Valkyries</td>
+      <td>1358.99</td>
+      <td>67</td>
+      <td>86.23%</td>
+      <td>13.77%</td>
+      <td>5.21</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Minnesota Lynx</td>
+      <td>1602.76</td>
+      <td>82</td>
+      <td>Seattle Storm</td>
+      <td>1551.57</td>
+      <td>77</td>
+      <td>63.05%</td>
+      <td>36.95%</td>
+      <td>5.92</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Los Angeles Sparks</td>
+      <td>1436.54</td>
+      <td>82</td>
+      <td>Atlanta Dream</td>
+      <td>1500.66</td>
+      <td>88</td>
+      <td>46.77%</td>
+      <td>53.23%</td>
+      <td>-8.20</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Connecticut Sun</td>
+      <td>1511.66</td>
+      <td>87</td>
+      <td>Dallas Wings</td>
+      <td>1414.56</td>
+      <td>109</td>
+      <td>68.97%</td>
+      <td>31.03%</td>
+      <td>-23.16</td>
+    </tr>
+    <tr>
+      <td>2025-05-27</td>
+      <td>Golden State Valkyries</td>
+      <td>1358.99</td>
+      <td>67</td>
+      <td>@ New York Liberty</td>
+      <td>1636.12</td>
+      <td>95</td>
+      <td>13.77%</td>
+      <td>86.23%</td>
+      <td>-5.21</td>
+    </tr>
+    <tr>
+      <td>2025-05-28</td>
+      <td>Indiana Fever</td>
+      <td>1517.52</td>
+      <td>77</td>
+      <td>@ Washington Mystics</td>
+      <td>1487.44</td>
+      <td>83</td>
+      <td>48.34%</td>
+      <td>51.66%</td>
+      <td>-8.48</td>
+    </tr>
+    <tr>
+      <td>2025-05-28</td>
+      <td>Washington Mystics</td>
+      <td>1487.44</td>
+      <td>83</td>
+      <td>Indiana Fever</td>
+      <td>1517.52</td>
+      <td>77</td>
+      <td>51.66%</td>
+      <td>48.34%</td>
+      <td>8.48</td>
+    </tr>
+    <tr>
+      <td>2025-05-29</td>
+      <td>New York Liberty</td>
+      <td>1641.33</td>
+      <td>82</td>
+      <td>Golden State Valkyries</td>
+      <td>1353.78</td>
+      <td>77</td>
+      <td>86.93%</td>
+      <td>13.07%</td>
+      <td>2.10</td>
+    </tr>
+    <tr>
+      <td>2025-05-29</td>
+      <td>Chicago Sky</td>
+      <td>1406.93</td>
+      <td>97</td>
+      <td>Dallas Wings</td>
+      <td>1437.72</td>
+      <td>92</td>
+      <td>51.56%</td>
+      <td>48.44%</td>
+      <td>7.76</td>
+    </tr>
+    <tr>
+      <td>2025-05-29</td>
+      <td>Golden State Valkyries</td>
+      <td>1353.78</td>
+      <td>77</td>
+      <td>@ New York Liberty</td>
+      <td>1641.33</td>
+      <td>82</td>
+      <td>13.07%</td>
+      <td>86.93%</td>
+      <td>-2.09</td>
+    </tr>
+    <tr>
+      <td>2025-05-29</td>
+      <td>Dallas Wings</td>
+      <td>1437.72</td>
+      <td>92</td>
+      <td>@ Chicago Sky</td>
+      <td>1406.93</td>
+      <td>97</td>
+      <td>48.44%</td>
+      <td>51.56%</td>
+      <td>-7.76</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Seattle Storm</td>
+      <td>1545.66</td>
+      <td>87</td>
+      <td>Atlanta Dream</td>
+      <td>1508.86</td>
+      <td>94</td>
+      <td>61.10%</td>
+      <td>38.90%</td>
+      <td>-11.58</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Phoenix Mercury</td>
+      <td>1495.61</td>
+      <td>71</td>
+      <td>Minnesota Lynx</td>
+      <td>1608.68</td>
+      <td>74</td>
+      <td>39.86%</td>
+      <td>60.14%</td>
+      <td>-4.94</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Las Vegas Aces</td>
+      <td>1579.62</td>
+      <td>96</td>
+      <td>Los Angeles Sparks</td>
+      <td>1428.34</td>
+      <td>81</td>
+      <td>75.22%</td>
+      <td>24.78%</td>
+      <td>6.87</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Indiana Fever</td>
+      <td>1509.04</td>
+      <td>83</td>
+      <td>Connecticut Sun</td>
+      <td>1488.50</td>
+      <td>85</td>
+      <td>58.85%</td>
+      <td>41.15%</td>
+      <td>-5.96</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>New York Liberty</td>
+      <td>1643.43</td>
+      <td>85</td>
+      <td>@ Washington Mystics</td>
+      <td>1495.92</td>
+      <td>63</td>
+      <td>64.78%</td>
+      <td>35.22%</td>
+      <td>11.82</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Atlanta Dream</td>
+      <td>1508.86</td>
+      <td>94</td>
+      <td>@ Seattle Storm</td>
+      <td>1545.66</td>
+      <td>87</td>
+      <td>38.90%</td>
+      <td>61.10%</td>
+      <td>11.57</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Minnesota Lynx</td>
+      <td>1608.68</td>
+      <td>74</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1495.61</td>
+      <td>71</td>
+      <td>60.14%</td>
+      <td>39.86%</td>
+      <td>4.94</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Los Angeles Sparks</td>
+      <td>1428.34</td>
+      <td>81</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1579.62</td>
+      <td>96</td>
+      <td>24.78%</td>
+      <td>75.22%</td>
+      <td>-6.87</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Connecticut Sun</td>
+      <td>1488.50</td>
+      <td>85</td>
+      <td>@ Indiana Fever</td>
+      <td>1509.04</td>
+      <td>83</td>
+      <td>41.15%</td>
+      <td>58.85%</td>
+      <td>5.96</td>
+    </tr>
+    <tr>
+      <td>2025-05-30</td>
+      <td>Washington Mystics</td>
+      <td>1495.92</td>
+      <td>63</td>
+      <td>New York Liberty</td>
+      <td>1643.43</td>
+      <td>85</td>
+      <td>35.22%</td>
+      <td>64.78%</td>
+      <td>-11.83</td>
+    </tr>
+    <tr>
+      <td>2025-05-31</td>
+      <td>Dallas Wings</td>
+      <td>1429.96</td>
+      <td>83</td>
+      <td>Chicago Sky</td>
+      <td>1414.69</td>
+      <td>94</td>
+      <td>58.11%</td>
+      <td>41.89%</td>
+      <td>-13.80</td>
+    </tr>
+    <tr>
+      <td>2025-05-31</td>
+      <td>Chicago Sky</td>
+      <td>1414.69</td>
+      <td>94</td>
+      <td>@ Dallas Wings</td>
+      <td>1429.96</td>
+      <td>83</td>
+      <td>41.89%</td>
+      <td>58.11%</td>
+      <td>13.80</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Golden State Valkyries</td>
+      <td>1351.69</td>
+      <td>75</td>
+      <td>Minnesota Lynx</td>
+      <td>1613.62</td>
+      <td>86</td>
+      <td>21.95%</td>
+      <td>78.05%</td>
+      <td>-5.22</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>New York Liberty</td>
+      <td>1655.25</td>
+      <td>100</td>
+      <td>Connecticut Sun</td>
+      <td>1494.46</td>
+      <td>52</td>
+      <td>76.23%</td>
+      <td>23.77%</td>
+      <td>11.80</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Los Angeles Sparks</td>
+      <td>1421.47</td>
+      <td>80</td>
+      <td>Phoenix Mercury</td>
+      <td>1490.67</td>
+      <td>85</td>
+      <td>46.04%</td>
+      <td>53.96%</td>
+      <td>-7.37</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Las Vegas Aces</td>
+      <td>1586.49</td>
+      <td>75</td>
+      <td>@ Seattle Storm</td>
+      <td>1534.08</td>
+      <td>70</td>
+      <td>51.55%</td>
+      <td>48.45%</td>
+      <td>7.76</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Connecticut Sun</td>
+      <td>1494.46</td>
+      <td>52</td>
+      <td>@ New York Liberty</td>
+      <td>1655.25</td>
+      <td>100</td>
+      <td>23.77%</td>
+      <td>76.23%</td>
+      <td>-11.80</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Phoenix Mercury</td>
+      <td>1490.67</td>
+      <td>85</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1421.47</td>
+      <td>80</td>
+      <td>53.96%</td>
+      <td>46.04%</td>
+      <td>7.37</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Minnesota Lynx</td>
+      <td>1613.62</td>
+      <td>86</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1351.69</td>
+      <td>75</td>
+      <td>78.05%</td>
+      <td>21.95%</td>
+      <td>5.22</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Seattle Storm</td>
+      <td>1534.08</td>
+      <td>70</td>
+      <td>Las Vegas Aces</td>
+      <td>1586.49</td>
+      <td>75</td>
+      <td>48.45%</td>
+      <td>51.55%</td>
+      <td>-7.75</td>
+    </tr>
+    <tr>
+      <td>2025-06-03</td>
+      <td>Dallas Wings</td>
+      <td>1416.16</td>
+      <td>77</td>
+      <td>@ Seattle Storm</td>
+      <td>1526.33</td>
+      <td>83</td>
+      <td>29.45%</td>
+      <td>70.55%</td>
+      <td>-5.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-03</td>
+      <td>Phoenix Mercury</td>
+      <td>1498.04</td>
+      <td>65</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1618.84</td>
+      <td>88</td>
+      <td>28.19%</td>
+      <td>71.81%</td>
+      <td>-9.68</td>
+    </tr>
+    <tr>
+      <td>2025-06-03</td>
+      <td>Washington Mystics</td>
+      <td>1484.09</td>
+      <td>76</td>
+      <td>@ Indiana Fever</td>
+      <td>1503.08</td>
+      <td>85</td>
+      <td>41.37%</td>
+      <td>58.63%</td>
+      <td>-8.88</td>
+    </tr>
+    <tr>
+      <td>2025-06-03</td>
+      <td>Indiana Fever</td>
+      <td>1503.08</td>
+      <td>85</td>
+      <td>Washington Mystics</td>
+      <td>1484.09</td>
+      <td>76</td>
+      <td>58.63%</td>
+      <td>41.37%</td>
+      <td>8.89</td>
+    </tr>
+    <tr>
+      <td>2025-06-03</td>
+      <td>Seattle Storm</td>
+      <td>1526.33</td>
+      <td>83</td>
+      <td>Dallas Wings</td>
+      <td>1416.16</td>
+      <td>77</td>
+      <td>70.55%</td>
+      <td>29.45%</td>
+      <td>5.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-03</td>
+      <td>Minnesota Lynx</td>
+      <td>1618.84</td>
+      <td>88</td>
+      <td>Phoenix Mercury</td>
+      <td>1498.04</td>
+      <td>65</td>
+      <td>71.81%</td>
+      <td>28.19%</td>
+      <td>9.68</td>
+    </tr>
+    <tr>
+      <td>2025-06-05</td>
+      <td>Golden State Valkyries</td>
+      <td>1346.47</td>
+      <td>77</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1488.36</td>
+      <td>86</td>
+      <td>25.80%</td>
+      <td>74.20%</td>
+      <td>-5.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-05</td>
+      <td>New York Liberty</td>
+      <td>1667.05</td>
+      <td>86</td>
+      <td>@ Washington Mystics</td>
+      <td>1475.21</td>
+      <td>78</td>
+      <td>70.37%</td>
+      <td>29.63%</td>
+      <td>6.00</td>
+    </tr>
+    <tr>
+      <td>2025-06-05</td>
+      <td>Washington Mystics</td>
+      <td>1475.21</td>
+      <td>78</td>
+      <td>New York Liberty</td>
+      <td>1667.05</td>
+      <td>86</td>
+      <td>29.63%</td>
+      <td>70.37%</td>
+      <td>-6.00</td>
+    </tr>
+    <tr>
+      <td>2025-06-05</td>
+      <td>Phoenix Mercury</td>
+      <td>1488.36</td>
+      <td>86</td>
+      <td>Golden State Valkyries</td>
+      <td>1346.47</td>
+      <td>77</td>
+      <td>74.20%</td>
+      <td>25.80%</td>
+      <td>5.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-06</td>
+      <td>Dallas Wings</td>
+      <td>1411.00</td>
+      <td>79</td>
+      <td>Los Angeles Sparks</td>
+      <td>1414.10</td>
+      <td>93</td>
+      <td>55.52%</td>
+      <td>44.48%</td>
+      <td>-14.88</td>
+    </tr>
+    <tr>
+      <td>2025-06-06</td>
+      <td>Connecticut Sun</td>
+      <td>1482.66</td>
+      <td>84</td>
+      <td>Atlanta Dream</td>
+      <td>1520.43</td>
+      <td>76</td>
+      <td>50.55%</td>
+      <td>49.45%</td>
+      <td>10.02</td>
+    </tr>
+    <tr>
+      <td>2025-06-06</td>
+      <td>Atlanta Dream</td>
+      <td>1520.43</td>
+      <td>76</td>
+      <td>@ Connecticut Sun</td>
+      <td>1482.66</td>
+      <td>84</td>
+      <td>49.45%</td>
+      <td>50.55%</td>
+      <td>-10.01</td>
+    </tr>
+    <tr>
+      <td>2025-06-06</td>
+      <td>Los Angeles Sparks</td>
+      <td>1414.10</td>
+      <td>93</td>
+      <td>@ Dallas Wings</td>
+      <td>1411.00</td>
+      <td>79</td>
+      <td>44.48%</td>
+      <td>55.52%</td>
+      <td>14.87</td>
+    </tr>
+    <tr>
+      <td>2025-06-07</td>
+      <td>Indiana Fever</td>
+      <td>1511.97</td>
+      <td>79</td>
+      <td>@ Chicago Sky</td>
+      <td>1428.49</td>
+      <td>52</td>
+      <td>56.00%</td>
+      <td>44.00%</td>
+      <td>16.37</td>
+    </tr>
+    <tr>
+      <td>2025-06-07</td>
+      <td>Chicago Sky</td>
+      <td>1428.49</td>
+      <td>52</td>
+      <td>Indiana Fever</td>
+      <td>1511.97</td>
+      <td>79</td>
+      <td>44.00%</td>
+      <td>56.00%</td>
+      <td>-16.37</td>
+    </tr>
+    <tr>
+      <td>2025-06-07</td>
+      <td>Phoenix Mercury</td>
+      <td>1493.90</td>
+      <td>77</td>
+      <td>Seattle Storm</td>
+      <td>1531.49</td>
+      <td>89</td>
+      <td>50.58%</td>
+      <td>49.42%</td>
+      <td>-12.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-07</td>
+      <td>Las Vegas Aces</td>
+      <td>1594.25</td>
+      <td>68</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1340.93</td>
+      <td>95</td>
+      <td>77.18%</td>
+      <td>22.82%</td>
+      <td>-28.72</td>
+    </tr>
+    <tr>
+      <td>2025-06-07</td>
+      <td>Seattle Storm</td>
+      <td>1531.49</td>
+      <td>89</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1493.90</td>
+      <td>77</td>
+      <td>49.42%</td>
+      <td>50.58%</td>
+      <td>12.55</td>
+    </tr>
+    <tr>
+      <td>2025-06-07</td>
+      <td>Golden State Valkyries</td>
+      <td>1340.93</td>
+      <td>95</td>
+      <td>Las Vegas Aces</td>
+      <td>1594.25</td>
+      <td>68</td>
+      <td>22.82%</td>
+      <td>77.18%</td>
+      <td>28.72</td>
+    </tr>
+    <tr>
+      <td>2025-06-08</td>
+      <td>Washington Mystics</td>
+      <td>1469.21</td>
+      <td>104</td>
+      <td>Connecticut Sun</td>
+      <td>1492.68</td>
+      <td>67</td>
+      <td>52.61%</td>
+      <td>47.39%</td>
+      <td>20.64</td>
+    </tr>
+    <tr>
+      <td>2025-06-08</td>
+      <td>Dallas Wings</td>
+      <td>1396.12</td>
+      <td>65</td>
+      <td>Minnesota Lynx</td>
+      <td>1628.52</td>
+      <td>81</td>
+      <td>25.01%</td>
+      <td>74.99%</td>
+      <td>-7.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-08</td>
+      <td>Connecticut Sun</td>
+      <td>1492.68</td>
+      <td>67</td>
+      <td>@ Washington Mystics</td>
+      <td>1469.21</td>
+      <td>104</td>
+      <td>47.39%</td>
+      <td>52.61%</td>
+      <td>-20.64</td>
+    </tr>
+    <tr>
+      <td>2025-06-08</td>
+      <td>Minnesota Lynx</td>
+      <td>1628.52</td>
+      <td>81</td>
+      <td>@ Dallas Wings</td>
+      <td>1396.12</td>
+      <td>65</td>
+      <td>74.99%</td>
+      <td>25.01%</td>
+      <td>7.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-09</td>
+      <td>Los Angeles Sparks</td>
+      <td>1428.97</td>
+      <td>81</td>
+      <td>Golden State Valkyries</td>
+      <td>1369.65</td>
+      <td>89</td>
+      <td>64.13%</td>
+      <td>35.87%</td>
+      <td>-12.98</td>
+    </tr>
+    <tr>
+      <td>2025-06-09</td>
+      <td>Golden State Valkyries</td>
+      <td>1369.65</td>
+      <td>89</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1428.97</td>
+      <td>81</td>
+      <td>35.87%</td>
+      <td>64.13%</td>
+      <td>12.98</td>
+    </tr>
+    <tr>
+      <td>2025-06-10</td>
+      <td>Atlanta Dream</td>
+      <td>1510.42</td>
+      <td>77</td>
+      <td>Indiana Fever</td>
+      <td>1528.34</td>
+      <td>58</td>
+      <td>53.40%</td>
+      <td>46.60%</td>
+      <td>14.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-10</td>
+      <td>Indiana Fever</td>
+      <td>1528.34</td>
+      <td>58</td>
+      <td>@ Atlanta Dream</td>
+      <td>1510.42</td>
+      <td>77</td>
+      <td>46.60%</td>
+      <td>53.40%</td>
+      <td>-14.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-10</td>
+      <td>Chicago Sky</td>
+      <td>1412.12</td>
+      <td>66</td>
+      <td>@ New York Liberty</td>
+      <td>1673.05</td>
+      <td>85</td>
+      <td>14.91%</td>
+      <td>85.09%</td>
+      <td>-4.66</td>
+    </tr>
+    <tr>
+      <td>2025-06-10</td>
+      <td>New York Liberty</td>
+      <td>1673.05</td>
+      <td>85</td>
+      <td>Chicago Sky</td>
+      <td>1412.12</td>
+      <td>66</td>
+      <td>85.09%</td>
+      <td>14.91%</td>
+      <td>4.65</td>
+    </tr>
+    <tr>
+      <td>2025-06-11</td>
+      <td>Minnesota Lynx</td>
+      <td>1635.68</td>
+      <td>84</td>
+      <td>@ Seattle Storm</td>
+      <td>1544.04</td>
+      <td>94</td>
+      <td>57.15%</td>
+      <td>42.85%</td>
+      <td>-12.94</td>
+    </tr>
+    <tr>
+      <td>2025-06-11</td>
+      <td>Dallas Wings</td>
+      <td>1388.96</td>
+      <td>80</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1481.36</td>
+      <td>93</td>
+      <td>31.62%</td>
+      <td>68.38%</td>
+      <td>-8.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-11</td>
+      <td>Los Angeles Sparks</td>
+      <td>1415.99</td>
+      <td>97</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1565.53</td>
+      <td>89</td>
+      <td>24.97%</td>
+      <td>75.03%</td>
+      <td>15.19</td>
+    </tr>
+    <tr>
+      <td>2025-06-11</td>
+      <td>Las Vegas Aces</td>
+      <td>1565.53</td>
+      <td>89</td>
+      <td>Los Angeles Sparks</td>
+      <td>1415.99</td>
+      <td>97</td>
+      <td>75.03%</td>
+      <td>24.97%</td>
+      <td>-15.19</td>
+    </tr>
+    <tr>
+      <td>2025-06-11</td>
+      <td>Seattle Storm</td>
+      <td>1544.04</td>
+      <td>94</td>
+      <td>Minnesota Lynx</td>
+      <td>1635.68</td>
+      <td>84</td>
+      <td>42.85%</td>
+      <td>57.15%</td>
+      <td>12.94</td>
+    </tr>
+    <tr>
+      <td>2025-06-11</td>
+      <td>Phoenix Mercury</td>
+      <td>1481.36</td>
+      <td>93</td>
+      <td>Dallas Wings</td>
+      <td>1388.96</td>
+      <td>80</td>
+      <td>68.38%</td>
+      <td>31.62%</td>
+      <td>8.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-13</td>
+      <td>Chicago Sky</td>
+      <td>1407.46</td>
+      <td>70</td>
+      <td>@ Atlanta Dream</td>
+      <td>1524.96</td>
+      <td>88</td>
+      <td>28.58%</td>
+      <td>71.42%</td>
+      <td>-8.68</td>
+    </tr>
+    <tr>
+      <td>2025-06-13</td>
+      <td>Dallas Wings</td>
+      <td>1380.80</td>
+      <td>84</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1550.34</td>
+      <td>88</td>
+      <td>22.87%</td>
+      <td>77.13%</td>
+      <td>-3.28</td>
+    </tr>
+    <tr>
+      <td>2025-06-13</td>
+      <td>Las Vegas Aces</td>
+      <td>1550.34</td>
+      <td>88</td>
+      <td>Dallas Wings</td>
+      <td>1380.80</td>
+      <td>84</td>
+      <td>77.13%</td>
+      <td>22.87%</td>
+      <td>3.27</td>
+    </tr>
+    <tr>
+      <td>2025-06-13</td>
+      <td>Atlanta Dream</td>
+      <td>1524.96</td>
+      <td>88</td>
+      <td>Chicago Sky</td>
+      <td>1407.46</td>
+      <td>70</td>
+      <td>71.42%</td>
+      <td>28.58%</td>
+      <td>8.68</td>
+    </tr>
+    <tr>
+      <td>2025-06-14</td>
+      <td>New York Liberty</td>
+      <td>1677.70</td>
+      <td>88</td>
+      <td>@ Indiana Fever</td>
+      <td>1513.80</td>
+      <td>102</td>
+      <td>66.91%</td>
+      <td>33.09%</td>
+      <td>-17.92</td>
+    </tr>
+    <tr>
+      <td>2025-06-14</td>
+      <td>Golden State Valkyries</td>
+      <td>1382.63</td>
+      <td>76</td>
+      <td>Seattle Storm</td>
+      <td>1556.98</td>
+      <td>70</td>
+      <td>31.78%</td>
+      <td>68.22%</td>
+      <td>11.97</td>
+    </tr>
+    <tr>
+      <td>2025-06-14</td>
+      <td>Indiana Fever</td>
+      <td>1513.80</td>
+      <td>102</td>
+      <td>New York Liberty</td>
+      <td>1677.70</td>
+      <td>88</td>
+      <td>33.09%</td>
+      <td>66.91%</td>
+      <td>17.92</td>
+    </tr>
+    <tr>
+      <td>2025-06-14</td>
+      <td>Minnesota Lynx</td>
+      <td>1622.74</td>
+      <td>101</td>
+      <td>Los Angeles Sparks</td>
+      <td>1431.18</td>
+      <td>78</td>
+      <td>79.29%</td>
+      <td>20.71%</td>
+      <td>7.11</td>
+    </tr>
+    <tr>
+      <td>2025-06-14</td>
+      <td>Seattle Storm</td>
+      <td>1556.98</td>
+      <td>70</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1382.63</td>
+      <td>76</td>
+      <td>68.22%</td>
+      <td>31.78%</td>
+      <td>-11.97</td>
+    </tr>
+    <tr>
+      <td>2025-06-14</td>
+      <td>Los Angeles Sparks</td>
+      <td>1431.18</td>
+      <td>78</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1622.74</td>
+      <td>101</td>
+      <td>20.71%</td>
+      <td>79.29%</td>
+      <td>-7.11</td>
+    </tr>
+    <tr>
+      <td>2025-06-15</td>
+      <td>Washington Mystics</td>
+      <td>1489.85</td>
+      <td>56</td>
+      <td>Atlanta Dream</td>
+      <td>1533.64</td>
+      <td>89</td>
+      <td>49.69%</td>
+      <td>50.31%</td>
+      <td>-20.44</td>
+    </tr>
+    <tr>
+      <td>2025-06-15</td>
+      <td>Connecticut Sun</td>
+      <td>1472.04</td>
+      <td>66</td>
+      <td>Chicago Sky</td>
+      <td>1398.78</td>
+      <td>78</td>
+      <td>65.95%</td>
+      <td>34.05%</td>
+      <td>-16.36</td>
+    </tr>
+    <tr>
+      <td>2025-06-15</td>
+      <td>Atlanta Dream</td>
+      <td>1533.64</td>
+      <td>89</td>
+      <td>@ Washington Mystics</td>
+      <td>1489.85</td>
+      <td>56</td>
+      <td>50.31%</td>
+      <td>49.69%</td>
+      <td>20.44</td>
+    </tr>
+    <tr>
+      <td>2025-06-15</td>
+      <td>Las Vegas Aces</td>
+      <td>1553.61</td>
+      <td>70</td>
+      <td>Phoenix Mercury</td>
+      <td>1489.52</td>
+      <td>76</td>
+      <td>64.76%</td>
+      <td>35.24%</td>
+      <td>-11.35</td>
+    </tr>
+    <tr>
+      <td>2025-06-15</td>
+      <td>Phoenix Mercury</td>
+      <td>1489.52</td>
+      <td>76</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1553.61</td>
+      <td>70</td>
+      <td>35.24%</td>
+      <td>64.76%</td>
+      <td>11.36</td>
+    </tr>
+    <tr>
+      <td>2025-06-15</td>
+      <td>Chicago Sky</td>
+      <td>1398.78</td>
+      <td>78</td>
+      <td>@ Connecticut Sun</td>
+      <td>1472.04</td>
+      <td>66</td>
+      <td>34.05%</td>
+      <td>65.95%</td>
+      <td>16.36</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Chicago Sky</td>
+      <td>1415.14</td>
+      <td>72</td>
+      <td>Washington Mystics</td>
+      <td>1469.41</td>
+      <td>79</td>
+      <td>48.18%</td>
+      <td>51.82%</td>
+      <td>-9.13</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Dallas Wings</td>
+      <td>1377.52</td>
+      <td>80</td>
+      <td>Golden State Valkyries</td>
+      <td>1394.60</td>
+      <td>71</td>
+      <td>53.53%</td>
+      <td>46.47%</td>
+      <td>9.99</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Golden State Valkyries</td>
+      <td>1394.60</td>
+      <td>71</td>
+      <td>@ Dallas Wings</td>
+      <td>1377.52</td>
+      <td>80</td>
+      <td>46.47%</td>
+      <td>53.53%</td>
+      <td>-9.98</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Atlanta Dream</td>
+      <td>1554.08</td>
+      <td>81</td>
+      <td>@ New York Liberty</td>
+      <td>1659.78</td>
+      <td>86</td>
+      <td>29.99%</td>
+      <td>70.01%</td>
+      <td>-4.80</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Las Vegas Aces</td>
+      <td>1542.26</td>
+      <td>62</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1629.85</td>
+      <td>76</td>
+      <td>32.22%</td>
+      <td>67.78%</td>
+      <td>-8.63</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Washington Mystics</td>
+      <td>1469.41</td>
+      <td>79</td>
+      <td>@ Chicago Sky</td>
+      <td>1415.14</td>
+      <td>72</td>
+      <td>51.82%</td>
+      <td>48.18%</td>
+      <td>9.13</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Seattle Storm</td>
+      <td>1545.01</td>
+      <td>98</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1424.07</td>
+      <td>67</td>
+      <td>61.22%</td>
+      <td>38.78%</td>
+      <td>15.46</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Connecticut Sun</td>
+      <td>1455.68</td>
+      <td>71</td>
+      <td>@ Indiana Fever</td>
+      <td>1531.72</td>
+      <td>88</td>
+      <td>33.69%</td>
+      <td>66.31%</td>
+      <td>-9.95</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Los Angeles Sparks</td>
+      <td>1424.07</td>
+      <td>67</td>
+      <td>Seattle Storm</td>
+      <td>1545.01</td>
+      <td>98</td>
+      <td>38.78%</td>
+      <td>61.22%</td>
+      <td>-15.46</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Minnesota Lynx</td>
+      <td>1629.85</td>
+      <td>76</td>
+      <td>Las Vegas Aces</td>
+      <td>1542.26</td>
+      <td>62</td>
+      <td>67.78%</td>
+      <td>32.22%</td>
+      <td>8.63</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>New York Liberty</td>
+      <td>1659.78</td>
+      <td>86</td>
+      <td>Atlanta Dream</td>
+      <td>1554.08</td>
+      <td>81</td>
+      <td>70.01%</td>
+      <td>29.99%</td>
+      <td>4.80</td>
+    </tr>
+    <tr>
+      <td>2025-06-17</td>
+      <td>Indiana Fever</td>
+      <td>1531.72</td>
+      <td>88</td>
+      <td>Connecticut Sun</td>
+      <td>1455.68</td>
+      <td>71</td>
+      <td>66.31%</td>
+      <td>33.69%</td>
+      <td>9.95</td>
+    </tr>
+    <tr>
+      <td>2025-06-18</td>
+      <td>Phoenix Mercury</td>
+      <td>1500.88</td>
+      <td>83</td>
+      <td>@ Connecticut Sun</td>
+      <td>1445.73</td>
+      <td>75</td>
+      <td>51.95%</td>
+      <td>48.05%</td>
+      <td>9.73</td>
+    </tr>
+    <tr>
+      <td>2025-06-18</td>
+      <td>Connecticut Sun</td>
+      <td>1445.73</td>
+      <td>75</td>
+      <td>Phoenix Mercury</td>
+      <td>1500.88</td>
+      <td>83</td>
+      <td>48.05%</td>
+      <td>51.95%</td>
+      <td>-9.73</td>
+    </tr>
+    <tr>
+      <td>2025-06-19</td>
+      <td>New York Liberty</td>
+      <td>1664.58</td>
+      <td>81</td>
+      <td>Phoenix Mercury</td>
+      <td>1510.61</td>
+      <td>89</td>
+      <td>75.51%</td>
+      <td>24.49%</td>
+      <td>-15.29</td>
+    </tr>
+    <tr>
+      <td>2025-06-19</td>
+      <td>Golden State Valkyries</td>
+      <td>1384.62</td>
+      <td>88</td>
+      <td>Indiana Fever</td>
+      <td>1541.67</td>
+      <td>77</td>
+      <td>33.97%</td>
+      <td>66.03%</td>
+      <td>15.68</td>
+    </tr>
+    <tr>
+      <td>2025-06-19</td>
+      <td>Phoenix Mercury</td>
+      <td>1510.61</td>
+      <td>89</td>
+      <td>@ New York Liberty</td>
+      <td>1664.58</td>
+      <td>81</td>
+      <td>24.49%</td>
+      <td>75.51%</td>
+      <td>15.29</td>
+    </tr>
+    <tr>
+      <td>2025-06-19</td>
+      <td>Indiana Fever</td>
+      <td>1541.67</td>
+      <td>77</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1384.62</td>
+      <td>88</td>
+      <td>66.03%</td>
+      <td>33.97%</td>
+      <td>-15.68</td>
+    </tr>
+    <tr>
+      <td>2025-06-20</td>
+      <td>Seattle Storm</td>
+      <td>1560.47</td>
+      <td>90</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1533.63</td>
+      <td>83</td>
+      <td>47.88%</td>
+      <td>52.12%</td>
+      <td>9.87</td>
+    </tr>
+    <tr>
+      <td>2025-06-20</td>
+      <td>Dallas Wings</td>
+      <td>1387.51</td>
+      <td>86</td>
+      <td>@ Connecticut Sun</td>
+      <td>1436.00</td>
+      <td>83</td>
+      <td>37.32%</td>
+      <td>62.68%</td>
+      <td>7.77</td>
+    </tr>
+    <tr>
+      <td>2025-06-20</td>
+      <td>Washington Mystics</td>
+      <td>1478.54</td>
+      <td>91</td>
+      <td>@ Atlanta Dream</td>
+      <td>1549.28</td>
+      <td>92</td>
+      <td>34.37%</td>
+      <td>65.63%</td>
+      <td>-2.46</td>
+    </tr>
+    <tr>
+      <td>2025-06-20</td>
+      <td>Connecticut Sun</td>
+      <td>1436.00</td>
+      <td>83</td>
+      <td>Dallas Wings</td>
+      <td>1387.51</td>
+      <td>86</td>
+      <td>62.68%</td>
+      <td>37.32%</td>
+      <td>-7.77</td>
+    </tr>
+    <tr>
+      <td>2025-06-20</td>
+      <td>Atlanta Dream</td>
+      <td>1549.28</td>
+      <td>92</td>
+      <td>Washington Mystics</td>
+      <td>1478.54</td>
+      <td>91</td>
+      <td>65.63%</td>
+      <td>34.37%</td>
+      <td>2.46</td>
+    </tr>
+    <tr>
+      <td>2025-06-20</td>
+      <td>Las Vegas Aces</td>
+      <td>1533.63</td>
+      <td>83</td>
+      <td>Seattle Storm</td>
+      <td>1560.47</td>
+      <td>90</td>
+      <td>52.12%</td>
+      <td>47.88%</td>
+      <td>-9.88</td>
+    </tr>
+    <tr>
+      <td>2025-06-21</td>
+      <td>Los Angeles Sparks</td>
+      <td>1408.61</td>
+      <td>66</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1638.48</td>
+      <td>82</td>
+      <td>17.32%</td>
+      <td>82.68%</td>
+      <td>-4.96</td>
+    </tr>
+    <tr>
+      <td>2025-06-21</td>
+      <td>Chicago Sky</td>
+      <td>1406.01</td>
+      <td>86</td>
+      <td>Phoenix Mercury</td>
+      <td>1525.90</td>
+      <td>107</td>
+      <td>38.92%</td>
+      <td>61.08%</td>
+      <td>-12.77</td>
+    </tr>
+    <tr>
+      <td>2025-06-21</td>
+      <td>Phoenix Mercury</td>
+      <td>1525.90</td>
+      <td>107</td>
+      <td>@ Chicago Sky</td>
+      <td>1406.01</td>
+      <td>86</td>
+      <td>61.08%</td>
+      <td>38.92%</td>
+      <td>12.77</td>
+    </tr>
+    <tr>
+      <td>2025-06-21</td>
+      <td>Minnesota Lynx</td>
+      <td>1638.48</td>
+      <td>82</td>
+      <td>Los Angeles Sparks</td>
+      <td>1408.61</td>
+      <td>66</td>
+      <td>82.68%</td>
+      <td>17.32%</td>
+      <td>4.97</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Indiana Fever</td>
+      <td>1525.99</td>
+      <td>81</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1523.75</td>
+      <td>89</td>
+      <td>44.36%</td>
+      <td>55.64%</td>
+      <td>-8.99</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Chicago Sky</td>
+      <td>1393.24</td>
+      <td>80</td>
+      <td>@ Atlanta Dream</td>
+      <td>1551.74</td>
+      <td>93</td>
+      <td>24.01%</td>
+      <td>75.99%</td>
+      <td>-6.20</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Washington Mystics</td>
+      <td>1476.08</td>
+      <td>91</td>
+      <td>Dallas Wings</td>
+      <td>1395.28</td>
+      <td>88</td>
+      <td>66.92%</td>
+      <td>33.08%</td>
+      <td>4.10</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Atlanta Dream</td>
+      <td>1551.74</td>
+      <td>93</td>
+      <td>Chicago Sky</td>
+      <td>1393.24</td>
+      <td>80</td>
+      <td>75.99%</td>
+      <td>24.01%</td>
+      <td>6.20</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Connecticut Sun</td>
+      <td>1428.23</td>
+      <td>63</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1400.30</td>
+      <td>87</td>
+      <td>48.03%</td>
+      <td>51.97%</td>
+      <td>-16.85</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Golden State Valkyries</td>
+      <td>1400.30</td>
+      <td>87</td>
+      <td>Connecticut Sun</td>
+      <td>1428.23</td>
+      <td>63</td>
+      <td>51.97%</td>
+      <td>48.03%</td>
+      <td>16.84</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Las Vegas Aces</td>
+      <td>1523.75</td>
+      <td>89</td>
+      <td>Indiana Fever</td>
+      <td>1525.99</td>
+      <td>81</td>
+      <td>55.64%</td>
+      <td>44.36%</td>
+      <td>8.98</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Dallas Wings</td>
+      <td>1395.28</td>
+      <td>88</td>
+      <td>@ Washington Mystics</td>
+      <td>1476.08</td>
+      <td>91</td>
+      <td>33.08%</td>
+      <td>66.92%</td>
+      <td>-4.10</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>New York Liberty</td>
+      <td>1649.29</td>
+      <td>79</td>
+      <td>@ Seattle Storm</td>
+      <td>1570.34</td>
+      <td>89</td>
+      <td>55.35%</td>
+      <td>44.65%</td>
+      <td>-12.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-22</td>
+      <td>Seattle Storm</td>
+      <td>1570.34</td>
+      <td>89</td>
+      <td>New York Liberty</td>
+      <td>1649.29</td>
+      <td>79</td>
+      <td>44.65%</td>
+      <td>55.35%</td>
+      <td>12.54</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Minnesota Lynx</td>
+      <td>1643.45</td>
+      <td>64</td>
+      <td>@ Washington Mystics</td>
+      <td>1480.18</td>
+      <td>68</td>
+      <td>66.83%</td>
+      <td>33.17%</td>
+      <td>-9.57</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Atlanta Dream</td>
+      <td>1557.94</td>
+      <td>55</td>
+      <td>@ Dallas Wings</td>
+      <td>1391.18</td>
+      <td>68</td>
+      <td>67.27%</td>
+      <td>32.73%</td>
+      <td>-17.37</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Los Angeles Sparks</td>
+      <td>1403.65</td>
+      <td>86</td>
+      <td>@ Chicago Sky</td>
+      <td>1387.04</td>
+      <td>97</td>
+      <td>46.41%</td>
+      <td>53.59%</td>
+      <td>-11.02</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Indiana Fever</td>
+      <td>1517.00</td>
+      <td>94</td>
+      <td>@ Seattle Storm</td>
+      <td>1582.88</td>
+      <td>86</td>
+      <td>35.01%</td>
+      <td>64.99%</td>
+      <td>13.17</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Washington Mystics</td>
+      <td>1480.18</td>
+      <td>68</td>
+      <td>Minnesota Lynx</td>
+      <td>1643.45</td>
+      <td>64</td>
+      <td>33.17%</td>
+      <td>66.83%</td>
+      <td>9.57</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Chicago Sky</td>
+      <td>1387.04</td>
+      <td>97</td>
+      <td>Los Angeles Sparks</td>
+      <td>1403.65</td>
+      <td>86</td>
+      <td>53.59%</td>
+      <td>46.41%</td>
+      <td>11.02</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Dallas Wings</td>
+      <td>1391.18</td>
+      <td>68</td>
+      <td>Atlanta Dream</td>
+      <td>1557.94</td>
+      <td>55</td>
+      <td>32.73%</td>
+      <td>67.27%</td>
+      <td>17.36</td>
+    </tr>
+    <tr>
+      <td>2025-06-24</td>
+      <td>Seattle Storm</td>
+      <td>1582.88</td>
+      <td>86</td>
+      <td>Indiana Fever</td>
+      <td>1517.00</td>
+      <td>94</td>
+      <td>64.99%</td>
+      <td>35.01%</td>
+      <td>-13.16</td>
+    </tr>
+    <tr>
+      <td>2025-06-25</td>
+      <td>Connecticut Sun</td>
+      <td>1411.38</td>
+      <td>59</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1532.73</td>
+      <td>85</td>
+      <td>28.13%</td>
+      <td>71.87%</td>
+      <td>-10.27</td>
+    </tr>
+    <tr>
+      <td>2025-06-25</td>
+      <td>Golden State Valkyries</td>
+      <td>1417.14</td>
+      <td>78</td>
+      <td>New York Liberty</td>
+      <td>1636.75</td>
+      <td>81</td>
+      <td>26.41%</td>
+      <td>73.59%</td>
+      <td>-3.27</td>
+    </tr>
+    <tr>
+      <td>2025-06-25</td>
+      <td>Las Vegas Aces</td>
+      <td>1532.73</td>
+      <td>85</td>
+      <td>Connecticut Sun</td>
+      <td>1411.38</td>
+      <td>59</td>
+      <td>71.87%</td>
+      <td>28.13%</td>
+      <td>10.27</td>
+    </tr>
+    <tr>
+      <td>2025-06-25</td>
+      <td>New York Liberty</td>
+      <td>1636.75</td>
+      <td>81</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1417.14</td>
+      <td>78</td>
+      <td>73.59%</td>
+      <td>26.41%</td>
+      <td>3.28</td>
+    </tr>
+    <tr>
+      <td>2025-06-26</td>
+      <td>Los Angeles Sparks</td>
+      <td>1392.63</td>
+      <td>85</td>
+      <td>@ Indiana Fever</td>
+      <td>1530.17</td>
+      <td>75</td>
+      <td>26.28%</td>
+      <td>73.72%</td>
+      <td>16.69</td>
+    </tr>
+    <tr>
+      <td>2025-06-26</td>
+      <td>Washington Mystics</td>
+      <td>1489.75</td>
+      <td>94</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1543.00</td>
+      <td>83</td>
+      <td>36.68%</td>
+      <td>63.32%</td>
+      <td>15.04</td>
+    </tr>
+    <tr>
+      <td>2025-06-26</td>
+      <td>Indiana Fever</td>
+      <td>1530.17</td>
+      <td>75</td>
+      <td>Los Angeles Sparks</td>
+      <td>1392.63</td>
+      <td>85</td>
+      <td>73.72%</td>
+      <td>26.28%</td>
+      <td>-16.69</td>
+    </tr>
+    <tr>
+      <td>2025-06-26</td>
+      <td>Las Vegas Aces</td>
+      <td>1543.00</td>
+      <td>83</td>
+      <td>Washington Mystics</td>
+      <td>1489.75</td>
+      <td>94</td>
+      <td>63.32%</td>
+      <td>36.68%</td>
+      <td>-15.03</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Seattle Storm</td>
+      <td>1569.72</td>
+      <td>97</td>
+      <td>Connecticut Sun</td>
+      <td>1401.11</td>
+      <td>81</td>
+      <td>77.03%</td>
+      <td>22.97%</td>
+      <td>6.57</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Phoenix Mercury</td>
+      <td>1538.67</td>
+      <td>106</td>
+      <td>New York Liberty</td>
+      <td>1640.03</td>
+      <td>91</td>
+      <td>41.49%</td>
+      <td>58.51%</td>
+      <td>16.23</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Atlanta Dream</td>
+      <td>1540.57</td>
+      <td>92</td>
+      <td>Minnesota Lynx</td>
+      <td>1633.88</td>
+      <td>96</td>
+      <td>42.62%</td>
+      <td>57.38%</td>
+      <td>-6.10</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Dallas Wings</td>
+      <td>1408.54</td>
+      <td>86</td>
+      <td>Indiana Fever</td>
+      <td>1513.48</td>
+      <td>94</td>
+      <td>40.99%</td>
+      <td>59.01%</td>
+      <td>-8.30</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Connecticut Sun</td>
+      <td>1401.11</td>
+      <td>81</td>
+      <td>@ Seattle Storm</td>
+      <td>1569.72</td>
+      <td>97</td>
+      <td>22.97%</td>
+      <td>77.03%</td>
+      <td>-6.58</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Chicago Sky</td>
+      <td>1398.06</td>
+      <td>78</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1413.87</td>
+      <td>83</td>
+      <td>41.81%</td>
+      <td>58.19%</td>
+      <td>-6.69</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Indiana Fever</td>
+      <td>1513.48</td>
+      <td>94</td>
+      <td>@ Dallas Wings</td>
+      <td>1408.54</td>
+      <td>86</td>
+      <td>59.01%</td>
+      <td>40.99%</td>
+      <td>8.30</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Minnesota Lynx</td>
+      <td>1633.88</td>
+      <td>96</td>
+      <td>@ Atlanta Dream</td>
+      <td>1540.57</td>
+      <td>92</td>
+      <td>57.38%</td>
+      <td>42.62%</td>
+      <td>6.10</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>Golden State Valkyries</td>
+      <td>1413.87</td>
+      <td>83</td>
+      <td>Chicago Sky</td>
+      <td>1398.06</td>
+      <td>78</td>
+      <td>58.19%</td>
+      <td>41.81%</td>
+      <td>6.69</td>
+    </tr>
+    <tr>
+      <td>2025-06-27</td>
+      <td>New York Liberty</td>
+      <td>1640.03</td>
+      <td>91</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1538.67</td>
+      <td>106</td>
+      <td>58.51%</td>
+      <td>41.49%</td>
+      <td>-16.23</td>
+    </tr>
+    <tr>
+      <td>2025-06-28</td>
+      <td>Washington Mystics</td>
+      <td>1504.79</td>
+      <td>71</td>
+      <td>@ Dallas Wings</td>
+      <td>1400.24</td>
+      <td>79</td>
+      <td>58.96%</td>
+      <td>41.04%</td>
+      <td>-11.94</td>
+    </tr>
+    <tr>
+      <td>2025-06-28</td>
+      <td>Dallas Wings</td>
+      <td>1400.24</td>
+      <td>79</td>
+      <td>Washington Mystics</td>
+      <td>1504.79</td>
+      <td>71</td>
+      <td>41.04%</td>
+      <td>58.96%</td>
+      <td>11.94</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Seattle Storm</td>
+      <td>1576.29</td>
+      <td>57</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1420.56</td>
+      <td>84</td>
+      <td>65.86%</td>
+      <td>34.14%</td>
+      <td>-24.50</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>New York Liberty</td>
+      <td>1623.80</td>
+      <td>81</td>
+      <td>@ Atlanta Dream</td>
+      <td>1534.47</td>
+      <td>90</td>
+      <td>56.82%</td>
+      <td>43.18%</td>
+      <td>-12.20</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Phoenix Mercury</td>
+      <td>1554.90</td>
+      <td>81</td>
+      <td>Las Vegas Aces</td>
+      <td>1527.97</td>
+      <td>84</td>
+      <td>59.74%</td>
+      <td>40.26%</td>
+      <td>-7.41</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Minnesota Lynx</td>
+      <td>1639.98</td>
+      <td>102</td>
+      <td>Connecticut Sun</td>
+      <td>1394.53</td>
+      <td>63</td>
+      <td>83.92%</td>
+      <td>16.08%</td>
+      <td>7.19</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Los Angeles Sparks</td>
+      <td>1409.32</td>
+      <td>85</td>
+      <td>Chicago Sky</td>
+      <td>1391.37</td>
+      <td>92</td>
+      <td>58.49%</td>
+      <td>41.51%</td>
+      <td>-11.08</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Golden State Valkyries</td>
+      <td>1420.56</td>
+      <td>84</td>
+      <td>Seattle Storm</td>
+      <td>1576.29</td>
+      <td>57</td>
+      <td>34.14%</td>
+      <td>65.86%</td>
+      <td>24.50</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Atlanta Dream</td>
+      <td>1534.47</td>
+      <td>90</td>
+      <td>New York Liberty</td>
+      <td>1623.80</td>
+      <td>81</td>
+      <td>43.18%</td>
+      <td>56.82%</td>
+      <td>12.21</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Connecticut Sun</td>
+      <td>1394.53</td>
+      <td>63</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1639.98</td>
+      <td>102</td>
+      <td>16.08%</td>
+      <td>83.92%</td>
+      <td>-7.19</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Chicago Sky</td>
+      <td>1391.37</td>
+      <td>92</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1409.32</td>
+      <td>85</td>
+      <td>41.51%</td>
+      <td>58.49%</td>
+      <td>11.08</td>
+    </tr>
+    <tr>
+      <td>2025-06-29</td>
+      <td>Las Vegas Aces</td>
+      <td>1527.97</td>
+      <td>84</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1554.90</td>
+      <td>81</td>
+      <td>40.26%</td>
+      <td>59.74%</td>
+      <td>7.40</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Minnesota Lynx</td>
+      <td>1647.17</td>
+      <td>92</td>
+      <td>Washington Mystics</td>
+      <td>1492.85</td>
+      <td>75</td>
+      <td>75.54%</td>
+      <td>24.46%</td>
+      <td>7.22</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Indiana Fever</td>
+      <td>1521.78</td>
+      <td>81</td>
+      <td>Las Vegas Aces</td>
+      <td>1535.37</td>
+      <td>54</td>
+      <td>54.02%</td>
+      <td>45.98%</td>
+      <td>17.10</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Dallas Wings</td>
+      <td>1412.18</td>
+      <td>98</td>
+      <td>Phoenix Mercury</td>
+      <td>1547.49</td>
+      <td>89</td>
+      <td>36.83%</td>
+      <td>63.17%</td>
+      <td>13.57</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Atlanta Dream</td>
+      <td>1546.68</td>
+      <td>79</td>
+      <td>Seattle Storm</td>
+      <td>1551.79</td>
+      <td>80</td>
+      <td>55.23%</td>
+      <td>44.77%</td>
+      <td>-3.96</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Washington Mystics</td>
+      <td>1492.85</td>
+      <td>75</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1647.17</td>
+      <td>92</td>
+      <td>24.46%</td>
+      <td>75.54%</td>
+      <td>-7.22</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Seattle Storm</td>
+      <td>1551.79</td>
+      <td>80</td>
+      <td>@ Atlanta Dream</td>
+      <td>1546.68</td>
+      <td>79</td>
+      <td>44.77%</td>
+      <td>55.23%</td>
+      <td>3.96</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Phoenix Mercury</td>
+      <td>1547.49</td>
+      <td>89</td>
+      <td>@ Dallas Wings</td>
+      <td>1412.18</td>
+      <td>98</td>
+      <td>63.17%</td>
+      <td>36.83%</td>
+      <td>-13.57</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Los Angeles Sparks</td>
+      <td>1398.24</td>
+      <td>79</td>
+      <td>@ New York Liberty</td>
+      <td>1611.60</td>
+      <td>89</td>
+      <td>18.73%</td>
+      <td>81.27%</td>
+      <td>-4.24</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>New York Liberty</td>
+      <td>1611.60</td>
+      <td>89</td>
+      <td>Los Angeles Sparks</td>
+      <td>1398.24</td>
+      <td>79</td>
+      <td>81.27%</td>
+      <td>18.73%</td>
+      <td>4.24</td>
+    </tr>
+    <tr>
+      <td>2025-07-03</td>
+      <td>Las Vegas Aces</td>
+      <td>1535.37</td>
+      <td>54</td>
+      <td>@ Indiana Fever</td>
+      <td>1521.78</td>
+      <td>81</td>
+      <td>45.98%</td>
+      <td>54.02%</td>
+      <td>-17.10</td>
+    </tr>
+    <tr>
+      <td>2025-07-05</td>
+      <td>Minnesota Lynx</td>
+      <td>1654.39</td>
+      <td>82</td>
+      <td>Golden State Valkyries</td>
+      <td>1445.06</td>
+      <td>71</td>
+      <td>80.91%</td>
+      <td>19.09%</td>
+      <td>4.53</td>
+    </tr>
+    <tr>
+      <td>2025-07-05</td>
+      <td>Golden State Valkyries</td>
+      <td>1445.06</td>
+      <td>71</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1654.39</td>
+      <td>82</td>
+      <td>19.09%</td>
+      <td>80.91%</td>
+      <td>-4.53</td>
+    </tr>
+    <tr>
+      <td>2025-07-05</td>
+      <td>Indiana Fever</td>
+      <td>1538.88</td>
+      <td>87</td>
+      <td>Los Angeles Sparks</td>
+      <td>1394.00</td>
+      <td>89</td>
+      <td>74.53%</td>
+      <td>25.47%</td>
+      <td>-7.54</td>
+    </tr>
+    <tr>
+      <td>2025-07-05</td>
+      <td>Los Angeles Sparks</td>
+      <td>1394.00</td>
+      <td>89</td>
+      <td>@ Indiana Fever</td>
+      <td>1538.88</td>
+      <td>87</td>
+      <td>25.47%</td>
+      <td>74.53%</td>
+      <td>7.54</td>
+    </tr>
+    <tr>
+      <td>2025-07-06</td>
+      <td>Connecticut Sun</td>
+      <td>1387.34</td>
+      <td>68</td>
+      <td>Las Vegas Aces</td>
+      <td>1518.27</td>
+      <td>86</td>
+      <td>37.42%</td>
+      <td>62.58%</td>
+      <td>-11.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-06</td>
+      <td>Minnesota Lynx</td>
+      <td>1658.92</td>
+      <td>80</td>
+      <td>Chicago Sky</td>
+      <td>1402.45</td>
+      <td>75</td>
+      <td>84.76%</td>
+      <td>15.24%</td>
+      <td>2.44</td>
+    </tr>
+    <tr>
+      <td>2025-07-06</td>
+      <td>Chicago Sky</td>
+      <td>1402.45</td>
+      <td>75</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1658.92</td>
+      <td>80</td>
+      <td>15.24%</td>
+      <td>84.76%</td>
+      <td>-2.44</td>
+    </tr>
+    <tr>
+      <td>2025-07-06</td>
+      <td>New York Liberty</td>
+      <td>1615.84</td>
+      <td>70</td>
+      <td>Seattle Storm</td>
+      <td>1555.75</td>
+      <td>79</td>
+      <td>64.23%</td>
+      <td>35.77%</td>
+      <td>-13.80</td>
+    </tr>
+    <tr>
+      <td>2025-07-06</td>
+      <td>Las Vegas Aces</td>
+      <td>1518.27</td>
+      <td>86</td>
+      <td>@ Connecticut Sun</td>
+      <td>1387.34</td>
+      <td>68</td>
+      <td>62.58%</td>
+      <td>37.42%</td>
+      <td>11.37</td>
+    </tr>
+    <tr>
+      <td>2025-07-06</td>
+      <td>Seattle Storm</td>
+      <td>1555.75</td>
+      <td>79</td>
+      <td>@ New York Liberty</td>
+      <td>1615.84</td>
+      <td>70</td>
+      <td>35.77%</td>
+      <td>64.23%</td>
+      <td>13.79</td>
+    </tr>
+    <tr>
+      <td>2025-07-07</td>
+      <td>Golden State Valkyries</td>
+      <td>1440.53</td>
+      <td>81</td>
+      <td>@ Atlanta Dream</td>
+      <td>1542.72</td>
+      <td>90</td>
+      <td>30.41%</td>
+      <td>69.59%</td>
+      <td>-6.53</td>
+    </tr>
+    <tr>
+      <td>2025-07-07</td>
+      <td>Atlanta Dream</td>
+      <td>1542.72</td>
+      <td>90</td>
+      <td>Golden State Valkyries</td>
+      <td>1440.53</td>
+      <td>81</td>
+      <td>69.59%</td>
+      <td>30.41%</td>
+      <td>6.53</td>
+    </tr>
+    <tr>
+      <td>2025-07-07</td>
+      <td>Phoenix Mercury</td>
+      <td>1533.92</td>
+      <td>102</td>
+      <td>Dallas Wings</td>
+      <td>1425.75</td>
+      <td>72</td>
+      <td>70.31%</td>
+      <td>29.69%</td>
+      <td>11.64</td>
+    </tr>
+    <tr>
+      <td>2025-07-07</td>
+      <td>Dallas Wings</td>
+      <td>1425.75</td>
+      <td>72</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1533.92</td>
+      <td>102</td>
+      <td>29.69%</td>
+      <td>70.31%</td>
+      <td>-11.64</td>
+    </tr>
+    <tr>
+      <td>2025-07-08</td>
+      <td>New York Liberty</td>
+      <td>1602.04</td>
+      <td>87</td>
+      <td>Las Vegas Aces</td>
+      <td>1529.64</td>
+      <td>78</td>
+      <td>65.84%</td>
+      <td>34.16%</td>
+      <td>7.34</td>
+    </tr>
+    <tr>
+      <td>2025-07-08</td>
+      <td>Chicago Sky</td>
+      <td>1400.01</td>
+      <td>79</td>
+      <td>@ Washington Mystics</td>
+      <td>1485.63</td>
+      <td>81</td>
+      <td>32.47%</td>
+      <td>67.53%</td>
+      <td>-3.29</td>
+    </tr>
+    <tr>
+      <td>2025-07-08</td>
+      <td>Washington Mystics</td>
+      <td>1485.63</td>
+      <td>81</td>
+      <td>Chicago Sky</td>
+      <td>1400.01</td>
+      <td>79</td>
+      <td>67.53%</td>
+      <td>32.47%</td>
+      <td>3.28</td>
+    </tr>
+    <tr>
+      <td>2025-07-08</td>
+      <td>Las Vegas Aces</td>
+      <td>1529.64</td>
+      <td>78</td>
+      <td>@ New York Liberty</td>
+      <td>1602.04</td>
+      <td>87</td>
+      <td>34.16%</td>
+      <td>65.84%</td>
+      <td>-7.34</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Phoenix Mercury</td>
+      <td>1545.56</td>
+      <td>79</td>
+      <td>Minnesota Lynx</td>
+      <td>1661.36</td>
+      <td>71</td>
+      <td>39.48%</td>
+      <td>60.52%</td>
+      <td>12.26</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Connecticut Sun</td>
+      <td>1375.98</td>
+      <td>93</td>
+      <td>Seattle Storm</td>
+      <td>1569.54</td>
+      <td>83</td>
+      <td>29.43%</td>
+      <td>70.57%</td>
+      <td>15.98</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Indiana Fever</td>
+      <td>1531.34</td>
+      <td>61</td>
+      <td>Golden State Valkyries</td>
+      <td>1434.00</td>
+      <td>80</td>
+      <td>68.99%</td>
+      <td>31.01%</td>
+      <td>-21.54</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Minnesota Lynx</td>
+      <td>1661.36</td>
+      <td>71</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1545.56</td>
+      <td>79</td>
+      <td>60.52%</td>
+      <td>39.48%</td>
+      <td>-12.26</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Golden State Valkyries</td>
+      <td>1434.00</td>
+      <td>80</td>
+      <td>@ Indiana Fever</td>
+      <td>1531.34</td>
+      <td>61</td>
+      <td>31.01%</td>
+      <td>68.99%</td>
+      <td>21.53</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Seattle Storm</td>
+      <td>1569.54</td>
+      <td>83</td>
+      <td>@ Connecticut Sun</td>
+      <td>1375.98</td>
+      <td>93</td>
+      <td>70.57%</td>
+      <td>29.43%</td>
+      <td>-15.98</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Dallas Wings</td>
+      <td>1414.11</td>
+      <td>76</td>
+      <td>@ Chicago Sky</td>
+      <td>1396.72</td>
+      <td>87</td>
+      <td>46.52%</td>
+      <td>53.48%</td>
+      <td>-11.05</td>
+    </tr>
+    <tr>
+      <td>2025-07-09</td>
+      <td>Chicago Sky</td>
+      <td>1396.72</td>
+      <td>87</td>
+      <td>Dallas Wings</td>
+      <td>1414.11</td>
+      <td>76</td>
+      <td>53.48%</td>
+      <td>46.52%</td>
+      <td>11.05</td>
+    </tr>
+    <tr>
+      <td>2025-07-10</td>
+      <td>Los Angeles Sparks</td>
+      <td>1401.54</td>
+      <td>82</td>
+      <td>Minnesota Lynx</td>
+      <td>1649.10</td>
+      <td>91</td>
+      <td>23.41%</td>
+      <td>76.59%</td>
+      <td>-5.02</td>
+    </tr>
+    <tr>
+      <td>2025-07-10</td>
+      <td>Washington Mystics</td>
+      <td>1488.91</td>
+      <td>70</td>
+      <td>Las Vegas Aces</td>
+      <td>1522.30</td>
+      <td>68</td>
+      <td>51.18%</td>
+      <td>48.82%</td>
+      <td>4.95</td>
+    </tr>
+    <tr>
+      <td>2025-07-10</td>
+      <td>Las Vegas Aces</td>
+      <td>1522.30</td>
+      <td>68</td>
+      <td>@ Washington Mystics</td>
+      <td>1488.91</td>
+      <td>70</td>
+      <td>48.82%</td>
+      <td>51.18%</td>
+      <td>-4.94</td>
+    </tr>
+    <tr>
+      <td>2025-07-10</td>
+      <td>Minnesota Lynx</td>
+      <td>1649.10</td>
+      <td>91</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1401.54</td>
+      <td>82</td>
+      <td>76.59%</td>
+      <td>23.41%</td>
+      <td>5.03</td>
+    </tr>
+    <tr>
+      <td>2025-07-11</td>
+      <td>Connecticut Sun</td>
+      <td>1391.96</td>
+      <td>65</td>
+      <td>@ Seattle Storm</td>
+      <td>1553.56</td>
+      <td>79</td>
+      <td>23.69%</td>
+      <td>76.31%</td>
+      <td>-6.35</td>
+    </tr>
+    <tr>
+      <td>2025-07-11</td>
+      <td>Seattle Storm</td>
+      <td>1553.56</td>
+      <td>79</td>
+      <td>Connecticut Sun</td>
+      <td>1391.96</td>
+      <td>65</td>
+      <td>76.31%</td>
+      <td>23.69%</td>
+      <td>6.35</td>
+    </tr>
+    <tr>
+      <td>2025-07-11</td>
+      <td>Indiana Fever</td>
+      <td>1509.80</td>
+      <td>99</td>
+      <td>Atlanta Dream</td>
+      <td>1549.25</td>
+      <td>82</td>
+      <td>50.31%</td>
+      <td>49.69%</td>
+      <td>14.67</td>
+    </tr>
+    <tr>
+      <td>2025-07-11</td>
+      <td>Atlanta Dream</td>
+      <td>1549.25</td>
+      <td>82</td>
+      <td>@ Indiana Fever</td>
+      <td>1509.80</td>
+      <td>99</td>
+      <td>49.69%</td>
+      <td>50.31%</td>
+      <td>-14.67</td>
+    </tr>
+    <tr>
+      <td>2025-07-12</td>
+      <td>Minnesota Lynx</td>
+      <td>1654.13</td>
+      <td>81</td>
+      <td>@ Chicago Sky</td>
+      <td>1407.77</td>
+      <td>87</td>
+      <td>76.47%</td>
+      <td>23.53%</td>
+      <td>-13.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-12</td>
+      <td>Golden State Valkyries</td>
+      <td>1455.53</td>
+      <td>102</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1517.36</td>
+      <td>104</td>
+      <td>35.54%</td>
+      <td>64.46%</td>
+      <td>-3.60</td>
+    </tr>
+    <tr>
+      <td>2025-07-12</td>
+      <td>Las Vegas Aces</td>
+      <td>1517.36</td>
+      <td>104</td>
+      <td>Golden State Valkyries</td>
+      <td>1455.53</td>
+      <td>102</td>
+      <td>64.46%</td>
+      <td>35.54%</td>
+      <td>3.60</td>
+    </tr>
+    <tr>
+      <td>2025-07-12</td>
+      <td>Chicago Sky</td>
+      <td>1407.77</td>
+      <td>87</td>
+      <td>Minnesota Lynx</td>
+      <td>1654.13</td>
+      <td>81</td>
+      <td>23.53%</td>
+      <td>76.47%</td>
+      <td>13.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Dallas Wings</td>
+      <td>1403.06</td>
+      <td>83</td>
+      <td>@ Indiana Fever</td>
+      <td>1524.47</td>
+      <td>102</td>
+      <td>28.12%</td>
+      <td>71.88%</td>
+      <td>-8.77</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Connecticut Sun</td>
+      <td>1385.61</td>
+      <td>88</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1396.52</td>
+      <td>92</td>
+      <td>42.50%</td>
+      <td>57.50%</td>
+      <td>-6.09</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Atlanta Dream</td>
+      <td>1534.58</td>
+      <td>72</td>
+      <td>@ New York Liberty</td>
+      <td>1609.38</td>
+      <td>79</td>
+      <td>33.85%</td>
+      <td>66.15%</td>
+      <td>-6.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Seattle Storm</td>
+      <td>1559.91</td>
+      <td>69</td>
+      <td>Washington Mystics</td>
+      <td>1493.86</td>
+      <td>74</td>
+      <td>65.02%</td>
+      <td>34.98%</td>
+      <td>-10.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>New York Liberty</td>
+      <td>1609.38</td>
+      <td>79</td>
+      <td>Atlanta Dream</td>
+      <td>1534.58</td>
+      <td>72</td>
+      <td>66.15%</td>
+      <td>33.85%</td>
+      <td>6.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Los Angeles Sparks</td>
+      <td>1396.52</td>
+      <td>92</td>
+      <td>Connecticut Sun</td>
+      <td>1385.61</td>
+      <td>88</td>
+      <td>57.50%</td>
+      <td>42.50%</td>
+      <td>6.08</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Indiana Fever</td>
+      <td>1524.47</td>
+      <td>102</td>
+      <td>Dallas Wings</td>
+      <td>1403.06</td>
+      <td>83</td>
+      <td>71.88%</td>
+      <td>28.12%</td>
+      <td>8.78</td>
+    </tr>
+    <tr>
+      <td>2025-07-13</td>
+      <td>Washington Mystics</td>
+      <td>1493.86</td>
+      <td>74</td>
+      <td>@ Seattle Storm</td>
+      <td>1559.91</td>
+      <td>69</td>
+      <td>34.98%</td>
+      <td>65.02%</td>
+      <td>10.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-14</td>
+      <td>Minnesota Lynx</td>
+      <td>1640.72</td>
+      <td>91</td>
+      <td>@ Chicago Sky</td>
+      <td>1421.18</td>
+      <td>78</td>
+      <td>73.58%</td>
+      <td>26.42%</td>
+      <td>6.82</td>
+    </tr>
+    <tr>
+      <td>2025-07-14</td>
+      <td>Chicago Sky</td>
+      <td>1421.18</td>
+      <td>78</td>
+      <td>Minnesota Lynx</td>
+      <td>1640.72</td>
+      <td>91</td>
+      <td>26.42%</td>
+      <td>73.58%</td>
+      <td>-6.82</td>
+    </tr>
+    <tr>
+      <td>2025-07-14</td>
+      <td>Phoenix Mercury</td>
+      <td>1557.82</td>
+      <td>78</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1451.93</td>
+      <td>77</td>
+      <td>59.15%</td>
+      <td>40.85%</td>
+      <td>2.92</td>
+    </tr>
+    <tr>
+      <td>2025-07-14</td>
+      <td>Golden State Valkyries</td>
+      <td>1451.93</td>
+      <td>77</td>
+      <td>Phoenix Mercury</td>
+      <td>1557.82</td>
+      <td>78</td>
+      <td>40.85%</td>
+      <td>59.15%</td>
+      <td>-2.92</td>
+    </tr>
+    <tr>
+      <td>2025-07-15</td>
+      <td>Washington Mystics</td>
+      <td>1504.27</td>
+      <td>80</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1402.60</td>
+      <td>99</td>
+      <td>58.56%</td>
+      <td>41.44%</td>
+      <td>-18.28</td>
+    </tr>
+    <tr>
+      <td>2025-07-15</td>
+      <td>Connecticut Sun</td>
+      <td>1379.52</td>
+      <td>77</td>
+      <td>Indiana Fever</td>
+      <td>1533.25</td>
+      <td>85</td>
+      <td>34.40%</td>
+      <td>65.60%</td>
+      <td>-6.96</td>
+    </tr>
+    <tr>
+      <td>2025-07-15</td>
+      <td>Indiana Fever</td>
+      <td>1533.25</td>
+      <td>85</td>
+      <td>@ Connecticut Sun</td>
+      <td>1379.52</td>
+      <td>77</td>
+      <td>65.60%</td>
+      <td>34.40%</td>
+      <td>6.97</td>
+    </tr>
+    <tr>
+      <td>2025-07-15</td>
+      <td>Los Angeles Sparks</td>
+      <td>1402.60</td>
+      <td>99</td>
+      <td>Washington Mystics</td>
+      <td>1504.27</td>
+      <td>80</td>
+      <td>41.44%</td>
+      <td>58.56%</td>
+      <td>18.28</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Chicago Sky</td>
+      <td>1414.36</td>
+      <td>49</td>
+      <td>Atlanta Dream</td>
+      <td>1528.17</td>
+      <td>86</td>
+      <td>39.76%</td>
+      <td>60.24%</td>
+      <td>-17.31</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Indiana Fever</td>
+      <td>1540.22</td>
+      <td>77</td>
+      <td>@ New York Liberty</td>
+      <td>1615.79</td>
+      <td>98</td>
+      <td>33.75%</td>
+      <td>66.25%</td>
+      <td>-11.08</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Phoenix Mercury</td>
+      <td>1560.74</td>
+      <td>66</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1647.54</td>
+      <td>79</td>
+      <td>32.32%</td>
+      <td>67.68%</td>
+      <td>-8.34</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Las Vegas Aces</td>
+      <td>1520.96</td>
+      <td>90</td>
+      <td>@ Dallas Wings</td>
+      <td>1394.29</td>
+      <td>86</td>
+      <td>62.00%</td>
+      <td>38.00%</td>
+      <td>5.44</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Atlanta Dream</td>
+      <td>1528.17</td>
+      <td>86</td>
+      <td>@ Chicago Sky</td>
+      <td>1414.36</td>
+      <td>49</td>
+      <td>60.24%</td>
+      <td>39.76%</td>
+      <td>17.32</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Dallas Wings</td>
+      <td>1394.29</td>
+      <td>86</td>
+      <td>Las Vegas Aces</td>
+      <td>1520.96</td>
+      <td>90</td>
+      <td>38.00%</td>
+      <td>62.00%</td>
+      <td>-5.45</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Minnesota Lynx</td>
+      <td>1647.54</td>
+      <td>79</td>
+      <td>Phoenix Mercury</td>
+      <td>1560.74</td>
+      <td>66</td>
+      <td>67.68%</td>
+      <td>32.32%</td>
+      <td>8.34</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>New York Liberty</td>
+      <td>1615.79</td>
+      <td>98</td>
+      <td>Indiana Fever</td>
+      <td>1540.22</td>
+      <td>77</td>
+      <td>66.25%</td>
+      <td>33.75%</td>
+      <td>11.07</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Seattle Storm</td>
+      <td>1549.50</td>
+      <td>67</td>
+      <td>Golden State Valkyries</td>
+      <td>1449.01</td>
+      <td>58</td>
+      <td>69.38%</td>
+      <td>30.62%</td>
+      <td>6.58</td>
+    </tr>
+    <tr>
+      <td>2025-07-16</td>
+      <td>Golden State Valkyries</td>
+      <td>1449.01</td>
+      <td>58</td>
+      <td>@ Seattle Storm</td>
+      <td>1549.50</td>
+      <td>67</td>
+      <td>30.62%</td>
+      <td>69.38%</td>
+      <td>-6.58</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>New York Liberty</td>
+      <td>1626.86</td>
+      <td>98</td>
+      <td>Indiana Fever</td>
+      <td>1529.14</td>
+      <td>84</td>
+      <td>69.04%</td>
+      <td>30.96%</td>
+      <td>8.30</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Las Vegas Aces</td>
+      <td>1526.40</td>
+      <td>87</td>
+      <td>Atlanta Dream</td>
+      <td>1545.49</td>
+      <td>72</td>
+      <td>53.24%</td>
+      <td>46.76%</td>
+      <td>12.96</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Washington Mystics</td>
+      <td>1485.99</td>
+      <td>86</td>
+      <td>Los Angeles Sparks</td>
+      <td>1420.88</td>
+      <td>93</td>
+      <td>64.89%</td>
+      <td>35.11%</td>
+      <td>-12.29</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Seattle Storm</td>
+      <td>1556.08</td>
+      <td>63</td>
+      <td>Dallas Wings</td>
+      <td>1388.84</td>
+      <td>87</td>
+      <td>76.89%</td>
+      <td>23.11%</td>
+      <td>-26.97</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Atlanta Dream</td>
+      <td>1545.49</td>
+      <td>72</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1526.40</td>
+      <td>87</td>
+      <td>46.76%</td>
+      <td>53.24%</td>
+      <td>-12.97</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Minnesota Lynx</td>
+      <td>1655.88</td>
+      <td>91</td>
+      <td>Chicago Sky</td>
+      <td>1397.05</td>
+      <td>68</td>
+      <td>84.94%</td>
+      <td>15.06%</td>
+      <td>5.18</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Indiana Fever</td>
+      <td>1529.14</td>
+      <td>84</td>
+      <td>@ New York Liberty</td>
+      <td>1626.86</td>
+      <td>98</td>
+      <td>30.96%</td>
+      <td>69.04%</td>
+      <td>-8.29</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Dallas Wings</td>
+      <td>1388.84</td>
+      <td>87</td>
+      <td>@ Seattle Storm</td>
+      <td>1556.08</td>
+      <td>63</td>
+      <td>23.11%</td>
+      <td>76.89%</td>
+      <td>26.98</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Los Angeles Sparks</td>
+      <td>1420.88</td>
+      <td>93</td>
+      <td>@ Washington Mystics</td>
+      <td>1485.99</td>
+      <td>86</td>
+      <td>35.11%</td>
+      <td>64.89%</td>
+      <td>12.29</td>
+    </tr>
+    <tr>
+      <td>2025-07-22</td>
+      <td>Chicago Sky</td>
+      <td>1397.05</td>
+      <td>68</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1655.88</td>
+      <td>91</td>
+      <td>15.06%</td>
+      <td>84.94%</td>
+      <td>-5.18</td>
+    </tr>
+    <tr>
+      <td>2025-07-23</td>
+      <td>Atlanta Dream</td>
+      <td>1532.52</td>
+      <td>90</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1552.40</td>
+      <td>79</td>
+      <td>41.24%</td>
+      <td>58.76%</td>
+      <td>13.95</td>
+    </tr>
+    <tr>
+      <td>2025-07-23</td>
+      <td>Phoenix Mercury</td>
+      <td>1552.40</td>
+      <td>79</td>
+      <td>Atlanta Dream</td>
+      <td>1532.52</td>
+      <td>90</td>
+      <td>58.76%</td>
+      <td>41.24%</td>
+      <td>-13.95</td>
+    </tr>
+    <tr>
+      <td>2025-07-24</td>
+      <td>Seattle Storm</td>
+      <td>1529.11</td>
+      <td>95</td>
+      <td>@ Chicago Sky</td>
+      <td>1391.87</td>
+      <td>57</td>
+      <td>63.42%</td>
+      <td>36.58%</td>
+      <td>16.14</td>
+    </tr>
+    <tr>
+      <td>2025-07-24</td>
+      <td>Los Angeles Sparks</td>
+      <td>1433.17</td>
+      <td>101</td>
+      <td>@ Connecticut Sun</td>
+      <td>1372.56</td>
+      <td>86</td>
+      <td>52.73%</td>
+      <td>47.27%</td>
+      <td>13.11</td>
+    </tr>
+    <tr>
+      <td>2025-07-24</td>
+      <td>Chicago Sky</td>
+      <td>1391.87</td>
+      <td>57</td>
+      <td>Seattle Storm</td>
+      <td>1529.11</td>
+      <td>95</td>
+      <td>36.58%</td>
+      <td>63.42%</td>
+      <td>-16.14</td>
+    </tr>
+    <tr>
+      <td>2025-07-24</td>
+      <td>Connecticut Sun</td>
+      <td>1372.56</td>
+      <td>86</td>
+      <td>Los Angeles Sparks</td>
+      <td>1433.17</td>
+      <td>101</td>
+      <td>47.27%</td>
+      <td>52.73%</td>
+      <td>-13.11</td>
+    </tr>
+    <tr>
+      <td>2025-07-24</td>
+      <td>Indiana Fever</td>
+      <td>1520.85</td>
+      <td>80</td>
+      <td>Las Vegas Aces</td>
+      <td>1539.36</td>
+      <td>70</td>
+      <td>53.32%</td>
+      <td>46.68%</td>
+      <td>10.57</td>
+    </tr>
+    <tr>
+      <td>2025-07-24</td>
+      <td>Las Vegas Aces</td>
+      <td>1539.36</td>
+      <td>70</td>
+      <td>@ Indiana Fever</td>
+      <td>1520.85</td>
+      <td>80</td>
+      <td>46.68%</td>
+      <td>53.32%</td>
+      <td>-10.56</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Phoenix Mercury</td>
+      <td>1538.45</td>
+      <td>76</td>
+      <td>@ New York Liberty</td>
+      <td>1635.16</td>
+      <td>89</td>
+      <td>31.08%</td>
+      <td>68.92%</td>
+      <td>-8.03</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Las Vegas Aces</td>
+      <td>1528.80</td>
+      <td>78</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1661.06</td>
+      <td>109</td>
+      <td>26.88%</td>
+      <td>73.12%</td>
+      <td>-10.72</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Dallas Wings</td>
+      <td>1415.82</td>
+      <td>76</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1442.43</td>
+      <td>86</td>
+      <td>40.31%</td>
+      <td>59.69%</td>
+      <td>-9.13</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Minnesota Lynx</td>
+      <td>1661.06</td>
+      <td>109</td>
+      <td>Las Vegas Aces</td>
+      <td>1528.80</td>
+      <td>78</td>
+      <td>73.12%</td>
+      <td>26.88%</td>
+      <td>10.71</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Golden State Valkyries</td>
+      <td>1442.43</td>
+      <td>86</td>
+      <td>Dallas Wings</td>
+      <td>1415.82</td>
+      <td>76</td>
+      <td>59.69%</td>
+      <td>40.31%</td>
+      <td>9.13</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>New York Liberty</td>
+      <td>1635.16</td>
+      <td>89</td>
+      <td>Phoenix Mercury</td>
+      <td>1538.45</td>
+      <td>76</td>
+      <td>68.92%</td>
+      <td>31.08%</td>
+      <td>8.02</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>New York Liberty</td>
+      <td>1643.18</td>
+      <td>99</td>
+      <td>Los Angeles Sparks</td>
+      <td>1446.28</td>
+      <td>101</td>
+      <td>79.79%</td>
+      <td>20.21%</td>
+      <td>-8.08</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Washington Mystics</td>
+      <td>1473.70</td>
+      <td>69</td>
+      <td>Seattle Storm</td>
+      <td>1545.25</td>
+      <td>58</td>
+      <td>45.70%</td>
+      <td>54.30%</td>
+      <td>12.89</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Los Angeles Sparks</td>
+      <td>1446.28</td>
+      <td>101</td>
+      <td>@ New York Liberty</td>
+      <td>1643.18</td>
+      <td>99</td>
+      <td>20.21%</td>
+      <td>79.79%</td>
+      <td>8.08</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Seattle Storm</td>
+      <td>1545.25</td>
+      <td>58</td>
+      <td>@ Washington Mystics</td>
+      <td>1473.70</td>
+      <td>69</td>
+      <td>54.30%</td>
+      <td>45.70%</td>
+      <td>-12.89</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Phoenix Mercury</td>
+      <td>1530.42</td>
+      <td>88</td>
+      <td>@ Washington Mystics</td>
+      <td>1486.59</td>
+      <td>72</td>
+      <td>50.32%</td>
+      <td>49.68%</td>
+      <td>14.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Indiana Fever</td>
+      <td>1531.42</td>
+      <td>93</td>
+      <td>@ Chicago Sky</td>
+      <td>1375.73</td>
+      <td>78</td>
+      <td>65.85%</td>
+      <td>34.15%</td>
+      <td>9.47</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Golden State Valkyries</td>
+      <td>1451.56</td>
+      <td>64</td>
+      <td>@ Connecticut Sun</td>
+      <td>1359.45</td>
+      <td>95</td>
+      <td>57.22%</td>
+      <td>42.78%</td>
+      <td>-22.81</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Las Vegas Aces</td>
+      <td>1518.08</td>
+      <td>106</td>
+      <td>@ Dallas Wings</td>
+      <td>1406.69</td>
+      <td>80</td>
+      <td>59.91%</td>
+      <td>40.09%</td>
+      <td>14.64</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Chicago Sky</td>
+      <td>1375.73</td>
+      <td>78</td>
+      <td>Indiana Fever</td>
+      <td>1531.42</td>
+      <td>93</td>
+      <td>34.15%</td>
+      <td>65.85%</td>
+      <td>-9.47</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Washington Mystics</td>
+      <td>1486.59</td>
+      <td>72</td>
+      <td>Phoenix Mercury</td>
+      <td>1530.42</td>
+      <td>88</td>
+      <td>49.68%</td>
+      <td>50.32%</td>
+      <td>-14.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Minnesota Lynx</td>
+      <td>1671.77</td>
+      <td>86</td>
+      <td>Atlanta Dream</td>
+      <td>1546.47</td>
+      <td>90</td>
+      <td>72.33%</td>
+      <td>27.67%</td>
+      <td>-10.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Dallas Wings</td>
+      <td>1406.69</td>
+      <td>80</td>
+      <td>Las Vegas Aces</td>
+      <td>1518.08</td>
+      <td>106</td>
+      <td>40.09%</td>
+      <td>59.91%</td>
+      <td>-14.64</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Connecticut Sun</td>
+      <td>1359.45</td>
+      <td>95</td>
+      <td>Golden State Valkyries</td>
+      <td>1451.56</td>
+      <td>64</td>
+      <td>42.78%</td>
+      <td>57.22%</td>
+      <td>22.81</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Atlanta Dream</td>
+      <td>1546.47</td>
+      <td>90</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1671.77</td>
+      <td>86</td>
+      <td>27.67%</td>
+      <td>72.33%</td>
+      <td>10.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-28</td>
+      <td>Connecticut Sun</td>
+      <td>1382.26</td>
+      <td>85</td>
+      <td>Seattle Storm</td>
+      <td>1532.36</td>
+      <td>101</td>
+      <td>34.88%</td>
+      <td>65.12%</td>
+      <td>-9.99</td>
+    </tr>
+    <tr>
+      <td>2025-07-28</td>
+      <td>New York Liberty</td>
+      <td>1635.10</td>
+      <td>82</td>
+      <td>@ Dallas Wings</td>
+      <td>1392.05</td>
+      <td>92</td>
+      <td>76.13%</td>
+      <td>23.87%</td>
+      <td>-17.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-28</td>
+      <td>Dallas Wings</td>
+      <td>1392.05</td>
+      <td>92</td>
+      <td>New York Liberty</td>
+      <td>1635.10</td>
+      <td>82</td>
+      <td>23.87%</td>
+      <td>76.13%</td>
+      <td>17.24</td>
+    </tr>
+    <tr>
+      <td>2025-07-28</td>
+      <td>Seattle Storm</td>
+      <td>1532.36</td>
+      <td>101</td>
+      <td>@ Connecticut Sun</td>
+      <td>1382.26</td>
+      <td>85</td>
+      <td>65.12%</td>
+      <td>34.88%</td>
+      <td>9.98</td>
+    </tr>
+    <tr>
+      <td>2025-07-29</td>
+      <td>Atlanta Dream</td>
+      <td>1556.83</td>
+      <td>75</td>
+      <td>Golden State Valkyries</td>
+      <td>1428.75</td>
+      <td>77</td>
+      <td>72.65%</td>
+      <td>27.35%</td>
+      <td>-7.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-29</td>
+      <td>Golden State Valkyries</td>
+      <td>1428.75</td>
+      <td>77</td>
+      <td>@ Atlanta Dream</td>
+      <td>1556.83</td>
+      <td>75</td>
+      <td>27.35%</td>
+      <td>72.65%</td>
+      <td>7.35</td>
+    </tr>
+    <tr>
+      <td>2025-07-29</td>
+      <td>Las Vegas Aces</td>
+      <td>1532.72</td>
+      <td>89</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1454.36</td>
+      <td>74</td>
+      <td>55.27%</td>
+      <td>44.73%</td>
+      <td>12.40</td>
+    </tr>
+    <tr>
+      <td>2025-07-29</td>
+      <td>Chicago Sky</td>
+      <td>1366.26</td>
+      <td>86</td>
+      <td>@ Washington Mystics</td>
+      <td>1472.36</td>
+      <td>103</td>
+      <td>29.94%</td>
+      <td>70.06%</td>
+      <td>-8.84</td>
+    </tr>
+    <tr>
+      <td>2025-07-29</td>
+      <td>Los Angeles Sparks</td>
+      <td>1454.36</td>
+      <td>74</td>
+      <td>Las Vegas Aces</td>
+      <td>1532.72</td>
+      <td>89</td>
+      <td>44.73%</td>
+      <td>55.27%</td>
+      <td>-12.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-29</td>
+      <td>Washington Mystics</td>
+      <td>1472.36</td>
+      <td>103</td>
+      <td>Chicago Sky</td>
+      <td>1366.26</td>
+      <td>86</td>
+      <td>70.06%</td>
+      <td>29.94%</td>
+      <td>8.84</td>
+    </tr>
+    <tr>
+      <td>2025-07-30</td>
+      <td>Atlanta Dream</td>
+      <td>1549.47</td>
+      <td>88</td>
+      <td>@ Dallas Wings</td>
+      <td>1409.29</td>
+      <td>85</td>
+      <td>63.82%</td>
+      <td>36.18%</td>
+      <td>4.49</td>
+    </tr>
+    <tr>
+      <td>2025-07-30</td>
+      <td>Phoenix Mercury</td>
+      <td>1544.65</td>
+      <td>101</td>
+      <td>@ Indiana Fever</td>
+      <td>1540.89</td>
+      <td>107</td>
+      <td>44.57%</td>
+      <td>55.43%</td>
+      <td>-7.82</td>
+    </tr>
+    <tr>
+      <td>2025-07-30</td>
+      <td>New York Liberty</td>
+      <td>1617.87</td>
+      <td>93</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1661.41</td>
+      <td>100</td>
+      <td>37.98%</td>
+      <td>62.02%</td>
+      <td>-7.20</td>
+    </tr>
+    <tr>
+      <td>2025-07-30</td>
+      <td>Minnesota Lynx</td>
+      <td>1661.41</td>
+      <td>100</td>
+      <td>New York Liberty</td>
+      <td>1617.87</td>
+      <td>93</td>
+      <td>62.02%</td>
+      <td>37.98%</td>
+      <td>7.20</td>
+    </tr>
+    <tr>
+      <td>2025-07-30</td>
+      <td>Indiana Fever</td>
+      <td>1540.89</td>
+      <td>107</td>
+      <td>Phoenix Mercury</td>
+      <td>1544.65</td>
+      <td>101</td>
+      <td>55.43%</td>
+      <td>44.57%</td>
+      <td>7.82</td>
+    </tr>
+    <tr>
+      <td>2025-07-30</td>
+      <td>Dallas Wings</td>
+      <td>1409.29</td>
+      <td>85</td>
+      <td>Atlanta Dream</td>
+      <td>1549.47</td>
+      <td>88</td>
+      <td>36.18%</td>
+      <td>63.82%</td>
+      <td>-4.49</td>
+    </tr>
+    <tr>
+      <td>2025-07-31</td>
+      <td>Golden State Valkyries</td>
+      <td>1436.10</td>
+      <td>68</td>
+      <td>@ Washington Mystics</td>
+      <td>1481.20</td>
+      <td>67</td>
+      <td>37.77%</td>
+      <td>62.23%</td>
+      <td>4.46</td>
+    </tr>
+    <tr>
+      <td>2025-07-31</td>
+      <td>Washington Mystics</td>
+      <td>1481.20</td>
+      <td>67</td>
+      <td>Golden State Valkyries</td>
+      <td>1436.10</td>
+      <td>68</td>
+      <td>62.23%</td>
+      <td>37.77%</td>
+      <td>-4.45</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Chicago Sky</td>
+      <td>1357.42</td>
+      <td>66</td>
+      <td>Golden State Valkyries</td>
+      <td>1440.56</td>
+      <td>73</td>
+      <td>44.05%</td>
+      <td>55.95%</td>
+      <td>-8.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Atlanta Dream</td>
+      <td>1553.96</td>
+      <td>95</td>
+      <td>Phoenix Mercury</td>
+      <td>1536.83</td>
+      <td>72</td>
+      <td>58.37%</td>
+      <td>41.63%</td>
+      <td>14.30</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Seattle Storm</td>
+      <td>1542.34</td>
+      <td>106</td>
+      <td>Los Angeles Sparks</td>
+      <td>1441.95</td>
+      <td>108</td>
+      <td>69.37%</td>
+      <td>30.63%</td>
+      <td>-7.02</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Connecticut Sun</td>
+      <td>1372.27</td>
+      <td>78</td>
+      <td>New York Liberty</td>
+      <td>1610.67</td>
+      <td>62</td>
+      <td>24.36%</td>
+      <td>75.64%</td>
+      <td>21.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Dallas Wings</td>
+      <td>1404.80</td>
+      <td>78</td>
+      <td>Indiana Fever</td>
+      <td>1548.71</td>
+      <td>88</td>
+      <td>35.69%</td>
+      <td>64.31%</td>
+      <td>-8.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Phoenix Mercury</td>
+      <td>1536.83</td>
+      <td>72</td>
+      <td>@ Atlanta Dream</td>
+      <td>1553.96</td>
+      <td>95</td>
+      <td>41.63%</td>
+      <td>58.37%</td>
+      <td>-14.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Golden State Valkyries</td>
+      <td>1440.56</td>
+      <td>73</td>
+      <td>@ Chicago Sky</td>
+      <td>1357.42</td>
+      <td>66</td>
+      <td>55.95%</td>
+      <td>44.05%</td>
+      <td>8.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>New York Liberty</td>
+      <td>1610.67</td>
+      <td>62</td>
+      <td>@ Connecticut Sun</td>
+      <td>1372.27</td>
+      <td>78</td>
+      <td>75.64%</td>
+      <td>24.36%</td>
+      <td>-21.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Indiana Fever</td>
+      <td>1548.71</td>
+      <td>88</td>
+      <td>@ Dallas Wings</td>
+      <td>1404.80</td>
+      <td>78</td>
+      <td>64.31%</td>
+      <td>35.69%</td>
+      <td>8.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Los Angeles Sparks</td>
+      <td>1441.95</td>
+      <td>108</td>
+      <td>@ Seattle Storm</td>
+      <td>1542.34</td>
+      <td>106</td>
+      <td>30.63%</td>
+      <td>69.37%</td>
+      <td>7.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Las Vegas Aces</td>
+      <td>1545.12</td>
+      <td>58</td>
+      <td>Minnesota Lynx</td>
+      <td>1668.61</td>
+      <td>111</td>
+      <td>38.43%</td>
+      <td>61.57%</td>
+      <td>-20.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Minnesota Lynx</td>
+      <td>1668.61</td>
+      <td>111</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1545.12</td>
+      <td>58</td>
+      <td>61.57%</td>
+      <td>38.43%</td>
+      <td>20.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Washington Mystics</td>
+      <td>1476.75</td>
+      <td>83</td>
+      <td>@ Atlanta Dream</td>
+      <td>1568.26</td>
+      <td>99</td>
+      <td>31.73%</td>
+      <td>68.27%</td>
+      <td>-9.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Phoenix Mercury</td>
+      <td>1522.54</td>
+      <td>83</td>
+      <td>@ Chicago Sky</td>
+      <td>1349.08</td>
+      <td>67</td>
+      <td>68.11%</td>
+      <td>31.89%</td>
+      <td>9.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Indiana Fever</td>
+      <td>1556.79</td>
+      <td>78</td>
+      <td>@ Seattle Storm</td>
+      <td>1535.32</td>
+      <td>74</td>
+      <td>47.10%</td>
+      <td>52.90%</td>
+      <td>7.57</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Golden State Valkyries</td>
+      <td>1448.91</td>
+      <td>77</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1525.09</td>
+      <td>101</td>
+      <td>33.67%</td>
+      <td>66.33%</td>
+      <td>-11.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Chicago Sky</td>
+      <td>1349.08</td>
+      <td>67</td>
+      <td>Phoenix Mercury</td>
+      <td>1522.54</td>
+      <td>83</td>
+      <td>31.89%</td>
+      <td>68.11%</td>
+      <td>-9.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Connecticut Sun</td>
+      <td>1393.93</td>
+      <td>78</td>
+      <td>New York Liberty</td>
+      <td>1589.01</td>
+      <td>87</td>
+      <td>29.25%</td>
+      <td>70.75%</td>
+      <td>-6.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Las Vegas Aces</td>
+      <td>1525.09</td>
+      <td>101</td>
+      <td>Golden State Valkyries</td>
+      <td>1448.91</td>
+      <td>77</td>
+      <td>66.33%</td>
+      <td>33.67%</td>
+      <td>11.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Seattle Storm</td>
+      <td>1535.32</td>
+      <td>74</td>
+      <td>Indiana Fever</td>
+      <td>1556.79</td>
+      <td>78</td>
+      <td>52.90%</td>
+      <td>47.10%</td>
+      <td>-7.57</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>New York Liberty</td>
+      <td>1589.01</td>
+      <td>87</td>
+      <td>@ Connecticut Sun</td>
+      <td>1393.93</td>
+      <td>78</td>
+      <td>70.75%</td>
+      <td>29.25%</td>
+      <td>6.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Atlanta Dream</td>
+      <td>1568.26</td>
+      <td>99</td>
+      <td>Washington Mystics</td>
+      <td>1476.75</td>
+      <td>83</td>
+      <td>68.27%</td>
+      <td>31.73%</td>
+      <td>9.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Chicago Sky</td>
+      <td>1339.94</td>
+      <td>78</td>
+      <td>Washington Mystics</td>
+      <td>1467.66</td>
+      <td>64</td>
+      <td>37.86%</td>
+      <td>62.14%</td>
+      <td>16.65</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Los Angeles Sparks</td>
+      <td>1448.98</td>
+      <td>100</td>
+      <td>Indiana Fever</td>
+      <td>1564.36</td>
+      <td>91</td>
+      <td>39.54%</td>
+      <td>60.46%</td>
+      <td>12.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Seattle Storm</td>
+      <td>1527.75</td>
+      <td>87</td>
+      <td>Minnesota Lynx</td>
+      <td>1688.64</td>
+      <td>91</td>
+      <td>33.48%</td>
+      <td>66.52%</td>
+      <td>-4.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Indiana Fever</td>
+      <td>1564.36</td>
+      <td>91</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1448.98</td>
+      <td>100</td>
+      <td>60.46%</td>
+      <td>39.54%</td>
+      <td>-12.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>New York Liberty</td>
+      <td>1595.29</td>
+      <td>85</td>
+      <td>Dallas Wings</td>
+      <td>1396.72</td>
+      <td>76</td>
+      <td>79.94%</td>
+      <td>20.06%</td>
+      <td>4.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Phoenix Mercury</td>
+      <td>1531.67</td>
+      <td>82</td>
+      <td>Connecticut Sun</td>
+      <td>1387.65</td>
+      <td>66</td>
+      <td>74.43%</td>
+      <td>25.57%</td>
+      <td>7.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Dallas Wings</td>
+      <td>1396.72</td>
+      <td>76</td>
+      <td>@ New York Liberty</td>
+      <td>1595.29</td>
+      <td>85</td>
+      <td>20.06%</td>
+      <td>79.94%</td>
+      <td>-4.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Connecticut Sun</td>
+      <td>1387.65</td>
+      <td>66</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1531.67</td>
+      <td>82</td>
+      <td>25.57%</td>
+      <td>74.43%</td>
+      <td>-7.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Minnesota Lynx</td>
+      <td>1688.64</td>
+      <td>91</td>
+      <td>@ Seattle Storm</td>
+      <td>1527.75</td>
+      <td>87</td>
+      <td>66.52%</td>
+      <td>33.48%</td>
+      <td>4.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-05</td>
+      <td>Washington Mystics</td>
+      <td>1467.66</td>
+      <td>64</td>
+      <td>@ Chicago Sky</td>
+      <td>1339.94</td>
+      <td>78</td>
+      <td>62.14%</td>
+      <td>37.86%</td>
+      <td>-16.65</td>
+    </tr>
+    <tr>
+      <td>2025-08-06</td>
+      <td>Las Vegas Aces</td>
+      <td>1536.90</td>
+      <td>78</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1437.10</td>
+      <td>72</td>
+      <td>58.30%</td>
+      <td>41.70%</td>
+      <td>7.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-06</td>
+      <td>Golden State Valkyries</td>
+      <td>1437.10</td>
+      <td>72</td>
+      <td>Las Vegas Aces</td>
+      <td>1536.90</td>
+      <td>78</td>
+      <td>41.70%</td>
+      <td>58.30%</td>
+      <td>-7.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-07</td>
+      <td>Atlanta Dream</td>
+      <td>1577.34</td>
+      <td>86</td>
+      <td>@ Chicago Sky</td>
+      <td>1356.59</td>
+      <td>65</td>
+      <td>73.72%</td>
+      <td>26.28%</td>
+      <td>8.63</td>
+    </tr>
+    <tr>
+      <td>2025-08-07</td>
+      <td>Connecticut Sun</td>
+      <td>1380.33</td>
+      <td>91</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1461.97</td>
+      <td>102</td>
+      <td>32.97%</td>
+      <td>67.03%</td>
+      <td>-7.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-07</td>
+      <td>Indiana Fever</td>
+      <td>1551.37</td>
+      <td>60</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1539.00</td>
+      <td>95</td>
+      <td>45.80%</td>
+      <td>54.20%</td>
+      <td>-19.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-07</td>
+      <td>Chicago Sky</td>
+      <td>1356.59</td>
+      <td>65</td>
+      <td>Atlanta Dream</td>
+      <td>1577.34</td>
+      <td>86</td>
+      <td>26.28%</td>
+      <td>73.72%</td>
+      <td>-8.62</td>
+    </tr>
+    <tr>
+      <td>2025-08-07</td>
+      <td>Phoenix Mercury</td>
+      <td>1539.00</td>
+      <td>95</td>
+      <td>Indiana Fever</td>
+      <td>1551.37</td>
+      <td>60</td>
+      <td>54.20%</td>
+      <td>45.80%</td>
+      <td>19.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-07</td>
+      <td>Los Angeles Sparks</td>
+      <td>1461.97</td>
+      <td>102</td>
+      <td>Connecticut Sun</td>
+      <td>1380.33</td>
+      <td>91</td>
+      <td>67.03%</td>
+      <td>32.97%</td>
+      <td>7.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>New York Liberty</td>
+      <td>1599.60</td>
+      <td>88</td>
+      <td>@ Dallas Wings</td>
+      <td>1392.41</td>
+      <td>77</td>
+      <td>72.17%</td>
+      <td>27.83%</td>
+      <td>6.61</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Minnesota Lynx</td>
+      <td>1693.44</td>
+      <td>80</td>
+      <td>Washington Mystics</td>
+      <td>1451.01</td>
+      <td>76</td>
+      <td>83.69%</td>
+      <td>16.31%</td>
+      <td>2.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Las Vegas Aces</td>
+      <td>1544.21</td>
+      <td>90</td>
+      <td>Seattle Storm</td>
+      <td>1522.95</td>
+      <td>86</td>
+      <td>58.95%</td>
+      <td>41.05%</td>
+      <td>5.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Seattle Storm</td>
+      <td>1522.95</td>
+      <td>86</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1544.21</td>
+      <td>90</td>
+      <td>41.05%</td>
+      <td>58.95%</td>
+      <td>-5.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Dallas Wings</td>
+      <td>1392.41</td>
+      <td>77</td>
+      <td>New York Liberty</td>
+      <td>1599.60</td>
+      <td>88</td>
+      <td>27.83%</td>
+      <td>72.17%</td>
+      <td>-6.61</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Washington Mystics</td>
+      <td>1451.01</td>
+      <td>76</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1693.44</td>
+      <td>80</td>
+      <td>16.31%</td>
+      <td>83.69%</td>
+      <td>-2.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Golden State Valkyries</td>
+      <td>1429.78</td>
+      <td>72</td>
+      <td>Los Angeles Sparks</td>
+      <td>1469.79</td>
+      <td>59</td>
+      <td>50.23%</td>
+      <td>49.77%</td>
+      <td>12.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Chicago Sky</td>
+      <td>1347.97</td>
+      <td>70</td>
+      <td>@ Indiana Fever</td>
+      <td>1531.97</td>
+      <td>92</td>
+      <td>21.44%</td>
+      <td>78.56%</td>
+      <td>-7.20</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Indiana Fever</td>
+      <td>1531.97</td>
+      <td>92</td>
+      <td>Chicago Sky</td>
+      <td>1347.97</td>
+      <td>70</td>
+      <td>78.56%</td>
+      <td>21.44%</td>
+      <td>7.20</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Los Angeles Sparks</td>
+      <td>1469.79</td>
+      <td>59</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1429.78</td>
+      <td>72</td>
+      <td>49.77%</td>
+      <td>50.23%</td>
+      <td>-12.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Atlanta Dream</td>
+      <td>1585.97</td>
+      <td>74</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1558.40</td>
+      <td>66</td>
+      <td>47.98%</td>
+      <td>52.02%</td>
+      <td>10.53</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Minnesota Lynx</td>
+      <td>1695.77</td>
+      <td>83</td>
+      <td>@ New York Liberty</td>
+      <td>1606.21</td>
+      <td>71</td>
+      <td>56.86%</td>
+      <td>43.14%</td>
+      <td>10.70</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Connecticut Sun</td>
+      <td>1372.50</td>
+      <td>86</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1550.09</td>
+      <td>94</td>
+      <td>22.07%</td>
+      <td>77.93%</td>
+      <td>-4.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Seattle Storm</td>
+      <td>1517.07</td>
+      <td>91</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1456.95</td>
+      <td>94</td>
+      <td>52.66%</td>
+      <td>47.34%</td>
+      <td>-6.53</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Washington Mystics</td>
+      <td>1448.67</td>
+      <td>91</td>
+      <td>@ Dallas Wings</td>
+      <td>1385.80</td>
+      <td>78</td>
+      <td>53.06%</td>
+      <td>46.94%</td>
+      <td>12.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Dallas Wings</td>
+      <td>1385.80</td>
+      <td>78</td>
+      <td>Washington Mystics</td>
+      <td>1448.67</td>
+      <td>91</td>
+      <td>46.94%</td>
+      <td>53.06%</td>
+      <td>-12.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>New York Liberty</td>
+      <td>1606.21</td>
+      <td>71</td>
+      <td>Minnesota Lynx</td>
+      <td>1695.77</td>
+      <td>83</td>
+      <td>43.14%</td>
+      <td>56.86%</td>
+      <td>-10.70</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Phoenix Mercury</td>
+      <td>1558.40</td>
+      <td>66</td>
+      <td>Atlanta Dream</td>
+      <td>1585.97</td>
+      <td>74</td>
+      <td>52.02%</td>
+      <td>47.98%</td>
+      <td>-10.54</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Las Vegas Aces</td>
+      <td>1550.09</td>
+      <td>94</td>
+      <td>Connecticut Sun</td>
+      <td>1372.50</td>
+      <td>86</td>
+      <td>77.93%</td>
+      <td>22.07%</td>
+      <td>4.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Los Angeles Sparks</td>
+      <td>1456.95</td>
+      <td>94</td>
+      <td>Seattle Storm</td>
+      <td>1517.07</td>
+      <td>91</td>
+      <td>47.34%</td>
+      <td>52.66%</td>
+      <td>6.53</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Golden State Valkyries</td>
+      <td>1442.63</td>
+      <td>74</td>
+      <td>Connecticut Sun</td>
+      <td>1368.03</td>
+      <td>57</td>
+      <td>66.13%</td>
+      <td>33.87%</td>
+      <td>10.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Connecticut Sun</td>
+      <td>1368.03</td>
+      <td>57</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1442.63</td>
+      <td>74</td>
+      <td>33.87%</td>
+      <td>66.13%</td>
+      <td>-10.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-12</td>
+      <td>Los Angeles Sparks</td>
+      <td>1463.48</td>
+      <td>97</td>
+      <td>New York Liberty</td>
+      <td>1595.51</td>
+      <td>105</td>
+      <td>37.27%</td>
+      <td>62.73%</td>
+      <td>-7.55</td>
+    </tr>
+    <tr>
+      <td>2025-08-12</td>
+      <td>New York Liberty</td>
+      <td>1595.51</td>
+      <td>105</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1463.48</td>
+      <td>97</td>
+      <td>62.73%</td>
+      <td>37.27%</td>
+      <td>7.54</td>
+    </tr>
+    <tr>
+      <td>2025-08-12</td>
+      <td>Indiana Fever</td>
+      <td>1539.17</td>
+      <td>80</td>
+      <td>Dallas Wings</td>
+      <td>1373.69</td>
+      <td>81</td>
+      <td>76.71%</td>
+      <td>23.29%</td>
+      <td>-5.49</td>
+    </tr>
+    <tr>
+      <td>2025-08-12</td>
+      <td>Dallas Wings</td>
+      <td>1373.69</td>
+      <td>81</td>
+      <td>@ Indiana Fever</td>
+      <td>1539.17</td>
+      <td>80</td>
+      <td>23.29%</td>
+      <td>76.71%</td>
+      <td>5.49</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Atlanta Dream</td>
+      <td>1596.50</td>
+      <td>85</td>
+      <td>@ Seattle Storm</td>
+      <td>1510.54</td>
+      <td>75</td>
+      <td>56.35%</td>
+      <td>43.65%</td>
+      <td>9.89</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Golden State Valkyries</td>
+      <td>1452.63</td>
+      <td>88</td>
+      <td>@ Washington Mystics</td>
+      <td>1460.79</td>
+      <td>83</td>
+      <td>42.89%</td>
+      <td>57.11%</td>
+      <td>9.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Las Vegas Aces</td>
+      <td>1554.56</td>
+      <td>83</td>
+      <td>New York Liberty</td>
+      <td>1603.05</td>
+      <td>77</td>
+      <td>49.01%</td>
+      <td>50.99%</td>
+      <td>8.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>New York Liberty</td>
+      <td>1603.05</td>
+      <td>77</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1554.56</td>
+      <td>83</td>
+      <td>50.99%</td>
+      <td>49.01%</td>
+      <td>-8.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Washington Mystics</td>
+      <td>1460.79</td>
+      <td>83</td>
+      <td>Golden State Valkyries</td>
+      <td>1452.63</td>
+      <td>88</td>
+      <td>57.11%</td>
+      <td>42.89%</td>
+      <td>-9.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Seattle Storm</td>
+      <td>1510.54</td>
+      <td>75</td>
+      <td>Atlanta Dream</td>
+      <td>1596.50</td>
+      <td>85</td>
+      <td>43.65%</td>
+      <td>56.35%</td>
+      <td>-9.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Connecticut Sun</td>
+      <td>1358.03</td>
+      <td>71</td>
+      <td>Chicago Sky</td>
+      <td>1340.77</td>
+      <td>62</td>
+      <td>58.39%</td>
+      <td>41.61%</td>
+      <td>8.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-13</td>
+      <td>Chicago Sky</td>
+      <td>1340.77</td>
+      <td>62</td>
+      <td>@ Connecticut Sun</td>
+      <td>1358.03</td>
+      <td>71</td>
+      <td>41.61%</td>
+      <td>58.39%</td>
+      <td>-8.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Washington Mystics</td>
+      <td>1451.65</td>
+      <td>88</td>
+      <td>@ Indiana Fever</td>
+      <td>1533.68</td>
+      <td>84</td>
+      <td>32.92%</td>
+      <td>67.08%</td>
+      <td>9.60</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Golden State Valkyries</td>
+      <td>1461.77</td>
+      <td>90</td>
+      <td>@ Chicago Sky</td>
+      <td>1331.83</td>
+      <td>59</td>
+      <td>62.45%</td>
+      <td>37.55%</td>
+      <td>14.98</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Los Angeles Sparks</td>
+      <td>1455.93</td>
+      <td>97</td>
+      <td>@ Dallas Wings</td>
+      <td>1379.18</td>
+      <td>96</td>
+      <td>55.04%</td>
+      <td>44.96%</td>
+      <td>3.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Las Vegas Aces</td>
+      <td>1563.50</td>
+      <td>86</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1547.86</td>
+      <td>83</td>
+      <td>46.27%</td>
+      <td>53.73%</td>
+      <td>6.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Indiana Fever</td>
+      <td>1533.68</td>
+      <td>84</td>
+      <td>Washington Mystics</td>
+      <td>1451.65</td>
+      <td>88</td>
+      <td>67.08%</td>
+      <td>32.92%</td>
+      <td>-9.61</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Dallas Wings</td>
+      <td>1379.18</td>
+      <td>96</td>
+      <td>Los Angeles Sparks</td>
+      <td>1455.93</td>
+      <td>97</td>
+      <td>44.96%</td>
+      <td>55.04%</td>
+      <td>-3.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Chicago Sky</td>
+      <td>1331.83</td>
+      <td>59</td>
+      <td>Golden State Valkyries</td>
+      <td>1461.77</td>
+      <td>90</td>
+      <td>37.55%</td>
+      <td>62.45%</td>
+      <td>-14.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Atlanta Dream</td>
+      <td>1606.39</td>
+      <td>78</td>
+      <td>Seattle Storm</td>
+      <td>1500.66</td>
+      <td>80</td>
+      <td>70.02%</td>
+      <td>29.98%</td>
+      <td>-7.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Seattle Storm</td>
+      <td>1500.66</td>
+      <td>80</td>
+      <td>@ Atlanta Dream</td>
+      <td>1606.39</td>
+      <td>78</td>
+      <td>29.98%</td>
+      <td>70.02%</td>
+      <td>7.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Phoenix Mercury</td>
+      <td>1547.86</td>
+      <td>83</td>
+      <td>Las Vegas Aces</td>
+      <td>1563.50</td>
+      <td>86</td>
+      <td>53.73%</td>
+      <td>46.27%</td>
+      <td>-6.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>New York Liberty</td>
+      <td>1594.11</td>
+      <td>80</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1706.47</td>
+      <td>86</td>
+      <td>29.19%</td>
+      <td>70.81%</td>
+      <td>-5.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Minnesota Lynx</td>
+      <td>1706.47</td>
+      <td>86</td>
+      <td>New York Liberty</td>
+      <td>1594.11</td>
+      <td>80</td>
+      <td>70.81%</td>
+      <td>29.19%</td>
+      <td>5.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Las Vegas Aces</td>
+      <td>1570.17</td>
+      <td>106</td>
+      <td>Dallas Wings</td>
+      <td>1375.96</td>
+      <td>87</td>
+      <td>79.53%</td>
+      <td>20.47%</td>
+      <td>6.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Golden State Valkyries</td>
+      <td>1476.75</td>
+      <td>63</td>
+      <td>Atlanta Dream</td>
+      <td>1599.30</td>
+      <td>79</td>
+      <td>38.56%</td>
+      <td>61.44%</td>
+      <td>-11.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Seattle Storm</td>
+      <td>1507.75</td>
+      <td>82</td>
+      <td>Phoenix Mercury</td>
+      <td>1541.20</td>
+      <td>85</td>
+      <td>51.17%</td>
+      <td>48.83%</td>
+      <td>-6.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Phoenix Mercury</td>
+      <td>1541.20</td>
+      <td>85</td>
+      <td>@ Seattle Storm</td>
+      <td>1507.75</td>
+      <td>82</td>
+      <td>48.83%</td>
+      <td>51.17%</td>
+      <td>6.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Dallas Wings</td>
+      <td>1375.96</td>
+      <td>87</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1570.17</td>
+      <td>106</td>
+      <td>20.47%</td>
+      <td>79.53%</td>
+      <td>-6.39</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Atlanta Dream</td>
+      <td>1599.30</td>
+      <td>79</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1476.75</td>
+      <td>63</td>
+      <td>61.44%</td>
+      <td>38.56%</td>
+      <td>11.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Indiana Fever</td>
+      <td>1524.07</td>
+      <td>99</td>
+      <td>@ Connecticut Sun</td>
+      <td>1366.97</td>
+      <td>93</td>
+      <td>66.04%</td>
+      <td>33.96%</td>
+      <td>5.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Los Angeles Sparks</td>
+      <td>1459.15</td>
+      <td>86</td>
+      <td>@ Washington Mystics</td>
+      <td>1461.25</td>
+      <td>95</td>
+      <td>43.74%</td>
+      <td>56.26%</td>
+      <td>-9.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Connecticut Sun</td>
+      <td>1366.97</td>
+      <td>93</td>
+      <td>Indiana Fever</td>
+      <td>1524.07</td>
+      <td>99</td>
+      <td>33.96%</td>
+      <td>66.04%</td>
+      <td>-5.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Washington Mystics</td>
+      <td>1461.25</td>
+      <td>95</td>
+      <td>Los Angeles Sparks</td>
+      <td>1459.15</td>
+      <td>86</td>
+      <td>56.26%</td>
+      <td>43.74%</td>
+      <td>9.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Seattle Storm</td>
+      <td>1501.40</td>
+      <td>94</td>
+      <td>@ Chicago Sky</td>
+      <td>1316.86</td>
+      <td>88</td>
+      <td>69.48%</td>
+      <td>30.52%</td>
+      <td>5.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Atlanta Dream</td>
+      <td>1610.34</td>
+      <td>72</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1576.55</td>
+      <td>74</td>
+      <td>48.87%</td>
+      <td>51.13%</td>
+      <td>-4.95</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Phoenix Mercury</td>
+      <td>1547.55</td>
+      <td>98</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1465.70</td>
+      <td>91</td>
+      <td>55.76%</td>
+      <td>44.24%</td>
+      <td>8.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Washington Mystics</td>
+      <td>1470.65</td>
+      <td>69</td>
+      <td>Connecticut Sun</td>
+      <td>1361.01</td>
+      <td>80</td>
+      <td>70.49%</td>
+      <td>29.51%</td>
+      <td>-16.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>New York Liberty</td>
+      <td>1588.99</td>
+      <td>85</td>
+      <td>Minnesota Lynx</td>
+      <td>1711.59</td>
+      <td>75</td>
+      <td>38.55%</td>
+      <td>61.45%</td>
+      <td>13.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Las Vegas Aces</td>
+      <td>1576.55</td>
+      <td>74</td>
+      <td>Atlanta Dream</td>
+      <td>1610.34</td>
+      <td>72</td>
+      <td>51.13%</td>
+      <td>48.87%</td>
+      <td>4.95</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Chicago Sky</td>
+      <td>1316.86</td>
+      <td>88</td>
+      <td>Seattle Storm</td>
+      <td>1501.40</td>
+      <td>94</td>
+      <td>30.52%</td>
+      <td>69.48%</td>
+      <td>-5.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Golden State Valkyries</td>
+      <td>1465.70</td>
+      <td>91</td>
+      <td>Phoenix Mercury</td>
+      <td>1547.55</td>
+      <td>98</td>
+      <td>44.24%</td>
+      <td>55.76%</td>
+      <td>-8.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Connecticut Sun</td>
+      <td>1361.01</td>
+      <td>80</td>
+      <td>@ Washington Mystics</td>
+      <td>1470.65</td>
+      <td>69</td>
+      <td>29.51%</td>
+      <td>70.49%</td>
+      <td>16.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-19</td>
+      <td>Minnesota Lynx</td>
+      <td>1711.59</td>
+      <td>75</td>
+      <td>@ New York Liberty</td>
+      <td>1588.99</td>
+      <td>85</td>
+      <td>61.45%</td>
+      <td>38.55%</td>
+      <td>-13.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-20</td>
+      <td>Los Angeles Sparks</td>
+      <td>1449.75</td>
+      <td>81</td>
+      <td>Dallas Wings</td>
+      <td>1369.57</td>
+      <td>80</td>
+      <td>66.84%</td>
+      <td>33.16%</td>
+      <td>2.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-20</td>
+      <td>Dallas Wings</td>
+      <td>1369.57</td>
+      <td>80</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1449.75</td>
+      <td>81</td>
+      <td>33.16%</td>
+      <td>66.84%</td>
+      <td>-2.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Connecticut Sun</td>
+      <td>1377.75</td>
+      <td>67</td>
+      <td>Washington Mystics</td>
+      <td>1453.91</td>
+      <td>56</td>
+      <td>45.04%</td>
+      <td>54.96%</td>
+      <td>13.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Atlanta Dream</td>
+      <td>1605.39</td>
+      <td>75</td>
+      <td>Minnesota Lynx</td>
+      <td>1697.68</td>
+      <td>73</td>
+      <td>42.76%</td>
+      <td>57.24%</td>
+      <td>5.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Phoenix Mercury</td>
+      <td>1555.93</td>
+      <td>61</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1581.50</td>
+      <td>83</td>
+      <td>40.45%</td>
+      <td>59.55%</td>
+      <td>-13.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Minnesota Lynx</td>
+      <td>1697.68</td>
+      <td>73</td>
+      <td>@ Atlanta Dream</td>
+      <td>1605.39</td>
+      <td>75</td>
+      <td>57.24%</td>
+      <td>42.76%</td>
+      <td>-5.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>New York Liberty</td>
+      <td>1602.91</td>
+      <td>85</td>
+      <td>Chicago Sky</td>
+      <td>1311.51</td>
+      <td>91</td>
+      <td>87.18%</td>
+      <td>12.82%</td>
+      <td>-15.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Washington Mystics</td>
+      <td>1453.91</td>
+      <td>56</td>
+      <td>@ Connecticut Sun</td>
+      <td>1377.75</td>
+      <td>67</td>
+      <td>54.96%</td>
+      <td>45.04%</td>
+      <td>-13.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Chicago Sky</td>
+      <td>1311.51</td>
+      <td>91</td>
+      <td>@ New York Liberty</td>
+      <td>1602.91</td>
+      <td>85</td>
+      <td>12.82%</td>
+      <td>87.18%</td>
+      <td>15.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-21</td>
+      <td>Las Vegas Aces</td>
+      <td>1581.50</td>
+      <td>83</td>
+      <td>Phoenix Mercury</td>
+      <td>1555.93</td>
+      <td>61</td>
+      <td>59.55%</td>
+      <td>40.45%</td>
+      <td>13.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Dallas Wings</td>
+      <td>1367.20</td>
+      <td>60</td>
+      <td>Seattle Storm</td>
+      <td>1506.75</td>
+      <td>95</td>
+      <td>36.27%</td>
+      <td>63.73%</td>
+      <td>-15.36</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Indiana Fever</td>
+      <td>1530.03</td>
+      <td>90</td>
+      <td>Minnesota Lynx</td>
+      <td>1691.88</td>
+      <td>95</td>
+      <td>33.36%</td>
+      <td>66.64%</td>
+      <td>-5.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Phoenix Mercury</td>
+      <td>1542.34</td>
+      <td>81</td>
+      <td>Golden State Valkyries</td>
+      <td>1457.32</td>
+      <td>72</td>
+      <td>67.46%</td>
+      <td>32.54%</td>
+      <td>6.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Golden State Valkyries</td>
+      <td>1457.32</td>
+      <td>72</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1542.34</td>
+      <td>81</td>
+      <td>32.54%</td>
+      <td>67.46%</td>
+      <td>-6.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Minnesota Lynx</td>
+      <td>1691.88</td>
+      <td>95</td>
+      <td>@ Indiana Fever</td>
+      <td>1530.03</td>
+      <td>90</td>
+      <td>66.64%</td>
+      <td>33.36%</td>
+      <td>5.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Seattle Storm</td>
+      <td>1506.75</td>
+      <td>95</td>
+      <td>@ Dallas Wings</td>
+      <td>1367.20</td>
+      <td>60</td>
+      <td>63.73%</td>
+      <td>36.27%</td>
+      <td>15.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Las Vegas Aces</td>
+      <td>1595.09</td>
+      <td>91</td>
+      <td>@ Washington Mystics</td>
+      <td>1440.86</td>
+      <td>81</td>
+      <td>65.66%</td>
+      <td>34.34%</td>
+      <td>7.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Connecticut Sun</td>
+      <td>1390.80</td>
+      <td>94</td>
+      <td>@ Chicago Sky</td>
+      <td>1326.80</td>
+      <td>84</td>
+      <td>53.22%</td>
+      <td>46.78%</td>
+      <td>10.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>New York Liberty</td>
+      <td>1587.62</td>
+      <td>62</td>
+      <td>@ Atlanta Dream</td>
+      <td>1611.19</td>
+      <td>78</td>
+      <td>40.73%</td>
+      <td>59.27%</td>
+      <td>-11.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Washington Mystics</td>
+      <td>1440.86</td>
+      <td>81</td>
+      <td>Las Vegas Aces</td>
+      <td>1595.09</td>
+      <td>91</td>
+      <td>34.34%</td>
+      <td>65.66%</td>
+      <td>-7.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Chicago Sky</td>
+      <td>1326.80</td>
+      <td>84</td>
+      <td>Connecticut Sun</td>
+      <td>1390.80</td>
+      <td>94</td>
+      <td>46.78%</td>
+      <td>53.22%</td>
+      <td>-10.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Atlanta Dream</td>
+      <td>1611.19</td>
+      <td>78</td>
+      <td>New York Liberty</td>
+      <td>1587.62</td>
+      <td>62</td>
+      <td>59.27%</td>
+      <td>40.73%</td>
+      <td>11.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Minnesota Lynx</td>
+      <td>1697.22</td>
+      <td>97</td>
+      <td>Indiana Fever</td>
+      <td>1524.69</td>
+      <td>84</td>
+      <td>77.43%</td>
+      <td>22.57%</td>
+      <td>5.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Dallas Wings</td>
+      <td>1351.84</td>
+      <td>81</td>
+      <td>Golden State Valkyries</td>
+      <td>1450.33</td>
+      <td>90</td>
+      <td>41.89%</td>
+      <td>58.11%</td>
+      <td>-9.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Seattle Storm</td>
+      <td>1522.12</td>
+      <td>84</td>
+      <td>@ Washington Mystics</td>
+      <td>1433.09</td>
+      <td>82</td>
+      <td>56.78%</td>
+      <td>43.22%</td>
+      <td>4.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Indiana Fever</td>
+      <td>1524.69</td>
+      <td>84</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1697.22</td>
+      <td>97</td>
+      <td>22.57%</td>
+      <td>77.43%</td>
+      <td>-5.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Golden State Valkyries</td>
+      <td>1450.33</td>
+      <td>90</td>
+      <td>@ Dallas Wings</td>
+      <td>1351.84</td>
+      <td>81</td>
+      <td>58.11%</td>
+      <td>41.89%</td>
+      <td>9.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Washington Mystics</td>
+      <td>1433.09</td>
+      <td>82</td>
+      <td>Seattle Storm</td>
+      <td>1522.12</td>
+      <td>84</td>
+      <td>43.22%</td>
+      <td>56.78%</td>
+      <td>-4.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>New York Liberty</td>
+      <td>1575.95</td>
+      <td>81</td>
+      <td>Connecticut Sun</td>
+      <td>1401.39</td>
+      <td>79</td>
+      <td>77.63%</td>
+      <td>22.37%</td>
+      <td>2.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Las Vegas Aces</td>
+      <td>1602.86</td>
+      <td>79</td>
+      <td>@ Chicago Sky</td>
+      <td>1316.21</td>
+      <td>74</td>
+      <td>80.39%</td>
+      <td>19.61%</td>
+      <td>3.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Chicago Sky</td>
+      <td>1316.21</td>
+      <td>74</td>
+      <td>Las Vegas Aces</td>
+      <td>1602.86</td>
+      <td>79</td>
+      <td>19.61%</td>
+      <td>80.39%</td>
+      <td>-3.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Connecticut Sun</td>
+      <td>1401.39</td>
+      <td>79</td>
+      <td>@ New York Liberty</td>
+      <td>1575.95</td>
+      <td>81</td>
+      <td>22.37%</td>
+      <td>77.63%</td>
+      <td>-2.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-26</td>
+      <td>Indiana Fever</td>
+      <td>1518.86</td>
+      <td>95</td>
+      <td>Seattle Storm</td>
+      <td>1526.49</td>
+      <td>75</td>
+      <td>54.87%</td>
+      <td>45.13%</td>
+      <td>14.45</td>
+    </tr>
+    <tr>
+      <td>2025-08-26</td>
+      <td>Seattle Storm</td>
+      <td>1526.49</td>
+      <td>75</td>
+      <td>@ Indiana Fever</td>
+      <td>1518.86</td>
+      <td>95</td>
+      <td>45.13%</td>
+      <td>54.87%</td>
+      <td>-14.45</td>
+    </tr>
+    <tr>
+      <td>2025-08-26</td>
+      <td>Los Angeles Sparks</td>
+      <td>1452.13</td>
+      <td>84</td>
+      <td>Phoenix Mercury</td>
+      <td>1549.33</td>
+      <td>92</td>
+      <td>42.07%</td>
+      <td>57.93%</td>
+      <td>-8.52</td>
+    </tr>
+    <tr>
+      <td>2025-08-26</td>
+      <td>Phoenix Mercury</td>
+      <td>1549.33</td>
+      <td>92</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1452.13</td>
+      <td>84</td>
+      <td>57.93%</td>
+      <td>42.07%</td>
+      <td>8.52</td>
+    </tr>
+    <tr>
+      <td>2025-08-27</td>
+      <td>Atlanta Dream</td>
+      <td>1622.85</td>
+      <td>75</td>
+      <td>Las Vegas Aces</td>
+      <td>1606.00</td>
+      <td>81</td>
+      <td>58.33%</td>
+      <td>41.67%</td>
+      <td>-10.23</td>
+    </tr>
+    <tr>
+      <td>2025-08-27</td>
+      <td>Dallas Wings</td>
+      <td>1342.84</td>
+      <td>95</td>
+      <td>Connecticut Sun</td>
+      <td>1399.13</td>
+      <td>101</td>
+      <td>47.89%</td>
+      <td>52.11%</td>
+      <td>-8.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-27</td>
+      <td>Connecticut Sun</td>
+      <td>1399.13</td>
+      <td>101</td>
+      <td>@ Dallas Wings</td>
+      <td>1342.84</td>
+      <td>95</td>
+      <td>52.11%</td>
+      <td>47.89%</td>
+      <td>8.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-27</td>
+      <td>Las Vegas Aces</td>
+      <td>1606.00</td>
+      <td>81</td>
+      <td>@ Atlanta Dream</td>
+      <td>1622.85</td>
+      <td>75</td>
+      <td>41.67%</td>
+      <td>58.33%</td>
+      <td>10.23</td>
+    </tr>
+    <tr>
+      <td>2025-08-28</td>
+      <td>Minnesota Lynx</td>
+      <td>1703.05</td>
+      <td>79</td>
+      <td>Seattle Storm</td>
+      <td>1512.04</td>
+      <td>93</td>
+      <td>79.23%</td>
+      <td>20.77%</td>
+      <td>-21.23</td>
+    </tr>
+    <tr>
+      <td>2025-08-28</td>
+      <td>Seattle Storm</td>
+      <td>1512.04</td>
+      <td>93</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1703.05</td>
+      <td>79</td>
+      <td>20.77%</td>
+      <td>79.23%</td>
+      <td>21.23</td>
+    </tr>
+    <tr>
+      <td>2025-08-28</td>
+      <td>Phoenix Mercury</td>
+      <td>1557.85</td>
+      <td>83</td>
+      <td>Chicago Sky</td>
+      <td>1313.07</td>
+      <td>79</td>
+      <td>83.87%</td>
+      <td>16.13%</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-28</td>
+      <td>New York Liberty</td>
+      <td>1578.22</td>
+      <td>89</td>
+      <td>Washington Mystics</td>
+      <td>1428.71</td>
+      <td>63</td>
+      <td>75.03%</td>
+      <td>24.97%</td>
+      <td>9.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-28</td>
+      <td>Washington Mystics</td>
+      <td>1428.71</td>
+      <td>63</td>
+      <td>@ New York Liberty</td>
+      <td>1578.22</td>
+      <td>89</td>
+      <td>24.97%</td>
+      <td>75.03%</td>
+      <td>-9.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-28</td>
+      <td>Chicago Sky</td>
+      <td>1313.07</td>
+      <td>79</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1557.85</td>
+      <td>83</td>
+      <td>16.13%</td>
+      <td>83.87%</td>
+      <td>-2.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Dallas Wings</td>
+      <td>1334.44</td>
+      <td>78</td>
+      <td>@ Atlanta Dream</td>
+      <td>1612.62</td>
+      <td>100</td>
+      <td>13.70%</td>
+      <td>86.30%</td>
+      <td>-4.60</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Indiana Fever</td>
+      <td>1533.31</td>
+      <td>76</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1443.61</td>
+      <td>75</td>
+      <td>56.88%</td>
+      <td>43.12%</td>
+      <td>3.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Los Angeles Sparks</td>
+      <td>1443.61</td>
+      <td>75</td>
+      <td>Indiana Fever</td>
+      <td>1533.31</td>
+      <td>76</td>
+      <td>43.12%</td>
+      <td>56.88%</td>
+      <td>-3.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Atlanta Dream</td>
+      <td>1612.62</td>
+      <td>100</td>
+      <td>Dallas Wings</td>
+      <td>1334.44</td>
+      <td>78</td>
+      <td>86.30%</td>
+      <td>13.70%</td>
+      <td>4.60</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Washington Mystics</td>
+      <td>1419.59</td>
+      <td>62</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1459.33</td>
+      <td>99</td>
+      <td>38.50%</td>
+      <td>61.50%</td>
+      <td>-16.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Minnesota Lynx</td>
+      <td>1681.82</td>
+      <td>94</td>
+      <td>@ Connecticut Sun</td>
+      <td>1407.53</td>
+      <td>70</td>
+      <td>79.24%</td>
+      <td>20.76%</td>
+      <td>7.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>New York Liberty</td>
+      <td>1587.33</td>
+      <td>63</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1560.16</td>
+      <td>80</td>
+      <td>47.92%</td>
+      <td>52.08%</td>
+      <td>-14.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Seattle Storm</td>
+      <td>1533.27</td>
+      <td>79</td>
+      <td>Chicago Sky</td>
+      <td>1310.76</td>
+      <td>69</td>
+      <td>82.06%</td>
+      <td>17.94%</td>
+      <td>4.06</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Phoenix Mercury</td>
+      <td>1560.16</td>
+      <td>80</td>
+      <td>New York Liberty</td>
+      <td>1587.33</td>
+      <td>63</td>
+      <td>52.08%</td>
+      <td>47.92%</td>
+      <td>14.15</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Golden State Valkyries</td>
+      <td>1459.33</td>
+      <td>99</td>
+      <td>Washington Mystics</td>
+      <td>1419.59</td>
+      <td>62</td>
+      <td>61.50%</td>
+      <td>38.50%</td>
+      <td>16.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Connecticut Sun</td>
+      <td>1407.53</td>
+      <td>70</td>
+      <td>Minnesota Lynx</td>
+      <td>1681.82</td>
+      <td>94</td>
+      <td>20.76%</td>
+      <td>79.24%</td>
+      <td>-7.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Chicago Sky</td>
+      <td>1310.76</td>
+      <td>69</td>
+      <td>@ Seattle Storm</td>
+      <td>1533.27</td>
+      <td>79</td>
+      <td>17.94%</td>
+      <td>82.06%</td>
+      <td>-4.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Indiana Fever</td>
+      <td>1536.40</td>
+      <td>63</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1476.10</td>
+      <td>75</td>
+      <td>52.69%</td>
+      <td>47.31%</td>
+      <td>-13.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Los Angeles Sparks</td>
+      <td>1440.52</td>
+      <td>81</td>
+      <td>Washington Mystics</td>
+      <td>1402.82</td>
+      <td>78</td>
+      <td>61.22%</td>
+      <td>38.78%</td>
+      <td>4.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Washington Mystics</td>
+      <td>1402.82</td>
+      <td>78</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1440.52</td>
+      <td>81</td>
+      <td>38.78%</td>
+      <td>61.22%</td>
+      <td>-4.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Golden State Valkyries</td>
+      <td>1476.10</td>
+      <td>75</td>
+      <td>Indiana Fever</td>
+      <td>1536.40</td>
+      <td>63</td>
+      <td>47.31%</td>
+      <td>52.69%</td>
+      <td>13.07</td>
+    </tr>
+    <tr>
+      <td>2025-09-01</td>
+      <td>Seattle Storm</td>
+      <td>1537.33</td>
+      <td>85</td>
+      <td>Los Angeles Sparks</td>
+      <td>1445.33</td>
+      <td>91</td>
+      <td>68.33%</td>
+      <td>31.67%</td>
+      <td>-11.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-01</td>
+      <td>Minnesota Lynx</td>
+      <td>1689.10</td>
+      <td>96</td>
+      <td>Dallas Wings</td>
+      <td>1329.84</td>
+      <td>71</td>
+      <td>90.95%</td>
+      <td>9.05%</td>
+      <td>3.24</td>
+    </tr>
+    <tr>
+      <td>2025-09-01</td>
+      <td>Los Angeles Sparks</td>
+      <td>1445.33</td>
+      <td>91</td>
+      <td>@ Seattle Storm</td>
+      <td>1537.33</td>
+      <td>85</td>
+      <td>31.67%</td>
+      <td>68.33%</td>
+      <td>11.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-01</td>
+      <td>Dallas Wings</td>
+      <td>1329.84</td>
+      <td>71</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1689.10</td>
+      <td>96</td>
+      <td>9.05%</td>
+      <td>90.95%</td>
+      <td>-3.24</td>
+    </tr>
+    <tr>
+      <td>2025-09-01</td>
+      <td>Atlanta Dream</td>
+      <td>1617.22</td>
+      <td>93</td>
+      <td>@ Connecticut Sun</td>
+      <td>1400.24</td>
+      <td>76</td>
+      <td>73.29%</td>
+      <td>26.71%</td>
+      <td>7.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-01</td>
+      <td>Connecticut Sun</td>
+      <td>1400.24</td>
+      <td>76</td>
+      <td>Atlanta Dream</td>
+      <td>1617.22</td>
+      <td>93</td>
+      <td>26.71%</td>
+      <td>73.29%</td>
+      <td>-7.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-02</td>
+      <td>Golden State Valkyries</td>
+      <td>1489.17</td>
+      <td>66</td>
+      <td>New York Liberty</td>
+      <td>1573.19</td>
+      <td>58</td>
+      <td>43.93%</td>
+      <td>56.07%</td>
+      <td>11.35</td>
+    </tr>
+    <tr>
+      <td>2025-09-02</td>
+      <td>Indiana Fever</td>
+      <td>1523.33</td>
+      <td>79</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1574.31</td>
+      <td>85</td>
+      <td>36.98%</td>
+      <td>63.02%</td>
+      <td>-6.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-02</td>
+      <td>New York Liberty</td>
+      <td>1573.19</td>
+      <td>58</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1489.17</td>
+      <td>66</td>
+      <td>56.07%</td>
+      <td>43.93%</td>
+      <td>-11.36</td>
+    </tr>
+    <tr>
+      <td>2025-09-02</td>
+      <td>Phoenix Mercury</td>
+      <td>1574.31</td>
+      <td>85</td>
+      <td>Indiana Fever</td>
+      <td>1523.33</td>
+      <td>79</td>
+      <td>63.02%</td>
+      <td>36.98%</td>
+      <td>6.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Connecticut Sun</td>
+      <td>1392.36</td>
+      <td>64</td>
+      <td>@ Chicago Sky</td>
+      <td>1306.69</td>
+      <td>88</td>
+      <td>56.31%</td>
+      <td>43.69%</td>
+      <td>-19.75</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Los Angeles Sparks</td>
+      <td>1457.31</td>
+      <td>75</td>
+      <td>@ Atlanta Dream</td>
+      <td>1625.10</td>
+      <td>86</td>
+      <td>23.05%</td>
+      <td>76.95%</td>
+      <td>-5.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Chicago Sky</td>
+      <td>1306.69</td>
+      <td>88</td>
+      <td>Connecticut Sun</td>
+      <td>1392.36</td>
+      <td>64</td>
+      <td>43.69%</td>
+      <td>56.31%</td>
+      <td>19.75</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Atlanta Dream</td>
+      <td>1625.10</td>
+      <td>86</td>
+      <td>Los Angeles Sparks</td>
+      <td>1457.31</td>
+      <td>75</td>
+      <td>76.95%</td>
+      <td>23.05%</td>
+      <td>5.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Minnesota Lynx</td>
+      <td>1692.34</td>
+      <td>87</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1616.23</td>
+      <td>97</td>
+      <td>54.95%</td>
+      <td>45.05%</td>
+      <td>-12.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Dallas Wings</td>
+      <td>1326.60</td>
+      <td>80</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1500.52</td>
+      <td>84</td>
+      <td>22.43%</td>
+      <td>77.57%</td>
+      <td>-3.21</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Washington Mystics</td>
+      <td>1398.01</td>
+      <td>69</td>
+      <td>Phoenix Mercury</td>
+      <td>1580.79</td>
+      <td>75</td>
+      <td>30.73%</td>
+      <td>69.27%</td>
+      <td>-5.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Las Vegas Aces</td>
+      <td>1616.23</td>
+      <td>97</td>
+      <td>Minnesota Lynx</td>
+      <td>1692.34</td>
+      <td>87</td>
+      <td>45.05%</td>
+      <td>54.95%</td>
+      <td>12.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Golden State Valkyries</td>
+      <td>1500.52</td>
+      <td>84</td>
+      <td>Dallas Wings</td>
+      <td>1326.60</td>
+      <td>80</td>
+      <td>77.57%</td>
+      <td>22.43%</td>
+      <td>3.21</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Phoenix Mercury</td>
+      <td>1580.79</td>
+      <td>75</td>
+      <td>@ Washington Mystics</td>
+      <td>1398.01</td>
+      <td>69</td>
+      <td>69.27%</td>
+      <td>30.73%</td>
+      <td>5.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-05</td>
+      <td>Indiana Fever</td>
+      <td>1516.85</td>
+      <td>97</td>
+      <td>Chicago Sky</td>
+      <td>1326.44</td>
+      <td>77</td>
+      <td>79.18%</td>
+      <td>20.82%</td>
+      <td>6.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-05</td>
+      <td>New York Liberty</td>
+      <td>1561.83</td>
+      <td>84</td>
+      <td>@ Seattle Storm</td>
+      <td>1525.35</td>
+      <td>76</td>
+      <td>49.26%</td>
+      <td>50.74%</td>
+      <td>10.27</td>
+    </tr>
+    <tr>
+      <td>2025-09-05</td>
+      <td>Chicago Sky</td>
+      <td>1326.44</td>
+      <td>77</td>
+      <td>@ Indiana Fever</td>
+      <td>1516.85</td>
+      <td>97</td>
+      <td>20.82%</td>
+      <td>79.18%</td>
+      <td>-6.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-05</td>
+      <td>Atlanta Dream</td>
+      <td>1630.58</td>
+      <td>104</td>
+      <td>Los Angeles Sparks</td>
+      <td>1451.84</td>
+      <td>85</td>
+      <td>78.05%</td>
+      <td>21.95%</td>
+      <td>6.85</td>
+    </tr>
+    <tr>
+      <td>2025-09-05</td>
+      <td>Los Angeles Sparks</td>
+      <td>1451.84</td>
+      <td>85</td>
+      <td>@ Atlanta Dream</td>
+      <td>1630.58</td>
+      <td>104</td>
+      <td>21.95%</td>
+      <td>78.05%</td>
+      <td>-6.85</td>
+    </tr>
+    <tr>
+      <td>2025-09-05</td>
+      <td>Seattle Storm</td>
+      <td>1525.35</td>
+      <td>76</td>
+      <td>New York Liberty</td>
+      <td>1561.83</td>
+      <td>84</td>
+      <td>50.74%</td>
+      <td>49.26%</td>
+      <td>-10.28</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Minnesota Lynx</td>
+      <td>1679.90</td>
+      <td>78</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1503.73</td>
+      <td>72</td>
+      <td>68.45%</td>
+      <td>31.55%</td>
+      <td>5.54</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Phoenix Mercury</td>
+      <td>1586.18</td>
+      <td>84</td>
+      <td>@ Connecticut Sun</td>
+      <td>1372.61</td>
+      <td>87</td>
+      <td>72.91%</td>
+      <td>27.09%</td>
+      <td>-9.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Golden State Valkyries</td>
+      <td>1503.73</td>
+      <td>72</td>
+      <td>Minnesota Lynx</td>
+      <td>1679.90</td>
+      <td>78</td>
+      <td>31.55%</td>
+      <td>68.45%</td>
+      <td>-5.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Connecticut Sun</td>
+      <td>1372.61</td>
+      <td>87</td>
+      <td>Phoenix Mercury</td>
+      <td>1586.18</td>
+      <td>84</td>
+      <td>27.09%</td>
+      <td>72.91%</td>
+      <td>9.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Las Vegas Aces</td>
+      <td>1628.67</td>
+      <td>80</td>
+      <td>Chicago Sky</td>
+      <td>1319.78</td>
+      <td>66</td>
+      <td>88.26%</td>
+      <td>11.74%</td>
+      <td>3.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Los Angeles Sparks</td>
+      <td>1444.99</td>
+      <td>91</td>
+      <td>Dallas Wings</td>
+      <td>1323.39</td>
+      <td>77</td>
+      <td>71.90%</td>
+      <td>28.10%</td>
+      <td>7.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Chicago Sky</td>
+      <td>1319.78</td>
+      <td>66</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1628.67</td>
+      <td>80</td>
+      <td>11.74%</td>
+      <td>88.26%</td>
+      <td>-3.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Indiana Fever</td>
+      <td>1523.51</td>
+      <td>94</td>
+      <td>@ Washington Mystics</td>
+      <td>1392.62</td>
+      <td>65</td>
+      <td>62.57%</td>
+      <td>37.43%</td>
+      <td>14.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Dallas Wings</td>
+      <td>1323.39</td>
+      <td>77</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1444.99</td>
+      <td>91</td>
+      <td>28.10%</td>
+      <td>71.90%</td>
+      <td>-7.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Washington Mystics</td>
+      <td>1392.62</td>
+      <td>65</td>
+      <td>Indiana Fever</td>
+      <td>1523.51</td>
+      <td>94</td>
+      <td>37.43%</td>
+      <td>62.57%</td>
+      <td>-14.43</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Atlanta Dream</td>
+      <td>1637.43</td>
+      <td>87</td>
+      <td>Connecticut Sun</td>
+      <td>1381.65</td>
+      <td>62</td>
+      <td>84.71%</td>
+      <td>15.29%</td>
+      <td>5.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Connecticut Sun</td>
+      <td>1381.65</td>
+      <td>62</td>
+      <td>@ Atlanta Dream</td>
+      <td>1637.43</td>
+      <td>87</td>
+      <td>15.29%</td>
+      <td>84.71%</td>
+      <td>-5.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Seattle Storm</td>
+      <td>1515.07</td>
+      <td>74</td>
+      <td>Golden State Valkyries</td>
+      <td>1498.20</td>
+      <td>73</td>
+      <td>58.34%</td>
+      <td>41.66%</td>
+      <td>2.99</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Las Vegas Aces</td>
+      <td>1631.82</td>
+      <td>92</td>
+      <td>Chicago Sky</td>
+      <td>1316.63</td>
+      <td>61</td>
+      <td>88.63%</td>
+      <td>11.37%</td>
+      <td>4.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>New York Liberty</td>
+      <td>1572.10</td>
+      <td>75</td>
+      <td>Washington Mystics</td>
+      <td>1378.19</td>
+      <td>66</td>
+      <td>79.51%</td>
+      <td>20.49%</td>
+      <td>4.41</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Phoenix Mercury</td>
+      <td>1577.14</td>
+      <td>83</td>
+      <td>Los Angeles Sparks</td>
+      <td>1452.52</td>
+      <td>88</td>
+      <td>72.25%</td>
+      <td>27.75%</td>
+      <td>-11.57</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Golden State Valkyries</td>
+      <td>1498.20</td>
+      <td>73</td>
+      <td>@ Seattle Storm</td>
+      <td>1515.07</td>
+      <td>74</td>
+      <td>41.66%</td>
+      <td>58.34%</td>
+      <td>-2.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Los Angeles Sparks</td>
+      <td>1452.52</td>
+      <td>88</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1577.14</td>
+      <td>83</td>
+      <td>27.75%</td>
+      <td>72.25%</td>
+      <td>11.56</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Washington Mystics</td>
+      <td>1378.19</td>
+      <td>66</td>
+      <td>@ New York Liberty</td>
+      <td>1572.10</td>
+      <td>75</td>
+      <td>20.49%</td>
+      <td>79.51%</td>
+      <td>-4.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Chicago Sky</td>
+      <td>1316.63</td>
+      <td>61</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1631.82</td>
+      <td>92</td>
+      <td>11.37%</td>
+      <td>88.63%</td>
+      <td>-4.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Minnesota Lynx</td>
+      <td>1685.44</td>
+      <td>72</td>
+      <td>@ Indiana Fever</td>
+      <td>1537.95</td>
+      <td>83</td>
+      <td>64.78%</td>
+      <td>35.22%</td>
+      <td>-15.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-09</td>
+      <td>Indiana Fever</td>
+      <td>1537.95</td>
+      <td>83</td>
+      <td>Minnesota Lynx</td>
+      <td>1685.44</td>
+      <td>72</td>
+      <td>35.22%</td>
+      <td>64.78%</td>
+      <td>15.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-10</td>
+      <td>Connecticut Sun</td>
+      <td>1376.18</td>
+      <td>72</td>
+      <td>Atlanta Dream</td>
+      <td>1642.90</td>
+      <td>88</td>
+      <td>21.49%</td>
+      <td>78.51%</td>
+      <td>-6.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-10</td>
+      <td>Atlanta Dream</td>
+      <td>1642.90</td>
+      <td>88</td>
+      <td>@ Connecticut Sun</td>
+      <td>1376.18</td>
+      <td>72</td>
+      <td>78.51%</td>
+      <td>21.49%</td>
+      <td>6.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>New York Liberty</td>
+      <td>1576.51</td>
+      <td>91</td>
+      <td>@ Chicago Sky</td>
+      <td>1312.10</td>
+      <td>86</td>
+      <td>78.29%</td>
+      <td>21.71%</td>
+      <td>3.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Phoenix Mercury</td>
+      <td>1565.57</td>
+      <td>76</td>
+      <td>@ Dallas Wings</td>
+      <td>1315.86</td>
+      <td>97</td>
+      <td>76.82%</td>
+      <td>23.18%</td>
+      <td>-25.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Golden State Valkyries</td>
+      <td>1495.22</td>
+      <td>53</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1670.05</td>
+      <td>72</td>
+      <td>22.34%</td>
+      <td>77.66%</td>
+      <td>-6.97</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Chicago Sky</td>
+      <td>1312.10</td>
+      <td>86</td>
+      <td>New York Liberty</td>
+      <td>1576.51</td>
+      <td>91</td>
+      <td>21.71%</td>
+      <td>78.29%</td>
+      <td>-3.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Dallas Wings</td>
+      <td>1315.86</td>
+      <td>97</td>
+      <td>Phoenix Mercury</td>
+      <td>1565.57</td>
+      <td>76</td>
+      <td>23.18%</td>
+      <td>76.82%</td>
+      <td>25.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Los Angeles Sparks</td>
+      <td>1464.08</td>
+      <td>75</td>
+      <td>Las Vegas Aces</td>
+      <td>1636.35</td>
+      <td>103</td>
+      <td>32.04%</td>
+      <td>67.96%</td>
+      <td>-12.13</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Minnesota Lynx</td>
+      <td>1670.05</td>
+      <td>72</td>
+      <td>Golden State Valkyries</td>
+      <td>1495.22</td>
+      <td>53</td>
+      <td>77.66%</td>
+      <td>22.34%</td>
+      <td>6.97</td>
+    </tr>
+    <tr>
+      <td>2025-09-11</td>
+      <td>Las Vegas Aces</td>
+      <td>1636.35</td>
+      <td>103</td>
+      <td>@ Los Angeles Sparks</td>
+      <td>1464.08</td>
+      <td>75</td>
+      <td>67.96%</td>
+      <td>32.04%</td>
+      <td>12.14</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Seattle Storm</td>
+      <td>1518.06</td>
+      <td>77</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1648.49</td>
+      <td>102</td>
+      <td>27.08%</td>
+      <td>72.92%</td>
+      <td>-9.70</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Golden State Valkyries</td>
+      <td>1488.25</td>
+      <td>72</td>
+      <td>@ Minnesota Lynx</td>
+      <td>1677.02</td>
+      <td>101</td>
+      <td>20.98%</td>
+      <td>79.02%</td>
+      <td>-8.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>New York Liberty</td>
+      <td>1579.98</td>
+      <td>76</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1540.37</td>
+      <td>69</td>
+      <td>49.71%</td>
+      <td>50.29%</td>
+      <td>9.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Atlanta Dream</td>
+      <td>1649.06</td>
+      <td>80</td>
+      <td>Indiana Fever</td>
+      <td>1553.33</td>
+      <td>68</td>
+      <td>68.80%</td>
+      <td>31.20%</td>
+      <td>7.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Las Vegas Aces</td>
+      <td>1648.49</td>
+      <td>102</td>
+      <td>Seattle Storm</td>
+      <td>1518.06</td>
+      <td>77</td>
+      <td>72.92%</td>
+      <td>27.08%</td>
+      <td>9.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Indiana Fever</td>
+      <td>1553.33</td>
+      <td>68</td>
+      <td>@ Atlanta Dream</td>
+      <td>1649.06</td>
+      <td>80</td>
+      <td>31.20%</td>
+      <td>68.80%</td>
+      <td>-7.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Phoenix Mercury</td>
+      <td>1540.37</td>
+      <td>69</td>
+      <td>New York Liberty</td>
+      <td>1579.98</td>
+      <td>76</td>
+      <td>50.29%</td>
+      <td>49.71%</td>
+      <td>-9.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Minnesota Lynx</td>
+      <td>1677.02</td>
+      <td>101</td>
+      <td>Golden State Valkyries</td>
+      <td>1488.25</td>
+      <td>72</td>
+      <td>79.02%</td>
+      <td>20.98%</td>
+      <td>8.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-16</td>
+      <td>Indiana Fever</td>
+      <td>1545.59</td>
+      <td>77</td>
+      <td>Atlanta Dream</td>
+      <td>1656.80</td>
+      <td>60</td>
+      <td>40.12%</td>
+      <td>59.88%</td>
+      <td>17.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-16</td>
+      <td>Las Vegas Aces</td>
+      <td>1658.18</td>
+      <td>83</td>
+      <td>@ Seattle Storm</td>
+      <td>1508.36</td>
+      <td>86</td>
+      <td>65.09%</td>
+      <td>34.91%</td>
+      <td>-8.07</td>
+    </tr>
+    <tr>
+      <td>2025-09-16</td>
+      <td>Atlanta Dream</td>
+      <td>1656.80</td>
+      <td>60</td>
+      <td>@ Indiana Fever</td>
+      <td>1545.59</td>
+      <td>77</td>
+      <td>59.88%</td>
+      <td>40.12%</td>
+      <td>-17.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-16</td>
+      <td>Seattle Storm</td>
+      <td>1508.36</td>
+      <td>86</td>
+      <td>Las Vegas Aces</td>
+      <td>1658.18</td>
+      <td>83</td>
+      <td>34.91%</td>
+      <td>65.09%</td>
+      <td>8.07</td>
+    </tr>
+    <tr>
+      <td>2025-09-17</td>
+      <td>Golden State Valkyries</td>
+      <td>1480.16</td>
+      <td>74</td>
+      <td>Minnesota Lynx</td>
+      <td>1685.11</td>
+      <td>75</td>
+      <td>28.08%</td>
+      <td>71.92%</td>
+      <td>-2.01</td>
+    </tr>
+    <tr>
+      <td>2025-09-17</td>
+      <td>Phoenix Mercury</td>
+      <td>1530.84</td>
+      <td>86</td>
+      <td>@ New York Liberty</td>
+      <td>1589.51</td>
+      <td>60</td>
+      <td>35.96%</td>
+      <td>64.04%</td>
+      <td>23.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-17</td>
+      <td>Minnesota Lynx</td>
+      <td>1685.11</td>
+      <td>75</td>
+      <td>@ Golden State Valkyries</td>
+      <td>1480.16</td>
+      <td>74</td>
+      <td>71.92%</td>
+      <td>28.08%</td>
+      <td>2.01</td>
+    </tr>
+    <tr>
+      <td>2025-09-17</td>
+      <td>New York Liberty</td>
+      <td>1589.51</td>
+      <td>60</td>
+      <td>Phoenix Mercury</td>
+      <td>1530.84</td>
+      <td>86</td>
+      <td>64.04%</td>
+      <td>35.96%</td>
+      <td>-23.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-18</td>
+      <td>Seattle Storm</td>
+      <td>1516.43</td>
+      <td>73</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1650.11</td>
+      <td>74</td>
+      <td>26.72%</td>
+      <td>73.28%</td>
+      <td>-1.91</td>
+    </tr>
+    <tr>
+      <td>2025-09-18</td>
+      <td>Indiana Fever</td>
+      <td>1563.27</td>
+      <td>87</td>
+      <td>@ Atlanta Dream</td>
+      <td>1639.12</td>
+      <td>85</td>
+      <td>33.71%</td>
+      <td>66.29%</td>
+      <td>6.71</td>
+    </tr>
+    <tr>
+      <td>2025-09-18</td>
+      <td>Las Vegas Aces</td>
+      <td>1650.11</td>
+      <td>74</td>
+      <td>Seattle Storm</td>
+      <td>1516.43</td>
+      <td>73</td>
+      <td>73.28%</td>
+      <td>26.72%</td>
+      <td>1.91</td>
+    </tr>
+    <tr>
+      <td>2025-09-18</td>
+      <td>Atlanta Dream</td>
+      <td>1639.12</td>
+      <td>85</td>
+      <td>Indiana Fever</td>
+      <td>1563.27</td>
+      <td>87</td>
+      <td>66.29%</td>
+      <td>33.71%</td>
+      <td>-6.71</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Phoenix Mercury</td>
+      <td>1554.23</td>
+      <td>-1</td>
+      <td>New York Liberty</td>
+      <td>1566.13</td>
+      <td>-1</td>
+      <td>54.26%</td>
+      <td>45.74%</td>
+      <td>-0.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>New York Liberty</td>
+      <td>1566.13</td>
+      <td>-1</td>
+      <td>@ Phoenix Mercury</td>
+      <td>1554.23</td>
+      <td>-1</td>
+      <td>45.74%</td>
+      <td>54.26%</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Indiana Fever</td>
+      <td>1569.98</td>
+      <td>-1</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1652.02</td>
+      <td>-1</td>
+      <td>32.92%</td>
+      <td>67.08%</td>
+      <td>0.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Las Vegas Aces</td>
+      <td>1652.02</td>
+      <td>-1</td>
+      <td>Indiana Fever</td>
+      <td>1569.98</td>
+      <td>-1</td>
+      <td>67.08%</td>
+      <td>32.92%</td>
+      <td>-0.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Indiana Fever</td>
+      <td>1570.59</td>
+      <td>-1</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1651.41</td>
+      <td>-1</td>
+      <td>33.08%</td>
+      <td>66.92%</td>
+      <td>0.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Las Vegas Aces</td>
+      <td>1651.41</td>
+      <td>-1</td>
+      <td>Indiana Fever</td>
+      <td>1570.59</td>
+      <td>-1</td>
+      <td>66.92%</td>
+      <td>33.08%</td>
+      <td>-0.60</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Las Vegas Aces</td>
+      <td>1650.81</td>
+      <td>-1</td>
+      <td>@ Indiana Fever</td>
+      <td>1571.20</td>
+      <td>-1</td>
+      <td>55.45%</td>
+      <td>44.55%</td>
+      <td>-0.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Indiana Fever</td>
+      <td>1571.20</td>
+      <td>-1</td>
+      <td>Las Vegas Aces</td>
+      <td>1650.81</td>
+      <td>-1</td>
+      <td>44.55%</td>
+      <td>55.45%</td>
+      <td>0.19</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Las Vegas Aces</td>
+      <td>1650.61</td>
+      <td>-1</td>
+      <td>@ Indiana Fever</td>
+      <td>1571.39</td>
+      <td>-1</td>
+      <td>55.39%</td>
+      <td>44.61%</td>
+      <td>-0.19</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Indiana Fever</td>
+      <td>1571.39</td>
+      <td>-1</td>
+      <td>Las Vegas Aces</td>
+      <td>1650.61</td>
+      <td>-1</td>
+      <td>44.61%</td>
+      <td>55.39%</td>
+      <td>0.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-30</td>
+      <td>Las Vegas Aces</td>
+      <td>1650.42</td>
+      <td>-1</td>
+      <td>Indiana Fever</td>
+      <td>1571.59</td>
+      <td>-1</td>
+      <td>66.67%</td>
+      <td>33.33%</td>
+      <td>-0.60</td>
+    </tr>
+    <tr>
+      <td>2025-09-30</td>
+      <td>Indiana Fever</td>
+      <td>1571.59</td>
+      <td>-1</td>
+      <td>@ Las Vegas Aces</td>
+      <td>1650.42</td>
+      <td>-1</td>
+      <td>33.33%</td>
+      <td>66.67%</td>
+      <td>0.59</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
