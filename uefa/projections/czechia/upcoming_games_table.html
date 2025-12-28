@@ -1,0 +1,4117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Artis Brno" selected>Artis Brno</option><option value="Banik Ostrava" >Banik Ostrava</option><option value="Banik Ostrava B" >Banik Ostrava B</option><option value="Bohemians Prague 1905" >Bohemians Prague 1905</option><option value="Ceske Budejovice" >Ceske Budejovice</option><option value="Chrudim" >Chrudim</option><option value="Dukla Prague" >Dukla Prague</option><option value="Hanacka Slavia Kromeriz" >Hanacka Slavia Kromeriz</option><option value="Hradec Kralove" >Hradec Kralove</option><option value="Jablonec" >Jablonec</option><option value="Karvina" >Karvina</option><option value="Mlada Boleslav" >Mlada Boleslav</option><option value="Opava" >Opava</option><option value="Pardubice" >Pardubice</option><option value="Pribram" >Pribram</option><option value="Prostejov" >Prostejov</option><option value="Sigma Olomouc" >Sigma Olomouc</option><option value="Slavia Prague" >Slavia Prague</option><option value="Slavia Prague B" >Slavia Prague B</option><option value="Slovacko" >Slovacko</option><option value="Slovan Liberec" >Slovan Liberec</option><option value="Sparta Prague" >Sparta Prague</option><option value="Sparta Prague B" >Sparta Prague B</option><option value="Taborsko" >Taborsko</option><option value="Teplice" >Teplice</option><option value="Usti nad Labem" >Usti nad Labem</option><option value="Viktoria Plzen" >Viktoria Plzen</option><option value="Viktoria Zizkov" >Viktoria Zizkov</option><option value="Vlasim" >Vlasim</option><option value="Vysocina Jihlava" >Vysocina Jihlava</option><option value="Zbrojovka Brno" >Zbrojovka Brno</option><option value="Zlin" >Zlin</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-02-21</td>
+      <td>Artis Brno</td>
+      <td>1559.08</td>
+      <td>Opava</td>
+      <td>1547.64</td>
+      <td>37.01%</td>
+      <td>26.90%</td>
+      <td>36.08%</td>
+    </tr>
+    <tr>
+      <td>2025-02-21</td>
+      <td>Opava</td>
+      <td>1547.64</td>
+      <td>@ Artis Brno</td>
+      <td>1559.08</td>
+      <td>26.90%</td>
+      <td>37.01%</td>
+      <td>36.08%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>@ Dukla Prague</td>
+      <td>1613.71</td>
+      <td>62.30%</td>
+      <td>12.24%</td>
+      <td>25.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>@ Slovacko</td>
+      <td>1630.54</td>
+      <td>36.19%</td>
+      <td>27.64%</td>
+      <td>36.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>@ Pardubice</td>
+      <td>1689.76</td>
+      <td>67.34%</td>
+      <td>10.62%</td>
+      <td>22.04%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>@ Karvina</td>
+      <td>1780.24</td>
+      <td>34.97%</td>
+      <td>28.75%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>@ Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>31.37%</td>
+      <td>32.23%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>@ Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>18.42%</td>
+      <td>48.57%</td>
+      <td>33.01%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>@ Jablonec</td>
+      <td>1813.44</td>
+      <td>17.55%</td>
+      <td>50.09%</td>
+      <td>32.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>@ Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>28.91%</td>
+      <td>34.79%</td>
+      <td>36.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>28.75%</td>
+      <td>34.97%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>27.64%</td>
+      <td>36.19%</td>
+      <td>36.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>12.24%</td>
+      <td>62.30%</td>
+      <td>25.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>50.09%</td>
+      <td>17.55%</td>
+      <td>32.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>34.79%</td>
+      <td>28.91%</td>
+      <td>36.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>10.62%</td>
+      <td>67.34%</td>
+      <td>22.04%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>48.57%</td>
+      <td>18.42%</td>
+      <td>33.01%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>32.23%</td>
+      <td>31.37%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>@ Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>28.91%</td>
+      <td>34.80%</td>
+      <td>36.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>27.97%</td>
+      <td>35.82%</td>
+      <td>36.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>@ Slavia Prague</td>
+      <td>1993.27</td>
+      <td>8.00%</td>
+      <td>76.42%</td>
+      <td>15.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>@ Teplice</td>
+      <td>1703.83</td>
+      <td>39.04%</td>
+      <td>25.17%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>@ Jablonec</td>
+      <td>1813.44</td>
+      <td>13.39%</td>
+      <td>59.11%</td>
+      <td>27.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>@ Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>15.13%</td>
+      <td>54.92%</td>
+      <td>29.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>@ Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>32.35%</td>
+      <td>31.26%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>31.26%</td>
+      <td>32.35%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>@ Zlin</td>
+      <td>1734.19</td>
+      <td>47.48%</td>
+      <td>19.08%</td>
+      <td>33.44%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>19.08%</td>
+      <td>47.48%</td>
+      <td>33.44%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>34.80%</td>
+      <td>28.91%</td>
+      <td>36.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>76.42%</td>
+      <td>8.00%</td>
+      <td>15.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>25.17%</td>
+      <td>39.04%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>59.11%</td>
+      <td>13.39%</td>
+      <td>27.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>54.92%</td>
+      <td>15.13%</td>
+      <td>29.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>@ Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>35.82%</td>
+      <td>27.97%</td>
+      <td>36.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>@ Slovacko</td>
+      <td>1630.54</td>
+      <td>32.52%</td>
+      <td>31.08%</td>
+      <td>36.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>@ Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>40.60%</td>
+      <td>23.91%</td>
+      <td>35.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>@ Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>34.97%</td>
+      <td>28.75%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>31.08%</td>
+      <td>32.52%</td>
+      <td>36.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>20.69%</td>
+      <td>44.99%</td>
+      <td>34.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>28.75%</td>
+      <td>34.97%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>20.41%</td>
+      <td>45.41%</td>
+      <td>34.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>14.37%</td>
+      <td>56.66%</td>
+      <td>28.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>23.91%</td>
+      <td>40.60%</td>
+      <td>35.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>54.55%</td>
+      <td>15.30%</td>
+      <td>30.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>50.36%</td>
+      <td>17.40%</td>
+      <td>32.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>@ Sparta Prague</td>
+      <td>1873.77</td>
+      <td>17.40%</td>
+      <td>50.36%</td>
+      <td>32.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>@ Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>15.30%</td>
+      <td>54.55%</td>
+      <td>30.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>@ Karvina</td>
+      <td>1780.24</td>
+      <td>56.66%</td>
+      <td>14.37%</td>
+      <td>28.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>@ Pardubice</td>
+      <td>1689.76</td>
+      <td>45.41%</td>
+      <td>20.41%</td>
+      <td>34.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>@ Dukla Prague</td>
+      <td>1613.71</td>
+      <td>44.99%</td>
+      <td>20.69%</td>
+      <td>34.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>@ Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>24.96%</td>
+      <td>39.29%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>@ Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>24.72%</td>
+      <td>39.59%</td>
+      <td>35.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>@ Slovacko</td>
+      <td>1630.54</td>
+      <td>36.64%</td>
+      <td>27.23%</td>
+      <td>36.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>@ Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>22.90%</td>
+      <td>41.91%</td>
+      <td>35.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>@ Teplice</td>
+      <td>1703.83</td>
+      <td>33.35%</td>
+      <td>30.28%</td>
+      <td>36.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>@ Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>34.81%</td>
+      <td>28.90%</td>
+      <td>36.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>27.23%</td>
+      <td>36.64%</td>
+      <td>36.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>39.59%</td>
+      <td>24.72%</td>
+      <td>35.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>41.91%</td>
+      <td>22.90%</td>
+      <td>35.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>39.29%</td>
+      <td>24.96%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>40.03%</td>
+      <td>24.37%</td>
+      <td>35.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>30.28%</td>
+      <td>33.35%</td>
+      <td>36.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>56.52%</td>
+      <td>14.43%</td>
+      <td>29.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>@ Jablonec</td>
+      <td>1813.44</td>
+      <td>24.37%</td>
+      <td>40.03%</td>
+      <td>35.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>28.90%</td>
+      <td>34.81%</td>
+      <td>36.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>@ Slavia Prague</td>
+      <td>1993.27</td>
+      <td>14.43%</td>
+      <td>56.52%</td>
+      <td>29.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>@ Zlin</td>
+      <td>1734.19</td>
+      <td>41.37%</td>
+      <td>23.31%</td>
+      <td>35.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>13.25%</td>
+      <td>59.48%</td>
+      <td>27.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>24.97%</td>
+      <td>39.29%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>22.41%</td>
+      <td>42.57%</td>
+      <td>35.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>17.21%</td>
+      <td>50.72%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>26.80%</td>
+      <td>37.13%</td>
+      <td>36.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>52.23%</td>
+      <td>16.42%</td>
+      <td>31.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>@ Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>19.91%</td>
+      <td>46.17%</td>
+      <td>33.93%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>@ Karvina</td>
+      <td>1780.24</td>
+      <td>15.06%</td>
+      <td>55.08%</td>
+      <td>29.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>@ Pardubice</td>
+      <td>1689.76</td>
+      <td>30.23%</td>
+      <td>33.40%</td>
+      <td>36.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>@ Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>49.71%</td>
+      <td>17.76%</td>
+      <td>32.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>@ Dukla Prague</td>
+      <td>1613.71</td>
+      <td>75.64%</td>
+      <td>8.22%</td>
+      <td>16.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>44.61%</td>
+      <td>20.95%</td>
+      <td>34.44%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>16.31%</td>
+      <td>52.45%</td>
+      <td>31.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>16.42%</td>
+      <td>52.23%</td>
+      <td>31.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>37.13%</td>
+      <td>26.80%</td>
+      <td>36.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>8.22%</td>
+      <td>75.64%</td>
+      <td>16.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>17.76%</td>
+      <td>49.71%</td>
+      <td>32.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>33.40%</td>
+      <td>30.23%</td>
+      <td>36.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>55.08%</td>
+      <td>15.06%</td>
+      <td>29.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>46.17%</td>
+      <td>19.91%</td>
+      <td>33.93%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>44.95%</td>
+      <td>20.72%</td>
+      <td>34.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>@ Sparta Prague</td>
+      <td>1873.77</td>
+      <td>13.19%</td>
+      <td>59.63%</td>
+      <td>27.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>59.63%</td>
+      <td>13.19%</td>
+      <td>27.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>59.48%</td>
+      <td>13.25%</td>
+      <td>27.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>39.29%</td>
+      <td>24.97%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>20.95%</td>
+      <td>44.61%</td>
+      <td>34.44%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>42.57%</td>
+      <td>22.41%</td>
+      <td>35.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>50.72%</td>
+      <td>17.21%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>52.45%</td>
+      <td>16.31%</td>
+      <td>31.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>23.31%</td>
+      <td>41.37%</td>
+      <td>35.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>@ Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>20.72%</td>
+      <td>44.95%</td>
+      <td>34.33%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>31.63%</td>
+      <td>31.97%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>@ Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>35.02%</td>
+      <td>28.70%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>31.05%</td>
+      <td>32.55%</td>
+      <td>36.39%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>22.09%</td>
+      <td>42.99%</td>
+      <td>34.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>38.05%</td>
+      <td>26.00%</td>
+      <td>35.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>21.64%</td>
+      <td>43.63%</td>
+      <td>34.74%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>26.81%</td>
+      <td>37.12%</td>
+      <td>36.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>47.55%</td>
+      <td>19.04%</td>
+      <td>33.42%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>@ Slovacko</td>
+      <td>1630.54</td>
+      <td>31.91%</td>
+      <td>31.69%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>51.34%</td>
+      <td>16.88%</td>
+      <td>31.79%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>47.60%</td>
+      <td>19.00%</td>
+      <td>33.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>45.45%</td>
+      <td>20.38%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>26.45%</td>
+      <td>37.53%</td>
+      <td>36.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>16.80%</td>
+      <td>51.49%</td>
+      <td>31.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>28.70%</td>
+      <td>35.02%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>31.69%</td>
+      <td>31.91%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>47.65%</td>
+      <td>18.97%</td>
+      <td>33.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>31.97%</td>
+      <td>31.63%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>35.09%</td>
+      <td>28.64%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>@ Slavia Prague</td>
+      <td>1993.27</td>
+      <td>16.88%</td>
+      <td>51.34%</td>
+      <td>31.79%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>@ Jablonec</td>
+      <td>1813.44</td>
+      <td>20.38%</td>
+      <td>45.45%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>@ Teplice</td>
+      <td>1703.83</td>
+      <td>19.00%</td>
+      <td>47.60%</td>
+      <td>33.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>@ Karvina</td>
+      <td>1780.24</td>
+      <td>18.97%</td>
+      <td>47.65%</td>
+      <td>33.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>19.04%</td>
+      <td>47.55%</td>
+      <td>33.42%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>@ Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>37.12%</td>
+      <td>26.81%</td>
+      <td>36.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>43.63%</td>
+      <td>21.64%</td>
+      <td>34.74%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>@ Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>37.53%</td>
+      <td>26.45%</td>
+      <td>36.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Pribram</td>
+      <td>1537.88</td>
+      <td>26.00%</td>
+      <td>38.05%</td>
+      <td>35.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>32.55%</td>
+      <td>31.05%</td>
+      <td>36.39%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>28.64%</td>
+      <td>35.09%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>42.99%</td>
+      <td>22.09%</td>
+      <td>34.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>@ Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>51.49%</td>
+      <td>16.80%</td>
+      <td>31.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>49.20%</td>
+      <td>18.05%</td>
+      <td>32.75%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>27.60%</td>
+      <td>36.23%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>19.23%</td>
+      <td>47.23%</td>
+      <td>33.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>37.96%</td>
+      <td>26.08%</td>
+      <td>35.96%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>35.30%</td>
+      <td>28.44%</td>
+      <td>36.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>19.28%</td>
+      <td>47.15%</td>
+      <td>33.57%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>@ Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>33.98%</td>
+      <td>29.67%</td>
+      <td>36.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>41.98%</td>
+      <td>22.84%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>@ Dukla Prague</td>
+      <td>1613.71</td>
+      <td>55.04%</td>
+      <td>15.08%</td>
+      <td>29.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>@ Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>20.21%</td>
+      <td>45.71%</td>
+      <td>34.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>@ Sparta Prague</td>
+      <td>1873.77</td>
+      <td>10.96%</td>
+      <td>66.21%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>@ Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>16.33%</td>
+      <td>52.40%</td>
+      <td>31.27%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>@ Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>32.96%</td>
+      <td>30.65%</td>
+      <td>36.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>27.87%</td>
+      <td>35.93%</td>
+      <td>36.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>@ Zlin</td>
+      <td>1734.19</td>
+      <td>62.18%</td>
+      <td>12.28%</td>
+      <td>25.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>26.08%</td>
+      <td>37.96%</td>
+      <td>35.96%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>22.84%</td>
+      <td>41.98%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>47.15%</td>
+      <td>19.28%</td>
+      <td>33.57%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>28.44%</td>
+      <td>35.30%</td>
+      <td>36.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>35.93%</td>
+      <td>27.87%</td>
+      <td>36.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>36.23%</td>
+      <td>27.60%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>18.05%</td>
+      <td>49.20%</td>
+      <td>32.75%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>@ Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>14.16%</td>
+      <td>57.17%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>47.23%</td>
+      <td>19.23%</td>
+      <td>33.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>57.17%</td>
+      <td>14.16%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>66.21%</td>
+      <td>10.96%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>52.40%</td>
+      <td>16.33%</td>
+      <td>31.27%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>29.67%</td>
+      <td>33.98%</td>
+      <td>36.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>30.65%</td>
+      <td>32.96%</td>
+      <td>36.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>45.71%</td>
+      <td>20.21%</td>
+      <td>34.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>15.08%</td>
+      <td>55.04%</td>
+      <td>29.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>12.28%</td>
+      <td>62.18%</td>
+      <td>25.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>@ Slovacko</td>
+      <td>1630.54</td>
+      <td>26.25%</td>
+      <td>37.76%</td>
+      <td>35.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>@ Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>47.67%</td>
+      <td>18.96%</td>
+      <td>33.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>@ Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>56.66%</td>
+      <td>14.37%</td>
+      <td>28.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>@ Slavia Prague</td>
+      <td>1993.27</td>
+      <td>10.61%</td>
+      <td>67.38%</td>
+      <td>22.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>@ Pardubice</td>
+      <td>1689.76</td>
+      <td>34.56%</td>
+      <td>29.13%</td>
+      <td>36.31%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>@ Teplice</td>
+      <td>1703.83</td>
+      <td>36.50%</td>
+      <td>27.35%</td>
+      <td>36.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>@ Karvina</td>
+      <td>1780.24</td>
+      <td>16.60%</td>
+      <td>51.87%</td>
+      <td>31.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>@ Jablonec</td>
+      <td>1813.44</td>
+      <td>30.83%</td>
+      <td>32.78%</td>
+      <td>36.39%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>37.76%</td>
+      <td>26.25%</td>
+      <td>35.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>57.23%</td>
+      <td>14.14%</td>
+      <td>28.63%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>14.37%</td>
+      <td>56.66%</td>
+      <td>28.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>32.78%</td>
+      <td>30.83%</td>
+      <td>36.39%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>29.13%</td>
+      <td>34.56%</td>
+      <td>36.31%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>27.35%</td>
+      <td>36.50%</td>
+      <td>36.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>51.87%</td>
+      <td>16.60%</td>
+      <td>31.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>67.38%</td>
+      <td>10.61%</td>
+      <td>22.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>49.42%</td>
+      <td>17.92%</td>
+      <td>32.65%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>34.50%</td>
+      <td>29.19%</td>
+      <td>36.32%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>30.59%</td>
+      <td>33.03%</td>
+      <td>36.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>18.96%</td>
+      <td>47.67%</td>
+      <td>33.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>14.14%</td>
+      <td>57.23%</td>
+      <td>28.63%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>27.66%</td>
+      <td>36.16%</td>
+      <td>36.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>33.03%</td>
+      <td>30.59%</td>
+      <td>36.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>29.19%</td>
+      <td>34.50%</td>
+      <td>36.32%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>70.64%</td>
+      <td>9.64%</td>
+      <td>19.72%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>29.22%</td>
+      <td>34.46%</td>
+      <td>36.32%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>9.64%</td>
+      <td>70.64%</td>
+      <td>19.72%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>13.60%</td>
+      <td>58.58%</td>
+      <td>27.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>17.92%</td>
+      <td>49.42%</td>
+      <td>32.65%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>58.58%</td>
+      <td>13.60%</td>
+      <td>27.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>@ Pribram</td>
+      <td>1537.88</td>
+      <td>34.46%</td>
+      <td>29.22%</td>
+      <td>36.32%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>36.16%</td>
+      <td>27.66%</td>
+      <td>36.18%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>22.58%</td>
+      <td>42.33%</td>
+      <td>35.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>14.06%</td>
+      <td>57.42%</td>
+      <td>28.52%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>13.51%</td>
+      <td>58.79%</td>
+      <td>27.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>38.76%</td>
+      <td>25.40%</td>
+      <td>35.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>36.66%</td>
+      <td>27.21%</td>
+      <td>36.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>62.42%</td>
+      <td>12.20%</td>
+      <td>25.39%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>51.87%</td>
+      <td>16.60%</td>
+      <td>31.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>48.04%</td>
+      <td>18.74%</td>
+      <td>33.22%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>61.30%</td>
+      <td>12.58%</td>
+      <td>26.11%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>49.03%</td>
+      <td>18.15%</td>
+      <td>32.82%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>25.21%</td>
+      <td>38.99%</td>
+      <td>35.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>10.50%</td>
+      <td>67.71%</td>
+      <td>21.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>24.85%</td>
+      <td>39.43%</td>
+      <td>35.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>46.72%</td>
+      <td>19.55%</td>
+      <td>33.73%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>43.15%</td>
+      <td>21.98%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>@ Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>67.71%</td>
+      <td>10.50%</td>
+      <td>21.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>42.33%</td>
+      <td>22.58%</td>
+      <td>35.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>35.63%</td>
+      <td>28.14%</td>
+      <td>36.23%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>21.98%</td>
+      <td>43.15%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>57.42%</td>
+      <td>14.06%</td>
+      <td>28.52%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>58.79%</td>
+      <td>13.51%</td>
+      <td>27.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>25.40%</td>
+      <td>38.76%</td>
+      <td>35.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>27.21%</td>
+      <td>36.66%</td>
+      <td>36.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>12.20%</td>
+      <td>62.42%</td>
+      <td>25.39%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>@ Zlin</td>
+      <td>1734.19</td>
+      <td>39.43%</td>
+      <td>24.85%</td>
+      <td>35.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>@ Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>16.60%</td>
+      <td>51.87%</td>
+      <td>31.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>@ Sparta Prague</td>
+      <td>1873.77</td>
+      <td>18.74%</td>
+      <td>48.04%</td>
+      <td>33.22%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>@ Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>12.58%</td>
+      <td>61.30%</td>
+      <td>26.11%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>@ Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>19.55%</td>
+      <td>46.72%</td>
+      <td>33.73%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>@ Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>18.15%</td>
+      <td>49.03%</td>
+      <td>32.82%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>@ Dukla Prague</td>
+      <td>1613.71</td>
+      <td>38.99%</td>
+      <td>25.21%</td>
+      <td>35.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>28.14%</td>
+      <td>35.63%</td>
+      <td>36.23%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>27.53%</td>
+      <td>36.31%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>65.00%</td>
+      <td>11.34%</td>
+      <td>23.66%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>25.51%</td>
+      <td>38.63%</td>
+      <td>35.86%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>@ Jablonec</td>
+      <td>1813.44</td>
+      <td>16.40%</td>
+      <td>52.27%</td>
+      <td>31.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>@ Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>23.34%</td>
+      <td>41.34%</td>
+      <td>35.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>@ Pardubice</td>
+      <td>1689.76</td>
+      <td>35.36%</td>
+      <td>28.39%</td>
+      <td>36.25%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>@ Teplice</td>
+      <td>1703.83</td>
+      <td>51.35%</td>
+      <td>16.87%</td>
+      <td>31.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>@ Karvina</td>
+      <td>1780.24</td>
+      <td>35.57%</td>
+      <td>28.19%</td>
+      <td>36.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>19.74%</td>
+      <td>46.43%</td>
+      <td>33.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>@ Slavia Prague</td>
+      <td>1993.27</td>
+      <td>14.22%</td>
+      <td>57.03%</td>
+      <td>28.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>17.26%</td>
+      <td>50.62%</td>
+      <td>32.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>22.62%</td>
+      <td>42.29%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>37.94%</td>
+      <td>26.09%</td>
+      <td>35.96%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Pribram</td>
+      <td>1537.88</td>
+      <td>16.81%</td>
+      <td>51.47%</td>
+      <td>31.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>35.61%</td>
+      <td>28.16%</td>
+      <td>36.23%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>42.33%</td>
+      <td>22.58%</td>
+      <td>35.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>36.31%</td>
+      <td>27.53%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>11.34%</td>
+      <td>65.00%</td>
+      <td>23.66%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>22.58%</td>
+      <td>42.33%</td>
+      <td>35.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>28.16%</td>
+      <td>35.61%</td>
+      <td>36.23%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>51.47%</td>
+      <td>16.81%</td>
+      <td>31.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>26.09%</td>
+      <td>37.94%</td>
+      <td>35.96%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>42.29%</td>
+      <td>22.62%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>50.62%</td>
+      <td>17.26%</td>
+      <td>32.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>57.03%</td>
+      <td>14.22%</td>
+      <td>28.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>28.19%</td>
+      <td>35.57%</td>
+      <td>36.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>16.87%</td>
+      <td>51.35%</td>
+      <td>31.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>28.39%</td>
+      <td>35.36%</td>
+      <td>36.25%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>41.34%</td>
+      <td>23.34%</td>
+      <td>35.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>52.27%</td>
+      <td>16.40%</td>
+      <td>31.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>@ Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>38.63%</td>
+      <td>25.51%</td>
+      <td>35.86%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>@ Slovacko</td>
+      <td>1630.54</td>
+      <td>46.43%</td>
+      <td>19.74%</td>
+      <td>33.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>30.37%</td>
+      <td>33.25%</td>
+      <td>36.38%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>34.48%</td>
+      <td>29.21%</td>
+      <td>36.32%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>39.21%</td>
+      <td>25.03%</td>
+      <td>35.76%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>21.37%</td>
+      <td>44.00%</td>
+      <td>34.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>51.29%</td>
+      <td>16.90%</td>
+      <td>31.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>13.49%</td>
+      <td>58.86%</td>
+      <td>27.66%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>58.86%</td>
+      <td>13.49%</td>
+      <td>27.66%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>16.90%</td>
+      <td>51.29%</td>
+      <td>31.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>44.00%</td>
+      <td>21.37%</td>
+      <td>34.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>25.03%</td>
+      <td>39.21%</td>
+      <td>35.76%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>29.21%</td>
+      <td>34.48%</td>
+      <td>36.32%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>25.16%</td>
+      <td>39.05%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>60.97%</td>
+      <td>12.70%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>12.70%</td>
+      <td>60.97%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>39.05%</td>
+      <td>25.16%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-15</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>33.25%</td>
+      <td>30.37%</td>
+      <td>36.38%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>@ Dukla Prague</td>
+      <td>1613.71</td>
+      <td>50.92%</td>
+      <td>17.10%</td>
+      <td>31.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>@ Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>17.57%</td>
+      <td>50.05%</td>
+      <td>32.38%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Sigma Olomouc</td>
+      <td>1739.83</td>
+      <td>Slovacko</td>
+      <td>1630.54</td>
+      <td>50.05%</td>
+      <td>17.57%</td>
+      <td>32.38%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>58.20%</td>
+      <td>13.74%</td>
+      <td>28.05%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Sparta Prague</td>
+      <td>1873.77</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>43.70%</td>
+      <td>21.59%</td>
+      <td>34.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>53.62%</td>
+      <td>15.73%</td>
+      <td>30.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Zlin</td>
+      <td>1734.19</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>39.64%</td>
+      <td>24.68%</td>
+      <td>35.68%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>26.73%</td>
+      <td>37.21%</td>
+      <td>36.06%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>@ Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>25.20%</td>
+      <td>39.00%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>49.09%</td>
+      <td>18.12%</td>
+      <td>32.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>@ Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>58.86%</td>
+      <td>13.49%</td>
+      <td>27.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>34.02%</td>
+      <td>29.63%</td>
+      <td>36.34%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>14.80%</td>
+      <td>55.67%</td>
+      <td>29.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>45.09%</td>
+      <td>20.62%</td>
+      <td>34.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>39.00%</td>
+      <td>25.21%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>41.19%</td>
+      <td>23.45%</td>
+      <td>35.36%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>32.34%</td>
+      <td>31.27%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Dukla Prague</td>
+      <td>1613.71</td>
+      <td>Karvina</td>
+      <td>1780.24</td>
+      <td>17.10%</td>
+      <td>50.92%</td>
+      <td>31.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Banik Ostrava</td>
+      <td>1686.50</td>
+      <td>Bohemians Prague 1905</td>
+      <td>1660.75</td>
+      <td>39.00%</td>
+      <td>25.20%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Hradec Kralove</td>
+      <td>1762.04</td>
+      <td>Slavia Prague</td>
+      <td>1993.27</td>
+      <td>13.49%</td>
+      <td>58.86%</td>
+      <td>27.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>29.63%</td>
+      <td>34.02%</td>
+      <td>36.34%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>37.21%</td>
+      <td>26.73%</td>
+      <td>36.06%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>18.12%</td>
+      <td>49.09%</td>
+      <td>32.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Jablonec</td>
+      <td>1813.44</td>
+      <td>@ Sparta Prague</td>
+      <td>1873.77</td>
+      <td>21.59%</td>
+      <td>43.70%</td>
+      <td>34.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>55.67%</td>
+      <td>14.80%</td>
+      <td>29.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Pribram</td>
+      <td>1537.88</td>
+      <td>20.62%</td>
+      <td>45.09%</td>
+      <td>34.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>25.21%</td>
+      <td>39.00%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>23.45%</td>
+      <td>41.19%</td>
+      <td>35.36%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>31.27%</td>
+      <td>32.34%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Mlada Boleslav</td>
+      <td>1656.48</td>
+      <td>@ Slovan Liberec</td>
+      <td>1831.83</td>
+      <td>13.74%</td>
+      <td>58.20%</td>
+      <td>28.05%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Teplice</td>
+      <td>1703.83</td>
+      <td>@ Zlin</td>
+      <td>1734.19</td>
+      <td>24.68%</td>
+      <td>39.64%</td>
+      <td>35.68%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Pardubice</td>
+      <td>1689.76</td>
+      <td>@ Viktoria Plzen</td>
+      <td>1827.58</td>
+      <td>15.73%</td>
+      <td>53.62%</td>
+      <td>30.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>39.29%</td>
+      <td>24.97%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>56.58%</td>
+      <td>14.41%</td>
+      <td>29.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>17.81%</td>
+      <td>49.62%</td>
+      <td>32.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>18.87%</td>
+      <td>47.82%</td>
+      <td>33.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>23.06%</td>
+      <td>41.69%</td>
+      <td>35.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>27.61%</td>
+      <td>36.22%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>14.41%</td>
+      <td>56.58%</td>
+      <td>29.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>17.01%</td>
+      <td>51.09%</td>
+      <td>31.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>24.96%</td>
+      <td>39.30%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>36.22%</td>
+      <td>27.61%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>39.30%</td>
+      <td>24.96%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>41.69%</td>
+      <td>23.06%</td>
+      <td>35.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>47.82%</td>
+      <td>18.87%</td>
+      <td>33.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>24.97%</td>
+      <td>39.29%</td>
+      <td>35.74%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>49.62%</td>
+      <td>17.81%</td>
+      <td>32.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>51.09%</td>
+      <td>17.01%</td>
+      <td>31.90%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>61.86%</td>
+      <td>12.39%</td>
+      <td>25.75%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>41.78%</td>
+      <td>23.00%</td>
+      <td>35.22%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>10.57%</td>
+      <td>67.51%</td>
+      <td>21.92%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>23.00%</td>
+      <td>41.78%</td>
+      <td>35.22%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>28.85%</td>
+      <td>34.86%</td>
+      <td>36.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Pribram</td>
+      <td>1537.88</td>
+      <td>26.01%</td>
+      <td>38.04%</td>
+      <td>35.95%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>47.74%</td>
+      <td>18.92%</td>
+      <td>33.34%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>24.19%</td>
+      <td>40.24%</td>
+      <td>35.56%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>67.51%</td>
+      <td>10.57%</td>
+      <td>21.92%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>12.39%</td>
+      <td>61.86%</td>
+      <td>25.75%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>16.58%</td>
+      <td>51.91%</td>
+      <td>31.51%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>40.24%</td>
+      <td>24.19%</td>
+      <td>35.56%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>18.92%</td>
+      <td>47.74%</td>
+      <td>33.34%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>38.04%</td>
+      <td>26.01%</td>
+      <td>35.95%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>34.86%</td>
+      <td>28.85%</td>
+      <td>36.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>51.91%</td>
+      <td>16.58%</td>
+      <td>31.51%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>18.34%</td>
+      <td>48.70%</td>
+      <td>32.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>52.23%</td>
+      <td>16.42%</td>
+      <td>31.35%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>49.34%</td>
+      <td>17.97%</td>
+      <td>32.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>32.19%</td>
+      <td>31.41%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>28.34%</td>
+      <td>35.41%</td>
+      <td>36.25%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>35.03%</td>
+      <td>28.69%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>59.57%</td>
+      <td>13.22%</td>
+      <td>27.22%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>50.63%</td>
+      <td>17.25%</td>
+      <td>32.11%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>17.25%</td>
+      <td>50.63%</td>
+      <td>32.11%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>31.41%</td>
+      <td>32.19%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>35.41%</td>
+      <td>28.34%</td>
+      <td>36.25%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>16.42%</td>
+      <td>52.23%</td>
+      <td>31.35%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>48.70%</td>
+      <td>18.34%</td>
+      <td>32.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>28.69%</td>
+      <td>35.03%</td>
+      <td>36.28%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>13.22%</td>
+      <td>59.57%</td>
+      <td>27.22%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>17.97%</td>
+      <td>49.34%</td>
+      <td>32.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>61.28%</td>
+      <td>12.59%</td>
+      <td>26.13%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>45.98%</td>
+      <td>20.03%</td>
+      <td>33.99%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>31.86%</td>
+      <td>31.74%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>49.08%</td>
+      <td>18.12%</td>
+      <td>32.80%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>31.96%</td>
+      <td>31.64%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>33.52%</td>
+      <td>30.12%</td>
+      <td>36.37%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>43.43%</td>
+      <td>21.78%</td>
+      <td>34.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>21.78%</td>
+      <td>43.43%</td>
+      <td>34.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>30.12%</td>
+      <td>33.52%</td>
+      <td>36.37%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>44.69%</td>
+      <td>20.89%</td>
+      <td>34.42%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>31.64%</td>
+      <td>31.96%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>18.12%</td>
+      <td>49.08%</td>
+      <td>32.80%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>31.74%</td>
+      <td>31.86%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>20.03%</td>
+      <td>45.98%</td>
+      <td>33.99%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>12.59%</td>
+      <td>61.28%</td>
+      <td>26.13%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>20.89%</td>
+      <td>44.69%</td>
+      <td>34.42%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>@ Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>43.92%</td>
+      <td>21.43%</td>
+      <td>34.65%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>@ Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>27.59%</td>
+      <td>36.24%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>@ Artis Brno</td>
+      <td>1636.55</td>
+      <td>17.44%</td>
+      <td>50.29%</td>
+      <td>32.27%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>@ Pribram</td>
+      <td>1537.88</td>
+      <td>23.32%</td>
+      <td>41.35%</td>
+      <td>35.32%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>@ Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>35.62%</td>
+      <td>28.15%</td>
+      <td>36.23%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>@ Vlasim</td>
+      <td>1522.79</td>
+      <td>31.64%</td>
+      <td>31.96%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>50.29%</td>
+      <td>17.44%</td>
+      <td>32.27%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>36.24%</td>
+      <td>27.59%</td>
+      <td>36.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>41.35%</td>
+      <td>23.32%</td>
+      <td>35.32%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>21.43%</td>
+      <td>43.92%</td>
+      <td>34.65%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>10.51%</td>
+      <td>67.68%</td>
+      <td>21.80%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>28.15%</td>
+      <td>35.62%</td>
+      <td>36.23%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>@ Taborsko</td>
+      <td>1699.82</td>
+      <td>20.13%</td>
+      <td>45.83%</td>
+      <td>34.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>45.83%</td>
+      <td>20.13%</td>
+      <td>34.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>@ Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>67.68%</td>
+      <td>10.51%</td>
+      <td>21.80%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>31.96%</td>
+      <td>31.64%</td>
+      <td>36.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>@ Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>21.73%</td>
+      <td>43.50%</td>
+      <td>34.77%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>@ Prostejov</td>
+      <td>1494.97</td>
+      <td>55.67%</td>
+      <td>14.80%</td>
+      <td>29.53%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>@ Chrudim</td>
+      <td>1513.12</td>
+      <td>45.38%</td>
+      <td>20.43%</td>
+      <td>34.19%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>@ Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>19.85%</td>
+      <td>46.26%</td>
+      <td>33.89%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>@ Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>12.44%</td>
+      <td>61.72%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>@ Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>22.62%</td>
+      <td>42.28%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>49.90%</td>
+      <td>17.66%</td>
+      <td>32.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Opava</td>
+      <td>1623.32</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>47.00%</td>
+      <td>19.38%</td>
+      <td>33.63%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Slavia Prague B</td>
+      <td>1581.62</td>
+      <td>Vlasim</td>
+      <td>1522.79</td>
+      <td>43.50%</td>
+      <td>21.73%</td>
+      <td>34.77%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Prostejov</td>
+      <td>1494.97</td>
+      <td>Taborsko</td>
+      <td>1699.82</td>
+      <td>14.80%</td>
+      <td>55.67%</td>
+      <td>29.53%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Vysocina Jihlava</td>
+      <td>1518.97</td>
+      <td>Usti nad Labem</td>
+      <td>1469.23</td>
+      <td>42.28%</td>
+      <td>22.62%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Chrudim</td>
+      <td>1513.12</td>
+      <td>Artis Brno</td>
+      <td>1636.55</td>
+      <td>20.43%</td>
+      <td>45.38%</td>
+      <td>34.19%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Banik Ostrava B</td>
+      <td>1546.85</td>
+      <td>Sparta Prague B</td>
+      <td>1467.05</td>
+      <td>46.26%</td>
+      <td>19.85%</td>
+      <td>33.89%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Zbrojovka Brno</td>
+      <td>1723.83</td>
+      <td>Ceske Budejovice</td>
+      <td>1519.04</td>
+      <td>61.72%</td>
+      <td>12.44%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Pribram</td>
+      <td>1537.88</td>
+      <td>@ Opava</td>
+      <td>1623.32</td>
+      <td>19.38%</td>
+      <td>47.00%</td>
+      <td>33.63%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Hanacka Slavia Kromeriz</td>
+      <td>1417.33</td>
+      <td>@ Viktoria Zizkov</td>
+      <td>1525.39</td>
+      <td>17.66%</td>
+      <td>49.90%</td>
+      <td>32.45%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

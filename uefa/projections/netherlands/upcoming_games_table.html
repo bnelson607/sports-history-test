@@ -1,0 +1,6597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="ADO Den Haag" selected>ADO Den Haag</option><option value="Ajax" >Ajax</option><option value="Alkmaar" >Alkmaar</option><option value="Almere City" >Almere City</option><option value="Cambuur" >Cambuur</option><option value="De Graafschap" >De Graafschap</option><option value="Den Bosch" >Den Bosch</option><option value="Dordrecht" >Dordrecht</option><option value="Emmen" >Emmen</option><option value="Excelsior" >Excelsior</option><option value="FC Eindhoven" >FC Eindhoven</option><option value="Feyenoord" >Feyenoord</option><option value="Fortuna Sittard" >Fortuna Sittard</option><option value="Go Ahead Eagles" >Go Ahead Eagles</option><option value="Groningen" >Groningen</option><option value="Heerenveen" >Heerenveen</option><option value="Helmond Sport" >Helmond Sport</option><option value="Heracles Almelo" >Heracles Almelo</option><option value="Jong Ajax" >Jong Ajax</option><option value="Jong Alkmaar" >Jong Alkmaar</option><option value="Jong PSV" >Jong PSV</option><option value="Jong Utrecht" >Jong Utrecht</option><option value="MVV Maastricht" >MVV Maastricht</option><option value="NAC Breda" >NAC Breda</option><option value="NEC Nijmegen" >NEC Nijmegen</option><option value="PSV Eindhoven" >PSV Eindhoven</option><option value="RKC Waalwijk" >RKC Waalwijk</option><option value="Roda JC Kerkrade" >Roda JC Kerkrade</option><option value="Sparta Rotterdam" >Sparta Rotterdam</option><option value="TOP Oss" >TOP Oss</option><option value="Telstar" >Telstar</option><option value="Twente" >Twente</option><option value="Utrecht" >Utrecht</option><option value="VVV-Venlo" >VVV-Venlo</option><option value="Vitesse" >Vitesse</option><option value="Volendam" >Volendam</option><option value="Willem II" >Willem II</option><option value="Zwolle" >Zwolle</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-22</td>
+      <td>ADO Den Haag</td>
+      <td>1758.72</td>
+      <td>Vitesse</td>
+      <td>1643.97</td>
+      <td>59.67%</td>
+      <td>17.63%</td>
+      <td>22.71%</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Vitesse</td>
+      <td>1643.97</td>
+      <td>@ ADO Den Haag</td>
+      <td>1758.72</td>
+      <td>17.63%</td>
+      <td>59.67%</td>
+      <td>22.71%</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Alkmaar</td>
+      <td>1918.58</td>
+      <td>Excelsior</td>
+      <td>1775.72</td>
+      <td>62.79%</td>
+      <td>15.73%</td>
+      <td>21.48%</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Excelsior</td>
+      <td>1775.72</td>
+      <td>@ Alkmaar</td>
+      <td>1918.58</td>
+      <td>15.73%</td>
+      <td>62.79%</td>
+      <td>21.48%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>46.05%</td>
+      <td>27.85%</td>
+      <td>26.10%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>55.93%</td>
+      <td>20.12%</td>
+      <td>23.96%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>25.06%</td>
+      <td>49.38%</td>
+      <td>25.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>31.45%</td>
+      <td>42.03%</td>
+      <td>26.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>47.78%</td>
+      <td>26.38%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>22.37%</td>
+      <td>52.82%</td>
+      <td>24.81%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>27.85%</td>
+      <td>46.05%</td>
+      <td>26.10%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>52.82%</td>
+      <td>22.37%</td>
+      <td>24.81%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>26.38%</td>
+      <td>47.78%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>42.03%</td>
+      <td>31.45%</td>
+      <td>26.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>49.38%</td>
+      <td>25.06%</td>
+      <td>25.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-09</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>20.12%</td>
+      <td>55.93%</td>
+      <td>23.96%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>16.68%</td>
+      <td>61.20%</td>
+      <td>22.13%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>16.10%</td>
+      <td>62.16%</td>
+      <td>21.74%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>15.20%</td>
+      <td>63.72%</td>
+      <td>21.08%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>8.02%</td>
+      <td>78.95%</td>
+      <td>13.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>17.38%</td>
+      <td>60.07%</td>
+      <td>22.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>60.07%</td>
+      <td>17.38%</td>
+      <td>22.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>62.16%</td>
+      <td>16.10%</td>
+      <td>21.74%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>63.72%</td>
+      <td>15.20%</td>
+      <td>21.08%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>78.95%</td>
+      <td>8.02%</td>
+      <td>13.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>61.20%</td>
+      <td>16.68%</td>
+      <td>22.13%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>55.72%</td>
+      <td>20.26%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>22.67%</td>
+      <td>52.43%</td>
+      <td>24.91%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>23.21%</td>
+      <td>51.71%</td>
+      <td>25.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>50.52%</td>
+      <td>24.15%</td>
+      <td>25.34%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>49.36%</td>
+      <td>25.08%</td>
+      <td>25.57%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>24.15%</td>
+      <td>50.52%</td>
+      <td>25.34%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>19.62%</td>
+      <td>56.64%</td>
+      <td>23.74%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>56.64%</td>
+      <td>19.62%</td>
+      <td>23.74%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>51.71%</td>
+      <td>23.21%</td>
+      <td>25.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>52.43%</td>
+      <td>22.67%</td>
+      <td>24.91%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>20.26%</td>
+      <td>55.72%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-11</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>25.08%</td>
+      <td>49.36%</td>
+      <td>25.57%</td>
+    </tr>
+    <tr>
+      <td>2026-01-12</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>53.46%</td>
+      <td>21.89%</td>
+      <td>24.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-12</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>19.36%</td>
+      <td>57.02%</td>
+      <td>23.62%</td>
+    </tr>
+    <tr>
+      <td>2026-01-12</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>57.02%</td>
+      <td>19.36%</td>
+      <td>23.62%</td>
+    </tr>
+    <tr>
+      <td>2026-01-12</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>21.89%</td>
+      <td>53.46%</td>
+      <td>24.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>48.18%</td>
+      <td>26.05%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>47.11%</td>
+      <td>26.94%</td>
+      <td>25.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>38.65%</td>
+      <td>34.66%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>54.75%</td>
+      <td>20.95%</td>
+      <td>24.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>36.96%</td>
+      <td>36.32%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>50.85%</td>
+      <td>23.88%</td>
+      <td>25.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>26.05%</td>
+      <td>48.18%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>26.94%</td>
+      <td>47.11%</td>
+      <td>25.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>34.66%</td>
+      <td>38.65%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>20.95%</td>
+      <td>54.75%</td>
+      <td>24.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>36.32%</td>
+      <td>36.96%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>23.88%</td>
+      <td>50.85%</td>
+      <td>25.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>25.12%</td>
+      <td>49.30%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-16</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>49.30%</td>
+      <td>25.12%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>54.63%</td>
+      <td>21.03%</td>
+      <td>24.33%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>45.37%</td>
+      <td>28.44%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>67.58%</td>
+      <td>13.12%</td>
+      <td>19.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>41.41%</td>
+      <td>32.03%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>21.03%</td>
+      <td>54.63%</td>
+      <td>24.33%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>13.12%</td>
+      <td>67.58%</td>
+      <td>19.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>28.44%</td>
+      <td>45.37%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>62.71%</td>
+      <td>15.78%</td>
+      <td>21.51%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>15.78%</td>
+      <td>62.71%</td>
+      <td>21.51%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>32.03%</td>
+      <td>41.41%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>13.11%</td>
+      <td>67.60%</td>
+      <td>19.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>47.13%</td>
+      <td>26.93%</td>
+      <td>25.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>49.03%</td>
+      <td>25.34%</td>
+      <td>25.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>38.25%</td>
+      <td>35.05%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>67.60%</td>
+      <td>13.11%</td>
+      <td>19.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>25.34%</td>
+      <td>49.03%</td>
+      <td>25.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>26.93%</td>
+      <td>47.13%</td>
+      <td>25.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>44.91%</td>
+      <td>28.84%</td>
+      <td>26.24%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>28.84%</td>
+      <td>44.91%</td>
+      <td>26.24%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>35.05%</td>
+      <td>38.25%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-01-19</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>37.33%</td>
+      <td>35.95%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-19</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>50.04%</td>
+      <td>24.52%</td>
+      <td>25.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-19</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>35.95%</td>
+      <td>37.33%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-19</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>24.52%</td>
+      <td>50.04%</td>
+      <td>25.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>21.57%</td>
+      <td>53.90%</td>
+      <td>24.53%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>49.81%</td>
+      <td>24.71%</td>
+      <td>25.48%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>19.43%</td>
+      <td>56.92%</td>
+      <td>23.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>68.06%</td>
+      <td>12.88%</td>
+      <td>19.06%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>60.88%</td>
+      <td>16.87%</td>
+      <td>22.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>49.74%</td>
+      <td>24.77%</td>
+      <td>25.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>46.81%</td>
+      <td>27.19%</td>
+      <td>25.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>53.90%</td>
+      <td>21.57%</td>
+      <td>24.53%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>27.19%</td>
+      <td>46.81%</td>
+      <td>25.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>24.77%</td>
+      <td>49.74%</td>
+      <td>25.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>16.87%</td>
+      <td>60.88%</td>
+      <td>22.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>12.88%</td>
+      <td>68.06%</td>
+      <td>19.06%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>24.71%</td>
+      <td>49.81%</td>
+      <td>25.48%</td>
+    </tr>
+    <tr>
+      <td>2026-01-23</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>56.92%</td>
+      <td>19.43%</td>
+      <td>23.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>17.41%</td>
+      <td>60.00%</td>
+      <td>22.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>12.32%</td>
+      <td>69.18%</td>
+      <td>18.50%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>17.49%</td>
+      <td>59.88%</td>
+      <td>22.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>16.47%</td>
+      <td>61.54%</td>
+      <td>21.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>61.54%</td>
+      <td>16.47%</td>
+      <td>21.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>5.65%</td>
+      <td>85.15%</td>
+      <td>9.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>85.15%</td>
+      <td>5.65%</td>
+      <td>9.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>59.88%</td>
+      <td>17.49%</td>
+      <td>22.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>69.18%</td>
+      <td>12.32%</td>
+      <td>18.50%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>60.00%</td>
+      <td>17.41%</td>
+      <td>22.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>25.23%</td>
+      <td>49.17%</td>
+      <td>25.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>53.11%</td>
+      <td>22.15%</td>
+      <td>24.74%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>57.12%</td>
+      <td>19.30%</td>
+      <td>23.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>43.13%</td>
+      <td>30.43%</td>
+      <td>26.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>30.43%</td>
+      <td>43.13%</td>
+      <td>26.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>10.58%</td>
+      <td>72.90%</td>
+      <td>16.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>19.30%</td>
+      <td>57.12%</td>
+      <td>23.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>22.15%</td>
+      <td>53.11%</td>
+      <td>24.74%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>49.17%</td>
+      <td>25.23%</td>
+      <td>25.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>72.90%</td>
+      <td>10.58%</td>
+      <td>16.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-26</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>37.86%</td>
+      <td>35.43%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-01-26</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>24.59%</td>
+      <td>49.97%</td>
+      <td>25.45%</td>
+    </tr>
+    <tr>
+      <td>2026-01-26</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>35.43%</td>
+      <td>37.86%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-01-26</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>49.97%</td>
+      <td>24.59%</td>
+      <td>25.45%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>49.62%</td>
+      <td>24.86%</td>
+      <td>25.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>60.59%</td>
+      <td>17.05%</td>
+      <td>22.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>40.77%</td>
+      <td>32.62%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>54.83%</td>
+      <td>20.89%</td>
+      <td>24.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>10.83%</td>
+      <td>72.35%</td>
+      <td>16.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>28.09%</td>
+      <td>45.77%</td>
+      <td>26.14%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>27.95%</td>
+      <td>45.93%</td>
+      <td>26.12%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>24.86%</td>
+      <td>49.62%</td>
+      <td>25.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>17.05%</td>
+      <td>60.59%</td>
+      <td>22.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>32.62%</td>
+      <td>40.77%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>72.35%</td>
+      <td>10.83%</td>
+      <td>16.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>45.77%</td>
+      <td>28.09%</td>
+      <td>26.14%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>45.93%</td>
+      <td>27.95%</td>
+      <td>26.12%</td>
+    </tr>
+    <tr>
+      <td>2026-01-30</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>20.89%</td>
+      <td>54.83%</td>
+      <td>24.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>46.57%</td>
+      <td>27.40%</td>
+      <td>26.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>50.08%</td>
+      <td>24.50%</td>
+      <td>25.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>40.33%</td>
+      <td>33.04%</td>
+      <td>26.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>33.04%</td>
+      <td>40.33%</td>
+      <td>26.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>25.18%</td>
+      <td>49.23%</td>
+      <td>25.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>27.40%</td>
+      <td>46.57%</td>
+      <td>26.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>24.50%</td>
+      <td>50.08%</td>
+      <td>25.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>49.23%</td>
+      <td>25.18%</td>
+      <td>25.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>32.31%</td>
+      <td>41.10%</td>
+      <td>26.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>18.50%</td>
+      <td>58.31%</td>
+      <td>23.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>36.18%</td>
+      <td>37.10%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>36.51%</td>
+      <td>36.77%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>36.77%</td>
+      <td>36.51%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>37.10%</td>
+      <td>36.18%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>52.14%</td>
+      <td>22.88%</td>
+      <td>24.98%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>22.88%</td>
+      <td>52.14%</td>
+      <td>24.98%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>41.10%</td>
+      <td>32.31%</td>
+      <td>26.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>58.31%</td>
+      <td>18.50%</td>
+      <td>23.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-02</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>21.73%</td>
+      <td>53.68%</td>
+      <td>24.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-02</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>26.11%</td>
+      <td>48.10%</td>
+      <td>25.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-02</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>48.10%</td>
+      <td>26.11%</td>
+      <td>25.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-02</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>33.84%</td>
+      <td>39.50%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-02</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>53.68%</td>
+      <td>21.73%</td>
+      <td>24.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-02</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>39.50%</td>
+      <td>33.84%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>50.94%</td>
+      <td>23.81%</td>
+      <td>25.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>38.61%</td>
+      <td>34.69%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>32.78%</td>
+      <td>40.60%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>38.00%</td>
+      <td>35.29%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>18.59%</td>
+      <td>58.18%</td>
+      <td>23.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>11.39%</td>
+      <td>71.13%</td>
+      <td>17.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>71.13%</td>
+      <td>11.39%</td>
+      <td>17.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>40.60%</td>
+      <td>32.78%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>23.81%</td>
+      <td>50.94%</td>
+      <td>25.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>35.29%</td>
+      <td>38.00%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>58.18%</td>
+      <td>18.59%</td>
+      <td>23.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-06</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>34.69%</td>
+      <td>38.61%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>39.29%</td>
+      <td>34.04%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>47.89%</td>
+      <td>26.29%</td>
+      <td>25.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>53.90%</td>
+      <td>21.56%</td>
+      <td>24.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>48.91%</td>
+      <td>25.44%</td>
+      <td>25.65%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>63.69%</td>
+      <td>15.21%</td>
+      <td>21.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>34.04%</td>
+      <td>39.29%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>53.72%</td>
+      <td>21.70%</td>
+      <td>24.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>42.35%</td>
+      <td>31.15%</td>
+      <td>26.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>32.11%</td>
+      <td>41.32%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>16.65%</td>
+      <td>61.25%</td>
+      <td>22.11%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>38.10%</td>
+      <td>35.19%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>26.29%</td>
+      <td>47.89%</td>
+      <td>25.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>21.56%</td>
+      <td>53.90%</td>
+      <td>24.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>35.19%</td>
+      <td>38.10%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>61.25%</td>
+      <td>16.65%</td>
+      <td>22.11%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>25.44%</td>
+      <td>48.91%</td>
+      <td>25.65%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>41.32%</td>
+      <td>32.11%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>31.15%</td>
+      <td>42.35%</td>
+      <td>26.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>21.70%</td>
+      <td>53.72%</td>
+      <td>24.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>15.21%</td>
+      <td>63.69%</td>
+      <td>21.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>60.68%</td>
+      <td>16.99%</td>
+      <td>22.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>43.75%</td>
+      <td>29.88%</td>
+      <td>26.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>16.99%</td>
+      <td>60.68%</td>
+      <td>22.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>29.88%</td>
+      <td>43.75%</td>
+      <td>26.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-09</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>35.33%</td>
+      <td>37.96%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-09</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>37.96%</td>
+      <td>35.33%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-12</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>50.82%</td>
+      <td>23.91%</td>
+      <td>25.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-12</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>23.91%</td>
+      <td>50.82%</td>
+      <td>25.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>28.28%</td>
+      <td>45.55%</td>
+      <td>26.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>47.30%</td>
+      <td>26.78%</td>
+      <td>25.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>58.01%</td>
+      <td>18.70%</td>
+      <td>23.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>75.09%</td>
+      <td>9.62%</td>
+      <td>15.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>45.08%</td>
+      <td>28.70%</td>
+      <td>26.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>18.70%</td>
+      <td>58.01%</td>
+      <td>23.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>26.78%</td>
+      <td>47.30%</td>
+      <td>25.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>9.62%</td>
+      <td>75.09%</td>
+      <td>15.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>45.55%</td>
+      <td>28.28%</td>
+      <td>26.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>35.77%</td>
+      <td>37.51%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>37.51%</td>
+      <td>35.77%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-13</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>28.70%</td>
+      <td>45.08%</td>
+      <td>26.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>28.48%</td>
+      <td>45.32%</td>
+      <td>26.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>13.51%</td>
+      <td>66.82%</td>
+      <td>19.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>69.91%</td>
+      <td>11.97%</td>
+      <td>18.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>35.64%</td>
+      <td>37.65%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>11.97%</td>
+      <td>69.91%</td>
+      <td>18.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>13.99%</td>
+      <td>65.92%</td>
+      <td>20.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>22.80%</td>
+      <td>52.25%</td>
+      <td>24.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>41.54%</td>
+      <td>31.91%</td>
+      <td>26.56%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>48.27%</td>
+      <td>25.97%</td>
+      <td>25.76%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>45.29%</td>
+      <td>28.51%</td>
+      <td>26.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>23.40%</td>
+      <td>51.48%</td>
+      <td>25.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>37.65%</td>
+      <td>35.64%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>28.51%</td>
+      <td>45.29%</td>
+      <td>26.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>65.92%</td>
+      <td>13.99%</td>
+      <td>20.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>51.48%</td>
+      <td>23.40%</td>
+      <td>25.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>52.25%</td>
+      <td>22.80%</td>
+      <td>24.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>31.91%</td>
+      <td>41.54%</td>
+      <td>26.56%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>25.97%</td>
+      <td>48.27%</td>
+      <td>25.76%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>45.32%</td>
+      <td>28.48%</td>
+      <td>26.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>66.82%</td>
+      <td>13.51%</td>
+      <td>19.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-16</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>64.78%</td>
+      <td>14.61%</td>
+      <td>20.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-16</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>14.61%</td>
+      <td>64.78%</td>
+      <td>20.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-16</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>44.12%</td>
+      <td>29.54%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-16</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>29.54%</td>
+      <td>44.12%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>24.63%</td>
+      <td>49.91%</td>
+      <td>25.46%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>20.56%</td>
+      <td>55.30%</td>
+      <td>24.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>16.64%</td>
+      <td>61.26%</td>
+      <td>22.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>62.46%</td>
+      <td>15.92%</td>
+      <td>21.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>24.61%</td>
+      <td>49.93%</td>
+      <td>25.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>49.91%</td>
+      <td>24.63%</td>
+      <td>25.46%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>12.82%</td>
+      <td>68.18%</td>
+      <td>19.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>68.18%</td>
+      <td>12.82%</td>
+      <td>19.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>63.08%</td>
+      <td>15.57%</td>
+      <td>21.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>49.93%</td>
+      <td>24.61%</td>
+      <td>25.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>15.92%</td>
+      <td>62.46%</td>
+      <td>21.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>61.26%</td>
+      <td>16.64%</td>
+      <td>22.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>55.30%</td>
+      <td>20.56%</td>
+      <td>24.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-20</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>15.57%</td>
+      <td>63.08%</td>
+      <td>21.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>35.74%</td>
+      <td>37.55%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>37.55%</td>
+      <td>35.74%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>18.29%</td>
+      <td>58.64%</td>
+      <td>23.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>53.32%</td>
+      <td>21.99%</td>
+      <td>24.68%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>58.64%</td>
+      <td>18.29%</td>
+      <td>23.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>59.36%</td>
+      <td>17.82%</td>
+      <td>22.82%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>72.35%</td>
+      <td>10.83%</td>
+      <td>16.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>44.94%</td>
+      <td>28.82%</td>
+      <td>26.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>54.43%</td>
+      <td>21.18%</td>
+      <td>24.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>37.82%</td>
+      <td>35.46%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>74.39%</td>
+      <td>9.92%</td>
+      <td>15.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>21.99%</td>
+      <td>53.32%</td>
+      <td>24.68%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>53.44%</td>
+      <td>21.91%</td>
+      <td>24.66%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>21.91%</td>
+      <td>53.44%</td>
+      <td>24.66%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>9.92%</td>
+      <td>74.39%</td>
+      <td>15.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>35.46%</td>
+      <td>37.82%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>21.18%</td>
+      <td>54.43%</td>
+      <td>24.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>28.82%</td>
+      <td>44.94%</td>
+      <td>26.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>10.83%</td>
+      <td>72.35%</td>
+      <td>16.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>17.82%</td>
+      <td>59.36%</td>
+      <td>22.82%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>18.85%</td>
+      <td>57.78%</td>
+      <td>23.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>57.78%</td>
+      <td>18.85%</td>
+      <td>23.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-23</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>39.43%</td>
+      <td>33.90%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-23</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>33.90%</td>
+      <td>39.43%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>60.96%</td>
+      <td>16.82%</td>
+      <td>22.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>11.76%</td>
+      <td>70.35%</td>
+      <td>17.89%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>48.07%</td>
+      <td>26.13%</td>
+      <td>25.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>53.68%</td>
+      <td>21.73%</td>
+      <td>24.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>16.82%</td>
+      <td>60.96%</td>
+      <td>22.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>24.44%</td>
+      <td>50.15%</td>
+      <td>25.41%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>38.74%</td>
+      <td>34.57%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>27.47%</td>
+      <td>46.49%</td>
+      <td>26.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>36.63%</td>
+      <td>36.65%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>43.50%</td>
+      <td>30.11%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>41.93%</td>
+      <td>31.54%</td>
+      <td>26.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>70.35%</td>
+      <td>11.76%</td>
+      <td>17.89%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>34.57%</td>
+      <td>38.74%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>26.13%</td>
+      <td>48.07%</td>
+      <td>25.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>21.73%</td>
+      <td>53.68%</td>
+      <td>24.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>50.15%</td>
+      <td>24.44%</td>
+      <td>25.41%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>46.49%</td>
+      <td>27.47%</td>
+      <td>26.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>36.65%</td>
+      <td>36.63%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>30.11%</td>
+      <td>43.50%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>31.54%</td>
+      <td>41.93%</td>
+      <td>26.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>32.80%</td>
+      <td>40.59%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>43.65%</td>
+      <td>29.97%</td>
+      <td>26.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>33.88%</td>
+      <td>39.46%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>11.58%</td>
+      <td>70.72%</td>
+      <td>17.70%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>29.97%</td>
+      <td>43.65%</td>
+      <td>26.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>60.23%</td>
+      <td>17.27%</td>
+      <td>22.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>22.83%</td>
+      <td>52.21%</td>
+      <td>24.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>32.94%</td>
+      <td>40.44%</td>
+      <td>26.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>40.59%</td>
+      <td>32.80%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>52.21%</td>
+      <td>22.84%</td>
+      <td>24.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>39.46%</td>
+      <td>33.88%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>17.27%</td>
+      <td>60.23%</td>
+      <td>22.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>70.72%</td>
+      <td>11.58%</td>
+      <td>17.70%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>52.21%</td>
+      <td>22.83%</td>
+      <td>24.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>24.72%</td>
+      <td>49.80%</td>
+      <td>25.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>22.84%</td>
+      <td>52.21%</td>
+      <td>24.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>40.44%</td>
+      <td>32.94%</td>
+      <td>26.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>49.80%</td>
+      <td>24.72%</td>
+      <td>25.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>20.07%</td>
+      <td>55.99%</td>
+      <td>23.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>55.99%</td>
+      <td>20.07%</td>
+      <td>23.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>57.28%</td>
+      <td>19.19%</td>
+      <td>23.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>49.11%</td>
+      <td>25.28%</td>
+      <td>25.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>53.60%</td>
+      <td>21.79%</td>
+      <td>24.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>34.21%</td>
+      <td>39.11%</td>
+      <td>26.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>21.79%</td>
+      <td>53.60%</td>
+      <td>24.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>25.28%</td>
+      <td>49.11%</td>
+      <td>25.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>19.19%</td>
+      <td>57.28%</td>
+      <td>23.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>39.11%</td>
+      <td>34.21%</td>
+      <td>26.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>62.80%</td>
+      <td>15.73%</td>
+      <td>21.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>14.51%</td>
+      <td>64.95%</td>
+      <td>20.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>26.01%</td>
+      <td>48.22%</td>
+      <td>25.77%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>33.86%</td>
+      <td>39.47%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>64.95%</td>
+      <td>14.51%</td>
+      <td>20.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>28.88%</td>
+      <td>44.87%</td>
+      <td>26.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>38.20%</td>
+      <td>35.09%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>67.31%</td>
+      <td>13.26%</td>
+      <td>19.43%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>26.18%</td>
+      <td>48.01%</td>
+      <td>25.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>48.83%</td>
+      <td>25.51%</td>
+      <td>25.66%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>48.01%</td>
+      <td>26.18%</td>
+      <td>25.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>13.26%</td>
+      <td>67.31%</td>
+      <td>19.43%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>15.73%</td>
+      <td>62.80%</td>
+      <td>21.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>50.62%</td>
+      <td>24.07%</td>
+      <td>25.31%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>35.09%</td>
+      <td>38.20%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>44.87%</td>
+      <td>28.88%</td>
+      <td>26.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>25.51%</td>
+      <td>48.83%</td>
+      <td>25.66%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>39.47%</td>
+      <td>33.86%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>48.22%</td>
+      <td>26.01%</td>
+      <td>25.77%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>24.07%</td>
+      <td>50.62%</td>
+      <td>25.31%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>59.37%</td>
+      <td>17.82%</td>
+      <td>22.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>74.30%</td>
+      <td>9.96%</td>
+      <td>15.74%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>17.82%</td>
+      <td>59.37%</td>
+      <td>22.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>27.17%</td>
+      <td>46.84%</td>
+      <td>25.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>9.96%</td>
+      <td>74.30%</td>
+      <td>15.74%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>46.84%</td>
+      <td>27.17%</td>
+      <td>25.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-09</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>33.40%</td>
+      <td>39.95%</td>
+      <td>26.65%</td>
+    </tr>
+    <tr>
+      <td>2026-03-09</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>39.95%</td>
+      <td>33.40%</td>
+      <td>26.65%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>53.95%</td>
+      <td>21.53%</td>
+      <td>24.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>27.28%</td>
+      <td>46.71%</td>
+      <td>26.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>54.56%</td>
+      <td>21.09%</td>
+      <td>24.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>46.71%</td>
+      <td>27.28%</td>
+      <td>26.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>32.55%</td>
+      <td>40.85%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>28.01%</td>
+      <td>45.87%</td>
+      <td>26.13%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>34.85%</td>
+      <td>38.45%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>43.38%</td>
+      <td>30.21%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>21.09%</td>
+      <td>54.56%</td>
+      <td>24.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>21.53%</td>
+      <td>53.95%</td>
+      <td>24.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>60.97%</td>
+      <td>16.82%</td>
+      <td>22.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>35.03%</td>
+      <td>38.26%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>30.21%</td>
+      <td>43.38%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>38.45%</td>
+      <td>34.85%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>45.87%</td>
+      <td>28.01%</td>
+      <td>26.13%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>40.85%</td>
+      <td>32.55%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>16.82%</td>
+      <td>60.97%</td>
+      <td>22.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>38.26%</td>
+      <td>35.03%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>14.78%</td>
+      <td>64.47%</td>
+      <td>20.75%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>31.24%</td>
+      <td>42.26%</td>
+      <td>26.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>46.27%</td>
+      <td>27.66%</td>
+      <td>26.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>55.42%</td>
+      <td>20.47%</td>
+      <td>24.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>37.58%</td>
+      <td>35.71%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>14.70%</td>
+      <td>64.60%</td>
+      <td>20.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>59.86%</td>
+      <td>17.51%</td>
+      <td>22.64%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>69.50%</td>
+      <td>12.17%</td>
+      <td>18.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>42.26%</td>
+      <td>31.24%</td>
+      <td>26.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>55.76%</td>
+      <td>20.23%</td>
+      <td>24.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>64.47%</td>
+      <td>14.78%</td>
+      <td>20.75%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>64.60%</td>
+      <td>14.70%</td>
+      <td>20.70%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>35.71%</td>
+      <td>37.58%</td>
+      <td>26.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>12.17%</td>
+      <td>69.50%</td>
+      <td>18.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>17.51%</td>
+      <td>59.86%</td>
+      <td>22.64%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>12.82%</td>
+      <td>68.18%</td>
+      <td>19.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>20.23%</td>
+      <td>55.76%</td>
+      <td>24.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>27.66%</td>
+      <td>46.27%</td>
+      <td>26.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>20.47%</td>
+      <td>55.42%</td>
+      <td>24.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>68.18%</td>
+      <td>12.82%</td>
+      <td>19.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>23.14%</td>
+      <td>51.81%</td>
+      <td>25.05%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>25.10%</td>
+      <td>49.33%</td>
+      <td>25.57%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>57.79%</td>
+      <td>18.84%</td>
+      <td>23.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>51.81%</td>
+      <td>23.14%</td>
+      <td>25.05%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>49.33%</td>
+      <td>25.10%</td>
+      <td>25.57%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>24.24%</td>
+      <td>50.41%</td>
+      <td>25.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>50.41%</td>
+      <td>24.24%</td>
+      <td>25.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-16</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>18.84%</td>
+      <td>57.79%</td>
+      <td>23.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>17.79%</td>
+      <td>59.41%</td>
+      <td>22.80%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>17.95%</td>
+      <td>59.17%</td>
+      <td>22.89%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>8.42%</td>
+      <td>77.97%</td>
+      <td>13.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>27.79%</td>
+      <td>46.12%</td>
+      <td>26.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>59.41%</td>
+      <td>17.79%</td>
+      <td>22.80%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>59.17%</td>
+      <td>17.95%</td>
+      <td>22.89%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>46.12%</td>
+      <td>27.79%</td>
+      <td>26.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-17</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>77.97%</td>
+      <td>8.42%</td>
+      <td>13.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>12.77%</td>
+      <td>68.28%</td>
+      <td>18.95%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>47.96%</td>
+      <td>26.22%</td>
+      <td>25.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>24.26%</td>
+      <td>50.37%</td>
+      <td>25.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>29.57%</td>
+      <td>44.10%</td>
+      <td>26.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>43.47%</td>
+      <td>30.13%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>57.71%</td>
+      <td>18.90%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>26.22%</td>
+      <td>47.96%</td>
+      <td>25.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>36.09%</td>
+      <td>37.19%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>37.19%</td>
+      <td>36.09%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>68.28%</td>
+      <td>12.77%</td>
+      <td>18.95%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>50.37%</td>
+      <td>24.26%</td>
+      <td>25.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>44.10%</td>
+      <td>29.57%</td>
+      <td>26.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>30.13%</td>
+      <td>43.47%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>18.90%</td>
+      <td>57.71%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>35.78%</td>
+      <td>37.51%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>40.59%</td>
+      <td>32.79%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>53.70%</td>
+      <td>21.71%</td>
+      <td>24.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>55.71%</td>
+      <td>20.27%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>51.39%</td>
+      <td>23.46%</td>
+      <td>25.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>55.19%</td>
+      <td>20.64%</td>
+      <td>24.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>11.85%</td>
+      <td>70.15%</td>
+      <td>18.00%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>48.47%</td>
+      <td>25.80%</td>
+      <td>25.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>25.80%</td>
+      <td>48.47%</td>
+      <td>25.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>28.89%</td>
+      <td>44.86%</td>
+      <td>26.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>70.15%</td>
+      <td>11.85%</td>
+      <td>18.00%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>20.27%</td>
+      <td>55.71%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>21.71%</td>
+      <td>53.70%</td>
+      <td>24.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>32.79%</td>
+      <td>40.59%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>44.86%</td>
+      <td>28.89%</td>
+      <td>26.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>25.04%</td>
+      <td>49.40%</td>
+      <td>25.56%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>20.64%</td>
+      <td>55.19%</td>
+      <td>24.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>37.51%</td>
+      <td>35.78%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>23.46%</td>
+      <td>51.39%</td>
+      <td>25.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>49.40%</td>
+      <td>25.04%</td>
+      <td>25.56%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>42.54%</td>
+      <td>30.98%</td>
+      <td>26.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>39.57%</td>
+      <td>33.76%</td>
+      <td>26.66%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>30.98%</td>
+      <td>42.54%</td>
+      <td>26.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>33.76%</td>
+      <td>39.57%</td>
+      <td>26.66%</td>
+    </tr>
+    <tr>
+      <td>2026-03-27</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>34.48%</td>
+      <td>38.83%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-27</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>40.26%</td>
+      <td>33.11%</td>
+      <td>26.63%</td>
+    </tr>
+    <tr>
+      <td>2026-03-27</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>38.83%</td>
+      <td>34.48%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-27</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>33.11%</td>
+      <td>40.26%</td>
+      <td>26.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>43.36%</td>
+      <td>30.23%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>30.81%</td>
+      <td>42.73%</td>
+      <td>26.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>61.16%</td>
+      <td>16.70%</td>
+      <td>22.14%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>27.91%</td>
+      <td>45.98%</td>
+      <td>26.11%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>51.74%</td>
+      <td>23.19%</td>
+      <td>25.07%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>23.15%</td>
+      <td>51.80%</td>
+      <td>25.05%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>42.73%</td>
+      <td>30.81%</td>
+      <td>26.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>58.61%</td>
+      <td>18.31%</td>
+      <td>23.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>51.80%</td>
+      <td>23.15%</td>
+      <td>25.05%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>18.31%</td>
+      <td>58.61%</td>
+      <td>23.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>7.43%</td>
+      <td>80.44%</td>
+      <td>12.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>16.70%</td>
+      <td>61.16%</td>
+      <td>22.14%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>32.11%</td>
+      <td>41.31%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>30.23%</td>
+      <td>43.36%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>45.98%</td>
+      <td>27.91%</td>
+      <td>26.11%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>25.15%</td>
+      <td>49.26%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>41.31%</td>
+      <td>32.11%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>23.19%</td>
+      <td>51.74%</td>
+      <td>25.07%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>80.44%</td>
+      <td>7.43%</td>
+      <td>12.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>49.26%</td>
+      <td>25.15%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>61.18%</td>
+      <td>16.69%</td>
+      <td>22.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>29.53%</td>
+      <td>44.14%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>53.12%</td>
+      <td>22.14%</td>
+      <td>24.74%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>39.80%</td>
+      <td>33.54%</td>
+      <td>26.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>19.75%</td>
+      <td>56.45%</td>
+      <td>23.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>12.59%</td>
+      <td>68.64%</td>
+      <td>18.77%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>41.94%</td>
+      <td>31.53%</td>
+      <td>26.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>24.46%</td>
+      <td>50.12%</td>
+      <td>25.42%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>44.14%</td>
+      <td>29.53%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>58.94%</td>
+      <td>18.09%</td>
+      <td>22.97%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>22.14%</td>
+      <td>53.12%</td>
+      <td>24.74%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>33.54%</td>
+      <td>39.80%</td>
+      <td>26.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>56.45%</td>
+      <td>19.75%</td>
+      <td>23.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>68.64%</td>
+      <td>12.59%</td>
+      <td>18.77%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>31.53%</td>
+      <td>41.94%</td>
+      <td>26.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>50.12%</td>
+      <td>24.46%</td>
+      <td>25.42%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>18.09%</td>
+      <td>58.94%</td>
+      <td>22.97%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>16.69%</td>
+      <td>61.18%</td>
+      <td>22.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>26.67%</td>
+      <td>47.43%</td>
+      <td>25.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>41.24%</td>
+      <td>32.19%</td>
+      <td>26.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>25.25%</td>
+      <td>49.14%</td>
+      <td>25.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>10.92%</td>
+      <td>72.13%</td>
+      <td>16.94%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>15.82%</td>
+      <td>62.64%</td>
+      <td>21.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>21.27%</td>
+      <td>54.31%</td>
+      <td>24.42%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>27.75%</td>
+      <td>46.16%</td>
+      <td>26.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>17.85%</td>
+      <td>59.32%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>30.23%</td>
+      <td>43.36%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>43.36%</td>
+      <td>30.23%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>59.32%</td>
+      <td>17.85%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>62.64%</td>
+      <td>15.82%</td>
+      <td>21.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>54.31%</td>
+      <td>21.27%</td>
+      <td>24.42%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>61.59%</td>
+      <td>16.44%</td>
+      <td>21.97%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>72.13%</td>
+      <td>10.92%</td>
+      <td>16.94%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>47.43%</td>
+      <td>26.67%</td>
+      <td>25.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>49.14%</td>
+      <td>25.25%</td>
+      <td>25.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>32.19%</td>
+      <td>41.24%</td>
+      <td>26.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>16.44%</td>
+      <td>61.59%</td>
+      <td>21.97%</td>
+    </tr>
+    <tr>
+      <td>2026-04-06</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>46.16%</td>
+      <td>27.75%</td>
+      <td>26.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>36.10%</td>
+      <td>37.18%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>45.36%</td>
+      <td>28.45%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>28.45%</td>
+      <td>45.36%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>37.18%</td>
+      <td>36.10%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>48.90%</td>
+      <td>25.45%</td>
+      <td>25.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>25.41%</td>
+      <td>48.95%</td>
+      <td>25.64%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>25.45%</td>
+      <td>48.90%</td>
+      <td>25.65%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>48.95%</td>
+      <td>25.41%</td>
+      <td>25.64%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>20.96%</td>
+      <td>54.74%</td>
+      <td>24.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>15.86%</td>
+      <td>62.56%</td>
+      <td>21.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>26.05%</td>
+      <td>48.18%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>30.12%</td>
+      <td>43.48%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>62.97%</td>
+      <td>15.62%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>14.35%</td>
+      <td>65.24%</td>
+      <td>20.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>45.36%</td>
+      <td>28.45%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>32.72%</td>
+      <td>40.67%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>19.78%</td>
+      <td>56.41%</td>
+      <td>23.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>55.34%</td>
+      <td>20.53%</td>
+      <td>24.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>62.56%</td>
+      <td>15.86%</td>
+      <td>21.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>54.74%</td>
+      <td>20.96%</td>
+      <td>24.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>48.18%</td>
+      <td>26.05%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>28.45%</td>
+      <td>45.36%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>20.53%</td>
+      <td>55.34%</td>
+      <td>24.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>56.41%</td>
+      <td>19.78%</td>
+      <td>23.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>40.67%</td>
+      <td>32.72%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>65.24%</td>
+      <td>14.35%</td>
+      <td>20.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>15.62%</td>
+      <td>62.97%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>43.48%</td>
+      <td>30.12%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>43.04%</td>
+      <td>30.52%</td>
+      <td>26.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>22.35%</td>
+      <td>52.84%</td>
+      <td>24.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>30.52%</td>
+      <td>43.04%</td>
+      <td>26.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>52.84%</td>
+      <td>22.35%</td>
+      <td>24.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-13</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>33.95%</td>
+      <td>39.38%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-04-13</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>44.69%</td>
+      <td>29.04%</td>
+      <td>26.27%</td>
+    </tr>
+    <tr>
+      <td>2026-04-13</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>40.59%</td>
+      <td>32.80%</td>
+      <td>26.62%</td>
+    </tr>
+    <tr>
+      <td>2026-04-13</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>29.04%</td>
+      <td>44.69%</td>
+      <td>26.27%</td>
+    </tr>
+    <tr>
+      <td>2026-04-13</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>39.38%</td>
+      <td>33.95%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-04-13</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>32.80%</td>
+      <td>40.59%</td>
+      <td>26.62%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>49.29%</td>
+      <td>25.13%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>51.86%</td>
+      <td>23.10%</td>
+      <td>25.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>52.42%</td>
+      <td>22.67%</td>
+      <td>24.91%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>36.41%</td>
+      <td>36.87%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>38.53%</td>
+      <td>34.77%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>36.59%</td>
+      <td>36.69%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>47.79%</td>
+      <td>26.37%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>65.72%</td>
+      <td>14.09%</td>
+      <td>20.18%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>31.55%</td>
+      <td>41.92%</td>
+      <td>26.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>@ ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>14.09%</td>
+      <td>65.72%</td>
+      <td>20.18%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>@ De Graafschap</td>
+      <td>1742.02</td>
+      <td>36.69%</td>
+      <td>36.59%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>@ Helmond Sport</td>
+      <td>1581.13</td>
+      <td>34.77%</td>
+      <td>38.53%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>@ Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>36.87%</td>
+      <td>36.41%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>@ Jong PSV</td>
+      <td>1615.55</td>
+      <td>18.93%</td>
+      <td>57.66%</td>
+      <td>23.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>@ TOP Oss</td>
+      <td>1553.36</td>
+      <td>41.92%</td>
+      <td>31.55%</td>
+      <td>26.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>@ Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>25.13%</td>
+      <td>49.29%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>@ Vitesse</td>
+      <td>1629.93</td>
+      <td>23.10%</td>
+      <td>51.86%</td>
+      <td>25.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>@ Willem II</td>
+      <td>1663.91</td>
+      <td>22.67%</td>
+      <td>52.42%</td>
+      <td>24.91%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>@ Almere City</td>
+      <td>1681.41</td>
+      <td>26.37%</td>
+      <td>47.79%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>57.66%</td>
+      <td>18.93%</td>
+      <td>23.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>45.65%</td>
+      <td>28.19%</td>
+      <td>26.15%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>63.73%</td>
+      <td>15.19%</td>
+      <td>21.08%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>43.50%</td>
+      <td>30.10%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>15.19%</td>
+      <td>63.73%</td>
+      <td>21.08%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>40.44%</td>
+      <td>32.93%</td>
+      <td>26.62%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>29.38%</td>
+      <td>44.31%</td>
+      <td>26.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>61.70%</td>
+      <td>16.37%</td>
+      <td>21.92%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>8.00%</td>
+      <td>78.99%</td>
+      <td>13.00%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>22.51%</td>
+      <td>52.64%</td>
+      <td>24.86%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>34.56%</td>
+      <td>38.75%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>30.10%</td>
+      <td>43.50%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>28.19%</td>
+      <td>45.65%</td>
+      <td>26.15%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>38.75%</td>
+      <td>34.56%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>52.64%</td>
+      <td>22.51%</td>
+      <td>24.86%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>78.99%</td>
+      <td>8.00%</td>
+      <td>13.00%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>16.37%</td>
+      <td>61.70%</td>
+      <td>21.92%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>44.31%</td>
+      <td>29.38%</td>
+      <td>26.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-23</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>32.93%</td>
+      <td>40.44%</td>
+      <td>26.62%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>@ Dordrecht</td>
+      <td>1663.71</td>
+      <td>28.41%</td>
+      <td>45.40%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>@ Emmen</td>
+      <td>1649.71</td>
+      <td>40.84%</td>
+      <td>32.56%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>@ Den Bosch</td>
+      <td>1653.40</td>
+      <td>54.11%</td>
+      <td>21.41%</td>
+      <td>24.48%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>@ FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>24.92%</td>
+      <td>49.55%</td>
+      <td>25.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>@ Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>37.50%</td>
+      <td>35.79%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>@ RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>22.03%</td>
+      <td>53.28%</td>
+      <td>24.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>@ Jong Ajax</td>
+      <td>1518.25</td>
+      <td>32.08%</td>
+      <td>41.35%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>38.37%</td>
+      <td>34.92%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Cambuur</td>
+      <td>1805.17</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>66.24%</td>
+      <td>13.82%</td>
+      <td>19.94%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>RKC Waalwijk</td>
+      <td>1676.26</td>
+      <td>Jong PSV</td>
+      <td>1615.55</td>
+      <td>53.28%</td>
+      <td>22.03%</td>
+      <td>24.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>@ MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>25.34%</td>
+      <td>49.04%</td>
+      <td>25.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Jong Alkmaar</td>
+      <td>1610.09</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1678.87</td>
+      <td>35.79%</td>
+      <td>37.50%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>MVV Maastricht</td>
+      <td>1580.58</td>
+      <td>TOP Oss</td>
+      <td>1553.36</td>
+      <td>49.04%</td>
+      <td>25.34%</td>
+      <td>25.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Emmen</td>
+      <td>1649.71</td>
+      <td>De Graafschap</td>
+      <td>1742.02</td>
+      <td>32.56%</td>
+      <td>40.84%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>FC Eindhoven</td>
+      <td>1612.31</td>
+      <td>Helmond Sport</td>
+      <td>1581.13</td>
+      <td>49.55%</td>
+      <td>24.92%</td>
+      <td>25.53%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Dordrecht</td>
+      <td>1663.71</td>
+      <td>Willem II</td>
+      <td>1663.91</td>
+      <td>45.40%</td>
+      <td>28.41%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Den Bosch</td>
+      <td>1653.40</td>
+      <td>ADO Den Haag</td>
+      <td>1846.51</td>
+      <td>21.41%</td>
+      <td>54.11%</td>
+      <td>24.48%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Almere City</td>
+      <td>1681.41</td>
+      <td>@ VVV-Venlo</td>
+      <td>1630.72</td>
+      <td>34.92%</td>
+      <td>38.37%</td>
+      <td>26.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Vitesse</td>
+      <td>1629.93</td>
+      <td>@ Cambuur</td>
+      <td>1805.17</td>
+      <td>13.82%</td>
+      <td>66.24%</td>
+      <td>19.94%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Jong Ajax</td>
+      <td>1518.25</td>
+      <td>Jong Utrecht</td>
+      <td>1547.93</td>
+      <td>41.35%</td>
+      <td>32.08%</td>
+      <td>26.57%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>27.53%</td>
+      <td>46.42%</td>
+      <td>26.05%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>46.35%</td>
+      <td>27.59%</td>
+      <td>26.06%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>52.66%</td>
+      <td>22.49%</td>
+      <td>24.85%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>68.05%</td>
+      <td>12.88%</td>
+      <td>19.07%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>34.40%</td>
+      <td>38.91%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>49.98%</td>
+      <td>24.58%</td>
+      <td>25.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>63.06%</td>
+      <td>15.57%</td>
+      <td>21.36%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>46.42%</td>
+      <td>27.53%</td>
+      <td>26.05%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>27.59%</td>
+      <td>46.35%</td>
+      <td>26.06%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>22.49%</td>
+      <td>52.66%</td>
+      <td>24.85%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>12.88%</td>
+      <td>68.05%</td>
+      <td>19.07%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>38.91%</td>
+      <td>34.40%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>56.24%</td>
+      <td>19.90%</td>
+      <td>23.86%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>19.90%</td>
+      <td>56.24%</td>
+      <td>23.86%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>15.57%</td>
+      <td>63.06%</td>
+      <td>21.36%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>30.37%</td>
+      <td>43.21%</td>
+      <td>26.42%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>43.21%</td>
+      <td>30.37%</td>
+      <td>26.42%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>24.58%</td>
+      <td>49.98%</td>
+      <td>25.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>@ Ajax</td>
+      <td>1960.37</td>
+      <td>21.57%</td>
+      <td>53.89%</td>
+      <td>24.54%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>@ Excelsior</td>
+      <td>1783.20</td>
+      <td>25.38%</td>
+      <td>48.98%</td>
+      <td>25.64%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>@ Feyenoord</td>
+      <td>1990.38</td>
+      <td>20.11%</td>
+      <td>55.93%</td>
+      <td>23.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>@ Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>28.76%</td>
+      <td>45.01%</td>
+      <td>26.23%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>@ Groningen</td>
+      <td>1838.91</td>
+      <td>36.29%</td>
+      <td>36.99%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>@ NAC Breda</td>
+      <td>1701.86</td>
+      <td>46.46%</td>
+      <td>27.50%</td>
+      <td>26.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>@ Twente</td>
+      <td>1900.91</td>
+      <td>18.81%</td>
+      <td>57.85%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>53.89%</td>
+      <td>21.57%</td>
+      <td>24.54%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>48.98%</td>
+      <td>25.38%</td>
+      <td>25.64%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>36.99%</td>
+      <td>36.29%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>55.93%</td>
+      <td>20.11%</td>
+      <td>23.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>45.01%</td>
+      <td>28.76%</td>
+      <td>26.23%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>15.32%</td>
+      <td>63.51%</td>
+      <td>21.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>27.50%</td>
+      <td>46.46%</td>
+      <td>26.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>@ Telstar</td>
+      <td>1753.95</td>
+      <td>27.71%</td>
+      <td>46.21%</td>
+      <td>26.08%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>46.21%</td>
+      <td>27.71%</td>
+      <td>26.08%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>@ Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>63.51%</td>
+      <td>15.32%</td>
+      <td>21.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>57.85%</td>
+      <td>18.81%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>@ PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>12.90%</td>
+      <td>68.01%</td>
+      <td>19.09%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>@ Zwolle</td>
+      <td>1782.65</td>
+      <td>55.87%</td>
+      <td>20.15%</td>
+      <td>23.97%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>@ NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>20.25%</td>
+      <td>55.74%</td>
+      <td>24.01%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>@ Volendam</td>
+      <td>1756.40</td>
+      <td>28.10%</td>
+      <td>45.76%</td>
+      <td>26.14%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>@ Utrecht</td>
+      <td>1894.67</td>
+      <td>17.60%</td>
+      <td>59.71%</td>
+      <td>22.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>@ Alkmaar</td>
+      <td>1907.76</td>
+      <td>12.23%</td>
+      <td>69.37%</td>
+      <td>18.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>@ Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>40.62%</td>
+      <td>32.76%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>47.94%</td>
+      <td>26.25%</td>
+      <td>25.82%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Heerenveen</td>
+      <td>1835.10</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>28.43%</td>
+      <td>45.39%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>PSV Eindhoven</td>
+      <td>2093.31</td>
+      <td>Twente</td>
+      <td>1900.91</td>
+      <td>68.01%</td>
+      <td>12.90%</td>
+      <td>19.09%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Zwolle</td>
+      <td>1782.65</td>
+      <td>Feyenoord</td>
+      <td>1990.38</td>
+      <td>20.15%</td>
+      <td>55.87%</td>
+      <td>23.97%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>NEC Nijmegen</td>
+      <td>1899.28</td>
+      <td>Go Ahead Eagles</td>
+      <td>1818.28</td>
+      <td>55.74%</td>
+      <td>20.25%</td>
+      <td>24.01%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Heracles Almelo</td>
+      <td>1748.13</td>
+      <td>Groningen</td>
+      <td>1838.91</td>
+      <td>32.76%</td>
+      <td>40.62%</td>
+      <td>26.61%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Volendam</td>
+      <td>1756.40</td>
+      <td>Telstar</td>
+      <td>1753.95</td>
+      <td>45.76%</td>
+      <td>28.10%</td>
+      <td>26.14%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Utrecht</td>
+      <td>1894.67</td>
+      <td>Fortuna Sittard</td>
+      <td>1779.55</td>
+      <td>59.71%</td>
+      <td>17.60%</td>
+      <td>22.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Alkmaar</td>
+      <td>1907.76</td>
+      <td>NAC Breda</td>
+      <td>1701.86</td>
+      <td>69.37%</td>
+      <td>12.23%</td>
+      <td>18.40%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Ajax</td>
+      <td>1960.37</td>
+      <td>@ Heerenveen</td>
+      <td>1835.10</td>
+      <td>45.39%</td>
+      <td>28.43%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Excelsior</td>
+      <td>1783.20</td>
+      <td>@ Sparta Rotterdam</td>
+      <td>1802.01</td>
+      <td>26.25%</td>
+      <td>47.94%</td>
+      <td>25.82%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

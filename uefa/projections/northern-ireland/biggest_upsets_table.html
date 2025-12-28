@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-12-20</td>
+      <td>14.88%</td>
+      <td>Glenavon (H)</td>
+      <td>1011.63</td>
+      <td>2</td>
+      <td>Linfield</td>
+      <td>1290.46</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-08</td>
+      <td>18.81%</td>
+      <td>Glenavon (H)</td>
+      <td>1008.53</td>
+      <td>3</td>
+      <td>Glentoran</td>
+      <td>1236.16</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-10-17</td>
+      <td>21.25%</td>
+      <td>Portadown (H)</td>
+      <td>1084.60</td>
+      <td>2</td>
+      <td>Linfield</td>
+      <td>1284.90</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-09-16</td>
+      <td>24.32%</td>
+      <td>Ballymena United (H)</td>
+      <td>1114.72</td>
+      <td>1</td>
+      <td>Linfield</td>
+      <td>1284.04</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-08-09</td>
+      <td>25.00%</td>
+      <td>Carrick Rangers</td>
+      <td>1057.02</td>
+      <td>4</td>
+      <td>Crusaders (H)</td>
+      <td>1151.92</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-12-26</td>
+      <td>25.07%</td>
+      <td>Ballymena United (H)</td>
+      <td>1070.67</td>
+      <td>2</td>
+      <td>Coleraine</td>
+      <td>1232.92</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-11-21</td>
+      <td>25.44%</td>
+      <td>Dungannon Swifts</td>
+      <td>1127.67</td>
+      <td>1</td>
+      <td>Glentoran (H)</td>
+      <td>1218.51</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-12-26</td>
+      <td>25.70%</td>
+      <td>Crusaders</td>
+      <td>1078.29</td>
+      <td>2</td>
+      <td>Cliftonville (H)</td>
+      <td>1166.71</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-10-04</td>
+      <td>26.93%</td>
+      <td>Bangor (H)</td>
+      <td>1066.85</td>
+      <td>2</td>
+      <td>Coleraine</td>
+      <td>1212.21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-10-04</td>
+      <td>27.83%</td>
+      <td>Dungannon Swifts (H)</td>
+      <td>1105.24</td>
+      <td>2</td>
+      <td>Larne</td>
+      <td>1242.73</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-12-26</td>
+      <td>27.84%</td>
+      <td>Glentoran</td>
+      <td>1207.75</td>
+      <td>1</td>
+      <td>Linfield (H)</td>
+      <td>1277.14</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-09-27</td>
+      <td>27.93%</td>
+      <td>Portadown</td>
+      <td>1073.14</td>
+      <td>2</td>
+      <td>Cliftonville (H)</td>
+      <td>1141.72</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-10-31</td>
+      <td>30.76%</td>
+      <td>Carrick Rangers</td>
+      <td>1056.61</td>
+      <td>1</td>
+      <td>Bangor (H)</td>
+      <td>1101.58</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-10-11</td>
+      <td>30.90%</td>
+      <td>Dungannon Swifts (H)</td>
+      <td>1120.35</td>
+      <td>3</td>
+      <td>Glentoran</td>
+      <td>1232.12</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-09-27</td>
+      <td>31.98%</td>
+      <td>Dungannon Swifts</td>
+      <td>1091.22</td>
+      <td>2</td>
+      <td>Ballymena United (H)</td>
+      <td>1126.42</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-09-19</td>
+      <td>32.32%</td>
+      <td>Bangor</td>
+      <td>1057.69</td>
+      <td>4</td>
+      <td>Portadown (H)</td>
+      <td>1090.21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-08-23</td>
+      <td>32.54%</td>
+      <td>Carrick Rangers</td>
+      <td>1076.35</td>
+      <td>2</td>
+      <td>Dungannon Swifts (H)</td>
+      <td>1107.10</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-22</td>
+      <td>32.68%</td>
+      <td>Cliftonville (H)</td>
+      <td>1141.26</td>
+      <td>1</td>
+      <td>Coleraine</td>
+      <td>1238.97</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-12-06</td>
+      <td>32.89%</td>
+      <td>Portadown</td>
+      <td>1081.58</td>
+      <td>4</td>
+      <td>Crusaders (H)</td>
+      <td>1109.61</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-08-16</td>
+      <td>33.31%</td>
+      <td>Portadown</td>
+      <td>1107.71</td>
+      <td>4</td>
+      <td>Dungannon Swifts (H)</td>
+      <td>1132.52</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-11-29</td>
+      <td>34.18%</td>
+      <td>Glenavon (H)</td>
+      <td>1013.73</td>
+      <td>3</td>
+      <td>Ballymena United</td>
+      <td>1099.83</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-08-19</td>
+      <td>35.31%</td>
+      <td>Ballymena United</td>
+      <td>1114.82</td>
+      <td>2</td>
+      <td>Portadown (H)</td>
+      <td>1124.47</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-08-09</td>
+      <td>35.76%</td>
+      <td>Ballymena United</td>
+      <td>1101.76</td>
+      <td>2</td>
+      <td>Glenavon (H)</td>
+      <td>1108.03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-10</td>
+      <td>36.16%</td>
+      <td>Bangor (H)</td>
+      <td>1072.60</td>
+      <td>3</td>
+      <td>Cliftonville</td>
+      <td>1143.93</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-09-20</td>
+      <td>36.51%</td>
+      <td>Dungannon Swifts (H)</td>
+      <td>1082.11</td>
+      <td>2</td>
+      <td>Cliftonville</td>
+      <td>1150.83</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,8757 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Akhmat Grozny">Akhmat Grozny</option><option value="Akron Tolyatti">Akron Tolyatti</option><option value="Arsenal Tula">Arsenal Tula</option><option value="Baltika Kaliningrad">Baltika Kaliningrad</option><option value="CSKA Moscow">CSKA Moscow</option><option value="Chayka Peschanokopskoye">Chayka Peschanokopskoye</option><option value="Chelyabinsk">Chelyabinsk</option><option value="Chernomorets Novorossiysk">Chernomorets Novorossiysk</option><option value="Dynamo Makhachkala">Dynamo Makhachkala</option><option value="Dynamo Moscow">Dynamo Moscow</option><option value="Fakel Voronezh">Fakel Voronezh</option><option value="Kamaz">Kamaz</option><option value="Krasnodar">Krasnodar</option><option value="Krylia Sovetov">Krylia Sovetov</option><option value="Lokomotiv Moscow">Lokomotiv Moscow</option><option value="Neftekhimik">Neftekhimik</option><option value="Orenburg">Orenburg</option><option value="Pari Nizhny Novgorod">Pari Nizhny Novgorod</option><option value="Rodina Moscow">Rodina Moscow</option><option value="Rostov">Rostov</option><option value="Rotor Volgograd">Rotor Volgograd</option><option value="Rubin Kazan">Rubin Kazan</option><option value="SKA-Khabarovsk">SKA-Khabarovsk</option><option value="Shinnik Yaroslavl">Shinnik Yaroslavl</option><option value="Sochi">Sochi</option><option value="Sokol Saratov">Sokol Saratov</option><option value="Spartak Kostroma">Spartak Kostroma</option><option value="Spartak Moscow">Spartak Moscow</option><option value="Torpedo Moscow">Torpedo Moscow</option><option value="Ufa">Ufa</option><option value="Ural">Ural</option><option value="Volga Ulyanovsk">Volga Ulyanovsk</option><option value="Yenisey Krasnoyarsk">Yenisey Krasnoyarsk</option><option value="Zenit St. Petersburg">Zenit St. Petersburg</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-07-18</td>
+      <td>Dynamo Moscow</td>
+      <td>1573.82</td>
+      <td>1</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1487.43</td>
+      <td>1</td>
+      <td>55.86%</td>
+      <td>16.89%</td>
+      <td>27.25%</td>
+      <td>-3.18</td>
+    </tr>
+    <tr>
+      <td>2025-07-18</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1487.43</td>
+      <td>1</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1573.82</td>
+      <td>1</td>
+      <td>16.89%</td>
+      <td>55.86%</td>
+      <td>27.25%</td>
+      <td>3.18</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1300.48</td>
+      <td>1</td>
+      <td>@ Ufa</td>
+      <td>1217.93</td>
+      <td>1</td>
+      <td>35.27%</td>
+      <td>34.28%</td>
+      <td>30.45%</td>
+      <td>-0.07</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Ural</td>
+      <td>1338.96</td>
+      <td>1</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1179.40</td>
+      <td>0</td>
+      <td>45.78%</td>
+      <td>24.56%</td>
+      <td>29.66%</td>
+      <td>11.09</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Rotor Volgograd</td>
+      <td>1272.66</td>
+      <td>2</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1403.61</td>
+      <td>1</td>
+      <td>13.97%</td>
+      <td>60.57%</td>
+      <td>25.46%</td>
+      <td>22.10</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Kamaz</td>
+      <td>1216.57</td>
+      <td>1</td>
+      <td>@ Arsenal Tula</td>
+      <td>1228.66</td>
+      <td>1</td>
+      <td>23.42%</td>
+      <td>47.14%</td>
+      <td>29.44%</td>
+      <td>1.84</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Krylia Sovetov</td>
+      <td>1412.16</td>
+      <td>1</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1422.39</td>
+      <td>1</td>
+      <td>23.61%</td>
+      <td>46.90%</td>
+      <td>29.48%</td>
+      <td>1.81</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1421.50</td>
+      <td>0</td>
+      <td>@ Spartak Moscow</td>
+      <td>1592.83</td>
+      <td>1</td>
+      <td>11.83%</td>
+      <td>64.57%</td>
+      <td>23.61%</td>
+      <td>-5.49</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Sochi</td>
+      <td>1406.56</td>
+      <td>0</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1516.18</td>
+      <td>3</td>
+      <td>15.29%</td>
+      <td>58.36%</td>
+      <td>26.35%</td>
+      <td>-12.54</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1403.61</td>
+      <td>1</td>
+      <td>Rotor Volgograd</td>
+      <td>1272.66</td>
+      <td>2</td>
+      <td>60.57%</td>
+      <td>13.97%</td>
+      <td>25.46%</td>
+      <td>-22.10</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1179.40</td>
+      <td>0</td>
+      <td>Ural</td>
+      <td>1338.96</td>
+      <td>1</td>
+      <td>24.56%</td>
+      <td>45.78%</td>
+      <td>29.66%</td>
+      <td>-11.08</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Ufa</td>
+      <td>1217.93</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1300.48</td>
+      <td>1</td>
+      <td>34.28%</td>
+      <td>35.27%</td>
+      <td>30.45%</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Spartak Moscow</td>
+      <td>1592.83</td>
+      <td>1</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1421.50</td>
+      <td>0</td>
+      <td>64.57%</td>
+      <td>11.83%</td>
+      <td>23.61%</td>
+      <td>5.49</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1516.18</td>
+      <td>3</td>
+      <td>Sochi</td>
+      <td>1406.56</td>
+      <td>0</td>
+      <td>58.36%</td>
+      <td>15.29%</td>
+      <td>26.35%</td>
+      <td>12.54</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Akron Tolyatti</td>
+      <td>1422.39</td>
+      <td>1</td>
+      <td>Krylia Sovetov</td>
+      <td>1412.16</td>
+      <td>1</td>
+      <td>46.90%</td>
+      <td>23.61%</td>
+      <td>29.48%</td>
+      <td>-1.80</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Arsenal Tula</td>
+      <td>1228.66</td>
+      <td>1</td>
+      <td>Kamaz</td>
+      <td>1216.57</td>
+      <td>1</td>
+      <td>47.14%</td>
+      <td>23.42%</td>
+      <td>29.44%</td>
+      <td>-1.84</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Chelyabinsk</td>
+      <td>1403.61</td>
+      <td>3</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1358.87</td>
+      <td>2</td>
+      <td>30.07%</td>
+      <td>39.63%</td>
+      <td>30.31%</td>
+      <td>15.77</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Krasnodar</td>
+      <td>1623.39</td>
+      <td>3</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1382.03</td>
+      <td>0</td>
+      <td>55.51%</td>
+      <td>17.13%</td>
+      <td>27.37%</td>
+      <td>14.02</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Rostov</td>
+      <td>1464.62</td>
+      <td>1</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1638.67</td>
+      <td>2</td>
+      <td>11.70%</td>
+      <td>64.83%</td>
+      <td>23.48%</td>
+      <td>-5.42</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Rubin Kazan</td>
+      <td>1478.50</td>
+      <td>2</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1394.00</td>
+      <td>0</td>
+      <td>35.55%</td>
+      <td>34.00%</td>
+      <td>30.45%</td>
+      <td>19.98</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Sokol Saratov</td>
+      <td>1196.29</td>
+      <td>0</td>
+      <td>@ Neftekhimik</td>
+      <td>1218.49</td>
+      <td>0</td>
+      <td>22.39%</td>
+      <td>48.40%</td>
+      <td>29.21%</td>
+      <td>2.03</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1204.07</td>
+      <td>3</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1272.50</td>
+      <td>0</td>
+      <td>18.26%</td>
+      <td>53.86%</td>
+      <td>27.88%</td>
+      <td>34.82</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Fakel Voronezh</td>
+      <td>1269.43</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1403.61</td>
+      <td>0</td>
+      <td>13.78%</td>
+      <td>60.90%</td>
+      <td>25.32%</td>
+      <td>22.20</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1382.03</td>
+      <td>0</td>
+      <td>Krasnodar</td>
+      <td>1623.39</td>
+      <td>3</td>
+      <td>17.13%</td>
+      <td>55.51%</td>
+      <td>27.37%</td>
+      <td>-14.02</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Akhmat Grozny</td>
+      <td>1394.00</td>
+      <td>0</td>
+      <td>Rubin Kazan</td>
+      <td>1478.50</td>
+      <td>2</td>
+      <td>34.00%</td>
+      <td>35.55%</td>
+      <td>30.45%</td>
+      <td>-19.97</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1272.50</td>
+      <td>0</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1204.07</td>
+      <td>3</td>
+      <td>53.86%</td>
+      <td>18.26%</td>
+      <td>27.88%</td>
+      <td>-34.82</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Spartak Kostroma</td>
+      <td>1403.61</td>
+      <td>0</td>
+      <td>Fakel Voronezh</td>
+      <td>1269.43</td>
+      <td>1</td>
+      <td>60.90%</td>
+      <td>13.78%</td>
+      <td>25.32%</td>
+      <td>-22.19</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Torpedo Moscow</td>
+      <td>1358.87</td>
+      <td>2</td>
+      <td>Chelyabinsk</td>
+      <td>1403.61</td>
+      <td>3</td>
+      <td>39.63%</td>
+      <td>30.07%</td>
+      <td>30.31%</td>
+      <td>-15.76</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Neftekhimik</td>
+      <td>1218.49</td>
+      <td>0</td>
+      <td>Sokol Saratov</td>
+      <td>1196.29</td>
+      <td>0</td>
+      <td>48.40%</td>
+      <td>22.39%</td>
+      <td>29.21%</td>
+      <td>-2.03</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1638.67</td>
+      <td>2</td>
+      <td>Rostov</td>
+      <td>1464.62</td>
+      <td>1</td>
+      <td>64.83%</td>
+      <td>11.70%</td>
+      <td>23.48%</td>
+      <td>5.42</td>
+    </tr>
+    <tr>
+      <td>2025-07-21</td>
+      <td>Orenburg</td>
+      <td>1368.44</td>
+      <td>0</td>
+      <td>CSKA Moscow</td>
+      <td>1607.22</td>
+      <td>0</td>
+      <td>17.32%</td>
+      <td>55.22%</td>
+      <td>27.46%</td>
+      <td>3.09</td>
+    </tr>
+    <tr>
+      <td>2025-07-21</td>
+      <td>Rodina Moscow</td>
+      <td>1305.16</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1373.15</td>
+      <td>1</td>
+      <td>36.36%</td>
+      <td>33.20%</td>
+      <td>30.44%</td>
+      <td>-0.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-21</td>
+      <td>CSKA Moscow</td>
+      <td>1607.22</td>
+      <td>0</td>
+      <td>@ Orenburg</td>
+      <td>1368.44</td>
+      <td>0</td>
+      <td>55.22%</td>
+      <td>17.32%</td>
+      <td>27.46%</td>
+      <td>-3.08</td>
+    </tr>
+    <tr>
+      <td>2025-07-21</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1373.15</td>
+      <td>1</td>
+      <td>@ Rodina Moscow</td>
+      <td>1305.16</td>
+      <td>1</td>
+      <td>33.20%</td>
+      <td>36.36%</td>
+      <td>30.44%</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1368.01</td>
+      <td>0</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1413.97</td>
+      <td>2</td>
+      <td>20.15%</td>
+      <td>51.27%</td>
+      <td>28.58%</td>
+      <td>-13.29</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Arsenal Tula</td>
+      <td>1226.82</td>
+      <td>1</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1168.32</td>
+      <td>1</td>
+      <td>52.73%</td>
+      <td>19.07%</td>
+      <td>28.20%</td>
+      <td>-2.70</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Krylia Sovetov</td>
+      <td>1413.97</td>
+      <td>2</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1368.01</td>
+      <td>0</td>
+      <td>51.27%</td>
+      <td>20.15%</td>
+      <td>28.58%</td>
+      <td>13.29</td>
+    </tr>
+    <tr>
+      <td>2025-07-25</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1168.32</td>
+      <td>1</td>
+      <td>@ Arsenal Tula</td>
+      <td>1226.82</td>
+      <td>1</td>
+      <td>19.07%</td>
+      <td>52.73%</td>
+      <td>28.20%</td>
+      <td>2.70</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1490.61</td>
+      <td>3</td>
+      <td>@ Spartak Moscow</td>
+      <td>1598.32</td>
+      <td>0</td>
+      <td>15.41%</td>
+      <td>58.16%</td>
+      <td>26.43%</td>
+      <td>37.07</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Krasnodar</td>
+      <td>1637.41</td>
+      <td>1</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1528.72</td>
+      <td>2</td>
+      <td>58.26%</td>
+      <td>15.35%</td>
+      <td>26.39%</td>
+      <td>-21.43</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Dynamo Moscow</td>
+      <td>1570.64</td>
+      <td>1</td>
+      <td>Rostov</td>
+      <td>1459.20</td>
+      <td>0</td>
+      <td>58.55%</td>
+      <td>15.17%</td>
+      <td>26.28%</td>
+      <td>7.19</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Rostov</td>
+      <td>1459.20</td>
+      <td>0</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1570.64</td>
+      <td>1</td>
+      <td>15.17%</td>
+      <td>58.55%</td>
+      <td>26.28%</td>
+      <td>-7.18</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1528.72</td>
+      <td>2</td>
+      <td>@ Krasnodar</td>
+      <td>1637.41</td>
+      <td>1</td>
+      <td>15.35%</td>
+      <td>58.26%</td>
+      <td>26.39%</td>
+      <td>21.43</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Akron Tolyatti</td>
+      <td>1420.59</td>
+      <td>4</td>
+      <td>@ Sochi</td>
+      <td>1394.02</td>
+      <td>0</td>
+      <td>27.78%</td>
+      <td>42.10%</td>
+      <td>30.11%</td>
+      <td>33.00</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Rotor Volgograd</td>
+      <td>1294.76</td>
+      <td>0</td>
+      <td>@ Chelyabinsk</td>
+      <td>1419.38</td>
+      <td>1</td>
+      <td>14.35%</td>
+      <td>59.92%</td>
+      <td>25.73%</td>
+      <td>-6.78</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Kamaz</td>
+      <td>1218.41</td>
+      <td>2</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1381.51</td>
+      <td>1</td>
+      <td>12.23%</td>
+      <td>63.77%</td>
+      <td>24.00%</td>
+      <td>23.00</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1238.89</td>
+      <td>0</td>
+      <td>@ Sokol Saratov</td>
+      <td>1198.32</td>
+      <td>0</td>
+      <td>29.53%</td>
+      <td>40.20%</td>
+      <td>30.27%</td>
+      <td>0.79</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Sochi</td>
+      <td>1394.02</td>
+      <td>0</td>
+      <td>Akron Tolyatti</td>
+      <td>1420.59</td>
+      <td>4</td>
+      <td>42.10%</td>
+      <td>27.78%</td>
+      <td>30.11%</td>
+      <td>-33.01</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Chelyabinsk</td>
+      <td>1419.38</td>
+      <td>1</td>
+      <td>Rotor Volgograd</td>
+      <td>1294.76</td>
+      <td>0</td>
+      <td>59.92%</td>
+      <td>14.35%</td>
+      <td>25.73%</td>
+      <td>6.78</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Spartak Moscow</td>
+      <td>1598.32</td>
+      <td>0</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1490.61</td>
+      <td>3</td>
+      <td>58.16%</td>
+      <td>15.41%</td>
+      <td>26.43%</td>
+      <td>-37.06</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Sokol Saratov</td>
+      <td>1198.32</td>
+      <td>0</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1238.89</td>
+      <td>0</td>
+      <td>40.20%</td>
+      <td>29.53%</td>
+      <td>30.27%</td>
+      <td>-0.79</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1381.51</td>
+      <td>1</td>
+      <td>Kamaz</td>
+      <td>1218.41</td>
+      <td>2</td>
+      <td>63.77%</td>
+      <td>12.23%</td>
+      <td>24.00%</td>
+      <td>-23.00</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Fakel Voronezh</td>
+      <td>1291.63</td>
+      <td>1</td>
+      <td>Ufa</td>
+      <td>1218.00</td>
+      <td>0</td>
+      <td>54.45%</td>
+      <td>17.85%</td>
+      <td>27.70%</td>
+      <td>8.42</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Rodina Moscow</td>
+      <td>1304.93</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1381.42</td>
+      <td>3</td>
+      <td>35.15%</td>
+      <td>34.40%</td>
+      <td>30.45%</td>
+      <td>-20.45</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Neftekhimik</td>
+      <td>1216.46</td>
+      <td>0</td>
+      <td>Torpedo Moscow</td>
+      <td>1343.11</td>
+      <td>0</td>
+      <td>28.39%</td>
+      <td>41.44%</td>
+      <td>30.18%</td>
+      <td>0.97</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1237.68</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1300.41</td>
+      <td>2</td>
+      <td>37.11%</td>
+      <td>32.47%</td>
+      <td>30.42%</td>
+      <td>-15.02</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Rubin Kazan</td>
+      <td>1498.48</td>
+      <td>2</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1644.09</td>
+      <td>2</td>
+      <td>26.12%</td>
+      <td>43.97%</td>
+      <td>29.91%</td>
+      <td>1.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Orenburg</td>
+      <td>1371.53</td>
+      <td>1</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1416.01</td>
+      <td>1</td>
+      <td>39.66%</td>
+      <td>30.03%</td>
+      <td>30.31%</td>
+      <td>-0.72</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Akhmat Grozny</td>
+      <td>1374.03</td>
+      <td>1</td>
+      <td>@ CSKA Moscow</td>
+      <td>1604.14</td>
+      <td>2</td>
+      <td>9.33%</td>
+      <td>70.01%</td>
+      <td>20.66%</td>
+      <td>-4.15</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1416.01</td>
+      <td>1</td>
+      <td>@ Orenburg</td>
+      <td>1371.53</td>
+      <td>1</td>
+      <td>30.03%</td>
+      <td>39.66%</td>
+      <td>30.31%</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1644.09</td>
+      <td>2</td>
+      <td>@ Rubin Kazan</td>
+      <td>1498.48</td>
+      <td>2</td>
+      <td>43.97%</td>
+      <td>26.12%</td>
+      <td>29.91%</td>
+      <td>-1.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>CSKA Moscow</td>
+      <td>1604.14</td>
+      <td>2</td>
+      <td>Akhmat Grozny</td>
+      <td>1374.03</td>
+      <td>1</td>
+      <td>70.01%</td>
+      <td>9.33%</td>
+      <td>20.66%</td>
+      <td>4.14</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Torpedo Moscow</td>
+      <td>1343.11</td>
+      <td>0</td>
+      <td>@ Neftekhimik</td>
+      <td>1216.46</td>
+      <td>0</td>
+      <td>41.44%</td>
+      <td>28.39%</td>
+      <td>30.18%</td>
+      <td>-0.98</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Spartak Kostroma</td>
+      <td>1381.42</td>
+      <td>3</td>
+      <td>@ Rodina Moscow</td>
+      <td>1304.93</td>
+      <td>1</td>
+      <td>34.40%</td>
+      <td>35.15%</td>
+      <td>30.45%</td>
+      <td>20.44</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Ufa</td>
+      <td>1218.00</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1291.63</td>
+      <td>1</td>
+      <td>17.85%</td>
+      <td>54.45%</td>
+      <td>27.70%</td>
+      <td>-8.41</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1300.41</td>
+      <td>2</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1237.68</td>
+      <td>1</td>
+      <td>32.47%</td>
+      <td>37.11%</td>
+      <td>30.42%</td>
+      <td>15.03</td>
+    </tr>
+    <tr>
+      <td>2025-07-28</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1373.38</td>
+      <td>2</td>
+      <td>@ Ural</td>
+      <td>1350.05</td>
+      <td>3</td>
+      <td>27.39%</td>
+      <td>42.54%</td>
+      <td>30.07%</td>
+      <td>-12.06</td>
+    </tr>
+    <tr>
+      <td>2025-07-28</td>
+      <td>Ural</td>
+      <td>1350.05</td>
+      <td>3</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1373.38</td>
+      <td>2</td>
+      <td>42.54%</td>
+      <td>27.39%</td>
+      <td>30.07%</td>
+      <td>12.06</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Ural</td>
+      <td>1362.11</td>
+      <td>2</td>
+      <td>Rodina Moscow</td>
+      <td>1284.48</td>
+      <td>1</td>
+      <td>54.89%</td>
+      <td>17.54%</td>
+      <td>27.56%</td>
+      <td>8.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Chelyabinsk</td>
+      <td>1426.16</td>
+      <td>1</td>
+      <td>@ Kamaz</td>
+      <td>1241.41</td>
+      <td>2</td>
+      <td>48.93%</td>
+      <td>21.96%</td>
+      <td>29.10%</td>
+      <td>-18.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Ufa</td>
+      <td>1209.59</td>
+      <td>1</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1171.02</td>
+      <td>0</td>
+      <td>50.39%</td>
+      <td>20.82%</td>
+      <td>28.79%</td>
+      <td>9.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1354.72</td>
+      <td>2</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1550.15</td>
+      <td>3</td>
+      <td>20.95%</td>
+      <td>50.23%</td>
+      <td>28.82%</td>
+      <td>-9.72</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Krasnodar</td>
+      <td>1615.98</td>
+      <td>1</td>
+      <td>Dynamo Moscow</td>
+      <td>1577.83</td>
+      <td>0</td>
+      <td>50.34%</td>
+      <td>20.86%</td>
+      <td>28.80%</td>
+      <td>9.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1358.51</td>
+      <td>1</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1239.68</td>
+      <td>1</td>
+      <td>40.37%</td>
+      <td>29.37%</td>
+      <td>30.26%</td>
+      <td>-0.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1171.02</td>
+      <td>0</td>
+      <td>@ Ufa</td>
+      <td>1209.59</td>
+      <td>1</td>
+      <td>20.82%</td>
+      <td>50.39%</td>
+      <td>28.79%</td>
+      <td>-9.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1550.15</td>
+      <td>3</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1354.72</td>
+      <td>2</td>
+      <td>50.23%</td>
+      <td>20.95%</td>
+      <td>28.82%</td>
+      <td>9.72</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Dynamo Moscow</td>
+      <td>1577.83</td>
+      <td>0</td>
+      <td>@ Krasnodar</td>
+      <td>1615.98</td>
+      <td>1</td>
+      <td>20.86%</td>
+      <td>50.34%</td>
+      <td>28.80%</td>
+      <td>-9.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Krylia Sovetov</td>
+      <td>1427.26</td>
+      <td>4</td>
+      <td>@ Rostov</td>
+      <td>1452.02</td>
+      <td>1</td>
+      <td>22.14%</td>
+      <td>48.71%</td>
+      <td>29.15%</td>
+      <td>32.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Kamaz</td>
+      <td>1241.41</td>
+      <td>2</td>
+      <td>Chelyabinsk</td>
+      <td>1426.16</td>
+      <td>1</td>
+      <td>21.96%</td>
+      <td>48.93%</td>
+      <td>29.10%</td>
+      <td>18.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Rostov</td>
+      <td>1452.02</td>
+      <td>1</td>
+      <td>Krylia Sovetov</td>
+      <td>1427.26</td>
+      <td>4</td>
+      <td>48.71%</td>
+      <td>22.14%</td>
+      <td>29.15%</td>
+      <td>-32.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1239.68</td>
+      <td>1</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1358.51</td>
+      <td>1</td>
+      <td>29.37%</td>
+      <td>40.37%</td>
+      <td>30.26%</td>
+      <td>0.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Rodina Moscow</td>
+      <td>1284.48</td>
+      <td>1</td>
+      <td>@ Ural</td>
+      <td>1362.11</td>
+      <td>2</td>
+      <td>17.54%</td>
+      <td>54.89%</td>
+      <td>27.56%</td>
+      <td>-8.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Spartak Kostroma</td>
+      <td>1401.86</td>
+      <td>1</td>
+      <td>Neftekhimik</td>
+      <td>1217.43</td>
+      <td>1</td>
+      <td>65.82%</td>
+      <td>11.21%</td>
+      <td>22.97%</td>
+      <td>-4.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Fakel Voronezh</td>
+      <td>1300.05</td>
+      <td>1</td>
+      <td>Sokol Saratov</td>
+      <td>1197.53</td>
+      <td>0</td>
+      <td>57.61%</td>
+      <td>15.76%</td>
+      <td>26.64%</td>
+      <td>7.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1361.32</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1224.12</td>
+      <td>2</td>
+      <td>61.20%</td>
+      <td>13.61%</td>
+      <td>25.18%</td>
+      <td>-22.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1527.68</td>
+      <td>3</td>
+      <td>Orenburg</td>
+      <td>1370.81</td>
+      <td>2</td>
+      <td>63.16%</td>
+      <td>12.55%</td>
+      <td>24.29%</td>
+      <td>5.87</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1642.73</td>
+      <td>1</td>
+      <td>CSKA Moscow</td>
+      <td>1608.28</td>
+      <td>1</td>
+      <td>49.89%</td>
+      <td>21.21%</td>
+      <td>28.90%</td>
+      <td>-2.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1416.72</td>
+      <td>1</td>
+      <td>Akhmat Grozny</td>
+      <td>1369.88</td>
+      <td>0</td>
+      <td>51.37%</td>
+      <td>20.08%</td>
+      <td>28.55%</td>
+      <td>9.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Sokol Saratov</td>
+      <td>1197.53</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1300.05</td>
+      <td>1</td>
+      <td>15.76%</td>
+      <td>57.61%</td>
+      <td>26.64%</td>
+      <td>-7.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Arsenal Tula</td>
+      <td>1224.12</td>
+      <td>2</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1361.32</td>
+      <td>1</td>
+      <td>13.61%</td>
+      <td>61.20%</td>
+      <td>25.18%</td>
+      <td>22.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Torpedo Moscow</td>
+      <td>1342.13</td>
+      <td>0</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1315.44</td>
+      <td>1</td>
+      <td>27.80%</td>
+      <td>42.09%</td>
+      <td>30.12%</td>
+      <td>-12.20</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Akhmat Grozny</td>
+      <td>1369.88</td>
+      <td>0</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1416.72</td>
+      <td>1</td>
+      <td>20.08%</td>
+      <td>51.37%</td>
+      <td>28.55%</td>
+      <td>-9.36</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>CSKA Moscow</td>
+      <td>1608.28</td>
+      <td>1</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1642.73</td>
+      <td>1</td>
+      <td>21.21%</td>
+      <td>49.89%</td>
+      <td>28.90%</td>
+      <td>2.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Orenburg</td>
+      <td>1370.81</td>
+      <td>2</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1527.68</td>
+      <td>3</td>
+      <td>12.55%</td>
+      <td>63.16%</td>
+      <td>24.29%</td>
+      <td>-5.87</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Spartak Moscow</td>
+      <td>1561.26</td>
+      <td>1</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1453.59</td>
+      <td>1</td>
+      <td>38.82%</td>
+      <td>30.82%</td>
+      <td>30.35%</td>
+      <td>-0.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1315.44</td>
+      <td>1</td>
+      <td>Torpedo Moscow</td>
+      <td>1342.13</td>
+      <td>0</td>
+      <td>42.09%</td>
+      <td>27.80%</td>
+      <td>30.12%</td>
+      <td>12.20</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Neftekhimik</td>
+      <td>1217.43</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1401.86</td>
+      <td>1</td>
+      <td>11.21%</td>
+      <td>65.82%</td>
+      <td>22.97%</td>
+      <td>4.60</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Akron Tolyatti</td>
+      <td>1453.59</td>
+      <td>1</td>
+      <td>Spartak Moscow</td>
+      <td>1561.26</td>
+      <td>1</td>
+      <td>30.82%</td>
+      <td>38.82%</td>
+      <td>30.35%</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Rubin Kazan</td>
+      <td>1499.84</td>
+      <td>2</td>
+      <td>Sochi</td>
+      <td>1361.01</td>
+      <td>1</td>
+      <td>61.37%</td>
+      <td>13.52%</td>
+      <td>25.11%</td>
+      <td>6.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Rotor Volgograd</td>
+      <td>1287.98</td>
+      <td>0</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1222.66</td>
+      <td>0</td>
+      <td>53.51%</td>
+      <td>18.51%</td>
+      <td>27.98%</td>
+      <td>-2.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Sochi</td>
+      <td>1361.01</td>
+      <td>1</td>
+      <td>@ Rubin Kazan</td>
+      <td>1499.84</td>
+      <td>2</td>
+      <td>13.52%</td>
+      <td>61.37%</td>
+      <td>25.11%</td>
+      <td>-6.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1222.66</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1287.98</td>
+      <td>0</td>
+      <td>18.51%</td>
+      <td>53.51%</td>
+      <td>27.98%</td>
+      <td>2.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1426.09</td>
+      <td>1</td>
+      <td>Akron Tolyatti</td>
+      <td>1454.18</td>
+      <td>1</td>
+      <td>41.90%</td>
+      <td>27.97%</td>
+      <td>30.13%</td>
+      <td>-1.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Akron Tolyatti</td>
+      <td>1454.18</td>
+      <td>1</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1426.09</td>
+      <td>1</td>
+      <td>27.97%</td>
+      <td>41.90%</td>
+      <td>30.13%</td>
+      <td>1.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1339.03</td>
+      <td>1</td>
+      <td>@ Sokol Saratov</td>
+      <td>1190.06</td>
+      <td>1</td>
+      <td>44.41%</td>
+      <td>25.74%</td>
+      <td>29.86%</td>
+      <td>-1.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1533.55</td>
+      <td>1</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1459.33</td>
+      <td>1</td>
+      <td>34.08%</td>
+      <td>35.47%</td>
+      <td>30.45%</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Rubin Kazan</td>
+      <td>1506.21</td>
+      <td>1</td>
+      <td>@ CSKA Moscow</td>
+      <td>1610.54</td>
+      <td>5</td>
+      <td>15.64%</td>
+      <td>57.80%</td>
+      <td>26.56%</td>
+      <td>-14.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Krylia Sovetov</td>
+      <td>1459.33</td>
+      <td>1</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1533.55</td>
+      <td>1</td>
+      <td>35.47%</td>
+      <td>34.08%</td>
+      <td>30.45%</td>
+      <td>-0.10</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>CSKA Moscow</td>
+      <td>1610.54</td>
+      <td>5</td>
+      <td>Rubin Kazan</td>
+      <td>1506.21</td>
+      <td>1</td>
+      <td>57.80%</td>
+      <td>15.64%</td>
+      <td>26.56%</td>
+      <td>14.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1559.87</td>
+      <td>4</td>
+      <td>Spartak Moscow</td>
+      <td>1560.67</td>
+      <td>2</td>
+      <td>45.50%</td>
+      <td>24.80%</td>
+      <td>29.71%</td>
+      <td>15.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Akhmat Grozny</td>
+      <td>1360.52</td>
+      <td>1</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1640.47</td>
+      <td>0</td>
+      <td>14.52%</td>
+      <td>59.63%</td>
+      <td>25.85%</td>
+      <td>21.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Spartak Moscow</td>
+      <td>1560.67</td>
+      <td>2</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1559.87</td>
+      <td>4</td>
+      <td>24.80%</td>
+      <td>45.50%</td>
+      <td>29.71%</td>
+      <td>-15.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Chelyabinsk</td>
+      <td>1407.58</td>
+      <td>1</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1357.70</td>
+      <td>0</td>
+      <td>51.73%</td>
+      <td>19.81%</td>
+      <td>28.46%</td>
+      <td>9.25</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Sokol Saratov</td>
+      <td>1190.06</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1339.03</td>
+      <td>1</td>
+      <td>25.74%</td>
+      <td>44.41%</td>
+      <td>29.86%</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Rodina Moscow</td>
+      <td>1276.20</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1246.40</td>
+      <td>1</td>
+      <td>49.33%</td>
+      <td>21.65%</td>
+      <td>29.02%</td>
+      <td>-2.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1640.47</td>
+      <td>0</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1360.52</td>
+      <td>1</td>
+      <td>59.63%</td>
+      <td>14.52%</td>
+      <td>25.85%</td>
+      <td>-21.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Arsenal Tula</td>
+      <td>1246.40</td>
+      <td>1</td>
+      <td>@ Rodina Moscow</td>
+      <td>1276.20</td>
+      <td>1</td>
+      <td>21.65%</td>
+      <td>49.33%</td>
+      <td>29.02%</td>
+      <td>2.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1357.70</td>
+      <td>0</td>
+      <td>@ Chelyabinsk</td>
+      <td>1407.58</td>
+      <td>1</td>
+      <td>19.81%</td>
+      <td>51.73%</td>
+      <td>28.46%</td>
+      <td>-9.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Orenburg</td>
+      <td>1364.94</td>
+      <td>0</td>
+      <td>Krasnodar</td>
+      <td>1625.67</td>
+      <td>1</td>
+      <td>15.76%</td>
+      <td>57.61%</td>
+      <td>26.64%</td>
+      <td>-7.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Sochi</td>
+      <td>1354.64</td>
+      <td>1</td>
+      <td>Dynamo Moscow</td>
+      <td>1568.14</td>
+      <td>1</td>
+      <td>19.34%</td>
+      <td>52.36%</td>
+      <td>28.30%</td>
+      <td>2.65</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Rostov</td>
+      <td>1419.95</td>
+      <td>1</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1345.00</td>
+      <td>0</td>
+      <td>54.59%</td>
+      <td>17.75%</td>
+      <td>27.66%</td>
+      <td>8.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1327.64</td>
+      <td>1</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1240.50</td>
+      <td>1</td>
+      <td>55.94%</td>
+      <td>16.83%</td>
+      <td>27.22%</td>
+      <td>-3.20</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1225.48</td>
+      <td>0</td>
+      <td>Ural</td>
+      <td>1370.40</td>
+      <td>2</td>
+      <td>26.20%</td>
+      <td>43.88%</td>
+      <td>29.92%</td>
+      <td>-16.49</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1161.35</td>
+      <td>0</td>
+      <td>Neftekhimik</td>
+      <td>1222.03</td>
+      <td>2</td>
+      <td>37.40%</td>
+      <td>32.19%</td>
+      <td>30.41%</td>
+      <td>-21.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Rotor Volgograd</td>
+      <td>1285.16</td>
+      <td>1</td>
+      <td>Ufa</td>
+      <td>1219.25</td>
+      <td>0</td>
+      <td>53.58%</td>
+      <td>18.46%</td>
+      <td>27.96%</td>
+      <td>8.68</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Ufa</td>
+      <td>1219.25</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1285.16</td>
+      <td>1</td>
+      <td>18.46%</td>
+      <td>53.58%</td>
+      <td>27.96%</td>
+      <td>-8.68</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Krasnodar</td>
+      <td>1625.67</td>
+      <td>1</td>
+      <td>@ Orenburg</td>
+      <td>1364.94</td>
+      <td>0</td>
+      <td>57.61%</td>
+      <td>15.76%</td>
+      <td>26.64%</td>
+      <td>7.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Dynamo Moscow</td>
+      <td>1568.14</td>
+      <td>1</td>
+      <td>@ Sochi</td>
+      <td>1354.64</td>
+      <td>1</td>
+      <td>52.36%</td>
+      <td>19.34%</td>
+      <td>28.30%</td>
+      <td>-2.64</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1345.00</td>
+      <td>0</td>
+      <td>@ Rostov</td>
+      <td>1419.95</td>
+      <td>1</td>
+      <td>17.75%</td>
+      <td>54.59%</td>
+      <td>27.66%</td>
+      <td>-8.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1240.50</td>
+      <td>1</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1327.64</td>
+      <td>1</td>
+      <td>16.83%</td>
+      <td>55.94%</td>
+      <td>27.22%</td>
+      <td>3.19</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Neftekhimik</td>
+      <td>1222.03</td>
+      <td>2</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1161.35</td>
+      <td>0</td>
+      <td>32.19%</td>
+      <td>37.40%</td>
+      <td>30.41%</td>
+      <td>21.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Ural</td>
+      <td>1370.40</td>
+      <td>2</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1225.48</td>
+      <td>0</td>
+      <td>43.88%</td>
+      <td>26.20%</td>
+      <td>29.92%</td>
+      <td>16.49</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Torpedo Moscow</td>
+      <td>1329.93</td>
+      <td>0</td>
+      <td>Spartak Kostroma</td>
+      <td>1397.27</td>
+      <td>1</td>
+      <td>36.45%</td>
+      <td>33.11%</td>
+      <td>30.44%</td>
+      <td>-14.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Fakel Voronezh</td>
+      <td>1307.51</td>
+      <td>2</td>
+      <td>@ Kamaz</td>
+      <td>1259.99</td>
+      <td>1</td>
+      <td>30.43%</td>
+      <td>39.24%</td>
+      <td>30.33%</td>
+      <td>15.65</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Spartak Kostroma</td>
+      <td>1397.27</td>
+      <td>1</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1329.93</td>
+      <td>0</td>
+      <td>33.11%</td>
+      <td>36.45%</td>
+      <td>30.44%</td>
+      <td>14.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Kamaz</td>
+      <td>1259.99</td>
+      <td>1</td>
+      <td>Fakel Voronezh</td>
+      <td>1307.51</td>
+      <td>2</td>
+      <td>39.24%</td>
+      <td>30.43%</td>
+      <td>30.33%</td>
+      <td>-15.65</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1533.65</td>
+      <td>1</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1575.66</td>
+      <td>1</td>
+      <td>40.00%</td>
+      <td>29.71%</td>
+      <td>30.28%</td>
+      <td>-0.76</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Ufa</td>
+      <td>1210.57</td>
+      <td>0</td>
+      <td>Rodina Moscow</td>
+      <td>1274.02</td>
+      <td>0</td>
+      <td>37.01%</td>
+      <td>32.57%</td>
+      <td>30.42%</td>
+      <td>-0.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Akhmat Grozny</td>
+      <td>1382.35</td>
+      <td>3</td>
+      <td>Krylia Sovetov</td>
+      <td>1459.23</td>
+      <td>1</td>
+      <td>35.09%</td>
+      <td>34.46%</td>
+      <td>30.45%</td>
+      <td>20.16</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Spartak Moscow</td>
+      <td>1544.87</td>
+      <td>2</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1618.64</td>
+      <td>2</td>
+      <td>35.54%</td>
+      <td>34.01%</td>
+      <td>30.45%</td>
+      <td>-0.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Sokol Saratov</td>
+      <td>1191.49</td>
+      <td>1</td>
+      <td>Rotor Volgograd</td>
+      <td>1293.84</td>
+      <td>1</td>
+      <td>31.53%</td>
+      <td>38.08%</td>
+      <td>30.39%</td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Arsenal Tula</td>
+      <td>1248.58</td>
+      <td>2</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1208.99</td>
+      <td>2</td>
+      <td>50.51%</td>
+      <td>20.73%</td>
+      <td>28.76%</td>
+      <td>-2.36</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1208.99</td>
+      <td>2</td>
+      <td>@ Arsenal Tula</td>
+      <td>1248.58</td>
+      <td>2</td>
+      <td>20.73%</td>
+      <td>50.51%</td>
+      <td>28.76%</td>
+      <td>2.36</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1139.98</td>
+      <td>2</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1243.69</td>
+      <td>1</td>
+      <td>15.68%</td>
+      <td>57.73%</td>
+      <td>26.59%</td>
+      <td>21.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1243.69</td>
+      <td>1</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1139.98</td>
+      <td>2</td>
+      <td>57.73%</td>
+      <td>15.68%</td>
+      <td>26.59%</td>
+      <td>-21.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Rotor Volgograd</td>
+      <td>1293.84</td>
+      <td>1</td>
+      <td>@ Sokol Saratov</td>
+      <td>1191.49</td>
+      <td>1</td>
+      <td>38.08%</td>
+      <td>31.53%</td>
+      <td>30.39%</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Rodina Moscow</td>
+      <td>1274.02</td>
+      <td>0</td>
+      <td>@ Ufa</td>
+      <td>1210.57</td>
+      <td>0</td>
+      <td>32.57%</td>
+      <td>37.01%</td>
+      <td>30.42%</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Krylia Sovetov</td>
+      <td>1459.23</td>
+      <td>1</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1382.35</td>
+      <td>3</td>
+      <td>34.46%</td>
+      <td>35.09%</td>
+      <td>30.45%</td>
+      <td>-20.17</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1618.64</td>
+      <td>2</td>
+      <td>@ Spartak Moscow</td>
+      <td>1544.87</td>
+      <td>2</td>
+      <td>34.01%</td>
+      <td>35.54%</td>
+      <td>30.45%</td>
+      <td>0.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1575.66</td>
+      <td>1</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1533.65</td>
+      <td>1</td>
+      <td>29.71%</td>
+      <td>40.00%</td>
+      <td>30.28%</td>
+      <td>0.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Dynamo Moscow</td>
+      <td>1565.50</td>
+      <td>1</td>
+      <td>CSKA Moscow</td>
+      <td>1625.36</td>
+      <td>3</td>
+      <td>37.51%</td>
+      <td>32.08%</td>
+      <td>30.41%</td>
+      <td>-21.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Rubin Kazan</td>
+      <td>1491.39</td>
+      <td>1</td>
+      <td>Rostov</td>
+      <td>1428.32</td>
+      <td>0</td>
+      <td>53.25%</td>
+      <td>18.69%</td>
+      <td>28.05%</td>
+      <td>8.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Chelyabinsk</td>
+      <td>1416.83</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1412.10</td>
+      <td>2</td>
+      <td>25.23%</td>
+      <td>44.99%</td>
+      <td>29.78%</td>
+      <td>-11.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Neftekhimik</td>
+      <td>1243.40</td>
+      <td>1</td>
+      <td>Kamaz</td>
+      <td>1244.34</td>
+      <td>3</td>
+      <td>45.48%</td>
+      <td>24.81%</td>
+      <td>29.71%</td>
+      <td>-24.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Fakel Voronezh</td>
+      <td>1323.16</td>
+      <td>1</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1337.61</td>
+      <td>0</td>
+      <td>23.18%</td>
+      <td>47.43%</td>
+      <td>29.39%</td>
+      <td>18.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Kamaz</td>
+      <td>1244.34</td>
+      <td>3</td>
+      <td>@ Neftekhimik</td>
+      <td>1243.40</td>
+      <td>1</td>
+      <td>24.81%</td>
+      <td>45.48%</td>
+      <td>29.71%</td>
+      <td>24.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1324.44</td>
+      <td>0</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1348.44</td>
+      <td>1</td>
+      <td>22.21%</td>
+      <td>48.62%</td>
+      <td>29.17%</td>
+      <td>-10.21</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Sochi</td>
+      <td>1357.29</td>
+      <td>1</td>
+      <td>@ Krasnodar</td>
+      <td>1633.13</td>
+      <td>5</td>
+      <td>7.77%</td>
+      <td>73.98%</td>
+      <td>18.26%</td>
+      <td>-6.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>CSKA Moscow</td>
+      <td>1625.36</td>
+      <td>3</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1565.50</td>
+      <td>1</td>
+      <td>32.08%</td>
+      <td>37.51%</td>
+      <td>30.41%</td>
+      <td>21.41</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Rostov</td>
+      <td>1428.32</td>
+      <td>0</td>
+      <td>@ Rubin Kazan</td>
+      <td>1491.39</td>
+      <td>1</td>
+      <td>18.69%</td>
+      <td>53.25%</td>
+      <td>28.05%</td>
+      <td>-8.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Orenburg</td>
+      <td>1357.48</td>
+      <td>2</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1455.23</td>
+      <td>1</td>
+      <td>16.08%</td>
+      <td>57.09%</td>
+      <td>26.82%</td>
+      <td>21.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Akron Tolyatti</td>
+      <td>1455.23</td>
+      <td>1</td>
+      <td>Orenburg</td>
+      <td>1357.48</td>
+      <td>2</td>
+      <td>57.09%</td>
+      <td>16.08%</td>
+      <td>26.82%</td>
+      <td>-21.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Krasnodar</td>
+      <td>1633.13</td>
+      <td>5</td>
+      <td>Sochi</td>
+      <td>1357.29</td>
+      <td>1</td>
+      <td>73.98%</td>
+      <td>7.77%</td>
+      <td>18.26%</td>
+      <td>6.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1337.61</td>
+      <td>0</td>
+      <td>Fakel Voronezh</td>
+      <td>1323.16</td>
+      <td>1</td>
+      <td>47.43%</td>
+      <td>23.18%</td>
+      <td>29.39%</td>
+      <td>-18.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1348.44</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1324.44</td>
+      <td>0</td>
+      <td>48.62%</td>
+      <td>22.21%</td>
+      <td>29.17%</td>
+      <td>10.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Spartak Kostroma</td>
+      <td>1412.10</td>
+      <td>2</td>
+      <td>Chelyabinsk</td>
+      <td>1416.83</td>
+      <td>1</td>
+      <td>44.99%</td>
+      <td>25.23%</td>
+      <td>29.78%</td>
+      <td>11.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1336.63</td>
+      <td>2</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1425.04</td>
+      <td>0</td>
+      <td>33.45%</td>
+      <td>36.11%</td>
+      <td>30.44%</td>
+      <td>20.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Torpedo Moscow</td>
+      <td>1315.10</td>
+      <td>1</td>
+      <td>Ural</td>
+      <td>1386.89</td>
+      <td>0</td>
+      <td>35.82%</td>
+      <td>33.73%</td>
+      <td>30.45%</td>
+      <td>14.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Ural</td>
+      <td>1386.89</td>
+      <td>0</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1315.10</td>
+      <td>1</td>
+      <td>33.73%</td>
+      <td>35.82%</td>
+      <td>30.45%</td>
+      <td>-14.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1425.04</td>
+      <td>0</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1336.63</td>
+      <td>2</td>
+      <td>36.11%</td>
+      <td>33.45%</td>
+      <td>30.44%</td>
+      <td>-20.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Orenburg</td>
+      <td>1378.56</td>
+      <td>2</td>
+      <td>Akhmat Grozny</td>
+      <td>1402.51</td>
+      <td>2</td>
+      <td>42.46%</td>
+      <td>27.46%</td>
+      <td>30.08%</td>
+      <td>-1.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Akhmat Grozny</td>
+      <td>1402.51</td>
+      <td>2</td>
+      <td>@ Orenburg</td>
+      <td>1378.56</td>
+      <td>2</td>
+      <td>27.46%</td>
+      <td>42.46%</td>
+      <td>30.08%</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1404.20</td>
+      <td>0</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1618.75</td>
+      <td>4</td>
+      <td>9.93%</td>
+      <td>68.61%</td>
+      <td>21.46%</td>
+      <td>-8.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Rostov</td>
+      <td>1419.53</td>
+      <td>3</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1576.43</td>
+      <td>3</td>
+      <td>12.55%</td>
+      <td>63.16%</td>
+      <td>24.29%</td>
+      <td>4.25</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1357.47</td>
+      <td>0</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1544.08</td>
+      <td>3</td>
+      <td>11.11%</td>
+      <td>66.02%</td>
+      <td>22.86%</td>
+      <td>-8.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Sokol Saratov</td>
+      <td>1191.97</td>
+      <td>1</td>
+      <td>@ Chelyabinsk</td>
+      <td>1405.51</td>
+      <td>3</td>
+      <td>9.97%</td>
+      <td>68.52%</td>
+      <td>21.51%</td>
+      <td>-6.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Rodina Moscow</td>
+      <td>1274.35</td>
+      <td>1</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1161.25</td>
+      <td>1</td>
+      <td>39.58%</td>
+      <td>30.11%</td>
+      <td>30.31%</td>
+      <td>-0.70</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Ufa</td>
+      <td>1210.24</td>
+      <td>1</td>
+      <td>@ Kamaz</td>
+      <td>1269.13</td>
+      <td>3</td>
+      <td>19.04%</td>
+      <td>52.77%</td>
+      <td>28.19%</td>
+      <td>-12.63</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1211.35</td>
+      <td>2</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1319.49</td>
+      <td>0</td>
+      <td>15.38%</td>
+      <td>58.20%</td>
+      <td>26.41%</td>
+      <td>30.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Spartak Moscow</td>
+      <td>1544.76</td>
+      <td>2</td>
+      <td>@ Rubin Kazan</td>
+      <td>1500.18</td>
+      <td>0</td>
+      <td>30.05%</td>
+      <td>39.65%</td>
+      <td>30.31%</td>
+      <td>22.30</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Rubin Kazan</td>
+      <td>1500.18</td>
+      <td>0</td>
+      <td>Spartak Moscow</td>
+      <td>1544.76</td>
+      <td>2</td>
+      <td>39.65%</td>
+      <td>30.05%</td>
+      <td>30.31%</td>
+      <td>-22.30</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1618.75</td>
+      <td>4</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1404.20</td>
+      <td>0</td>
+      <td>68.61%</td>
+      <td>9.93%</td>
+      <td>21.46%</td>
+      <td>8.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1576.43</td>
+      <td>3</td>
+      <td>Rostov</td>
+      <td>1419.53</td>
+      <td>3</td>
+      <td>63.16%</td>
+      <td>12.55%</td>
+      <td>24.29%</td>
+      <td>-4.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Dynamo Moscow</td>
+      <td>1544.08</td>
+      <td>3</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1357.47</td>
+      <td>0</td>
+      <td>66.02%</td>
+      <td>11.11%</td>
+      <td>22.86%</td>
+      <td>8.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Chelyabinsk</td>
+      <td>1405.51</td>
+      <td>3</td>
+      <td>Sokol Saratov</td>
+      <td>1191.97</td>
+      <td>1</td>
+      <td>68.52%</td>
+      <td>9.97%</td>
+      <td>21.51%</td>
+      <td>6.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1161.25</td>
+      <td>1</td>
+      <td>Rodina Moscow</td>
+      <td>1274.35</td>
+      <td>1</td>
+      <td>30.11%</td>
+      <td>39.58%</td>
+      <td>30.31%</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Kamaz</td>
+      <td>1269.13</td>
+      <td>3</td>
+      <td>Ufa</td>
+      <td>1210.24</td>
+      <td>1</td>
+      <td>52.77%</td>
+      <td>19.04%</td>
+      <td>28.19%</td>
+      <td>12.63</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1319.49</td>
+      <td>0</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1211.35</td>
+      <td>2</td>
+      <td>58.20%</td>
+      <td>15.38%</td>
+      <td>26.41%</td>
+      <td>-30.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Fakel Voronezh</td>
+      <td>1341.29</td>
+      <td>1</td>
+      <td>Neftekhimik</td>
+      <td>1218.61</td>
+      <td>0</td>
+      <td>59.72%</td>
+      <td>14.47%</td>
+      <td>25.81%</td>
+      <td>6.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Krylia Sovetov</td>
+      <td>1439.06</td>
+      <td>0</td>
+      <td>Krasnodar</td>
+      <td>1639.72</td>
+      <td>6</td>
+      <td>20.47%</td>
+      <td>50.85%</td>
+      <td>28.68%</td>
+      <td>-23.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Arsenal Tula</td>
+      <td>1246.22</td>
+      <td>3</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1222.42</td>
+      <td>0</td>
+      <td>27.45%</td>
+      <td>42.48%</td>
+      <td>30.08%</td>
+      <td>28.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Krasnodar</td>
+      <td>1639.72</td>
+      <td>6</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1439.06</td>
+      <td>0</td>
+      <td>50.85%</td>
+      <td>20.47%</td>
+      <td>28.68%</td>
+      <td>23.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>CSKA Moscow</td>
+      <td>1646.77</td>
+      <td>3</td>
+      <td>Akron Tolyatti</td>
+      <td>1434.15</td>
+      <td>1</td>
+      <td>68.44%</td>
+      <td>10.01%</td>
+      <td>21.56%</td>
+      <td>6.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Akron Tolyatti</td>
+      <td>1434.15</td>
+      <td>1</td>
+      <td>@ CSKA Moscow</td>
+      <td>1646.77</td>
+      <td>3</td>
+      <td>10.01%</td>
+      <td>68.44%</td>
+      <td>21.56%</td>
+      <td>-6.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1532.89</td>
+      <td>2</td>
+      <td>@ Sochi</td>
+      <td>1350.70</td>
+      <td>0</td>
+      <td>48.62%</td>
+      <td>22.21%</td>
+      <td>29.17%</td>
+      <td>14.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Spartak Kostroma</td>
+      <td>1423.43</td>
+      <td>2</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1314.23</td>
+      <td>1</td>
+      <td>39.04%</td>
+      <td>30.62%</td>
+      <td>30.34%</td>
+      <td>13.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Neftekhimik</td>
+      <td>1218.61</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1341.29</td>
+      <td>1</td>
+      <td>14.47%</td>
+      <td>59.72%</td>
+      <td>25.81%</td>
+      <td>-6.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Sochi</td>
+      <td>1350.70</td>
+      <td>0</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1532.89</td>
+      <td>2</td>
+      <td>22.21%</td>
+      <td>48.62%</td>
+      <td>29.17%</td>
+      <td>-14.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1314.23</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1423.43</td>
+      <td>2</td>
+      <td>30.62%</td>
+      <td>39.04%</td>
+      <td>30.34%</td>
+      <td>-13.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1222.42</td>
+      <td>0</td>
+      <td>Arsenal Tula</td>
+      <td>1246.22</td>
+      <td>3</td>
+      <td>42.48%</td>
+      <td>27.45%</td>
+      <td>30.08%</td>
+      <td>-28.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1358.66</td>
+      <td>0</td>
+      <td>@ Ural</td>
+      <td>1372.84</td>
+      <td>4</td>
+      <td>23.20%</td>
+      <td>47.40%</td>
+      <td>29.40%</td>
+      <td>-21.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Rotor Volgograd</td>
+      <td>1293.36</td>
+      <td>3</td>
+      <td>Torpedo Moscow</td>
+      <td>1329.14</td>
+      <td>0</td>
+      <td>40.86%</td>
+      <td>28.92%</td>
+      <td>30.22%</td>
+      <td>21.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Ural</td>
+      <td>1372.84</td>
+      <td>4</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1358.66</td>
+      <td>0</td>
+      <td>47.40%</td>
+      <td>23.20%</td>
+      <td>29.40%</td>
+      <td>21.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-25</td>
+      <td>Torpedo Moscow</td>
+      <td>1329.14</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1293.36</td>
+      <td>3</td>
+      <td>28.92%</td>
+      <td>40.86%</td>
+      <td>30.22%</td>
+      <td>-21.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Torpedo Moscow</td>
+      <td>1307.37</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1273.65</td>
+      <td>3</td>
+      <td>28.66%</td>
+      <td>41.14%</td>
+      <td>30.20%</td>
+      <td>-21.63</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Rodina Moscow</td>
+      <td>1273.65</td>
+      <td>3</td>
+      <td>Torpedo Moscow</td>
+      <td>1307.37</td>
+      <td>0</td>
+      <td>41.14%</td>
+      <td>28.66%</td>
+      <td>30.20%</td>
+      <td>21.62</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Rubin Kazan</td>
+      <td>1477.88</td>
+      <td>2</td>
+      <td>@ Orenburg</td>
+      <td>1377.43</td>
+      <td>2</td>
+      <td>37.81%</td>
+      <td>31.79%</td>
+      <td>30.40%</td>
+      <td>-0.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1348.61</td>
+      <td>0</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1627.69</td>
+      <td>2</td>
+      <td>7.66%</td>
+      <td>74.25%</td>
+      <td>18.09%</td>
+      <td>-4.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Sochi</td>
+      <td>1336.26</td>
+      <td>1</td>
+      <td>@ Spartak Moscow</td>
+      <td>1567.06</td>
+      <td>2</td>
+      <td>9.30%</td>
+      <td>70.08%</td>
+      <td>20.62%</td>
+      <td>-4.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Akhmat Grozny</td>
+      <td>1403.64</td>
+      <td>1</td>
+      <td>@ Rostov</td>
+      <td>1423.78</td>
+      <td>1</td>
+      <td>22.60%</td>
+      <td>48.14%</td>
+      <td>29.26%</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Kamaz</td>
+      <td>1281.76</td>
+      <td>1</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1301.12</td>
+      <td>1</td>
+      <td>22.68%</td>
+      <td>48.05%</td>
+      <td>29.28%</td>
+      <td>1.98</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1193.64</td>
+      <td>0</td>
+      <td>@ Ufa</td>
+      <td>1197.61</td>
+      <td>4</td>
+      <td>24.28%</td>
+      <td>46.11%</td>
+      <td>29.61%</td>
+      <td>-21.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1289.20</td>
+      <td>0</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1161.95</td>
+      <td>1</td>
+      <td>41.52%</td>
+      <td>28.32%</td>
+      <td>30.17%</td>
+      <td>-16.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Sokol Saratov</td>
+      <td>1185.62</td>
+      <td>0</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1241.63</td>
+      <td>1</td>
+      <td>19.28%</td>
+      <td>52.44%</td>
+      <td>28.28%</td>
+      <td>-9.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Rotor Volgograd</td>
+      <td>1315.14</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1436.54</td>
+      <td>2</td>
+      <td>29.05%</td>
+      <td>40.72%</td>
+      <td>30.23%</td>
+      <td>-12.61</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Neftekhimik</td>
+      <td>1211.77</td>
+      <td>1</td>
+      <td>Chelyabinsk</td>
+      <td>1411.86</td>
+      <td>1</td>
+      <td>20.52%</td>
+      <td>50.79%</td>
+      <td>28.70%</td>
+      <td>2.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1161.95</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1289.20</td>
+      <td>0</td>
+      <td>28.32%</td>
+      <td>41.52%</td>
+      <td>30.17%</td>
+      <td>16.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1337.48</td>
+      <td>2</td>
+      <td>Arsenal Tula</td>
+      <td>1275.00</td>
+      <td>1</td>
+      <td>53.19%</td>
+      <td>18.74%</td>
+      <td>28.07%</td>
+      <td>8.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Ufa</td>
+      <td>1197.61</td>
+      <td>4</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1193.64</td>
+      <td>0</td>
+      <td>46.11%</td>
+      <td>24.28%</td>
+      <td>29.61%</td>
+      <td>21.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1241.63</td>
+      <td>1</td>
+      <td>Sokol Saratov</td>
+      <td>1185.62</td>
+      <td>0</td>
+      <td>52.44%</td>
+      <td>19.28%</td>
+      <td>28.28%</td>
+      <td>9.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1301.12</td>
+      <td>1</td>
+      <td>Kamaz</td>
+      <td>1281.76</td>
+      <td>1</td>
+      <td>48.05%</td>
+      <td>22.68%</td>
+      <td>29.28%</td>
+      <td>-1.98</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Rostov</td>
+      <td>1423.78</td>
+      <td>1</td>
+      <td>Akhmat Grozny</td>
+      <td>1403.64</td>
+      <td>1</td>
+      <td>48.14%</td>
+      <td>22.60%</td>
+      <td>29.26%</td>
+      <td>-2.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Spartak Moscow</td>
+      <td>1567.06</td>
+      <td>2</td>
+      <td>Sochi</td>
+      <td>1336.26</td>
+      <td>1</td>
+      <td>70.08%</td>
+      <td>9.30%</td>
+      <td>20.62%</td>
+      <td>4.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1627.69</td>
+      <td>2</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1348.61</td>
+      <td>0</td>
+      <td>74.25%</td>
+      <td>7.66%</td>
+      <td>18.09%</td>
+      <td>4.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Orenburg</td>
+      <td>1377.43</td>
+      <td>2</td>
+      <td>Rubin Kazan</td>
+      <td>1477.88</td>
+      <td>2</td>
+      <td>31.79%</td>
+      <td>37.81%</td>
+      <td>30.40%</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Chelyabinsk</td>
+      <td>1411.86</td>
+      <td>1</td>
+      <td>@ Neftekhimik</td>
+      <td>1211.77</td>
+      <td>1</td>
+      <td>50.79%</td>
+      <td>20.52%</td>
+      <td>28.70%</td>
+      <td>-2.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Spartak Kostroma</td>
+      <td>1436.54</td>
+      <td>2</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1315.14</td>
+      <td>1</td>
+      <td>40.72%</td>
+      <td>29.05%</td>
+      <td>30.23%</td>
+      <td>12.61</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Arsenal Tula</td>
+      <td>1275.00</td>
+      <td>1</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1337.48</td>
+      <td>2</td>
+      <td>18.74%</td>
+      <td>53.19%</td>
+      <td>28.07%</td>
+      <td>-8.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Dynamo Moscow</td>
+      <td>1552.93</td>
+      <td>0</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1395.26</td>
+      <td>1</td>
+      <td>45.54%</td>
+      <td>24.76%</td>
+      <td>29.70%</td>
+      <td>-17.54</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Krasnodar</td>
+      <td>1663.05</td>
+      <td>1</td>
+      <td>@ CSKA Moscow</td>
+      <td>1653.15</td>
+      <td>1</td>
+      <td>25.81%</td>
+      <td>44.32%</td>
+      <td>29.87%</td>
+      <td>1.41</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Krylia Sovetov</td>
+      <td>1415.73</td>
+      <td>2</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1572.19</td>
+      <td>2</td>
+      <td>12.57%</td>
+      <td>63.12%</td>
+      <td>24.31%</td>
+      <td>4.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1547.33</td>
+      <td>2</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1427.77</td>
+      <td>0</td>
+      <td>40.47%</td>
+      <td>29.28%</td>
+      <td>30.25%</td>
+      <td>17.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Akron Tolyatti</td>
+      <td>1427.77</td>
+      <td>0</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1547.33</td>
+      <td>2</td>
+      <td>29.28%</td>
+      <td>40.47%</td>
+      <td>30.25%</td>
+      <td>-17.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1572.19</td>
+      <td>2</td>
+      <td>Krylia Sovetov</td>
+      <td>1415.73</td>
+      <td>2</td>
+      <td>63.12%</td>
+      <td>12.57%</td>
+      <td>24.31%</td>
+      <td>-4.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>CSKA Moscow</td>
+      <td>1653.15</td>
+      <td>1</td>
+      <td>Krasnodar</td>
+      <td>1663.05</td>
+      <td>1</td>
+      <td>44.32%</td>
+      <td>25.81%</td>
+      <td>29.87%</td>
+      <td>-1.41</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1395.26</td>
+      <td>1</td>
+      <td>Dynamo Moscow</td>
+      <td>1552.93</td>
+      <td>0</td>
+      <td>24.76%</td>
+      <td>45.54%</td>
+      <td>29.70%</td>
+      <td>17.54</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Ural</td>
+      <td>1394.02</td>
+      <td>2</td>
+      <td>Fakel Voronezh</td>
+      <td>1348.13</td>
+      <td>0</td>
+      <td>51.26%</td>
+      <td>20.16%</td>
+      <td>28.58%</td>
+      <td>13.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Fakel Voronezh</td>
+      <td>1348.13</td>
+      <td>0</td>
+      <td>@ Ural</td>
+      <td>1394.02</td>
+      <td>2</td>
+      <td>20.16%</td>
+      <td>51.26%</td>
+      <td>28.58%</td>
+      <td>-13.30</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1250.66</td>
+      <td>0</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1178.28</td>
+      <td>0</td>
+      <td>54.31%</td>
+      <td>17.95%</td>
+      <td>27.74%</td>
+      <td>-2.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1346.29</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1272.88</td>
+      <td>1</td>
+      <td>54.42%</td>
+      <td>17.87%</td>
+      <td>27.71%</td>
+      <td>-2.97</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Sokol Saratov</td>
+      <td>1176.58</td>
+      <td>0</td>
+      <td>Kamaz</td>
+      <td>1283.74</td>
+      <td>2</td>
+      <td>30.89%</td>
+      <td>38.75%</td>
+      <td>30.36%</td>
+      <td>-18.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1171.68</td>
+      <td>0</td>
+      <td>Rotor Volgograd</td>
+      <td>1302.53</td>
+      <td>6</td>
+      <td>27.87%</td>
+      <td>42.00%</td>
+      <td>30.12%</td>
+      <td>-29.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Torpedo Moscow</td>
+      <td>1285.74</td>
+      <td>0</td>
+      <td>Ufa</td>
+      <td>1219.58</td>
+      <td>0</td>
+      <td>53.60%</td>
+      <td>18.44%</td>
+      <td>27.95%</td>
+      <td>-2.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Arsenal Tula</td>
+      <td>1266.19</td>
+      <td>3</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1299.14</td>
+      <td>1</td>
+      <td>41.24%</td>
+      <td>28.57%</td>
+      <td>30.19%</td>
+      <td>17.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Neftekhimik</td>
+      <td>1214.17</td>
+      <td>1</td>
+      <td>Rodina Moscow</td>
+      <td>1295.27</td>
+      <td>5</td>
+      <td>34.48%</td>
+      <td>35.06%</td>
+      <td>30.45%</td>
+      <td>-28.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1272.88</td>
+      <td>1</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1346.29</td>
+      <td>1</td>
+      <td>17.87%</td>
+      <td>54.42%</td>
+      <td>27.71%</td>
+      <td>2.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1299.14</td>
+      <td>1</td>
+      <td>@ Arsenal Tula</td>
+      <td>1266.19</td>
+      <td>3</td>
+      <td>28.57%</td>
+      <td>41.24%</td>
+      <td>30.19%</td>
+      <td>-17.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Ufa</td>
+      <td>1219.58</td>
+      <td>0</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1285.74</td>
+      <td>0</td>
+      <td>18.44%</td>
+      <td>53.60%</td>
+      <td>27.95%</td>
+      <td>2.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Rotor Volgograd</td>
+      <td>1302.53</td>
+      <td>6</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1171.68</td>
+      <td>0</td>
+      <td>42.00%</td>
+      <td>27.87%</td>
+      <td>30.12%</td>
+      <td>29.95</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Kamaz</td>
+      <td>1283.74</td>
+      <td>2</td>
+      <td>@ Sokol Saratov</td>
+      <td>1176.58</td>
+      <td>0</td>
+      <td>38.75%</td>
+      <td>30.89%</td>
+      <td>30.36%</td>
+      <td>18.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Rodina Moscow</td>
+      <td>1295.27</td>
+      <td>5</td>
+      <td>@ Neftekhimik</td>
+      <td>1214.17</td>
+      <td>1</td>
+      <td>35.06%</td>
+      <td>34.48%</td>
+      <td>30.45%</td>
+      <td>28.54</td>
+    </tr>
+    <tr>
+      <td>2025-09-03</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1178.28</td>
+      <td>0</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1250.66</td>
+      <td>0</td>
+      <td>17.95%</td>
+      <td>54.31%</td>
+      <td>27.74%</td>
+      <td>2.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Ural</td>
+      <td>1407.31</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1449.15</td>
+      <td>1</td>
+      <td>20.53%</td>
+      <td>50.78%</td>
+      <td>28.70%</td>
+      <td>2.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Fakel Voronezh</td>
+      <td>1334.83</td>
+      <td>1</td>
+      <td>@ Chelyabinsk</td>
+      <td>1409.46</td>
+      <td>1</td>
+      <td>17.77%</td>
+      <td>54.56%</td>
+      <td>27.67%</td>
+      <td>2.99</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Chelyabinsk</td>
+      <td>1409.46</td>
+      <td>1</td>
+      <td>Fakel Voronezh</td>
+      <td>1334.83</td>
+      <td>1</td>
+      <td>54.56%</td>
+      <td>17.77%</td>
+      <td>27.67%</td>
+      <td>-2.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-04</td>
+      <td>Spartak Kostroma</td>
+      <td>1449.15</td>
+      <td>1</td>
+      <td>Ural</td>
+      <td>1407.31</td>
+      <td>1</td>
+      <td>50.78%</td>
+      <td>20.53%</td>
+      <td>28.70%</td>
+      <td>-2.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Ufa</td>
+      <td>1222.41</td>
+      <td>2</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1275.84</td>
+      <td>3</td>
+      <td>19.50%</td>
+      <td>52.14%</td>
+      <td>28.36%</td>
+      <td>-9.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Rodina Moscow</td>
+      <td>1323.81</td>
+      <td>2</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1247.72</td>
+      <td>0</td>
+      <td>54.72%</td>
+      <td>17.66%</td>
+      <td>27.62%</td>
+      <td>11.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Kamaz</td>
+      <td>1302.40</td>
+      <td>1</td>
+      <td>Torpedo Moscow</td>
+      <td>1282.91</td>
+      <td>1</td>
+      <td>48.06%</td>
+      <td>22.66%</td>
+      <td>29.28%</td>
+      <td>-1.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1181.22</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1343.32</td>
+      <td>0</td>
+      <td>24.28%</td>
+      <td>46.10%</td>
+      <td>29.61%</td>
+      <td>25.06</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1275.84</td>
+      <td>3</td>
+      <td>Ufa</td>
+      <td>1222.41</td>
+      <td>2</td>
+      <td>52.14%</td>
+      <td>19.50%</td>
+      <td>28.36%</td>
+      <td>9.13</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Rotor Volgograd</td>
+      <td>1332.48</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1281.53</td>
+      <td>0</td>
+      <td>51.85%</td>
+      <td>19.72%</td>
+      <td>28.43%</td>
+      <td>9.21</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1247.72</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1323.81</td>
+      <td>2</td>
+      <td>17.66%</td>
+      <td>54.72%</td>
+      <td>27.62%</td>
+      <td>-11.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Torpedo Moscow</td>
+      <td>1282.91</td>
+      <td>1</td>
+      <td>@ Kamaz</td>
+      <td>1302.40</td>
+      <td>1</td>
+      <td>22.66%</td>
+      <td>48.06%</td>
+      <td>29.28%</td>
+      <td>1.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1281.53</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1332.48</td>
+      <td>1</td>
+      <td>19.72%</td>
+      <td>51.85%</td>
+      <td>28.43%</td>
+      <td>-9.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-07</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1343.32</td>
+      <td>0</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1181.22</td>
+      <td>2</td>
+      <td>46.10%</td>
+      <td>24.28%</td>
+      <td>29.61%</td>
+      <td>-25.05</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Spartak Kostroma</td>
+      <td>1446.75</td>
+      <td>2</td>
+      <td>Sokol Saratov</td>
+      <td>1157.92</td>
+      <td>1</td>
+      <td>75.06%</td>
+      <td>7.37%</td>
+      <td>17.58%</td>
+      <td>3.08</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Fakel Voronezh</td>
+      <td>1337.82</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1283.80</td>
+      <td>0</td>
+      <td>52.21%</td>
+      <td>19.45%</td>
+      <td>28.34%</td>
+      <td>9.10</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Ural</td>
+      <td>1409.71</td>
+      <td>1</td>
+      <td>Neftekhimik</td>
+      <td>1185.64</td>
+      <td>1</td>
+      <td>69.47%</td>
+      <td>9.56%</td>
+      <td>20.97%</td>
+      <td>-5.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Chelyabinsk</td>
+      <td>1406.48</td>
+      <td>1</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1141.72</td>
+      <td>0</td>
+      <td>73.04%</td>
+      <td>8.12%</td>
+      <td>18.84%</td>
+      <td>3.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1141.72</td>
+      <td>0</td>
+      <td>@ Chelyabinsk</td>
+      <td>1406.48</td>
+      <td>1</td>
+      <td>8.12%</td>
+      <td>73.04%</td>
+      <td>18.84%</td>
+      <td>-3.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Sokol Saratov</td>
+      <td>1157.92</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1446.75</td>
+      <td>2</td>
+      <td>7.37%</td>
+      <td>75.06%</td>
+      <td>17.58%</td>
+      <td>-3.08</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Neftekhimik</td>
+      <td>1185.64</td>
+      <td>1</td>
+      <td>@ Ural</td>
+      <td>1409.71</td>
+      <td>1</td>
+      <td>9.56%</td>
+      <td>69.47%</td>
+      <td>20.97%</td>
+      <td>5.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-08</td>
+      <td>Arsenal Tula</td>
+      <td>1283.80</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1337.82</td>
+      <td>1</td>
+      <td>19.45%</td>
+      <td>52.21%</td>
+      <td>28.34%</td>
+      <td>-9.10</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Torpedo Moscow</td>
+      <td>1284.89</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1318.27</td>
+      <td>3</td>
+      <td>41.18%</td>
+      <td>28.62%</td>
+      <td>30.20%</td>
+      <td>-16.23</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Rubin Kazan</td>
+      <td>1477.44</td>
+      <td>1</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1412.80</td>
+      <td>0</td>
+      <td>53.43%</td>
+      <td>18.57%</td>
+      <td>28.00%</td>
+      <td>8.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1412.80</td>
+      <td>0</td>
+      <td>@ Rubin Kazan</td>
+      <td>1477.44</td>
+      <td>1</td>
+      <td>18.57%</td>
+      <td>53.43%</td>
+      <td>28.00%</td>
+      <td>-8.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1318.27</td>
+      <td>3</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1284.89</td>
+      <td>2</td>
+      <td>28.62%</td>
+      <td>41.18%</td>
+      <td>30.20%</td>
+      <td>16.23</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Krasnodar</td>
+      <td>1664.46</td>
+      <td>2</td>
+      <td>Akron Tolyatti</td>
+      <td>1409.83</td>
+      <td>1</td>
+      <td>72.17%</td>
+      <td>8.46%</td>
+      <td>19.37%</td>
+      <td>3.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Dynamo Moscow</td>
+      <td>1535.39</td>
+      <td>2</td>
+      <td>Spartak Moscow</td>
+      <td>1571.19</td>
+      <td>2</td>
+      <td>40.85%</td>
+      <td>28.92%</td>
+      <td>30.22%</td>
+      <td>-0.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Orenburg</td>
+      <td>1377.87</td>
+      <td>1</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1344.03</td>
+      <td>3</td>
+      <td>28.68%</td>
+      <td>41.12%</td>
+      <td>30.20%</td>
+      <td>-17.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Spartak Moscow</td>
+      <td>1571.19</td>
+      <td>2</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1535.39</td>
+      <td>2</td>
+      <td>28.92%</td>
+      <td>40.85%</td>
+      <td>30.22%</td>
+      <td>0.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1567.95</td>
+      <td>1</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.64</td>
+      <td>1</td>
+      <td>46.13%</td>
+      <td>24.26%</td>
+      <td>29.61%</td>
+      <td>-1.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Akron Tolyatti</td>
+      <td>1409.83</td>
+      <td>1</td>
+      <td>@ Krasnodar</td>
+      <td>1664.46</td>
+      <td>2</td>
+      <td>8.46%</td>
+      <td>72.17%</td>
+      <td>19.37%</td>
+      <td>-3.67</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Spartak Kostroma</td>
+      <td>1449.83</td>
+      <td>2</td>
+      <td>@ Arsenal Tula</td>
+      <td>1274.70</td>
+      <td>1</td>
+      <td>47.75%</td>
+      <td>22.92%</td>
+      <td>29.33%</td>
+      <td>10.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1344.03</td>
+      <td>3</td>
+      <td>Orenburg</td>
+      <td>1377.87</td>
+      <td>1</td>
+      <td>41.12%</td>
+      <td>28.68%</td>
+      <td>30.20%</td>
+      <td>17.67</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Arsenal Tula</td>
+      <td>1274.70</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1449.83</td>
+      <td>2</td>
+      <td>22.92%</td>
+      <td>47.75%</td>
+      <td>29.33%</td>
+      <td>-10.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.64</td>
+      <td>1</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1567.95</td>
+      <td>1</td>
+      <td>24.26%</td>
+      <td>46.13%</td>
+      <td>29.61%</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Krylia Sovetov</td>
+      <td>1419.97</td>
+      <td>2</td>
+      <td>Sochi</td>
+      <td>1332.13</td>
+      <td>0</td>
+      <td>56.02%</td>
+      <td>16.78%</td>
+      <td>27.20%</td>
+      <td>11.23</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1565.27</td>
+      <td>0</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1632.27</td>
+      <td>0</td>
+      <td>36.50%</td>
+      <td>33.06%</td>
+      <td>30.44%</td>
+      <td>-0.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Rostov</td>
+      <td>1421.78</td>
+      <td>1</td>
+      <td>CSKA Moscow</td>
+      <td>1651.74</td>
+      <td>0</td>
+      <td>17.99%</td>
+      <td>54.24%</td>
+      <td>27.76%</td>
+      <td>20.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1272.31</td>
+      <td>1</td>
+      <td>Chelyabinsk</td>
+      <td>1409.96</td>
+      <td>1</td>
+      <td>27.05%</td>
+      <td>42.91%</td>
+      <td>30.03%</td>
+      <td>1.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Rotor Volgograd</td>
+      <td>1341.69</td>
+      <td>3</td>
+      <td>Kamaz</td>
+      <td>1300.42</td>
+      <td>0</td>
+      <td>50.71%</td>
+      <td>20.58%</td>
+      <td>28.71%</td>
+      <td>16.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Sokol Saratov</td>
+      <td>1154.84</td>
+      <td>0</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1206.28</td>
+      <td>0</td>
+      <td>38.70%</td>
+      <td>30.94%</td>
+      <td>30.36%</td>
+      <td>-0.57</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1206.28</td>
+      <td>0</td>
+      <td>@ Sokol Saratov</td>
+      <td>1154.84</td>
+      <td>0</td>
+      <td>30.94%</td>
+      <td>38.70%</td>
+      <td>30.36%</td>
+      <td>0.57</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Sochi</td>
+      <td>1332.13</td>
+      <td>0</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1419.97</td>
+      <td>2</td>
+      <td>16.78%</td>
+      <td>56.02%</td>
+      <td>27.20%</td>
+      <td>-11.23</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1632.27</td>
+      <td>0</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1565.27</td>
+      <td>0</td>
+      <td>33.06%</td>
+      <td>36.50%</td>
+      <td>30.44%</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>CSKA Moscow</td>
+      <td>1651.74</td>
+      <td>0</td>
+      <td>@ Rostov</td>
+      <td>1421.78</td>
+      <td>1</td>
+      <td>54.24%</td>
+      <td>17.99%</td>
+      <td>27.76%</td>
+      <td>-20.21</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Chelyabinsk</td>
+      <td>1409.96</td>
+      <td>1</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1272.31</td>
+      <td>1</td>
+      <td>42.91%</td>
+      <td>27.05%</td>
+      <td>30.03%</td>
+      <td>-1.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Kamaz</td>
+      <td>1300.42</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1341.69</td>
+      <td>3</td>
+      <td>20.58%</td>
+      <td>50.71%</td>
+      <td>28.71%</td>
+      <td>-16.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1138.24</td>
+      <td>1</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1284.97</td>
+      <td>4</td>
+      <td>13.08%</td>
+      <td>62.16%</td>
+      <td>24.76%</td>
+      <td>-10.65</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Ural</td>
+      <td>1404.67</td>
+      <td>3</td>
+      <td>@ Ufa</td>
+      <td>1213.29</td>
+      <td>2</td>
+      <td>49.74%</td>
+      <td>21.33%</td>
+      <td>28.93%</td>
+      <td>9.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Ufa</td>
+      <td>1213.29</td>
+      <td>2</td>
+      <td>Ural</td>
+      <td>1404.67</td>
+      <td>3</td>
+      <td>21.33%</td>
+      <td>49.74%</td>
+      <td>28.93%</td>
+      <td>-9.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Neftekhimik</td>
+      <td>1190.68</td>
+      <td>1</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1235.93</td>
+      <td>0</td>
+      <td>39.56%</td>
+      <td>30.13%</td>
+      <td>30.31%</td>
+      <td>12.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1284.97</td>
+      <td>4</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1138.24</td>
+      <td>1</td>
+      <td>62.16%</td>
+      <td>13.08%</td>
+      <td>24.76%</td>
+      <td>10.64</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Rodina Moscow</td>
+      <td>1335.60</td>
+      <td>2</td>
+      <td>Fakel Voronezh</td>
+      <td>1346.92</td>
+      <td>0</td>
+      <td>44.13%</td>
+      <td>25.98%</td>
+      <td>29.89%</td>
+      <td>16.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Fakel Voronezh</td>
+      <td>1346.92</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1335.60</td>
+      <td>2</td>
+      <td>25.98%</td>
+      <td>44.13%</td>
+      <td>29.89%</td>
+      <td>-16.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1235.93</td>
+      <td>0</td>
+      <td>@ Neftekhimik</td>
+      <td>1190.68</td>
+      <td>1</td>
+      <td>30.13%</td>
+      <td>39.56%</td>
+      <td>30.31%</td>
+      <td>-12.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Neftekhimik</td>
+      <td>1203.64</td>
+      <td>4</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1334.50</td>
+      <td>1</td>
+      <td>13.98%</td>
+      <td>60.56%</td>
+      <td>25.46%</td>
+      <td>38.28</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Rubin Kazan</td>
+      <td>1486.17</td>
+      <td>2</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1406.16</td>
+      <td>2</td>
+      <td>34.91%</td>
+      <td>34.64%</td>
+      <td>30.45%</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Sokol Saratov</td>
+      <td>1154.27</td>
+      <td>1</td>
+      <td>Torpedo Moscow</td>
+      <td>1268.66</td>
+      <td>0</td>
+      <td>29.94%</td>
+      <td>39.76%</td>
+      <td>30.30%</td>
+      <td>15.80</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1334.50</td>
+      <td>1</td>
+      <td>Neftekhimik</td>
+      <td>1203.64</td>
+      <td>4</td>
+      <td>60.56%</td>
+      <td>13.98%</td>
+      <td>25.46%</td>
+      <td>-38.28</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Arsenal Tula</td>
+      <td>1264.22</td>
+      <td>2</td>
+      <td>Ufa</td>
+      <td>1203.42</td>
+      <td>2</td>
+      <td>52.99%</td>
+      <td>18.88%</td>
+      <td>28.13%</td>
+      <td>-2.75</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1127.59</td>
+      <td>2</td>
+      <td>Spartak Kostroma</td>
+      <td>1460.31</td>
+      <td>4</td>
+      <td>11.67%</td>
+      <td>64.87%</td>
+      <td>23.45%</td>
+      <td>-7.65</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Kamaz</td>
+      <td>1283.84</td>
+      <td>0</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1206.85</td>
+      <td>0</td>
+      <td>54.82%</td>
+      <td>17.59%</td>
+      <td>27.59%</td>
+      <td>-3.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Akhmat Grozny</td>
+      <td>1407.32</td>
+      <td>2</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1361.70</td>
+      <td>1</td>
+      <td>30.18%</td>
+      <td>39.50%</td>
+      <td>30.32%</td>
+      <td>15.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1222.97</td>
+      <td>1</td>
+      <td>Fakel Voronezh</td>
+      <td>1330.54</td>
+      <td>1</td>
+      <td>30.84%</td>
+      <td>38.81%</td>
+      <td>30.35%</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1404.07</td>
+      <td>1</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1566.26</td>
+      <td>1</td>
+      <td>24.27%</td>
+      <td>46.11%</td>
+      <td>29.61%</td>
+      <td>1.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Chelyabinsk</td>
+      <td>1408.76</td>
+      <td>4</td>
+      <td>Rodina Moscow</td>
+      <td>1351.98</td>
+      <td>0</td>
+      <td>52.53%</td>
+      <td>19.22%</td>
+      <td>28.25%</td>
+      <td>18.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1361.70</td>
+      <td>1</td>
+      <td>Akhmat Grozny</td>
+      <td>1407.32</td>
+      <td>2</td>
+      <td>39.50%</td>
+      <td>30.18%</td>
+      <td>30.32%</td>
+      <td>-15.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Akron Tolyatti</td>
+      <td>1406.16</td>
+      <td>2</td>
+      <td>Rubin Kazan</td>
+      <td>1486.17</td>
+      <td>2</td>
+      <td>34.64%</td>
+      <td>34.91%</td>
+      <td>30.45%</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Ural</td>
+      <td>1414.54</td>
+      <td>0</td>
+      <td>Rotor Volgograd</td>
+      <td>1358.27</td>
+      <td>0</td>
+      <td>52.47%</td>
+      <td>19.26%</td>
+      <td>28.27%</td>
+      <td>-2.67</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1566.26</td>
+      <td>1</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1404.07</td>
+      <td>1</td>
+      <td>46.11%</td>
+      <td>24.27%</td>
+      <td>29.61%</td>
+      <td>-1.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Fakel Voronezh</td>
+      <td>1330.54</td>
+      <td>1</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1222.97</td>
+      <td>1</td>
+      <td>38.81%</td>
+      <td>30.84%</td>
+      <td>30.35%</td>
+      <td>-0.59</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Rotor Volgograd</td>
+      <td>1358.27</td>
+      <td>0</td>
+      <td>@ Ural</td>
+      <td>1414.54</td>
+      <td>0</td>
+      <td>19.26%</td>
+      <td>52.47%</td>
+      <td>28.27%</td>
+      <td>2.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1206.85</td>
+      <td>0</td>
+      <td>@ Kamaz</td>
+      <td>1283.84</td>
+      <td>0</td>
+      <td>17.59%</td>
+      <td>54.82%</td>
+      <td>27.59%</td>
+      <td>3.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Spartak Kostroma</td>
+      <td>1460.31</td>
+      <td>4</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1127.59</td>
+      <td>2</td>
+      <td>64.87%</td>
+      <td>11.67%</td>
+      <td>23.45%</td>
+      <td>7.65</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Ufa</td>
+      <td>1203.42</td>
+      <td>2</td>
+      <td>@ Arsenal Tula</td>
+      <td>1264.22</td>
+      <td>2</td>
+      <td>18.88%</td>
+      <td>52.99%</td>
+      <td>28.13%</td>
+      <td>2.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Rodina Moscow</td>
+      <td>1351.98</td>
+      <td>0</td>
+      <td>@ Chelyabinsk</td>
+      <td>1408.76</td>
+      <td>4</td>
+      <td>19.22%</td>
+      <td>52.53%</td>
+      <td>28.25%</td>
+      <td>-18.01</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Torpedo Moscow</td>
+      <td>1268.66</td>
+      <td>0</td>
+      <td>@ Sokol Saratov</td>
+      <td>1154.27</td>
+      <td>1</td>
+      <td>39.76%</td>
+      <td>29.94%</td>
+      <td>30.30%</td>
+      <td>-15.80</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Orenburg</td>
+      <td>1360.21</td>
+      <td>1</td>
+      <td>Dynamo Moscow</td>
+      <td>1534.50</td>
+      <td>3</td>
+      <td>23.00%</td>
+      <td>47.64%</td>
+      <td>29.35%</td>
+      <td>-14.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1632.52</td>
+      <td>2</td>
+      <td>@ Krasnodar</td>
+      <td>1668.12</td>
+      <td>0</td>
+      <td>21.10%</td>
+      <td>50.03%</td>
+      <td>28.87%</td>
+      <td>26.76</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Rostov</td>
+      <td>1442.00</td>
+      <td>0</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1565.02</td>
+      <td>0</td>
+      <td>14.45%</td>
+      <td>59.76%</td>
+      <td>25.80%</td>
+      <td>3.76</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Krasnodar</td>
+      <td>1668.12</td>
+      <td>0</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1632.52</td>
+      <td>2</td>
+      <td>50.03%</td>
+      <td>21.10%</td>
+      <td>28.87%</td>
+      <td>-26.76</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1273.51</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1295.61</td>
+      <td>0</td>
+      <td>42.70%</td>
+      <td>27.24%</td>
+      <td>30.05%</td>
+      <td>12.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Dynamo Moscow</td>
+      <td>1534.50</td>
+      <td>3</td>
+      <td>@ Orenburg</td>
+      <td>1360.21</td>
+      <td>1</td>
+      <td>47.64%</td>
+      <td>23.00%</td>
+      <td>29.35%</td>
+      <td>14.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Krylia Sovetov</td>
+      <td>1431.20</td>
+      <td>1</td>
+      <td>@ Spartak Moscow</td>
+      <td>1572.08</td>
+      <td>2</td>
+      <td>13.41%</td>
+      <td>61.57%</td>
+      <td>25.02%</td>
+      <td>-6.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1295.61</td>
+      <td>0</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1273.51</td>
+      <td>1</td>
+      <td>27.24%</td>
+      <td>42.70%</td>
+      <td>30.05%</td>
+      <td>-12.01</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Spartak Moscow</td>
+      <td>1572.08</td>
+      <td>2</td>
+      <td>Krylia Sovetov</td>
+      <td>1431.20</td>
+      <td>1</td>
+      <td>61.57%</td>
+      <td>13.41%</td>
+      <td>25.02%</td>
+      <td>6.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1565.02</td>
+      <td>0</td>
+      <td>Rostov</td>
+      <td>1442.00</td>
+      <td>0</td>
+      <td>59.76%</td>
+      <td>14.45%</td>
+      <td>25.80%</td>
+      <td>-3.76</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Sochi</td>
+      <td>1320.90</td>
+      <td>1</td>
+      <td>CSKA Moscow</td>
+      <td>1631.53</td>
+      <td>3</td>
+      <td>12.78%</td>
+      <td>62.73%</td>
+      <td>24.50%</td>
+      <td>-8.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>CSKA Moscow</td>
+      <td>1631.53</td>
+      <td>3</td>
+      <td>@ Sochi</td>
+      <td>1320.90</td>
+      <td>1</td>
+      <td>62.73%</td>
+      <td>12.78%</td>
+      <td>24.50%</td>
+      <td>8.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Dynamo Moscow</td>
+      <td>1549.37</td>
+      <td>3</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1424.89</td>
+      <td>2</td>
+      <td>41.14%</td>
+      <td>28.66%</td>
+      <td>30.20%</td>
+      <td>12.49</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Krylia Sovetov</td>
+      <td>1424.89</td>
+      <td>2</td>
+      <td>Dynamo Moscow</td>
+      <td>1549.37</td>
+      <td>3</td>
+      <td>28.66%</td>
+      <td>41.14%</td>
+      <td>30.20%</td>
+      <td>-12.49</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Akron Tolyatti</td>
+      <td>1406.18</td>
+      <td>0</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1423.05</td>
+      <td>3</td>
+      <td>22.93%</td>
+      <td>47.74%</td>
+      <td>29.34%</td>
+      <td>-18.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Rubin Kazan</td>
+      <td>1486.15</td>
+      <td>0</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1564.58</td>
+      <td>1</td>
+      <td>17.48%</td>
+      <td>54.98%</td>
+      <td>27.53%</td>
+      <td>-8.26</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Orenburg</td>
+      <td>1345.34</td>
+      <td>2</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1659.28</td>
+      <td>5</td>
+      <td>6.65%</td>
+      <td>77.09%</td>
+      <td>16.26%</td>
+      <td>-4.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1659.28</td>
+      <td>5</td>
+      <td>Orenburg</td>
+      <td>1345.34</td>
+      <td>2</td>
+      <td>77.09%</td>
+      <td>6.65%</td>
+      <td>16.26%</td>
+      <td>4.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Krasnodar</td>
+      <td>1641.36</td>
+      <td>0</td>
+      <td>@ Rostov</td>
+      <td>1445.76</td>
+      <td>0</td>
+      <td>50.25%</td>
+      <td>20.93%</td>
+      <td>28.82%</td>
+      <td>-2.32</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Rostov</td>
+      <td>1445.76</td>
+      <td>0</td>
+      <td>Krasnodar</td>
+      <td>1641.36</td>
+      <td>0</td>
+      <td>20.93%</td>
+      <td>50.25%</td>
+      <td>28.82%</td>
+      <td>2.32</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1564.58</td>
+      <td>1</td>
+      <td>Rubin Kazan</td>
+      <td>1486.15</td>
+      <td>0</td>
+      <td>54.98%</td>
+      <td>17.48%</td>
+      <td>27.53%</td>
+      <td>8.26</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Akhmat Grozny</td>
+      <td>1423.05</td>
+      <td>3</td>
+      <td>Akron Tolyatti</td>
+      <td>1406.18</td>
+      <td>0</td>
+      <td>47.74%</td>
+      <td>22.93%</td>
+      <td>29.34%</td>
+      <td>18.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Fakel Voronezh</td>
+      <td>1329.95</td>
+      <td>0</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1119.94</td>
+      <td>0</td>
+      <td>68.20%</td>
+      <td>10.11%</td>
+      <td>21.69%</td>
+      <td>-4.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1209.87</td>
+      <td>2</td>
+      <td>Rotor Volgograd</td>
+      <td>1360.93</td>
+      <td>0</td>
+      <td>25.50%</td>
+      <td>44.68%</td>
+      <td>29.82%</td>
+      <td>24.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1561.26</td>
+      <td>0</td>
+      <td>@ CSKA Moscow</td>
+      <td>1640.00</td>
+      <td>1</td>
+      <td>17.46%</td>
+      <td>55.02%</td>
+      <td>27.52%</td>
+      <td>-8.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Ufa</td>
+      <td>1206.16</td>
+      <td>0</td>
+      <td>Chelyabinsk</td>
+      <td>1426.78</td>
+      <td>0</td>
+      <td>18.75%</td>
+      <td>53.18%</td>
+      <td>28.07%</td>
+      <td>2.77</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Spartak Moscow</td>
+      <td>1578.39</td>
+      <td>3</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1345.97</td>
+      <td>0</td>
+      <td>70.22%</td>
+      <td>9.24%</td>
+      <td>20.54%</td>
+      <td>7.10</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1405.76</td>
+      <td>0</td>
+      <td>Sochi</td>
+      <td>1312.43</td>
+      <td>0</td>
+      <td>56.62%</td>
+      <td>16.39%</td>
+      <td>26.99%</td>
+      <td>-3.30</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>CSKA Moscow</td>
+      <td>1640.00</td>
+      <td>1</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1561.26</td>
+      <td>0</td>
+      <td>55.02%</td>
+      <td>17.46%</td>
+      <td>27.52%</td>
+      <td>8.24</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Sochi</td>
+      <td>1312.43</td>
+      <td>0</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1405.76</td>
+      <td>0</td>
+      <td>16.39%</td>
+      <td>56.62%</td>
+      <td>26.99%</td>
+      <td>3.29</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Rotor Volgograd</td>
+      <td>1360.93</td>
+      <td>0</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1209.87</td>
+      <td>2</td>
+      <td>44.68%</td>
+      <td>25.50%</td>
+      <td>29.82%</td>
+      <td>-24.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1345.97</td>
+      <td>0</td>
+      <td>@ Spartak Moscow</td>
+      <td>1578.39</td>
+      <td>3</td>
+      <td>9.24%</td>
+      <td>70.22%</td>
+      <td>20.54%</td>
+      <td>-7.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Chelyabinsk</td>
+      <td>1426.78</td>
+      <td>0</td>
+      <td>@ Ufa</td>
+      <td>1206.16</td>
+      <td>0</td>
+      <td>53.18%</td>
+      <td>18.75%</td>
+      <td>28.07%</td>
+      <td>-2.77</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1119.94</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1329.95</td>
+      <td>0</td>
+      <td>10.11%</td>
+      <td>68.20%</td>
+      <td>21.69%</td>
+      <td>4.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Rodina Moscow</td>
+      <td>1333.97</td>
+      <td>2</td>
+      <td>Sokol Saratov</td>
+      <td>1170.07</td>
+      <td>0</td>
+      <td>63.85%</td>
+      <td>12.19%</td>
+      <td>23.96%</td>
+      <td>8.03</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1283.60</td>
+      <td>1</td>
+      <td>Kamaz</td>
+      <td>1280.82</td>
+      <td>0</td>
+      <td>45.96%</td>
+      <td>24.41%</td>
+      <td>29.64%</td>
+      <td>11.03</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Neftekhimik</td>
+      <td>1241.92</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1261.47</td>
+      <td>0</td>
+      <td>43.04%</td>
+      <td>26.94%</td>
+      <td>30.02%</td>
+      <td>11.91</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Spartak Kostroma</td>
+      <td>1467.96</td>
+      <td>1</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1296.22</td>
+      <td>1</td>
+      <td>64.61%</td>
+      <td>11.81%</td>
+      <td>23.59%</td>
+      <td>-4.43</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1296.22</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1467.96</td>
+      <td>1</td>
+      <td>11.81%</td>
+      <td>64.61%</td>
+      <td>23.59%</td>
+      <td>4.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Torpedo Moscow</td>
+      <td>1252.86</td>
+      <td>1</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1223.56</td>
+      <td>0</td>
+      <td>28.11%</td>
+      <td>41.74%</td>
+      <td>30.15%</td>
+      <td>16.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1285.53</td>
+      <td>2</td>
+      <td>@ Ural</td>
+      <td>1411.87</td>
+      <td>1</td>
+      <td>14.24%</td>
+      <td>60.10%</td>
+      <td>25.66%</td>
+      <td>21.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Sokol Saratov</td>
+      <td>1170.07</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1333.97</td>
+      <td>2</td>
+      <td>12.19%</td>
+      <td>63.85%</td>
+      <td>23.96%</td>
+      <td>-8.03</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Ural</td>
+      <td>1411.87</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1285.53</td>
+      <td>2</td>
+      <td>60.10%</td>
+      <td>14.24%</td>
+      <td>25.66%</td>
+      <td>-21.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Kamaz</td>
+      <td>1280.82</td>
+      <td>0</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1283.60</td>
+      <td>1</td>
+      <td>24.41%</td>
+      <td>45.96%</td>
+      <td>29.64%</td>
+      <td>-11.03</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Arsenal Tula</td>
+      <td>1261.47</td>
+      <td>0</td>
+      <td>@ Neftekhimik</td>
+      <td>1241.92</td>
+      <td>1</td>
+      <td>26.94%</td>
+      <td>43.04%</td>
+      <td>30.02%</td>
+      <td>-11.91</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1223.56</td>
+      <td>0</td>
+      <td>Torpedo Moscow</td>
+      <td>1252.86</td>
+      <td>1</td>
+      <td>41.74%</td>
+      <td>28.11%</td>
+      <td>30.15%</td>
+      <td>-16.39</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Akhmat Grozny</td>
+      <td>1441.21</td>
+      <td>0</td>
+      <td>@ Krasnodar</td>
+      <td>1639.04</td>
+      <td>2</td>
+      <td>10.62%</td>
+      <td>67.07%</td>
+      <td>22.30%</td>
+      <td>-6.85</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Krylia Sovetov</td>
+      <td>1412.40</td>
+      <td>0</td>
+      <td>@ Rubin Kazan</td>
+      <td>1477.89</td>
+      <td>2</td>
+      <td>18.50%</td>
+      <td>53.53%</td>
+      <td>27.98%</td>
+      <td>-12.30</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Rodina Moscow</td>
+      <td>1342.00</td>
+      <td>0</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1124.83</td>
+      <td>0</td>
+      <td>52.78%</td>
+      <td>19.03%</td>
+      <td>28.18%</td>
+      <td>-2.71</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1124.83</td>
+      <td>0</td>
+      <td>Rodina Moscow</td>
+      <td>1342.00</td>
+      <td>0</td>
+      <td>19.03%</td>
+      <td>52.78%</td>
+      <td>28.18%</td>
+      <td>2.71</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Fakel Voronezh</td>
+      <td>1325.06</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1300.66</td>
+      <td>1</td>
+      <td>48.67%</td>
+      <td>22.17%</td>
+      <td>29.16%</td>
+      <td>10.20</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Ufa</td>
+      <td>1208.93</td>
+      <td>0</td>
+      <td>Spartak Kostroma</td>
+      <td>1463.53</td>
+      <td>0</td>
+      <td>16.18%</td>
+      <td>56.95%</td>
+      <td>26.87%</td>
+      <td>3.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Dynamo Moscow</td>
+      <td>1561.86</td>
+      <td>3</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1572.84</td>
+      <td>5</td>
+      <td>44.18%</td>
+      <td>25.94%</td>
+      <td>29.89%</td>
+      <td>-24.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1663.96</td>
+      <td>1</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1388.02</td>
+      <td>1</td>
+      <td>59.21%</td>
+      <td>14.77%</td>
+      <td>26.02%</td>
+      <td>-3.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Rubin Kazan</td>
+      <td>1477.89</td>
+      <td>2</td>
+      <td>Krylia Sovetov</td>
+      <td>1412.40</td>
+      <td>0</td>
+      <td>53.53%</td>
+      <td>18.50%</td>
+      <td>27.98%</td>
+      <td>12.31</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Akron Tolyatti</td>
+      <td>1388.02</td>
+      <td>1</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1663.96</td>
+      <td>1</td>
+      <td>14.77%</td>
+      <td>59.21%</td>
+      <td>26.02%</td>
+      <td>3.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1300.66</td>
+      <td>1</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1325.06</td>
+      <td>2</td>
+      <td>22.17%</td>
+      <td>48.67%</td>
+      <td>29.16%</td>
+      <td>-10.20</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1572.84</td>
+      <td>5</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1561.86</td>
+      <td>3</td>
+      <td>25.94%</td>
+      <td>44.18%</td>
+      <td>29.89%</td>
+      <td>24.22</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Krasnodar</td>
+      <td>1639.04</td>
+      <td>2</td>
+      <td>Akhmat Grozny</td>
+      <td>1441.21</td>
+      <td>0</td>
+      <td>67.07%</td>
+      <td>10.62%</td>
+      <td>22.30%</td>
+      <td>6.86</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Spartak Kostroma</td>
+      <td>1463.53</td>
+      <td>0</td>
+      <td>@ Ufa</td>
+      <td>1208.93</td>
+      <td>0</td>
+      <td>56.95%</td>
+      <td>16.18%</td>
+      <td>26.87%</td>
+      <td>-3.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1338.88</td>
+      <td>1</td>
+      <td>@ Sochi</td>
+      <td>1315.72</td>
+      <td>2</td>
+      <td>27.37%</td>
+      <td>42.56%</td>
+      <td>30.07%</td>
+      <td>-12.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Spartak Moscow</td>
+      <td>1585.49</td>
+      <td>2</td>
+      <td>@ CSKA Moscow</td>
+      <td>1648.24</td>
+      <td>3</td>
+      <td>18.72%</td>
+      <td>53.22%</td>
+      <td>28.06%</td>
+      <td>-8.80</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1402.46</td>
+      <td>0</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1553.01</td>
+      <td>2</td>
+      <td>12.88%</td>
+      <td>62.54%</td>
+      <td>24.58%</td>
+      <td>-8.54</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1234.31</td>
+      <td>1</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1307.49</td>
+      <td>3</td>
+      <td>17.89%</td>
+      <td>54.40%</td>
+      <td>27.72%</td>
+      <td>-11.93</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Arsenal Tula</td>
+      <td>1249.56</td>
+      <td>1</td>
+      <td>@ Sokol Saratov</td>
+      <td>1162.04</td>
+      <td>1</td>
+      <td>35.98%</td>
+      <td>33.57%</td>
+      <td>30.44%</td>
+      <td>-0.17</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1294.63</td>
+      <td>4</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1269.25</td>
+      <td>1</td>
+      <td>27.64%</td>
+      <td>42.27%</td>
+      <td>30.10%</td>
+      <td>28.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Rostov</td>
+      <td>1448.08</td>
+      <td>1</td>
+      <td>@ Orenburg</td>
+      <td>1340.65</td>
+      <td>0</td>
+      <td>38.79%</td>
+      <td>30.85%</td>
+      <td>30.35%</td>
+      <td>13.18</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Neftekhimik</td>
+      <td>1253.83</td>
+      <td>0</td>
+      <td>Rotor Volgograd</td>
+      <td>1336.49</td>
+      <td>0</td>
+      <td>34.26%</td>
+      <td>35.29%</td>
+      <td>30.45%</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Torpedo Moscow</td>
+      <td>1269.25</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1294.63</td>
+      <td>4</td>
+      <td>42.27%</td>
+      <td>27.64%</td>
+      <td>30.10%</td>
+      <td>-28.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Sokol Saratov</td>
+      <td>1162.04</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1249.56</td>
+      <td>1</td>
+      <td>33.57%</td>
+      <td>35.98%</td>
+      <td>30.44%</td>
+      <td>0.17</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1307.49</td>
+      <td>3</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1234.31</td>
+      <td>1</td>
+      <td>54.40%</td>
+      <td>17.89%</td>
+      <td>27.72%</td>
+      <td>11.93</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1553.01</td>
+      <td>2</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1402.46</td>
+      <td>0</td>
+      <td>62.54%</td>
+      <td>12.88%</td>
+      <td>24.58%</td>
+      <td>8.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>CSKA Moscow</td>
+      <td>1648.24</td>
+      <td>3</td>
+      <td>Spartak Moscow</td>
+      <td>1585.49</td>
+      <td>2</td>
+      <td>53.22%</td>
+      <td>18.72%</td>
+      <td>28.06%</td>
+      <td>8.80</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Sochi</td>
+      <td>1315.72</td>
+      <td>2</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1338.88</td>
+      <td>1</td>
+      <td>42.56%</td>
+      <td>27.37%</td>
+      <td>30.07%</td>
+      <td>12.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Orenburg</td>
+      <td>1340.65</td>
+      <td>0</td>
+      <td>Rostov</td>
+      <td>1448.08</td>
+      <td>1</td>
+      <td>30.85%</td>
+      <td>38.79%</td>
+      <td>30.35%</td>
+      <td>-13.18</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Rotor Volgograd</td>
+      <td>1336.49</td>
+      <td>0</td>
+      <td>@ Neftekhimik</td>
+      <td>1253.83</td>
+      <td>0</td>
+      <td>35.29%</td>
+      <td>34.26%</td>
+      <td>30.45%</td>
+      <td>-0.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-06</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1207.17</td>
+      <td>0</td>
+      <td>@ Chelyabinsk</td>
+      <td>1424.01</td>
+      <td>0</td>
+      <td>9.84%</td>
+      <td>68.82%</td>
+      <td>21.34%</td>
+      <td>4.96</td>
+    </tr>
+    <tr>
+      <td>2025-10-06</td>
+      <td>Kamaz</td>
+      <td>1269.79</td>
+      <td>5</td>
+      <td>Ural</td>
+      <td>1389.91</td>
+      <td>1</td>
+      <td>29.21%</td>
+      <td>40.54%</td>
+      <td>30.25%</td>
+      <td>32.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-06</td>
+      <td>Ural</td>
+      <td>1389.91</td>
+      <td>1</td>
+      <td>@ Kamaz</td>
+      <td>1269.79</td>
+      <td>5</td>
+      <td>40.54%</td>
+      <td>29.21%</td>
+      <td>30.25%</td>
+      <td>-32.08</td>
+    </tr>
+    <tr>
+      <td>2025-10-06</td>
+      <td>Chelyabinsk</td>
+      <td>1424.01</td>
+      <td>0</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1207.17</td>
+      <td>0</td>
+      <td>68.82%</td>
+      <td>9.84%</td>
+      <td>21.34%</td>
+      <td>-4.97</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Rodina Moscow</td>
+      <td>1339.29</td>
+      <td>2</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1319.42</td>
+      <td>0</td>
+      <td>48.11%</td>
+      <td>22.62%</td>
+      <td>29.27%</td>
+      <td>14.67</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1222.38</td>
+      <td>0</td>
+      <td>Fakel Voronezh</td>
+      <td>1335.26</td>
+      <td>1</td>
+      <td>30.14%</td>
+      <td>39.55%</td>
+      <td>30.31%</td>
+      <td>-12.96</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Neftekhimik</td>
+      <td>1253.90</td>
+      <td>2</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1127.54</td>
+      <td>3</td>
+      <td>60.10%</td>
+      <td>14.24%</td>
+      <td>25.66%</td>
+      <td>-21.96</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Spartak Kostroma</td>
+      <td>1460.18</td>
+      <td>1</td>
+      <td>Kamaz</td>
+      <td>1301.86</td>
+      <td>1</td>
+      <td>63.30%</td>
+      <td>12.47%</td>
+      <td>24.22%</td>
+      <td>-4.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Sokol Saratov</td>
+      <td>1162.21</td>
+      <td>2</td>
+      <td>Ufa</td>
+      <td>1212.28</td>
+      <td>2</td>
+      <td>38.89%</td>
+      <td>30.76%</td>
+      <td>30.35%</td>
+      <td>-0.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Arsenal Tula</td>
+      <td>1249.39</td>
+      <td>2</td>
+      <td>Torpedo Moscow</td>
+      <td>1240.59</td>
+      <td>2</td>
+      <td>46.72%</td>
+      <td>23.76%</td>
+      <td>29.51%</td>
+      <td>-1.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Torpedo Moscow</td>
+      <td>1240.59</td>
+      <td>2</td>
+      <td>@ Arsenal Tula</td>
+      <td>1249.39</td>
+      <td>2</td>
+      <td>23.76%</td>
+      <td>46.72%</td>
+      <td>29.51%</td>
+      <td>1.77</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1290.46</td>
+      <td>2</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1212.13</td>
+      <td>4</td>
+      <td>54.97%</td>
+      <td>17.49%</td>
+      <td>27.54%</td>
+      <td>-28.91</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Ufa</td>
+      <td>1212.28</td>
+      <td>2</td>
+      <td>@ Sokol Saratov</td>
+      <td>1162.21</td>
+      <td>2</td>
+      <td>30.76%</td>
+      <td>38.89%</td>
+      <td>30.35%</td>
+      <td>0.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Kamaz</td>
+      <td>1301.86</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1460.18</td>
+      <td>1</td>
+      <td>12.47%</td>
+      <td>63.30%</td>
+      <td>24.22%</td>
+      <td>4.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1212.13</td>
+      <td>4</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1290.46</td>
+      <td>2</td>
+      <td>17.49%</td>
+      <td>54.97%</td>
+      <td>27.54%</td>
+      <td>28.91</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1127.54</td>
+      <td>3</td>
+      <td>@ Neftekhimik</td>
+      <td>1253.90</td>
+      <td>2</td>
+      <td>14.24%</td>
+      <td>60.10%</td>
+      <td>25.66%</td>
+      <td>21.97</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Fakel Voronezh</td>
+      <td>1335.26</td>
+      <td>1</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1222.38</td>
+      <td>0</td>
+      <td>39.55%</td>
+      <td>30.14%</td>
+      <td>30.31%</td>
+      <td>12.96</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1319.42</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1339.29</td>
+      <td>2</td>
+      <td>22.62%</td>
+      <td>48.11%</td>
+      <td>29.27%</td>
+      <td>-14.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-12</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1323.29</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1336.42</td>
+      <td>2</td>
+      <td>23.31%</td>
+      <td>47.27%</td>
+      <td>29.42%</td>
+      <td>-15.03</td>
+    </tr>
+    <tr>
+      <td>2025-10-12</td>
+      <td>Rotor Volgograd</td>
+      <td>1336.42</td>
+      <td>2</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1323.29</td>
+      <td>0</td>
+      <td>47.27%</td>
+      <td>23.31%</td>
+      <td>29.42%</td>
+      <td>15.03</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Rostov</td>
+      <td>1461.26</td>
+      <td>1</td>
+      <td>@ Spartak Moscow</td>
+      <td>1576.69</td>
+      <td>1</td>
+      <td>14.92%</td>
+      <td>58.97%</td>
+      <td>26.12%</td>
+      <td>3.64</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1597.06</td>
+      <td>3</td>
+      <td>CSKA Moscow</td>
+      <td>1657.04</td>
+      <td>0</td>
+      <td>37.50%</td>
+      <td>32.09%</td>
+      <td>30.41%</td>
+      <td>23.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1393.92</td>
+      <td>0</td>
+      <td>Krasnodar</td>
+      <td>1645.90</td>
+      <td>2</td>
+      <td>16.36%</td>
+      <td>56.67%</td>
+      <td>26.97%</td>
+      <td>-10.96</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Sokol Saratov</td>
+      <td>1161.61</td>
+      <td>0</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1304.76</td>
+      <td>0</td>
+      <td>13.28%</td>
+      <td>61.80%</td>
+      <td>24.92%</td>
+      <td>4.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>CSKA Moscow</td>
+      <td>1657.04</td>
+      <td>0</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1597.06</td>
+      <td>3</td>
+      <td>32.09%</td>
+      <td>37.50%</td>
+      <td>30.41%</td>
+      <td>-23.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Spartak Moscow</td>
+      <td>1576.69</td>
+      <td>1</td>
+      <td>Rostov</td>
+      <td>1461.26</td>
+      <td>1</td>
+      <td>58.97%</td>
+      <td>14.92%</td>
+      <td>26.12%</td>
+      <td>-3.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Krasnodar</td>
+      <td>1645.90</td>
+      <td>2</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1393.92</td>
+      <td>0</td>
+      <td>56.67%</td>
+      <td>16.36%</td>
+      <td>26.97%</td>
+      <td>10.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1326.82</td>
+      <td>0</td>
+      <td>Akron Tolyatti</td>
+      <td>1391.70</td>
+      <td>1</td>
+      <td>36.80%</td>
+      <td>32.77%</td>
+      <td>30.43%</td>
+      <td>-14.94</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Akron Tolyatti</td>
+      <td>1391.70</td>
+      <td>1</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1326.82</td>
+      <td>0</td>
+      <td>32.77%</td>
+      <td>36.80%</td>
+      <td>30.43%</td>
+      <td>14.94</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Orenburg</td>
+      <td>1327.47</td>
+      <td>1</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1400.10</td>
+      <td>1</td>
+      <td>17.93%</td>
+      <td>54.33%</td>
+      <td>27.74%</td>
+      <td>2.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1304.76</td>
+      <td>0</td>
+      <td>Sokol Saratov</td>
+      <td>1161.61</td>
+      <td>0</td>
+      <td>61.80%</td>
+      <td>13.28%</td>
+      <td>24.92%</td>
+      <td>-4.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Krylia Sovetov</td>
+      <td>1400.10</td>
+      <td>1</td>
+      <td>Orenburg</td>
+      <td>1327.47</td>
+      <td>1</td>
+      <td>54.33%</td>
+      <td>17.93%</td>
+      <td>27.74%</td>
+      <td>-2.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1241.04</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1455.92</td>
+      <td>0</td>
+      <td>19.22%</td>
+      <td>52.52%</td>
+      <td>28.26%</td>
+      <td>19.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Chelyabinsk</td>
+      <td>1419.04</td>
+      <td>2</td>
+      <td>Arsenal Tula</td>
+      <td>1247.61</td>
+      <td>2</td>
+      <td>64.58%</td>
+      <td>11.82%</td>
+      <td>23.60%</td>
+      <td>-4.43</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1561.56</td>
+      <td>3</td>
+      <td>@ Rubin Kazan</td>
+      <td>1490.20</td>
+      <td>0</td>
+      <td>33.67%</td>
+      <td>35.88%</td>
+      <td>30.45%</td>
+      <td>25.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Rubin Kazan</td>
+      <td>1490.20</td>
+      <td>0</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1561.56</td>
+      <td>3</td>
+      <td>35.88%</td>
+      <td>33.67%</td>
+      <td>30.45%</td>
+      <td>-25.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Dynamo Moscow</td>
+      <td>1537.63</td>
+      <td>2</td>
+      <td>Akhmat Grozny</td>
+      <td>1434.36</td>
+      <td>2</td>
+      <td>57.69%</td>
+      <td>15.71%</td>
+      <td>26.61%</td>
+      <td>-3.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Kamaz</td>
+      <td>1306.12</td>
+      <td>1</td>
+      <td>Rodina Moscow</td>
+      <td>1353.96</td>
+      <td>2</td>
+      <td>39.20%</td>
+      <td>30.47%</td>
+      <td>30.33%</td>
+      <td>-15.63</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Rodina Moscow</td>
+      <td>1353.96</td>
+      <td>2</td>
+      <td>@ Kamaz</td>
+      <td>1306.12</td>
+      <td>1</td>
+      <td>30.47%</td>
+      <td>39.20%</td>
+      <td>30.33%</td>
+      <td>15.63</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Arsenal Tula</td>
+      <td>1247.61</td>
+      <td>2</td>
+      <td>@ Chelyabinsk</td>
+      <td>1419.04</td>
+      <td>2</td>
+      <td>11.82%</td>
+      <td>64.58%</td>
+      <td>23.60%</td>
+      <td>4.43</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Sochi</td>
+      <td>1327.78</td>
+      <td>0</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1660.28</td>
+      <td>3</td>
+      <td>11.68%</td>
+      <td>64.85%</td>
+      <td>23.46%</td>
+      <td>-9.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Spartak Kostroma</td>
+      <td>1455.92</td>
+      <td>0</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1241.04</td>
+      <td>1</td>
+      <td>52.52%</td>
+      <td>19.22%</td>
+      <td>28.26%</td>
+      <td>-19.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Akhmat Grozny</td>
+      <td>1434.36</td>
+      <td>2</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1537.63</td>
+      <td>2</td>
+      <td>15.71%</td>
+      <td>57.69%</td>
+      <td>26.61%</td>
+      <td>3.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1660.28</td>
+      <td>3</td>
+      <td>@ Sochi</td>
+      <td>1327.78</td>
+      <td>0</td>
+      <td>64.85%</td>
+      <td>11.68%</td>
+      <td>23.46%</td>
+      <td>9.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Fakel Voronezh</td>
+      <td>1348.22</td>
+      <td>4</td>
+      <td>Rotor Volgograd</td>
+      <td>1351.45</td>
+      <td>0</td>
+      <td>45.18%</td>
+      <td>25.07%</td>
+      <td>29.75%</td>
+      <td>22.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Torpedo Moscow</td>
+      <td>1242.36</td>
+      <td>0</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1209.42</td>
+      <td>0</td>
+      <td>49.71%</td>
+      <td>21.35%</td>
+      <td>28.94%</td>
+      <td>-2.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1308.26</td>
+      <td>1</td>
+      <td>Neftekhimik</td>
+      <td>1231.94</td>
+      <td>1</td>
+      <td>54.75%</td>
+      <td>17.64%</td>
+      <td>27.61%</td>
+      <td>-3.01</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1149.51</td>
+      <td>0</td>
+      <td>Ural</td>
+      <td>1357.83</td>
+      <td>1</td>
+      <td>19.79%</td>
+      <td>51.76%</td>
+      <td>28.46%</td>
+      <td>-9.24</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1261.55</td>
+      <td>2</td>
+      <td>Ufa</td>
+      <td>1212.88</td>
+      <td>0</td>
+      <td>51.58%</td>
+      <td>19.91%</td>
+      <td>28.50%</td>
+      <td>13.15</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Ufa</td>
+      <td>1212.88</td>
+      <td>0</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1261.55</td>
+      <td>2</td>
+      <td>19.91%</td>
+      <td>51.58%</td>
+      <td>28.50%</td>
+      <td>-13.16</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Ural</td>
+      <td>1357.83</td>
+      <td>1</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1149.51</td>
+      <td>0</td>
+      <td>51.76%</td>
+      <td>19.79%</td>
+      <td>28.46%</td>
+      <td>9.25</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Neftekhimik</td>
+      <td>1231.94</td>
+      <td>1</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1308.26</td>
+      <td>1</td>
+      <td>17.64%</td>
+      <td>54.75%</td>
+      <td>27.61%</td>
+      <td>3.01</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1209.42</td>
+      <td>0</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1242.36</td>
+      <td>0</td>
+      <td>21.35%</td>
+      <td>49.71%</td>
+      <td>28.94%</td>
+      <td>2.24</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Rotor Volgograd</td>
+      <td>1351.45</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1348.22</td>
+      <td>4</td>
+      <td>25.07%</td>
+      <td>45.18%</td>
+      <td>29.75%</td>
+      <td>-22.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1260.73</td>
+      <td>0</td>
+      <td>@ Kamaz</td>
+      <td>1290.49</td>
+      <td>5</td>
+      <td>21.65%</td>
+      <td>49.32%</td>
+      <td>29.02%</td>
+      <td>-22.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Ural</td>
+      <td>1367.08</td>
+      <td>2</td>
+      <td>@ Arsenal Tula</td>
+      <td>1252.04</td>
+      <td>1</td>
+      <td>39.85%</td>
+      <td>29.86%</td>
+      <td>30.29%</td>
+      <td>12.87</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Kamaz</td>
+      <td>1290.49</td>
+      <td>5</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1260.73</td>
+      <td>0</td>
+      <td>49.32%</td>
+      <td>21.65%</td>
+      <td>29.02%</td>
+      <td>22.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Arsenal Tula</td>
+      <td>1252.04</td>
+      <td>1</td>
+      <td>Ural</td>
+      <td>1367.08</td>
+      <td>2</td>
+      <td>29.86%</td>
+      <td>39.85%</td>
+      <td>30.29%</td>
+      <td>-12.87</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Torpedo Moscow</td>
+      <td>1240.13</td>
+      <td>3</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1140.27</td>
+      <td>2</td>
+      <td>57.32%</td>
+      <td>15.94%</td>
+      <td>26.74%</td>
+      <td>7.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1274.70</td>
+      <td>0</td>
+      <td>@ Sokol Saratov</td>
+      <td>1165.66</td>
+      <td>1</td>
+      <td>39.02%</td>
+      <td>30.64%</td>
+      <td>30.34%</td>
+      <td>-15.58</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Chelyabinsk</td>
+      <td>1414.61</td>
+      <td>0</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1305.25</td>
+      <td>0</td>
+      <td>39.06%</td>
+      <td>30.60%</td>
+      <td>30.34%</td>
+      <td>-0.62</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1382.96</td>
+      <td>1</td>
+      <td>@ Rostov</td>
+      <td>1464.90</td>
+      <td>1</td>
+      <td>17.22%</td>
+      <td>55.37%</td>
+      <td>27.41%</td>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Orenburg</td>
+      <td>1330.42</td>
+      <td>0</td>
+      <td>@ Spartak Moscow</td>
+      <td>1573.04</td>
+      <td>1</td>
+      <td>8.87%</td>
+      <td>71.12%</td>
+      <td>20.00%</td>
+      <td>-3.89</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1211.66</td>
+      <td>2</td>
+      <td>Spartak Kostroma</td>
+      <td>1436.23</td>
+      <td>2</td>
+      <td>18.42%</td>
+      <td>53.63%</td>
+      <td>27.95%</td>
+      <td>2.84</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1305.25</td>
+      <td>0</td>
+      <td>Chelyabinsk</td>
+      <td>1414.61</td>
+      <td>0</td>
+      <td>30.60%</td>
+      <td>39.06%</td>
+      <td>30.34%</td>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Sokol Saratov</td>
+      <td>1165.66</td>
+      <td>1</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1274.70</td>
+      <td>0</td>
+      <td>30.64%</td>
+      <td>39.02%</td>
+      <td>30.34%</td>
+      <td>15.59</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Ufa</td>
+      <td>1199.72</td>
+      <td>3</td>
+      <td>Neftekhimik</td>
+      <td>1234.95</td>
+      <td>2</td>
+      <td>40.93%</td>
+      <td>28.85%</td>
+      <td>30.22%</td>
+      <td>12.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>CSKA Moscow</td>
+      <td>1633.55</td>
+      <td>1</td>
+      <td>Krylia Sovetov</td>
+      <td>1397.15</td>
+      <td>0</td>
+      <td>70.57%</td>
+      <td>9.10%</td>
+      <td>20.33%</td>
+      <td>4.02</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Rostov</td>
+      <td>1464.90</td>
+      <td>1</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1382.96</td>
+      <td>1</td>
+      <td>55.37%</td>
+      <td>17.22%</td>
+      <td>27.41%</td>
+      <td>-3.10</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Spartak Moscow</td>
+      <td>1573.04</td>
+      <td>1</td>
+      <td>Orenburg</td>
+      <td>1330.42</td>
+      <td>0</td>
+      <td>71.12%</td>
+      <td>8.87%</td>
+      <td>20.00%</td>
+      <td>3.90</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Spartak Kostroma</td>
+      <td>1436.23</td>
+      <td>2</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1211.66</td>
+      <td>2</td>
+      <td>53.63%</td>
+      <td>18.42%</td>
+      <td>27.95%</td>
+      <td>-2.84</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1140.27</td>
+      <td>2</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1240.13</td>
+      <td>3</td>
+      <td>15.94%</td>
+      <td>57.32%</td>
+      <td>26.74%</td>
+      <td>-7.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Krylia Sovetov</td>
+      <td>1397.15</td>
+      <td>0</td>
+      <td>@ CSKA Moscow</td>
+      <td>1633.55</td>
+      <td>1</td>
+      <td>9.10%</td>
+      <td>70.57%</td>
+      <td>20.33%</td>
+      <td>-4.02</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Neftekhimik</td>
+      <td>1234.95</td>
+      <td>2</td>
+      <td>@ Ufa</td>
+      <td>1199.72</td>
+      <td>3</td>
+      <td>28.85%</td>
+      <td>40.93%</td>
+      <td>30.22%</td>
+      <td>-12.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Krasnodar</td>
+      <td>1656.85</td>
+      <td>1</td>
+      <td>Rubin Kazan</td>
+      <td>1464.79</td>
+      <td>0</td>
+      <td>66.53%</td>
+      <td>10.87%</td>
+      <td>22.59%</td>
+      <td>4.98</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Akron Tolyatti</td>
+      <td>1406.64</td>
+      <td>1</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1620.55</td>
+      <td>1</td>
+      <td>19.31%</td>
+      <td>52.41%</td>
+      <td>28.29%</td>
+      <td>2.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1311.88</td>
+      <td>0</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1586.97</td>
+      <td>0</td>
+      <td>14.82%</td>
+      <td>59.12%</td>
+      <td>26.06%</td>
+      <td>3.67</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1669.66</td>
+      <td>2</td>
+      <td>Dynamo Moscow</td>
+      <td>1534.18</td>
+      <td>1</td>
+      <td>61.03%</td>
+      <td>13.71%</td>
+      <td>25.26%</td>
+      <td>6.47</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1300.71</td>
+      <td>1</td>
+      <td>Fakel Voronezh</td>
+      <td>1370.75</td>
+      <td>0</td>
+      <td>36.07%</td>
+      <td>33.49%</td>
+      <td>30.44%</td>
+      <td>13.97</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Rodina Moscow</td>
+      <td>1369.59</td>
+      <td>0</td>
+      <td>Rotor Volgograd</td>
+      <td>1328.92</td>
+      <td>0</td>
+      <td>50.64%</td>
+      <td>20.63%</td>
+      <td>28.73%</td>
+      <td>-2.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1620.55</td>
+      <td>1</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1406.64</td>
+      <td>1</td>
+      <td>52.41%</td>
+      <td>19.31%</td>
+      <td>28.29%</td>
+      <td>-2.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1586.97</td>
+      <td>0</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1311.88</td>
+      <td>0</td>
+      <td>59.12%</td>
+      <td>14.82%</td>
+      <td>26.06%</td>
+      <td>-3.67</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Dynamo Moscow</td>
+      <td>1534.18</td>
+      <td>1</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1669.66</td>
+      <td>2</td>
+      <td>13.71%</td>
+      <td>61.03%</td>
+      <td>25.26%</td>
+      <td>-6.47</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Rubin Kazan</td>
+      <td>1464.79</td>
+      <td>0</td>
+      <td>@ Krasnodar</td>
+      <td>1656.85</td>
+      <td>1</td>
+      <td>10.87%</td>
+      <td>66.53%</td>
+      <td>22.59%</td>
+      <td>-4.98</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Fakel Voronezh</td>
+      <td>1370.75</td>
+      <td>0</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1300.71</td>
+      <td>1</td>
+      <td>33.49%</td>
+      <td>36.07%</td>
+      <td>30.44%</td>
+      <td>-13.98</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Rotor Volgograd</td>
+      <td>1328.92</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1369.59</td>
+      <td>0</td>
+      <td>20.63%</td>
+      <td>50.64%</td>
+      <td>28.73%</td>
+      <td>2.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-27</td>
+      <td>Akhmat Grozny</td>
+      <td>1437.81</td>
+      <td>2</td>
+      <td>Sochi</td>
+      <td>1318.40</td>
+      <td>4</td>
+      <td>59.38%</td>
+      <td>14.67%</td>
+      <td>25.95%</td>
+      <td>-30.77</td>
+    </tr>
+    <tr>
+      <td>2025-10-27</td>
+      <td>Sochi</td>
+      <td>1318.40</td>
+      <td>4</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1437.81</td>
+      <td>2</td>
+      <td>14.67%</td>
+      <td>59.38%</td>
+      <td>25.95%</td>
+      <td>30.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>CSKA Moscow</td>
+      <td>1637.57</td>
+      <td>2</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1315.55</td>
+      <td>0</td>
+      <td>77.72%</td>
+      <td>6.43%</td>
+      <td>15.85%</td>
+      <td>3.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1315.55</td>
+      <td>0</td>
+      <td>@ CSKA Moscow</td>
+      <td>1637.57</td>
+      <td>2</td>
+      <td>6.43%</td>
+      <td>77.72%</td>
+      <td>15.85%</td>
+      <td>-3.67</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Rostov</td>
+      <td>1461.80</td>
+      <td>0</td>
+      <td>Akron Tolyatti</td>
+      <td>1409.29</td>
+      <td>1</td>
+      <td>52.03%</td>
+      <td>19.58%</td>
+      <td>28.39%</td>
+      <td>-19.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1386.07</td>
+      <td>2</td>
+      <td>Krylia Sovetov</td>
+      <td>1393.13</td>
+      <td>0</td>
+      <td>44.69%</td>
+      <td>25.49%</td>
+      <td>29.82%</td>
+      <td>16.15</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1676.13</td>
+      <td>2</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1617.90</td>
+      <td>0</td>
+      <td>52.70%</td>
+      <td>19.09%</td>
+      <td>28.21%</td>
+      <td>12.66</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Ural</td>
+      <td>1379.95</td>
+      <td>2</td>
+      <td>Sokol Saratov</td>
+      <td>1181.25</td>
+      <td>0</td>
+      <td>67.15%</td>
+      <td>10.58%</td>
+      <td>22.26%</td>
+      <td>6.82</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1214.50</td>
+      <td>1</td>
+      <td>Chelyabinsk</td>
+      <td>1413.99</td>
+      <td>0</td>
+      <td>20.57%</td>
+      <td>50.71%</td>
+      <td>28.71%</td>
+      <td>19.13</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Chelyabinsk</td>
+      <td>1413.99</td>
+      <td>0</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1214.50</td>
+      <td>1</td>
+      <td>50.71%</td>
+      <td>20.57%</td>
+      <td>28.71%</td>
+      <td>-19.14</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Sokol Saratov</td>
+      <td>1181.25</td>
+      <td>0</td>
+      <td>@ Ural</td>
+      <td>1379.95</td>
+      <td>2</td>
+      <td>10.58%</td>
+      <td>67.15%</td>
+      <td>22.26%</td>
+      <td>-6.82</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Akron Tolyatti</td>
+      <td>1409.29</td>
+      <td>1</td>
+      <td>@ Rostov</td>
+      <td>1461.80</td>
+      <td>0</td>
+      <td>19.58%</td>
+      <td>52.03%</td>
+      <td>28.39%</td>
+      <td>19.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1617.90</td>
+      <td>0</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1676.13</td>
+      <td>2</td>
+      <td>19.09%</td>
+      <td>52.70%</td>
+      <td>28.21%</td>
+      <td>-12.67</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Krylia Sovetov</td>
+      <td>1393.13</td>
+      <td>0</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1386.07</td>
+      <td>2</td>
+      <td>25.49%</td>
+      <td>44.69%</td>
+      <td>29.82%</td>
+      <td>-16.14</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Dynamo Moscow</td>
+      <td>1527.71</td>
+      <td>0</td>
+      <td>@ Rubin Kazan</td>
+      <td>1459.81</td>
+      <td>0</td>
+      <td>33.19%</td>
+      <td>36.37%</td>
+      <td>30.44%</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Rubin Kazan</td>
+      <td>1459.81</td>
+      <td>0</td>
+      <td>Dynamo Moscow</td>
+      <td>1527.71</td>
+      <td>0</td>
+      <td>36.37%</td>
+      <td>33.19%</td>
+      <td>30.44%</td>
+      <td>-0.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Sochi</td>
+      <td>1349.18</td>
+      <td>1</td>
+      <td>@ Orenburg</td>
+      <td>1326.53</td>
+      <td>3</td>
+      <td>27.31%</td>
+      <td>42.63%</td>
+      <td>30.06%</td>
+      <td>-17.03</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Spartak Moscow</td>
+      <td>1576.94</td>
+      <td>1</td>
+      <td>@ Krasnodar</td>
+      <td>1661.83</td>
+      <td>2</td>
+      <td>17.00%</td>
+      <td>55.70%</td>
+      <td>27.30%</td>
+      <td>-8.04</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1305.88</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1433.39</td>
+      <td>3</td>
+      <td>14.18%</td>
+      <td>60.22%</td>
+      <td>25.61%</td>
+      <td>-9.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Rodina Moscow</td>
+      <td>1367.21</td>
+      <td>2</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1259.12</td>
+      <td>1</td>
+      <td>38.88%</td>
+      <td>30.77%</td>
+      <td>30.35%</td>
+      <td>13.16</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Spartak Kostroma</td>
+      <td>1433.39</td>
+      <td>3</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1305.88</td>
+      <td>1</td>
+      <td>60.22%</td>
+      <td>14.18%</td>
+      <td>25.61%</td>
+      <td>9.47</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Akhmat Grozny</td>
+      <td>1407.04</td>
+      <td>0</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1583.30</td>
+      <td>2</td>
+      <td>11.59%</td>
+      <td>65.04%</td>
+      <td>23.37%</td>
+      <td>-7.59</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1259.12</td>
+      <td>1</td>
+      <td>Rodina Moscow</td>
+      <td>1367.21</td>
+      <td>2</td>
+      <td>30.77%</td>
+      <td>38.88%</td>
+      <td>30.35%</td>
+      <td>-13.16</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1583.30</td>
+      <td>2</td>
+      <td>Akhmat Grozny</td>
+      <td>1407.04</td>
+      <td>0</td>
+      <td>65.04%</td>
+      <td>11.59%</td>
+      <td>23.37%</td>
+      <td>7.59</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Orenburg</td>
+      <td>1326.53</td>
+      <td>3</td>
+      <td>Sochi</td>
+      <td>1349.18</td>
+      <td>1</td>
+      <td>42.63%</td>
+      <td>27.31%</td>
+      <td>30.06%</td>
+      <td>17.02</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Krasnodar</td>
+      <td>1661.83</td>
+      <td>2</td>
+      <td>Spartak Moscow</td>
+      <td>1576.94</td>
+      <td>1</td>
+      <td>55.70%</td>
+      <td>17.00%</td>
+      <td>27.30%</td>
+      <td>8.04</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1238.38</td>
+      <td>0</td>
+      <td>@ Ufa</td>
+      <td>1212.27</td>
+      <td>3</td>
+      <td>27.72%</td>
+      <td>42.17%</td>
+      <td>30.11%</td>
+      <td>-21.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Neftekhimik</td>
+      <td>1222.40</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1314.68</td>
+      <td>1</td>
+      <td>32.91%</td>
+      <td>36.66%</td>
+      <td>30.43%</td>
+      <td>0.27</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Fakel Voronezh</td>
+      <td>1356.77</td>
+      <td>2</td>
+      <td>Torpedo Moscow</td>
+      <td>1247.68</td>
+      <td>0</td>
+      <td>58.30%</td>
+      <td>15.32%</td>
+      <td>26.37%</td>
+      <td>10.27</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Ufa</td>
+      <td>1212.27</td>
+      <td>3</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1238.38</td>
+      <td>0</td>
+      <td>42.17%</td>
+      <td>27.72%</td>
+      <td>30.11%</td>
+      <td>21.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Arsenal Tula</td>
+      <td>1239.17</td>
+      <td>2</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1331.30</td>
+      <td>1</td>
+      <td>16.48%</td>
+      <td>56.49%</td>
+      <td>27.04%</td>
+      <td>20.90</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Kamaz</td>
+      <td>1312.84</td>
+      <td>2</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1132.72</td>
+      <td>0</td>
+      <td>48.37%</td>
+      <td>22.42%</td>
+      <td>29.22%</td>
+      <td>14.55</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1314.68</td>
+      <td>1</td>
+      <td>@ Neftekhimik</td>
+      <td>1222.40</td>
+      <td>1</td>
+      <td>36.66%</td>
+      <td>32.91%</td>
+      <td>30.43%</td>
+      <td>-0.27</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1132.72</td>
+      <td>0</td>
+      <td>Kamaz</td>
+      <td>1312.84</td>
+      <td>2</td>
+      <td>22.42%</td>
+      <td>48.37%</td>
+      <td>29.22%</td>
+      <td>-14.56</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Torpedo Moscow</td>
+      <td>1247.68</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1356.77</td>
+      <td>2</td>
+      <td>15.32%</td>
+      <td>58.30%</td>
+      <td>26.37%</td>
+      <td>-10.27</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Rotor Volgograd</td>
+      <td>1331.30</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1239.17</td>
+      <td>2</td>
+      <td>56.49%</td>
+      <td>16.48%</td>
+      <td>27.04%</td>
+      <td>-20.90</td>
+    </tr>
+    <tr>
+      <td>2025-11-04</td>
+      <td>Ural</td>
+      <td>1386.77</td>
+      <td>1</td>
+      <td>Chelyabinsk</td>
+      <td>1394.85</td>
+      <td>0</td>
+      <td>44.55%</td>
+      <td>25.61%</td>
+      <td>29.84%</td>
+      <td>11.46</td>
+    </tr>
+    <tr>
+      <td>2025-11-04</td>
+      <td>Chelyabinsk</td>
+      <td>1394.85</td>
+      <td>0</td>
+      <td>@ Ural</td>
+      <td>1386.77</td>
+      <td>1</td>
+      <td>25.61%</td>
+      <td>44.55%</td>
+      <td>29.84%</td>
+      <td>-11.45</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Rubin Kazan</td>
+      <td>1459.58</td>
+      <td>0</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1311.88</td>
+      <td>0</td>
+      <td>44.24%</td>
+      <td>25.88%</td>
+      <td>29.88%</td>
+      <td>-1.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1245.96</td>
+      <td>3</td>
+      <td>@ Kamaz</td>
+      <td>1327.39</td>
+      <td>2</td>
+      <td>17.26%</td>
+      <td>55.32%</td>
+      <td>27.43%</td>
+      <td>20.55</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Neftekhimik</td>
+      <td>1222.67</td>
+      <td>1</td>
+      <td>@ Rodina Moscow</td>
+      <td>1380.37</td>
+      <td>1</td>
+      <td>12.51%</td>
+      <td>63.24%</td>
+      <td>24.25%</td>
+      <td>4.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.83</td>
+      <td>2</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1527.94</td>
+      <td>1</td>
+      <td>15.99%</td>
+      <td>57.24%</td>
+      <td>26.77%</td>
+      <td>21.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1118.16</td>
+      <td>0</td>
+      <td>@ Arsenal Tula</td>
+      <td>1260.07</td>
+      <td>1</td>
+      <td>13.35%</td>
+      <td>61.68%</td>
+      <td>24.98%</td>
+      <td>-6.28</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Kamaz</td>
+      <td>1327.39</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1245.96</td>
+      <td>3</td>
+      <td>55.32%</td>
+      <td>17.26%</td>
+      <td>27.43%</td>
+      <td>-20.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Rodina Moscow</td>
+      <td>1380.37</td>
+      <td>1</td>
+      <td>Neftekhimik</td>
+      <td>1222.67</td>
+      <td>1</td>
+      <td>63.24%</td>
+      <td>12.51%</td>
+      <td>24.25%</td>
+      <td>-4.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Arsenal Tula</td>
+      <td>1260.07</td>
+      <td>1</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1118.16</td>
+      <td>0</td>
+      <td>61.68%</td>
+      <td>13.35%</td>
+      <td>24.98%</td>
+      <td>6.28</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1402.22</td>
+      <td>0</td>
+      <td>CSKA Moscow</td>
+      <td>1641.23</td>
+      <td>1</td>
+      <td>17.30%</td>
+      <td>55.25%</td>
+      <td>27.45%</td>
+      <td>-8.18</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1311.88</td>
+      <td>0</td>
+      <td>Rubin Kazan</td>
+      <td>1459.58</td>
+      <td>0</td>
+      <td>25.88%</td>
+      <td>44.24%</td>
+      <td>29.88%</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Dynamo Moscow</td>
+      <td>1527.94</td>
+      <td>1</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.83</td>
+      <td>2</td>
+      <td>57.24%</td>
+      <td>15.99%</td>
+      <td>26.77%</td>
+      <td>-21.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Rostov</td>
+      <td>1442.26</td>
+      <td>1</td>
+      <td>@ Sochi</td>
+      <td>1332.15</td>
+      <td>0</td>
+      <td>39.16%</td>
+      <td>30.50%</td>
+      <td>30.33%</td>
+      <td>13.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>CSKA Moscow</td>
+      <td>1641.23</td>
+      <td>1</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1402.22</td>
+      <td>0</td>
+      <td>55.25%</td>
+      <td>17.30%</td>
+      <td>27.45%</td>
+      <td>8.18</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Sochi</td>
+      <td>1332.15</td>
+      <td>0</td>
+      <td>Rostov</td>
+      <td>1442.26</td>
+      <td>1</td>
+      <td>30.50%</td>
+      <td>39.16%</td>
+      <td>30.33%</td>
+      <td>-13.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Rotor Volgograd</td>
+      <td>1310.40</td>
+      <td>3</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1233.63</td>
+      <td>0</td>
+      <td>54.80%</td>
+      <td>17.61%</td>
+      <td>27.59%</td>
+      <td>14.39</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1605.23</td>
+      <td>1</td>
+      <td>Orenburg</td>
+      <td>1343.55</td>
+      <td>0</td>
+      <td>72.77%</td>
+      <td>8.22%</td>
+      <td>19.00%</td>
+      <td>3.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1314.41</td>
+      <td>0</td>
+      <td>Ural</td>
+      <td>1398.23</td>
+      <td>2</td>
+      <td>34.10%</td>
+      <td>35.45%</td>
+      <td>30.45%</td>
+      <td>-20.02</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1590.89</td>
+      <td>1</td>
+      <td>Krasnodar</td>
+      <td>1669.87</td>
+      <td>1</td>
+      <td>34.79%</td>
+      <td>34.76%</td>
+      <td>30.45%</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Akhmat Grozny</td>
+      <td>1399.45</td>
+      <td>1</td>
+      <td>Spartak Moscow</td>
+      <td>1568.90</td>
+      <td>2</td>
+      <td>23.51%</td>
+      <td>47.03%</td>
+      <td>29.46%</td>
+      <td>-10.70</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Torpedo Moscow</td>
+      <td>1237.41</td>
+      <td>1</td>
+      <td>Sokol Saratov</td>
+      <td>1174.43</td>
+      <td>1</td>
+      <td>53.24%</td>
+      <td>18.70%</td>
+      <td>28.06%</td>
+      <td>-2.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Krylia Sovetov</td>
+      <td>1376.99</td>
+      <td>1</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1688.79</td>
+      <td>1</td>
+      <td>12.72%</td>
+      <td>62.84%</td>
+      <td>24.44%</td>
+      <td>4.19</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1217.28</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1296.40</td>
+      <td>0</td>
+      <td>34.77%</td>
+      <td>34.78%</td>
+      <td>30.45%</td>
+      <td>14.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Krasnodar</td>
+      <td>1669.87</td>
+      <td>1</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1590.89</td>
+      <td>1</td>
+      <td>34.76%</td>
+      <td>34.79%</td>
+      <td>30.45%</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Ural</td>
+      <td>1398.23</td>
+      <td>2</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1314.41</td>
+      <td>0</td>
+      <td>35.45%</td>
+      <td>34.10%</td>
+      <td>30.45%</td>
+      <td>20.02</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1688.79</td>
+      <td>1</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1376.99</td>
+      <td>1</td>
+      <td>62.84%</td>
+      <td>12.72%</td>
+      <td>24.44%</td>
+      <td>-4.19</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1296.40</td>
+      <td>0</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1217.28</td>
+      <td>1</td>
+      <td>34.78%</td>
+      <td>34.77%</td>
+      <td>30.45%</td>
+      <td>-14.35</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1233.63</td>
+      <td>0</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1310.40</td>
+      <td>3</td>
+      <td>17.61%</td>
+      <td>54.80%</td>
+      <td>27.59%</td>
+      <td>-14.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Sokol Saratov</td>
+      <td>1174.43</td>
+      <td>1</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1237.41</td>
+      <td>1</td>
+      <td>18.70%</td>
+      <td>53.24%</td>
+      <td>28.06%</td>
+      <td>2.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Orenburg</td>
+      <td>1343.55</td>
+      <td>0</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1605.23</td>
+      <td>1</td>
+      <td>8.22%</td>
+      <td>72.77%</td>
+      <td>19.00%</td>
+      <td>-3.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Spartak Moscow</td>
+      <td>1568.90</td>
+      <td>2</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1399.45</td>
+      <td>1</td>
+      <td>47.03%</td>
+      <td>23.51%</td>
+      <td>29.46%</td>
+      <td>10.70</td>
+    </tr>
+    <tr>
+      <td>2025-11-10</td>
+      <td>Spartak Kostroma</td>
+      <td>1442.86</td>
+      <td>2</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1367.04</td>
+      <td>3</td>
+      <td>34.31%</td>
+      <td>35.24%</td>
+      <td>30.45%</td>
+      <td>-14.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-10</td>
+      <td>Ufa</td>
+      <td>1233.37</td>
+      <td>1</td>
+      <td>@ Chelyabinsk</td>
+      <td>1383.40</td>
+      <td>2</td>
+      <td>12.91%</td>
+      <td>62.49%</td>
+      <td>24.61%</td>
+      <td>-6.06</td>
+    </tr>
+    <tr>
+      <td>2025-11-10</td>
+      <td>Fakel Voronezh</td>
+      <td>1367.04</td>
+      <td>3</td>
+      <td>Spartak Kostroma</td>
+      <td>1442.86</td>
+      <td>2</td>
+      <td>35.24%</td>
+      <td>34.31%</td>
+      <td>30.45%</td>
+      <td>14.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-10</td>
+      <td>Chelyabinsk</td>
+      <td>1383.40</td>
+      <td>2</td>
+      <td>Ufa</td>
+      <td>1233.37</td>
+      <td>1</td>
+      <td>62.49%</td>
+      <td>12.91%</td>
+      <td>24.61%</td>
+      <td>6.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1266.51</td>
+      <td>1</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1282.05</td>
+      <td>2</td>
+      <td>23.06%</td>
+      <td>47.57%</td>
+      <td>29.37%</td>
+      <td>-10.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1231.64</td>
+      <td>1</td>
+      <td>@ SKA-Khabarovsk</td>
+      <td>1294.39</td>
+      <td>1</td>
+      <td>18.72%</td>
+      <td>53.22%</td>
+      <td>28.06%</td>
+      <td>2.77</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Rotor Volgograd</td>
+      <td>1324.79</td>
+      <td>0</td>
+      <td>@ Torpedo Moscow</td>
+      <td>1234.63</td>
+      <td>2</td>
+      <td>36.36%</td>
+      <td>33.20%</td>
+      <td>30.44%</td>
+      <td>-20.94</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1294.39</td>
+      <td>1</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1231.64</td>
+      <td>1</td>
+      <td>53.22%</td>
+      <td>18.72%</td>
+      <td>28.06%</td>
+      <td>-2.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1282.05</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1266.51</td>
+      <td>1</td>
+      <td>47.57%</td>
+      <td>23.06%</td>
+      <td>29.37%</td>
+      <td>10.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Torpedo Moscow</td>
+      <td>1234.63</td>
+      <td>2</td>
+      <td>Rotor Volgograd</td>
+      <td>1324.79</td>
+      <td>0</td>
+      <td>33.20%</td>
+      <td>36.36%</td>
+      <td>30.44%</td>
+      <td>20.94</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Neftekhimik</td>
+      <td>1226.92</td>
+      <td>1</td>
+      <td>Ural</td>
+      <td>1418.25</td>
+      <td>0</td>
+      <td>21.33%</td>
+      <td>49.73%</td>
+      <td>28.94%</td>
+      <td>18.84</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Ural</td>
+      <td>1418.25</td>
+      <td>0</td>
+      <td>@ Neftekhimik</td>
+      <td>1226.92</td>
+      <td>1</td>
+      <td>49.73%</td>
+      <td>21.33%</td>
+      <td>28.94%</td>
+      <td>-18.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1219.23</td>
+      <td>4</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1111.88</td>
+      <td>1</td>
+      <td>58.12%</td>
+      <td>15.44%</td>
+      <td>26.44%</td>
+      <td>12.67</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1111.88</td>
+      <td>1</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1219.23</td>
+      <td>4</td>
+      <td>15.44%</td>
+      <td>58.12%</td>
+      <td>26.44%</td>
+      <td>-12.66</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Arsenal Tula</td>
+      <td>1266.35</td>
+      <td>2</td>
+      <td>@ Ufa</td>
+      <td>1227.31</td>
+      <td>1</td>
+      <td>29.33%</td>
+      <td>40.41%</td>
+      <td>30.26%</td>
+      <td>16.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Kamaz</td>
+      <td>1306.85</td>
+      <td>3</td>
+      <td>@ Chelyabinsk</td>
+      <td>1389.45</td>
+      <td>3</td>
+      <td>17.17%</td>
+      <td>55.45%</td>
+      <td>27.39%</td>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Chelyabinsk</td>
+      <td>1389.45</td>
+      <td>3</td>
+      <td>Kamaz</td>
+      <td>1306.85</td>
+      <td>3</td>
+      <td>55.45%</td>
+      <td>17.17%</td>
+      <td>27.39%</td>
+      <td>-3.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Sokol Saratov</td>
+      <td>1177.21</td>
+      <td>0</td>
+      <td>Fakel Voronezh</td>
+      <td>1381.25</td>
+      <td>1</td>
+      <td>20.16%</td>
+      <td>51.25%</td>
+      <td>28.58%</td>
+      <td>-9.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Fakel Voronezh</td>
+      <td>1381.25</td>
+      <td>1</td>
+      <td>@ Sokol Saratov</td>
+      <td>1177.21</td>
+      <td>0</td>
+      <td>51.25%</td>
+      <td>20.16%</td>
+      <td>28.58%</td>
+      <td>9.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-16</td>
+      <td>Ufa</td>
+      <td>1227.31</td>
+      <td>1</td>
+      <td>Arsenal Tula</td>
+      <td>1266.35</td>
+      <td>2</td>
+      <td>40.41%</td>
+      <td>29.33%</td>
+      <td>30.26%</td>
+      <td>-16.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-17</td>
+      <td>Rodina Moscow</td>
+      <td>1376.12</td>
+      <td>2</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1428.65</td>
+      <td>0</td>
+      <td>19.58%</td>
+      <td>52.04%</td>
+      <td>28.38%</td>
+      <td>27.63</td>
+    </tr>
+    <tr>
+      <td>2025-11-17</td>
+      <td>Spartak Kostroma</td>
+      <td>1428.65</td>
+      <td>0</td>
+      <td>Rodina Moscow</td>
+      <td>1376.12</td>
+      <td>2</td>
+      <td>52.04%</td>
+      <td>19.58%</td>
+      <td>28.38%</td>
+      <td>-27.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1255.97</td>
+      <td>2</td>
+      <td>Torpedo Moscow</td>
+      <td>1255.57</td>
+      <td>0</td>
+      <td>45.65%</td>
+      <td>24.67%</td>
+      <td>29.68%</td>
+      <td>15.73</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Torpedo Moscow</td>
+      <td>1255.57</td>
+      <td>0</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1255.97</td>
+      <td>2</td>
+      <td>24.67%</td>
+      <td>45.65%</td>
+      <td>29.68%</td>
+      <td>-15.73</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Sochi</td>
+      <td>1319.08</td>
+      <td>2</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1449.95</td>
+      <td>3</td>
+      <td>13.98%</td>
+      <td>60.56%</td>
+      <td>25.46%</td>
+      <td>-6.60</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Akron Tolyatti</td>
+      <td>1449.95</td>
+      <td>3</td>
+      <td>Sochi</td>
+      <td>1319.08</td>
+      <td>2</td>
+      <td>60.56%</td>
+      <td>13.98%</td>
+      <td>25.46%</td>
+      <td>6.60</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Spartak Kostroma</td>
+      <td>1401.01</td>
+      <td>1</td>
+      <td>@ Ural</td>
+      <td>1399.42</td>
+      <td>1</td>
+      <td>24.88%</td>
+      <td>45.40%</td>
+      <td>29.72%</td>
+      <td>1.58</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1590.89</td>
+      <td>0</td>
+      <td>@ Orenburg</td>
+      <td>1340.01</td>
+      <td>0</td>
+      <td>56.55%</td>
+      <td>16.44%</td>
+      <td>27.01%</td>
+      <td>-3.29</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>CSKA Moscow</td>
+      <td>1649.41</td>
+      <td>0</td>
+      <td>@ Spartak Moscow</td>
+      <td>1579.60</td>
+      <td>1</td>
+      <td>33.45%</td>
+      <td>36.10%</td>
+      <td>30.44%</td>
+      <td>-13.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Akhmat Grozny</td>
+      <td>1388.75</td>
+      <td>0</td>
+      <td>@ Rubin Kazan</td>
+      <td>1458.18</td>
+      <td>1</td>
+      <td>18.18%</td>
+      <td>53.97%</td>
+      <td>27.84%</td>
+      <td>-8.56</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1292.59</td>
+      <td>1</td>
+      <td>@ Arsenal Tula</td>
+      <td>1282.35</td>
+      <td>1</td>
+      <td>25.85%</td>
+      <td>44.27%</td>
+      <td>29.87%</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1099.22</td>
+      <td>2</td>
+      <td>Neftekhimik</td>
+      <td>1245.76</td>
+      <td>4</td>
+      <td>26.01%</td>
+      <td>44.09%</td>
+      <td>29.90%</td>
+      <td>-16.41</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Neftekhimik</td>
+      <td>1245.76</td>
+      <td>4</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1099.22</td>
+      <td>2</td>
+      <td>44.09%</td>
+      <td>26.01%</td>
+      <td>29.90%</td>
+      <td>16.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Spartak Moscow</td>
+      <td>1579.60</td>
+      <td>1</td>
+      <td>CSKA Moscow</td>
+      <td>1649.41</td>
+      <td>0</td>
+      <td>36.10%</td>
+      <td>33.45%</td>
+      <td>30.44%</td>
+      <td>13.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Orenburg</td>
+      <td>1340.01</td>
+      <td>0</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1590.89</td>
+      <td>0</td>
+      <td>16.44%</td>
+      <td>56.55%</td>
+      <td>27.01%</td>
+      <td>3.29</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Rubin Kazan</td>
+      <td>1458.18</td>
+      <td>1</td>
+      <td>Akhmat Grozny</td>
+      <td>1388.75</td>
+      <td>0</td>
+      <td>53.97%</td>
+      <td>18.18%</td>
+      <td>27.84%</td>
+      <td>8.56</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Ural</td>
+      <td>1399.42</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1401.01</td>
+      <td>1</td>
+      <td>45.40%</td>
+      <td>24.88%</td>
+      <td>29.72%</td>
+      <td>-1.58</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Arsenal Tula</td>
+      <td>1282.35</td>
+      <td>1</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1292.59</td>
+      <td>1</td>
+      <td>44.27%</td>
+      <td>25.85%</td>
+      <td>29.87%</td>
+      <td>-1.41</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Ufa</td>
+      <td>1211.31</td>
+      <td>0</td>
+      <td>Fakel Voronezh</td>
+      <td>1390.65</td>
+      <td>4</td>
+      <td>22.50%</td>
+      <td>48.27%</td>
+      <td>29.24%</td>
+      <td>-20.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1234.41</td>
+      <td>0</td>
+      <td>Rodina Moscow</td>
+      <td>1403.75</td>
+      <td>0</td>
+      <td>23.52%</td>
+      <td>47.02%</td>
+      <td>29.46%</td>
+      <td>1.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Rostov</td>
+      <td>1455.33</td>
+      <td>0</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1381.18</td>
+      <td>2</td>
+      <td>34.07%</td>
+      <td>35.48%</td>
+      <td>30.45%</td>
+      <td>-20.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1313.28</td>
+      <td>0</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1684.60</td>
+      <td>2</td>
+      <td>9.99%</td>
+      <td>68.48%</td>
+      <td>21.53%</td>
+      <td>-6.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1608.77</td>
+      <td>1</td>
+      <td>Krasnodar</td>
+      <td>1669.87</td>
+      <td>1</td>
+      <td>37.34%</td>
+      <td>32.25%</td>
+      <td>30.41%</td>
+      <td>-0.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Dynamo Moscow</td>
+      <td>1506.82</td>
+      <td>3</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1394.04</td>
+      <td>0</td>
+      <td>58.69%</td>
+      <td>15.08%</td>
+      <td>26.23%</td>
+      <td>12.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Krylia Sovetov</td>
+      <td>1381.18</td>
+      <td>2</td>
+      <td>Rostov</td>
+      <td>1455.33</td>
+      <td>0</td>
+      <td>35.48%</td>
+      <td>34.07%</td>
+      <td>30.45%</td>
+      <td>20.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1394.04</td>
+      <td>0</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1506.82</td>
+      <td>3</td>
+      <td>15.08%</td>
+      <td>58.69%</td>
+      <td>26.23%</td>
+      <td>-12.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Sokol Saratov</td>
+      <td>1167.81</td>
+      <td>0</td>
+      <td>@ Shinnik Yaroslavl</td>
+      <td>1231.90</td>
+      <td>0</td>
+      <td>18.61%</td>
+      <td>53.37%</td>
+      <td>28.02%</td>
+      <td>2.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1291.61</td>
+      <td>1</td>
+      <td>@ Kamaz</td>
+      <td>1309.96</td>
+      <td>1</td>
+      <td>22.78%</td>
+      <td>47.92%</td>
+      <td>29.30%</td>
+      <td>1.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Fakel Voronezh</td>
+      <td>1390.65</td>
+      <td>4</td>
+      <td>@ Ufa</td>
+      <td>1211.31</td>
+      <td>0</td>
+      <td>48.27%</td>
+      <td>22.50%</td>
+      <td>29.24%</td>
+      <td>20.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Rodina Moscow</td>
+      <td>1403.75</td>
+      <td>0</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1234.41</td>
+      <td>0</td>
+      <td>47.02%</td>
+      <td>23.52%</td>
+      <td>29.46%</td>
+      <td>-1.82</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1684.60</td>
+      <td>2</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1313.28</td>
+      <td>0</td>
+      <td>68.48%</td>
+      <td>9.99%</td>
+      <td>21.53%</td>
+      <td>6.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Krasnodar</td>
+      <td>1669.87</td>
+      <td>1</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1608.77</td>
+      <td>1</td>
+      <td>32.25%</td>
+      <td>37.34%</td>
+      <td>30.41%</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1231.90</td>
+      <td>0</td>
+      <td>Sokol Saratov</td>
+      <td>1167.81</td>
+      <td>0</td>
+      <td>53.37%</td>
+      <td>18.61%</td>
+      <td>28.02%</td>
+      <td>-2.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Kamaz</td>
+      <td>1309.96</td>
+      <td>1</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1291.61</td>
+      <td>1</td>
+      <td>47.92%</td>
+      <td>22.78%</td>
+      <td>29.30%</td>
+      <td>-1.96</td>
+    </tr>
+    <tr>
+      <td>2025-11-24</td>
+      <td>Chelyabinsk</td>
+      <td>1386.33</td>
+      <td>2</td>
+      <td>@ Rotor Volgograd</td>
+      <td>1303.85</td>
+      <td>0</td>
+      <td>35.26%</td>
+      <td>34.29%</td>
+      <td>30.45%</td>
+      <td>20.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-24</td>
+      <td>Rotor Volgograd</td>
+      <td>1303.85</td>
+      <td>0</td>
+      <td>Chelyabinsk</td>
+      <td>1386.33</td>
+      <td>2</td>
+      <td>34.29%</td>
+      <td>35.26%</td>
+      <td>30.45%</td>
+      <td>-20.09</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1229.10</td>
+      <td>1</td>
+      <td>@ Chernomorets Novorossiysk</td>
+      <td>1293.99</td>
+      <td>2</td>
+      <td>18.55%</td>
+      <td>53.46%</td>
+      <td>27.99%</td>
+      <td>-8.72</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Chernomorets Novorossiysk</td>
+      <td>1293.99</td>
+      <td>2</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1229.10</td>
+      <td>1</td>
+      <td>53.46%</td>
+      <td>18.55%</td>
+      <td>27.99%</td>
+      <td>8.72</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Akron Tolyatti</td>
+      <td>1456.55</td>
+      <td>1</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1306.91</td>
+      <td>2</td>
+      <td>62.45%</td>
+      <td>12.93%</td>
+      <td>24.62%</td>
+      <td>-22.63</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1587.60</td>
+      <td>1</td>
+      <td>Spartak Moscow</td>
+      <td>1593.57</td>
+      <td>0</td>
+      <td>44.83%</td>
+      <td>25.37%</td>
+      <td>29.80%</td>
+      <td>11.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Sokol Saratov</td>
+      <td>1170.61</td>
+      <td>0</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1293.58</td>
+      <td>2</td>
+      <td>28.85%</td>
+      <td>40.93%</td>
+      <td>30.22%</td>
+      <td>-17.75</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1271.70</td>
+      <td>0</td>
+      <td>Ural</td>
+      <td>1397.84</td>
+      <td>0</td>
+      <td>28.45%</td>
+      <td>41.37%</td>
+      <td>30.18%</td>
+      <td>0.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1082.81</td>
+      <td>1</td>
+      <td>Ufa</td>
+      <td>1190.67</td>
+      <td>1</td>
+      <td>30.80%</td>
+      <td>38.85%</td>
+      <td>30.35%</td>
+      <td>0.60</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Ufa</td>
+      <td>1190.67</td>
+      <td>1</td>
+      <td>@ Chayka Peschanokopskoye</td>
+      <td>1082.81</td>
+      <td>1</td>
+      <td>38.85%</td>
+      <td>30.80%</td>
+      <td>30.35%</td>
+      <td>-0.59</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Ural</td>
+      <td>1397.84</td>
+      <td>0</td>
+      <td>@ Volga Ulyanovsk</td>
+      <td>1271.70</td>
+      <td>0</td>
+      <td>41.37%</td>
+      <td>28.45%</td>
+      <td>30.18%</td>
+      <td>-0.96</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1293.58</td>
+      <td>2</td>
+      <td>@ Sokol Saratov</td>
+      <td>1170.61</td>
+      <td>0</td>
+      <td>40.93%</td>
+      <td>28.85%</td>
+      <td>30.22%</td>
+      <td>17.74</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1306.91</td>
+      <td>2</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1456.55</td>
+      <td>1</td>
+      <td>12.93%</td>
+      <td>62.45%</td>
+      <td>24.62%</td>
+      <td>22.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Spartak Moscow</td>
+      <td>1593.57</td>
+      <td>0</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1587.60</td>
+      <td>1</td>
+      <td>25.37%</td>
+      <td>44.83%</td>
+      <td>29.80%</td>
+      <td>-11.38</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Orenburg</td>
+      <td>1343.30</td>
+      <td>0</td>
+      <td>@ CSKA Moscow</td>
+      <td>1635.44</td>
+      <td>2</td>
+      <td>7.27%</td>
+      <td>75.33%</td>
+      <td>17.40%</td>
+      <td>-4.29</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>CSKA Moscow</td>
+      <td>1635.44</td>
+      <td>2</td>
+      <td>Orenburg</td>
+      <td>1343.30</td>
+      <td>0</td>
+      <td>75.33%</td>
+      <td>7.27%</td>
+      <td>17.40%</td>
+      <td>4.29</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Rubin Kazan</td>
+      <td>1466.74</td>
+      <td>0</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1690.96</td>
+      <td>1</td>
+      <td>9.55%</td>
+      <td>69.49%</td>
+      <td>20.96%</td>
+      <td>-4.26</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1608.40</td>
+      <td>3</td>
+      <td>@ Rostov</td>
+      <td>1435.32</td>
+      <td>1</td>
+      <td>47.49%</td>
+      <td>23.13%</td>
+      <td>29.38%</td>
+      <td>14.93</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Dynamo Moscow</td>
+      <td>1519.19</td>
+      <td>1</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1380.19</td>
+      <td>2</td>
+      <td>43.09%</td>
+      <td>26.89%</td>
+      <td>30.01%</td>
+      <td>-16.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Neftekhimik</td>
+      <td>1262.16</td>
+      <td>0</td>
+      <td>@ Arsenal Tula</td>
+      <td>1280.94</td>
+      <td>0</td>
+      <td>22.73%</td>
+      <td>47.97%</td>
+      <td>29.29%</td>
+      <td>1.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1690.96</td>
+      <td>1</td>
+      <td>Rubin Kazan</td>
+      <td>1466.74</td>
+      <td>0</td>
+      <td>69.49%</td>
+      <td>9.55%</td>
+      <td>20.96%</td>
+      <td>4.26</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Rostov</td>
+      <td>1435.32</td>
+      <td>1</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1608.40</td>
+      <td>3</td>
+      <td>23.13%</td>
+      <td>47.49%</td>
+      <td>29.38%</td>
+      <td>-14.93</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Krasnodar</td>
+      <td>1670.24</td>
+      <td>5</td>
+      <td>Krylia Sovetov</td>
+      <td>1401.19</td>
+      <td>0</td>
+      <td>73.40%</td>
+      <td>7.98%</td>
+      <td>18.62%</td>
+      <td>7.62</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Akhmat Grozny</td>
+      <td>1380.19</td>
+      <td>2</td>
+      <td>Dynamo Moscow</td>
+      <td>1519.19</td>
+      <td>1</td>
+      <td>26.89%</td>
+      <td>43.09%</td>
+      <td>30.01%</td>
+      <td>16.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1236.24</td>
+      <td>0</td>
+      <td>Rotor Volgograd</td>
+      <td>1283.76</td>
+      <td>0</td>
+      <td>39.24%</td>
+      <td>30.43%</td>
+      <td>30.33%</td>
+      <td>-0.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Arsenal Tula</td>
+      <td>1280.94</td>
+      <td>0</td>
+      <td>Neftekhimik</td>
+      <td>1262.16</td>
+      <td>0</td>
+      <td>47.97%</td>
+      <td>22.73%</td>
+      <td>29.29%</td>
+      <td>-1.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Spartak Kostroma</td>
+      <td>1402.59</td>
+      <td>0</td>
+      <td>Torpedo Moscow</td>
+      <td>1239.84</td>
+      <td>1</td>
+      <td>63.74%</td>
+      <td>12.25%</td>
+      <td>24.02%</td>
+      <td>-22.99</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Rotor Volgograd</td>
+      <td>1283.76</td>
+      <td>0</td>
+      <td>@ Yenisey Krasnoyarsk</td>
+      <td>1236.24</td>
+      <td>0</td>
+      <td>30.43%</td>
+      <td>39.24%</td>
+      <td>30.33%</td>
+      <td>0.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Fakel Voronezh</td>
+      <td>1411.29</td>
+      <td>2</td>
+      <td>Chelyabinsk</td>
+      <td>1406.43</td>
+      <td>0</td>
+      <td>46.22%</td>
+      <td>24.18%</td>
+      <td>29.59%</td>
+      <td>15.49</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Krylia Sovetov</td>
+      <td>1401.19</td>
+      <td>0</td>
+      <td>@ Krasnodar</td>
+      <td>1670.24</td>
+      <td>5</td>
+      <td>7.98%</td>
+      <td>73.40%</td>
+      <td>18.62%</td>
+      <td>-7.62</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Chelyabinsk</td>
+      <td>1406.43</td>
+      <td>0</td>
+      <td>@ Fakel Voronezh</td>
+      <td>1411.29</td>
+      <td>2</td>
+      <td>24.18%</td>
+      <td>46.22%</td>
+      <td>29.59%</td>
+      <td>-15.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Torpedo Moscow</td>
+      <td>1239.84</td>
+      <td>1</td>
+      <td>@ Spartak Kostroma</td>
+      <td>1402.59</td>
+      <td>0</td>
+      <td>12.25%</td>
+      <td>63.74%</td>
+      <td>24.02%</td>
+      <td>22.99</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Rodina Moscow</td>
+      <td>1401.93</td>
+      <td>0</td>
+      <td>Kamaz</td>
+      <td>1308.00</td>
+      <td>0</td>
+      <td>56.68%</td>
+      <td>16.35%</td>
+      <td>26.97%</td>
+      <td>-3.30</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Kamaz</td>
+      <td>1308.00</td>
+      <td>0</td>
+      <td>@ Rodina Moscow</td>
+      <td>1401.93</td>
+      <td>0</td>
+      <td>16.35%</td>
+      <td>56.68%</td>
+      <td>26.97%</td>
+      <td>3.31</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1381.67</td>
+      <td>0</td>
+      <td>@ Sochi</td>
+      <td>1312.48</td>
+      <td>0</td>
+      <td>33.37%</td>
+      <td>36.19%</td>
+      <td>30.44%</td>
+      <td>0.20</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Sochi</td>
+      <td>1312.48</td>
+      <td>0</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1381.67</td>
+      <td>0</td>
+      <td>36.19%</td>
+      <td>33.37%</td>
+      <td>30.44%</td>
+      <td>-0.20</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Orenburg</td>
+      <td>1339.01</td>
+      <td>0</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1396.99</td>
+      <td>1</td>
+      <td>19.12%</td>
+      <td>52.67%</td>
+      <td>28.22%</td>
+      <td>-8.96</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Akhmat Grozny</td>
+      <td>1396.99</td>
+      <td>1</td>
+      <td>Orenburg</td>
+      <td>1339.01</td>
+      <td>0</td>
+      <td>52.67%</td>
+      <td>19.12%</td>
+      <td>28.22%</td>
+      <td>8.97</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Akron Tolyatti</td>
+      <td>1433.92</td>
+      <td>0</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1695.22</td>
+      <td>2</td>
+      <td>8.23%</td>
+      <td>72.74%</td>
+      <td>19.02%</td>
+      <td>-5.01</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Rubin Kazan</td>
+      <td>1462.48</td>
+      <td>0</td>
+      <td>@ Rostov</td>
+      <td>1420.39</td>
+      <td>2</td>
+      <td>29.72%</td>
+      <td>39.99%</td>
+      <td>30.28%</td>
+      <td>-18.14</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Rostov</td>
+      <td>1420.39</td>
+      <td>2</td>
+      <td>Rubin Kazan</td>
+      <td>1462.48</td>
+      <td>0</td>
+      <td>39.99%</td>
+      <td>29.72%</td>
+      <td>30.28%</td>
+      <td>18.14</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Spartak Moscow</td>
+      <td>1582.19</td>
+      <td>1</td>
+      <td>Dynamo Moscow</td>
+      <td>1502.39</td>
+      <td>1</td>
+      <td>55.14%</td>
+      <td>17.38%</td>
+      <td>27.49%</td>
+      <td>-3.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1695.22</td>
+      <td>2</td>
+      <td>Akron Tolyatti</td>
+      <td>1433.92</td>
+      <td>0</td>
+      <td>72.74%</td>
+      <td>8.23%</td>
+      <td>19.02%</td>
+      <td>5.02</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Dynamo Moscow</td>
+      <td>1502.39</td>
+      <td>1</td>
+      <td>@ Spartak Moscow</td>
+      <td>1582.19</td>
+      <td>1</td>
+      <td>17.38%</td>
+      <td>55.14%</td>
+      <td>27.49%</td>
+      <td>3.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>CSKA Moscow</td>
+      <td>1639.73</td>
+      <td>2</td>
+      <td>@ Krasnodar</td>
+      <td>1677.86</td>
+      <td>3</td>
+      <td>20.86%</td>
+      <td>50.34%</td>
+      <td>28.80%</td>
+      <td>-9.69</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Krylia Sovetov</td>
+      <td>1393.57</td>
+      <td>0</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1598.97</td>
+      <td>2</td>
+      <td>10.30%</td>
+      <td>67.77%</td>
+      <td>21.92%</td>
+      <td>-6.61</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Sochi</td>
+      <td>1312.28</td>
+      <td>2</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1623.33</td>
+      <td>4</td>
+      <td>12.76%</td>
+      <td>62.77%</td>
+      <td>24.48%</td>
+      <td>-8.46</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1381.87</td>
+      <td>0</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1329.55</td>
+      <td>1</td>
+      <td>52.01%</td>
+      <td>19.60%</td>
+      <td>28.39%</td>
+      <td>-19.53</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1598.97</td>
+      <td>2</td>
+      <td>Krylia Sovetov</td>
+      <td>1393.57</td>
+      <td>0</td>
+      <td>67.77%</td>
+      <td>10.30%</td>
+      <td>21.92%</td>
+      <td>6.61</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Krasnodar</td>
+      <td>1677.86</td>
+      <td>3</td>
+      <td>CSKA Moscow</td>
+      <td>1639.73</td>
+      <td>2</td>
+      <td>50.34%</td>
+      <td>20.86%</td>
+      <td>28.80%</td>
+      <td>9.69</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1329.55</td>
+      <td>1</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1381.87</td>
+      <td>0</td>
+      <td>19.60%</td>
+      <td>52.01%</td>
+      <td>28.39%</td>
+      <td>19.53</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1623.33</td>
+      <td>4</td>
+      <td>@ Sochi</td>
+      <td>1312.28</td>
+      <td>2</td>
+      <td>62.77%</td>
+      <td>12.76%</td>
+      <td>24.48%</td>
+      <td>8.46</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

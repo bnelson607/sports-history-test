@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="AE Kifisia" selected>AE Kifisia</option><option value="AE Larissa" >AE Larissa</option><option value="AEK Athens" >AEK Athens</option><option value="Aris" >Aris</option><option value="Asteras Tripolis" >Asteras Tripolis</option><option value="Atromitos" >Atromitos</option><option value="Levadiakos" >Levadiakos</option><option value="OFI Crete" >OFI Crete</option><option value="Olympiacos Piraeus" >Olympiacos Piraeus</option><option value="PAOK" >PAOK</option><option value="Panathinaikos" >Panathinaikos</option><option value="Panetolikos" >Panetolikos</option><option value="Panserraikos" >Panserraikos</option><option value="Volos" >Volos</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Panathinaikos</td>
+      <td>1815.25</td>
+      <td>OFI Crete</td>
+      <td>1734.50</td>
+      <td>50.55%</td>
+      <td>21.61%</td>
+      <td>27.85%</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>OFI Crete</td>
+      <td>1734.50</td>
+      <td>@ Panathinaikos</td>
+      <td>1815.25</td>
+      <td>21.61%</td>
+      <td>50.55%</td>
+      <td>27.85%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>@ OFI Crete</td>
+      <td>1635.90</td>
+      <td>37.54%</td>
+      <td>33.65%</td>
+      <td>28.81%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>@ Aris</td>
+      <td>1749.53</td>
+      <td>56.47%</td>
+      <td>16.80%</td>
+      <td>26.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>@ AE Kifisia</td>
+      <td>1759.77</td>
+      <td>16.99%</td>
+      <td>56.22%</td>
+      <td>26.79%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>@ Panathinaikos</td>
+      <td>1820.83</td>
+      <td>7.73%</td>
+      <td>71.08%</td>
+      <td>21.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>@ Levadiakos</td>
+      <td>1852.76</td>
+      <td>19.32%</td>
+      <td>53.29%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>@ Atromitos</td>
+      <td>1695.44</td>
+      <td>64.74%</td>
+      <td>11.13%</td>
+      <td>24.13%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>@ Panetolikos</td>
+      <td>1674.12</td>
+      <td>61.98%</td>
+      <td>12.87%</td>
+      <td>25.15%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>53.29%</td>
+      <td>19.32%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>71.08%</td>
+      <td>7.73%</td>
+      <td>21.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>12.87%</td>
+      <td>61.98%</td>
+      <td>25.15%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>11.13%</td>
+      <td>64.74%</td>
+      <td>24.13%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>33.65%</td>
+      <td>37.54%</td>
+      <td>28.81%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>16.80%</td>
+      <td>56.47%</td>
+      <td>26.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>56.22%</td>
+      <td>16.99%</td>
+      <td>26.79%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>@ AE Larissa</td>
+      <td>1626.82</td>
+      <td>47.56%</td>
+      <td>24.22%</td>
+      <td>28.22%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>@ AEK Athens</td>
+      <td>1951.88</td>
+      <td>17.14%</td>
+      <td>56.03%</td>
+      <td>26.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>@ Volos</td>
+      <td>1747.64</td>
+      <td>24.60%</td>
+      <td>47.13%</td>
+      <td>28.27%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>@ Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>65.75%</td>
+      <td>10.53%</td>
+      <td>23.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>@ PAOK</td>
+      <td>1934.63</td>
+      <td>8.04%</td>
+      <td>70.43%</td>
+      <td>21.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>18.75%</td>
+      <td>53.99%</td>
+      <td>27.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>13.71%</td>
+      <td>60.72%</td>
+      <td>25.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>10.53%</td>
+      <td>65.75%</td>
+      <td>23.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>24.22%</td>
+      <td>47.56%</td>
+      <td>28.22%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>70.43%</td>
+      <td>8.04%</td>
+      <td>21.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>56.03%</td>
+      <td>17.14%</td>
+      <td>26.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>47.13%</td>
+      <td>24.60%</td>
+      <td>28.27%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>@ Panetolikos</td>
+      <td>1674.12</td>
+      <td>53.99%</td>
+      <td>18.75%</td>
+      <td>27.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>@ Panserraikos</td>
+      <td>1513.20</td>
+      <td>60.72%</td>
+      <td>13.71%</td>
+      <td>25.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>@ OFI Crete</td>
+      <td>1635.90</td>
+      <td>36.26%</td>
+      <td>34.91%</td>
+      <td>28.82%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>@ Aris</td>
+      <td>1749.53</td>
+      <td>45.11%</td>
+      <td>26.43%</td>
+      <td>28.46%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>65.95%</td>
+      <td>10.41%</td>
+      <td>23.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>26.43%</td>
+      <td>45.11%</td>
+      <td>28.46%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>@ Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>10.41%</td>
+      <td>65.95%</td>
+      <td>23.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>34.91%</td>
+      <td>36.26%</td>
+      <td>28.82%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>23.93%</td>
+      <td>47.89%</td>
+      <td>28.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>12.40%</td>
+      <td>62.71%</td>
+      <td>24.90%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>54.21%</td>
+      <td>18.57%</td>
+      <td>27.22%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>@ AE Kifisia</td>
+      <td>1759.77</td>
+      <td>53.58%</td>
+      <td>19.08%</td>
+      <td>27.34%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>@ Atromitos</td>
+      <td>1695.44</td>
+      <td>47.89%</td>
+      <td>23.93%</td>
+      <td>28.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>@ Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>62.71%</td>
+      <td>12.40%</td>
+      <td>24.90%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>19.08%</td>
+      <td>53.58%</td>
+      <td>27.34%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>@ AE Larissa</td>
+      <td>1626.82</td>
+      <td>18.57%</td>
+      <td>54.21%</td>
+      <td>27.22%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>@ PAOK</td>
+      <td>1934.63</td>
+      <td>4.68%</td>
+      <td>78.65%</td>
+      <td>16.67%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>@ Atromitos</td>
+      <td>1695.44</td>
+      <td>23.80%</td>
+      <td>48.03%</td>
+      <td>28.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>@ Levadiakos</td>
+      <td>1852.76</td>
+      <td>14.35%</td>
+      <td>59.81%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>@ Panetolikos</td>
+      <td>1674.12</td>
+      <td>41.45%</td>
+      <td>29.86%</td>
+      <td>28.69%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>@ AEK Athens</td>
+      <td>1951.88</td>
+      <td>35.97%</td>
+      <td>35.20%</td>
+      <td>28.82%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>@ Panathinaikos</td>
+      <td>1820.83</td>
+      <td>23.63%</td>
+      <td>48.21%</td>
+      <td>28.15%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>@ Volos</td>
+      <td>1747.64</td>
+      <td>17.97%</td>
+      <td>54.97%</td>
+      <td>27.06%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>54.97%</td>
+      <td>17.97%</td>
+      <td>27.06%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>48.03%</td>
+      <td>23.80%</td>
+      <td>28.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>59.81%</td>
+      <td>14.35%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>29.86%</td>
+      <td>41.45%</td>
+      <td>28.69%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>35.20%</td>
+      <td>35.97%</td>
+      <td>28.82%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>48.21%</td>
+      <td>23.63%</td>
+      <td>28.15%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>78.65%</td>
+      <td>4.68%</td>
+      <td>16.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>@ Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>14.51%</td>
+      <td>59.58%</td>
+      <td>25.91%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>@ OFI Crete</td>
+      <td>1635.90</td>
+      <td>57.91%</td>
+      <td>15.72%</td>
+      <td>26.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>@ Aris</td>
+      <td>1749.53</td>
+      <td>54.68%</td>
+      <td>18.20%</td>
+      <td>27.12%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>18.20%</td>
+      <td>54.68%</td>
+      <td>27.12%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>59.58%</td>
+      <td>14.51%</td>
+      <td>25.91%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>33.63%</td>
+      <td>37.55%</td>
+      <td>28.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>@ AE Larissa</td>
+      <td>1626.82</td>
+      <td>37.55%</td>
+      <td>33.63%</td>
+      <td>28.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>5.84%</td>
+      <td>75.49%</td>
+      <td>18.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>15.72%</td>
+      <td>57.91%</td>
+      <td>26.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>48.61%</td>
+      <td>23.29%</td>
+      <td>28.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>31.29%</td>
+      <td>39.96%</td>
+      <td>28.75%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>@ Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>39.96%</td>
+      <td>31.29%</td>
+      <td>28.75%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>@ AE Kifisia</td>
+      <td>1759.77</td>
+      <td>23.29%</td>
+      <td>48.61%</td>
+      <td>28.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>@ Panserraikos</td>
+      <td>1513.20</td>
+      <td>75.49%</td>
+      <td>5.84%</td>
+      <td>18.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>60.97%</td>
+      <td>13.55%</td>
+      <td>25.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>39.06%</td>
+      <td>32.16%</td>
+      <td>28.78%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>22.87%</td>
+      <td>49.09%</td>
+      <td>28.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>62.02%</td>
+      <td>12.84%</td>
+      <td>25.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>40.04%</td>
+      <td>31.21%</td>
+      <td>28.75%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>55.29%</td>
+      <td>17.72%</td>
+      <td>27.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>@ PAOK</td>
+      <td>1934.63</td>
+      <td>33.29%</td>
+      <td>37.90%</td>
+      <td>28.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>@ AE Kifisia</td>
+      <td>1759.77</td>
+      <td>17.72%</td>
+      <td>55.29%</td>
+      <td>27.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>@ Volos</td>
+      <td>1747.64</td>
+      <td>31.21%</td>
+      <td>40.04%</td>
+      <td>28.75%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>@ Panathinaikos</td>
+      <td>1820.83</td>
+      <td>12.84%</td>
+      <td>62.02%</td>
+      <td>25.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>@ Levadiakos</td>
+      <td>1852.76</td>
+      <td>49.09%</td>
+      <td>22.87%</td>
+      <td>28.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>@ Panetolikos</td>
+      <td>1674.12</td>
+      <td>32.16%</td>
+      <td>39.06%</td>
+      <td>28.78%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>@ Atromitos</td>
+      <td>1695.44</td>
+      <td>13.55%</td>
+      <td>60.97%</td>
+      <td>25.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>37.90%</td>
+      <td>33.29%</td>
+      <td>28.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>@ Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>7.52%</td>
+      <td>71.54%</td>
+      <td>20.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>38.59%</td>
+      <td>32.61%</td>
+      <td>28.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>14.50%</td>
+      <td>59.60%</td>
+      <td>25.90%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>71.54%</td>
+      <td>7.52%</td>
+      <td>20.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>38.89%</td>
+      <td>32.33%</td>
+      <td>28.78%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>10.40%</td>
+      <td>65.98%</td>
+      <td>23.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>18.21%</td>
+      <td>54.66%</td>
+      <td>27.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>@ AEK Athens</td>
+      <td>1951.88</td>
+      <td>19.86%</td>
+      <td>52.63%</td>
+      <td>27.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>@ Panserraikos</td>
+      <td>1513.20</td>
+      <td>59.60%</td>
+      <td>14.50%</td>
+      <td>25.90%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>@ Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>32.61%</td>
+      <td>38.59%</td>
+      <td>28.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>@ Aris</td>
+      <td>1749.53</td>
+      <td>32.33%</td>
+      <td>38.89%</td>
+      <td>28.78%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>@ AE Larissa</td>
+      <td>1626.82</td>
+      <td>65.98%</td>
+      <td>10.40%</td>
+      <td>23.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>@ OFI Crete</td>
+      <td>1635.90</td>
+      <td>54.66%</td>
+      <td>18.21%</td>
+      <td>27.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>52.63%</td>
+      <td>19.86%</td>
+      <td>27.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>@ PAOK</td>
+      <td>1934.63</td>
+      <td>9.91%</td>
+      <td>66.84%</td>
+      <td>23.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>@ AE Kifisia</td>
+      <td>1759.77</td>
+      <td>43.79%</td>
+      <td>27.66%</td>
+      <td>28.56%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>@ Atromitos</td>
+      <td>1695.44</td>
+      <td>28.23%</td>
+      <td>43.18%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>@ Panserraikos</td>
+      <td>1513.20</td>
+      <td>77.81%</td>
+      <td>4.97%</td>
+      <td>17.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>@ OFI Crete</td>
+      <td>1635.90</td>
+      <td>29.77%</td>
+      <td>41.54%</td>
+      <td>28.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>66.84%</td>
+      <td>9.91%</td>
+      <td>23.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>49.44%</td>
+      <td>22.56%</td>
+      <td>28.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>27.66%</td>
+      <td>43.79%</td>
+      <td>28.56%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>16.66%</td>
+      <td>56.66%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>43.18%</td>
+      <td>28.23%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>4.97%</td>
+      <td>77.81%</td>
+      <td>17.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>41.54%</td>
+      <td>29.77%</td>
+      <td>28.69%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>@ Panathinaikos</td>
+      <td>1820.83</td>
+      <td>22.56%</td>
+      <td>49.44%</td>
+      <td>28.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>@ Volos</td>
+      <td>1747.64</td>
+      <td>56.66%</td>
+      <td>16.66%</td>
+      <td>26.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>47.28%</td>
+      <td>24.46%</td>
+      <td>28.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>59.83%</td>
+      <td>14.33%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>28.56%</td>
+      <td>42.82%</td>
+      <td>28.62%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>44.56%</td>
+      <td>26.94%</td>
+      <td>28.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>47.36%</td>
+      <td>24.39%</td>
+      <td>28.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>72.32%</td>
+      <td>7.16%</td>
+      <td>20.51%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>@ AEK Athens</td>
+      <td>1951.88</td>
+      <td>7.16%</td>
+      <td>72.32%</td>
+      <td>20.51%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>@ Aris</td>
+      <td>1749.53</td>
+      <td>24.39%</td>
+      <td>47.36%</td>
+      <td>28.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>@ Volos</td>
+      <td>1747.64</td>
+      <td>18.74%</td>
+      <td>54.00%</td>
+      <td>27.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>@ Levadiakos</td>
+      <td>1852.76</td>
+      <td>26.94%</td>
+      <td>44.56%</td>
+      <td>28.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>@ Panetolikos</td>
+      <td>1674.12</td>
+      <td>42.82%</td>
+      <td>28.56%</td>
+      <td>28.62%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>@ Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>14.33%</td>
+      <td>59.83%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>@ Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>24.46%</td>
+      <td>47.28%</td>
+      <td>28.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>54.00%</td>
+      <td>18.74%</td>
+      <td>27.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>@ OFI Crete</td>
+      <td>1635.90</td>
+      <td>69.43%</td>
+      <td>8.54%</td>
+      <td>22.03%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>@ AE Kifisia</td>
+      <td>1759.77</td>
+      <td>29.38%</td>
+      <td>41.95%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>@ Atromitos</td>
+      <td>1695.44</td>
+      <td>61.62%</td>
+      <td>13.11%</td>
+      <td>25.27%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>@ Panathinaikos</td>
+      <td>1820.83</td>
+      <td>15.94%</td>
+      <td>57.60%</td>
+      <td>26.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>@ Panserraikos</td>
+      <td>1513.20</td>
+      <td>59.78%</td>
+      <td>14.37%</td>
+      <td>25.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>@ AE Larissa</td>
+      <td>1626.82</td>
+      <td>38.82%</td>
+      <td>32.40%</td>
+      <td>28.79%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>14.37%</td>
+      <td>59.78%</td>
+      <td>25.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>50.68%</td>
+      <td>21.49%</td>
+      <td>27.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>57.60%</td>
+      <td>15.94%</td>
+      <td>26.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>32.40%</td>
+      <td>38.82%</td>
+      <td>28.79%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>8.54%</td>
+      <td>69.43%</td>
+      <td>22.03%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>13.11%</td>
+      <td>61.62%</td>
+      <td>25.27%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>41.95%</td>
+      <td>29.38%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>@ PAOK</td>
+      <td>1934.63</td>
+      <td>21.49%</td>
+      <td>50.68%</td>
+      <td>27.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>@ AEK Athens</td>
+      <td>1951.88</td>
+      <td>12.95%</td>
+      <td>61.86%</td>
+      <td>25.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>@ Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>6.11%</td>
+      <td>74.81%</td>
+      <td>19.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>@ Levadiakos</td>
+      <td>1852.76</td>
+      <td>15.19%</td>
+      <td>58.64%</td>
+      <td>26.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>@ Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>49.37%</td>
+      <td>22.62%</td>
+      <td>28.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>@ Panetolikos</td>
+      <td>1674.12</td>
+      <td>14.94%</td>
+      <td>58.98%</td>
+      <td>26.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Aris</td>
+      <td>1749.53</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>54.21%</td>
+      <td>18.57%</td>
+      <td>27.22%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Volos</td>
+      <td>1747.64</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>18.04%</td>
+      <td>54.88%</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Asteras Tripolis</td>
+      <td>1683.11</td>
+      <td>Panathinaikos</td>
+      <td>1820.83</td>
+      <td>22.62%</td>
+      <td>49.37%</td>
+      <td>28.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Levadiakos</td>
+      <td>1852.76</td>
+      <td>Atromitos</td>
+      <td>1695.44</td>
+      <td>58.64%</td>
+      <td>15.19%</td>
+      <td>26.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Panetolikos</td>
+      <td>1674.12</td>
+      <td>Panserraikos</td>
+      <td>1513.20</td>
+      <td>58.98%</td>
+      <td>14.94%</td>
+      <td>26.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Olympiacos Piraeus</td>
+      <td>1988.08</td>
+      <td>AE Larissa</td>
+      <td>1626.82</td>
+      <td>74.81%</td>
+      <td>6.11%</td>
+      <td>19.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>AEK Athens</td>
+      <td>1951.88</td>
+      <td>AE Kifisia</td>
+      <td>1759.77</td>
+      <td>61.86%</td>
+      <td>12.95%</td>
+      <td>25.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>PAOK</td>
+      <td>1934.63</td>
+      <td>@ Volos</td>
+      <td>1747.64</td>
+      <td>54.88%</td>
+      <td>18.04%</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>OFI Crete</td>
+      <td>1635.90</td>
+      <td>@ Aris</td>
+      <td>1749.53</td>
+      <td>18.57%</td>
+      <td>54.21%</td>
+      <td>27.22%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

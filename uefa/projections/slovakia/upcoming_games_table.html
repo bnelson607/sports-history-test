@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="FC DAC 1904" selected>FC DAC 1904</option><option value="FC Kosice" >FC Kosice</option><option value="Komarno" >Komarno</option><option value="Ruzomberok" >Ruzomberok</option><option value="Skalica" >Skalica</option><option value="Slovan Bratislava" >Slovan Bratislava</option><option value="Spartak Trnava" >Spartak Trnava</option><option value="Tatran Presov" >Tatran Presov</option><option value="Trencin" >Trencin</option><option value="Zeleziarne Podbrezova" >Zeleziarne Podbrezova</option><option value="Zemplin Michalovce" >Zemplin Michalovce</option><option value="Zilina" >Zilina</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Zilina</td>
+      <td>1609.18</td>
+      <td>Komarno</td>
+      <td>1439.28</td>
+      <td>57.22%</td>
+      <td>14.94%</td>
+      <td>27.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Tatran Presov</td>
+      <td>1425.06</td>
+      <td>@ Ruzomberok</td>
+      <td>1479.75</td>
+      <td>25.39%</td>
+      <td>44.26%</td>
+      <td>30.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>@ FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>26.79%</td>
+      <td>42.72%</td>
+      <td>30.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>@ Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>51.50%</td>
+      <td>19.22%</td>
+      <td>29.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>@ Trencin</td>
+      <td>1385.88</td>
+      <td>52.59%</td>
+      <td>18.35%</td>
+      <td>29.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Komarno</td>
+      <td>1439.28</td>
+      <td>@ Zilina</td>
+      <td>1609.18</td>
+      <td>14.94%</td>
+      <td>57.22%</td>
+      <td>27.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Skalica</td>
+      <td>1376.39</td>
+      <td>@ FC Kosice</td>
+      <td>1432.26</td>
+      <td>25.25%</td>
+      <td>44.41%</td>
+      <td>30.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>FC Kosice</td>
+      <td>1432.26</td>
+      <td>Skalica</td>
+      <td>1376.39</td>
+      <td>44.41%</td>
+      <td>25.25%</td>
+      <td>30.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Ruzomberok</td>
+      <td>1479.75</td>
+      <td>Tatran Presov</td>
+      <td>1425.06</td>
+      <td>44.26%</td>
+      <td>25.39%</td>
+      <td>30.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>42.72%</td>
+      <td>26.79%</td>
+      <td>30.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>19.22%</td>
+      <td>51.50%</td>
+      <td>29.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Trencin</td>
+      <td>1385.88</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>18.35%</td>
+      <td>52.59%</td>
+      <td>29.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Skalica</td>
+      <td>1376.39</td>
+      <td>Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>24.11%</td>
+      <td>45.69%</td>
+      <td>30.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>@ Komarno</td>
+      <td>1439.28</td>
+      <td>65.06%</td>
+      <td>10.17%</td>
+      <td>24.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>@ Skalica</td>
+      <td>1376.39</td>
+      <td>45.69%</td>
+      <td>24.11%</td>
+      <td>30.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Zilina</td>
+      <td>1609.18</td>
+      <td>@ Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>30.58%</td>
+      <td>38.69%</td>
+      <td>30.73%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>FC Kosice</td>
+      <td>1432.26</td>
+      <td>@ Tatran Presov</td>
+      <td>1425.06</td>
+      <td>33.33%</td>
+      <td>35.87%</td>
+      <td>30.80%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Trencin</td>
+      <td>1385.88</td>
+      <td>@ Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>8.46%</td>
+      <td>68.54%</td>
+      <td>23.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Ruzomberok</td>
+      <td>1479.75</td>
+      <td>@ Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>24.39%</td>
+      <td>45.37%</td>
+      <td>30.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>Ruzomberok</td>
+      <td>1479.75</td>
+      <td>45.37%</td>
+      <td>24.39%</td>
+      <td>30.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>Trencin</td>
+      <td>1385.88</td>
+      <td>68.54%</td>
+      <td>8.46%</td>
+      <td>23.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Tatran Presov</td>
+      <td>1425.06</td>
+      <td>FC Kosice</td>
+      <td>1432.26</td>
+      <td>35.87%</td>
+      <td>33.33%</td>
+      <td>30.80%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>Zilina</td>
+      <td>1609.18</td>
+      <td>38.69%</td>
+      <td>30.58%</td>
+      <td>30.73%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Komarno</td>
+      <td>1439.28</td>
+      <td>FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>10.17%</td>
+      <td>65.06%</td>
+      <td>24.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Skalica</td>
+      <td>1376.39</td>
+      <td>@ FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>6.77%</td>
+      <td>72.51%</td>
+      <td>20.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Zilina</td>
+      <td>1609.18</td>
+      <td>@ FC Kosice</td>
+      <td>1432.26</td>
+      <td>54.67%</td>
+      <td>16.77%</td>
+      <td>28.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>@ Trencin</td>
+      <td>1385.88</td>
+      <td>44.49%</td>
+      <td>25.17%</td>
+      <td>30.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Komarno</td>
+      <td>1439.28</td>
+      <td>@ Tatran Presov</td>
+      <td>1425.06</td>
+      <td>34.33%</td>
+      <td>34.87%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>@ Ruzomberok</td>
+      <td>1479.75</td>
+      <td>57.55%</td>
+      <td>14.72%</td>
+      <td>27.73%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Tatran Presov</td>
+      <td>1425.06</td>
+      <td>Komarno</td>
+      <td>1439.28</td>
+      <td>34.87%</td>
+      <td>34.33%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>47.26%</td>
+      <td>22.74%</td>
+      <td>30.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Trencin</td>
+      <td>1385.88</td>
+      <td>Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>25.17%</td>
+      <td>44.49%</td>
+      <td>30.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Ruzomberok</td>
+      <td>1479.75</td>
+      <td>Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>14.72%</td>
+      <td>57.55%</td>
+      <td>27.73%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>FC Kosice</td>
+      <td>1432.26</td>
+      <td>Zilina</td>
+      <td>1609.18</td>
+      <td>16.77%</td>
+      <td>54.67%</td>
+      <td>28.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>Skalica</td>
+      <td>1376.39</td>
+      <td>72.51%</td>
+      <td>6.77%</td>
+      <td>20.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>@ Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>22.74%</td>
+      <td>47.26%</td>
+      <td>30.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Tatran Presov</td>
+      <td>1425.06</td>
+      <td>@ Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>18.96%</td>
+      <td>51.83%</td>
+      <td>29.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>FC Kosice</td>
+      <td>1432.26</td>
+      <td>@ Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>26.84%</td>
+      <td>42.66%</td>
+      <td>30.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Ruzomberok</td>
+      <td>1479.75</td>
+      <td>@ Komarno</td>
+      <td>1439.28</td>
+      <td>38.05%</td>
+      <td>31.20%</td>
+      <td>30.75%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>@ Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>24.43%</td>
+      <td>45.33%</td>
+      <td>30.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zilina</td>
+      <td>1609.18</td>
+      <td>FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>21.94%</td>
+      <td>48.20%</td>
+      <td>29.87%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Skalica</td>
+      <td>1376.39</td>
+      <td>Trencin</td>
+      <td>1385.88</td>
+      <td>35.54%</td>
+      <td>33.65%</td>
+      <td>30.80%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Komarno</td>
+      <td>1439.28</td>
+      <td>Ruzomberok</td>
+      <td>1479.75</td>
+      <td>31.20%</td>
+      <td>38.05%</td>
+      <td>30.75%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Slovan Bratislava</td>
+      <td>1685.18</td>
+      <td>Spartak Trnava</td>
+      <td>1622.06</td>
+      <td>45.33%</td>
+      <td>24.43%</td>
+      <td>30.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zemplin Michalovce</td>
+      <td>1474.61</td>
+      <td>FC Kosice</td>
+      <td>1432.26</td>
+      <td>42.66%</td>
+      <td>26.84%</td>
+      <td>30.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1543.24</td>
+      <td>Tatran Presov</td>
+      <td>1425.06</td>
+      <td>51.83%</td>
+      <td>18.96%</td>
+      <td>29.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Trencin</td>
+      <td>1385.88</td>
+      <td>@ Skalica</td>
+      <td>1376.39</td>
+      <td>33.65%</td>
+      <td>35.54%</td>
+      <td>30.80%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>FC DAC 1904</td>
+      <td>1727.98</td>
+      <td>@ Zilina</td>
+      <td>1609.18</td>
+      <td>48.20%</td>
+      <td>21.94%</td>
+      <td>29.87%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Aalborg" selected>Aalborg</option><option value="Aarhus Fremad" >Aarhus Fremad</option><option value="Aarhus GF" >Aarhus GF</option><option value="B.93" >B.93</option><option value="Brondby" >Brondby</option><option value="Esbjerg" >Esbjerg</option><option value="FC Copenhagen" >FC Copenhagen</option><option value="Fredericia" >Fredericia</option><option value="HB Koge" >HB Koge</option><option value="Hillerod" >Hillerod</option><option value="Hobro" >Hobro</option><option value="Horsens" >Horsens</option><option value="Hvidovre" >Hvidovre</option><option value="Kolding IF" >Kolding IF</option><option value="Lyngby" >Lyngby</option><option value="Middlefart BK" >Middlefart BK</option><option value="Midtjylland" >Midtjylland</option><option value="Nordsjaelland" >Nordsjaelland</option><option value="Odense" >Odense</option><option value="Randers" >Randers</option><option value="Silkeborg" >Silkeborg</option><option value="Sonderjyske" >Sonderjyske</option><option value="Vejle BK" >Vejle BK</option><option value="Viborg" >Viborg</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Aarhus GF</td>
+      <td>1772.12</td>
+      <td>Odense</td>
+      <td>1637.28</td>
+      <td>59.22%</td>
+      <td>18.40%</td>
+      <td>22.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Viborg</td>
+      <td>1658.41</td>
+      <td>@ Silkeborg</td>
+      <td>1581.06</td>
+      <td>43.82%</td>
+      <td>32.18%</td>
+      <td>24.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Sonderjyske</td>
+      <td>1700.21</td>
+      <td>@ Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>41.36%</td>
+      <td>34.57%</td>
+      <td>24.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>@ Midtjylland</td>
+      <td>1805.66</td>
+      <td>20.63%</td>
+      <td>56.52%</td>
+      <td>22.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Randers</td>
+      <td>1607.14</td>
+      <td>@ Brondby</td>
+      <td>1700.55</td>
+      <td>22.16%</td>
+      <td>54.74%</td>
+      <td>23.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Odense</td>
+      <td>1637.28</td>
+      <td>@ Aarhus GF</td>
+      <td>1772.12</td>
+      <td>18.40%</td>
+      <td>59.22%</td>
+      <td>22.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Fredericia</td>
+      <td>1520.95</td>
+      <td>@ Vejle BK</td>
+      <td>1530.30</td>
+      <td>31.79%</td>
+      <td>44.23%</td>
+      <td>23.98%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>Sonderjyske</td>
+      <td>1700.21</td>
+      <td>34.57%</td>
+      <td>41.36%</td>
+      <td>24.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Brondby</td>
+      <td>1700.55</td>
+      <td>Randers</td>
+      <td>1607.14</td>
+      <td>54.74%</td>
+      <td>22.16%</td>
+      <td>23.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Midtjylland</td>
+      <td>1805.66</td>
+      <td>FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>56.52%</td>
+      <td>20.63%</td>
+      <td>22.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Silkeborg</td>
+      <td>1581.06</td>
+      <td>Viborg</td>
+      <td>1658.41</td>
+      <td>32.18%</td>
+      <td>43.82%</td>
+      <td>24.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Vejle BK</td>
+      <td>1530.30</td>
+      <td>Fredericia</td>
+      <td>1520.95</td>
+      <td>44.23%</td>
+      <td>31.79%</td>
+      <td>23.98%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>@ FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>26.16%</td>
+      <td>50.24%</td>
+      <td>23.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Midtjylland</td>
+      <td>1805.66</td>
+      <td>@ Odense</td>
+      <td>1637.28</td>
+      <td>55.19%</td>
+      <td>21.77%</td>
+      <td>23.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Vejle BK</td>
+      <td>1530.30</td>
+      <td>@ Randers</td>
+      <td>1607.14</td>
+      <td>23.84%</td>
+      <td>52.82%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Silkeborg</td>
+      <td>1581.06</td>
+      <td>@ Sonderjyske</td>
+      <td>1700.21</td>
+      <td>19.75%</td>
+      <td>57.58%</td>
+      <td>22.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Brondby</td>
+      <td>1700.55</td>
+      <td>@ Viborg</td>
+      <td>1658.41</td>
+      <td>38.90%</td>
+      <td>37.00%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Fredericia</td>
+      <td>1520.95</td>
+      <td>Aarhus GF</td>
+      <td>1772.12</td>
+      <td>14.97%</td>
+      <td>63.62%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>50.24%</td>
+      <td>26.16%</td>
+      <td>23.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Odense</td>
+      <td>1637.28</td>
+      <td>Midtjylland</td>
+      <td>1805.66</td>
+      <td>21.77%</td>
+      <td>55.19%</td>
+      <td>23.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Randers</td>
+      <td>1607.14</td>
+      <td>Vejle BK</td>
+      <td>1530.30</td>
+      <td>52.82%</td>
+      <td>23.84%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Sonderjyske</td>
+      <td>1700.21</td>
+      <td>Silkeborg</td>
+      <td>1581.06</td>
+      <td>57.58%</td>
+      <td>19.75%</td>
+      <td>22.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Viborg</td>
+      <td>1658.41</td>
+      <td>Brondby</td>
+      <td>1700.55</td>
+      <td>37.00%</td>
+      <td>38.90%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Aarhus GF</td>
+      <td>1772.12</td>
+      <td>@ Fredericia</td>
+      <td>1520.95</td>
+      <td>63.62%</td>
+      <td>14.97%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Silkeborg</td>
+      <td>1581.06</td>
+      <td>Midtjylland</td>
+      <td>1805.66</td>
+      <td>16.90%</td>
+      <td>61.10%</td>
+      <td>22.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Aarhus GF</td>
+      <td>1772.12</td>
+      <td>Viborg</td>
+      <td>1658.41</td>
+      <td>56.99%</td>
+      <td>20.24%</td>
+      <td>22.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Viborg</td>
+      <td>1658.41</td>
+      <td>@ Aarhus GF</td>
+      <td>1772.12</td>
+      <td>20.24%</td>
+      <td>56.99%</td>
+      <td>22.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Sonderjyske</td>
+      <td>1700.21</td>
+      <td>@ Brondby</td>
+      <td>1700.55</td>
+      <td>32.97%</td>
+      <td>43.00%</td>
+      <td>24.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Vejle BK</td>
+      <td>1530.30</td>
+      <td>@ Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>20.54%</td>
+      <td>56.63%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Fredericia</td>
+      <td>1520.95</td>
+      <td>@ Randers</td>
+      <td>1607.14</td>
+      <td>22.88%</td>
+      <td>53.91%</td>
+      <td>23.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Midtjylland</td>
+      <td>1805.66</td>
+      <td>@ Silkeborg</td>
+      <td>1581.06</td>
+      <td>61.10%</td>
+      <td>16.90%</td>
+      <td>22.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Brondby</td>
+      <td>1700.55</td>
+      <td>Sonderjyske</td>
+      <td>1700.21</td>
+      <td>43.00%</td>
+      <td>32.97%</td>
+      <td>24.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>Vejle BK</td>
+      <td>1530.30</td>
+      <td>56.63%</td>
+      <td>20.54%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Odense</td>
+      <td>1637.28</td>
+      <td>FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>34.64%</td>
+      <td>41.28%</td>
+      <td>24.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Randers</td>
+      <td>1607.14</td>
+      <td>Fredericia</td>
+      <td>1520.95</td>
+      <td>53.91%</td>
+      <td>22.88%</td>
+      <td>23.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>@ Odense</td>
+      <td>1637.28</td>
+      <td>41.28%</td>
+      <td>34.64%</td>
+      <td>24.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>@ B.93</td>
+      <td>1384.08</td>
+      <td>48.41%</td>
+      <td>27.84%</td>
+      <td>23.75%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Randers</td>
+      <td>1607.14</td>
+      <td>@ FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>22.58%</td>
+      <td>54.25%</td>
+      <td>23.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Horsens</td>
+      <td>1512.58</td>
+      <td>@ Esbjerg</td>
+      <td>1475.68</td>
+      <td>38.15%</td>
+      <td>37.75%</td>
+      <td>24.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Brondby</td>
+      <td>1700.55</td>
+      <td>@ Midtjylland</td>
+      <td>1805.66</td>
+      <td>21.03%</td>
+      <td>56.05%</td>
+      <td>22.92%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Odense</td>
+      <td>1637.28</td>
+      <td>@ Sonderjyske</td>
+      <td>1700.21</td>
+      <td>25.34%</td>
+      <td>51.15%</td>
+      <td>23.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Aarhus GF</td>
+      <td>1772.12</td>
+      <td>@ Vejle BK</td>
+      <td>1530.30</td>
+      <td>62.76%</td>
+      <td>15.63%</td>
+      <td>21.62%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>@ Viborg</td>
+      <td>1658.41</td>
+      <td>30.71%</td>
+      <td>45.36%</td>
+      <td>23.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Silkeborg</td>
+      <td>1581.06</td>
+      <td>@ Fredericia</td>
+      <td>1520.95</td>
+      <td>41.44%</td>
+      <td>34.49%</td>
+      <td>24.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>HB Koge</td>
+      <td>1362.47</td>
+      <td>@ Hobro</td>
+      <td>1392.80</td>
+      <td>29.14%</td>
+      <td>47.03%</td>
+      <td>23.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Middlefart BK</td>
+      <td>1353.58</td>
+      <td>@ Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>24.35%</td>
+      <td>52.24%</td>
+      <td>23.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Fredericia</td>
+      <td>1520.95</td>
+      <td>Silkeborg</td>
+      <td>1581.06</td>
+      <td>34.49%</td>
+      <td>41.44%</td>
+      <td>24.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>FC Copenhagen</td>
+      <td>1696.27</td>
+      <td>Randers</td>
+      <td>1607.14</td>
+      <td>54.25%</td>
+      <td>22.58%</td>
+      <td>23.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Midtjylland</td>
+      <td>1805.66</td>
+      <td>Brondby</td>
+      <td>1700.55</td>
+      <td>56.05%</td>
+      <td>21.03%</td>
+      <td>22.92%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Sonderjyske</td>
+      <td>1700.21</td>
+      <td>Odense</td>
+      <td>1637.28</td>
+      <td>51.15%</td>
+      <td>25.34%</td>
+      <td>23.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Vejle BK</td>
+      <td>1530.30</td>
+      <td>Aarhus GF</td>
+      <td>1772.12</td>
+      <td>15.63%</td>
+      <td>62.76%</td>
+      <td>21.62%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Viborg</td>
+      <td>1658.41</td>
+      <td>Nordsjaelland</td>
+      <td>1640.68</td>
+      <td>45.36%</td>
+      <td>30.71%</td>
+      <td>23.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Hillerod</td>
+      <td>1523.17</td>
+      <td>@ Aalborg</td>
+      <td>1472.05</td>
+      <td>40.18%</td>
+      <td>35.73%</td>
+      <td>24.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Aalborg</td>
+      <td>1472.05</td>
+      <td>Hillerod</td>
+      <td>1523.17</td>
+      <td>35.73%</td>
+      <td>40.18%</td>
+      <td>24.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>Middlefart BK</td>
+      <td>1353.58</td>
+      <td>52.24%</td>
+      <td>24.35%</td>
+      <td>23.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>B.93</td>
+      <td>1384.08</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>27.84%</td>
+      <td>48.41%</td>
+      <td>23.75%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Esbjerg</td>
+      <td>1475.68</td>
+      <td>Horsens</td>
+      <td>1512.58</td>
+      <td>37.75%</td>
+      <td>38.15%</td>
+      <td>24.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Hobro</td>
+      <td>1392.80</td>
+      <td>HB Koge</td>
+      <td>1362.47</td>
+      <td>47.03%</td>
+      <td>29.14%</td>
+      <td>23.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Kolding IF</td>
+      <td>1494.93</td>
+      <td>@ Lyngby</td>
+      <td>1557.54</td>
+      <td>25.37%</td>
+      <td>51.11%</td>
+      <td>23.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Lyngby</td>
+      <td>1557.54</td>
+      <td>Kolding IF</td>
+      <td>1494.93</td>
+      <td>51.11%</td>
+      <td>25.37%</td>
+      <td>23.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>@ Aalborg</td>
+      <td>1472.05</td>
+      <td>27.21%</td>
+      <td>49.10%</td>
+      <td>23.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Aalborg</td>
+      <td>1472.05</td>
+      <td>Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>49.10%</td>
+      <td>27.21%</td>
+      <td>23.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>HB Koge</td>
+      <td>1362.47</td>
+      <td>Esbjerg</td>
+      <td>1475.68</td>
+      <td>27.71%</td>
+      <td>48.56%</td>
+      <td>23.74%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Hillerod</td>
+      <td>1523.17</td>
+      <td>B.93</td>
+      <td>1384.08</td>
+      <td>59.66%</td>
+      <td>18.05%</td>
+      <td>22.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Kolding IF</td>
+      <td>1494.93</td>
+      <td>Hobro</td>
+      <td>1392.80</td>
+      <td>55.72%</td>
+      <td>21.31%</td>
+      <td>22.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Middlefart BK</td>
+      <td>1353.58</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>24.40%</td>
+      <td>52.19%</td>
+      <td>23.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>@ Middlefart BK</td>
+      <td>1353.58</td>
+      <td>52.19%</td>
+      <td>24.40%</td>
+      <td>23.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Hobro</td>
+      <td>1392.80</td>
+      <td>@ Kolding IF</td>
+      <td>1494.93</td>
+      <td>21.31%</td>
+      <td>55.72%</td>
+      <td>22.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>B.93</td>
+      <td>1384.08</td>
+      <td>@ Hillerod</td>
+      <td>1523.17</td>
+      <td>18.05%</td>
+      <td>59.66%</td>
+      <td>22.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Esbjerg</td>
+      <td>1475.68</td>
+      <td>@ HB Koge</td>
+      <td>1362.47</td>
+      <td>48.56%</td>
+      <td>27.71%</td>
+      <td>23.74%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Lyngby</td>
+      <td>1557.54</td>
+      <td>@ Horsens</td>
+      <td>1512.58</td>
+      <td>39.30%</td>
+      <td>36.60%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Horsens</td>
+      <td>1512.58</td>
+      <td>Lyngby</td>
+      <td>1557.54</td>
+      <td>36.60%</td>
+      <td>39.30%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Horsens</td>
+      <td>1512.58</td>
+      <td>@ Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>45.12%</td>
+      <td>30.93%</td>
+      <td>23.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>HB Koge</td>
+      <td>1362.47</td>
+      <td>@ B.93</td>
+      <td>1384.08</td>
+      <td>30.22%</td>
+      <td>45.88%</td>
+      <td>23.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Aalborg</td>
+      <td>1472.05</td>
+      <td>@ Hobro</td>
+      <td>1392.80</td>
+      <td>44.08%</td>
+      <td>31.93%</td>
+      <td>23.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Middlefart BK</td>
+      <td>1353.58</td>
+      <td>@ Lyngby</td>
+      <td>1557.54</td>
+      <td>13.43%</td>
+      <td>65.75%</td>
+      <td>20.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Hillerod</td>
+      <td>1523.17</td>
+      <td>@ Esbjerg</td>
+      <td>1475.68</td>
+      <td>39.66%</td>
+      <td>36.24%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Lyngby</td>
+      <td>1557.54</td>
+      <td>Middlefart BK</td>
+      <td>1353.58</td>
+      <td>65.75%</td>
+      <td>13.43%</td>
+      <td>20.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>Kolding IF</td>
+      <td>1494.93</td>
+      <td>43.12%</td>
+      <td>32.85%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Hobro</td>
+      <td>1392.80</td>
+      <td>Aalborg</td>
+      <td>1472.05</td>
+      <td>31.93%</td>
+      <td>44.08%</td>
+      <td>23.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Esbjerg</td>
+      <td>1475.68</td>
+      <td>Hillerod</td>
+      <td>1523.17</td>
+      <td>36.24%</td>
+      <td>39.66%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>B.93</td>
+      <td>1384.08</td>
+      <td>HB Koge</td>
+      <td>1362.47</td>
+      <td>45.88%</td>
+      <td>30.22%</td>
+      <td>23.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>Horsens</td>
+      <td>1512.58</td>
+      <td>30.93%</td>
+      <td>45.12%</td>
+      <td>23.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Kolding IF</td>
+      <td>1494.93</td>
+      <td>@ Hvidovre</td>
+      <td>1496.16</td>
+      <td>32.85%</td>
+      <td>43.12%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Esbjerg</td>
+      <td>1475.68</td>
+      <td>@ Aalborg</td>
+      <td>1472.05</td>
+      <td>33.50%</td>
+      <td>42.45%</td>
+      <td>24.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>@ Horsens</td>
+      <td>1512.58</td>
+      <td>30.88%</td>
+      <td>45.18%</td>
+      <td>23.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>@ Hillerod</td>
+      <td>1523.17</td>
+      <td>21.75%</td>
+      <td>55.21%</td>
+      <td>23.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Lyngby</td>
+      <td>1557.54</td>
+      <td>@ HB Koge</td>
+      <td>1362.47</td>
+      <td>58.10%</td>
+      <td>19.32%</td>
+      <td>22.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Middlefart BK</td>
+      <td>1353.58</td>
+      <td>Hobro</td>
+      <td>1392.80</td>
+      <td>37.42%</td>
+      <td>38.48%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Kolding IF</td>
+      <td>1494.93</td>
+      <td>B.93</td>
+      <td>1384.08</td>
+      <td>56.68%</td>
+      <td>20.50%</td>
+      <td>22.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Hillerod</td>
+      <td>1523.17</td>
+      <td>Aarhus Fremad</td>
+      <td>1425.59</td>
+      <td>55.21%</td>
+      <td>21.75%</td>
+      <td>23.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>HB Koge</td>
+      <td>1362.47</td>
+      <td>Lyngby</td>
+      <td>1557.54</td>
+      <td>19.32%</td>
+      <td>58.10%</td>
+      <td>22.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Horsens</td>
+      <td>1512.58</td>
+      <td>Hvidovre</td>
+      <td>1496.16</td>
+      <td>45.18%</td>
+      <td>30.88%</td>
+      <td>23.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Aalborg</td>
+      <td>1472.05</td>
+      <td>Esbjerg</td>
+      <td>1475.68</td>
+      <td>42.45%</td>
+      <td>33.50%</td>
+      <td>24.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>B.93</td>
+      <td>1384.08</td>
+      <td>@ Kolding IF</td>
+      <td>1494.93</td>
+      <td>20.50%</td>
+      <td>56.68%</td>
+      <td>22.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Hobro</td>
+      <td>1392.80</td>
+      <td>@ Middlefart BK</td>
+      <td>1353.58</td>
+      <td>38.48%</td>
+      <td>37.42%</td>
+      <td>24.10%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="College 1975">College 1975</option><option value="Europa">Europa</option><option value="Europa Point">Europa Point</option><option value="FCB Magpies">FCB Magpies</option><option value="Glacis United">Glacis United</option><option value="Hound Dogs">Hound Dogs</option><option value="Lincoln Red Imps">Lincoln Red Imps</option><option value="Lions Gibraltar">Lions Gibraltar</option><option value="Lynx">Lynx</option><option value="Manchester 62">Manchester 62</option><option value="Mons Calpe S.C.">Mons Calpe S.C.</option><option value="St. Joseph's">St. Joseph's</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Glacis United</td>
+      <td>982.57</td>
+      <td>2</td>
+      <td>Lynx</td>
+      <td>1025.06</td>
+      <td>3</td>
+      <td>37.11%</td>
+      <td>49.07%</td>
+      <td>13.82%</td>
+      <td>-16.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Lynx</td>
+      <td>1025.06</td>
+      <td>3</td>
+      <td>@ Glacis United</td>
+      <td>982.57</td>
+      <td>2</td>
+      <td>49.07%</td>
+      <td>37.11%</td>
+      <td>13.82%</td>
+      <td>16.14</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Hound Dogs</td>
+      <td>1100.15</td>
+      <td>1</td>
+      <td>Lions Gibraltar</td>
+      <td>1026.91</td>
+      <td>1</td>
+      <td>53.20%</td>
+      <td>33.02%</td>
+      <td>13.78%</td>
+      <td>-1.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>College 1975</td>
+      <td>974.71</td>
+      <td>0</td>
+      <td>Mons Calpe S.C.</td>
+      <td>949.00</td>
+      <td>5</td>
+      <td>46.74%</td>
+      <td>39.43%</td>
+      <td>13.83%</td>
+      <td>-44.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Mons Calpe S.C.</td>
+      <td>949.00</td>
+      <td>5</td>
+      <td>@ College 1975</td>
+      <td>974.71</td>
+      <td>0</td>
+      <td>39.43%</td>
+      <td>46.74%</td>
+      <td>13.83%</td>
+      <td>44.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Lions Gibraltar</td>
+      <td>1026.91</td>
+      <td>1</td>
+      <td>@ Hound Dogs</td>
+      <td>1100.15</td>
+      <td>1</td>
+      <td>33.02%</td>
+      <td>53.20%</td>
+      <td>13.78%</td>
+      <td>1.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>St. Joseph's</td>
+      <td>1264.63</td>
+      <td>6</td>
+      <td>Europa Point</td>
+      <td>924.48</td>
+      <td>0</td>
+      <td>77.59%</td>
+      <td>9.59%</td>
+      <td>12.82%</td>
+      <td>11.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Europa Point</td>
+      <td>924.48</td>
+      <td>0</td>
+      <td>@ St. Joseph's</td>
+      <td>1264.63</td>
+      <td>6</td>
+      <td>9.59%</td>
+      <td>77.59%</td>
+      <td>12.82%</td>
+      <td>-11.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Europa</td>
+      <td>1185.43</td>
+      <td>1</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>993.11</td>
+      <td>0</td>
+      <td>66.70%</td>
+      <td>19.80%</td>
+      <td>13.50%</td>
+      <td>9.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Mons Calpe S.C.</td>
+      <td>993.11</td>
+      <td>0</td>
+      <td>Europa</td>
+      <td>1185.43</td>
+      <td>1</td>
+      <td>19.80%</td>
+      <td>66.70%</td>
+      <td>13.50%</td>
+      <td>-9.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Lynx</td>
+      <td>1041.20</td>
+      <td>1</td>
+      <td>Lions Gibraltar</td>
+      <td>1028.82</td>
+      <td>2</td>
+      <td>44.86%</td>
+      <td>41.31%</td>
+      <td>13.83%</td>
+      <td>-19.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>FCB Magpies</td>
+      <td>1091.57</td>
+      <td>2</td>
+      <td>Manchester 62</td>
+      <td>1123.50</td>
+      <td>2</td>
+      <td>38.56%</td>
+      <td>47.61%</td>
+      <td>13.82%</td>
+      <td>0.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Lions Gibraltar</td>
+      <td>1028.82</td>
+      <td>2</td>
+      <td>@ Lynx</td>
+      <td>1041.20</td>
+      <td>1</td>
+      <td>41.31%</td>
+      <td>44.86%</td>
+      <td>13.83%</td>
+      <td>19.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Manchester 62</td>
+      <td>1123.50</td>
+      <td>2</td>
+      <td>@ FCB Magpies</td>
+      <td>1091.57</td>
+      <td>2</td>
+      <td>47.61%</td>
+      <td>38.56%</td>
+      <td>13.82%</td>
+      <td>-0.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>College 1975</td>
+      <td>930.60</td>
+      <td>0</td>
+      <td>@ St. Joseph's</td>
+      <td>1275.76</td>
+      <td>4</td>
+      <td>9.34%</td>
+      <td>77.86%</td>
+      <td>12.80%</td>
+      <td>-8.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Europa Point</td>
+      <td>913.35</td>
+      <td>0</td>
+      <td>Hound Dogs</td>
+      <td>1098.24</td>
+      <td>3</td>
+      <td>20.49%</td>
+      <td>65.98%</td>
+      <td>13.53%</td>
+      <td>-16.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Hound Dogs</td>
+      <td>1098.24</td>
+      <td>3</td>
+      <td>@ Europa Point</td>
+      <td>913.35</td>
+      <td>0</td>
+      <td>65.98%</td>
+      <td>20.49%</td>
+      <td>13.53%</td>
+      <td>16.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>St. Joseph's</td>
+      <td>1275.76</td>
+      <td>4</td>
+      <td>College 1975</td>
+      <td>930.60</td>
+      <td>0</td>
+      <td>77.86%</td>
+      <td>9.34%</td>
+      <td>12.80%</td>
+      <td>8.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Lions Gibraltar</td>
+      <td>1047.85</td>
+      <td>3</td>
+      <td>Europa Point</td>
+      <td>897.03</td>
+      <td>2</td>
+      <td>62.48%</td>
+      <td>23.89%</td>
+      <td>13.63%</td>
+      <td>10.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Europa Point</td>
+      <td>897.03</td>
+      <td>2</td>
+      <td>@ Lions Gibraltar</td>
+      <td>1047.85</td>
+      <td>3</td>
+      <td>23.89%</td>
+      <td>62.48%</td>
+      <td>13.63%</td>
+      <td>-10.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>St. Joseph's</td>
+      <td>1284.62</td>
+      <td>5</td>
+      <td>@ Manchester 62</td>
+      <td>1122.66</td>
+      <td>0</td>
+      <td>63.67%</td>
+      <td>22.73%</td>
+      <td>13.60%</td>
+      <td>23.21</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Lynx</td>
+      <td>1022.17</td>
+      <td>2</td>
+      <td>@ Europa</td>
+      <td>1194.56</td>
+      <td>0</td>
+      <td>21.69%</td>
+      <td>64.74%</td>
+      <td>13.57%</td>
+      <td>37.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Europa</td>
+      <td>1194.56</td>
+      <td>0</td>
+      <td>Lynx</td>
+      <td>1022.17</td>
+      <td>2</td>
+      <td>64.74%</td>
+      <td>21.69%</td>
+      <td>13.57%</td>
+      <td>-37.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Manchester 62</td>
+      <td>1122.66</td>
+      <td>0</td>
+      <td>St. Joseph's</td>
+      <td>1284.62</td>
+      <td>5</td>
+      <td>22.73%</td>
+      <td>63.67%</td>
+      <td>13.60%</td>
+      <td>-23.21</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>FCB Magpies</td>
+      <td>1092.41</td>
+      <td>0</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>983.98</td>
+      <td>0</td>
+      <td>57.62%</td>
+      <td>28.65%</td>
+      <td>13.73%</td>
+      <td>-2.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Glacis United</td>
+      <td>966.44</td>
+      <td>1</td>
+      <td>@ College 1975</td>
+      <td>921.74</td>
+      <td>0</td>
+      <td>49.38%</td>
+      <td>36.81%</td>
+      <td>13.81%</td>
+      <td>16.02</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Mons Calpe S.C.</td>
+      <td>983.98</td>
+      <td>0</td>
+      <td>FCB Magpies</td>
+      <td>1092.41</td>
+      <td>0</td>
+      <td>28.65%</td>
+      <td>57.62%</td>
+      <td>13.73%</td>
+      <td>2.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>College 1975</td>
+      <td>921.74</td>
+      <td>0</td>
+      <td>Glacis United</td>
+      <td>966.44</td>
+      <td>1</td>
+      <td>36.81%</td>
+      <td>49.38%</td>
+      <td>13.81%</td>
+      <td>-16.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Europa</td>
+      <td>1156.65</td>
+      <td>2</td>
+      <td>@ FCB Magpies</td>
+      <td>1089.63</td>
+      <td>1</td>
+      <td>52.38%</td>
+      <td>33.83%</td>
+      <td>13.79%</td>
+      <td>14.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>FCB Magpies</td>
+      <td>1089.63</td>
+      <td>1</td>
+      <td>Europa</td>
+      <td>1156.65</td>
+      <td>2</td>
+      <td>33.83%</td>
+      <td>52.38%</td>
+      <td>13.79%</td>
+      <td>-14.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Mons Calpe S.C.</td>
+      <td>986.76</td>
+      <td>3</td>
+      <td>@ St. Joseph's</td>
+      <td>1307.83</td>
+      <td>1</td>
+      <td>10.57%</td>
+      <td>76.50%</td>
+      <td>12.93%</td>
+      <td>44.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Manchester 62</td>
+      <td>1099.45</td>
+      <td>3</td>
+      <td>@ Glacis United</td>
+      <td>982.46</td>
+      <td>1</td>
+      <td>58.65%</td>
+      <td>27.64%</td>
+      <td>13.71%</td>
+      <td>17.55</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>St. Joseph's</td>
+      <td>1307.83</td>
+      <td>1</td>
+      <td>Mons Calpe S.C.</td>
+      <td>986.76</td>
+      <td>3</td>
+      <td>76.50%</td>
+      <td>10.57%</td>
+      <td>12.93%</td>
+      <td>-44.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Glacis United</td>
+      <td>982.46</td>
+      <td>1</td>
+      <td>Manchester 62</td>
+      <td>1099.45</td>
+      <td>3</td>
+      <td>27.64%</td>
+      <td>58.65%</td>
+      <td>13.71%</td>
+      <td>-17.55</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Lions Gibraltar</td>
+      <td>1058.71</td>
+      <td>0</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1315.34</td>
+      <td>4</td>
+      <td>14.57%</td>
+      <td>72.18%</td>
+      <td>13.25%</td>
+      <td>-13.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Europa Point</td>
+      <td>886.17</td>
+      <td>2</td>
+      <td>Lynx</td>
+      <td>1060.08</td>
+      <td>2</td>
+      <td>21.54%</td>
+      <td>64.89%</td>
+      <td>13.56%</td>
+      <td>4.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Lincoln Red Imps</td>
+      <td>1315.34</td>
+      <td>4</td>
+      <td>Lions Gibraltar</td>
+      <td>1058.71</td>
+      <td>0</td>
+      <td>72.18%</td>
+      <td>14.57%</td>
+      <td>13.25%</td>
+      <td>13.65</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Lynx</td>
+      <td>1060.08</td>
+      <td>2</td>
+      <td>@ Europa Point</td>
+      <td>886.17</td>
+      <td>2</td>
+      <td>64.89%</td>
+      <td>21.54%</td>
+      <td>13.56%</td>
+      <td>-4.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>Hound Dogs</td>
+      <td>1114.56</td>
+      <td>1</td>
+      <td>@ College 1975</td>
+      <td>905.72</td>
+      <td>1</td>
+      <td>68.22%</td>
+      <td>18.33%</td>
+      <td>13.44%</td>
+      <td>-4.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-15</td>
+      <td>College 1975</td>
+      <td>905.72</td>
+      <td>1</td>
+      <td>Hound Dogs</td>
+      <td>1114.56</td>
+      <td>1</td>
+      <td>18.33%</td>
+      <td>68.22%</td>
+      <td>13.44%</td>
+      <td>4.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-17</td>
+      <td>Europa</td>
+      <td>1171.52</td>
+      <td>2</td>
+      <td>Manchester 62</td>
+      <td>1117.00</td>
+      <td>1</td>
+      <td>50.71%</td>
+      <td>35.48%</td>
+      <td>13.81%</td>
+      <td>15.51</td>
+    </tr>
+    <tr>
+      <td>2025-09-17</td>
+      <td>Manchester 62</td>
+      <td>1117.00</td>
+      <td>1</td>
+      <td>@ Europa</td>
+      <td>1171.52</td>
+      <td>2</td>
+      <td>35.48%</td>
+      <td>50.71%</td>
+      <td>13.81%</td>
+      <td>-15.51</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>St. Joseph's</td>
+      <td>1262.94</td>
+      <td>2</td>
+      <td>@ FCB Magpies</td>
+      <td>1074.76</td>
+      <td>0</td>
+      <td>66.30%</td>
+      <td>20.18%</td>
+      <td>13.52%</td>
+      <td>13.14</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>FCB Magpies</td>
+      <td>1074.76</td>
+      <td>0</td>
+      <td>St. Joseph's</td>
+      <td>1262.94</td>
+      <td>2</td>
+      <td>20.18%</td>
+      <td>66.30%</td>
+      <td>13.52%</td>
+      <td>-13.14</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Glacis United</td>
+      <td>964.91</td>
+      <td>0</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>1031.65</td>
+      <td>2</td>
+      <td>33.86%</td>
+      <td>52.34%</td>
+      <td>13.79%</td>
+      <td>-21.05</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1031.65</td>
+      <td>2</td>
+      <td>Glacis United</td>
+      <td>964.91</td>
+      <td>0</td>
+      <td>52.34%</td>
+      <td>33.86%</td>
+      <td>13.79%</td>
+      <td>21.05</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Lynx</td>
+      <td>1055.83</td>
+      <td>2</td>
+      <td>Lincoln Red Imps</td>
+      <td>1328.99</td>
+      <td>5</td>
+      <td>13.44%</td>
+      <td>73.39%</td>
+      <td>13.17%</td>
+      <td>-10.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Lincoln Red Imps</td>
+      <td>1328.99</td>
+      <td>5</td>
+      <td>@ Lynx</td>
+      <td>1055.83</td>
+      <td>2</td>
+      <td>73.39%</td>
+      <td>13.44%</td>
+      <td>13.17%</td>
+      <td>10.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Europa Point</td>
+      <td>890.42</td>
+      <td>0</td>
+      <td>@ Europa</td>
+      <td>1187.03</td>
+      <td>2</td>
+      <td>11.96%</td>
+      <td>74.99%</td>
+      <td>13.06%</td>
+      <td>-7.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>College 1975</td>
+      <td>910.66</td>
+      <td>1</td>
+      <td>@ Lions Gibraltar</td>
+      <td>1045.05</td>
+      <td>4</td>
+      <td>25.66%</td>
+      <td>60.67%</td>
+      <td>13.67%</td>
+      <td>-20.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Europa</td>
+      <td>1187.03</td>
+      <td>2</td>
+      <td>Europa Point</td>
+      <td>890.42</td>
+      <td>0</td>
+      <td>74.99%</td>
+      <td>11.96%</td>
+      <td>13.06%</td>
+      <td>7.98</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Lions Gibraltar</td>
+      <td>1045.05</td>
+      <td>4</td>
+      <td>College 1975</td>
+      <td>910.66</td>
+      <td>1</td>
+      <td>60.67%</td>
+      <td>25.66%</td>
+      <td>13.67%</td>
+      <td>20.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Hound Dogs</td>
+      <td>1109.62</td>
+      <td>1</td>
+      <td>@ Manchester 62</td>
+      <td>1101.49</td>
+      <td>4</td>
+      <td>44.25%</td>
+      <td>41.92%</td>
+      <td>13.83%</td>
+      <td>-32.56</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Manchester 62</td>
+      <td>1101.49</td>
+      <td>4</td>
+      <td>Hound Dogs</td>
+      <td>1109.62</td>
+      <td>1</td>
+      <td>41.92%</td>
+      <td>44.25%</td>
+      <td>13.83%</td>
+      <td>32.56</td>
+    </tr>
+    <tr>
+      <td>2025-09-24</td>
+      <td>FCB Magpies</td>
+      <td>1061.62</td>
+      <td>0</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1339.93</td>
+      <td>7</td>
+      <td>13.10%</td>
+      <td>73.75%</td>
+      <td>13.15%</td>
+      <td>-16.30</td>
+    </tr>
+    <tr>
+      <td>2025-09-24</td>
+      <td>Lincoln Red Imps</td>
+      <td>1339.93</td>
+      <td>7</td>
+      <td>FCB Magpies</td>
+      <td>1061.62</td>
+      <td>0</td>
+      <td>73.75%</td>
+      <td>13.10%</td>
+      <td>13.15%</td>
+      <td>16.30</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>St. Joseph's</td>
+      <td>1276.08</td>
+      <td>2</td>
+      <td>Europa</td>
+      <td>1195.01</td>
+      <td>1</td>
+      <td>54.21%</td>
+      <td>32.01%</td>
+      <td>13.77%</td>
+      <td>14.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Europa</td>
+      <td>1195.01</td>
+      <td>1</td>
+      <td>@ St. Joseph's</td>
+      <td>1276.08</td>
+      <td>2</td>
+      <td>32.01%</td>
+      <td>54.21%</td>
+      <td>13.77%</td>
+      <td>-14.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>College 1975</td>
+      <td>890.57</td>
+      <td>0</td>
+      <td>Lynx</td>
+      <td>1044.89</td>
+      <td>0</td>
+      <td>23.52%</td>
+      <td>62.86%</td>
+      <td>13.62%</td>
+      <td>3.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Hound Dogs</td>
+      <td>1077.06</td>
+      <td>0</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1052.70</td>
+      <td>4</td>
+      <td>46.55%</td>
+      <td>39.62%</td>
+      <td>13.83%</td>
+      <td>-39.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1052.70</td>
+      <td>4</td>
+      <td>@ Hound Dogs</td>
+      <td>1077.06</td>
+      <td>0</td>
+      <td>39.62%</td>
+      <td>46.55%</td>
+      <td>13.83%</td>
+      <td>39.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Lynx</td>
+      <td>1044.89</td>
+      <td>0</td>
+      <td>@ College 1975</td>
+      <td>890.57</td>
+      <td>0</td>
+      <td>62.86%</td>
+      <td>23.52%</td>
+      <td>13.62%</td>
+      <td>-3.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Glacis United</td>
+      <td>943.86</td>
+      <td>0</td>
+      <td>FCB Magpies</td>
+      <td>1045.32</td>
+      <td>1</td>
+      <td>29.49%</td>
+      <td>56.77%</td>
+      <td>13.74%</td>
+      <td>-13.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Lincoln Red Imps</td>
+      <td>1356.23</td>
+      <td>7</td>
+      <td>Europa Point</td>
+      <td>882.44</td>
+      <td>0</td>
+      <td>83.30%</td>
+      <td>4.76%</td>
+      <td>11.94%</td>
+      <td>5.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Europa Point</td>
+      <td>882.44</td>
+      <td>0</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1356.23</td>
+      <td>7</td>
+      <td>4.76%</td>
+      <td>83.30%</td>
+      <td>11.94%</td>
+      <td>-5.96</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>FCB Magpies</td>
+      <td>1045.32</td>
+      <td>1</td>
+      <td>@ Glacis United</td>
+      <td>943.86</td>
+      <td>0</td>
+      <td>56.77%</td>
+      <td>29.49%</td>
+      <td>13.74%</td>
+      <td>13.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Manchester 62</td>
+      <td>1134.05</td>
+      <td>2</td>
+      <td>Lions Gibraltar</td>
+      <td>1065.14</td>
+      <td>4</td>
+      <td>52.63%</td>
+      <td>33.58%</td>
+      <td>13.79%</td>
+      <td>-31.06</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Lions Gibraltar</td>
+      <td>1065.14</td>
+      <td>4</td>
+      <td>@ Manchester 62</td>
+      <td>1134.05</td>
+      <td>2</td>
+      <td>33.58%</td>
+      <td>52.63%</td>
+      <td>13.79%</td>
+      <td>31.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-02</td>
+      <td>St. Joseph's</td>
+      <td>1290.24</td>
+      <td>6</td>
+      <td>Glacis United</td>
+      <td>930.71</td>
+      <td>0</td>
+      <td>78.61%</td>
+      <td>8.68%</td>
+      <td>12.71%</td>
+      <td>10.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-02</td>
+      <td>Glacis United</td>
+      <td>930.71</td>
+      <td>0</td>
+      <td>@ St. Joseph's</td>
+      <td>1290.24</td>
+      <td>6</td>
+      <td>8.68%</td>
+      <td>78.61%</td>
+      <td>12.71%</td>
+      <td>-10.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Lynx</td>
+      <td>1041.06</td>
+      <td>0</td>
+      <td>Manchester 62</td>
+      <td>1102.99</td>
+      <td>1</td>
+      <td>34.50%</td>
+      <td>51.70%</td>
+      <td>13.80%</td>
+      <td>-15.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Manchester 62</td>
+      <td>1102.99</td>
+      <td>1</td>
+      <td>@ Lynx</td>
+      <td>1041.06</td>
+      <td>0</td>
+      <td>51.70%</td>
+      <td>34.50%</td>
+      <td>13.80%</td>
+      <td>15.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Hound Dogs</td>
+      <td>1037.75</td>
+      <td>0</td>
+      <td>@ FCB Magpies</td>
+      <td>1058.47</td>
+      <td>1</td>
+      <td>40.13%</td>
+      <td>46.04%</td>
+      <td>13.83%</td>
+      <td>-17.28</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>College 1975</td>
+      <td>894.40</td>
+      <td>0</td>
+      <td>@ Europa Point</td>
+      <td>876.48</td>
+      <td>1</td>
+      <td>45.64%</td>
+      <td>40.53%</td>
+      <td>13.83%</td>
+      <td>-19.31</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>FCB Magpies</td>
+      <td>1058.47</td>
+      <td>1</td>
+      <td>Hound Dogs</td>
+      <td>1037.75</td>
+      <td>0</td>
+      <td>46.04%</td>
+      <td>40.13%</td>
+      <td>13.83%</td>
+      <td>17.28</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Europa Point</td>
+      <td>876.48</td>
+      <td>1</td>
+      <td>College 1975</td>
+      <td>894.40</td>
+      <td>0</td>
+      <td>40.53%</td>
+      <td>45.64%</td>
+      <td>13.83%</td>
+      <td>19.31</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1092.01</td>
+      <td>0</td>
+      <td>Lions Gibraltar</td>
+      <td>1096.21</td>
+      <td>2</td>
+      <td>42.48%</td>
+      <td>43.69%</td>
+      <td>13.83%</td>
+      <td>-25.67</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Lions Gibraltar</td>
+      <td>1096.21</td>
+      <td>2</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>1092.01</td>
+      <td>0</td>
+      <td>43.69%</td>
+      <td>42.48%</td>
+      <td>13.83%</td>
+      <td>25.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Glacis United</td>
+      <td>920.62</td>
+      <td>0</td>
+      <td>Europa</td>
+      <td>1180.85</td>
+      <td>2</td>
+      <td>14.32%</td>
+      <td>72.45%</td>
+      <td>13.23%</td>
+      <td>-9.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Europa</td>
+      <td>1180.85</td>
+      <td>2</td>
+      <td>@ Glacis United</td>
+      <td>920.62</td>
+      <td>0</td>
+      <td>72.45%</td>
+      <td>14.32%</td>
+      <td>13.23%</td>
+      <td>9.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>College 1975</td>
+      <td>875.09</td>
+      <td>0</td>
+      <td>Lincoln Red Imps</td>
+      <td>1362.19</td>
+      <td>3</td>
+      <td>4.44%</td>
+      <td>83.72%</td>
+      <td>11.84%</td>
+      <td>-3.64</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Europa Point</td>
+      <td>895.79</td>
+      <td>3</td>
+      <td>@ Manchester 62</td>
+      <td>1118.12</td>
+      <td>4</td>
+      <td>17.20%</td>
+      <td>69.41%</td>
+      <td>13.39%</td>
+      <td>-7.99</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Manchester 62</td>
+      <td>1118.12</td>
+      <td>4</td>
+      <td>Europa Point</td>
+      <td>895.79</td>
+      <td>3</td>
+      <td>69.41%</td>
+      <td>17.20%</td>
+      <td>13.39%</td>
+      <td>7.99</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Lincoln Red Imps</td>
+      <td>1362.19</td>
+      <td>3</td>
+      <td>@ College 1975</td>
+      <td>875.09</td>
+      <td>0</td>
+      <td>83.72%</td>
+      <td>4.44%</td>
+      <td>11.84%</td>
+      <td>3.64</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Hound Dogs</td>
+      <td>1020.47</td>
+      <td>0</td>
+      <td>St. Joseph's</td>
+      <td>1300.33</td>
+      <td>5</td>
+      <td>13.00%</td>
+      <td>73.86%</td>
+      <td>13.14%</td>
+      <td>-13.67</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1066.34</td>
+      <td>5</td>
+      <td>Lynx</td>
+      <td>1025.93</td>
+      <td>2</td>
+      <td>48.79%</td>
+      <td>37.39%</td>
+      <td>13.82%</td>
+      <td>28.14</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>St. Joseph's</td>
+      <td>1300.33</td>
+      <td>5</td>
+      <td>@ Hound Dogs</td>
+      <td>1020.47</td>
+      <td>0</td>
+      <td>73.86%</td>
+      <td>13.00%</td>
+      <td>13.14%</td>
+      <td>13.67</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Lynx</td>
+      <td>1025.93</td>
+      <td>2</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>1066.34</td>
+      <td>5</td>
+      <td>37.39%</td>
+      <td>48.79%</td>
+      <td>13.82%</td>
+      <td>-28.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>FCB Magpies</td>
+      <td>1075.75</td>
+      <td>2</td>
+      <td>@ Lions Gibraltar</td>
+      <td>1121.87</td>
+      <td>3</td>
+      <td>36.61%</td>
+      <td>49.57%</td>
+      <td>13.81%</td>
+      <td>-15.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Lions Gibraltar</td>
+      <td>1121.87</td>
+      <td>3</td>
+      <td>FCB Magpies</td>
+      <td>1075.75</td>
+      <td>2</td>
+      <td>49.57%</td>
+      <td>36.61%</td>
+      <td>13.81%</td>
+      <td>15.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Europa Point</td>
+      <td>887.80</td>
+      <td>1</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1094.48</td>
+      <td>5</td>
+      <td>18.52%</td>
+      <td>68.03%</td>
+      <td>13.45%</td>
+      <td>-17.14</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1094.48</td>
+      <td>5</td>
+      <td>@ Europa Point</td>
+      <td>887.80</td>
+      <td>1</td>
+      <td>68.03%</td>
+      <td>18.52%</td>
+      <td>13.45%</td>
+      <td>17.14</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>College 1975</td>
+      <td>871.45</td>
+      <td>0</td>
+      <td>@ Europa</td>
+      <td>1190.34</td>
+      <td>1</td>
+      <td>10.68%</td>
+      <td>76.37%</td>
+      <td>12.94%</td>
+      <td>-5.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Hound Dogs</td>
+      <td>1006.80</td>
+      <td>0</td>
+      <td>@ Glacis United</td>
+      <td>911.13</td>
+      <td>0</td>
+      <td>56.06%</td>
+      <td>30.19%</td>
+      <td>13.75%</td>
+      <td>-2.47</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Glacis United</td>
+      <td>911.13</td>
+      <td>0</td>
+      <td>Hound Dogs</td>
+      <td>1006.80</td>
+      <td>0</td>
+      <td>30.19%</td>
+      <td>56.06%</td>
+      <td>13.75%</td>
+      <td>2.46</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Europa</td>
+      <td>1190.34</td>
+      <td>1</td>
+      <td>College 1975</td>
+      <td>871.45</td>
+      <td>0</td>
+      <td>76.37%</td>
+      <td>10.68%</td>
+      <td>12.94%</td>
+      <td>5.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Lynx</td>
+      <td>997.80</td>
+      <td>3</td>
+      <td>@ FCB Magpies</td>
+      <td>1059.80</td>
+      <td>1</td>
+      <td>34.48%</td>
+      <td>51.72%</td>
+      <td>13.80%</td>
+      <td>30.57</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>FCB Magpies</td>
+      <td>1059.80</td>
+      <td>1</td>
+      <td>Lynx</td>
+      <td>997.80</td>
+      <td>3</td>
+      <td>51.72%</td>
+      <td>34.48%</td>
+      <td>13.80%</td>
+      <td>-30.56</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>St. Joseph's</td>
+      <td>1314.00</td>
+      <td>3</td>
+      <td>Lions Gibraltar</td>
+      <td>1137.82</td>
+      <td>1</td>
+      <td>65.13%</td>
+      <td>21.32%</td>
+      <td>13.55%</td>
+      <td>13.83</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Lions Gibraltar</td>
+      <td>1137.82</td>
+      <td>1</td>
+      <td>@ St. Joseph's</td>
+      <td>1314.00</td>
+      <td>3</td>
+      <td>21.32%</td>
+      <td>65.13%</td>
+      <td>13.55%</td>
+      <td>-13.83</td>
+    </tr>
+    <tr>
+      <td>2025-10-27</td>
+      <td>Lincoln Red Imps</td>
+      <td>1365.83</td>
+      <td>3</td>
+      <td>Manchester 62</td>
+      <td>1126.11</td>
+      <td>2</td>
+      <td>70.86%</td>
+      <td>15.82%</td>
+      <td>13.32%</td>
+      <td>7.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-27</td>
+      <td>Manchester 62</td>
+      <td>1126.11</td>
+      <td>2</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1365.83</td>
+      <td>3</td>
+      <td>15.82%</td>
+      <td>70.86%</td>
+      <td>13.32%</td>
+      <td>-7.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Glacis United</td>
+      <td>913.59</td>
+      <td>1</td>
+      <td>@ Lions Gibraltar</td>
+      <td>1123.99</td>
+      <td>2</td>
+      <td>18.20%</td>
+      <td>68.37%</td>
+      <td>13.44%</td>
+      <td>-8.43</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Lions Gibraltar</td>
+      <td>1123.99</td>
+      <td>2</td>
+      <td>Glacis United</td>
+      <td>913.59</td>
+      <td>1</td>
+      <td>68.37%</td>
+      <td>18.20%</td>
+      <td>13.44%</td>
+      <td>8.43</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Lincoln Red Imps</td>
+      <td>1373.21</td>
+      <td>3</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>1111.62</td>
+      <td>0</td>
+      <td>72.55%</td>
+      <td>14.23%</td>
+      <td>13.23%</td>
+      <td>11.56</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>St. Joseph's</td>
+      <td>1327.83</td>
+      <td>7</td>
+      <td>@ Lynx</td>
+      <td>1028.37</td>
+      <td>0</td>
+      <td>75.17%</td>
+      <td>11.79%</td>
+      <td>13.04%</td>
+      <td>14.72</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1111.62</td>
+      <td>0</td>
+      <td>Lincoln Red Imps</td>
+      <td>1373.21</td>
+      <td>3</td>
+      <td>14.23%</td>
+      <td>72.55%</td>
+      <td>13.23%</td>
+      <td>-11.55</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Lynx</td>
+      <td>1028.37</td>
+      <td>0</td>
+      <td>St. Joseph's</td>
+      <td>1327.83</td>
+      <td>7</td>
+      <td>11.79%</td>
+      <td>75.17%</td>
+      <td>13.04%</td>
+      <td>-14.72</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>College 1975</td>
+      <td>866.40</td>
+      <td>4</td>
+      <td>@ Manchester 62</td>
+      <td>1118.73</td>
+      <td>3</td>
+      <td>14.88%</td>
+      <td>71.85%</td>
+      <td>13.27%</td>
+      <td>29.77</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Europa Point</td>
+      <td>870.66</td>
+      <td>1</td>
+      <td>@ FCB Magpies</td>
+      <td>1029.24</td>
+      <td>0</td>
+      <td>23.08%</td>
+      <td>63.31%</td>
+      <td>13.61%</td>
+      <td>26.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>FCB Magpies</td>
+      <td>1029.24</td>
+      <td>0</td>
+      <td>Europa Point</td>
+      <td>870.66</td>
+      <td>1</td>
+      <td>63.31%</td>
+      <td>23.08%</td>
+      <td>13.61%</td>
+      <td>-26.22</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Manchester 62</td>
+      <td>1118.73</td>
+      <td>3</td>
+      <td>College 1975</td>
+      <td>866.40</td>
+      <td>4</td>
+      <td>71.85%</td>
+      <td>14.88%</td>
+      <td>13.27%</td>
+      <td>-29.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Lions Gibraltar</td>
+      <td>1132.42</td>
+      <td>2</td>
+      <td>@ Europa</td>
+      <td>1195.40</td>
+      <td>3</td>
+      <td>34.36%</td>
+      <td>51.85%</td>
+      <td>13.80%</td>
+      <td>-15.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Europa</td>
+      <td>1195.40</td>
+      <td>3</td>
+      <td>Lions Gibraltar</td>
+      <td>1132.42</td>
+      <td>2</td>
+      <td>51.85%</td>
+      <td>34.36%</td>
+      <td>13.80%</td>
+      <td>15.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>College 1975</td>
+      <td>896.17</td>
+      <td>0</td>
+      <td>FCB Magpies</td>
+      <td>1003.02</td>
+      <td>2</td>
+      <td>28.84%</td>
+      <td>57.43%</td>
+      <td>13.73%</td>
+      <td>-18.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>FCB Magpies</td>
+      <td>1003.02</td>
+      <td>2</td>
+      <td>@ College 1975</td>
+      <td>896.17</td>
+      <td>0</td>
+      <td>57.43%</td>
+      <td>28.84%</td>
+      <td>13.73%</td>
+      <td>18.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1100.07</td>
+      <td>4</td>
+      <td>@ Manchester 62</td>
+      <td>1088.95</td>
+      <td>2</td>
+      <td>44.67%</td>
+      <td>41.49%</td>
+      <td>13.83%</td>
+      <td>25.15</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Manchester 62</td>
+      <td>1088.95</td>
+      <td>2</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1100.07</td>
+      <td>4</td>
+      <td>41.49%</td>
+      <td>44.67%</td>
+      <td>13.83%</td>
+      <td>-25.15</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Lynx</td>
+      <td>1013.65</td>
+      <td>4</td>
+      <td>@ Hound Dogs</td>
+      <td>1004.33</td>
+      <td>0</td>
+      <td>44.42%</td>
+      <td>41.75%</td>
+      <td>13.83%</td>
+      <td>35.76</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Glacis United</td>
+      <td>905.16</td>
+      <td>3</td>
+      <td>Europa Point</td>
+      <td>896.87</td>
+      <td>1</td>
+      <td>44.27%</td>
+      <td>41.89%</td>
+      <td>13.83%</td>
+      <td>25.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Europa Point</td>
+      <td>896.87</td>
+      <td>1</td>
+      <td>@ Glacis United</td>
+      <td>905.16</td>
+      <td>3</td>
+      <td>41.89%</td>
+      <td>44.27%</td>
+      <td>13.83%</td>
+      <td>-25.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Hound Dogs</td>
+      <td>1004.33</td>
+      <td>0</td>
+      <td>Lynx</td>
+      <td>1013.65</td>
+      <td>4</td>
+      <td>41.75%</td>
+      <td>44.42%</td>
+      <td>13.83%</td>
+      <td>-35.76</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Lions Gibraltar</td>
+      <td>1117.35</td>
+      <td>1</td>
+      <td>Europa</td>
+      <td>1210.47</td>
+      <td>0</td>
+      <td>30.51%</td>
+      <td>55.74%</td>
+      <td>13.75%</td>
+      <td>23.17</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Europa</td>
+      <td>1210.47</td>
+      <td>0</td>
+      <td>@ Lions Gibraltar</td>
+      <td>1117.35</td>
+      <td>1</td>
+      <td>55.74%</td>
+      <td>30.51%</td>
+      <td>13.75%</td>
+      <td>-23.18</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1125.22</td>
+      <td>6</td>
+      <td>Manchester 62</td>
+      <td>1063.80</td>
+      <td>0</td>
+      <td>51.64%</td>
+      <td>34.56%</td>
+      <td>13.80%</td>
+      <td>37.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Manchester 62</td>
+      <td>1063.80</td>
+      <td>0</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>1125.22</td>
+      <td>6</td>
+      <td>34.56%</td>
+      <td>51.64%</td>
+      <td>13.80%</td>
+      <td>-37.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Glacis United</td>
+      <td>930.52</td>
+      <td>2</td>
+      <td>@ Europa Point</td>
+      <td>871.51</td>
+      <td>3</td>
+      <td>51.31%</td>
+      <td>34.88%</td>
+      <td>13.80%</td>
+      <td>-21.46</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Europa Point</td>
+      <td>871.51</td>
+      <td>3</td>
+      <td>Glacis United</td>
+      <td>930.52</td>
+      <td>2</td>
+      <td>34.88%</td>
+      <td>51.31%</td>
+      <td>13.80%</td>
+      <td>21.46</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Lynx</td>
+      <td>1049.41</td>
+      <td>2</td>
+      <td>Hound Dogs</td>
+      <td>968.57</td>
+      <td>0</td>
+      <td>54.18%</td>
+      <td>32.04%</td>
+      <td>13.77%</td>
+      <td>20.04</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Lincoln Red Imps</td>
+      <td>1384.77</td>
+      <td>1</td>
+      <td>@ St. Joseph's</td>
+      <td>1342.55</td>
+      <td>1</td>
+      <td>49.04%</td>
+      <td>37.15%</td>
+      <td>13.82%</td>
+      <td>-1.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>St. Joseph's</td>
+      <td>1342.55</td>
+      <td>1</td>
+      <td>Lincoln Red Imps</td>
+      <td>1384.77</td>
+      <td>1</td>
+      <td>37.15%</td>
+      <td>49.04%</td>
+      <td>13.82%</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Hound Dogs</td>
+      <td>968.57</td>
+      <td>0</td>
+      <td>@ Lynx</td>
+      <td>1049.41</td>
+      <td>2</td>
+      <td>32.04%</td>
+      <td>54.18%</td>
+      <td>13.77%</td>
+      <td>-20.04</td>
+    </tr>
+    <tr>
+      <td>2025-11-24</td>
+      <td>College 1975</td>
+      <td>877.94</td>
+      <td>1</td>
+      <td>@ FCB Magpies</td>
+      <td>1021.25</td>
+      <td>0</td>
+      <td>24.69%</td>
+      <td>61.67%</td>
+      <td>13.65%</td>
+      <td>25.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-24</td>
+      <td>FCB Magpies</td>
+      <td>1021.25</td>
+      <td>0</td>
+      <td>College 1975</td>
+      <td>877.94</td>
+      <td>1</td>
+      <td>61.67%</td>
+      <td>24.69%</td>
+      <td>13.65%</td>
+      <td>-25.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Europa Point</td>
+      <td>892.97</td>
+      <td>7</td>
+      <td>@ Hound Dogs</td>
+      <td>948.53</td>
+      <td>0</td>
+      <td>35.34%</td>
+      <td>50.85%</td>
+      <td>13.81%</td>
+      <td>56.31</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Hound Dogs</td>
+      <td>948.53</td>
+      <td>0</td>
+      <td>Europa Point</td>
+      <td>892.97</td>
+      <td>7</td>
+      <td>50.85%</td>
+      <td>35.34%</td>
+      <td>13.81%</td>
+      <td>-56.31</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1162.34</td>
+      <td>2</td>
+      <td>@ Europa</td>
+      <td>1187.29</td>
+      <td>1</td>
+      <td>39.54%</td>
+      <td>46.64%</td>
+      <td>13.83%</td>
+      <td>19.69</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Manchester 62</td>
+      <td>1026.68</td>
+      <td>0</td>
+      <td>@ FCB Magpies</td>
+      <td>995.71</td>
+      <td>1</td>
+      <td>47.48%</td>
+      <td>38.70%</td>
+      <td>13.82%</td>
+      <td>-20.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Europa</td>
+      <td>1187.29</td>
+      <td>1</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1162.34</td>
+      <td>2</td>
+      <td>46.64%</td>
+      <td>39.54%</td>
+      <td>13.83%</td>
+      <td>-19.68</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>FCB Magpies</td>
+      <td>995.71</td>
+      <td>1</td>
+      <td>Manchester 62</td>
+      <td>1026.68</td>
+      <td>0</td>
+      <td>38.70%</td>
+      <td>47.48%</td>
+      <td>13.82%</td>
+      <td>20.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>St. Joseph's</td>
+      <td>1343.66</td>
+      <td>5</td>
+      <td>@ College 1975</td>
+      <td>903.48</td>
+      <td>1</td>
+      <td>82.12%</td>
+      <td>5.69%</td>
+      <td>12.19%</td>
+      <td>5.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Glacis United</td>
+      <td>909.06</td>
+      <td>0</td>
+      <td>Lincoln Red Imps</td>
+      <td>1383.66</td>
+      <td>3</td>
+      <td>4.74%</td>
+      <td>83.32%</td>
+      <td>11.94%</td>
+      <td>-3.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Lincoln Red Imps</td>
+      <td>1383.66</td>
+      <td>3</td>
+      <td>@ Glacis United</td>
+      <td>909.06</td>
+      <td>0</td>
+      <td>83.32%</td>
+      <td>4.74%</td>
+      <td>11.94%</td>
+      <td>3.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>College 1975</td>
+      <td>903.48</td>
+      <td>1</td>
+      <td>St. Joseph's</td>
+      <td>1343.66</td>
+      <td>5</td>
+      <td>5.69%</td>
+      <td>82.12%</td>
+      <td>12.19%</td>
+      <td>-5.40</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Lynx</td>
+      <td>1069.45</td>
+      <td>1</td>
+      <td>@ Lions Gibraltar</td>
+      <td>1140.52</td>
+      <td>0</td>
+      <td>33.30%</td>
+      <td>52.92%</td>
+      <td>13.79%</td>
+      <td>22.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Lions Gibraltar</td>
+      <td>1140.52</td>
+      <td>0</td>
+      <td>Lynx</td>
+      <td>1069.45</td>
+      <td>1</td>
+      <td>52.92%</td>
+      <td>33.30%</td>
+      <td>13.79%</td>
+      <td>-22.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Hound Dogs</td>
+      <td>892.22</td>
+      <td>0</td>
+      <td>Europa</td>
+      <td>1167.61</td>
+      <td>3</td>
+      <td>13.29%</td>
+      <td>73.55%</td>
+      <td>13.16%</td>
+      <td>-10.82</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Europa</td>
+      <td>1167.61</td>
+      <td>3</td>
+      <td>@ Hound Dogs</td>
+      <td>892.22</td>
+      <td>0</td>
+      <td>73.55%</td>
+      <td>13.29%</td>
+      <td>13.16%</td>
+      <td>10.82</td>
+    </tr>
+    <tr>
+      <td>2025-12-04</td>
+      <td>Glacis United</td>
+      <td>905.17</td>
+      <td>1</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1387.55</td>
+      <td>6</td>
+      <td>4.55%</td>
+      <td>83.57%</td>
+      <td>11.88%</td>
+      <td>-4.81</td>
+    </tr>
+    <tr>
+      <td>2025-12-04</td>
+      <td>Lincoln Red Imps</td>
+      <td>1387.55</td>
+      <td>6</td>
+      <td>Glacis United</td>
+      <td>905.17</td>
+      <td>1</td>
+      <td>83.57%</td>
+      <td>4.55%</td>
+      <td>11.88%</td>
+      <td>4.81</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Manchester 62</td>
+      <td>1006.68</td>
+      <td>0</td>
+      <td>@ St. Joseph's</td>
+      <td>1349.06</td>
+      <td>10</td>
+      <td>9.48%</td>
+      <td>77.71%</td>
+      <td>12.81%</td>
+      <td>-14.21</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>St. Joseph's</td>
+      <td>1349.06</td>
+      <td>10</td>
+      <td>Manchester 62</td>
+      <td>1006.68</td>
+      <td>0</td>
+      <td>77.71%</td>
+      <td>9.48%</td>
+      <td>12.81%</td>
+      <td>14.21</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Europa</td>
+      <td>1178.43</td>
+      <td>2</td>
+      <td>@ Lynx</td>
+      <td>1091.52</td>
+      <td>0</td>
+      <td>54.96%</td>
+      <td>31.28%</td>
+      <td>13.76%</td>
+      <td>19.61</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>FCB Magpies</td>
+      <td>1015.71</td>
+      <td>2</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1182.03</td>
+      <td>1</td>
+      <td>22.29%</td>
+      <td>64.12%</td>
+      <td>13.58%</td>
+      <td>26.55</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Lynx</td>
+      <td>1091.52</td>
+      <td>0</td>
+      <td>Europa</td>
+      <td>1178.43</td>
+      <td>2</td>
+      <td>31.28%</td>
+      <td>54.96%</td>
+      <td>13.76%</td>
+      <td>-19.61</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1182.03</td>
+      <td>1</td>
+      <td>@ FCB Magpies</td>
+      <td>1015.71</td>
+      <td>2</td>
+      <td>64.12%</td>
+      <td>22.29%</td>
+      <td>13.58%</td>
+      <td>-26.55</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Hound Dogs</td>
+      <td>881.40</td>
+      <td>0</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1392.36</td>
+      <td>4</td>
+      <td>3.90%</td>
+      <td>84.44%</td>
+      <td>11.66%</td>
+      <td>-3.68</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Europa Point</td>
+      <td>949.28</td>
+      <td>2</td>
+      <td>Lions Gibraltar</td>
+      <td>1118.45</td>
+      <td>1</td>
+      <td>22.01%</td>
+      <td>64.41%</td>
+      <td>13.58%</td>
+      <td>26.67</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Lincoln Red Imps</td>
+      <td>1392.36</td>
+      <td>4</td>
+      <td>Hound Dogs</td>
+      <td>881.40</td>
+      <td>0</td>
+      <td>84.44%</td>
+      <td>3.90%</td>
+      <td>11.66%</td>
+      <td>3.68</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Lions Gibraltar</td>
+      <td>1118.45</td>
+      <td>1</td>
+      <td>@ Europa Point</td>
+      <td>949.28</td>
+      <td>2</td>
+      <td>64.41%</td>
+      <td>22.01%</td>
+      <td>13.58%</td>
+      <td>-26.67</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>College 1975</td>
+      <td>898.08</td>
+      <td>1</td>
+      <td>@ Glacis United</td>
+      <td>900.36</td>
+      <td>1</td>
+      <td>42.75%</td>
+      <td>43.41%</td>
+      <td>13.83%</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Glacis United</td>
+      <td>900.36</td>
+      <td>1</td>
+      <td>College 1975</td>
+      <td>898.08</td>
+      <td>1</td>
+      <td>43.41%</td>
+      <td>42.75%</td>
+      <td>13.83%</td>
+      <td>-0.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>St. Joseph's</td>
+      <td>1363.27</td>
+      <td>3</td>
+      <td>@ Mons Calpe S.C.</td>
+      <td>1155.48</td>
+      <td>1</td>
+      <td>68.13%</td>
+      <td>18.42%</td>
+      <td>13.45%</td>
+      <td>12.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1155.48</td>
+      <td>1</td>
+      <td>St. Joseph's</td>
+      <td>1363.27</td>
+      <td>3</td>
+      <td>18.42%</td>
+      <td>68.13%</td>
+      <td>13.45%</td>
+      <td>-12.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Lynx</td>
+      <td>1071.91</td>
+      <td>3</td>
+      <td>Europa Point</td>
+      <td>975.95</td>
+      <td>1</td>
+      <td>56.10%</td>
+      <td>30.15%</td>
+      <td>13.75%</td>
+      <td>18.98</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>FCB Magpies</td>
+      <td>1042.26</td>
+      <td>1</td>
+      <td>@ Europa</td>
+      <td>1198.04</td>
+      <td>2</td>
+      <td>23.37%</td>
+      <td>63.02%</td>
+      <td>13.61%</td>
+      <td>-10.65</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Europa Point</td>
+      <td>975.95</td>
+      <td>1</td>
+      <td>@ Lynx</td>
+      <td>1071.91</td>
+      <td>3</td>
+      <td>30.15%</td>
+      <td>56.10%</td>
+      <td>13.75%</td>
+      <td>-18.98</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Europa</td>
+      <td>1198.04</td>
+      <td>2</td>
+      <td>FCB Magpies</td>
+      <td>1042.26</td>
+      <td>1</td>
+      <td>63.02%</td>
+      <td>23.37%</td>
+      <td>13.61%</td>
+      <td>10.65</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>College 1975</td>
+      <td>898.14</td>
+      <td>2</td>
+      <td>@ Hound Dogs</td>
+      <td>877.72</td>
+      <td>0</td>
+      <td>46.00%</td>
+      <td>40.17%</td>
+      <td>13.83%</td>
+      <td>24.46</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Hound Dogs</td>
+      <td>877.72</td>
+      <td>0</td>
+      <td>College 1975</td>
+      <td>898.14</td>
+      <td>2</td>
+      <td>40.17%</td>
+      <td>46.00%</td>
+      <td>13.83%</td>
+      <td>-24.46</td>
+    </tr>
+    <tr>
+      <td>2025-12-15</td>
+      <td>Glacis United</td>
+      <td>900.30</td>
+      <td>3</td>
+      <td>@ Manchester 62</td>
+      <td>992.47</td>
+      <td>0</td>
+      <td>30.62%</td>
+      <td>55.62%</td>
+      <td>13.76%</td>
+      <td>40.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-15</td>
+      <td>Manchester 62</td>
+      <td>992.47</td>
+      <td>0</td>
+      <td>Glacis United</td>
+      <td>900.30</td>
+      <td>3</td>
+      <td>55.62%</td>
+      <td>30.62%</td>
+      <td>13.76%</td>
+      <td>-40.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-19</td>
+      <td>Hound Dogs</td>
+      <td>853.26</td>
+      <td>1</td>
+      <td>Manchester 62</td>
+      <td>952.40</td>
+      <td>3</td>
+      <td>29.77%</td>
+      <td>56.49%</td>
+      <td>13.74%</td>
+      <td>-18.76</td>
+    </tr>
+    <tr>
+      <td>2025-12-19</td>
+      <td>Manchester 62</td>
+      <td>952.40</td>
+      <td>3</td>
+      <td>@ Hound Dogs</td>
+      <td>853.26</td>
+      <td>1</td>
+      <td>56.49%</td>
+      <td>29.77%</td>
+      <td>13.74%</td>
+      <td>18.76</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1143.42</td>
+      <td>4</td>
+      <td>@ Glacis United</td>
+      <td>940.37</td>
+      <td>0</td>
+      <td>67.70%</td>
+      <td>18.84%</td>
+      <td>13.46%</td>
+      <td>17.42</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>FCB Magpies</td>
+      <td>1031.61</td>
+      <td>0</td>
+      <td>@ St. Joseph's</td>
+      <td>1375.33</td>
+      <td>4</td>
+      <td>9.41%</td>
+      <td>77.78%</td>
+      <td>12.80%</td>
+      <td>-8.92</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>St. Joseph's</td>
+      <td>1375.33</td>
+      <td>4</td>
+      <td>FCB Magpies</td>
+      <td>1031.61</td>
+      <td>0</td>
+      <td>77.78%</td>
+      <td>9.41%</td>
+      <td>12.80%</td>
+      <td>8.92</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Glacis United</td>
+      <td>940.37</td>
+      <td>0</td>
+      <td>Mons Calpe S.C.</td>
+      <td>1143.42</td>
+      <td>4</td>
+      <td>18.84%</td>
+      <td>67.70%</td>
+      <td>13.46%</td>
+      <td>-17.42</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Europa Point</td>
+      <td>956.97</td>
+      <td>0</td>
+      <td>Europa</td>
+      <td>1208.69</td>
+      <td>3</td>
+      <td>14.93%</td>
+      <td>71.80%</td>
+      <td>13.27%</td>
+      <td>-12.10</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Lincoln Red Imps</td>
+      <td>1396.04</td>
+      <td>3</td>
+      <td>Lynx</td>
+      <td>1090.89</td>
+      <td>0</td>
+      <td>75.53%</td>
+      <td>11.45%</td>
+      <td>13.02%</td>
+      <td>9.37</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Europa</td>
+      <td>1208.69</td>
+      <td>3</td>
+      <td>@ Europa Point</td>
+      <td>956.97</td>
+      <td>0</td>
+      <td>71.80%</td>
+      <td>14.93%</td>
+      <td>13.27%</td>
+      <td>12.10</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Lynx</td>
+      <td>1090.89</td>
+      <td>0</td>
+      <td>@ Lincoln Red Imps</td>
+      <td>1396.04</td>
+      <td>3</td>
+      <td>11.45%</td>
+      <td>75.53%</td>
+      <td>13.02%</td>
+      <td>-9.37</td>
+    </tr>
+    <tr>
+      <td>2025-12-22</td>
+      <td>College 1975</td>
+      <td>922.60</td>
+      <td>0</td>
+      <td>Lions Gibraltar</td>
+      <td>1091.78</td>
+      <td>2</td>
+      <td>22.01%</td>
+      <td>64.41%</td>
+      <td>13.58%</td>
+      <td>-14.25</td>
+    </tr>
+    <tr>
+      <td>2025-12-22</td>
+      <td>Lions Gibraltar</td>
+      <td>1091.78</td>
+      <td>2</td>
+      <td>@ College 1975</td>
+      <td>922.60</td>
+      <td>0</td>
+      <td>64.41%</td>
+      <td>22.01%</td>
+      <td>13.58%</td>
+      <td>14.24</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

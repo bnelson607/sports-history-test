@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-10-25</td>
+      <td>26.96</td>
+      <td>Spartanii Sportul (H)</td>
+      <td>1053.29</td>
+      <td>2</td>
+      <td>15.14%</td>
+      <td>Balti</td>
+      <td>1281.06</td>
+      <td>0</td>
+      <td>64.79%</td>
+      <td>20.07%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-01</td>
+      <td>22.54</td>
+      <td>Spartanii Sportul</td>
+      <td>1080.25</td>
+      <td>3</td>
+      <td>5.81%</td>
+      <td>Zimbru (H)</td>
+      <td>1500.61</td>
+      <td>2</td>
+      <td>80.24%</td>
+      <td>13.96%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-11-22</td>
+      <td>21.93</td>
+      <td>Politehnica UTM Chisinau (H)</td>
+      <td>1161.72</td>
+      <td>3</td>
+      <td>26.25%</td>
+      <td>Balti</td>
+      <td>1265.53</td>
+      <td>1</td>
+      <td>51.47%</td>
+      <td>22.28%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-06-21</td>
+      <td>20.52</td>
+      <td>Milsami Orhei (H)</td>
+      <td>1430.47</td>
+      <td>3</td>
+      <td>40.13%</td>
+      <td>Zimbru</td>
+      <td>1427.95</td>
+      <td>0</td>
+      <td>37.04%</td>
+      <td>22.83%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-09-21</td>
+      <td>19.96</td>
+      <td>Zimbru (H)</td>
+      <td>1463.47</td>
+      <td>2</td>
+      <td>31.22%</td>
+      <td>Sheriff Tiraspol</td>
+      <td>1525.85</td>
+      <td>0</td>
+      <td>46.13%</td>
+      <td>22.66%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-11-02</td>
+      <td>19.88</td>
+      <td>Balti</td>
+      <td>1254.11</td>
+      <td>2</td>
+      <td>12.84%</td>
+      <td>Sheriff Tiraspol (H)</td>
+      <td>1501.58</td>
+      <td>1</td>
+      <td>67.99%</td>
+      <td>19.16%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-06-21</td>
+      <td>19.79</td>
+      <td>Dacia Buiucani (H)</td>
+      <td>1200.89</td>
+      <td>5</td>
+      <td>47.85%</td>
+      <td>Spartanii Sportul</td>
+      <td>1142.06</td>
+      <td>1</td>
+      <td>29.59%</td>
+      <td>22.56%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-10-05</td>
+      <td>19.72</td>
+      <td>Zimbru</td>
+      <td>1486.85</td>
+      <td>3</td>
+      <td>41.97%</td>
+      <td>Milsami Orhei (H)</td>
+      <td>1454.72</td>
+      <td>0</td>
+      <td>35.22%</td>
+      <td>22.80%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-08-30</td>
+      <td>18.58</td>
+      <td>Dacia Buiucani (H)</td>
+      <td>1206.47</td>
+      <td>4</td>
+      <td>44.60%</td>
+      <td>Politehnica UTM Chisinau</td>
+      <td>1171.90</td>
+      <td>1</td>
+      <td>32.67%</td>
+      <td>22.72%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-11-08</td>
+      <td>18.53</td>
+      <td>Petrocub Hincesti (H)</td>
+      <td>1448.43</td>
+      <td>4</td>
+      <td>35.07%</td>
+      <td>Sheriff Tiraspol</td>
+      <td>1481.70</td>
+      <td>2</td>
+      <td>42.13%</td>
+      <td>22.80%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-11-30</td>
+      <td>18.44</td>
+      <td>Balti (H)</td>
+      <td>1243.61</td>
+      <td>2</td>
+      <td>16.93%</td>
+      <td>Milsami Orhei</td>
+      <td>1446.71</td>
+      <td>1</td>
+      <td>62.45%</td>
+      <td>20.63%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-10-05</td>
+      <td>17.96</td>
+      <td>Spartanii Sportul</td>
+      <td>1038.87</td>
+      <td>1</td>
+      <td>18.36%</td>
+      <td>Dacia Buiucani (H)</td>
+      <td>1207.40</td>
+      <td>0</td>
+      <td>60.64%</td>
+      <td>21.00%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-07-27</td>
+      <td>15.65</td>
+      <td>Zimbru</td>
+      <td>1412.51</td>
+      <td>3</td>
+      <td>25.75%</td>
+      <td>Sheriff Tiraspol (H)</td>
+      <td>1504.24</td>
+      <td>2</td>
+      <td>52.02%</td>
+      <td>22.23%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-09-14</td>
+      <td>15.24</td>
+      <td>Politehnica UTM Chisinau (H)</td>
+      <td>1153.32</td>
+      <td>4</td>
+      <td>52.04%</td>
+      <td>Spartanii Sportul</td>
+      <td>1061.42</td>
+      <td>1</td>
+      <td>25.73%</td>
+      <td>22.23%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-10-26</td>
+      <td>14.43</td>
+      <td>Milsami Orhei (H)</td>
+      <td>1444.39</td>
+      <td>1</td>
+      <td>30.05%</td>
+      <td>Sheriff Tiraspol</td>
+      <td>1516.01</td>
+      <td>0</td>
+      <td>47.35%</td>
+      <td>22.59%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-08-03</td>
+      <td>13.96</td>
+      <td>Zimbru (H)</td>
+      <td>1428.16</td>
+      <td>7</td>
+      <td>65.21%</td>
+      <td>Politehnica UTM Chisinau</td>
+      <td>1212.32</td>
+      <td>0</td>
+      <td>14.83%</td>
+      <td>19.96%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-06-29</td>
+      <td>13.61</td>
+      <td>Petrocub Hincesti (H)</td>
+      <td>1359.74</td>
+      <td>2</td>
+      <td>33.13%</td>
+      <td>Zimbru</td>
+      <td>1407.43</td>
+      <td>1</td>
+      <td>44.13%</td>
+      <td>22.74%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-07-12</td>
+      <td>13.57</td>
+      <td>Dacia Buiucani</td>
+      <td>1209.40</td>
+      <td>3</td>
+      <td>33.28%</td>
+      <td>Politehnica UTM Chisinau (H)</td>
+      <td>1239.41</td>
+      <td>2</td>
+      <td>43.98%</td>
+      <td>22.75%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-11-01</td>
+      <td>13.46</td>
+      <td>Politehnica UTM Chisinau (H)</td>
+      <td>1137.44</td>
+      <td>2</td>
+      <td>33.70%</td>
+      <td>Dacia Buiucani</td>
+      <td>1180.83</td>
+      <td>1</td>
+      <td>43.54%</td>
+      <td>22.76%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-11-02</td>
+      <td>13.35</td>
+      <td>Petrocub Hincesti</td>
+      <td>1435.08</td>
+      <td>2</td>
+      <td>34.12%</td>
+      <td>Milsami Orhei (H)</td>
+      <td>1458.82</td>
+      <td>1</td>
+      <td>43.11%</td>
+      <td>22.77%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-08-31</td>
+      <td>13.20</td>
+      <td>Petrocub Hincesti (H)</td>
+      <td>1416.89</td>
+      <td>2</td>
+      <td>34.70%</td>
+      <td>Milsami Orhei</td>
+      <td>1452.85</td>
+      <td>1</td>
+      <td>42.51%</td>
+      <td>22.79%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-10-18</td>
+      <td>13.06</td>
+      <td>Balti (H)</td>
+      <td>1268.01</td>
+      <td>2</td>
+      <td>50.38%</td>
+      <td>Dacia Buiucani</td>
+      <td>1189.44</td>
+      <td>0</td>
+      <td>27.24%</td>
+      <td>22.38%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-09-14</td>
+      <td>12.86</td>
+      <td>Sheriff Tiraspol (H)</td>
+      <td>1512.99</td>
+      <td>2</td>
+      <td>50.93%</td>
+      <td>Petrocub Hincesti</td>
+      <td>1430.09</td>
+      <td>0</td>
+      <td>26.74%</td>
+      <td>22.33%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-23</td>
+      <td>12.47</td>
+      <td>Petrocub Hincesti</td>
+      <td>1404.42</td>
+      <td>5</td>
+      <td>64.07%</td>
+      <td>Politehnica UTM Chisinau (H)</td>
+      <td>1184.37</td>
+      <td>0</td>
+      <td>15.68%</td>
+      <td>20.25%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-08-10</td>
+      <td>12.44</td>
+      <td>Zimbru (H)</td>
+      <td>1442.12</td>
+      <td>2</td>
+      <td>37.71%</td>
+      <td>Milsami Orhei</td>
+      <td>1456.49</td>
+      <td>1</td>
+      <td>39.46%</td>
+      <td>22.83%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

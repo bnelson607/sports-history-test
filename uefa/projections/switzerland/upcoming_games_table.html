@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Basel" selected>Basel</option><option value="Grasshopper" >Grasshopper</option><option value="Lausanne-Sport" >Lausanne-Sport</option><option value="Lugano" >Lugano</option><option value="Luzern" >Luzern</option><option value="Servette" >Servette</option><option value="Sion" >Sion</option><option value="St. Gallen" >St. Gallen</option><option value="Thun" >Thun</option><option value="Winterthur" >Winterthur</option><option value="Young Boys" >Young Boys</option><option value="Zurich" >Zurich</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Sion</td>
+      <td>1645.26</td>
+      <td>Winterthur</td>
+      <td>1467.82</td>
+      <td>57.57%</td>
+      <td>15.06%</td>
+      <td>27.37%</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Winterthur</td>
+      <td>1467.82</td>
+      <td>@ Sion</td>
+      <td>1645.26</td>
+      <td>15.06%</td>
+      <td>57.57%</td>
+      <td>27.37%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Servette</td>
+      <td>1591.94</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>33.65%</td>
+      <td>35.87%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>@ Servette</td>
+      <td>1591.94</td>
+      <td>35.87%</td>
+      <td>33.65%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Luzern</td>
+      <td>1585.10</td>
+      <td>Lugano</td>
+      <td>1717.79</td>
+      <td>20.10%</td>
+      <td>50.81%</td>
+      <td>29.08%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Winterthur</td>
+      <td>1467.82</td>
+      <td>St. Gallen</td>
+      <td>1733.73</td>
+      <td>11.05%</td>
+      <td>64.06%</td>
+      <td>24.89%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Young Boys</td>
+      <td>1610.78</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>36.34%</td>
+      <td>33.19%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>@ Young Boys</td>
+      <td>1610.78</td>
+      <td>33.19%</td>
+      <td>36.34%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>St. Gallen</td>
+      <td>1733.73</td>
+      <td>@ Winterthur</td>
+      <td>1467.82</td>
+      <td>64.06%</td>
+      <td>11.05%</td>
+      <td>24.89%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Lugano</td>
+      <td>1717.79</td>
+      <td>@ Luzern</td>
+      <td>1585.10</td>
+      <td>50.81%</td>
+      <td>20.10%</td>
+      <td>29.08%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Zurich</td>
+      <td>1577.44</td>
+      <td>@ Servette</td>
+      <td>1591.94</td>
+      <td>31.44%</td>
+      <td>38.14%</td>
+      <td>30.42%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Sion</td>
+      <td>1645.26</td>
+      <td>@ Basel</td>
+      <td>1704.31</td>
+      <td>25.83%</td>
+      <td>44.12%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Thun</td>
+      <td>1713.39</td>
+      <td>@ Grasshopper</td>
+      <td>1549.05</td>
+      <td>54.31%</td>
+      <td>17.39%</td>
+      <td>28.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Grasshopper</td>
+      <td>1549.05</td>
+      <td>Thun</td>
+      <td>1713.39</td>
+      <td>17.39%</td>
+      <td>54.31%</td>
+      <td>28.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Basel</td>
+      <td>1704.31</td>
+      <td>Sion</td>
+      <td>1645.26</td>
+      <td>44.12%</td>
+      <td>25.83%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Servette</td>
+      <td>1591.94</td>
+      <td>Zurich</td>
+      <td>1577.44</td>
+      <td>38.14%</td>
+      <td>31.44%</td>
+      <td>30.42%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Luzern</td>
+      <td>1585.10</td>
+      <td>@ Sion</td>
+      <td>1645.26</td>
+      <td>25.70%</td>
+      <td>44.27%</td>
+      <td>30.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Winterthur</td>
+      <td>1467.82</td>
+      <td>@ Lugano</td>
+      <td>1717.79</td>
+      <td>10.93%</td>
+      <td>64.29%</td>
+      <td>24.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Grasshopper</td>
+      <td>1549.05</td>
+      <td>@ Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>25.73%</td>
+      <td>44.24%</td>
+      <td>30.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Sion</td>
+      <td>1645.26</td>
+      <td>Luzern</td>
+      <td>1585.10</td>
+      <td>44.27%</td>
+      <td>25.70%</td>
+      <td>30.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Lugano</td>
+      <td>1717.79</td>
+      <td>Winterthur</td>
+      <td>1467.82</td>
+      <td>64.29%</td>
+      <td>10.93%</td>
+      <td>24.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>Grasshopper</td>
+      <td>1549.05</td>
+      <td>44.24%</td>
+      <td>25.73%</td>
+      <td>30.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Thun</td>
+      <td>1713.39</td>
+      <td>Young Boys</td>
+      <td>1610.78</td>
+      <td>49.49%</td>
+      <td>21.19%</td>
+      <td>29.32%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Servette</td>
+      <td>1591.94</td>
+      <td>@ St. Gallen</td>
+      <td>1733.73</td>
+      <td>17.71%</td>
+      <td>53.89%</td>
+      <td>28.41%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Young Boys</td>
+      <td>1610.78</td>
+      <td>@ Thun</td>
+      <td>1713.39</td>
+      <td>21.19%</td>
+      <td>49.49%</td>
+      <td>29.32%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Basel</td>
+      <td>1704.31</td>
+      <td>@ Zurich</td>
+      <td>1577.44</td>
+      <td>50.14%</td>
+      <td>20.65%</td>
+      <td>29.21%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>St. Gallen</td>
+      <td>1733.73</td>
+      <td>Servette</td>
+      <td>1591.94</td>
+      <td>53.89%</td>
+      <td>17.71%</td>
+      <td>28.41%</td>
+    </tr>
+    <tr>
+      <td>2026-01-25</td>
+      <td>Zurich</td>
+      <td>1577.44</td>
+      <td>Basel</td>
+      <td>1704.31</td>
+      <td>20.65%</td>
+      <td>50.14%</td>
+      <td>29.21%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>@ Winterthur</td>
+      <td>1467.82</td>
+      <td>51.78%</td>
+      <td>19.33%</td>
+      <td>28.89%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Lugano</td>
+      <td>1717.79</td>
+      <td>@ Grasshopper</td>
+      <td>1549.05</td>
+      <td>54.77%</td>
+      <td>17.05%</td>
+      <td>28.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Grasshopper</td>
+      <td>1549.05</td>
+      <td>Lugano</td>
+      <td>1717.79</td>
+      <td>17.05%</td>
+      <td>54.77%</td>
+      <td>28.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Servette</td>
+      <td>1591.94</td>
+      <td>Sion</td>
+      <td>1645.26</td>
+      <td>28.79%</td>
+      <td>40.91%</td>
+      <td>30.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Winterthur</td>
+      <td>1467.82</td>
+      <td>Lausanne-Sport</td>
+      <td>1609.02</td>
+      <td>19.33%</td>
+      <td>51.78%</td>
+      <td>28.89%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Sion</td>
+      <td>1645.26</td>
+      <td>@ Servette</td>
+      <td>1591.94</td>
+      <td>40.91%</td>
+      <td>28.79%</td>
+      <td>30.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>St. Gallen</td>
+      <td>1733.73</td>
+      <td>@ Luzern</td>
+      <td>1585.10</td>
+      <td>52.60%</td>
+      <td>18.69%</td>
+      <td>28.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Young Boys</td>
+      <td>1610.78</td>
+      <td>Zurich</td>
+      <td>1577.44</td>
+      <td>40.73%</td>
+      <td>28.97%</td>
+      <td>30.31%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Basel</td>
+      <td>1704.31</td>
+      <td>Thun</td>
+      <td>1713.39</td>
+      <td>34.79%</td>
+      <td>34.73%</td>
+      <td>30.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Luzern</td>
+      <td>1585.10</td>
+      <td>St. Gallen</td>
+      <td>1733.73</td>
+      <td>18.69%</td>
+      <td>52.60%</td>
+      <td>28.71%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Thun</td>
+      <td>1713.39</td>
+      <td>@ Basel</td>
+      <td>1704.31</td>
+      <td>34.73%</td>
+      <td>34.79%</td>
+      <td>30.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-01</td>
+      <td>Zurich</td>
+      <td>1577.44</td>
+      <td>@ Young Boys</td>
+      <td>1610.78</td>
+      <td>28.97%</td>
+      <td>40.73%</td>
+      <td>30.31%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-10-04</td>
+      <td>19.31</td>
+      <td>Croatia Zmijavci</td>
+      <td>1308.98</td>
+      <td>3</td>
+      <td>20.90%</td>
+      <td>Rudes (H)</td>
+      <td>1351.94</td>
+      <td>0</td>
+      <td>50.63%</td>
+      <td>28.47%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-12-07</td>
+      <td>19.04</td>
+      <td>Istra 1961</td>
+      <td>1544.61</td>
+      <td>5</td>
+      <td>28.03%</td>
+      <td>Osijek (H)</td>
+      <td>1516.14</td>
+      <td>1</td>
+      <td>40.87%</td>
+      <td>31.10%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-08-16</td>
+      <td>18.35</td>
+      <td>Croatia Zmijavci</td>
+      <td>1317.35</td>
+      <td>3</td>
+      <td>23.10%</td>
+      <td>Dubrava (H)</td>
+      <td>1335.29</td>
+      <td>0</td>
+      <td>47.28%</td>
+      <td>29.62%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-11-05</td>
+      <td>17.66</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1346.73</td>
+      <td>3</td>
+      <td>24.83%</td>
+      <td>Opatija (H)</td>
+      <td>1347.04</td>
+      <td>0</td>
+      <td>44.88%</td>
+      <td>30.29%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-11-22</td>
+      <td>17.65</td>
+      <td>Rijeka (H)</td>
+      <td>1593.74</td>
+      <td>5</td>
+      <td>37.18%</td>
+      <td>Hajduk Split</td>
+      <td>1648.25</td>
+      <td>0</td>
+      <td>31.31%</td>
+      <td>31.51%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-08-16</td>
+      <td>16.29</td>
+      <td>HNK Gorica</td>
+      <td>1480.96</td>
+      <td>3</td>
+      <td>19.54%</td>
+      <td>Lokomotiva Zagreb (H)</td>
+      <td>1541.38</td>
+      <td>1</td>
+      <td>52.92%</td>
+      <td>27.54%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-08-16</td>
+      <td>16.07</td>
+      <td>Orijent</td>
+      <td>1396.22</td>
+      <td>4</td>
+      <td>36.33%</td>
+      <td>Dugopolje (H)</td>
+      <td>1305.99</td>
+      <td>0</td>
+      <td>32.11%</td>
+      <td>31.56%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-08-16</td>
+      <td>15.92</td>
+      <td>BSK Bijelo Brdo (H)</td>
+      <td>1357.33</td>
+      <td>4</td>
+      <td>36.77%</td>
+      <td>Opatija</td>
+      <td>1414.74</td>
+      <td>0</td>
+      <td>31.70%</td>
+      <td>31.54%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-10-25</td>
+      <td>15.65</td>
+      <td>Slaven Belupo</td>
+      <td>1523.58</td>
+      <td>3</td>
+      <td>21.21%</td>
+      <td>Varazdin (H)</td>
+      <td>1562.78</td>
+      <td>1</td>
+      <td>50.13%</td>
+      <td>28.66%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-10-19</td>
+      <td>14.81</td>
+      <td>Hajduk Split</td>
+      <td>1618.73</td>
+      <td>3</td>
+      <td>33.27%</td>
+      <td>Istra 1961 (H)</td>
+      <td>1549.90</td>
+      <td>0</td>
+      <td>35.13%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-09-13</td>
+      <td>14.44</td>
+      <td>Karlovac</td>
+      <td>1411.06</td>
+      <td>3</td>
+      <td>24.77%</td>
+      <td>Hrvace (H)</td>
+      <td>1412.05</td>
+      <td>1</td>
+      <td>44.97%</td>
+      <td>30.26%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-11-03</td>
+      <td>14.11</td>
+      <td>HNK Gorica (H)</td>
+      <td>1470.48</td>
+      <td>4</td>
+      <td>35.69%</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1535.38</td>
+      <td>1</td>
+      <td>32.72%</td>
+      <td>31.59%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-09-26</td>
+      <td>13.92</td>
+      <td>Sesvete</td>
+      <td>1358.52</td>
+      <td>2</td>
+      <td>26.47%</td>
+      <td>Dubrava (H)</td>
+      <td>1343.57</td>
+      <td>0</td>
+      <td>42.77%</td>
+      <td>30.76%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-12-19</td>
+      <td>13.89</td>
+      <td>Istra 1961</td>
+      <td>1563.65</td>
+      <td>3</td>
+      <td>26.56%</td>
+      <td>Varazdin (H)</td>
+      <td>1547.91</td>
+      <td>1</td>
+      <td>42.66%</td>
+      <td>30.78%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-11-15</td>
+      <td>13.86</td>
+      <td>BSK Bijelo Brdo (H)</td>
+      <td>1354.76</td>
+      <td>3</td>
+      <td>36.53%</td>
+      <td>Orijent</td>
+      <td>1413.79</td>
+      <td>0</td>
+      <td>31.92%</td>
+      <td>31.55%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-10-10</td>
+      <td>13.71</td>
+      <td>Rudes (H)</td>
+      <td>1332.63</td>
+      <td>4</td>
+      <td>43.36%</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1343.33</td>
+      <td>0</td>
+      <td>26.00%</td>
+      <td>30.64%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-09-14</td>
+      <td>13.63</td>
+      <td>HNK Gorica</td>
+      <td>1492.73</td>
+      <td>2</td>
+      <td>12.87%</td>
+      <td>Dynamo Zagreb (H)</td>
+      <td>1671.08</td>
+      <td>1</td>
+      <td>67.60%</td>
+      <td>19.54%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-08-16</td>
+      <td>13.52</td>
+      <td>Dynamo Zagreb</td>
+      <td>1651.07</td>
+      <td>2</td>
+      <td>27.82%</td>
+      <td>Rijeka (H)</td>
+      <td>1624.39</td>
+      <td>0</td>
+      <td>41.13%</td>
+      <td>31.06%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-10-25</td>
+      <td>13.18</td>
+      <td>Jarun (H)</td>
+      <td>1307.85</td>
+      <td>3</td>
+      <td>29.06%</td>
+      <td>Karlovac</td>
+      <td>1421.55</td>
+      <td>1</td>
+      <td>39.68%</td>
+      <td>31.27%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-09-20</td>
+      <td>13.05</td>
+      <td>Dynamo Zagreb</td>
+      <td>1657.45</td>
+      <td>2</td>
+      <td>29.54%</td>
+      <td>Hajduk Split (H)</td>
+      <td>1616.64</td>
+      <td>0</td>
+      <td>39.13%</td>
+      <td>31.33%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-20</td>
+      <td>12.98</td>
+      <td>Orijent</td>
+      <td>1409.47</td>
+      <td>2</td>
+      <td>29.80%</td>
+      <td>Cibalia (H)</td>
+      <td>1366.57</td>
+      <td>0</td>
+      <td>38.84%</td>
+      <td>31.36%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-12-14</td>
+      <td>12.96</td>
+      <td>Dynamo Zagreb</td>
+      <td>1669.65</td>
+      <td>5</td>
+      <td>39.60%</td>
+      <td>Slaven Belupo (H)</td>
+      <td>1556.49</td>
+      <td>2</td>
+      <td>29.12%</td>
+      <td>31.28%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-09-14</td>
+      <td>12.79</td>
+      <td>Osijek (H)</td>
+      <td>1525.03</td>
+      <td>4</td>
+      <td>46.07%</td>
+      <td>Vukovar</td>
+      <td>1516.00</td>
+      <td>0</td>
+      <td>23.96%</td>
+      <td>29.97%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-29</td>
+      <td>12.76</td>
+      <td>Rudes (H)</td>
+      <td>1323.15</td>
+      <td>3</td>
+      <td>30.64%</td>
+      <td>Orijent</td>
+      <td>1424.38</td>
+      <td>1</td>
+      <td>37.91%</td>
+      <td>31.45%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-09-17</td>
+      <td>12.67</td>
+      <td>Jarun (H)</td>
+      <td>1297.00</td>
+      <td>2</td>
+      <td>30.96%</td>
+      <td>Opatija</td>
+      <td>1395.78</td>
+      <td>0</td>
+      <td>37.56%</td>
+      <td>31.48%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

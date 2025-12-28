@@ -1,0 +1,5273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Aberdeen">Aberdeen</option><option value="Airdrieonians">Airdrieonians</option><option value="Arbroath">Arbroath</option><option value="Ayr United">Ayr United</option><option value="Celtic">Celtic</option><option value="Dundee">Dundee</option><option value="Dundee United">Dundee United</option><option value="Dunfermline Athletic">Dunfermline Athletic</option><option value="Falkirk">Falkirk</option><option value="Greenock Morton">Greenock Morton</option><option value="Heart of Midlothian">Heart of Midlothian</option><option value="Hibernian">Hibernian</option><option value="Kilmarnock">Kilmarnock</option><option value="Livingston">Livingston</option><option value="Motherwell">Motherwell</option><option value="Partick Thistle">Partick Thistle</option><option value="Queens Park">Queens Park</option><option value="Raith Rovers">Raith Rovers</option><option value="Rangers">Rangers</option><option value="Ross County">Ross County</option><option value="St. Johnstone">St. Johnstone</option><option value="St. Mirren">St. Mirren</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Arbroath</td>
+      <td>1353.88</td>
+      <td>1</td>
+      <td>Ayr United</td>
+      <td>1509.00</td>
+      <td>1</td>
+      <td>17.72%</td>
+      <td>46.67%</td>
+      <td>35.61%</td>
+      <td>1.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Ayr United</td>
+      <td>1509.00</td>
+      <td>1</td>
+      <td>@ Arbroath</td>
+      <td>1353.88</td>
+      <td>1</td>
+      <td>46.67%</td>
+      <td>17.72%</td>
+      <td>35.61%</td>
+      <td>-1.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Dunfermline Athletic</td>
+      <td>1434.52</td>
+      <td>0</td>
+      <td>@ Greenock Morton</td>
+      <td>1475.01</td>
+      <td>0</td>
+      <td>20.64%</td>
+      <td>40.69%</td>
+      <td>38.67%</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Ross County</td>
+      <td>1512.00</td>
+      <td>2</td>
+      <td>@ Airdrieonians</td>
+      <td>1428.39</td>
+      <td>2</td>
+      <td>36.22%</td>
+      <td>23.57%</td>
+      <td>40.21%</td>
+      <td>-0.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Rangers</td>
+      <td>1758.63</td>
+      <td>1</td>
+      <td>@ Motherwell</td>
+      <td>1619.28</td>
+      <td>1</td>
+      <td>44.36%</td>
+      <td>18.73%</td>
+      <td>36.91%</td>
+      <td>-1.48</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Livingston</td>
+      <td>1609.74</td>
+      <td>2</td>
+      <td>@ Kilmarnock</td>
+      <td>1629.14</td>
+      <td>2</td>
+      <td>22.58%</td>
+      <td>37.61%</td>
+      <td>39.81%</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Queens Park</td>
+      <td>1409.71</td>
+      <td>1</td>
+      <td>@ Raith Rovers</td>
+      <td>1508.21</td>
+      <td>1</td>
+      <td>16.77%</td>
+      <td>49.19%</td>
+      <td>34.05%</td>
+      <td>1.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Partick Thistle</td>
+      <td>1501.46</td>
+      <td>1</td>
+      <td>@ St. Johnstone</td>
+      <td>1498.83</td>
+      <td>5</td>
+      <td>24.97%</td>
+      <td>34.40%</td>
+      <td>40.63%</td>
+      <td>-18.60</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Kilmarnock</td>
+      <td>1629.14</td>
+      <td>2</td>
+      <td>Livingston</td>
+      <td>1609.74</td>
+      <td>2</td>
+      <td>37.61%</td>
+      <td>22.58%</td>
+      <td>39.81%</td>
+      <td>-0.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Motherwell</td>
+      <td>1619.28</td>
+      <td>1</td>
+      <td>Rangers</td>
+      <td>1758.63</td>
+      <td>1</td>
+      <td>18.73%</td>
+      <td>44.36%</td>
+      <td>36.91%</td>
+      <td>1.48</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Airdrieonians</td>
+      <td>1428.39</td>
+      <td>2</td>
+      <td>Ross County</td>
+      <td>1512.00</td>
+      <td>2</td>
+      <td>23.57%</td>
+      <td>36.22%</td>
+      <td>40.21%</td>
+      <td>0.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Greenock Morton</td>
+      <td>1475.01</td>
+      <td>0</td>
+      <td>Dunfermline Athletic</td>
+      <td>1434.52</td>
+      <td>0</td>
+      <td>40.69%</td>
+      <td>20.64%</td>
+      <td>38.67%</td>
+      <td>-1.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>St. Johnstone</td>
+      <td>1498.83</td>
+      <td>5</td>
+      <td>Partick Thistle</td>
+      <td>1501.46</td>
+      <td>1</td>
+      <td>34.40%</td>
+      <td>24.97%</td>
+      <td>40.63%</td>
+      <td>18.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Raith Rovers</td>
+      <td>1508.21</td>
+      <td>1</td>
+      <td>Queens Park</td>
+      <td>1409.71</td>
+      <td>1</td>
+      <td>49.19%</td>
+      <td>16.77%</td>
+      <td>34.05%</td>
+      <td>-1.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Dundee</td>
+      <td>1610.73</td>
+      <td>1</td>
+      <td>Hibernian</td>
+      <td>1699.42</td>
+      <td>2</td>
+      <td>23.04%</td>
+      <td>36.96%</td>
+      <td>40.01%</td>
+      <td>-8.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Celtic</td>
+      <td>1816.02</td>
+      <td>1</td>
+      <td>St. Mirren</td>
+      <td>1654.97</td>
+      <td>0</td>
+      <td>58.38%</td>
+      <td>14.16%</td>
+      <td>27.46%</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Dundee United</td>
+      <td>1637.24</td>
+      <td>2</td>
+      <td>@ Falkirk</td>
+      <td>1608.71</td>
+      <td>2</td>
+      <td>28.26%</td>
+      <td>30.64%</td>
+      <td>41.10%</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Hibernian</td>
+      <td>1699.42</td>
+      <td>2</td>
+      <td>@ Dundee</td>
+      <td>1610.73</td>
+      <td>1</td>
+      <td>36.96%</td>
+      <td>23.04%</td>
+      <td>40.01%</td>
+      <td>8.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Falkirk</td>
+      <td>1608.71</td>
+      <td>2</td>
+      <td>Dundee United</td>
+      <td>1637.24</td>
+      <td>2</td>
+      <td>30.64%</td>
+      <td>28.26%</td>
+      <td>41.10%</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>St. Mirren</td>
+      <td>1654.97</td>
+      <td>0</td>
+      <td>@ Celtic</td>
+      <td>1816.02</td>
+      <td>1</td>
+      <td>14.16%</td>
+      <td>58.38%</td>
+      <td>27.46%</td>
+      <td>-5.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Aberdeen</td>
+      <td>1631.29</td>
+      <td>0</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1682.02</td>
+      <td>2</td>
+      <td>19.81%</td>
+      <td>42.19%</td>
+      <td>38.00%</td>
+      <td>-10.98</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Heart of Midlothian</td>
+      <td>1682.02</td>
+      <td>2</td>
+      <td>Aberdeen</td>
+      <td>1631.29</td>
+      <td>0</td>
+      <td>42.19%</td>
+      <td>19.81%</td>
+      <td>38.00%</td>
+      <td>10.98</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Ross County</td>
+      <td>1511.31</td>
+      <td>0</td>
+      <td>St. Johnstone</td>
+      <td>1517.42</td>
+      <td>1</td>
+      <td>33.89%</td>
+      <td>25.38%</td>
+      <td>40.73%</td>
+      <td>-11.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>St. Johnstone</td>
+      <td>1517.42</td>
+      <td>1</td>
+      <td>@ Ross County</td>
+      <td>1511.31</td>
+      <td>0</td>
+      <td>25.38%</td>
+      <td>33.89%</td>
+      <td>40.73%</td>
+      <td>11.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Motherwell</td>
+      <td>1620.76</td>
+      <td>0</td>
+      <td>@ St. Mirren</td>
+      <td>1649.97</td>
+      <td>0</td>
+      <td>21.64%</td>
+      <td>39.05%</td>
+      <td>39.32%</td>
+      <td>0.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Arbroath</td>
+      <td>1355.57</td>
+      <td>3</td>
+      <td>@ Queens Park</td>
+      <td>1411.62</td>
+      <td>1</td>
+      <td>19.41%</td>
+      <td>42.97%</td>
+      <td>37.62%</td>
+      <td>18.39</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Airdrieonians</td>
+      <td>1429.08</td>
+      <td>0</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1435.65</td>
+      <td>2</td>
+      <td>23.92%</td>
+      <td>35.74%</td>
+      <td>40.34%</td>
+      <td>-12.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Raith Rovers</td>
+      <td>1506.30</td>
+      <td>1</td>
+      <td>@ Ayr United</td>
+      <td>1507.31</td>
+      <td>0</td>
+      <td>24.54%</td>
+      <td>34.93%</td>
+      <td>40.52%</td>
+      <td>11.43</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Greenock Morton</td>
+      <td>1473.88</td>
+      <td>1</td>
+      <td>@ Partick Thistle</td>
+      <td>1482.86</td>
+      <td>1</td>
+      <td>23.66%</td>
+      <td>36.09%</td>
+      <td>40.25%</td>
+      <td>0.68</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Falkirk</td>
+      <td>1608.59</td>
+      <td>1</td>
+      <td>@ Livingston</td>
+      <td>1610.57</td>
+      <td>3</td>
+      <td>24.43%</td>
+      <td>35.07%</td>
+      <td>40.49%</td>
+      <td>-12.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Queens Park</td>
+      <td>1411.62</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1355.57</td>
+      <td>3</td>
+      <td>42.97%</td>
+      <td>19.41%</td>
+      <td>37.62%</td>
+      <td>-18.39</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Partick Thistle</td>
+      <td>1482.86</td>
+      <td>1</td>
+      <td>Greenock Morton</td>
+      <td>1473.88</td>
+      <td>1</td>
+      <td>36.09%</td>
+      <td>23.66%</td>
+      <td>40.25%</td>
+      <td>-0.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Dunfermline Athletic</td>
+      <td>1435.65</td>
+      <td>2</td>
+      <td>Airdrieonians</td>
+      <td>1429.08</td>
+      <td>0</td>
+      <td>35.74%</td>
+      <td>23.92%</td>
+      <td>40.34%</td>
+      <td>12.76</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Ayr United</td>
+      <td>1507.31</td>
+      <td>0</td>
+      <td>Raith Rovers</td>
+      <td>1506.30</td>
+      <td>1</td>
+      <td>34.93%</td>
+      <td>24.54%</td>
+      <td>40.52%</td>
+      <td>-11.43</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Rangers</td>
+      <td>1757.15</td>
+      <td>1</td>
+      <td>Dundee</td>
+      <td>1601.95</td>
+      <td>1</td>
+      <td>57.52%</td>
+      <td>14.36%</td>
+      <td>28.11%</td>
+      <td>-2.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Livingston</td>
+      <td>1610.57</td>
+      <td>3</td>
+      <td>Falkirk</td>
+      <td>1608.59</td>
+      <td>1</td>
+      <td>35.07%</td>
+      <td>24.43%</td>
+      <td>40.49%</td>
+      <td>12.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>St. Mirren</td>
+      <td>1649.97</td>
+      <td>0</td>
+      <td>Motherwell</td>
+      <td>1620.76</td>
+      <td>0</td>
+      <td>39.05%</td>
+      <td>21.64%</td>
+      <td>39.32%</td>
+      <td>-0.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Dundee</td>
+      <td>1601.95</td>
+      <td>1</td>
+      <td>@ Rangers</td>
+      <td>1757.15</td>
+      <td>1</td>
+      <td>14.36%</td>
+      <td>57.52%</td>
+      <td>28.11%</td>
+      <td>2.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Hibernian</td>
+      <td>1708.21</td>
+      <td>2</td>
+      <td>Kilmarnock</td>
+      <td>1628.32</td>
+      <td>2</td>
+      <td>46.46%</td>
+      <td>17.81%</td>
+      <td>35.73%</td>
+      <td>-1.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Dundee United</td>
+      <td>1637.36</td>
+      <td>2</td>
+      <td>Heart of Midlothian</td>
+      <td>1693.00</td>
+      <td>3</td>
+      <td>26.87%</td>
+      <td>32.15%</td>
+      <td>40.98%</td>
+      <td>-9.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Aberdeen</td>
+      <td>1620.31</td>
+      <td>0</td>
+      <td>Celtic</td>
+      <td>1821.02</td>
+      <td>2</td>
+      <td>15.45%</td>
+      <td>53.37%</td>
+      <td>31.19%</td>
+      <td>-8.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Kilmarnock</td>
+      <td>1628.32</td>
+      <td>2</td>
+      <td>@ Hibernian</td>
+      <td>1708.21</td>
+      <td>2</td>
+      <td>17.81%</td>
+      <td>46.46%</td>
+      <td>35.73%</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Heart of Midlothian</td>
+      <td>1693.00</td>
+      <td>3</td>
+      <td>@ Dundee United</td>
+      <td>1637.36</td>
+      <td>2</td>
+      <td>32.15%</td>
+      <td>26.87%</td>
+      <td>40.98%</td>
+      <td>9.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Celtic</td>
+      <td>1821.02</td>
+      <td>2</td>
+      <td>@ Aberdeen</td>
+      <td>1620.31</td>
+      <td>0</td>
+      <td>53.37%</td>
+      <td>15.45%</td>
+      <td>31.19%</td>
+      <td>8.17</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Dunfermline Athletic</td>
+      <td>1448.41</td>
+      <td>0</td>
+      <td>@ Raith Rovers</td>
+      <td>1517.73</td>
+      <td>2</td>
+      <td>18.48%</td>
+      <td>44.91%</td>
+      <td>36.61%</td>
+      <td>-10.25</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Raith Rovers</td>
+      <td>1517.73</td>
+      <td>2</td>
+      <td>Dunfermline Athletic</td>
+      <td>1448.41</td>
+      <td>0</td>
+      <td>44.91%</td>
+      <td>18.48%</td>
+      <td>36.61%</td>
+      <td>10.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>St. Johnstone</td>
+      <td>1528.64</td>
+      <td>3</td>
+      <td>Arbroath</td>
+      <td>1373.96</td>
+      <td>0</td>
+      <td>57.45%</td>
+      <td>14.38%</td>
+      <td>28.17%</td>
+      <td>8.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Dundee</td>
+      <td>1604.54</td>
+      <td>0</td>
+      <td>@ Kilmarnock</td>
+      <td>1629.99</td>
+      <td>0</td>
+      <td>21.99%</td>
+      <td>38.50%</td>
+      <td>39.51%</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Motherwell</td>
+      <td>1621.73</td>
+      <td>3</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1702.75</td>
+      <td>3</td>
+      <td>17.74%</td>
+      <td>46.62%</td>
+      <td>35.64%</td>
+      <td>1.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Queens Park</td>
+      <td>1393.23</td>
+      <td>1</td>
+      <td>@ Airdrieonians</td>
+      <td>1416.31</td>
+      <td>1</td>
+      <td>22.22%</td>
+      <td>38.15%</td>
+      <td>39.63%</td>
+      <td>0.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Ayr United</td>
+      <td>1495.88</td>
+      <td>2</td>
+      <td>@ Greenock Morton</td>
+      <td>1474.56</td>
+      <td>2</td>
+      <td>27.29%</td>
+      <td>31.68%</td>
+      <td>41.03%</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Partick Thistle</td>
+      <td>1482.19</td>
+      <td>3</td>
+      <td>@ Ross County</td>
+      <td>1500.09</td>
+      <td>1</td>
+      <td>22.73%</td>
+      <td>37.39%</td>
+      <td>39.87%</td>
+      <td>16.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Ross County</td>
+      <td>1500.09</td>
+      <td>1</td>
+      <td>Partick Thistle</td>
+      <td>1482.19</td>
+      <td>3</td>
+      <td>37.39%</td>
+      <td>22.73%</td>
+      <td>39.87%</td>
+      <td>-16.87</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Greenock Morton</td>
+      <td>1474.56</td>
+      <td>2</td>
+      <td>Ayr United</td>
+      <td>1495.88</td>
+      <td>2</td>
+      <td>31.68%</td>
+      <td>27.29%</td>
+      <td>41.03%</td>
+      <td>-0.23</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Airdrieonians</td>
+      <td>1416.31</td>
+      <td>1</td>
+      <td>Queens Park</td>
+      <td>1393.23</td>
+      <td>1</td>
+      <td>38.15%</td>
+      <td>22.22%</td>
+      <td>39.63%</td>
+      <td>-0.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Heart of Midlothian</td>
+      <td>1702.75</td>
+      <td>3</td>
+      <td>Motherwell</td>
+      <td>1621.73</td>
+      <td>3</td>
+      <td>46.62%</td>
+      <td>17.74%</td>
+      <td>35.64%</td>
+      <td>-1.68</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Kilmarnock</td>
+      <td>1629.99</td>
+      <td>0</td>
+      <td>Dundee</td>
+      <td>1604.54</td>
+      <td>0</td>
+      <td>38.50%</td>
+      <td>21.99%</td>
+      <td>39.51%</td>
+      <td>-0.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Celtic</td>
+      <td>1829.19</td>
+      <td>3</td>
+      <td>Livingston</td>
+      <td>1623.53</td>
+      <td>0</td>
+      <td>64.87%</td>
+      <td>12.71%</td>
+      <td>22.43%</td>
+      <td>7.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Livingston</td>
+      <td>1623.53</td>
+      <td>0</td>
+      <td>@ Celtic</td>
+      <td>1829.19</td>
+      <td>3</td>
+      <td>12.71%</td>
+      <td>64.87%</td>
+      <td>22.43%</td>
+      <td>-7.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Arbroath</td>
+      <td>1373.96</td>
+      <td>0</td>
+      <td>@ St. Johnstone</td>
+      <td>1528.64</td>
+      <td>3</td>
+      <td>14.38%</td>
+      <td>57.45%</td>
+      <td>28.17%</td>
+      <td>-8.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Rangers</td>
+      <td>1754.56</td>
+      <td>1</td>
+      <td>@ St. Mirren</td>
+      <td>1649.00</td>
+      <td>1</td>
+      <td>39.42%</td>
+      <td>21.40%</td>
+      <td>39.18%</td>
+      <td>-1.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>St. Mirren</td>
+      <td>1649.00</td>
+      <td>1</td>
+      <td>Rangers</td>
+      <td>1754.56</td>
+      <td>1</td>
+      <td>21.40%</td>
+      <td>39.42%</td>
+      <td>39.18%</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>St. Johnstone</td>
+      <td>1537.54</td>
+      <td>1</td>
+      <td>Greenock Morton</td>
+      <td>1474.33</td>
+      <td>1</td>
+      <td>44.02%</td>
+      <td>18.89%</td>
+      <td>37.09%</td>
+      <td>-1.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Greenock Morton</td>
+      <td>1474.33</td>
+      <td>1</td>
+      <td>@ St. Johnstone</td>
+      <td>1537.54</td>
+      <td>1</td>
+      <td>18.89%</td>
+      <td>44.02%</td>
+      <td>37.09%</td>
+      <td>1.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Raith Rovers</td>
+      <td>1527.99</td>
+      <td>2</td>
+      <td>@ Partick Thistle</td>
+      <td>1499.05</td>
+      <td>3</td>
+      <td>28.32%</td>
+      <td>30.58%</td>
+      <td>41.10%</td>
+      <td>-10.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Ross County</td>
+      <td>1483.22</td>
+      <td>2</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1438.16</td>
+      <td>2</td>
+      <td>30.62%</td>
+      <td>28.28%</td>
+      <td>41.10%</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Queens Park</td>
+      <td>1394.11</td>
+      <td>1</td>
+      <td>@ Ayr United</td>
+      <td>1496.11</td>
+      <td>1</td>
+      <td>16.59%</td>
+      <td>49.70%</td>
+      <td>33.71%</td>
+      <td>1.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Airdrieonians</td>
+      <td>1415.43</td>
+      <td>0</td>
+      <td>@ Arbroath</td>
+      <td>1365.06</td>
+      <td>1</td>
+      <td>31.38%</td>
+      <td>27.57%</td>
+      <td>41.05%</td>
+      <td>-10.71</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Kilmarnock</td>
+      <td>1629.07</td>
+      <td>2</td>
+      <td>@ Motherwell</td>
+      <td>1623.42</td>
+      <td>2</td>
+      <td>25.32%</td>
+      <td>33.96%</td>
+      <td>40.72%</td>
+      <td>0.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Livingston</td>
+      <td>1616.44</td>
+      <td>1</td>
+      <td>Heart of Midlothian</td>
+      <td>1701.07</td>
+      <td>2</td>
+      <td>23.46%</td>
+      <td>36.37%</td>
+      <td>40.17%</td>
+      <td>-8.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Heart of Midlothian</td>
+      <td>1701.07</td>
+      <td>2</td>
+      <td>@ Livingston</td>
+      <td>1616.44</td>
+      <td>1</td>
+      <td>36.37%</td>
+      <td>23.46%</td>
+      <td>40.17%</td>
+      <td>8.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Motherwell</td>
+      <td>1623.42</td>
+      <td>2</td>
+      <td>Kilmarnock</td>
+      <td>1629.07</td>
+      <td>2</td>
+      <td>33.96%</td>
+      <td>25.32%</td>
+      <td>40.72%</td>
+      <td>-0.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Arbroath</td>
+      <td>1365.06</td>
+      <td>1</td>
+      <td>Airdrieonians</td>
+      <td>1415.43</td>
+      <td>0</td>
+      <td>27.57%</td>
+      <td>31.38%</td>
+      <td>41.05%</td>
+      <td>10.71</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Ayr United</td>
+      <td>1496.11</td>
+      <td>1</td>
+      <td>Queens Park</td>
+      <td>1394.11</td>
+      <td>1</td>
+      <td>49.70%</td>
+      <td>16.59%</td>
+      <td>33.71%</td>
+      <td>-1.95</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Dunfermline Athletic</td>
+      <td>1438.16</td>
+      <td>2</td>
+      <td>Ross County</td>
+      <td>1483.22</td>
+      <td>2</td>
+      <td>28.28%</td>
+      <td>30.62%</td>
+      <td>41.10%</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Partick Thistle</td>
+      <td>1499.05</td>
+      <td>3</td>
+      <td>Raith Rovers</td>
+      <td>1527.99</td>
+      <td>2</td>
+      <td>30.58%</td>
+      <td>28.32%</td>
+      <td>41.10%</td>
+      <td>10.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Aberdeen</td>
+      <td>1612.13</td>
+      <td>0</td>
+      <td>Falkirk</td>
+      <td>1595.63</td>
+      <td>1</td>
+      <td>37.19%</td>
+      <td>22.87%</td>
+      <td>39.94%</td>
+      <td>-11.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Rangers</td>
+      <td>1753.56</td>
+      <td>0</td>
+      <td>Celtic</td>
+      <td>1836.28</td>
+      <td>0</td>
+      <td>23.67%</td>
+      <td>36.09%</td>
+      <td>40.25%</td>
+      <td>0.67</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Dundee</td>
+      <td>1605.45</td>
+      <td>0</td>
+      <td>Dundee United</td>
+      <td>1627.61</td>
+      <td>2</td>
+      <td>31.56%</td>
+      <td>27.40%</td>
+      <td>41.04%</td>
+      <td>-15.19</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Hibernian</td>
+      <td>1706.54</td>
+      <td>1</td>
+      <td>St. Mirren</td>
+      <td>1650.01</td>
+      <td>1</td>
+      <td>43.04%</td>
+      <td>19.37%</td>
+      <td>37.59%</td>
+      <td>-1.36</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Falkirk</td>
+      <td>1595.63</td>
+      <td>1</td>
+      <td>@ Aberdeen</td>
+      <td>1612.13</td>
+      <td>0</td>
+      <td>22.87%</td>
+      <td>37.19%</td>
+      <td>39.94%</td>
+      <td>11.89</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Celtic</td>
+      <td>1836.28</td>
+      <td>0</td>
+      <td>@ Rangers</td>
+      <td>1753.56</td>
+      <td>0</td>
+      <td>36.09%</td>
+      <td>23.67%</td>
+      <td>40.25%</td>
+      <td>-0.68</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>St. Mirren</td>
+      <td>1650.01</td>
+      <td>1</td>
+      <td>@ Hibernian</td>
+      <td>1706.54</td>
+      <td>1</td>
+      <td>19.37%</td>
+      <td>43.04%</td>
+      <td>37.59%</td>
+      <td>1.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Dundee United</td>
+      <td>1627.61</td>
+      <td>2</td>
+      <td>@ Dundee</td>
+      <td>1605.45</td>
+      <td>0</td>
+      <td>27.40%</td>
+      <td>31.56%</td>
+      <td>41.04%</td>
+      <td>15.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Arbroath</td>
+      <td>1375.77</td>
+      <td>2</td>
+      <td>@ Ross County</td>
+      <td>1483.10</td>
+      <td>1</td>
+      <td>16.33%</td>
+      <td>50.48%</td>
+      <td>33.19%</td>
+      <td>14.36</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Raith Rovers</td>
+      <td>1517.91</td>
+      <td>1</td>
+      <td>@ Greenock Morton</td>
+      <td>1475.77</td>
+      <td>0</td>
+      <td>30.19%</td>
+      <td>28.69%</td>
+      <td>41.12%</td>
+      <td>10.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Greenock Morton</td>
+      <td>1475.77</td>
+      <td>0</td>
+      <td>Raith Rovers</td>
+      <td>1517.91</td>
+      <td>1</td>
+      <td>28.69%</td>
+      <td>30.19%</td>
+      <td>41.12%</td>
+      <td>-10.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-06</td>
+      <td>Ross County</td>
+      <td>1483.10</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1375.77</td>
+      <td>2</td>
+      <td>50.48%</td>
+      <td>16.33%</td>
+      <td>33.19%</td>
+      <td>-14.36</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Airdrieonians</td>
+      <td>1404.72</td>
+      <td>1</td>
+      <td>@ Partick Thistle</td>
+      <td>1509.12</td>
+      <td>2</td>
+      <td>16.47%</td>
+      <td>50.05%</td>
+      <td>33.48%</td>
+      <td>-6.33</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Partick Thistle</td>
+      <td>1509.12</td>
+      <td>2</td>
+      <td>Airdrieonians</td>
+      <td>1404.72</td>
+      <td>1</td>
+      <td>50.05%</td>
+      <td>16.47%</td>
+      <td>33.48%</td>
+      <td>6.34</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Raith Rovers</td>
+      <td>1528.07</td>
+      <td>0</td>
+      <td>St. Johnstone</td>
+      <td>1536.10</td>
+      <td>2</td>
+      <td>33.62%</td>
+      <td>25.61%</td>
+      <td>40.78%</td>
+      <td>-15.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Queens Park</td>
+      <td>1396.07</td>
+      <td>0</td>
+      <td>Greenock Morton</td>
+      <td>1465.62</td>
+      <td>0</td>
+      <td>25.15%</td>
+      <td>34.17%</td>
+      <td>40.68%</td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Ayr United</td>
+      <td>1494.16</td>
+      <td>1</td>
+      <td>Ross County</td>
+      <td>1468.74</td>
+      <td>1</td>
+      <td>38.49%</td>
+      <td>21.99%</td>
+      <td>39.51%</td>
+      <td>-0.92</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Arbroath</td>
+      <td>1390.13</td>
+      <td>0</td>
+      <td>Dunfermline Athletic</td>
+      <td>1438.28</td>
+      <td>5</td>
+      <td>27.86%</td>
+      <td>31.06%</td>
+      <td>41.07%</td>
+      <td>-22.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Rangers</td>
+      <td>1754.23</td>
+      <td>0</td>
+      <td>Heart of Midlothian</td>
+      <td>1709.97</td>
+      <td>2</td>
+      <td>41.25%</td>
+      <td>20.33%</td>
+      <td>38.43%</td>
+      <td>-17.92</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Aberdeen</td>
+      <td>1600.25</td>
+      <td>0</td>
+      <td>Livingston</td>
+      <td>1607.54</td>
+      <td>0</td>
+      <td>33.72%</td>
+      <td>25.52%</td>
+      <td>40.76%</td>
+      <td>-0.44</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Falkirk</td>
+      <td>1607.52</td>
+      <td>1</td>
+      <td>St. Mirren</td>
+      <td>1651.36</td>
+      <td>2</td>
+      <td>28.45%</td>
+      <td>30.44%</td>
+      <td>41.11%</td>
+      <td>-10.11</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Dundee</td>
+      <td>1590.26</td>
+      <td>1</td>
+      <td>Motherwell</td>
+      <td>1622.95</td>
+      <td>1</td>
+      <td>30.04%</td>
+      <td>28.84%</td>
+      <td>41.12%</td>
+      <td>-0.07</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Hibernian</td>
+      <td>1705.18</td>
+      <td>3</td>
+      <td>Dundee United</td>
+      <td>1642.81</td>
+      <td>3</td>
+      <td>43.89%</td>
+      <td>18.95%</td>
+      <td>37.16%</td>
+      <td>-1.43</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>St. Johnstone</td>
+      <td>1536.10</td>
+      <td>2</td>
+      <td>@ Raith Rovers</td>
+      <td>1528.07</td>
+      <td>0</td>
+      <td>25.61%</td>
+      <td>33.62%</td>
+      <td>40.78%</td>
+      <td>15.78</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Greenock Morton</td>
+      <td>1465.62</td>
+      <td>0</td>
+      <td>@ Queens Park</td>
+      <td>1396.07</td>
+      <td>0</td>
+      <td>34.17%</td>
+      <td>25.15%</td>
+      <td>40.68%</td>
+      <td>-0.49</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Ross County</td>
+      <td>1468.74</td>
+      <td>1</td>
+      <td>@ Ayr United</td>
+      <td>1494.16</td>
+      <td>1</td>
+      <td>21.99%</td>
+      <td>38.49%</td>
+      <td>39.51%</td>
+      <td>0.92</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Dunfermline Athletic</td>
+      <td>1438.28</td>
+      <td>5</td>
+      <td>@ Arbroath</td>
+      <td>1390.13</td>
+      <td>0</td>
+      <td>31.06%</td>
+      <td>27.86%</td>
+      <td>41.07%</td>
+      <td>22.30</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Dundee United</td>
+      <td>1642.81</td>
+      <td>3</td>
+      <td>@ Hibernian</td>
+      <td>1705.18</td>
+      <td>3</td>
+      <td>18.95%</td>
+      <td>43.89%</td>
+      <td>37.16%</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Heart of Midlothian</td>
+      <td>1709.97</td>
+      <td>2</td>
+      <td>@ Rangers</td>
+      <td>1754.23</td>
+      <td>0</td>
+      <td>20.33%</td>
+      <td>41.25%</td>
+      <td>38.43%</td>
+      <td>17.93</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Livingston</td>
+      <td>1607.54</td>
+      <td>0</td>
+      <td>@ Aberdeen</td>
+      <td>1600.25</td>
+      <td>0</td>
+      <td>25.52%</td>
+      <td>33.72%</td>
+      <td>40.76%</td>
+      <td>0.43</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>St. Mirren</td>
+      <td>1651.36</td>
+      <td>2</td>
+      <td>@ Falkirk</td>
+      <td>1607.52</td>
+      <td>1</td>
+      <td>30.44%</td>
+      <td>28.45%</td>
+      <td>41.11%</td>
+      <td>10.10</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Motherwell</td>
+      <td>1622.95</td>
+      <td>1</td>
+      <td>@ Dundee</td>
+      <td>1590.26</td>
+      <td>1</td>
+      <td>28.84%</td>
+      <td>30.04%</td>
+      <td>41.12%</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Kilmarnock</td>
+      <td>1629.53</td>
+      <td>1</td>
+      <td>Celtic</td>
+      <td>1835.60</td>
+      <td>2</td>
+      <td>15.23%</td>
+      <td>54.15%</td>
+      <td>30.62%</td>
+      <td>-5.65</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Celtic</td>
+      <td>1835.60</td>
+      <td>2</td>
+      <td>@ Kilmarnock</td>
+      <td>1629.53</td>
+      <td>1</td>
+      <td>54.15%</td>
+      <td>15.23%</td>
+      <td>30.62%</td>
+      <td>5.65</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>St. Johnstone</td>
+      <td>1551.88</td>
+      <td>2</td>
+      <td>Dunfermline Athletic</td>
+      <td>1460.58</td>
+      <td>1</td>
+      <td>48.13%</td>
+      <td>17.15%</td>
+      <td>34.72%</td>
+      <td>6.67</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Dunfermline Athletic</td>
+      <td>1460.58</td>
+      <td>1</td>
+      <td>@ St. Johnstone</td>
+      <td>1551.88</td>
+      <td>2</td>
+      <td>17.15%</td>
+      <td>48.13%</td>
+      <td>34.72%</td>
+      <td>-6.67</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Queens Park</td>
+      <td>1396.55</td>
+      <td>2</td>
+      <td>@ Ross County</td>
+      <td>1469.66</td>
+      <td>1</td>
+      <td>18.23%</td>
+      <td>45.46%</td>
+      <td>36.31%</td>
+      <td>13.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Greenock Morton</td>
+      <td>1465.13</td>
+      <td>1</td>
+      <td>@ Arbroath</td>
+      <td>1367.82</td>
+      <td>1</td>
+      <td>38.22%</td>
+      <td>22.17%</td>
+      <td>39.61%</td>
+      <td>-0.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Raith Rovers</td>
+      <td>1512.28</td>
+      <td>0</td>
+      <td>@ Airdrieonians</td>
+      <td>1398.39</td>
+      <td>0</td>
+      <td>40.64%</td>
+      <td>20.67%</td>
+      <td>38.69%</td>
+      <td>-1.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Dundee</td>
+      <td>1590.19</td>
+      <td>3</td>
+      <td>Livingston</td>
+      <td>1607.97</td>
+      <td>2</td>
+      <td>32.20%</td>
+      <td>26.83%</td>
+      <td>40.97%</td>
+      <td>9.75</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Arbroath</td>
+      <td>1367.82</td>
+      <td>1</td>
+      <td>Greenock Morton</td>
+      <td>1465.13</td>
+      <td>1</td>
+      <td>22.17%</td>
+      <td>38.22%</td>
+      <td>39.61%</td>
+      <td>0.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Airdrieonians</td>
+      <td>1398.39</td>
+      <td>0</td>
+      <td>Raith Rovers</td>
+      <td>1512.28</td>
+      <td>0</td>
+      <td>20.67%</td>
+      <td>40.64%</td>
+      <td>38.69%</td>
+      <td>1.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Livingston</td>
+      <td>1607.97</td>
+      <td>2</td>
+      <td>@ Dundee</td>
+      <td>1590.19</td>
+      <td>3</td>
+      <td>26.83%</td>
+      <td>32.20%</td>
+      <td>40.97%</td>
+      <td>-9.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Ross County</td>
+      <td>1469.66</td>
+      <td>1</td>
+      <td>Queens Park</td>
+      <td>1396.55</td>
+      <td>2</td>
+      <td>45.46%</td>
+      <td>18.23%</td>
+      <td>36.31%</td>
+      <td>-13.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Aberdeen</td>
+      <td>1599.81</td>
+      <td>0</td>
+      <td>@ Dundee United</td>
+      <td>1644.24</td>
+      <td>2</td>
+      <td>20.31%</td>
+      <td>41.27%</td>
+      <td>38.42%</td>
+      <td>-11.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Hibernian</td>
+      <td>1703.75</td>
+      <td>2</td>
+      <td>@ Falkirk</td>
+      <td>1597.41</td>
+      <td>2</td>
+      <td>39.54%</td>
+      <td>21.33%</td>
+      <td>39.13%</td>
+      <td>-1.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Dundee United</td>
+      <td>1644.24</td>
+      <td>2</td>
+      <td>Aberdeen</td>
+      <td>1599.81</td>
+      <td>0</td>
+      <td>41.27%</td>
+      <td>20.31%</td>
+      <td>38.42%</td>
+      <td>11.23</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Falkirk</td>
+      <td>1597.41</td>
+      <td>2</td>
+      <td>Hibernian</td>
+      <td>1703.75</td>
+      <td>2</td>
+      <td>21.33%</td>
+      <td>39.54%</td>
+      <td>39.13%</td>
+      <td>1.02</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Airdrieonians</td>
+      <td>1399.51</td>
+      <td>1</td>
+      <td>St. Johnstone</td>
+      <td>1558.55</td>
+      <td>2</td>
+      <td>17.49%</td>
+      <td>47.25%</td>
+      <td>35.26%</td>
+      <td>-6.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Ayr United</td>
+      <td>1493.24</td>
+      <td>1</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1453.91</td>
+      <td>0</td>
+      <td>29.79%</td>
+      <td>29.09%</td>
+      <td>41.13%</td>
+      <td>10.24</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>Dunfermline Athletic</td>
+      <td>1453.91</td>
+      <td>0</td>
+      <td>Ayr United</td>
+      <td>1493.24</td>
+      <td>1</td>
+      <td>29.09%</td>
+      <td>29.79%</td>
+      <td>41.13%</td>
+      <td>-10.23</td>
+    </tr>
+    <tr>
+      <td>2025-09-23</td>
+      <td>St. Johnstone</td>
+      <td>1558.55</td>
+      <td>2</td>
+      <td>@ Airdrieonians</td>
+      <td>1399.51</td>
+      <td>1</td>
+      <td>47.25%</td>
+      <td>17.49%</td>
+      <td>35.26%</td>
+      <td>6.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Heart of Midlothian</td>
+      <td>1727.90</td>
+      <td>3</td>
+      <td>Falkirk</td>
+      <td>1598.43</td>
+      <td>0</td>
+      <td>53.74%</td>
+      <td>15.34%</td>
+      <td>30.92%</td>
+      <td>9.90</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Partick Thistle</td>
+      <td>1515.46</td>
+      <td>2</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1443.68</td>
+      <td>0</td>
+      <td>34.49%</td>
+      <td>24.89%</td>
+      <td>40.62%</td>
+      <td>13.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Airdrieonians</td>
+      <td>1392.68</td>
+      <td>2</td>
+      <td>@ Ayr United</td>
+      <td>1503.48</td>
+      <td>4</td>
+      <td>16.16%</td>
+      <td>50.99%</td>
+      <td>32.85%</td>
+      <td>-8.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Aberdeen</td>
+      <td>1588.59</td>
+      <td>0</td>
+      <td>@ Motherwell</td>
+      <td>1623.02</td>
+      <td>2</td>
+      <td>21.16%</td>
+      <td>39.81%</td>
+      <td>39.03%</td>
+      <td>-11.63</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Falkirk</td>
+      <td>1598.43</td>
+      <td>0</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1727.90</td>
+      <td>3</td>
+      <td>15.34%</td>
+      <td>53.74%</td>
+      <td>30.92%</td>
+      <td>-9.91</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Celtic</td>
+      <td>1841.25</td>
+      <td>0</td>
+      <td>Hibernian</td>
+      <td>1702.73</td>
+      <td>0</td>
+      <td>55.07%</td>
+      <td>14.98%</td>
+      <td>29.95%</td>
+      <td>-2.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Dundee United</td>
+      <td>1655.47</td>
+      <td>0</td>
+      <td>Kilmarnock</td>
+      <td>1623.88</td>
+      <td>2</td>
+      <td>39.39%</td>
+      <td>21.42%</td>
+      <td>39.19%</td>
+      <td>-17.42</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>St. Mirren</td>
+      <td>1661.46</td>
+      <td>1</td>
+      <td>Dundee</td>
+      <td>1599.94</td>
+      <td>0</td>
+      <td>43.77%</td>
+      <td>19.01%</td>
+      <td>37.22%</td>
+      <td>7.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Motherwell</td>
+      <td>1623.02</td>
+      <td>2</td>
+      <td>Aberdeen</td>
+      <td>1588.59</td>
+      <td>0</td>
+      <td>39.81%</td>
+      <td>21.16%</td>
+      <td>39.03%</td>
+      <td>11.63</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Ross County</td>
+      <td>1456.19</td>
+      <td>1</td>
+      <td>@ Greenock Morton</td>
+      <td>1464.25</td>
+      <td>1</td>
+      <td>23.76%</td>
+      <td>35.96%</td>
+      <td>40.28%</td>
+      <td>0.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Ayr United</td>
+      <td>1503.48</td>
+      <td>4</td>
+      <td>Airdrieonians</td>
+      <td>1392.68</td>
+      <td>2</td>
+      <td>50.99%</td>
+      <td>16.16%</td>
+      <td>32.85%</td>
+      <td>8.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Greenock Morton</td>
+      <td>1464.25</td>
+      <td>1</td>
+      <td>Ross County</td>
+      <td>1456.19</td>
+      <td>1</td>
+      <td>35.96%</td>
+      <td>23.76%</td>
+      <td>40.28%</td>
+      <td>-0.67</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Queens Park</td>
+      <td>1410.02</td>
+      <td>1</td>
+      <td>St. Johnstone</td>
+      <td>1565.38</td>
+      <td>2</td>
+      <td>17.71%</td>
+      <td>46.71%</td>
+      <td>35.59%</td>
+      <td>-6.92</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Raith Rovers</td>
+      <td>1511.16</td>
+      <td>3</td>
+      <td>Arbroath</td>
+      <td>1368.71</td>
+      <td>0</td>
+      <td>55.65%</td>
+      <td>14.83%</td>
+      <td>29.52%</td>
+      <td>9.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Arbroath</td>
+      <td>1368.71</td>
+      <td>0</td>
+      <td>@ Raith Rovers</td>
+      <td>1511.16</td>
+      <td>3</td>
+      <td>14.83%</td>
+      <td>55.65%</td>
+      <td>29.52%</td>
+      <td>-9.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Dundee</td>
+      <td>1599.94</td>
+      <td>0</td>
+      <td>@ St. Mirren</td>
+      <td>1661.46</td>
+      <td>1</td>
+      <td>19.01%</td>
+      <td>43.77%</td>
+      <td>37.22%</td>
+      <td>-7.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Kilmarnock</td>
+      <td>1623.88</td>
+      <td>2</td>
+      <td>@ Dundee United</td>
+      <td>1655.47</td>
+      <td>0</td>
+      <td>21.42%</td>
+      <td>39.39%</td>
+      <td>39.19%</td>
+      <td>17.42</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Hibernian</td>
+      <td>1702.73</td>
+      <td>0</td>
+      <td>@ Celtic</td>
+      <td>1841.25</td>
+      <td>0</td>
+      <td>14.98%</td>
+      <td>55.07%</td>
+      <td>29.95%</td>
+      <td>2.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Dunfermline Athletic</td>
+      <td>1443.68</td>
+      <td>0</td>
+      <td>Partick Thistle</td>
+      <td>1515.46</td>
+      <td>2</td>
+      <td>24.89%</td>
+      <td>34.49%</td>
+      <td>40.62%</td>
+      <td>-13.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>St. Johnstone</td>
+      <td>1565.38</td>
+      <td>2</td>
+      <td>@ Queens Park</td>
+      <td>1410.02</td>
+      <td>1</td>
+      <td>46.71%</td>
+      <td>17.71%</td>
+      <td>35.59%</td>
+      <td>6.93</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Rangers</td>
+      <td>1736.31</td>
+      <td>2</td>
+      <td>@ Livingston</td>
+      <td>1598.23</td>
+      <td>1</td>
+      <td>44.17%</td>
+      <td>18.82%</td>
+      <td>37.01%</td>
+      <td>7.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Livingston</td>
+      <td>1598.23</td>
+      <td>1</td>
+      <td>Rangers</td>
+      <td>1736.31</td>
+      <td>2</td>
+      <td>18.82%</td>
+      <td>44.17%</td>
+      <td>37.01%</td>
+      <td>-7.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-30</td>
+      <td>Partick Thistle</td>
+      <td>1528.58</td>
+      <td>1</td>
+      <td>@ Queens Park</td>
+      <td>1403.10</td>
+      <td>0</td>
+      <td>42.33%</td>
+      <td>19.74%</td>
+      <td>37.93%</td>
+      <td>7.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-30</td>
+      <td>Queens Park</td>
+      <td>1403.10</td>
+      <td>0</td>
+      <td>Partick Thistle</td>
+      <td>1528.58</td>
+      <td>1</td>
+      <td>19.74%</td>
+      <td>42.33%</td>
+      <td>37.93%</td>
+      <td>-7.74</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Airdrieonians</td>
+      <td>1383.95</td>
+      <td>1</td>
+      <td>Greenock Morton</td>
+      <td>1463.58</td>
+      <td>2</td>
+      <td>24.00%</td>
+      <td>35.64%</td>
+      <td>40.36%</td>
+      <td>-9.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Raith Rovers</td>
+      <td>1520.54</td>
+      <td>0</td>
+      <td>@ Ross County</td>
+      <td>1456.85</td>
+      <td>2</td>
+      <td>33.31%</td>
+      <td>25.86%</td>
+      <td>40.82%</td>
+      <td>-15.71</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>St. Mirren</td>
+      <td>1668.93</td>
+      <td>0</td>
+      <td>@ Kilmarnock</td>
+      <td>1641.30</td>
+      <td>2</td>
+      <td>28.14%</td>
+      <td>30.77%</td>
+      <td>41.09%</td>
+      <td>-14.19</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Hibernian</td>
+      <td>1705.13</td>
+      <td>0</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1737.80</td>
+      <td>1</td>
+      <td>21.32%</td>
+      <td>39.55%</td>
+      <td>39.13%</td>
+      <td>-8.27</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Greenock Morton</td>
+      <td>1463.58</td>
+      <td>2</td>
+      <td>@ Airdrieonians</td>
+      <td>1383.95</td>
+      <td>1</td>
+      <td>35.64%</td>
+      <td>24.00%</td>
+      <td>40.36%</td>
+      <td>9.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Queens Park</td>
+      <td>1395.36</td>
+      <td>0</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1430.56</td>
+      <td>0</td>
+      <td>21.10%</td>
+      <td>39.92%</td>
+      <td>38.98%</td>
+      <td>1.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Arbroath</td>
+      <td>1359.33</td>
+      <td>1</td>
+      <td>@ Partick Thistle</td>
+      <td>1536.31</td>
+      <td>1</td>
+      <td>13.62%</td>
+      <td>60.71%</td>
+      <td>25.67%</td>
+      <td>2.83</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Dunfermline Athletic</td>
+      <td>1430.56</td>
+      <td>0</td>
+      <td>Queens Park</td>
+      <td>1395.36</td>
+      <td>0</td>
+      <td>39.92%</td>
+      <td>21.10%</td>
+      <td>38.98%</td>
+      <td>-1.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Ayr United</td>
+      <td>1512.21</td>
+      <td>0</td>
+      <td>@ St. Johnstone</td>
+      <td>1572.31</td>
+      <td>0</td>
+      <td>19.11%</td>
+      <td>43.56%</td>
+      <td>37.33%</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Ross County</td>
+      <td>1456.85</td>
+      <td>2</td>
+      <td>Raith Rovers</td>
+      <td>1520.54</td>
+      <td>0</td>
+      <td>25.86%</td>
+      <td>33.31%</td>
+      <td>40.82%</td>
+      <td>15.70</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Partick Thistle</td>
+      <td>1536.31</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1359.33</td>
+      <td>1</td>
+      <td>60.71%</td>
+      <td>13.62%</td>
+      <td>25.67%</td>
+      <td>-2.82</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Dundee United</td>
+      <td>1638.05</td>
+      <td>1</td>
+      <td>Livingston</td>
+      <td>1590.84</td>
+      <td>1</td>
+      <td>41.68%</td>
+      <td>20.09%</td>
+      <td>38.24%</td>
+      <td>-1.22</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Kilmarnock</td>
+      <td>1641.30</td>
+      <td>2</td>
+      <td>St. Mirren</td>
+      <td>1668.93</td>
+      <td>0</td>
+      <td>30.77%</td>
+      <td>28.14%</td>
+      <td>41.09%</td>
+      <td>14.19</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Heart of Midlothian</td>
+      <td>1737.80</td>
+      <td>1</td>
+      <td>Hibernian</td>
+      <td>1705.13</td>
+      <td>0</td>
+      <td>39.55%</td>
+      <td>21.32%</td>
+      <td>39.13%</td>
+      <td>8.27</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Livingston</td>
+      <td>1590.84</td>
+      <td>1</td>
+      <td>@ Dundee United</td>
+      <td>1638.05</td>
+      <td>1</td>
+      <td>20.09%</td>
+      <td>41.68%</td>
+      <td>38.24%</td>
+      <td>1.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>St. Johnstone</td>
+      <td>1572.31</td>
+      <td>0</td>
+      <td>Ayr United</td>
+      <td>1512.21</td>
+      <td>0</td>
+      <td>43.56%</td>
+      <td>19.11%</td>
+      <td>37.33%</td>
+      <td>-1.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Motherwell</td>
+      <td>1634.65</td>
+      <td>2</td>
+      <td>@ Celtic</td>
+      <td>1838.85</td>
+      <td>3</td>
+      <td>12.75%</td>
+      <td>64.66%</td>
+      <td>22.59%</td>
+      <td>-4.12</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Dundee</td>
+      <td>1592.47</td>
+      <td>0</td>
+      <td>@ Aberdeen</td>
+      <td>1576.96</td>
+      <td>4</td>
+      <td>26.54%</td>
+      <td>32.53%</td>
+      <td>40.93%</td>
+      <td>-19.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Rangers</td>
+      <td>1743.70</td>
+      <td>1</td>
+      <td>@ Falkirk</td>
+      <td>1588.52</td>
+      <td>1</td>
+      <td>46.68%</td>
+      <td>17.72%</td>
+      <td>35.60%</td>
+      <td>-1.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Aberdeen</td>
+      <td>1576.96</td>
+      <td>4</td>
+      <td>Dundee</td>
+      <td>1592.47</td>
+      <td>0</td>
+      <td>32.53%</td>
+      <td>26.54%</td>
+      <td>40.93%</td>
+      <td>19.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Celtic</td>
+      <td>1838.85</td>
+      <td>3</td>
+      <td>Motherwell</td>
+      <td>1634.65</td>
+      <td>2</td>
+      <td>64.66%</td>
+      <td>12.75%</td>
+      <td>22.59%</td>
+      <td>4.12</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Falkirk</td>
+      <td>1588.52</td>
+      <td>1</td>
+      <td>Rangers</td>
+      <td>1743.70</td>
+      <td>1</td>
+      <td>17.72%</td>
+      <td>46.68%</td>
+      <td>35.60%</td>
+      <td>1.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Arbroath</td>
+      <td>1362.16</td>
+      <td>4</td>
+      <td>Queens Park</td>
+      <td>1396.42</td>
+      <td>1</td>
+      <td>29.81%</td>
+      <td>29.06%</td>
+      <td>41.13%</td>
+      <td>17.72</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>St. Johnstone</td>
+      <td>1570.90</td>
+      <td>0</td>
+      <td>Ross County</td>
+      <td>1472.55</td>
+      <td>0</td>
+      <td>49.16%</td>
+      <td>16.77%</td>
+      <td>34.06%</td>
+      <td>-1.91</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Queens Park</td>
+      <td>1396.42</td>
+      <td>1</td>
+      <td>@ Arbroath</td>
+      <td>1362.16</td>
+      <td>4</td>
+      <td>29.06%</td>
+      <td>29.81%</td>
+      <td>41.13%</td>
+      <td>-17.73</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Ross County</td>
+      <td>1472.55</td>
+      <td>0</td>
+      <td>@ St. Johnstone</td>
+      <td>1570.90</td>
+      <td>0</td>
+      <td>16.77%</td>
+      <td>49.16%</td>
+      <td>34.06%</td>
+      <td>1.92</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Partick Thistle</td>
+      <td>1533.49</td>
+      <td>1</td>
+      <td>@ Greenock Morton</td>
+      <td>1472.63</td>
+      <td>1</td>
+      <td>32.90%</td>
+      <td>26.21%</td>
+      <td>40.89%</td>
+      <td>-0.36</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Raith Rovers</td>
+      <td>1504.83</td>
+      <td>0</td>
+      <td>Ayr United</td>
+      <td>1513.61</td>
+      <td>2</td>
+      <td>33.51%</td>
+      <td>25.70%</td>
+      <td>40.79%</td>
+      <td>-15.75</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Ayr United</td>
+      <td>1513.61</td>
+      <td>2</td>
+      <td>@ Raith Rovers</td>
+      <td>1504.83</td>
+      <td>0</td>
+      <td>25.70%</td>
+      <td>33.51%</td>
+      <td>40.79%</td>
+      <td>15.76</td>
+    </tr>
+    <tr>
+      <td>2025-10-11</td>
+      <td>Greenock Morton</td>
+      <td>1472.63</td>
+      <td>1</td>
+      <td>Partick Thistle</td>
+      <td>1533.49</td>
+      <td>1</td>
+      <td>26.21%</td>
+      <td>32.90%</td>
+      <td>40.89%</td>
+      <td>0.36</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Raith Rovers</td>
+      <td>1489.08</td>
+      <td>0</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1429.50</td>
+      <td>2</td>
+      <td>32.72%</td>
+      <td>26.37%</td>
+      <td>40.91%</td>
+      <td>-15.54</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Dunfermline Athletic</td>
+      <td>1429.50</td>
+      <td>2</td>
+      <td>Raith Rovers</td>
+      <td>1489.08</td>
+      <td>0</td>
+      <td>26.37%</td>
+      <td>32.72%</td>
+      <td>40.91%</td>
+      <td>15.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Aberdeen</td>
+      <td>1596.31</td>
+      <td>1</td>
+      <td>@ St. Mirren</td>
+      <td>1654.74</td>
+      <td>0</td>
+      <td>19.23%</td>
+      <td>43.32%</td>
+      <td>37.45%</td>
+      <td>13.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>St. Mirren</td>
+      <td>1654.74</td>
+      <td>0</td>
+      <td>Aberdeen</td>
+      <td>1596.31</td>
+      <td>1</td>
+      <td>43.32%</td>
+      <td>19.23%</td>
+      <td>37.45%</td>
+      <td>-13.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Rangers</td>
+      <td>1742.01</td>
+      <td>2</td>
+      <td>Dundee United</td>
+      <td>1636.83</td>
+      <td>2</td>
+      <td>50.17%</td>
+      <td>16.43%</td>
+      <td>33.40%</td>
+      <td>-2.00</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Hibernian</td>
+      <td>1696.86</td>
+      <td>4</td>
+      <td>Livingston</td>
+      <td>1592.07</td>
+      <td>0</td>
+      <td>50.11%</td>
+      <td>16.45%</td>
+      <td>33.44%</td>
+      <td>12.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Motherwell</td>
+      <td>1630.53</td>
+      <td>1</td>
+      <td>Falkirk</td>
+      <td>1590.21</td>
+      <td>2</td>
+      <td>40.67%</td>
+      <td>20.65%</td>
+      <td>38.68%</td>
+      <td>-12.57</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Kilmarnock</td>
+      <td>1655.49</td>
+      <td>0</td>
+      <td>Heart of Midlothian</td>
+      <td>1746.07</td>
+      <td>3</td>
+      <td>22.84%</td>
+      <td>37.24%</td>
+      <td>39.92%</td>
+      <td>-15.12</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Arbroath</td>
+      <td>1379.88</td>
+      <td>3</td>
+      <td>St. Johnstone</td>
+      <td>1568.99</td>
+      <td>1</td>
+      <td>15.95%</td>
+      <td>51.66%</td>
+      <td>32.39%</td>
+      <td>20.59</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Ayr United</td>
+      <td>1529.37</td>
+      <td>2</td>
+      <td>Greenock Morton</td>
+      <td>1472.99</td>
+      <td>1</td>
+      <td>43.02%</td>
+      <td>19.38%</td>
+      <td>37.60%</td>
+      <td>7.61</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Partick Thistle</td>
+      <td>1533.13</td>
+      <td>1</td>
+      <td>Ross County</td>
+      <td>1474.47</td>
+      <td>0</td>
+      <td>43.35%</td>
+      <td>19.22%</td>
+      <td>37.43%</td>
+      <td>7.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Queens Park</td>
+      <td>1378.69</td>
+      <td>0</td>
+      <td>Airdrieonians</td>
+      <td>1374.90</td>
+      <td>0</td>
+      <td>35.34%</td>
+      <td>24.23%</td>
+      <td>40.43%</td>
+      <td>-0.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Greenock Morton</td>
+      <td>1472.99</td>
+      <td>1</td>
+      <td>@ Ayr United</td>
+      <td>1529.37</td>
+      <td>2</td>
+      <td>19.38%</td>
+      <td>43.02%</td>
+      <td>37.60%</td>
+      <td>-7.61</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Dundee United</td>
+      <td>1636.83</td>
+      <td>2</td>
+      <td>@ Rangers</td>
+      <td>1742.01</td>
+      <td>2</td>
+      <td>16.43%</td>
+      <td>50.17%</td>
+      <td>33.40%</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Livingston</td>
+      <td>1592.07</td>
+      <td>0</td>
+      <td>@ Hibernian</td>
+      <td>1696.86</td>
+      <td>4</td>
+      <td>16.45%</td>
+      <td>50.11%</td>
+      <td>33.44%</td>
+      <td>-12.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Ross County</td>
+      <td>1474.47</td>
+      <td>0</td>
+      <td>@ Partick Thistle</td>
+      <td>1533.13</td>
+      <td>1</td>
+      <td>19.22%</td>
+      <td>43.35%</td>
+      <td>37.43%</td>
+      <td>-7.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Heart of Midlothian</td>
+      <td>1746.07</td>
+      <td>3</td>
+      <td>@ Kilmarnock</td>
+      <td>1655.49</td>
+      <td>0</td>
+      <td>37.24%</td>
+      <td>22.84%</td>
+      <td>39.92%</td>
+      <td>15.12</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>St. Johnstone</td>
+      <td>1568.99</td>
+      <td>1</td>
+      <td>@ Arbroath</td>
+      <td>1379.88</td>
+      <td>3</td>
+      <td>51.66%</td>
+      <td>15.95%</td>
+      <td>32.39%</td>
+      <td>-20.59</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Airdrieonians</td>
+      <td>1374.90</td>
+      <td>0</td>
+      <td>@ Queens Park</td>
+      <td>1378.69</td>
+      <td>0</td>
+      <td>24.23%</td>
+      <td>35.34%</td>
+      <td>40.43%</td>
+      <td>0.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Falkirk</td>
+      <td>1590.21</td>
+      <td>2</td>
+      <td>@ Motherwell</td>
+      <td>1630.53</td>
+      <td>1</td>
+      <td>20.65%</td>
+      <td>40.67%</td>
+      <td>38.68%</td>
+      <td>12.57</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Celtic</td>
+      <td>1842.97</td>
+      <td>0</td>
+      <td>@ Dundee</td>
+      <td>1573.12</td>
+      <td>2</td>
+      <td>63.49%</td>
+      <td>13.01%</td>
+      <td>23.51%</td>
+      <td>-23.12</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Dundee</td>
+      <td>1573.12</td>
+      <td>2</td>
+      <td>Celtic</td>
+      <td>1842.97</td>
+      <td>0</td>
+      <td>13.01%</td>
+      <td>63.49%</td>
+      <td>23.51%</td>
+      <td>23.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-21</td>
+      <td>Ayr United</td>
+      <td>1536.98</td>
+      <td>1</td>
+      <td>@ Partick Thistle</td>
+      <td>1540.68</td>
+      <td>2</td>
+      <td>24.24%</td>
+      <td>35.32%</td>
+      <td>40.44%</td>
+      <td>-9.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-21</td>
+      <td>Airdrieonians</td>
+      <td>1375.50</td>
+      <td>-1</td>
+      <td>Dunfermline Athletic</td>
+      <td>1445.03</td>
+      <td>-1</td>
+      <td>25.16%</td>
+      <td>34.17%</td>
+      <td>40.68%</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-21</td>
+      <td>Partick Thistle</td>
+      <td>1540.68</td>
+      <td>2</td>
+      <td>Ayr United</td>
+      <td>1536.98</td>
+      <td>1</td>
+      <td>35.32%</td>
+      <td>24.24%</td>
+      <td>40.44%</td>
+      <td>9.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-21</td>
+      <td>Dunfermline Athletic</td>
+      <td>1445.03</td>
+      <td>-1</td>
+      <td>@ Airdrieonians</td>
+      <td>1375.50</td>
+      <td>-1</td>
+      <td>34.17%</td>
+      <td>25.16%</td>
+      <td>40.68%</td>
+      <td>-0.48</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Airdrieonians</td>
+      <td>1375.99</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1400.47</td>
+      <td>0</td>
+      <td>31.23%</td>
+      <td>27.71%</td>
+      <td>41.06%</td>
+      <td>9.94</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Ross County</td>
+      <td>1466.92</td>
+      <td>3</td>
+      <td>Dunfermline Athletic</td>
+      <td>1444.55</td>
+      <td>2</td>
+      <td>38.05%</td>
+      <td>22.29%</td>
+      <td>39.67%</td>
+      <td>8.57</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Raith Rovers</td>
+      <td>1473.54</td>
+      <td>2</td>
+      <td>Partick Thistle</td>
+      <td>1549.79</td>
+      <td>0</td>
+      <td>24.38%</td>
+      <td>35.14%</td>
+      <td>40.48%</td>
+      <td>16.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>St. Mirren</td>
+      <td>1641.67</td>
+      <td>1</td>
+      <td>@ Dundee United</td>
+      <td>1638.83</td>
+      <td>3</td>
+      <td>24.99%</td>
+      <td>34.37%</td>
+      <td>40.64%</td>
+      <td>-13.16</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Dundee</td>
+      <td>1596.23</td>
+      <td>1</td>
+      <td>@ Falkirk</td>
+      <td>1602.78</td>
+      <td>2</td>
+      <td>23.93%</td>
+      <td>35.74%</td>
+      <td>40.34%</td>
+      <td>-9.02</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Motherwell</td>
+      <td>1617.96</td>
+      <td>2</td>
+      <td>@ Livingston</td>
+      <td>1579.42</td>
+      <td>1</td>
+      <td>29.67%</td>
+      <td>29.20%</td>
+      <td>41.13%</td>
+      <td>10.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>St. Johnstone</td>
+      <td>1548.40</td>
+      <td>4</td>
+      <td>@ Greenock Morton</td>
+      <td>1465.38</td>
+      <td>0</td>
+      <td>36.13%</td>
+      <td>23.63%</td>
+      <td>40.24%</td>
+      <td>17.90</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Greenock Morton</td>
+      <td>1465.38</td>
+      <td>0</td>
+      <td>St. Johnstone</td>
+      <td>1548.40</td>
+      <td>4</td>
+      <td>23.63%</td>
+      <td>36.13%</td>
+      <td>40.24%</td>
+      <td>-17.90</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Ayr United</td>
+      <td>1527.87</td>
+      <td>0</td>
+      <td>@ Queens Park</td>
+      <td>1378.09</td>
+      <td>0</td>
+      <td>45.89%</td>
+      <td>18.05%</td>
+      <td>36.07%</td>
+      <td>-1.62</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Partick Thistle</td>
+      <td>1549.79</td>
+      <td>0</td>
+      <td>@ Raith Rovers</td>
+      <td>1473.54</td>
+      <td>2</td>
+      <td>35.14%</td>
+      <td>24.38%</td>
+      <td>40.48%</td>
+      <td>-16.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Dunfermline Athletic</td>
+      <td>1444.55</td>
+      <td>2</td>
+      <td>@ Ross County</td>
+      <td>1466.92</td>
+      <td>3</td>
+      <td>22.29%</td>
+      <td>38.05%</td>
+      <td>39.67%</td>
+      <td>-8.57</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Dundee United</td>
+      <td>1638.83</td>
+      <td>3</td>
+      <td>St. Mirren</td>
+      <td>1641.67</td>
+      <td>1</td>
+      <td>34.37%</td>
+      <td>24.99%</td>
+      <td>40.64%</td>
+      <td>13.15</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Falkirk</td>
+      <td>1602.78</td>
+      <td>2</td>
+      <td>Dundee</td>
+      <td>1596.23</td>
+      <td>1</td>
+      <td>35.74%</td>
+      <td>23.93%</td>
+      <td>40.34%</td>
+      <td>9.02</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Livingston</td>
+      <td>1579.42</td>
+      <td>1</td>
+      <td>Motherwell</td>
+      <td>1617.96</td>
+      <td>2</td>
+      <td>29.20%</td>
+      <td>29.67%</td>
+      <td>41.13%</td>
+      <td>-10.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Arbroath</td>
+      <td>1400.47</td>
+      <td>0</td>
+      <td>@ Airdrieonians</td>
+      <td>1375.99</td>
+      <td>1</td>
+      <td>27.71%</td>
+      <td>31.23%</td>
+      <td>41.06%</td>
+      <td>-9.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Queens Park</td>
+      <td>1378.09</td>
+      <td>0</td>
+      <td>Ayr United</td>
+      <td>1527.87</td>
+      <td>0</td>
+      <td>18.05%</td>
+      <td>45.89%</td>
+      <td>36.07%</td>
+      <td>1.62</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Heart of Midlothian</td>
+      <td>1761.19</td>
+      <td>3</td>
+      <td>Celtic</td>
+      <td>1819.85</td>
+      <td>1</td>
+      <td>26.49%</td>
+      <td>32.59%</td>
+      <td>40.93%</td>
+      <td>15.50</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Kilmarnock</td>
+      <td>1640.37</td>
+      <td>1</td>
+      <td>@ Rangers</td>
+      <td>1740.01</td>
+      <td>3</td>
+      <td>16.71%</td>
+      <td>49.35%</td>
+      <td>33.94%</td>
+      <td>-9.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Hibernian</td>
+      <td>1709.51</td>
+      <td>2</td>
+      <td>@ Aberdeen</td>
+      <td>1609.38</td>
+      <td>1</td>
+      <td>38.63%</td>
+      <td>21.90%</td>
+      <td>39.47%</td>
+      <td>8.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Celtic</td>
+      <td>1819.85</td>
+      <td>1</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1761.19</td>
+      <td>3</td>
+      <td>32.59%</td>
+      <td>26.49%</td>
+      <td>40.93%</td>
+      <td>-15.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Aberdeen</td>
+      <td>1609.38</td>
+      <td>1</td>
+      <td>Hibernian</td>
+      <td>1709.51</td>
+      <td>2</td>
+      <td>21.90%</td>
+      <td>38.63%</td>
+      <td>39.47%</td>
+      <td>-8.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Rangers</td>
+      <td>1740.01</td>
+      <td>3</td>
+      <td>Kilmarnock</td>
+      <td>1640.37</td>
+      <td>1</td>
+      <td>49.35%</td>
+      <td>16.71%</td>
+      <td>33.94%</td>
+      <td>9.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Aberdeen</td>
+      <td>1600.93</td>
+      <td>1</td>
+      <td>@ Kilmarnock</td>
+      <td>1631.24</td>
+      <td>0</td>
+      <td>21.53%</td>
+      <td>39.21%</td>
+      <td>39.26%</td>
+      <td>12.27</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Rangers</td>
+      <td>1749.14</td>
+      <td>1</td>
+      <td>@ Hibernian</td>
+      <td>1717.96</td>
+      <td>0</td>
+      <td>28.63%</td>
+      <td>30.26%</td>
+      <td>41.11%</td>
+      <td>10.48</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Heart of Midlothian</td>
+      <td>1776.69</td>
+      <td>2</td>
+      <td>@ St. Mirren</td>
+      <td>1628.51</td>
+      <td>2</td>
+      <td>45.65%</td>
+      <td>18.15%</td>
+      <td>36.20%</td>
+      <td>-1.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Hibernian</td>
+      <td>1717.96</td>
+      <td>0</td>
+      <td>Rangers</td>
+      <td>1749.14</td>
+      <td>1</td>
+      <td>30.26%</td>
+      <td>28.63%</td>
+      <td>41.11%</td>
+      <td>-10.48</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Falkirk</td>
+      <td>1611.80</td>
+      <td>0</td>
+      <td>@ Celtic</td>
+      <td>1804.36</td>
+      <td>4</td>
+      <td>13.12%</td>
+      <td>62.98%</td>
+      <td>23.90%</td>
+      <td>-8.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Kilmarnock</td>
+      <td>1631.24</td>
+      <td>0</td>
+      <td>Aberdeen</td>
+      <td>1600.93</td>
+      <td>1</td>
+      <td>39.21%</td>
+      <td>21.53%</td>
+      <td>39.26%</td>
+      <td>-12.28</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Celtic</td>
+      <td>1804.36</td>
+      <td>4</td>
+      <td>Falkirk</td>
+      <td>1611.80</td>
+      <td>0</td>
+      <td>62.98%</td>
+      <td>13.12%</td>
+      <td>23.90%</td>
+      <td>8.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>St. Mirren</td>
+      <td>1628.51</td>
+      <td>2</td>
+      <td>Heart of Midlothian</td>
+      <td>1776.69</td>
+      <td>2</td>
+      <td>18.15%</td>
+      <td>45.65%</td>
+      <td>36.20%</td>
+      <td>1.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Dundee United</td>
+      <td>1651.98</td>
+      <td>0</td>
+      <td>@ Motherwell</td>
+      <td>1628.22</td>
+      <td>2</td>
+      <td>27.61%</td>
+      <td>31.33%</td>
+      <td>41.06%</td>
+      <td>-14.03</td>
+    </tr>
+    <tr>
+      <td>2025-10-29</td>
+      <td>Motherwell</td>
+      <td>1628.22</td>
+      <td>2</td>
+      <td>Dundee United</td>
+      <td>1651.98</td>
+      <td>0</td>
+      <td>31.33%</td>
+      <td>27.61%</td>
+      <td>41.06%</td>
+      <td>14.03</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Dunfermline Athletic</td>
+      <td>1435.98</td>
+      <td>1</td>
+      <td>@ Ayr United</td>
+      <td>1526.25</td>
+      <td>0</td>
+      <td>17.21%</td>
+      <td>47.98%</td>
+      <td>34.81%</td>
+      <td>13.92</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Ayr United</td>
+      <td>1526.25</td>
+      <td>0</td>
+      <td>Dunfermline Athletic</td>
+      <td>1435.98</td>
+      <td>1</td>
+      <td>47.98%</td>
+      <td>17.21%</td>
+      <td>34.81%</td>
+      <td>-13.93</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Airdrieonians</td>
+      <td>1385.93</td>
+      <td>0</td>
+      <td>@ St. Johnstone</td>
+      <td>1566.30</td>
+      <td>3</td>
+      <td>13.51%</td>
+      <td>61.21%</td>
+      <td>25.28%</td>
+      <td>-7.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Falkirk</td>
+      <td>1603.12</td>
+      <td>3</td>
+      <td>Kilmarnock</td>
+      <td>1618.96</td>
+      <td>1</td>
+      <td>32.48%</td>
+      <td>26.58%</td>
+      <td>40.94%</td>
+      <td>13.69</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Heart of Midlothian</td>
+      <td>1775.09</td>
+      <td>4</td>
+      <td>Dundee</td>
+      <td>1587.21</td>
+      <td>0</td>
+      <td>62.30%</td>
+      <td>13.27%</td>
+      <td>24.43%</td>
+      <td>8.87</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Livingston</td>
+      <td>1569.16</td>
+      <td>2</td>
+      <td>Hibernian</td>
+      <td>1707.48</td>
+      <td>2</td>
+      <td>18.80%</td>
+      <td>44.21%</td>
+      <td>36.99%</td>
+      <td>1.46</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Arbroath</td>
+      <td>1390.52</td>
+      <td>3</td>
+      <td>Ross County</td>
+      <td>1475.49</td>
+      <td>0</td>
+      <td>23.42%</td>
+      <td>36.42%</td>
+      <td>40.16%</td>
+      <td>20.32</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Partick Thistle</td>
+      <td>1533.56</td>
+      <td>5</td>
+      <td>Queens Park</td>
+      <td>1379.71</td>
+      <td>0</td>
+      <td>57.33%</td>
+      <td>14.41%</td>
+      <td>28.27%</td>
+      <td>11.54</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Raith Rovers</td>
+      <td>1489.77</td>
+      <td>1</td>
+      <td>Greenock Morton</td>
+      <td>1447.48</td>
+      <td>1</td>
+      <td>40.96%</td>
+      <td>20.49%</td>
+      <td>38.55%</td>
+      <td>-1.16</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>St. Johnstone</td>
+      <td>1566.30</td>
+      <td>3</td>
+      <td>Airdrieonians</td>
+      <td>1385.93</td>
+      <td>0</td>
+      <td>61.21%</td>
+      <td>13.51%</td>
+      <td>25.28%</td>
+      <td>7.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Greenock Morton</td>
+      <td>1447.48</td>
+      <td>1</td>
+      <td>@ Raith Rovers</td>
+      <td>1489.77</td>
+      <td>1</td>
+      <td>20.49%</td>
+      <td>40.96%</td>
+      <td>38.55%</td>
+      <td>1.16</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Ross County</td>
+      <td>1475.49</td>
+      <td>0</td>
+      <td>@ Arbroath</td>
+      <td>1390.52</td>
+      <td>3</td>
+      <td>36.42%</td>
+      <td>23.42%</td>
+      <td>40.16%</td>
+      <td>-20.31</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Kilmarnock</td>
+      <td>1618.96</td>
+      <td>1</td>
+      <td>@ Falkirk</td>
+      <td>1603.12</td>
+      <td>3</td>
+      <td>26.58%</td>
+      <td>32.48%</td>
+      <td>40.94%</td>
+      <td>-13.70</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Dundee</td>
+      <td>1587.21</td>
+      <td>0</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1775.09</td>
+      <td>4</td>
+      <td>13.27%</td>
+      <td>62.30%</td>
+      <td>24.43%</td>
+      <td>-8.88</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Queens Park</td>
+      <td>1379.71</td>
+      <td>0</td>
+      <td>@ Partick Thistle</td>
+      <td>1533.56</td>
+      <td>5</td>
+      <td>14.41%</td>
+      <td>57.33%</td>
+      <td>28.27%</td>
+      <td>-11.53</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Hibernian</td>
+      <td>1707.48</td>
+      <td>2</td>
+      <td>@ Livingston</td>
+      <td>1569.16</td>
+      <td>2</td>
+      <td>44.21%</td>
+      <td>18.80%</td>
+      <td>36.99%</td>
+      <td>-1.46</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Partick Thistle</td>
+      <td>1545.10</td>
+      <td>1</td>
+      <td>@ Airdrieonians</td>
+      <td>1377.98</td>
+      <td>1</td>
+      <td>48.43%</td>
+      <td>17.04%</td>
+      <td>34.53%</td>
+      <td>-1.85</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Airdrieonians</td>
+      <td>1377.98</td>
+      <td>1</td>
+      <td>Partick Thistle</td>
+      <td>1545.10</td>
+      <td>1</td>
+      <td>17.04%</td>
+      <td>48.43%</td>
+      <td>34.53%</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Queens Park</td>
+      <td>1368.18</td>
+      <td>2</td>
+      <td>Raith Rovers</td>
+      <td>1488.61</td>
+      <td>1</td>
+      <td>20.13%</td>
+      <td>41.60%</td>
+      <td>38.27%</td>
+      <td>12.74</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Ross County</td>
+      <td>1455.18</td>
+      <td>3</td>
+      <td>Ayr United</td>
+      <td>1512.32</td>
+      <td>3</td>
+      <td>26.68%</td>
+      <td>32.37%</td>
+      <td>40.95%</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Greenock Morton</td>
+      <td>1448.64</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1410.84</td>
+      <td>0</td>
+      <td>40.30%</td>
+      <td>20.87%</td>
+      <td>38.83%</td>
+      <td>8.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>St. Mirren</td>
+      <td>1630.11</td>
+      <td>0</td>
+      <td>Hibernian</td>
+      <td>1706.02</td>
+      <td>3</td>
+      <td>24.42%</td>
+      <td>35.10%</td>
+      <td>40.49%</td>
+      <td>-15.86</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Falkirk</td>
+      <td>1616.81</td>
+      <td>1</td>
+      <td>Livingston</td>
+      <td>1570.62</td>
+      <td>1</td>
+      <td>41.53%</td>
+      <td>20.17%</td>
+      <td>38.30%</td>
+      <td>-1.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Dunfermline Athletic</td>
+      <td>1449.90</td>
+      <td>2</td>
+      <td>St. Johnstone</td>
+      <td>1574.25</td>
+      <td>2</td>
+      <td>19.82%</td>
+      <td>42.17%</td>
+      <td>38.01%</td>
+      <td>1.28</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Raith Rovers</td>
+      <td>1488.61</td>
+      <td>1</td>
+      <td>@ Queens Park</td>
+      <td>1368.18</td>
+      <td>2</td>
+      <td>41.60%</td>
+      <td>20.13%</td>
+      <td>38.27%</td>
+      <td>-12.74</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Arbroath</td>
+      <td>1410.84</td>
+      <td>0</td>
+      <td>@ Greenock Morton</td>
+      <td>1448.64</td>
+      <td>1</td>
+      <td>20.87%</td>
+      <td>40.30%</td>
+      <td>38.83%</td>
+      <td>-8.13</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>St. Johnstone</td>
+      <td>1574.25</td>
+      <td>2</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1449.90</td>
+      <td>2</td>
+      <td>42.17%</td>
+      <td>19.82%</td>
+      <td>38.01%</td>
+      <td>-1.27</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Hibernian</td>
+      <td>1706.02</td>
+      <td>3</td>
+      <td>@ St. Mirren</td>
+      <td>1630.11</td>
+      <td>0</td>
+      <td>35.10%</td>
+      <td>24.42%</td>
+      <td>40.49%</td>
+      <td>15.86</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Livingston</td>
+      <td>1570.62</td>
+      <td>1</td>
+      <td>@ Falkirk</td>
+      <td>1616.81</td>
+      <td>1</td>
+      <td>20.17%</td>
+      <td>41.53%</td>
+      <td>38.30%</td>
+      <td>1.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Ayr United</td>
+      <td>1512.32</td>
+      <td>3</td>
+      <td>@ Ross County</td>
+      <td>1455.18</td>
+      <td>3</td>
+      <td>32.37%</td>
+      <td>26.68%</td>
+      <td>40.95%</td>
+      <td>-0.30</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Dundee</td>
+      <td>1578.33</td>
+      <td>0</td>
+      <td>Rangers</td>
+      <td>1759.62</td>
+      <td>3</td>
+      <td>16.32%</td>
+      <td>50.51%</td>
+      <td>33.17%</td>
+      <td>-10.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Aberdeen</td>
+      <td>1613.20</td>
+      <td>1</td>
+      <td>Motherwell</td>
+      <td>1642.25</td>
+      <td>1</td>
+      <td>30.57%</td>
+      <td>28.33%</td>
+      <td>41.10%</td>
+      <td>-0.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Rangers</td>
+      <td>1759.62</td>
+      <td>3</td>
+      <td>@ Dundee</td>
+      <td>1578.33</td>
+      <td>0</td>
+      <td>50.51%</td>
+      <td>16.32%</td>
+      <td>33.17%</td>
+      <td>10.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Kilmarnock</td>
+      <td>1605.26</td>
+      <td>0</td>
+      <td>@ Celtic</td>
+      <td>1813.05</td>
+      <td>4</td>
+      <td>12.64%</td>
+      <td>65.17%</td>
+      <td>22.19%</td>
+      <td>-8.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Dundee United</td>
+      <td>1637.95</td>
+      <td>1</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1783.96</td>
+      <td>1</td>
+      <td>14.69%</td>
+      <td>56.17%</td>
+      <td>29.13%</td>
+      <td>2.49</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Heart of Midlothian</td>
+      <td>1783.96</td>
+      <td>1</td>
+      <td>Dundee United</td>
+      <td>1637.95</td>
+      <td>1</td>
+      <td>56.17%</td>
+      <td>14.69%</td>
+      <td>29.13%</td>
+      <td>-2.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Motherwell</td>
+      <td>1642.25</td>
+      <td>1</td>
+      <td>@ Aberdeen</td>
+      <td>1613.20</td>
+      <td>1</td>
+      <td>28.33%</td>
+      <td>30.57%</td>
+      <td>41.10%</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Celtic</td>
+      <td>1813.05</td>
+      <td>4</td>
+      <td>Kilmarnock</td>
+      <td>1605.26</td>
+      <td>0</td>
+      <td>65.17%</td>
+      <td>12.64%</td>
+      <td>22.19%</td>
+      <td>8.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Ayr United</td>
+      <td>1512.02</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1402.71</td>
+      <td>1</td>
+      <td>50.78%</td>
+      <td>16.23%</td>
+      <td>32.99%</td>
+      <td>-2.04</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Airdrieonians</td>
+      <td>1379.83</td>
+      <td>3</td>
+      <td>@ Raith Rovers</td>
+      <td>1475.87</td>
+      <td>0</td>
+      <td>16.89%</td>
+      <td>48.83%</td>
+      <td>34.28%</td>
+      <td>24.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Raith Rovers</td>
+      <td>1475.87</td>
+      <td>0</td>
+      <td>Airdrieonians</td>
+      <td>1379.83</td>
+      <td>3</td>
+      <td>48.83%</td>
+      <td>16.89%</td>
+      <td>34.28%</td>
+      <td>-24.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Greenock Morton</td>
+      <td>1456.76</td>
+      <td>3</td>
+      <td>@ Ross County</td>
+      <td>1455.48</td>
+      <td>0</td>
+      <td>24.81%</td>
+      <td>34.60%</td>
+      <td>40.59%</td>
+      <td>19.69</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Arbroath</td>
+      <td>1402.71</td>
+      <td>1</td>
+      <td>@ Ayr United</td>
+      <td>1512.02</td>
+      <td>1</td>
+      <td>16.23%</td>
+      <td>50.78%</td>
+      <td>32.99%</td>
+      <td>2.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Queens Park</td>
+      <td>1380.92</td>
+      <td>3</td>
+      <td>@ St. Johnstone</td>
+      <td>1572.98</td>
+      <td>4</td>
+      <td>13.13%</td>
+      <td>62.91%</td>
+      <td>23.96%</td>
+      <td>-4.35</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>Ross County</td>
+      <td>1455.48</td>
+      <td>0</td>
+      <td>Greenock Morton</td>
+      <td>1456.76</td>
+      <td>3</td>
+      <td>34.60%</td>
+      <td>24.81%</td>
+      <td>40.59%</td>
+      <td>-19.68</td>
+    </tr>
+    <tr>
+      <td>2025-11-15</td>
+      <td>St. Johnstone</td>
+      <td>1572.98</td>
+      <td>4</td>
+      <td>Queens Park</td>
+      <td>1380.92</td>
+      <td>3</td>
+      <td>62.91%</td>
+      <td>13.13%</td>
+      <td>23.96%</td>
+      <td>4.35</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Rangers</td>
+      <td>1770.45</td>
+      <td>2</td>
+      <td>Livingston</td>
+      <td>1571.83</td>
+      <td>1</td>
+      <td>63.85%</td>
+      <td>12.93%</td>
+      <td>23.22%</td>
+      <td>4.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Kilmarnock</td>
+      <td>1597.16</td>
+      <td>1</td>
+      <td>Motherwell</td>
+      <td>1642.37</td>
+      <td>3</td>
+      <td>28.27%</td>
+      <td>30.64%</td>
+      <td>41.10%</td>
+      <td>-14.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Raith Rovers</td>
+      <td>1451.50</td>
+      <td>0</td>
+      <td>@ Arbroath</td>
+      <td>1404.76</td>
+      <td>0</td>
+      <td>30.86%</td>
+      <td>28.06%</td>
+      <td>41.09%</td>
+      <td>-0.15</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Greenock Morton</td>
+      <td>1476.45</td>
+      <td>0</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1451.18</td>
+      <td>1</td>
+      <td>27.82%</td>
+      <td>31.11%</td>
+      <td>41.07%</td>
+      <td>-9.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>St. Johnstone</td>
+      <td>1577.33</td>
+      <td>1</td>
+      <td>@ Partick Thistle</td>
+      <td>1543.25</td>
+      <td>2</td>
+      <td>29.04%</td>
+      <td>29.84%</td>
+      <td>41.12%</td>
+      <td>-10.22</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Dundee United</td>
+      <td>1640.44</td>
+      <td>0</td>
+      <td>Falkirk</td>
+      <td>1615.60</td>
+      <td>3</td>
+      <td>38.41%</td>
+      <td>22.05%</td>
+      <td>39.54%</td>
+      <td>-21.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Livingston</td>
+      <td>1571.83</td>
+      <td>1</td>
+      <td>@ Rangers</td>
+      <td>1770.45</td>
+      <td>2</td>
+      <td>12.93%</td>
+      <td>63.85%</td>
+      <td>23.22%</td>
+      <td>-4.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Celtic</td>
+      <td>1821.15</td>
+      <td>1</td>
+      <td>@ St. Mirren</td>
+      <td>1614.25</td>
+      <td>0</td>
+      <td>54.28%</td>
+      <td>15.19%</td>
+      <td>30.53%</td>
+      <td>5.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Ayr United</td>
+      <td>1509.98</td>
+      <td>1</td>
+      <td>@ Airdrieonians</td>
+      <td>1404.20</td>
+      <td>0</td>
+      <td>39.45%</td>
+      <td>21.38%</td>
+      <td>39.16%</td>
+      <td>8.29</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Motherwell</td>
+      <td>1642.37</td>
+      <td>3</td>
+      <td>@ Kilmarnock</td>
+      <td>1597.16</td>
+      <td>1</td>
+      <td>30.64%</td>
+      <td>28.27%</td>
+      <td>41.10%</td>
+      <td>14.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Partick Thistle</td>
+      <td>1543.25</td>
+      <td>2</td>
+      <td>St. Johnstone</td>
+      <td>1577.33</td>
+      <td>1</td>
+      <td>29.84%</td>
+      <td>29.04%</td>
+      <td>41.12%</td>
+      <td>10.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Dunfermline Athletic</td>
+      <td>1451.18</td>
+      <td>1</td>
+      <td>Greenock Morton</td>
+      <td>1476.45</td>
+      <td>0</td>
+      <td>31.11%</td>
+      <td>27.82%</td>
+      <td>41.07%</td>
+      <td>9.96</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Arbroath</td>
+      <td>1404.76</td>
+      <td>0</td>
+      <td>Raith Rovers</td>
+      <td>1451.50</td>
+      <td>0</td>
+      <td>28.06%</td>
+      <td>30.86%</td>
+      <td>41.09%</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Airdrieonians</td>
+      <td>1404.20</td>
+      <td>0</td>
+      <td>Ayr United</td>
+      <td>1509.98</td>
+      <td>1</td>
+      <td>21.38%</td>
+      <td>39.45%</td>
+      <td>39.16%</td>
+      <td>-8.29</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Hibernian</td>
+      <td>1721.88</td>
+      <td>2</td>
+      <td>Dundee</td>
+      <td>1567.50</td>
+      <td>0</td>
+      <td>57.40%</td>
+      <td>14.39%</td>
+      <td>28.21%</td>
+      <td>7.28</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>St. Mirren</td>
+      <td>1614.25</td>
+      <td>0</td>
+      <td>Celtic</td>
+      <td>1821.15</td>
+      <td>1</td>
+      <td>15.19%</td>
+      <td>54.28%</td>
+      <td>30.53%</td>
+      <td>-5.63</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Falkirk</td>
+      <td>1615.60</td>
+      <td>3</td>
+      <td>@ Dundee United</td>
+      <td>1640.44</td>
+      <td>0</td>
+      <td>22.05%</td>
+      <td>38.41%</td>
+      <td>39.54%</td>
+      <td>21.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Dundee</td>
+      <td>1567.50</td>
+      <td>0</td>
+      <td>@ Hibernian</td>
+      <td>1721.88</td>
+      <td>2</td>
+      <td>14.39%</td>
+      <td>57.40%</td>
+      <td>28.21%</td>
+      <td>-7.28</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Heart of Midlothian</td>
+      <td>1781.48</td>
+      <td>0</td>
+      <td>@ Aberdeen</td>
+      <td>1613.09</td>
+      <td>1</td>
+      <td>48.62%</td>
+      <td>16.97%</td>
+      <td>34.41%</td>
+      <td>-14.04</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Aberdeen</td>
+      <td>1613.09</td>
+      <td>1</td>
+      <td>Heart of Midlothian</td>
+      <td>1781.48</td>
+      <td>0</td>
+      <td>16.97%</td>
+      <td>48.62%</td>
+      <td>34.41%</td>
+      <td>14.03</td>
+    </tr>
+    <tr>
+      <td>2025-11-25</td>
+      <td>Dunfermline Athletic</td>
+      <td>1461.14</td>
+      <td>0</td>
+      <td>@ Partick Thistle</td>
+      <td>1553.48</td>
+      <td>1</td>
+      <td>17.09%</td>
+      <td>48.28%</td>
+      <td>34.62%</td>
+      <td>-6.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-25</td>
+      <td>Motherwell</td>
+      <td>1656.60</td>
+      <td>2</td>
+      <td>Hibernian</td>
+      <td>1729.16</td>
+      <td>0</td>
+      <td>24.80%</td>
+      <td>34.61%</td>
+      <td>40.59%</td>
+      <td>16.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-25</td>
+      <td>Hibernian</td>
+      <td>1729.16</td>
+      <td>0</td>
+      <td>@ Motherwell</td>
+      <td>1656.60</td>
+      <td>2</td>
+      <td>34.61%</td>
+      <td>24.80%</td>
+      <td>40.59%</td>
+      <td>-16.08</td>
+    </tr>
+    <tr>
+      <td>2025-11-25</td>
+      <td>Partick Thistle</td>
+      <td>1553.48</td>
+      <td>1</td>
+      <td>Dunfermline Athletic</td>
+      <td>1461.14</td>
+      <td>0</td>
+      <td>48.28%</td>
+      <td>17.09%</td>
+      <td>34.62%</td>
+      <td>6.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Dundee</td>
+      <td>1560.22</td>
+      <td>3</td>
+      <td>St. Mirren</td>
+      <td>1608.62</td>
+      <td>1</td>
+      <td>27.83%</td>
+      <td>31.10%</td>
+      <td>41.07%</td>
+      <td>15.06</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Dundee United</td>
+      <td>1619.44</td>
+      <td>0</td>
+      <td>@ Kilmarnock</td>
+      <td>1582.93</td>
+      <td>0</td>
+      <td>29.38%</td>
+      <td>29.49%</td>
+      <td>41.13%</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>St. Mirren</td>
+      <td>1608.62</td>
+      <td>1</td>
+      <td>@ Dundee</td>
+      <td>1560.22</td>
+      <td>3</td>
+      <td>31.10%</td>
+      <td>27.83%</td>
+      <td>41.07%</td>
+      <td>-15.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Heart of Midlothian</td>
+      <td>1767.44</td>
+      <td>1</td>
+      <td>@ Motherwell</td>
+      <td>1672.67</td>
+      <td>1</td>
+      <td>37.85%</td>
+      <td>22.42%</td>
+      <td>39.73%</td>
+      <td>-0.85</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Kilmarnock</td>
+      <td>1582.93</td>
+      <td>0</td>
+      <td>Dundee United</td>
+      <td>1619.44</td>
+      <td>0</td>
+      <td>29.49%</td>
+      <td>29.38%</td>
+      <td>41.13%</td>
+      <td>-0.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Motherwell</td>
+      <td>1672.67</td>
+      <td>1</td>
+      <td>Heart of Midlothian</td>
+      <td>1767.44</td>
+      <td>1</td>
+      <td>22.42%</td>
+      <td>37.85%</td>
+      <td>39.73%</td>
+      <td>0.85</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Falkirk</td>
+      <td>1636.60</td>
+      <td>0</td>
+      <td>@ Rangers</td>
+      <td>1774.68</td>
+      <td>0</td>
+      <td>15.00%</td>
+      <td>55.01%</td>
+      <td>30.00%</td>
+      <td>2.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Aberdeen</td>
+      <td>1627.12</td>
+      <td>1</td>
+      <td>@ Livingston</td>
+      <td>1567.60</td>
+      <td>-1</td>
+      <td>32.71%</td>
+      <td>26.38%</td>
+      <td>40.91%</td>
+      <td>13.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Celtic</td>
+      <td>1826.79</td>
+      <td>2</td>
+      <td>@ Hibernian</td>
+      <td>1713.08</td>
+      <td>1</td>
+      <td>40.61%</td>
+      <td>20.69%</td>
+      <td>38.70%</td>
+      <td>8.06</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Livingston</td>
+      <td>1567.60</td>
+      <td>-1</td>
+      <td>Aberdeen</td>
+      <td>1627.12</td>
+      <td>1</td>
+      <td>26.38%</td>
+      <td>32.71%</td>
+      <td>40.91%</td>
+      <td>-13.63</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Rangers</td>
+      <td>1774.68</td>
+      <td>0</td>
+      <td>Falkirk</td>
+      <td>1636.60</td>
+      <td>0</td>
+      <td>55.01%</td>
+      <td>15.00%</td>
+      <td>30.00%</td>
+      <td>-2.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Hibernian</td>
+      <td>1713.08</td>
+      <td>1</td>
+      <td>Celtic</td>
+      <td>1826.79</td>
+      <td>2</td>
+      <td>20.69%</td>
+      <td>40.61%</td>
+      <td>38.70%</td>
+      <td>-8.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Kilmarnock</td>
+      <td>1582.92</td>
+      <td>1</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1766.59</td>
+      <td>1</td>
+      <td>13.40%</td>
+      <td>61.69%</td>
+      <td>24.91%</td>
+      <td>2.90</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Aberdeen</td>
+      <td>1640.76</td>
+      <td>3</td>
+      <td>St. Mirren</td>
+      <td>1593.55</td>
+      <td>3</td>
+      <td>41.68%</td>
+      <td>20.09%</td>
+      <td>38.24%</td>
+      <td>-1.23</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Heart of Midlothian</td>
+      <td>1766.59</td>
+      <td>1</td>
+      <td>Kilmarnock</td>
+      <td>1582.92</td>
+      <td>1</td>
+      <td>61.69%</td>
+      <td>13.40%</td>
+      <td>24.91%</td>
+      <td>-2.89</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Dundee</td>
+      <td>1575.28</td>
+      <td>0</td>
+      <td>@ Celtic</td>
+      <td>1834.85</td>
+      <td>1</td>
+      <td>11.04%</td>
+      <td>72.34%</td>
+      <td>16.62%</td>
+      <td>-3.17</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>St. Mirren</td>
+      <td>1593.55</td>
+      <td>3</td>
+      <td>@ Aberdeen</td>
+      <td>1640.76</td>
+      <td>3</td>
+      <td>20.09%</td>
+      <td>41.68%</td>
+      <td>38.24%</td>
+      <td>1.23</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Rangers</td>
+      <td>1772.28</td>
+      <td>2</td>
+      <td>@ Dundee United</td>
+      <td>1619.45</td>
+      <td>2</td>
+      <td>46.33%</td>
+      <td>17.86%</td>
+      <td>35.81%</td>
+      <td>-1.66</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Falkirk</td>
+      <td>1639.00</td>
+      <td>0</td>
+      <td>Motherwell</td>
+      <td>1673.52</td>
+      <td>0</td>
+      <td>29.78%</td>
+      <td>29.10%</td>
+      <td>41.13%</td>
+      <td>-0.04</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Motherwell</td>
+      <td>1673.52</td>
+      <td>0</td>
+      <td>@ Falkirk</td>
+      <td>1639.00</td>
+      <td>0</td>
+      <td>29.10%</td>
+      <td>29.78%</td>
+      <td>41.13%</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Celtic</td>
+      <td>1834.85</td>
+      <td>1</td>
+      <td>Dundee</td>
+      <td>1575.28</td>
+      <td>0</td>
+      <td>72.34%</td>
+      <td>11.04%</td>
+      <td>16.62%</td>
+      <td>3.17</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Dundee United</td>
+      <td>1619.45</td>
+      <td>2</td>
+      <td>Rangers</td>
+      <td>1772.28</td>
+      <td>2</td>
+      <td>17.86%</td>
+      <td>46.33%</td>
+      <td>35.81%</td>
+      <td>1.66</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Queens Park</td>
+      <td>1376.57</td>
+      <td>1</td>
+      <td>@ Greenock Morton</td>
+      <td>1466.48</td>
+      <td>2</td>
+      <td>17.23%</td>
+      <td>47.93%</td>
+      <td>34.85%</td>
+      <td>-6.71</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Greenock Morton</td>
+      <td>1466.48</td>
+      <td>2</td>
+      <td>Queens Park</td>
+      <td>1376.57</td>
+      <td>1</td>
+      <td>47.93%</td>
+      <td>17.23%</td>
+      <td>34.85%</td>
+      <td>6.71</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Aberdeen</td>
+      <td>1639.53</td>
+      <td>3</td>
+      <td>@ Dundee</td>
+      <td>1572.11</td>
+      <td>1</td>
+      <td>33.86%</td>
+      <td>25.41%</td>
+      <td>40.73%</td>
+      <td>13.31</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Dundee</td>
+      <td>1572.11</td>
+      <td>1</td>
+      <td>Aberdeen</td>
+      <td>1639.53</td>
+      <td>3</td>
+      <td>25.41%</td>
+      <td>33.86%</td>
+      <td>40.73%</td>
+      <td>-13.30</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Kilmarnock</td>
+      <td>1585.82</td>
+      <td>0</td>
+      <td>Rangers</td>
+      <td>1770.62</td>
+      <td>3</td>
+      <td>16.15%</td>
+      <td>51.03%</td>
+      <td>32.82%</td>
+      <td>-10.69</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>St. Mirren</td>
+      <td>1594.78</td>
+      <td>2</td>
+      <td>Dundee United</td>
+      <td>1621.11</td>
+      <td>0</td>
+      <td>30.96%</td>
+      <td>27.96%</td>
+      <td>41.08%</td>
+      <td>14.13</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Hibernian</td>
+      <td>1705.02</td>
+      <td>3</td>
+      <td>Falkirk</td>
+      <td>1638.96</td>
+      <td>0</td>
+      <td>44.43%</td>
+      <td>18.70%</td>
+      <td>36.87%</td>
+      <td>12.71</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Motherwell</td>
+      <td>1673.56</td>
+      <td>3</td>
+      <td>Livingston</td>
+      <td>1553.97</td>
+      <td>0</td>
+      <td>52.29%</td>
+      <td>15.76%</td>
+      <td>31.95%</td>
+      <td>10.32</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Arbroath</td>
+      <td>1404.91</td>
+      <td>2</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1454.50</td>
+      <td>1</td>
+      <td>19.90%</td>
+      <td>42.02%</td>
+      <td>38.08%</td>
+      <td>12.82</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Airdrieonians</td>
+      <td>1395.91</td>
+      <td>2</td>
+      <td>@ Ross County</td>
+      <td>1435.80</td>
+      <td>1</td>
+      <td>20.69%</td>
+      <td>40.61%</td>
+      <td>38.70%</td>
+      <td>12.55</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Ross County</td>
+      <td>1435.80</td>
+      <td>1</td>
+      <td>Airdrieonians</td>
+      <td>1395.91</td>
+      <td>2</td>
+      <td>40.61%</td>
+      <td>20.69%</td>
+      <td>38.70%</td>
+      <td>-12.56</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>St. Johnstone</td>
+      <td>1567.11</td>
+      <td>0</td>
+      <td>Raith Rovers</td>
+      <td>1451.35</td>
+      <td>0</td>
+      <td>51.72%</td>
+      <td>15.93%</td>
+      <td>32.35%</td>
+      <td>-2.13</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Rangers</td>
+      <td>1770.62</td>
+      <td>3</td>
+      <td>@ Kilmarnock</td>
+      <td>1585.82</td>
+      <td>0</td>
+      <td>51.03%</td>
+      <td>16.15%</td>
+      <td>32.82%</td>
+      <td>10.69</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Dundee United</td>
+      <td>1621.11</td>
+      <td>0</td>
+      <td>@ St. Mirren</td>
+      <td>1594.78</td>
+      <td>2</td>
+      <td>27.96%</td>
+      <td>30.96%</td>
+      <td>41.08%</td>
+      <td>-14.14</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Falkirk</td>
+      <td>1638.96</td>
+      <td>0</td>
+      <td>@ Hibernian</td>
+      <td>1705.02</td>
+      <td>3</td>
+      <td>18.70%</td>
+      <td>44.43%</td>
+      <td>36.87%</td>
+      <td>-12.71</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Livingston</td>
+      <td>1553.97</td>
+      <td>0</td>
+      <td>@ Motherwell</td>
+      <td>1673.56</td>
+      <td>3</td>
+      <td>15.76%</td>
+      <td>52.29%</td>
+      <td>31.95%</td>
+      <td>-10.32</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Partick Thistle</td>
+      <td>1560.12</td>
+      <td>0</td>
+      <td>@ Ayr United</td>
+      <td>1518.27</td>
+      <td>0</td>
+      <td>30.15%</td>
+      <td>28.73%</td>
+      <td>41.12%</td>
+      <td>-0.08</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Raith Rovers</td>
+      <td>1451.35</td>
+      <td>0</td>
+      <td>@ St. Johnstone</td>
+      <td>1567.11</td>
+      <td>0</td>
+      <td>15.93%</td>
+      <td>51.72%</td>
+      <td>32.35%</td>
+      <td>2.13</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Dunfermline Athletic</td>
+      <td>1454.50</td>
+      <td>1</td>
+      <td>Arbroath</td>
+      <td>1404.91</td>
+      <td>2</td>
+      <td>42.02%</td>
+      <td>19.90%</td>
+      <td>38.08%</td>
+      <td>-12.83</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Ayr United</td>
+      <td>1518.27</td>
+      <td>0</td>
+      <td>Partick Thistle</td>
+      <td>1560.12</td>
+      <td>0</td>
+      <td>28.73%</td>
+      <td>30.15%</td>
+      <td>41.12%</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Celtic</td>
+      <td>1838.02</td>
+      <td>1</td>
+      <td>Heart of Midlothian</td>
+      <td>1763.70</td>
+      <td>2</td>
+      <td>45.64%</td>
+      <td>18.15%</td>
+      <td>36.20%</td>
+      <td>-13.50</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Heart of Midlothian</td>
+      <td>1763.70</td>
+      <td>2</td>
+      <td>@ Celtic</td>
+      <td>1838.02</td>
+      <td>1</td>
+      <td>18.15%</td>
+      <td>45.64%</td>
+      <td>36.20%</td>
+      <td>13.50</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>St. Johnstone</td>
+      <td>1564.98</td>
+      <td>4</td>
+      <td>@ Ayr United</td>
+      <td>1518.34</td>
+      <td>2</td>
+      <td>30.84%</td>
+      <td>28.07%</td>
+      <td>41.09%</td>
+      <td>14.17</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Ayr United</td>
+      <td>1518.34</td>
+      <td>2</td>
+      <td>St. Johnstone</td>
+      <td>1564.98</td>
+      <td>4</td>
+      <td>28.07%</td>
+      <td>30.84%</td>
+      <td>41.09%</td>
+      <td>-14.17</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Motherwell</td>
+      <td>1683.88</td>
+      <td>0</td>
+      <td>@ Dundee United</td>
+      <td>1606.97</td>
+      <td>0</td>
+      <td>35.24%</td>
+      <td>24.31%</td>
+      <td>40.45%</td>
+      <td>-0.59</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Dundee</td>
+      <td>1558.81</td>
+      <td>2</td>
+      <td>@ Livingston</td>
+      <td>1543.65</td>
+      <td>2</td>
+      <td>26.49%</td>
+      <td>32.58%</td>
+      <td>40.93%</td>
+      <td>0.32</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Partick Thistle</td>
+      <td>1560.04</td>
+      <td>1</td>
+      <td>@ Arbroath</td>
+      <td>1417.73</td>
+      <td>2</td>
+      <td>44.79%</td>
+      <td>18.53%</td>
+      <td>36.68%</td>
+      <td>-13.34</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Dunfermline Athletic</td>
+      <td>1441.67</td>
+      <td>1</td>
+      <td>@ Queens Park</td>
+      <td>1369.86</td>
+      <td>1</td>
+      <td>34.50%</td>
+      <td>24.89%</td>
+      <td>40.61%</td>
+      <td>-0.51</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Ross County</td>
+      <td>1423.24</td>
+      <td>0</td>
+      <td>@ Raith Rovers</td>
+      <td>1453.48</td>
+      <td>6</td>
+      <td>21.54%</td>
+      <td>39.20%</td>
+      <td>39.26%</td>
+      <td>-20.43</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Dundee United</td>
+      <td>1606.97</td>
+      <td>0</td>
+      <td>Motherwell</td>
+      <td>1683.88</td>
+      <td>0</td>
+      <td>24.31%</td>
+      <td>35.24%</td>
+      <td>40.45%</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Livingston</td>
+      <td>1543.65</td>
+      <td>2</td>
+      <td>Dundee</td>
+      <td>1558.81</td>
+      <td>2</td>
+      <td>32.58%</td>
+      <td>26.49%</td>
+      <td>40.93%</td>
+      <td>-0.32</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Falkirk</td>
+      <td>1626.25</td>
+      <td>0</td>
+      <td>Heart of Midlothian</td>
+      <td>1777.20</td>
+      <td>2</td>
+      <td>17.97%</td>
+      <td>46.06%</td>
+      <td>35.97%</td>
+      <td>-9.96</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Heart of Midlothian</td>
+      <td>1777.20</td>
+      <td>2</td>
+      <td>@ Falkirk</td>
+      <td>1626.25</td>
+      <td>0</td>
+      <td>46.06%</td>
+      <td>17.97%</td>
+      <td>35.97%</td>
+      <td>9.96</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Arbroath</td>
+      <td>1417.73</td>
+      <td>2</td>
+      <td>Partick Thistle</td>
+      <td>1560.04</td>
+      <td>1</td>
+      <td>18.53%</td>
+      <td>44.79%</td>
+      <td>36.68%</td>
+      <td>13.35</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Greenock Morton</td>
+      <td>1473.19</td>
+      <td>0</td>
+      <td>Airdrieonians</td>
+      <td>1408.46</td>
+      <td>1</td>
+      <td>44.24%</td>
+      <td>18.79%</td>
+      <td>36.98%</td>
+      <td>-13.25</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Airdrieonians</td>
+      <td>1408.46</td>
+      <td>1</td>
+      <td>@ Greenock Morton</td>
+      <td>1473.19</td>
+      <td>0</td>
+      <td>18.79%</td>
+      <td>44.24%</td>
+      <td>36.98%</td>
+      <td>13.24</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Raith Rovers</td>
+      <td>1453.48</td>
+      <td>6</td>
+      <td>Ross County</td>
+      <td>1423.24</td>
+      <td>0</td>
+      <td>39.20%</td>
+      <td>21.54%</td>
+      <td>39.26%</td>
+      <td>20.44</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Queens Park</td>
+      <td>1369.86</td>
+      <td>1</td>
+      <td>Dunfermline Athletic</td>
+      <td>1441.67</td>
+      <td>1</td>
+      <td>24.89%</td>
+      <td>34.50%</td>
+      <td>40.61%</td>
+      <td>0.52</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Kilmarnock</td>
+      <td>1575.13</td>
+      <td>1</td>
+      <td>@ Aberdeen</td>
+      <td>1652.84</td>
+      <td>2</td>
+      <td>17.94%</td>
+      <td>46.14%</td>
+      <td>35.92%</td>
+      <td>-7.02</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Aberdeen</td>
+      <td>1652.84</td>
+      <td>2</td>
+      <td>Kilmarnock</td>
+      <td>1575.13</td>
+      <td>1</td>
+      <td>46.14%</td>
+      <td>17.94%</td>
+      <td>35.92%</td>
+      <td>7.02</td>
+    </tr>
+    <tr>
+      <td>2025-12-15</td>
+      <td>Hibernian</td>
+      <td>1717.73</td>
+      <td>0</td>
+      <td>@ Rangers</td>
+      <td>1781.31</td>
+      <td>1</td>
+      <td>18.87%</td>
+      <td>44.07%</td>
+      <td>37.06%</td>
+      <td>-7.41</td>
+    </tr>
+    <tr>
+      <td>2025-12-15</td>
+      <td>Rangers</td>
+      <td>1781.31</td>
+      <td>1</td>
+      <td>Hibernian</td>
+      <td>1717.73</td>
+      <td>0</td>
+      <td>44.07%</td>
+      <td>18.87%</td>
+      <td>37.06%</td>
+      <td>7.41</td>
+    </tr>
+    <tr>
+      <td>2025-12-17</td>
+      <td>Dundee United</td>
+      <td>1607.56</td>
+      <td>2</td>
+      <td>Celtic</td>
+      <td>1824.52</td>
+      <td>1</td>
+      <td>14.80%</td>
+      <td>55.76%</td>
+      <td>29.44%</td>
+      <td>15.22</td>
+    </tr>
+    <tr>
+      <td>2025-12-17</td>
+      <td>Celtic</td>
+      <td>1824.52</td>
+      <td>1</td>
+      <td>@ Dundee United</td>
+      <td>1607.56</td>
+      <td>2</td>
+      <td>55.76%</td>
+      <td>14.80%</td>
+      <td>29.44%</td>
+      <td>-15.22</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Dundee</td>
+      <td>1559.13</td>
+      <td>0</td>
+      <td>@ Motherwell</td>
+      <td>1683.29</td>
+      <td>1</td>
+      <td>15.56%</td>
+      <td>52.96%</td>
+      <td>31.48%</td>
+      <td>-5.84</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Falkirk</td>
+      <td>1616.29</td>
+      <td>1</td>
+      <td>@ Kilmarnock</td>
+      <td>1568.11</td>
+      <td>0</td>
+      <td>31.07%</td>
+      <td>27.86%</td>
+      <td>41.07%</td>
+      <td>9.97</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Hibernian</td>
+      <td>1710.32</td>
+      <td>1</td>
+      <td>@ Dundee United</td>
+      <td>1622.78</td>
+      <td>1</td>
+      <td>36.79%</td>
+      <td>23.15%</td>
+      <td>40.05%</td>
+      <td>-0.74</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Queens Park</td>
+      <td>1370.38</td>
+      <td>3</td>
+      <td>@ Airdrieonians</td>
+      <td>1421.70</td>
+      <td>0</td>
+      <td>19.76%</td>
+      <td>42.28%</td>
+      <td>37.96%</td>
+      <td>22.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Livingston</td>
+      <td>1543.33</td>
+      <td>0</td>
+      <td>@ St. Mirren</td>
+      <td>1608.91</td>
+      <td>1</td>
+      <td>18.73%</td>
+      <td>44.36%</td>
+      <td>36.91%</td>
+      <td>-7.35</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>St. Johnstone</td>
+      <td>1579.15</td>
+      <td>5</td>
+      <td>Greenock Morton</td>
+      <td>1459.94</td>
+      <td>0</td>
+      <td>52.23%</td>
+      <td>15.78%</td>
+      <td>31.99%</td>
+      <td>13.34</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Greenock Morton</td>
+      <td>1459.94</td>
+      <td>0</td>
+      <td>@ St. Johnstone</td>
+      <td>1579.15</td>
+      <td>5</td>
+      <td>15.78%</td>
+      <td>52.23%</td>
+      <td>31.99%</td>
+      <td>-13.34</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Ayr United</td>
+      <td>1504.17</td>
+      <td>3</td>
+      <td>@ Dunfermline Athletic</td>
+      <td>1441.16</td>
+      <td>2</td>
+      <td>33.22%</td>
+      <td>25.94%</td>
+      <td>40.84%</td>
+      <td>9.54</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Ross County</td>
+      <td>1402.81</td>
+      <td>0</td>
+      <td>Arbroath</td>
+      <td>1431.08</td>
+      <td>2</td>
+      <td>30.68%</td>
+      <td>28.22%</td>
+      <td>41.10%</td>
+      <td>-14.94</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Partick Thistle</td>
+      <td>1546.70</td>
+      <td>0</td>
+      <td>Raith Rovers</td>
+      <td>1473.92</td>
+      <td>0</td>
+      <td>45.42%</td>
+      <td>18.25%</td>
+      <td>36.33%</td>
+      <td>-1.58</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Dunfermline Athletic</td>
+      <td>1441.16</td>
+      <td>2</td>
+      <td>Ayr United</td>
+      <td>1504.17</td>
+      <td>3</td>
+      <td>25.94%</td>
+      <td>33.22%</td>
+      <td>40.84%</td>
+      <td>-9.54</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Airdrieonians</td>
+      <td>1421.70</td>
+      <td>0</td>
+      <td>Queens Park</td>
+      <td>1370.38</td>
+      <td>3</td>
+      <td>42.28%</td>
+      <td>19.76%</td>
+      <td>37.96%</td>
+      <td>-22.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Motherwell</td>
+      <td>1683.29</td>
+      <td>1</td>
+      <td>Dundee</td>
+      <td>1559.13</td>
+      <td>0</td>
+      <td>52.96%</td>
+      <td>15.56%</td>
+      <td>31.48%</td>
+      <td>5.84</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>St. Mirren</td>
+      <td>1608.91</td>
+      <td>1</td>
+      <td>Livingston</td>
+      <td>1543.33</td>
+      <td>0</td>
+      <td>44.36%</td>
+      <td>18.73%</td>
+      <td>36.91%</td>
+      <td>7.36</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Kilmarnock</td>
+      <td>1568.11</td>
+      <td>0</td>
+      <td>Falkirk</td>
+      <td>1616.29</td>
+      <td>1</td>
+      <td>27.86%</td>
+      <td>31.07%</td>
+      <td>41.07%</td>
+      <td>-9.98</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Dundee United</td>
+      <td>1622.78</td>
+      <td>1</td>
+      <td>Hibernian</td>
+      <td>1710.32</td>
+      <td>1</td>
+      <td>23.15%</td>
+      <td>36.79%</td>
+      <td>40.05%</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Arbroath</td>
+      <td>1431.08</td>
+      <td>2</td>
+      <td>@ Ross County</td>
+      <td>1402.81</td>
+      <td>0</td>
+      <td>28.22%</td>
+      <td>30.68%</td>
+      <td>41.10%</td>
+      <td>14.94</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Raith Rovers</td>
+      <td>1473.92</td>
+      <td>0</td>
+      <td>@ Partick Thistle</td>
+      <td>1546.70</td>
+      <td>0</td>
+      <td>18.25%</td>
+      <td>45.42%</td>
+      <td>36.33%</td>
+      <td>1.57</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Celtic</td>
+      <td>1809.30</td>
+      <td>3</td>
+      <td>Aberdeen</td>
+      <td>1659.86</td>
+      <td>1</td>
+      <td>56.68%</td>
+      <td>14.57%</td>
+      <td>28.76%</td>
+      <td>7.43</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Heart of Midlothian</td>
+      <td>1787.16</td>
+      <td>2</td>
+      <td>Rangers</td>
+      <td>1788.72</td>
+      <td>1</td>
+      <td>34.56%</td>
+      <td>24.84%</td>
+      <td>40.60%</td>
+      <td>9.26</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Rangers</td>
+      <td>1788.72</td>
+      <td>1</td>
+      <td>@ Heart of Midlothian</td>
+      <td>1787.16</td>
+      <td>2</td>
+      <td>24.84%</td>
+      <td>34.56%</td>
+      <td>40.60%</td>
+      <td>-9.27</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Aberdeen</td>
+      <td>1659.86</td>
+      <td>1</td>
+      <td>@ Celtic</td>
+      <td>1809.30</td>
+      <td>3</td>
+      <td>14.57%</td>
+      <td>56.68%</td>
+      <td>28.76%</td>
+      <td>-7.43</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

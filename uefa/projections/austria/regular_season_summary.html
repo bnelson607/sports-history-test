@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Salzburg</td>
+      <td>Level 1</td>
+      <td>1791</td>
+      <td>11.48</td>
+      <td>4.10</td>
+      <td>6.42</td>
+      <td>32</td>
+      <td>40.86</td>
+      <td>8.86</td>
+      <td>32</td>
+      <td>38.38</td>
+      <td>40.40</td>
+      <td>42.30</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>LASK</td>
+      <td>Level 1</td>
+      <td>1734</td>
+      <td>10.95</td>
+      <td>7.54</td>
+      <td>3.51</td>
+      <td>29</td>
+      <td>36.37</td>
+      <td>7.37</td>
+      <td>29</td>
+      <td>33.84</td>
+      <td>35.82</td>
+      <td>37.92</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Sturm Graz</td>
+      <td>Level 1</td>
+      <td>1714</td>
+      <td>11.24</td>
+      <td>8.30</td>
+      <td>2.46</td>
+      <td>28</td>
+      <td>36.19</td>
+      <td>8.19</td>
+      <td>28</td>
+      <td>33.77</td>
+      <td>35.68</td>
+      <td>37.65</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>Wolfsberg</td>
+      <td>Level 1</td>
+      <td>1713</td>
+      <td>9.17</td>
+      <td>8.36</td>
+      <td>4.47</td>
+      <td>24</td>
+      <td>31.98</td>
+      <td>7.98</td>
+      <td>24</td>
+      <td>29.56</td>
+      <td>31.42</td>
+      <td>33.45</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <td>Hartberg</td>
+      <td>Level 1</td>
+      <td>1706</td>
+      <td>9.19</td>
+      <td>6.37</td>
+      <td>6.44</td>
+      <td>26</td>
+      <td>34.01</td>
+      <td>8.01</td>
+      <td>26</td>
+      <td>31.54</td>
+      <td>33.45</td>
+      <td>35.52</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Austria Wien</td>
+      <td>Level 1</td>
+      <td>1704</td>
+      <td>9.78</td>
+      <td>8.72</td>
+      <td>3.51</td>
+      <td>26</td>
+      <td>32.84</td>
+      <td>6.84</td>
+      <td>26</td>
+      <td>30.31</td>
+      <td>32.27</td>
+      <td>34.26</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Ried</td>
+      <td>Level 1</td>
+      <td>1687</td>
+      <td>9.83</td>
+      <td>8.66</td>
+      <td>3.51</td>
+      <td>26</td>
+      <td>33.01</td>
+      <td>7.01</td>
+      <td>26</td>
+      <td>30.51</td>
+      <td>32.44</td>
+      <td>34.44</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Rapid Wien</td>
+      <td>Level 1</td>
+      <td>1662</td>
+      <td>8.46</td>
+      <td>8.05</td>
+      <td>5.49</td>
+      <td>25</td>
+      <td>30.88</td>
+      <td>5.88</td>
+      <td>25</td>
+      <td>28.39</td>
+      <td>30.27</td>
+      <td>32.14</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>WSG Tirol</td>
+      <td>Level 1</td>
+      <td>1625</td>
+      <td>6.58</td>
+      <td>7.94</td>
+      <td>7.48</td>
+      <td>21</td>
+      <td>27.23</td>
+      <td>6.23</td>
+      <td>21</td>
+      <td>24.75</td>
+      <td>26.65</td>
+      <td>28.58</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>SCR Altach</td>
+      <td>Level 1</td>
+      <td>1618</td>
+      <td>6.44</td>
+      <td>8.10</td>
+      <td>7.46</td>
+      <td>21</td>
+      <td>26.79</td>
+      <td>5.79</td>
+      <td>21</td>
+      <td>24.33</td>
+      <td>26.14</td>
+      <td>28.07</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Admira Wacker</td>
+      <td>Level 2</td>
+      <td>1608</td>
+      <td>14.49</td>
+      <td>3.28</td>
+      <td>10.23</td>
+      <td>31</td>
+      <td>53.70</td>
+      <td>22.70</td>
+      <td>38</td>
+      <td>50.33</td>
+      <td>53.29</td>
+      <td>56.14</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Grazer AK</td>
+      <td>Level 1</td>
+      <td>1580</td>
+      <td>4.05</td>
+      <td>10.54</td>
+      <td>7.41</td>
+      <td>15</td>
+      <td>19.57</td>
+      <td>4.57</td>
+      <td>15</td>
+      <td>17.21</td>
+      <td>18.84</td>
+      <td>20.80</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>SKU Amstetten</td>
+      <td>Level 2</td>
+      <td>1575</td>
+      <td>13.97</td>
+      <td>3.63</td>
+      <td>10.39</td>
+      <td>31</td>
+      <td>52.31</td>
+      <td>21.31</td>
+      <td>37</td>
+      <td>48.88</td>
+      <td>51.86</td>
+      <td>54.79</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>SKN St. Polten</td>
+      <td>Level 2</td>
+      <td>1565</td>
+      <td>15.56</td>
+      <td>7.01</td>
+      <td>5.43</td>
+      <td>32</td>
+      <td>52.11</td>
+      <td>20.11</td>
+      <td>37</td>
+      <td>48.64</td>
+      <td>51.63</td>
+      <td>54.58</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>Floridsdorfer</td>
+      <td>Level 2</td>
+      <td>1564</td>
+      <td>13.58</td>
+      <td>5.98</td>
+      <td>8.45</td>
+      <td>29</td>
+      <td>49.17</td>
+      <td>20.17</td>
+      <td>33</td>
+      <td>45.72</td>
+      <td>48.68</td>
+      <td>51.62</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Blau-Weiss Linz</td>
+      <td>Level 1</td>
+      <td>1550</td>
+      <td>4.04</td>
+      <td>14.56</td>
+      <td>3.40</td>
+      <td>11</td>
+      <td>15.52</td>
+      <td>4.52</td>
+      <td>11</td>
+      <td>13.13</td>
+      <td>14.81</td>
+      <td>16.78</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Austria Lustenau</td>
+      <td>Level 2</td>
+      <td>1543</td>
+      <td>14.32</td>
+      <td>6.22</td>
+      <td>7.46</td>
+      <td>31</td>
+      <td>50.41</td>
+      <td>19.41</td>
+      <td>35</td>
+      <td>46.93</td>
+      <td>49.90</td>
+      <td>52.88</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Liefering</td>
+      <td>Level 2</td>
+      <td>1496</td>
+      <td>9.58</td>
+      <td>7.87</td>
+      <td>10.55</td>
+      <td>22</td>
+      <td>39.28</td>
+      <td>17.28</td>
+      <td>24</td>
+      <td>35.80</td>
+      <td>38.72</td>
+      <td>41.70</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>First Vienna</td>
+      <td>Level 2</td>
+      <td>1452</td>
+      <td>8.18</td>
+      <td>11.00</td>
+      <td>8.81</td>
+      <td>17</td>
+      <td>33.36</td>
+      <td>16.36</td>
+      <td>20</td>
+      <td>29.74</td>
+      <td>32.74</td>
+      <td>35.87</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Austria Wien (A)</td>
+      <td>Level 2</td>
+      <td>1439</td>
+      <td>10.76</td>
+      <td>10.68</td>
+      <td>6.56</td>
+      <td>24</td>
+      <td>38.84</td>
+      <td>14.84</td>
+      <td>25</td>
+      <td>35.36</td>
+      <td>38.26</td>
+      <td>41.23</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>SV Austria Salzburg</td>
+      <td>Level 2</td>
+      <td>1426</td>
+      <td>8.40</td>
+      <td>12.09</td>
+      <td>7.51</td>
+      <td>19</td>
+      <td>32.71</td>
+      <td>13.71</td>
+      <td>19</td>
+      <td>29.26</td>
+      <td>32.11</td>
+      <td>35.05</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>Kapfenberger</td>
+      <td>Level 2</td>
+      <td>1423</td>
+      <td>7.71</td>
+      <td>13.72</td>
+      <td>6.57</td>
+      <td>15</td>
+      <td>29.70</td>
+      <td>14.70</td>
+      <td>16</td>
+      <td>26.17</td>
+      <td>29.10</td>
+      <td>32.15</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>Austria Klagenfurt</td>
+      <td>Level 2</td>
+      <td>1422</td>
+      <td>8.35</td>
+      <td>13.15</td>
+      <td>6.51</td>
+      <td>18</td>
+      <td>31.55</td>
+      <td>13.55</td>
+      <td>19</td>
+      <td>28.12</td>
+      <td>30.88</td>
+      <td>33.90</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Hertha Wels</td>
+      <td>Level 2</td>
+      <td>1412</td>
+      <td>6.47</td>
+      <td>14.02</td>
+      <td>7.51</td>
+      <td>13</td>
+      <td>26.93</td>
+      <td>13.93</td>
+      <td>14</td>
+      <td>23.40</td>
+      <td>26.36</td>
+      <td>29.32</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Sturm Graz (A)</td>
+      <td>Level 2</td>
+      <td>1398</td>
+      <td>5.44</td>
+      <td>13.78</td>
+      <td>8.77</td>
+      <td>11</td>
+      <td>25.11</td>
+      <td>14.11</td>
+      <td>12</td>
+      <td>21.54</td>
+      <td>24.48</td>
+      <td>27.49</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Rapid Wien (A)</td>
+      <td>Level 2</td>
+      <td>1393</td>
+      <td>6.94</td>
+      <td>13.64</td>
+      <td>7.42</td>
+      <td>16</td>
+      <td>28.24</td>
+      <td>12.24</td>
+      <td>17</td>
+      <td>24.80</td>
+      <td>27.57</td>
+      <td>30.43</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>Level 2</td>
+      <td>1389</td>
+      <td>4.93</td>
+      <td>12.61</td>
+      <td>10.46</td>
+      <td>13</td>
+      <td>25.26</td>
+      <td>12.26</td>
+      <td>14</td>
+      <td>21.92</td>
+      <td>24.63</td>
+      <td>27.45</td>
+      <td>44</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

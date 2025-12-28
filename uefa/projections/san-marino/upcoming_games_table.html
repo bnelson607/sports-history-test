@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Cailungo" selected>Cailungo</option><option value="Cosmos" >Cosmos</option><option value="Domagnano" >Domagnano</option><option value="Faetano" >Faetano</option><option value="Fiorentino" >Fiorentino</option><option value="Folgore Falciano" >Folgore Falciano</option><option value="Juvenes Dogana" >Juvenes Dogana</option><option value="La Fiorita" >La Fiorita</option><option value="Libertas" >Libertas</option><option value="Murata" >Murata</option><option value="Pennarossa" >Pennarossa</option><option value="San Giovanni" >San Giovanni</option><option value="San Marino Academy" >San Marino Academy</option><option value="Tre Fiori" >Tre Fiori</option><option value="Tre Penne" >Tre Penne</option><option value="Virtus" >Virtus</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>9.26%</td>
+      <td>70.34%</td>
+      <td>20.40%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>11.52%</td>
+      <td>63.60%</td>
+      <td>24.88%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>45.10%</td>
+      <td>21.27%</td>
+      <td>33.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>60.10%</td>
+      <td>12.88%</td>
+      <td>27.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>33.63%</td>
+      <td>31.08%</td>
+      <td>35.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>26.57%</td>
+      <td>38.50%</td>
+      <td>34.93%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>7.19%</td>
+      <td>77.33%</td>
+      <td>15.48%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>53.49%</td>
+      <td>15.99%</td>
+      <td>30.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>70.34%</td>
+      <td>9.26%</td>
+      <td>20.40%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>31.08%</td>
+      <td>33.63%</td>
+      <td>35.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>77.33%</td>
+      <td>7.19%</td>
+      <td>15.48%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>38.50%</td>
+      <td>26.57%</td>
+      <td>34.93%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>12.88%</td>
+      <td>60.10%</td>
+      <td>27.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>21.27%</td>
+      <td>45.10%</td>
+      <td>33.63%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>63.60%</td>
+      <td>11.52%</td>
+      <td>24.88%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>15.99%</td>
+      <td>53.49%</td>
+      <td>30.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ San Marino Academy</td>
+      <td>666.38</td>
+      <td>42.34%</td>
+      <td>23.37%</td>
+      <td>34.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>30.65%</td>
+      <td>34.07%</td>
+      <td>35.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>48.42%</td>
+      <td>18.99%</td>
+      <td>32.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>48.20%</td>
+      <td>19.13%</td>
+      <td>32.67%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>24.43%</td>
+      <td>41.02%</td>
+      <td>34.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>32.22%</td>
+      <td>32.47%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>62.96%</td>
+      <td>11.76%</td>
+      <td>25.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>11.94%</td>
+      <td>62.47%</td>
+      <td>25.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>19.13%</td>
+      <td>48.20%</td>
+      <td>32.67%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>62.47%</td>
+      <td>11.94%</td>
+      <td>25.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>18.99%</td>
+      <td>48.42%</td>
+      <td>32.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>23.37%</td>
+      <td>42.34%</td>
+      <td>34.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>41.02%</td>
+      <td>24.43%</td>
+      <td>34.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>32.47%</td>
+      <td>32.22%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>11.76%</td>
+      <td>62.96%</td>
+      <td>25.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>34.07%</td>
+      <td>30.65%</td>
+      <td>35.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>46.57%</td>
+      <td>20.23%</td>
+      <td>33.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>52.07%</td>
+      <td>16.77%</td>
+      <td>31.16%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>18.46%</td>
+      <td>49.24%</td>
+      <td>32.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>5.16%</td>
+      <td>84.49%</td>
+      <td>10.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>67.38%</td>
+      <td>10.21%</td>
+      <td>22.41%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>58.68%</td>
+      <td>13.48%</td>
+      <td>27.84%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>12.30%</td>
+      <td>61.54%</td>
+      <td>26.16%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>46.15%</td>
+      <td>20.53%</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>13.48%</td>
+      <td>58.68%</td>
+      <td>27.84%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>84.49%</td>
+      <td>5.16%</td>
+      <td>10.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>49.24%</td>
+      <td>18.46%</td>
+      <td>32.30%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>20.53%</td>
+      <td>46.15%</td>
+      <td>33.33%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>16.77%</td>
+      <td>52.07%</td>
+      <td>31.16%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>10.21%</td>
+      <td>67.38%</td>
+      <td>22.41%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>20.23%</td>
+      <td>46.57%</td>
+      <td>33.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-21</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>61.54%</td>
+      <td>12.30%</td>
+      <td>26.16%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>33.36%</td>
+      <td>31.34%</td>
+      <td>35.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>8.95%</td>
+      <td>71.35%</td>
+      <td>19.70%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>14.90%</td>
+      <td>55.60%</td>
+      <td>29.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>40.78%</td>
+      <td>24.63%</td>
+      <td>34.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>14.43%</td>
+      <td>56.59%</td>
+      <td>28.98%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>8.51%</td>
+      <td>72.83%</td>
+      <td>18.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>26.17%</td>
+      <td>38.97%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>7.29%</td>
+      <td>76.99%</td>
+      <td>15.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>76.99%</td>
+      <td>7.29%</td>
+      <td>15.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>31.34%</td>
+      <td>33.36%</td>
+      <td>35.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>71.35%</td>
+      <td>8.95%</td>
+      <td>19.70%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>38.97%</td>
+      <td>26.17%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>55.60%</td>
+      <td>14.90%</td>
+      <td>29.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>24.63%</td>
+      <td>40.78%</td>
+      <td>34.59%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ San Marino Academy</td>
+      <td>666.38</td>
+      <td>72.83%</td>
+      <td>8.51%</td>
+      <td>18.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>56.59%</td>
+      <td>14.43%</td>
+      <td>28.98%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>13.12%</td>
+      <td>59.52%</td>
+      <td>27.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>5.67%</td>
+      <td>82.67%</td>
+      <td>11.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>19.25%</td>
+      <td>48.02%</td>
+      <td>32.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>13.84%</td>
+      <td>57.86%</td>
+      <td>28.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>42.64%</td>
+      <td>23.13%</td>
+      <td>34.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>47.24%</td>
+      <td>19.77%</td>
+      <td>32.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>29.15%</td>
+      <td>35.65%</td>
+      <td>35.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>35.65%</td>
+      <td>29.15%</td>
+      <td>35.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>57.86%</td>
+      <td>13.84%</td>
+      <td>28.29%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>46.47%</td>
+      <td>20.30%</td>
+      <td>33.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>23.13%</td>
+      <td>42.64%</td>
+      <td>34.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>19.77%</td>
+      <td>47.24%</td>
+      <td>32.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>20.30%</td>
+      <td>46.47%</td>
+      <td>33.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>48.02%</td>
+      <td>19.25%</td>
+      <td>32.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>59.52%</td>
+      <td>13.12%</td>
+      <td>27.36%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>82.67%</td>
+      <td>5.67%</td>
+      <td>11.65%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>32.61%</td>
+      <td>32.09%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>63.41%</td>
+      <td>11.59%</td>
+      <td>25.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>54.49%</td>
+      <td>15.47%</td>
+      <td>30.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>25.69%</td>
+      <td>39.52%</td>
+      <td>34.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>84.98%</td>
+      <td>5.01%</td>
+      <td>10.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>49.64%</td>
+      <td>18.21%</td>
+      <td>32.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>32.09%</td>
+      <td>32.61%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>62.83%</td>
+      <td>11.81%</td>
+      <td>25.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>5.01%</td>
+      <td>84.98%</td>
+      <td>10.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>15.47%</td>
+      <td>54.49%</td>
+      <td>30.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>11.59%</td>
+      <td>63.41%</td>
+      <td>25.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>22.21%</td>
+      <td>43.84%</td>
+      <td>33.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>43.84%</td>
+      <td>22.21%</td>
+      <td>33.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>11.81%</td>
+      <td>62.83%</td>
+      <td>25.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>18.21%</td>
+      <td>49.64%</td>
+      <td>32.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>39.52%</td>
+      <td>25.69%</td>
+      <td>34.79%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>49.28%</td>
+      <td>18.44%</td>
+      <td>32.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>11.26%</td>
+      <td>64.33%</td>
+      <td>24.41%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>29.63%</td>
+      <td>35.15%</td>
+      <td>35.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>79.32%</td>
+      <td>6.62%</td>
+      <td>14.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>48.44%</td>
+      <td>18.98%</td>
+      <td>32.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>42.99%</td>
+      <td>22.86%</td>
+      <td>34.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>26.10%</td>
+      <td>39.04%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>39.04%</td>
+      <td>26.10%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>22.86%</td>
+      <td>42.99%</td>
+      <td>34.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>18.98%</td>
+      <td>48.44%</td>
+      <td>32.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>6.62%</td>
+      <td>79.32%</td>
+      <td>14.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>35.15%</td>
+      <td>29.63%</td>
+      <td>35.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>64.33%</td>
+      <td>11.26%</td>
+      <td>24.41%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>46.01%</td>
+      <td>20.62%</td>
+      <td>33.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>20.62%</td>
+      <td>46.01%</td>
+      <td>33.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>18.44%</td>
+      <td>49.28%</td>
+      <td>32.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>29.99%</td>
+      <td>34.76%</td>
+      <td>35.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>21.70%</td>
+      <td>44.52%</td>
+      <td>33.78%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>15.46%</td>
+      <td>54.50%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>12.52%</td>
+      <td>61.00%</td>
+      <td>26.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>55.07%</td>
+      <td>15.17%</td>
+      <td>29.76%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>8.26%</td>
+      <td>73.67%</td>
+      <td>18.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>73.82%</td>
+      <td>8.21%</td>
+      <td>17.97%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>73.67%</td>
+      <td>8.26%</td>
+      <td>18.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>15.17%</td>
+      <td>55.07%</td>
+      <td>29.76%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>61.00%</td>
+      <td>12.52%</td>
+      <td>26.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>34.76%</td>
+      <td>29.99%</td>
+      <td>35.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>54.50%</td>
+      <td>15.46%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>44.52%</td>
+      <td>21.70%</td>
+      <td>33.78%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>76.71%</td>
+      <td>7.37%</td>
+      <td>15.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>7.37%</td>
+      <td>76.71%</td>
+      <td>15.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>8.21%</td>
+      <td>73.82%</td>
+      <td>17.97%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>7.35%</td>
+      <td>76.80%</td>
+      <td>15.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>58.08%</td>
+      <td>13.75%</td>
+      <td>28.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>56.80%</td>
+      <td>14.33%</td>
+      <td>28.87%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>16.39%</td>
+      <td>52.76%</td>
+      <td>30.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>23.00%</td>
+      <td>42.81%</td>
+      <td>34.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>10.68%</td>
+      <td>65.98%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>14.96%</td>
+      <td>55.49%</td>
+      <td>29.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>11.09%</td>
+      <td>64.81%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>13.75%</td>
+      <td>58.08%</td>
+      <td>28.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>76.80%</td>
+      <td>7.35%</td>
+      <td>15.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>52.76%</td>
+      <td>16.39%</td>
+      <td>30.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>14.33%</td>
+      <td>56.80%</td>
+      <td>28.87%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>65.98%</td>
+      <td>10.68%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>64.81%</td>
+      <td>11.09%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>55.49%</td>
+      <td>14.96%</td>
+      <td>29.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ San Marino Academy</td>
+      <td>666.38</td>
+      <td>42.81%</td>
+      <td>23.00%</td>
+      <td>34.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>35.52%</td>
+      <td>29.28%</td>
+      <td>35.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>44.30%</td>
+      <td>21.86%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>49.46%</td>
+      <td>18.32%</td>
+      <td>32.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>29.33%</td>
+      <td>35.46%</td>
+      <td>35.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>64.14%</td>
+      <td>11.33%</td>
+      <td>24.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>47.05%</td>
+      <td>19.90%</td>
+      <td>33.05%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>80.58%</td>
+      <td>6.27%</td>
+      <td>13.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>17.23%</td>
+      <td>51.27%</td>
+      <td>31.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>18.32%</td>
+      <td>49.46%</td>
+      <td>32.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>51.27%</td>
+      <td>17.23%</td>
+      <td>31.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>21.86%</td>
+      <td>44.30%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>19.90%</td>
+      <td>47.05%</td>
+      <td>33.05%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>11.33%</td>
+      <td>64.14%</td>
+      <td>24.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>35.46%</td>
+      <td>29.33%</td>
+      <td>35.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>29.28%</td>
+      <td>35.52%</td>
+      <td>35.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>6.27%</td>
+      <td>80.58%</td>
+      <td>13.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>30.80%</td>
+      <td>33.92%</td>
+      <td>35.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>15.20%</td>
+      <td>55.02%</td>
+      <td>29.78%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>19.68%</td>
+      <td>47.37%</td>
+      <td>32.95%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>12.37%</td>
+      <td>61.35%</td>
+      <td>26.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>9.80%</td>
+      <td>68.65%</td>
+      <td>21.56%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>49.77%</td>
+      <td>18.13%</td>
+      <td>32.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>7.47%</td>
+      <td>76.37%</td>
+      <td>16.16%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>33.92%</td>
+      <td>30.80%</td>
+      <td>35.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>55.02%</td>
+      <td>15.20%</td>
+      <td>29.78%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>47.37%</td>
+      <td>19.68%</td>
+      <td>32.95%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>61.35%</td>
+      <td>12.37%</td>
+      <td>26.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ San Marino Academy</td>
+      <td>666.38</td>
+      <td>68.65%</td>
+      <td>9.80%</td>
+      <td>21.56%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>18.13%</td>
+      <td>49.77%</td>
+      <td>32.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>76.37%</td>
+      <td>7.47%</td>
+      <td>16.16%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>60.00%</td>
+      <td>12.92%</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>12.92%</td>
+      <td>60.00%</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>62.32%</td>
+      <td>12.00%</td>
+      <td>25.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>46.59%</td>
+      <td>20.21%</td>
+      <td>33.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>17.01%</td>
+      <td>51.64%</td>
+      <td>31.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>20.21%</td>
+      <td>46.59%</td>
+      <td>33.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>31.58%</td>
+      <td>33.12%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>9.02%</td>
+      <td>71.15%</td>
+      <td>19.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>21.88%</td>
+      <td>44.28%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>16.13%</td>
+      <td>53.23%</td>
+      <td>30.64%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>51.64%</td>
+      <td>17.01%</td>
+      <td>31.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>12.00%</td>
+      <td>62.32%</td>
+      <td>25.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>31.72%</td>
+      <td>32.98%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>53.23%</td>
+      <td>16.13%</td>
+      <td>30.64%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>44.28%</td>
+      <td>21.88%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>71.15%</td>
+      <td>9.02%</td>
+      <td>19.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>33.12%</td>
+      <td>31.58%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>32.98%</td>
+      <td>31.72%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>39.46%</td>
+      <td>25.74%</td>
+      <td>34.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>47.25%</td>
+      <td>19.76%</td>
+      <td>32.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ San Marino Academy</td>
+      <td>666.38</td>
+      <td>57.91%</td>
+      <td>13.82%</td>
+      <td>28.27%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>68.95%</td>
+      <td>9.70%</td>
+      <td>21.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>9.97%</td>
+      <td>68.12%</td>
+      <td>21.91%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>22.45%</td>
+      <td>43.52%</td>
+      <td>34.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>29.50%</td>
+      <td>35.28%</td>
+      <td>35.22%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>58.79%</td>
+      <td>13.43%</td>
+      <td>27.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>13.43%</td>
+      <td>58.79%</td>
+      <td>27.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>9.70%</td>
+      <td>68.95%</td>
+      <td>21.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>68.12%</td>
+      <td>9.97%</td>
+      <td>21.91%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>19.76%</td>
+      <td>47.25%</td>
+      <td>32.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>25.74%</td>
+      <td>39.46%</td>
+      <td>34.80%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>43.52%</td>
+      <td>22.45%</td>
+      <td>34.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>35.28%</td>
+      <td>29.50%</td>
+      <td>35.22%</td>
+    </tr>
+    <tr>
+      <td>2026-04-07</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>13.82%</td>
+      <td>57.91%</td>
+      <td>28.27%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>19.35%</td>
+      <td>47.86%</td>
+      <td>32.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>25.90%</td>
+      <td>39.28%</td>
+      <td>34.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>74.07%</td>
+      <td>8.14%</td>
+      <td>17.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>74.48%</td>
+      <td>8.02%</td>
+      <td>17.50%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>63.76%</td>
+      <td>11.46%</td>
+      <td>24.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>51.76%</td>
+      <td>16.95%</td>
+      <td>31.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>57.41%</td>
+      <td>14.05%</td>
+      <td>28.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>14.05%</td>
+      <td>57.41%</td>
+      <td>28.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>16.95%</td>
+      <td>51.76%</td>
+      <td>31.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Virtus</td>
+      <td>1120.48</td>
+      <td>7.65%</td>
+      <td>75.73%</td>
+      <td>16.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>11.46%</td>
+      <td>63.76%</td>
+      <td>24.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>8.02%</td>
+      <td>74.48%</td>
+      <td>17.50%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>8.14%</td>
+      <td>74.07%</td>
+      <td>17.79%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>39.28%</td>
+      <td>25.90%</td>
+      <td>34.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>47.86%</td>
+      <td>19.35%</td>
+      <td>32.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>75.73%</td>
+      <td>7.65%</td>
+      <td>16.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>63.22%</td>
+      <td>11.66%</td>
+      <td>25.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>@ San Giovanni</td>
+      <td>841.82</td>
+      <td>48.57%</td>
+      <td>18.89%</td>
+      <td>32.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>@ Folgore Falciano</td>
+      <td>953.09</td>
+      <td>9.47%</td>
+      <td>69.67%</td>
+      <td>20.86%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>@ Faetano</td>
+      <td>755.91</td>
+      <td>70.81%</td>
+      <td>9.12%</td>
+      <td>20.07%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>@ La Fiorita</td>
+      <td>1113.87</td>
+      <td>17.37%</td>
+      <td>51.04%</td>
+      <td>31.59%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Cailungo</td>
+      <td>691.28</td>
+      <td>79.91%</td>
+      <td>6.46%</td>
+      <td>13.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>69.67%</td>
+      <td>9.47%</td>
+      <td>20.86%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>18.89%</td>
+      <td>48.57%</td>
+      <td>32.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>9.12%</td>
+      <td>70.81%</td>
+      <td>20.07%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>11.66%</td>
+      <td>63.22%</td>
+      <td>25.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>21.44%</td>
+      <td>44.87%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>51.04%</td>
+      <td>17.37%</td>
+      <td>31.59%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>@ Pennarossa</td>
+      <td>760.45</td>
+      <td>46.80%</td>
+      <td>20.07%</td>
+      <td>33.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>20.07%</td>
+      <td>46.80%</td>
+      <td>33.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>@ Murata</td>
+      <td>773.68</td>
+      <td>44.87%</td>
+      <td>21.44%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>6.46%</td>
+      <td>79.91%</td>
+      <td>13.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>@ Cosmos</td>
+      <td>992.23</td>
+      <td>11.28%</td>
+      <td>64.25%</td>
+      <td>24.46%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>@ Domagnano</td>
+      <td>980.66</td>
+      <td>26.25%</td>
+      <td>38.86%</td>
+      <td>34.88%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>@ Tre Penne</td>
+      <td>1021.08</td>
+      <td>13.85%</td>
+      <td>57.85%</td>
+      <td>28.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>@ Tre Fiori</td>
+      <td>1090.87</td>
+      <td>8.12%</td>
+      <td>74.13%</td>
+      <td>17.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>@ Libertas</td>
+      <td>756.86</td>
+      <td>73.73%</td>
+      <td>8.24%</td>
+      <td>18.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>@ San Marino Academy</td>
+      <td>666.38</td>
+      <td>33.25%</td>
+      <td>31.46%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Fiorentino</td>
+      <td>883.47</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>13.16%</td>
+      <td>59.43%</td>
+      <td>27.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>49.81%</td>
+      <td>18.11%</td>
+      <td>32.08%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Cosmos</td>
+      <td>992.23</td>
+      <td>Faetano</td>
+      <td>755.91</td>
+      <td>64.25%</td>
+      <td>11.28%</td>
+      <td>24.46%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Domagnano</td>
+      <td>980.66</td>
+      <td>Folgore Falciano</td>
+      <td>953.09</td>
+      <td>38.86%</td>
+      <td>26.25%</td>
+      <td>34.88%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>San Marino Academy</td>
+      <td>666.38</td>
+      <td>Cailungo</td>
+      <td>691.28</td>
+      <td>31.46%</td>
+      <td>33.25%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Tre Penne</td>
+      <td>1021.08</td>
+      <td>San Giovanni</td>
+      <td>841.82</td>
+      <td>57.85%</td>
+      <td>13.85%</td>
+      <td>28.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Tre Fiori</td>
+      <td>1090.87</td>
+      <td>Pennarossa</td>
+      <td>760.45</td>
+      <td>74.13%</td>
+      <td>8.12%</td>
+      <td>17.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Libertas</td>
+      <td>756.86</td>
+      <td>Virtus</td>
+      <td>1120.48</td>
+      <td>8.24%</td>
+      <td>73.73%</td>
+      <td>18.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Murata</td>
+      <td>773.68</td>
+      <td>@ Juvenes Dogana</td>
+      <td>885.24</td>
+      <td>18.11%</td>
+      <td>49.81%</td>
+      <td>32.08%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>La Fiorita</td>
+      <td>1113.87</td>
+      <td>@ Fiorentino</td>
+      <td>883.47</td>
+      <td>59.43%</td>
+      <td>13.16%</td>
+      <td>27.41%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

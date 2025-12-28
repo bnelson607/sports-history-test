@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Struga</td>
+      <td>Level 1</td>
+      <td>1250</td>
+      <td>16.63</td>
+      <td>2.09</td>
+      <td>3.28</td>
+      <td>41</td>
+      <td>53.18</td>
+      <td>12.18</td>
+      <td>43</td>
+      <td>50.67</td>
+      <td>52.84</td>
+      <td>54.79</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>Vardar</td>
+      <td>Level 1</td>
+      <td>1245</td>
+      <td>16.36</td>
+      <td>1.29</td>
+      <td>4.35</td>
+      <td>42</td>
+      <td>53.42</td>
+      <td>11.42</td>
+      <td>43</td>
+      <td>50.99</td>
+      <td>52.97</td>
+      <td>54.91</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>Shkendija</td>
+      <td>Level 1</td>
+      <td>1175</td>
+      <td>13.84</td>
+      <td>3.78</td>
+      <td>4.38</td>
+      <td>36</td>
+      <td>45.90</td>
+      <td>9.90</td>
+      <td>36</td>
+      <td>43.24</td>
+      <td>45.42</td>
+      <td>47.56</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>Sileks</td>
+      <td>Level 1</td>
+      <td>1120</td>
+      <td>12.40</td>
+      <td>7.19</td>
+      <td>2.41</td>
+      <td>31</td>
+      <td>39.62</td>
+      <td>8.62</td>
+      <td>31</td>
+      <td>37.06</td>
+      <td>39.08</td>
+      <td>41.14</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>Arsimi</td>
+      <td>Level 1</td>
+      <td>1095</td>
+      <td>9.18</td>
+      <td>7.46</td>
+      <td>5.36</td>
+      <td>22</td>
+      <td>32.89</td>
+      <td>10.89</td>
+      <td>23</td>
+      <td>30.41</td>
+      <td>32.40</td>
+      <td>34.45</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Tikvesh</td>
+      <td>Level 1</td>
+      <td>1037</td>
+      <td>7.48</td>
+      <td>10.11</td>
+      <td>4.41</td>
+      <td>18</td>
+      <td>26.85</td>
+      <td>8.85</td>
+      <td>18</td>
+      <td>24.23</td>
+      <td>26.36</td>
+      <td>28.42</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Bashkimi</td>
+      <td>Level 1</td>
+      <td>981</td>
+      <td>8.27</td>
+      <td>8.34</td>
+      <td>5.39</td>
+      <td>22</td>
+      <td>30.20</td>
+      <td>8.20</td>
+      <td>22</td>
+      <td>27.68</td>
+      <td>29.65</td>
+      <td>31.68</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Makedonija GP</td>
+      <td>Level 1</td>
+      <td>954</td>
+      <td>6.28</td>
+      <td>11.26</td>
+      <td>4.46</td>
+      <td>15</td>
+      <td>23.29</td>
+      <td>8.29</td>
+      <td>15</td>
+      <td>20.66</td>
+      <td>22.70</td>
+      <td>24.81</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>AP Brera Strumica</td>
+      <td>Level 1</td>
+      <td>952</td>
+      <td>6.65</td>
+      <td>9.97</td>
+      <td>5.38</td>
+      <td>19</td>
+      <td>25.33</td>
+      <td>6.33</td>
+      <td>19</td>
+      <td>22.72</td>
+      <td>24.75</td>
+      <td>26.76</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>Pelister</td>
+      <td>Level 1</td>
+      <td>940</td>
+      <td>5.40</td>
+      <td>11.22</td>
+      <td>5.38</td>
+      <td>16</td>
+      <td>21.59</td>
+      <td>5.59</td>
+      <td>16</td>
+      <td>19.14</td>
+      <td>20.94</td>
+      <td>22.84</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>Rabotnicki</td>
+      <td>Level 1</td>
+      <td>874</td>
+      <td>2.54</td>
+      <td>14.06</td>
+      <td>5.40</td>
+      <td>7</td>
+      <td>13.02</td>
+      <td>6.02</td>
+      <td>7</td>
+      <td>10.43</td>
+      <td>12.42</td>
+      <td>14.40</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>Shkupi</td>
+      <td>Level 1</td>
+      <td>753</td>
+      <td>0.74</td>
+      <td>19.01</td>
+      <td>2.25</td>
+      <td>1</td>
+      <td>4.47</td>
+      <td>3.47</td>
+      <td>1</td>
+      <td>2.00</td>
+      <td>3.80</td>
+      <td>5.48</td>
+      <td>17</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

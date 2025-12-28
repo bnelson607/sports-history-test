@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-11-09</td>
+      <td>15.97%</td>
+      <td>Bruk-Bet Termalica</td>
+      <td>1628.02</td>
+      <td>2</td>
+      <td>Legia Warsaw (H)</td>
+      <td>1757.06</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-07-27</td>
+      <td>17.14%</td>
+      <td>Wisla Plock</td>
+      <td>1691.13</td>
+      <td>2</td>
+      <td>Rakow Czestochowa (H)</td>
+      <td>1798.93</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-07-18</td>
+      <td>17.19%</td>
+      <td>Bruk-Bet Termalica</td>
+      <td>1658.64</td>
+      <td>4</td>
+      <td>Jagiellonia (H)</td>
+      <td>1765.66</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-11-22</td>
+      <td>18.78%</td>
+      <td>Piast Gliwice</td>
+      <td>1717.54</td>
+      <td>3</td>
+      <td>Rakow Czestochowa (H)</td>
+      <td>1798.73</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-09-12</td>
+      <td>18.84%</td>
+      <td>Zaglebie Lubin</td>
+      <td>1709.35</td>
+      <td>2</td>
+      <td>Lech Poznan (H)</td>
+      <td>1789.58</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-08-08</td>
+      <td>19.35%</td>
+      <td>Bruk-Bet Termalica</td>
+      <td>1672.57</td>
+      <td>1</td>
+      <td>Gornik Zabrze (H)</td>
+      <td>1745.20</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-12-14</td>
+      <td>19.66%</td>
+      <td>Zaglebie Lubin</td>
+      <td>1730.65</td>
+      <td>1</td>
+      <td>Rakow Czestochowa (H)</td>
+      <td>1798.75</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-07-18</td>
+      <td>20.88%</td>
+      <td>Cracovia</td>
+      <td>1739.44</td>
+      <td>4</td>
+      <td>Lech Poznan (H)</td>
+      <td>1790.92</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-09-21</td>
+      <td>21.07%</td>
+      <td>Lechia Gdansk</td>
+      <td>1704.76</td>
+      <td>4</td>
+      <td>Pogon Szczecin (H)</td>
+      <td>1753.74</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-08-30</td>
+      <td>21.44%</td>
+      <td>Motor Lublin</td>
+      <td>1714.04</td>
+      <td>1</td>
+      <td>Gornik Zabrze (H)</td>
+      <td>1758.32</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-11-22</td>
+      <td>21.47%</td>
+      <td>Motor Lublin</td>
+      <td>1711.47</td>
+      <td>2</td>
+      <td>Cracovia (H)</td>
+      <td>1755.31</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-11-28</td>
+      <td>21.85%</td>
+      <td>Widzew Lodz</td>
+      <td>1691.37</td>
+      <td>2</td>
+      <td>Piast Gliwice (H)</td>
+      <td>1730.50</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-09-15</td>
+      <td>22.67%</td>
+      <td>Gornik Zabrze</td>
+      <td>1749.74</td>
+      <td>1</td>
+      <td>Rakow Czestochowa (H)</td>
+      <td>1779.11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-11-08</td>
+      <td>23.29%</td>
+      <td>Piast Gliwice</td>
+      <td>1705.91</td>
+      <td>3</td>
+      <td>GKS Katowice (H)</td>
+      <td>1728.25</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-08-17</td>
+      <td>23.34%</td>
+      <td>Gornik Zabrze</td>
+      <td>1736.16</td>
+      <td>3</td>
+      <td>Pogon Szczecin (H)</td>
+      <td>1757.85</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-10-17</td>
+      <td>23.65%</td>
+      <td>GKS Katowice</td>
+      <td>1697.31</td>
+      <td>5</td>
+      <td>Motor Lublin (H)</td>
+      <td>1715.67</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-10-19</td>
+      <td>23.91%</td>
+      <td>Lechia Gdansk</td>
+      <td>1705.13</td>
+      <td>2</td>
+      <td>Piast Gliwice (H)</td>
+      <td>1720.67</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-12-14</td>
+      <td>24.19%</td>
+      <td>Piast Gliwice</td>
+      <td>1726.29</td>
+      <td>1</td>
+      <td>Legia Warsaw (H)</td>
+      <td>1738.83</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-11-02</td>
+      <td>24.44%</td>
+      <td>Rakow Czestochowa</td>
+      <td>1778.45</td>
+      <td>2</td>
+      <td>Jagiellonia (H)</td>
+      <td>1788.30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-07-26</td>
+      <td>25.60%</td>
+      <td>Gornik Zabrze</td>
+      <td>1741.86</td>
+      <td>1</td>
+      <td>Piast Gliwice (H)</td>
+      <td>1739.99</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-11-29</td>
+      <td>25.75%</td>
+      <td>Cracovia</td>
+      <td>1746.73</td>
+      <td>1</td>
+      <td>Korona Kielce (H)</td>
+      <td>1743.38</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-11-09</td>
+      <td>25.83%</td>
+      <td>Arka Gdynia (H)</td>
+      <td>1642.09</td>
+      <td>3</td>
+      <td>Lech Poznan</td>
+      <td>1792.52</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-12-07</td>
+      <td>25.85%</td>
+      <td>Bruk-Bet Termalica (H)</td>
+      <td>1637.41</td>
+      <td>2</td>
+      <td>Jagiellonia</td>
+      <td>1787.62</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-17</td>
+      <td>27.26%</td>
+      <td>Jagiellonia</td>
+      <td>1760.01</td>
+      <td>2</td>
+      <td>Radomiak Radom (H)</td>
+      <td>1742.56</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-11-03</td>
+      <td>27.33%</td>
+      <td>Radomiak Radom</td>
+      <td>1727.35</td>
+      <td>2</td>
+      <td>Lechia Gdansk (H)</td>
+      <td>1709.24</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

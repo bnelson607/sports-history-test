@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Midtjylland</td>
+      <td>Level 1</td>
+      <td>1806</td>
+      <td>12.28</td>
+      <td>2.81</td>
+      <td>6.91</td>
+      <td>36</td>
+      <td>43.75</td>
+      <td>7.75</td>
+      <td>36</td>
+      <td>41.57</td>
+      <td>43.26</td>
+      <td>45.12</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>Aarhus GF</td>
+      <td>Level 1</td>
+      <td>1772</td>
+      <td>14.43</td>
+      <td>2.70</td>
+      <td>4.87</td>
+      <td>40</td>
+      <td>48.17</td>
+      <td>8.17</td>
+      <td>40</td>
+      <td>46.07</td>
+      <td>47.87</td>
+      <td>49.43</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <td>Brondby</td>
+      <td>Level 1</td>
+      <td>1701</td>
+      <td>11.58</td>
+      <td>8.47</td>
+      <td>1.95</td>
+      <td>31</td>
+      <td>36.69</td>
+      <td>5.69</td>
+      <td>31</td>
+      <td>34.31</td>
+      <td>36.25</td>
+      <td>37.81</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>Sonderjyske</td>
+      <td>Level 1</td>
+      <td>1700</td>
+      <td>9.84</td>
+      <td>6.21</td>
+      <td>5.95</td>
+      <td>29</td>
+      <td>35.46</td>
+      <td>6.46</td>
+      <td>29</td>
+      <td>32.98</td>
+      <td>35.04</td>
+      <td>36.96</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>FC Copenhagen</td>
+      <td>Level 1</td>
+      <td>1696</td>
+      <td>9.65</td>
+      <td>7.40</td>
+      <td>4.94</td>
+      <td>28</td>
+      <td>33.90</td>
+      <td>5.90</td>
+      <td>28</td>
+      <td>31.50</td>
+      <td>33.46</td>
+      <td>34.96</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Viborg</td>
+      <td>Level 1</td>
+      <td>1658</td>
+      <td>8.47</td>
+      <td>9.59</td>
+      <td>3.94</td>
+      <td>24</td>
+      <td>29.35</td>
+      <td>5.35</td>
+      <td>24</td>
+      <td>27.05</td>
+      <td>28.85</td>
+      <td>30.58</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Nordsjaelland</td>
+      <td>Level 1</td>
+      <td>1641</td>
+      <td>9.49</td>
+      <td>11.57</td>
+      <td>0.94</td>
+      <td>24</td>
+      <td>29.40</td>
+      <td>5.40</td>
+      <td>24</td>
+      <td>27.08</td>
+      <td>28.94</td>
+      <td>30.60</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Odense</td>
+      <td>Level 1</td>
+      <td>1637</td>
+      <td>8.00</td>
+      <td>8.07</td>
+      <td>5.93</td>
+      <td>26</td>
+      <td>29.94</td>
+      <td>3.94</td>
+      <td>26</td>
+      <td>27.67</td>
+      <td>29.27</td>
+      <td>31.19</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>Randers</td>
+      <td>Level 1</td>
+      <td>1607</td>
+      <td>6.52</td>
+      <td>10.55</td>
+      <td>4.94</td>
+      <td>19</td>
+      <td>24.48</td>
+      <td>5.48</td>
+      <td>19</td>
+      <td>22.23</td>
+      <td>24.07</td>
+      <td>25.58</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>Silkeborg</td>
+      <td>Level 1</td>
+      <td>1581</td>
+      <td>6.10</td>
+      <td>10.97</td>
+      <td>4.93</td>
+      <td>19</td>
+      <td>23.22</td>
+      <td>4.22</td>
+      <td>19</td>
+      <td>21.06</td>
+      <td>22.50</td>
+      <td>24.48</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>Lyngby</td>
+      <td>Level 2</td>
+      <td>1558</td>
+      <td>11.15</td>
+      <td>4.95</td>
+      <td>5.91</td>
+      <td>32</td>
+      <td>39.34</td>
+      <td>7.34</td>
+      <td>32</td>
+      <td>37.14</td>
+      <td>38.76</td>
+      <td>40.78</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Vejle BK</td>
+      <td>Level 1</td>
+      <td>1530</td>
+      <td>4.03</td>
+      <td>13.04</td>
+      <td>4.92</td>
+      <td>13</td>
+      <td>17.03</td>
+      <td>4.03</td>
+      <td>13</td>
+      <td>14.87</td>
+      <td>16.34</td>
+      <td>18.28</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>Hillerod</td>
+      <td>Level 2</td>
+      <td>1523</td>
+      <td>10.95</td>
+      <td>5.11</td>
+      <td>5.93</td>
+      <td>32</td>
+      <td>38.79</td>
+      <td>6.79</td>
+      <td>32</td>
+      <td>36.37</td>
+      <td>38.31</td>
+      <td>40.35</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Fredericia</td>
+      <td>Level 1</td>
+      <td>1521</td>
+      <td>5.04</td>
+      <td>14.04</td>
+      <td>2.92</td>
+      <td>14</td>
+      <td>18.05</td>
+      <td>4.05</td>
+      <td>14</td>
+      <td>15.82</td>
+      <td>17.37</td>
+      <td>19.34</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>Horsens</td>
+      <td>Level 2</td>
+      <td>1513</td>
+      <td>9.65</td>
+      <td>6.39</td>
+      <td>5.95</td>
+      <td>29</td>
+      <td>34.92</td>
+      <td>5.92</td>
+      <td>29</td>
+      <td>32.46</td>
+      <td>34.49</td>
+      <td>36.03</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Hvidovre</td>
+      <td>Level 2</td>
+      <td>1496</td>
+      <td>8.74</td>
+      <td>4.32</td>
+      <td>8.94</td>
+      <td>29</td>
+      <td>35.17</td>
+      <td>6.17</td>
+      <td>29</td>
+      <td>32.69</td>
+      <td>34.74</td>
+      <td>36.51</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Kolding IF</td>
+      <td>Level 2</td>
+      <td>1495</td>
+      <td>8.72</td>
+      <td>7.35</td>
+      <td>5.93</td>
+      <td>26</td>
+      <td>32.09</td>
+      <td>6.09</td>
+      <td>26</td>
+      <td>29.67</td>
+      <td>31.66</td>
+      <td>33.25</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>Esbjerg</td>
+      <td>Level 2</td>
+      <td>1476</td>
+      <td>10.56</td>
+      <td>8.48</td>
+      <td>2.96</td>
+      <td>29</td>
+      <td>34.65</td>
+      <td>5.65</td>
+      <td>29</td>
+      <td>32.24</td>
+      <td>34.20</td>
+      <td>35.83</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Aalborg</td>
+      <td>Level 2</td>
+      <td>1472</td>
+      <td>8.71</td>
+      <td>7.34</td>
+      <td>5.95</td>
+      <td>26</td>
+      <td>32.07</td>
+      <td>6.07</td>
+      <td>26</td>
+      <td>29.57</td>
+      <td>31.65</td>
+      <td>33.28</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>Aarhus Fremad</td>
+      <td>Level 2</td>
+      <td>1426</td>
+      <td>5.34</td>
+      <td>7.73</td>
+      <td>8.93</td>
+      <td>20</td>
+      <td>24.95</td>
+      <td>4.95</td>
+      <td>20</td>
+      <td>22.66</td>
+      <td>24.24</td>
+      <td>26.23</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>Hobro</td>
+      <td>Level 2</td>
+      <td>1393</td>
+      <td>5.38</td>
+      <td>9.67</td>
+      <td>6.95</td>
+      <td>18</td>
+      <td>23.10</td>
+      <td>5.10</td>
+      <td>18</td>
+      <td>20.80</td>
+      <td>22.47</td>
+      <td>24.37</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>B.93</td>
+      <td>Level 2</td>
+      <td>1384</td>
+      <td>7.12</td>
+      <td>9.96</td>
+      <td>4.92</td>
+      <td>22</td>
+      <td>26.28</td>
+      <td>4.28</td>
+      <td>22</td>
+      <td>24.14</td>
+      <td>25.56</td>
+      <td>27.55</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td>HB Koge</td>
+      <td>Level 2</td>
+      <td>1362</td>
+      <td>6.05</td>
+      <td>12.01</td>
+      <td>3.94</td>
+      <td>18</td>
+      <td>22.09</td>
+      <td>4.09</td>
+      <td>18</td>
+      <td>19.80</td>
+      <td>21.39</td>
+      <td>23.40</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>Middlefart BK</td>
+      <td>Level 2</td>
+      <td>1354</td>
+      <td>3.00</td>
+      <td>12.08</td>
+      <td>6.92</td>
+      <td>12</td>
+      <td>15.92</td>
+      <td>3.92</td>
+      <td>12</td>
+      <td>13.66</td>
+      <td>15.25</td>
+      <td>17.18</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

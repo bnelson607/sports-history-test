@@ -1,0 +1,4177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Anderlecht" selected>Anderlecht</option><option value="Anderlecht II" >Anderlecht II</option><option value="Antwerp" >Antwerp</option><option value="Beerschot" >Beerschot</option><option value="Beveren" >Beveren</option><option value="Cercle Brugge" >Cercle Brugge</option><option value="Charleroi" >Charleroi</option><option value="Club Brugge" >Club Brugge</option><option value="Club NXT" >Club NXT</option><option value="Dender" >Dender</option><option value="Eupen" >Eupen</option><option value="Francs Borains" >Francs Borains</option><option value="Genk" >Genk</option><option value="Genk II" >Genk II</option><option value="Gent" >Gent</option><option value="Jong KAA Gent" >Jong KAA Gent</option><option value="K Lierse SK" >K Lierse SK</option><option value="KSC Lokeren" >KSC Lokeren</option><option value="Kortrijk" >Kortrijk</option><option value="La Louviere" >La Louviere</option><option value="Lommel" >Lommel</option><option value="Mechelen" >Mechelen</option><option value="Olympic Charleroi" >Olympic Charleroi</option><option value="Oud-Heverlee Leuven" >Oud-Heverlee Leuven</option><option value="Patro Eisden Maasmechelen" >Patro Eisden Maasmechelen</option><option value="RFC Liege" >RFC Liege</option><option value="RWDM Brussels" >RWDM Brussels</option><option value="Seraing" >Seraing</option><option value="Sint-Truiden" >Sint-Truiden</option><option value="Standard Liege" >Standard Liege</option><option value="Union SG" >Union SG</option><option value="Westerlo" >Westerlo</option><option value="Zulte Waregem" >Zulte Waregem</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>44.25%</td>
+      <td>22.06%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>33.31%</td>
+      <td>31.52%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>57.18%</td>
+      <td>14.41%</td>
+      <td>28.41%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>34.90%</td>
+      <td>29.98%</td>
+      <td>35.12%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>@ Mechelen</td>
+      <td>1873.08</td>
+      <td>14.41%</td>
+      <td>57.18%</td>
+      <td>28.41%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>@ Gent</td>
+      <td>1831.96</td>
+      <td>29.98%</td>
+      <td>34.90%</td>
+      <td>35.12%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>@ Antwerp</td>
+      <td>1878.24</td>
+      <td>22.06%</td>
+      <td>44.25%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>2025-12-27</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>@ La Louviere</td>
+      <td>1758.91</td>
+      <td>31.52%</td>
+      <td>33.31%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>@ Dender</td>
+      <td>1716.75</td>
+      <td>49.65%</td>
+      <td>18.41%</td>
+      <td>31.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>@ Club Brugge</td>
+      <td>1990.09</td>
+      <td>11.05%</td>
+      <td>65.72%</td>
+      <td>23.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>@ Gent</td>
+      <td>1831.96</td>
+      <td>40.55%</td>
+      <td>24.96%</td>
+      <td>34.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>@ Westerlo</td>
+      <td>1848.29</td>
+      <td>21.96%</td>
+      <td>44.39%</td>
+      <td>33.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>@ Charleroi</td>
+      <td>1831.55</td>
+      <td>26.23%</td>
+      <td>39.04%</td>
+      <td>34.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>@ Union SG</td>
+      <td>2021.52</td>
+      <td>14.84%</td>
+      <td>56.25%</td>
+      <td>28.91%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>@ Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>15.85%</td>
+      <td>54.21%</td>
+      <td>29.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>12.18%</td>
+      <td>62.57%</td>
+      <td>25.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>47.45%</td>
+      <td>19.81%</td>
+      <td>32.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>43.69%</td>
+      <td>22.48%</td>
+      <td>33.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>37.09%</td>
+      <td>27.95%</td>
+      <td>34.96%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>18.62%</td>
+      <td>49.31%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>37.71%</td>
+      <td>27.40%</td>
+      <td>34.89%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>@ Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>32.71%</td>
+      <td>32.11%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>50.63%</td>
+      <td>17.82%</td>
+      <td>31.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>50.03%</td>
+      <td>18.18%</td>
+      <td>31.79%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>56.25%</td>
+      <td>14.84%</td>
+      <td>28.91%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>62.57%</td>
+      <td>12.18%</td>
+      <td>25.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>19.81%</td>
+      <td>47.45%</td>
+      <td>32.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>18.18%</td>
+      <td>50.03%</td>
+      <td>31.79%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>17.82%</td>
+      <td>50.63%</td>
+      <td>31.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>27.40%</td>
+      <td>37.71%</td>
+      <td>34.89%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>49.31%</td>
+      <td>18.62%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>27.95%</td>
+      <td>37.09%</td>
+      <td>34.96%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>22.48%</td>
+      <td>43.69%</td>
+      <td>33.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>39.04%</td>
+      <td>26.23%</td>
+      <td>34.72%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>54.21%</td>
+      <td>15.85%</td>
+      <td>29.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>32.11%</td>
+      <td>32.71%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>18.41%</td>
+      <td>49.65%</td>
+      <td>31.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>65.72%</td>
+      <td>11.05%</td>
+      <td>23.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>24.96%</td>
+      <td>40.55%</td>
+      <td>34.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>44.39%</td>
+      <td>21.96%</td>
+      <td>33.65%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>@ Standard Liege</td>
+      <td>1818.32</td>
+      <td>29.62%</td>
+      <td>35.28%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>@ Club Brugge</td>
+      <td>1990.09</td>
+      <td>14.02%</td>
+      <td>58.04%</td>
+      <td>27.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>@ Genk</td>
+      <td>1862.22</td>
+      <td>20.66%</td>
+      <td>46.20%</td>
+      <td>33.14%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>@ Mechelen</td>
+      <td>1873.08</td>
+      <td>24.90%</td>
+      <td>40.63%</td>
+      <td>34.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>@ Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>58.51%</td>
+      <td>13.82%</td>
+      <td>27.67%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>@ La Louviere</td>
+      <td>1758.91</td>
+      <td>49.31%</td>
+      <td>18.62%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>49.45%</td>
+      <td>18.53%</td>
+      <td>32.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>31.77%</td>
+      <td>33.05%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>24.49%</td>
+      <td>41.13%</td>
+      <td>34.38%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>10.65%</td>
+      <td>66.93%</td>
+      <td>22.42%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>31.84%</td>
+      <td>32.99%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>@ Antwerp</td>
+      <td>1878.24</td>
+      <td>22.57%</td>
+      <td>43.57%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>39.26%</td>
+      <td>26.05%</td>
+      <td>34.69%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ Beveren</td>
+      <td>1860.69</td>
+      <td>12.18%</td>
+      <td>62.56%</td>
+      <td>25.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>@ Anderlecht</td>
+      <td>1923.66</td>
+      <td>12.02%</td>
+      <td>63.01%</td>
+      <td>24.98%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>22.59%</td>
+      <td>43.55%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>18.62%</td>
+      <td>49.31%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>58.04%</td>
+      <td>14.02%</td>
+      <td>27.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>43.57%</td>
+      <td>22.57%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>63.01%</td>
+      <td>12.02%</td>
+      <td>24.98%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>35.28%</td>
+      <td>29.62%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>62.56%</td>
+      <td>12.18%</td>
+      <td>25.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>26.05%</td>
+      <td>39.26%</td>
+      <td>34.69%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>43.55%</td>
+      <td>22.59%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>32.99%</td>
+      <td>31.84%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>66.93%</td>
+      <td>10.65%</td>
+      <td>22.42%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>46.20%</td>
+      <td>20.66%</td>
+      <td>33.14%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>40.63%</td>
+      <td>24.90%</td>
+      <td>34.47%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>41.13%</td>
+      <td>24.49%</td>
+      <td>34.38%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>33.05%</td>
+      <td>31.77%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>18.53%</td>
+      <td>49.45%</td>
+      <td>32.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>13.82%</td>
+      <td>58.51%</td>
+      <td>27.67%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>60.10%</td>
+      <td>13.15%</td>
+      <td>26.75%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>14.80%</td>
+      <td>56.33%</td>
+      <td>28.87%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>39.33%</td>
+      <td>25.99%</td>
+      <td>34.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>25.28%</td>
+      <td>40.17%</td>
+      <td>34.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>64.35%</td>
+      <td>11.53%</td>
+      <td>24.12%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>32.13%</td>
+      <td>32.69%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>13.15%</td>
+      <td>60.10%</td>
+      <td>26.75%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>61.46%</td>
+      <td>12.61%</td>
+      <td>25.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>56.33%</td>
+      <td>14.80%</td>
+      <td>28.87%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>25.99%</td>
+      <td>39.33%</td>
+      <td>34.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>40.17%</td>
+      <td>25.28%</td>
+      <td>34.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>11.53%</td>
+      <td>64.35%</td>
+      <td>24.12%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>32.69%</td>
+      <td>32.13%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>38.97%</td>
+      <td>26.29%</td>
+      <td>34.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>12.61%</td>
+      <td>61.46%</td>
+      <td>25.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-28</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>26.29%</td>
+      <td>38.97%</td>
+      <td>34.73%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>@ Union SG</td>
+      <td>2021.52</td>
+      <td>24.17%</td>
+      <td>41.53%</td>
+      <td>34.31%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>@ Dender</td>
+      <td>1716.75</td>
+      <td>47.63%</td>
+      <td>19.69%</td>
+      <td>32.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>@ Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>39.87%</td>
+      <td>25.53%</td>
+      <td>34.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>@ La Louviere</td>
+      <td>1758.91</td>
+      <td>37.98%</td>
+      <td>27.16%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>@ Standard Liege</td>
+      <td>1818.32</td>
+      <td>42.39%</td>
+      <td>23.48%</td>
+      <td>34.13%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>@ Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>30.74%</td>
+      <td>34.11%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>@ Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>19.03%</td>
+      <td>48.66%</td>
+      <td>32.31%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>27.85%</td>
+      <td>37.20%</td>
+      <td>34.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>26.90%</td>
+      <td>38.27%</td>
+      <td>34.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>35.14%</td>
+      <td>29.75%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>47.04%</td>
+      <td>20.09%</td>
+      <td>32.87%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>16.79%</td>
+      <td>52.44%</td>
+      <td>30.77%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>28.08%</td>
+      <td>36.96%</td>
+      <td>34.97%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>@ Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>39.35%</td>
+      <td>25.97%</td>
+      <td>34.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>40.34%</td>
+      <td>25.14%</td>
+      <td>34.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>43.20%</td>
+      <td>22.85%</td>
+      <td>33.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>29.75%</td>
+      <td>35.14%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>22.85%</td>
+      <td>43.20%</td>
+      <td>33.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>25.14%</td>
+      <td>40.34%</td>
+      <td>34.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>36.96%</td>
+      <td>28.08%</td>
+      <td>34.97%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>52.44%</td>
+      <td>16.79%</td>
+      <td>30.77%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>20.09%</td>
+      <td>47.04%</td>
+      <td>32.87%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>38.27%</td>
+      <td>26.90%</td>
+      <td>34.83%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>48.66%</td>
+      <td>19.03%</td>
+      <td>32.31%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>37.20%</td>
+      <td>27.85%</td>
+      <td>34.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>34.11%</td>
+      <td>30.74%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>23.48%</td>
+      <td>42.39%</td>
+      <td>34.13%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>27.16%</td>
+      <td>37.98%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>25.53%</td>
+      <td>39.87%</td>
+      <td>34.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>19.69%</td>
+      <td>47.63%</td>
+      <td>32.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>25.97%</td>
+      <td>39.35%</td>
+      <td>34.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>41.53%</td>
+      <td>24.17%</td>
+      <td>34.31%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>@ Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>17.27%</td>
+      <td>51.58%</td>
+      <td>31.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>@ Charleroi</td>
+      <td>1831.55</td>
+      <td>23.66%</td>
+      <td>42.17%</td>
+      <td>34.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>@ Union SG</td>
+      <td>2021.52</td>
+      <td>9.93%</td>
+      <td>69.15%</td>
+      <td>20.93%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>@ Genk</td>
+      <td>1862.22</td>
+      <td>36.36%</td>
+      <td>28.62%</td>
+      <td>35.02%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>@ Gent</td>
+      <td>1831.96</td>
+      <td>22.69%</td>
+      <td>43.42%</td>
+      <td>33.89%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>@ Westerlo</td>
+      <td>1848.29</td>
+      <td>37.47%</td>
+      <td>27.61%</td>
+      <td>34.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>@ Mechelen</td>
+      <td>1873.08</td>
+      <td>28.51%</td>
+      <td>36.48%</td>
+      <td>35.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>69.15%</td>
+      <td>9.93%</td>
+      <td>20.93%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>@ Club Brugge</td>
+      <td>1990.09</td>
+      <td>13.61%</td>
+      <td>58.98%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>58.98%</td>
+      <td>13.61%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>43.42%</td>
+      <td>22.69%</td>
+      <td>33.89%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>42.17%</td>
+      <td>23.66%</td>
+      <td>34.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>27.61%</td>
+      <td>37.47%</td>
+      <td>34.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>36.48%</td>
+      <td>28.51%</td>
+      <td>35.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>28.62%</td>
+      <td>36.36%</td>
+      <td>35.02%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>51.58%</td>
+      <td>17.27%</td>
+      <td>31.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>59.22%</td>
+      <td>13.51%</td>
+      <td>27.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>34.52%</td>
+      <td>30.35%</td>
+      <td>35.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>24.19%</td>
+      <td>41.50%</td>
+      <td>34.31%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>13.65%</td>
+      <td>58.91%</td>
+      <td>27.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>13.54%</td>
+      <td>59.17%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>41.86%</td>
+      <td>23.90%</td>
+      <td>34.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Francs Borains</td>
+      <td>1597.63</td>
+      <td>34.24%</td>
+      <td>30.61%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>13.51%</td>
+      <td>59.22%</td>
+      <td>27.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>30.35%</td>
+      <td>34.52%</td>
+      <td>35.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>41.50%</td>
+      <td>24.19%</td>
+      <td>34.31%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>58.91%</td>
+      <td>13.65%</td>
+      <td>27.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>59.17%</td>
+      <td>13.54%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>23.90%</td>
+      <td>41.86%</td>
+      <td>34.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>54.78%</td>
+      <td>15.55%</td>
+      <td>29.66%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>@ Beveren</td>
+      <td>1860.69</td>
+      <td>15.55%</td>
+      <td>54.78%</td>
+      <td>29.66%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>30.61%</td>
+      <td>34.24%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>@ Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>53.73%</td>
+      <td>16.09%</td>
+      <td>30.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>@ Mechelen</td>
+      <td>1873.08</td>
+      <td>26.52%</td>
+      <td>38.71%</td>
+      <td>34.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>@ Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>20.42%</td>
+      <td>46.56%</td>
+      <td>33.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>@ Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>18.62%</td>
+      <td>49.30%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>@ Antwerp</td>
+      <td>1878.24</td>
+      <td>24.33%</td>
+      <td>41.33%</td>
+      <td>34.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>@ Charleroi</td>
+      <td>1831.55</td>
+      <td>27.90%</td>
+      <td>37.15%</td>
+      <td>34.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>@ Standard Liege</td>
+      <td>1818.32</td>
+      <td>54.74%</td>
+      <td>15.57%</td>
+      <td>29.68%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>@ Anderlecht</td>
+      <td>1923.66</td>
+      <td>13.97%</td>
+      <td>58.17%</td>
+      <td>27.87%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>16.09%</td>
+      <td>53.73%</td>
+      <td>30.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>38.71%</td>
+      <td>26.52%</td>
+      <td>34.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>46.56%</td>
+      <td>20.42%</td>
+      <td>33.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>41.33%</td>
+      <td>24.33%</td>
+      <td>34.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>58.17%</td>
+      <td>13.97%</td>
+      <td>27.87%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>37.15%</td>
+      <td>27.90%</td>
+      <td>34.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>15.57%</td>
+      <td>54.74%</td>
+      <td>29.68%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>49.30%</td>
+      <td>18.62%</td>
+      <td>32.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>56.10%</td>
+      <td>14.91%</td>
+      <td>28.99%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>54.86%</td>
+      <td>15.52%</td>
+      <td>29.63%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>53.89%</td>
+      <td>16.01%</td>
+      <td>30.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>32.83%</td>
+      <td>31.99%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>53.11%</td>
+      <td>16.42%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Francs Borains</td>
+      <td>1597.63</td>
+      <td>61.72%</td>
+      <td>12.50%</td>
+      <td>25.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>16.01%</td>
+      <td>53.89%</td>
+      <td>30.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>12.50%</td>
+      <td>61.72%</td>
+      <td>25.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>46.11%</td>
+      <td>20.72%</td>
+      <td>33.16%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>18.96%</td>
+      <td>48.76%</td>
+      <td>32.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>14.91%</td>
+      <td>56.10%</td>
+      <td>28.99%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>20.72%</td>
+      <td>46.11%</td>
+      <td>33.16%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>16.42%</td>
+      <td>53.11%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>31.99%</td>
+      <td>32.83%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>15.52%</td>
+      <td>54.86%</td>
+      <td>29.63%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>48.76%</td>
+      <td>18.96%</td>
+      <td>32.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>55.64%</td>
+      <td>15.13%</td>
+      <td>29.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>62.64%</td>
+      <td>12.15%</td>
+      <td>25.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>22.57%</td>
+      <td>43.57%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>@ Union SG</td>
+      <td>2021.52</td>
+      <td>15.13%</td>
+      <td>55.64%</td>
+      <td>29.23%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>@ Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>41.31%</td>
+      <td>24.34%</td>
+      <td>34.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>@ La Louviere</td>
+      <td>1758.91</td>
+      <td>43.57%</td>
+      <td>22.57%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>15.71%</td>
+      <td>54.47%</td>
+      <td>29.82%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>@ Genk</td>
+      <td>1862.22</td>
+      <td>22.86%</td>
+      <td>43.20%</td>
+      <td>33.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>@ Westerlo</td>
+      <td>1848.29</td>
+      <td>25.82%</td>
+      <td>39.53%</td>
+      <td>34.65%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>@ Club Brugge</td>
+      <td>1990.09</td>
+      <td>12.15%</td>
+      <td>62.64%</td>
+      <td>25.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>@ Dender</td>
+      <td>1716.75</td>
+      <td>54.47%</td>
+      <td>15.71%</td>
+      <td>29.82%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>24.34%</td>
+      <td>41.31%</td>
+      <td>34.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>43.20%</td>
+      <td>22.86%</td>
+      <td>33.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>42.22%</td>
+      <td>23.61%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>@ Gent</td>
+      <td>1831.96</td>
+      <td>23.61%</td>
+      <td>42.22%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>39.53%</td>
+      <td>25.82%</td>
+      <td>34.65%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>39.08%</td>
+      <td>26.20%</td>
+      <td>34.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>46.14%</td>
+      <td>20.71%</td>
+      <td>33.16%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>20.66%</td>
+      <td>46.20%</td>
+      <td>33.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>20.71%</td>
+      <td>46.14%</td>
+      <td>33.16%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>26.20%</td>
+      <td>39.08%</td>
+      <td>34.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>18.07%</td>
+      <td>50.21%</td>
+      <td>31.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>33.86%</td>
+      <td>30.98%</td>
+      <td>35.16%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>46.20%</td>
+      <td>20.66%</td>
+      <td>33.14%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>14.63%</td>
+      <td>56.69%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>25.19%</td>
+      <td>40.28%</td>
+      <td>34.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>62.33%</td>
+      <td>12.27%</td>
+      <td>25.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>50.21%</td>
+      <td>18.07%</td>
+      <td>31.72%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>56.69%</td>
+      <td>14.63%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>30.98%</td>
+      <td>33.86%</td>
+      <td>35.16%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>40.28%</td>
+      <td>25.19%</td>
+      <td>34.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>12.27%</td>
+      <td>62.33%</td>
+      <td>25.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>17.54%</td>
+      <td>51.11%</td>
+      <td>31.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>41.37%</td>
+      <td>24.29%</td>
+      <td>34.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>43.57%</td>
+      <td>22.57%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>18.64%</td>
+      <td>49.28%</td>
+      <td>32.08%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>47.71%</td>
+      <td>19.64%</td>
+      <td>32.65%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>45.24%</td>
+      <td>21.34%</td>
+      <td>33.42%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>54.93%</td>
+      <td>15.48%</td>
+      <td>29.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>31.60%</td>
+      <td>33.23%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>@ Standard Liege</td>
+      <td>1818.32</td>
+      <td>21.34%</td>
+      <td>45.24%</td>
+      <td>33.42%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>@ Charleroi</td>
+      <td>1831.55</td>
+      <td>49.28%</td>
+      <td>18.64%</td>
+      <td>32.08%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>@ Anderlecht</td>
+      <td>1923.66</td>
+      <td>15.48%</td>
+      <td>54.93%</td>
+      <td>29.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>@ Antwerp</td>
+      <td>1878.24</td>
+      <td>33.23%</td>
+      <td>31.60%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>@ Westerlo</td>
+      <td>1848.29</td>
+      <td>51.11%</td>
+      <td>17.54%</td>
+      <td>31.35%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>@ Mechelen</td>
+      <td>1873.08</td>
+      <td>22.57%</td>
+      <td>43.57%</td>
+      <td>33.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>@ Genk</td>
+      <td>1862.22</td>
+      <td>24.29%</td>
+      <td>41.37%</td>
+      <td>34.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>@ Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>19.64%</td>
+      <td>47.71%</td>
+      <td>32.65%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>29.87%</td>
+      <td>35.02%</td>
+      <td>35.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>78.31%</td>
+      <td>7.18%</td>
+      <td>14.51%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>61.72%</td>
+      <td>12.51%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>23.79%</td>
+      <td>42.00%</td>
+      <td>34.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>31.41%</td>
+      <td>33.42%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>51.45%</td>
+      <td>17.34%</td>
+      <td>31.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>17.34%</td>
+      <td>51.45%</td>
+      <td>31.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>26.05%</td>
+      <td>39.25%</td>
+      <td>34.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>42.00%</td>
+      <td>23.79%</td>
+      <td>34.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>39.25%</td>
+      <td>26.05%</td>
+      <td>34.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ Francs Borains</td>
+      <td>1597.63</td>
+      <td>43.40%</td>
+      <td>22.70%</td>
+      <td>33.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>33.42%</td>
+      <td>31.41%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>@ RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>35.02%</td>
+      <td>29.87%</td>
+      <td>35.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ Beveren</td>
+      <td>1860.69</td>
+      <td>7.18%</td>
+      <td>78.31%</td>
+      <td>14.51%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>12.51%</td>
+      <td>61.72%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>22.70%</td>
+      <td>43.40%</td>
+      <td>33.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>@ Union SG</td>
+      <td>2021.52</td>
+      <td>14.25%</td>
+      <td>57.53%</td>
+      <td>28.22%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>46.15%</td>
+      <td>20.70%</td>
+      <td>33.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>31.36%</td>
+      <td>33.47%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>28.56%</td>
+      <td>36.43%</td>
+      <td>35.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>22.06%</td>
+      <td>44.25%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>38.33%</td>
+      <td>26.85%</td>
+      <td>34.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>57.53%</td>
+      <td>14.25%</td>
+      <td>28.22%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>@ Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>16.41%</td>
+      <td>53.13%</td>
+      <td>30.46%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>@ Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>26.85%</td>
+      <td>38.33%</td>
+      <td>34.82%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>@ La Louviere</td>
+      <td>1758.91</td>
+      <td>44.25%</td>
+      <td>22.06%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>@ Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>36.43%</td>
+      <td>28.56%</td>
+      <td>35.02%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>@ Gent</td>
+      <td>1831.96</td>
+      <td>33.47%</td>
+      <td>31.36%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>@ Club Brugge</td>
+      <td>1990.09</td>
+      <td>20.70%</td>
+      <td>46.15%</td>
+      <td>33.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>@ Dender</td>
+      <td>1716.75</td>
+      <td>43.65%</td>
+      <td>22.51%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>22.51%</td>
+      <td>43.65%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>53.13%</td>
+      <td>16.41%</td>
+      <td>30.46%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>16.50%</td>
+      <td>52.96%</td>
+      <td>30.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>51.92%</td>
+      <td>17.07%</td>
+      <td>31.00%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>27.71%</td>
+      <td>37.36%</td>
+      <td>34.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>19.41%</td>
+      <td>48.06%</td>
+      <td>32.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>22.05%</td>
+      <td>44.26%</td>
+      <td>33.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>20.45%</td>
+      <td>46.51%</td>
+      <td>33.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>14.46%</td>
+      <td>57.06%</td>
+      <td>28.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>27.18%</td>
+      <td>37.95%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>17.07%</td>
+      <td>51.92%</td>
+      <td>31.00%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>52.96%</td>
+      <td>16.50%</td>
+      <td>30.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>57.06%</td>
+      <td>14.46%</td>
+      <td>28.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>44.26%</td>
+      <td>22.05%</td>
+      <td>33.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>48.06%</td>
+      <td>19.41%</td>
+      <td>32.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>37.36%</td>
+      <td>27.71%</td>
+      <td>34.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>37.95%</td>
+      <td>27.18%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>46.51%</td>
+      <td>20.45%</td>
+      <td>33.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>39.77%</td>
+      <td>25.61%</td>
+      <td>34.62%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>34.15%</td>
+      <td>30.70%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>42.34%</td>
+      <td>23.52%</td>
+      <td>34.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>26.26%</td>
+      <td>39.01%</td>
+      <td>34.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>39.01%</td>
+      <td>26.26%</td>
+      <td>34.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>25.61%</td>
+      <td>39.77%</td>
+      <td>34.62%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>25.94%</td>
+      <td>39.39%</td>
+      <td>34.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>15.74%</td>
+      <td>54.42%</td>
+      <td>29.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Beveren</td>
+      <td>1860.69</td>
+      <td>11.63%</td>
+      <td>64.09%</td>
+      <td>24.29%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ Francs Borains</td>
+      <td>1597.63</td>
+      <td>39.39%</td>
+      <td>25.94%</td>
+      <td>34.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>64.09%</td>
+      <td>11.63%</td>
+      <td>24.29%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>42.47%</td>
+      <td>23.42%</td>
+      <td>34.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>23.42%</td>
+      <td>42.47%</td>
+      <td>34.11%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>30.70%</td>
+      <td>34.15%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>54.42%</td>
+      <td>15.74%</td>
+      <td>29.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-11</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>23.52%</td>
+      <td>42.34%</td>
+      <td>34.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>@ Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>23.63%</td>
+      <td>42.20%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>@ Gent</td>
+      <td>1831.96</td>
+      <td>27.16%</td>
+      <td>37.98%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>@ Genk</td>
+      <td>1862.22</td>
+      <td>35.51%</td>
+      <td>29.41%</td>
+      <td>35.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>@ Mechelen</td>
+      <td>1873.08</td>
+      <td>34.82%</td>
+      <td>30.06%</td>
+      <td>35.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>@ Westerlo</td>
+      <td>1848.29</td>
+      <td>47.16%</td>
+      <td>20.01%</td>
+      <td>32.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>42.20%</td>
+      <td>23.63%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>37.98%</td>
+      <td>27.16%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>29.41%</td>
+      <td>35.51%</td>
+      <td>35.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>30.06%</td>
+      <td>34.82%</td>
+      <td>35.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>20.01%</td>
+      <td>47.16%</td>
+      <td>32.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>45.30%</td>
+      <td>21.30%</td>
+      <td>33.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>43.37%</td>
+      <td>22.73%</td>
+      <td>33.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>73.57%</td>
+      <td>8.57%</td>
+      <td>17.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>10.14%</td>
+      <td>68.49%</td>
+      <td>21.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>44.16%</td>
+      <td>22.13%</td>
+      <td>33.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>42.23%</td>
+      <td>23.61%</td>
+      <td>34.16%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>30.70%</td>
+      <td>34.15%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>16.11%</td>
+      <td>53.69%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>9.03%</td>
+      <td>72.05%</td>
+      <td>18.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>23.61%</td>
+      <td>42.23%</td>
+      <td>34.16%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>37.38%</td>
+      <td>27.70%</td>
+      <td>34.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>68.49%</td>
+      <td>10.14%</td>
+      <td>21.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>31.34%</td>
+      <td>33.49%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>@ Union SG</td>
+      <td>2021.52</td>
+      <td>8.57%</td>
+      <td>73.57%</td>
+      <td>17.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>@ Antwerp</td>
+      <td>1878.24</td>
+      <td>21.30%</td>
+      <td>45.30%</td>
+      <td>33.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>33.49%</td>
+      <td>31.34%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>22.13%</td>
+      <td>44.16%</td>
+      <td>33.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>34.15%</td>
+      <td>30.70%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>53.69%</td>
+      <td>16.11%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>72.05%</td>
+      <td>9.03%</td>
+      <td>18.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>@ Charleroi</td>
+      <td>1831.55</td>
+      <td>22.73%</td>
+      <td>43.37%</td>
+      <td>33.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>27.70%</td>
+      <td>37.38%</td>
+      <td>34.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>@ Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>42.20%</td>
+      <td>23.63%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Beveren</td>
+      <td>1860.69</td>
+      <td>13.61%</td>
+      <td>58.98%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>@ Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>28.51%</td>
+      <td>36.48%</td>
+      <td>35.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>@ Anderlecht</td>
+      <td>1923.66</td>
+      <td>16.03%</td>
+      <td>53.85%</td>
+      <td>30.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>@ La Louviere</td>
+      <td>1758.91</td>
+      <td>42.12%</td>
+      <td>23.69%</td>
+      <td>34.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>@ Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>40.57%</td>
+      <td>24.94%</td>
+      <td>34.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>@ Club Brugge</td>
+      <td>1990.09</td>
+      <td>16.76%</td>
+      <td>52.48%</td>
+      <td>30.76%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>@ Dender</td>
+      <td>1716.75</td>
+      <td>43.71%</td>
+      <td>22.47%</td>
+      <td>33.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>29.61%</td>
+      <td>35.30%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>@ Standard Liege</td>
+      <td>1818.32</td>
+      <td>31.87%</td>
+      <td>32.95%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>17.42%</td>
+      <td>51.31%</td>
+      <td>31.27%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>17.72%</td>
+      <td>50.80%</td>
+      <td>31.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>39.40%</td>
+      <td>25.92%</td>
+      <td>34.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>30.43%</td>
+      <td>34.43%</td>
+      <td>35.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>50.80%</td>
+      <td>17.72%</td>
+      <td>31.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>58.44%</td>
+      <td>13.85%</td>
+      <td>27.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>51.31%</td>
+      <td>17.42%</td>
+      <td>31.27%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>15.78%</td>
+      <td>54.34%</td>
+      <td>29.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Francs Borains</td>
+      <td>1597.63</td>
+      <td>54.34%</td>
+      <td>15.78%</td>
+      <td>29.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>35.30%</td>
+      <td>29.61%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>58.98%</td>
+      <td>13.61%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Sint-Truiden</td>
+      <td>1917.65</td>
+      <td>Union SG</td>
+      <td>2021.52</td>
+      <td>23.63%</td>
+      <td>42.20%</td>
+      <td>34.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Zulte Waregem</td>
+      <td>1826.39</td>
+      <td>Charleroi</td>
+      <td>1831.55</td>
+      <td>36.48%</td>
+      <td>28.51%</td>
+      <td>35.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Standard Liege</td>
+      <td>1818.32</td>
+      <td>Westerlo</td>
+      <td>1848.29</td>
+      <td>32.95%</td>
+      <td>31.87%</td>
+      <td>35.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Anderlecht</td>
+      <td>1923.66</td>
+      <td>Cercle Brugge</td>
+      <td>1795.35</td>
+      <td>53.85%</td>
+      <td>16.03%</td>
+      <td>30.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>La Louviere</td>
+      <td>1758.91</td>
+      <td>Genk</td>
+      <td>1862.22</td>
+      <td>23.69%</td>
+      <td>42.12%</td>
+      <td>34.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Oud-Heverlee Leuven</td>
+      <td>1786.37</td>
+      <td>Antwerp</td>
+      <td>1878.24</td>
+      <td>24.94%</td>
+      <td>40.57%</td>
+      <td>34.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Club Brugge</td>
+      <td>1990.09</td>
+      <td>Mechelen</td>
+      <td>1873.08</td>
+      <td>52.48%</td>
+      <td>16.76%</td>
+      <td>30.76%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Dender</td>
+      <td>1716.75</td>
+      <td>Gent</td>
+      <td>1831.96</td>
+      <td>22.47%</td>
+      <td>43.71%</td>
+      <td>33.83%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>25.92%</td>
+      <td>39.40%</td>
+      <td>34.67%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>34.43%</td>
+      <td>30.43%</td>
+      <td>35.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>13.85%</td>
+      <td>58.44%</td>
+      <td>27.71%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>18.57%</td>
+      <td>49.39%</td>
+      <td>32.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>21.47%</td>
+      <td>45.06%</td>
+      <td>33.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>56.83%</td>
+      <td>14.57%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>@ Club NXT</td>
+      <td>1536.73</td>
+      <td>49.39%</td>
+      <td>18.57%</td>
+      <td>32.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>21.28%</td>
+      <td>45.32%</td>
+      <td>33.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>45.06%</td>
+      <td>21.47%</td>
+      <td>33.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>14.57%</td>
+      <td>56.83%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>19.49%</td>
+      <td>47.94%</td>
+      <td>32.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>13.15%</td>
+      <td>60.10%</td>
+      <td>26.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>64.00%</td>
+      <td>11.66%</td>
+      <td>24.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>54.04%</td>
+      <td>15.93%</td>
+      <td>30.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>15.93%</td>
+      <td>54.04%</td>
+      <td>30.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>11.66%</td>
+      <td>64.00%</td>
+      <td>24.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>60.10%</td>
+      <td>13.15%</td>
+      <td>26.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>47.94%</td>
+      <td>19.49%</td>
+      <td>32.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>45.32%</td>
+      <td>21.28%</td>
+      <td>33.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>@ Beveren</td>
+      <td>1860.69</td>
+      <td>20.99%</td>
+      <td>45.73%</td>
+      <td>33.28%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>@ RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>20.68%</td>
+      <td>46.17%</td>
+      <td>33.14%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>@ Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>33.99%</td>
+      <td>30.86%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>@ Francs Borains</td>
+      <td>1597.63</td>
+      <td>23.01%</td>
+      <td>42.99%</td>
+      <td>34.00%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>@ KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>14.66%</td>
+      <td>56.64%</td>
+      <td>28.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>@ Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>48.24%</td>
+      <td>19.30%</td>
+      <td>32.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>45.73%</td>
+      <td>20.99%</td>
+      <td>33.28%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>46.17%</td>
+      <td>20.68%</td>
+      <td>33.14%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>42.99%</td>
+      <td>23.01%</td>
+      <td>34.00%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>30.86%</td>
+      <td>33.99%</td>
+      <td>35.15%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>35.17%</td>
+      <td>29.72%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>56.64%</td>
+      <td>14.66%</td>
+      <td>28.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>@ Lommel</td>
+      <td>1724.63</td>
+      <td>12.85%</td>
+      <td>60.84%</td>
+      <td>26.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>Club NXT</td>
+      <td>1536.73</td>
+      <td>60.84%</td>
+      <td>12.85%</td>
+      <td>26.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>@ Eupen</td>
+      <td>1696.14</td>
+      <td>29.72%</td>
+      <td>35.17%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>19.30%</td>
+      <td>48.24%</td>
+      <td>32.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>@ RFC Liege</td>
+      <td>1688.92</td>
+      <td>28.78%</td>
+      <td>36.19%</td>
+      <td>35.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>@ Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>16.00%</td>
+      <td>53.91%</td>
+      <td>30.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>@ Genk II</td>
+      <td>1555.28</td>
+      <td>40.17%</td>
+      <td>25.28%</td>
+      <td>34.55%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>@ K Lierse SK</td>
+      <td>1657.70</td>
+      <td>30.91%</td>
+      <td>33.93%</td>
+      <td>35.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>@ Beerschot</td>
+      <td>1710.54</td>
+      <td>29.68%</td>
+      <td>35.22%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>@ Kortrijk</td>
+      <td>1797.47</td>
+      <td>14.57%</td>
+      <td>56.83%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Seraing</td>
+      <td>1529.07</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>9.87%</td>
+      <td>69.32%</td>
+      <td>20.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Anderlecht II</td>
+      <td>1577.52</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>46.61%</td>
+      <td>20.38%</td>
+      <td>33.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>RFC Liege</td>
+      <td>1688.92</td>
+      <td>Eupen</td>
+      <td>1696.14</td>
+      <td>36.19%</td>
+      <td>28.78%</td>
+      <td>35.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Patro Eisden Maasmechelen</td>
+      <td>1726.40</td>
+      <td>Francs Borains</td>
+      <td>1597.63</td>
+      <td>53.91%</td>
+      <td>16.00%</td>
+      <td>30.09%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Kortrijk</td>
+      <td>1797.47</td>
+      <td>RWDM Brussels</td>
+      <td>1644.16</td>
+      <td>56.83%</td>
+      <td>14.57%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Genk II</td>
+      <td>1555.28</td>
+      <td>Jong KAA Gent</td>
+      <td>1644.18</td>
+      <td>25.28%</td>
+      <td>40.17%</td>
+      <td>34.55%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>K Lierse SK</td>
+      <td>1657.70</td>
+      <td>KSC Lokeren</td>
+      <td>1680.81</td>
+      <td>33.93%</td>
+      <td>30.91%</td>
+      <td>35.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Beerschot</td>
+      <td>1710.54</td>
+      <td>Lommel</td>
+      <td>1724.63</td>
+      <td>35.22%</td>
+      <td>29.68%</td>
+      <td>35.10%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Olympic Charleroi</td>
+      <td>1507.47</td>
+      <td>@ Anderlecht II</td>
+      <td>1577.52</td>
+      <td>20.38%</td>
+      <td>46.61%</td>
+      <td>33.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Beveren</td>
+      <td>1860.69</td>
+      <td>@ Seraing</td>
+      <td>1529.07</td>
+      <td>69.32%</td>
+      <td>9.87%</td>
+      <td>20.81%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

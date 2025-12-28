@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Maxline Vitebsk</td>
+      <td>Level 1</td>
+      <td>1370</td>
+      <td>21.00</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>68</td>
+      <td>68.00</td>
+      <td>-0.00</td>
+      <td>68</td>
+      <td>64.25</td>
+      <td>65.50</td>
+      <td>66.75</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Dynamo Minsk</td>
+      <td>Level 1</td>
+      <td>1367</td>
+      <td>19.00</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>63</td>
+      <td>63.00</td>
+      <td>-0.00</td>
+      <td>63</td>
+      <td>58.50</td>
+      <td>60.00</td>
+      <td>61.50</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Torpedo-BelAZ Zhodino</td>
+      <td>Level 1</td>
+      <td>1257</td>
+      <td>13.00</td>
+      <td>7.0</td>
+      <td>10.0</td>
+      <td>49</td>
+      <td>49.00</td>
+      <td>-0.00</td>
+      <td>49</td>
+      <td>44.50</td>
+      <td>46.00</td>
+      <td>47.50</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>Slaviya Mozyr</td>
+      <td>Level 1</td>
+      <td>1254</td>
+      <td>17.00</td>
+      <td>7.0</td>
+      <td>6.0</td>
+      <td>57</td>
+      <td>57.00</td>
+      <td>-0.00</td>
+      <td>57</td>
+      <td>53.25</td>
+      <td>54.50</td>
+      <td>55.75</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>Isloch Minsk</td>
+      <td>Level 1</td>
+      <td>1252</td>
+      <td>12.00</td>
+      <td>5.0</td>
+      <td>13.0</td>
+      <td>49</td>
+      <td>49.00</td>
+      <td>-0.00</td>
+      <td>49</td>
+      <td>44.50</td>
+      <td>46.00</td>
+      <td>47.50</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>Minsk</td>
+      <td>Level 1</td>
+      <td>1233</td>
+      <td>15.00</td>
+      <td>8.0</td>
+      <td>7.0</td>
+      <td>52</td>
+      <td>52.00</td>
+      <td>-0.00</td>
+      <td>52</td>
+      <td>51.25</td>
+      <td>51.50</td>
+      <td>51.75</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <td>Dynamo Brest</td>
+      <td>Level 1</td>
+      <td>1225</td>
+      <td>15.00</td>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>51</td>
+      <td>51.00</td>
+      <td>-0.00</td>
+      <td>51</td>
+      <td>49.50</td>
+      <td>50.00</td>
+      <td>50.50</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>Neman Grodno</td>
+      <td>Level 1</td>
+      <td>1206</td>
+      <td>13.00</td>
+      <td>13.0</td>
+      <td>4.0</td>
+      <td>43</td>
+      <td>43.00</td>
+      <td>-0.00</td>
+      <td>43</td>
+      <td>40.75</td>
+      <td>41.50</td>
+      <td>42.25</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>Gomel</td>
+      <td>Level 1</td>
+      <td>1196</td>
+      <td>12.00</td>
+      <td>11.0</td>
+      <td>7.0</td>
+      <td>43</td>
+      <td>43.00</td>
+      <td>-0.00</td>
+      <td>43</td>
+      <td>40.75</td>
+      <td>41.50</td>
+      <td>42.25</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>BATE Borisov</td>
+      <td>Level 1</td>
+      <td>1166</td>
+      <td>11.00</td>
+      <td>12.0</td>
+      <td>7.0</td>
+      <td>40</td>
+      <td>40.00</td>
+      <td>-0.00</td>
+      <td>40</td>
+      <td>34.75</td>
+      <td>36.50</td>
+      <td>38.25</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Arsenal Dzerzhinsk</td>
+      <td>Level 1</td>
+      <td>1112</td>
+      <td>7.00</td>
+      <td>11.0</td>
+      <td>12.0</td>
+      <td>33</td>
+      <td>33.00</td>
+      <td>-0.00</td>
+      <td>33</td>
+      <td>31.50</td>
+      <td>32.00</td>
+      <td>32.50</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>Vitebsk</td>
+      <td>Level 1</td>
+      <td>1093</td>
+      <td>9.00</td>
+      <td>17.0</td>
+      <td>4.0</td>
+      <td>31</td>
+      <td>31.00</td>
+      <td>-0.00</td>
+      <td>31</td>
+      <td>28.75</td>
+      <td>29.50</td>
+      <td>30.25</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>Smorgon</td>
+      <td>Level 1</td>
+      <td>1065</td>
+      <td>7.00</td>
+      <td>16.0</td>
+      <td>7.0</td>
+      <td>28</td>
+      <td>28.00</td>
+      <td>-0.00</td>
+      <td>28</td>
+      <td>22.75</td>
+      <td>24.50</td>
+      <td>26.25</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>Naftan Novopolotsk</td>
+      <td>Level 1</td>
+      <td>1056</td>
+      <td>8.00</td>
+      <td>18.0</td>
+      <td>4.0</td>
+      <td>28</td>
+      <td>28.00</td>
+      <td>-0.00</td>
+      <td>28</td>
+      <td>22.75</td>
+      <td>24.50</td>
+      <td>26.25</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>Slutsk</td>
+      <td>Level 1</td>
+      <td>1009</td>
+      <td>5.00</td>
+      <td>19.0</td>
+      <td>6.0</td>
+      <td>21</td>
+      <td>21.00</td>
+      <td>-0.00</td>
+      <td>21</td>
+      <td>13.50</td>
+      <td>16.00</td>
+      <td>18.50</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>Molodechno</td>
+      <td>Level 1</td>
+      <td>974</td>
+      <td>3.00</td>
+      <td>25.0</td>
+      <td>2.0</td>
+      <td>11</td>
+      <td>11.00</td>
+      <td>-0.00</td>
+      <td>11</td>
+      <td>11.00</td>
+      <td>11.00</td>
+      <td>11.00</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

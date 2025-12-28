@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Galatasaray</td>
+      <td>Level 1</td>
+      <td>2009</td>
+      <td>24.35</td>
+      <td>3.02</td>
+      <td>6.63</td>
+      <td>42</td>
+      <td>79.69</td>
+      <td>37.69</td>
+      <td>59</td>
+      <td>76.12</td>
+      <td>79.34</td>
+      <td>82.42</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>Fenerbahce</td>
+      <td>Level 1</td>
+      <td>1976</td>
+      <td>21.59</td>
+      <td>2.31</td>
+      <td>10.10</td>
+      <td>39</td>
+      <td>74.87</td>
+      <td>35.87</td>
+      <td>57</td>
+      <td>71.24</td>
+      <td>74.48</td>
+      <td>77.62</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>Trabzonspor</td>
+      <td>Level 1</td>
+      <td>1855</td>
+      <td>17.64</td>
+      <td>5.58</td>
+      <td>10.78</td>
+      <td>35</td>
+      <td>63.70</td>
+      <td>28.70</td>
+      <td>47</td>
+      <td>59.83</td>
+      <td>63.23</td>
+      <td>66.56</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Besiktas</td>
+      <td>Level 1</td>
+      <td>1832</td>
+      <td>15.14</td>
+      <td>7.91</td>
+      <td>10.95</td>
+      <td>29</td>
+      <td>56.36</td>
+      <td>27.36</td>
+      <td>38</td>
+      <td>52.50</td>
+      <td>55.87</td>
+      <td>59.18</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>Goztepe</td>
+      <td>Level 1</td>
+      <td>1827</td>
+      <td>16.03</td>
+      <td>7.03</td>
+      <td>10.93</td>
+      <td>32</td>
+      <td>59.03</td>
+      <td>27.03</td>
+      <td>40</td>
+      <td>55.27</td>
+      <td>58.48</td>
+      <td>61.76</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>Basaksehir</td>
+      <td>Level 1</td>
+      <td>1797</td>
+      <td>12.31</td>
+      <td>10.51</td>
+      <td>11.18</td>
+      <td>23</td>
+      <td>48.12</td>
+      <td>25.12</td>
+      <td>32</td>
+      <td>44.33</td>
+      <td>47.57</td>
+      <td>50.94</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Samsunspor</td>
+      <td>Level 1</td>
+      <td>1776</td>
+      <td>11.82</td>
+      <td>8.85</td>
+      <td>13.34</td>
+      <td>25</td>
+      <td>48.79</td>
+      <td>23.79</td>
+      <td>31</td>
+      <td>44.99</td>
+      <td>48.24</td>
+      <td>51.54</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Alanyaspor</td>
+      <td>Level 1</td>
+      <td>1742</td>
+      <td>9.14</td>
+      <td>9.51</td>
+      <td>15.35</td>
+      <td>21</td>
+      <td>42.77</td>
+      <td>21.77</td>
+      <td>27</td>
+      <td>38.99</td>
+      <td>42.20</td>
+      <td>45.45</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Rizespor</td>
+      <td>Level 1</td>
+      <td>1722</td>
+      <td>8.72</td>
+      <td>12.99</td>
+      <td>12.29</td>
+      <td>18</td>
+      <td>38.46</td>
+      <td>20.46</td>
+      <td>23</td>
+      <td>34.71</td>
+      <td>37.86</td>
+      <td>41.11</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>Kocaelispor</td>
+      <td>Level 1</td>
+      <td>1718</td>
+      <td>10.61</td>
+      <td>12.08</td>
+      <td>11.31</td>
+      <td>23</td>
+      <td>43.14</td>
+      <td>20.14</td>
+      <td>28</td>
+      <td>39.29</td>
+      <td>42.54</td>
+      <td>45.88</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Gaziantep</td>
+      <td>Level 1</td>
+      <td>1714</td>
+      <td>10.52</td>
+      <td>12.19</td>
+      <td>11.29</td>
+      <td>23</td>
+      <td>42.86</td>
+      <td>19.86</td>
+      <td>28</td>
+      <td>39.03</td>
+      <td>42.20</td>
+      <td>45.53</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Genclerbirligi</td>
+      <td>Level 1</td>
+      <td>1697</td>
+      <td>9.25</td>
+      <td>15.51</td>
+      <td>9.25</td>
+      <td>18</td>
+      <td>36.98</td>
+      <td>18.98</td>
+      <td>22</td>
+      <td>33.29</td>
+      <td>36.37</td>
+      <td>39.56</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>Kasimpasa</td>
+      <td>Level 1</td>
+      <td>1690</td>
+      <td>7.13</td>
+      <td>14.75</td>
+      <td>12.12</td>
+      <td>15</td>
+      <td>33.52</td>
+      <td>18.52</td>
+      <td>19</td>
+      <td>29.83</td>
+      <td>32.93</td>
+      <td>36.01</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Konyaspor</td>
+      <td>Level 1</td>
+      <td>1683</td>
+      <td>7.93</td>
+      <td>14.97</td>
+      <td>11.10</td>
+      <td>17</td>
+      <td>34.89</td>
+      <td>17.89</td>
+      <td>21</td>
+      <td>31.10</td>
+      <td>34.25</td>
+      <td>37.51</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>Kayserispor</td>
+      <td>Level 1</td>
+      <td>1681</td>
+      <td>5.95</td>
+      <td>12.96</td>
+      <td>15.08</td>
+      <td>15</td>
+      <td>32.95</td>
+      <td>17.95</td>
+      <td>19</td>
+      <td>29.26</td>
+      <td>32.32</td>
+      <td>35.51</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>Bodrum</td>
+      <td>Level 2</td>
+      <td>1660</td>
+      <td>18.05</td>
+      <td>7.84</td>
+      <td>12.11</td>
+      <td>32</td>
+      <td>66.25</td>
+      <td>34.25</td>
+      <td>47</td>
+      <td>62.13</td>
+      <td>65.74</td>
+      <td>69.39</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>Eyupspor</td>
+      <td>Level 1</td>
+      <td>1654</td>
+      <td>6.47</td>
+      <td>17.57</td>
+      <td>9.96</td>
+      <td>13</td>
+      <td>29.37</td>
+      <td>16.37</td>
+      <td>15</td>
+      <td>25.71</td>
+      <td>28.72</td>
+      <td>31.80</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>Erokspor</td>
+      <td>Level 2</td>
+      <td>1651</td>
+      <td>17.59</td>
+      <td>7.10</td>
+      <td>13.31</td>
+      <td>33</td>
+      <td>66.08</td>
+      <td>33.08</td>
+      <td>48</td>
+      <td>61.99</td>
+      <td>65.49</td>
+      <td>69.20</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>Erzurumspor</td>
+      <td>Level 2</td>
+      <td>1638</td>
+      <td>15.23</td>
+      <td>6.34</td>
+      <td>16.42</td>
+      <td>30</td>
+      <td>62.12</td>
+      <td>32.12</td>
+      <td>41</td>
+      <td>58.01</td>
+      <td>61.55</td>
+      <td>65.26</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Antalyaspor</td>
+      <td>Level 1</td>
+      <td>1635</td>
+      <td>7.22</td>
+      <td>18.06</td>
+      <td>8.72</td>
+      <td>15</td>
+      <td>30.39</td>
+      <td>15.39</td>
+      <td>17</td>
+      <td>26.74</td>
+      <td>29.70</td>
+      <td>32.87</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>Amedspor</td>
+      <td>Level 2</td>
+      <td>1628</td>
+      <td>18.87</td>
+      <td>8.63</td>
+      <td>10.50</td>
+      <td>36</td>
+      <td>67.12</td>
+      <td>31.12</td>
+      <td>48</td>
+      <td>62.93</td>
+      <td>66.59</td>
+      <td>70.27</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <td>Pendikspor</td>
+      <td>Level 2</td>
+      <td>1623</td>
+      <td>17.75</td>
+      <td>6.68</td>
+      <td>13.57</td>
+      <td>36</td>
+      <td>66.83</td>
+      <td>30.83</td>
+      <td>46</td>
+      <td>62.62</td>
+      <td>66.25</td>
+      <td>69.92</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>Igdir</td>
+      <td>Level 2</td>
+      <td>1620</td>
+      <td>15.65</td>
+      <td>8.71</td>
+      <td>13.64</td>
+      <td>30</td>
+      <td>60.59</td>
+      <td>30.59</td>
+      <td>42</td>
+      <td>56.40</td>
+      <td>60.06</td>
+      <td>63.68</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Boluspor</td>
+      <td>Level 2</td>
+      <td>1615</td>
+      <td>14.74</td>
+      <td>10.75</td>
+      <td>12.51</td>
+      <td>26</td>
+      <td>56.73</td>
+      <td>30.73</td>
+      <td>37</td>
+      <td>52.62</td>
+      <td>56.22</td>
+      <td>59.74</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>Corum</td>
+      <td>Level 2</td>
+      <td>1611</td>
+      <td>16.44</td>
+      <td>8.96</td>
+      <td>12.60</td>
+      <td>32</td>
+      <td>61.92</td>
+      <td>29.92</td>
+      <td>41</td>
+      <td>57.82</td>
+      <td>61.33</td>
+      <td>65.01</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Fatih Karagumruk</td>
+      <td>Level 1</td>
+      <td>1607</td>
+      <td>4.81</td>
+      <td>20.85</td>
+      <td>8.34</td>
+      <td>9</td>
+      <td>22.77</td>
+      <td>13.77</td>
+      <td>10</td>
+      <td>19.24</td>
+      <td>22.12</td>
+      <td>25.11</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Bandirmaspor</td>
+      <td>Level 2</td>
+      <td>1598</td>
+      <td>14.10</td>
+      <td>11.20</td>
+      <td>12.69</td>
+      <td>26</td>
+      <td>55.00</td>
+      <td>29.00</td>
+      <td>38</td>
+      <td>50.88</td>
+      <td>54.48</td>
+      <td>57.96</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Sivasspor</td>
+      <td>Level 2</td>
+      <td>1568</td>
+      <td>10.31</td>
+      <td>11.91</td>
+      <td>15.78</td>
+      <td>20</td>
+      <td>46.71</td>
+      <td>26.71</td>
+      <td>29</td>
+      <td>42.59</td>
+      <td>46.12</td>
+      <td>49.68</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Istanbulspor</td>
+      <td>Level 2</td>
+      <td>1555</td>
+      <td>10.31</td>
+      <td>11.11</td>
+      <td>16.58</td>
+      <td>21</td>
+      <td>47.50</td>
+      <td>26.50</td>
+      <td>30</td>
+      <td>43.40</td>
+      <td>46.96</td>
+      <td>50.52</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Keciorengucu</td>
+      <td>Level 2</td>
+      <td>1554</td>
+      <td>11.10</td>
+      <td>11.23</td>
+      <td>15.67</td>
+      <td>23</td>
+      <td>48.96</td>
+      <td>25.96</td>
+      <td>31</td>
+      <td>44.98</td>
+      <td>48.38</td>
+      <td>51.92</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>Vanspor FK</td>
+      <td>Level 2</td>
+      <td>1533</td>
+      <td>11.71</td>
+      <td>12.65</td>
+      <td>13.63</td>
+      <td>24</td>
+      <td>48.77</td>
+      <td>24.77</td>
+      <td>33</td>
+      <td>44.75</td>
+      <td>48.14</td>
+      <td>51.71</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <td>Manisa</td>
+      <td>Level 2</td>
+      <td>1526</td>
+      <td>11.10</td>
+      <td>14.62</td>
+      <td>12.28</td>
+      <td>23</td>
+      <td>45.57</td>
+      <td>22.57</td>
+      <td>28</td>
+      <td>41.60</td>
+      <td>44.97</td>
+      <td>48.43</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Serik Belediyespor</td>
+      <td>Level 2</td>
+      <td>1521</td>
+      <td>12.14</td>
+      <td>13.23</td>
+      <td>12.63</td>
+      <td>26</td>
+      <td>49.06</td>
+      <td>23.06</td>
+      <td>32</td>
+      <td>45.06</td>
+      <td>48.47</td>
+      <td>51.90</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>Umraniyespor</td>
+      <td>Level 2</td>
+      <td>1517</td>
+      <td>11.10</td>
+      <td>16.31</td>
+      <td>10.59</td>
+      <td>21</td>
+      <td>43.89</td>
+      <td>22.89</td>
+      <td>25</td>
+      <td>39.94</td>
+      <td>43.33</td>
+      <td>46.78</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Sakaryaspor</td>
+      <td>Level 2</td>
+      <td>1506</td>
+      <td>10.64</td>
+      <td>15.20</td>
+      <td>12.16</td>
+      <td>23</td>
+      <td>44.08</td>
+      <td>21.08</td>
+      <td>27</td>
+      <td>40.22</td>
+      <td>43.43</td>
+      <td>46.76</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Level 2</td>
+      <td>Level 2</td>
+      <td>1496</td>
+      <td>9.65</td>
+      <td>17.97</td>
+      <td>10.38</td>
+      <td>18</td>
+      <td>39.34</td>
+      <td>21.34</td>
+      <td>23</td>
+      <td>35.42</td>
+      <td>38.66</td>
+      <td>42.11</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>Hatayspor</td>
+      <td>Level 2</td>
+      <td>1415</td>
+      <td>3.47</td>
+      <td>22.13</td>
+      <td>12.41</td>
+      <td>6</td>
+      <td>22.81</td>
+      <td>16.81</td>
+      <td>7</td>
+      <td>18.96</td>
+      <td>22.12</td>
+      <td>25.44</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Adana Demirspor</td>
+      <td>Level 2</td>
+      <td>1292</td>
+      <td>2.27</td>
+      <td>29.64</td>
+      <td>6.09</td>
+      <td>2</td>
+      <td>12.91</td>
+      <td>10.91</td>
+      <td>2</td>
+      <td>9.33</td>
+      <td>12.09</td>
+      <td>15.14</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

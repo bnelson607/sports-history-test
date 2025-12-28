@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>2025-26 Bosnia and Heregovina Projection - Elo, Table & Playoff</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Follow the 2025-26 Bosnian football season through a Monte Carlo simulation that tracks team performance, Elo ratings, and promotion and relegation odds as they evolve throughout the year.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-test/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+        </style>
+    </head>
+
+    
+    <body>
+        <div id="site-header"></div>
+        <div id="uefa-header"></div>
+        
+        <div class="content">
+            
+            <div class="season-links">
+                <a href="/sports-history-test/uefa/simulations/bosnia/2024/">← 2024-25</a>
+            </div>
+        
+        
+            <div class="season-header">
+                <h1 class="sim-title">2025-26 Bosnia and Heregovina Projection</h1>
+                <p class="update-date">Last updated: <span id="update-date"></span></p>
+            </div>
+
+            
+            <h2 class="sim-subsection">League Phase</h2>
+            
+            
+            <details>
+                <summary>Simulated Table</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation expect each team to earn by the end of the season?</i>
+                </div>
+                <iframe data-src="regular_season_summary.html" class="extra-padding" style="max-height:800px;"></iframe>
+            </details>
+
+
+            <details>
+                <summary>League Heatmap</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where is each team expected to finish within the league?</i>
+                </div>
+                
+                <iframe data-src="Level 1_finish_heatmap.html"></iframe>
+            </details>
+                
+            
+            <details>
+                <summary>Point Totals in Context</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does each team's actual results compare to their simulated results, Elo rating, and opponent average Elo rating in completed and upcoming games?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('comparisons', 'comparisons_sim_vs_actual')" class="active">Simulated Points</button>
+                    <button onclick="showTab('comparisons', 'comparisons_elo_vs_actual')">Team Elo</button>
+                    <button onclick="showTab('comparisons', 'comparisons_opponent_elo_vs_actual')">Opponent Elo: Completed Games</button>
+                    <button onclick="showTab('comparisons', 'comparisons_remaining_opponent_elo_vs_actual')">Opponent Elo: Remaining Games</button>
+                </div>
+                <div class="tab-content comparisons active" id="comparisons_sim_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="sim_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="team_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_remaining_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="upcoming_opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+            </details>
+            
+        
+        
+            <h2 class="sim-subsection">Season Trends</h2>
+            
+            <details>
+                <summary>Elo Ratings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's Elo rating changed throughout the season?</i>
+                </div>
+
+                <iframe data-src="Level 1_elo_ratings.html"></iframe>
+            </details>
+            
+            
+            <details>
+                <summary>Simulated Points</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's expected point total changed throughout the season?</i>
+                </div>
+
+                <iframe data-src="Level 1_simulated_points.html"></iframe>
+            </details>
+            
+            
+            <details>
+                <summary>League Champion Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of winning the league changed throughout the season?</i>
+                </div>
+                
+                <iframe data-src="Level 1_league_probabilities.html"></iframe>
+            </details>
+            
+            
+            <details>
+                <summary>Promotion and Relegation Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of getting promoted or relegated changed throughout the season?</i>
+                </div>
+
+                <iframe data-src="Level 1_relegation_probabilities.html"></iframe>
+            </details>
+            
+
+            
+            <h2 class="sim-subsection">Promotion and Relegation</h2>
+            
+            <details>
+                <summary>Simulated Points by Final Position</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation believe are needed to earn each position?</i>
+                </div>
+                
+                <iframe data-src="Level 1_position_points.html"></iframe>
+            </details>
+
+
+            <details>
+                <summary>Projected League for Next Season</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Which league does the simulation believe each team will play in next year according to the simulated final table?</i>
+                </div>
+
+                <iframe data-src="Level 1_next_season_status.html"></iframe>
+            </details>
+            
+            
+
+            <h2 class="sim-subsection">Game Logs</h2>
+
+            <details>
+                <summary>League Phase</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How have the league phase matches unfolded for each team and what do their upcoming games look like?</i>
+                </div>
+                
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'completed_games')" class="active">Completed Games</button>
+                    <button onclick="showTab('games', 'games_upcoming')">Upcoming Games</button>
+                </div>
+                
+                <div class="tab-content games active" id="completed_games">
+                    <iframe data-src="team_games_table.html" class="double-extra-padding" style="max-height:800px;"></iframe>
+                </div>
+                <div class="tab-content games" id="games_upcoming">
+                    <iframe data-src="upcoming_games_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+
+
+            <details>
+                <summary>Biggest Upsets and Elo Changes</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>What have been the biggest upsets and Elo rating changes of the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'games_biggest_upsets')" class="active">Biggest Upsets</button>
+                    <button onclick="showTab('games', 'games_biggest_elo_changes')">Biggest Elo Changes</button>
+                </div>
+                <div class="tab-content games active" id="games_biggest_upsets">
+                    <iframe data-src="biggest_upsets_table.html" class="double-extra-padding"></iframe>
+                </div>
+                <div class="tab-content games" id="games_biggest_elo_changes">
+                    <iframe data-src="biggest_elo_changes_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+        </div>
+        
+        <!-- Site footer placeholder -->
+        <div id="site-footer"></div>
+        
+        <script src="/sports-history-test/scripts/main.js"></script>
+    </body>
+</html>

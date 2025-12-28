@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-10-25</td>
+      <td>32.89</td>
+      <td>Domagnano</td>
+      <td>895.23</td>
+      <td>6</td>
+      <td>33.96%</td>
+      <td>Murata (H)</td>
+      <td>865.37</td>
+      <td>0</td>
+      <td>30.76%</td>
+      <td>35.28%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-10-17</td>
+      <td>25.80</td>
+      <td>Cosmos (H)</td>
+      <td>965.95</td>
+      <td>3</td>
+      <td>28.83%</td>
+      <td>Tre Penne</td>
+      <td>1010.20</td>
+      <td>0</td>
+      <td>36.00%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-08-29</td>
+      <td>24.90</td>
+      <td>Faetano</td>
+      <td>820.34</td>
+      <td>2</td>
+      <td>21.01%</td>
+      <td>Murata (H)</td>
+      <td>897.43</td>
+      <td>0</td>
+      <td>45.46%</td>
+      <td>33.53%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-09-13</td>
+      <td>23.58</td>
+      <td>Tre Penne</td>
+      <td>973.79</td>
+      <td>6</td>
+      <td>47.28%</td>
+      <td>Faetano (H)</td>
+      <td>845.24</td>
+      <td>0</td>
+      <td>19.75%</td>
+      <td>32.98%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-09-14</td>
+      <td>22.30</td>
+      <td>Tre Fiori (H)</td>
+      <td>992.26</td>
+      <td>4</td>
+      <td>41.97%</td>
+      <td>San Giovanni</td>
+      <td>941.76</td>
+      <td>0</td>
+      <td>23.66%</td>
+      <td>34.37%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-10-03</td>
+      <td>22.23</td>
+      <td>Cosmos</td>
+      <td>943.72</td>
+      <td>3</td>
+      <td>36.07%</td>
+      <td>San Giovanni (H)</td>
+      <td>898.97</td>
+      <td>0</td>
+      <td>28.76%</td>
+      <td>35.17%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-10-19</td>
+      <td>21.49</td>
+      <td>Murata</td>
+      <td>843.88</td>
+      <td>5</td>
+      <td>43.39%</td>
+      <td>San Marino Academy (H)</td>
+      <td>745.47</td>
+      <td>1</td>
+      <td>22.55%</td>
+      <td>34.06%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-12-13</td>
+      <td>21.06</td>
+      <td>Fiorentino</td>
+      <td>844.65</td>
+      <td>3</td>
+      <td>38.44%</td>
+      <td>Faetano (H)</td>
+      <td>782.86</td>
+      <td>0</td>
+      <td>26.62%</td>
+      <td>34.94%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-08-30</td>
+      <td>20.66</td>
+      <td>Domagnano</td>
+      <td>843.47</td>
+      <td>4</td>
+      <td>44.83%</td>
+      <td>Pennarossa (H)</td>
+      <td>734.00</td>
+      <td>0</td>
+      <td>21.47%</td>
+      <td>33.70%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-10-17</td>
+      <td>19.96</td>
+      <td>Domagnano (H)</td>
+      <td>875.28</td>
+      <td>3</td>
+      <td>31.51%</td>
+      <td>Juvenes Dogana</td>
+      <td>899.78</td>
+      <td>1</td>
+      <td>33.19%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-11-29</td>
+      <td>19.75</td>
+      <td>Tre Penne</td>
+      <td>993.32</td>
+      <td>3</td>
+      <td>32.02%</td>
+      <td>Folgore Falciano (H)</td>
+      <td>977.00</td>
+      <td>1</td>
+      <td>32.68%</td>
+      <td>35.30%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-12-06</td>
+      <td>19.69</td>
+      <td>Libertas</td>
+      <td>757.76</td>
+      <td>1</td>
+      <td>16.36%</td>
+      <td>Juvenes Dogana (H)</td>
+      <td>894.09</td>
+      <td>0</td>
+      <td>52.81%</td>
+      <td>30.83%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-11-29</td>
+      <td>19.55</td>
+      <td>Domagnano (H)</td>
+      <td>949.54</td>
+      <td>1</td>
+      <td>16.63%</td>
+      <td>Virtus</td>
+      <td>1119.03</td>
+      <td>0</td>
+      <td>52.32%</td>
+      <td>31.05%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-10-18</td>
+      <td>19.49</td>
+      <td>Pennarossa (H)</td>
+      <td>709.02</td>
+      <td>2</td>
+      <td>16.75%</td>
+      <td>San Giovanni</td>
+      <td>876.75</td>
+      <td>1</td>
+      <td>52.11%</td>
+      <td>31.14%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-09-27</td>
+      <td>18.90</td>
+      <td>Libertas (H)</td>
+      <td>767.43</td>
+      <td>1</td>
+      <td>17.99%</td>
+      <td>San Giovanni</td>
+      <td>917.87</td>
+      <td>0</td>
+      <td>50.01%</td>
+      <td>32.01%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-09-28</td>
+      <td>18.87</td>
+      <td>Pennarossa</td>
+      <td>695.84</td>
+      <td>2</td>
+      <td>18.06%</td>
+      <td>Faetano (H)</td>
+      <td>808.11</td>
+      <td>1</td>
+      <td>49.89%</td>
+      <td>32.05%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-09-14</td>
+      <td>18.45</td>
+      <td>Domagnano (H)</td>
+      <td>864.12</td>
+      <td>5</td>
+      <td>43.70%</td>
+      <td>Libertas</td>
+      <td>800.57</td>
+      <td>2</td>
+      <td>22.31%</td>
+      <td>33.98%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-02</td>
+      <td>18.43</td>
+      <td>Pennarossa (H)</td>
+      <td>718.94</td>
+      <td>3</td>
+      <td>35.37%</td>
+      <td>San Marino Academy</td>
+      <td>716.43</td>
+      <td>1</td>
+      <td>29.42%</td>
+      <td>35.22%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-11-30</td>
+      <td>18.25</td>
+      <td>Pennarossa</td>
+      <td>730.40</td>
+      <td>2</td>
+      <td>19.46%</td>
+      <td>Murata (H)</td>
+      <td>825.13</td>
+      <td>1</td>
+      <td>47.71%</td>
+      <td>32.83%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-12-20</td>
+      <td>17.76</td>
+      <td>Fiorentino (H)</td>
+      <td>865.71</td>
+      <td>3</td>
+      <td>45.10%</td>
+      <td>Murata</td>
+      <td>791.44</td>
+      <td>0</td>
+      <td>21.27%</td>
+      <td>33.63%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-13</td>
+      <td>17.19</td>
+      <td>Juvenes Dogana (H)</td>
+      <td>872.12</td>
+      <td>1</td>
+      <td>22.07%</td>
+      <td>Cosmos</td>
+      <td>975.34</td>
+      <td>0</td>
+      <td>44.02%</td>
+      <td>33.91%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-10-03</td>
+      <td>17.01</td>
+      <td>Folgore Falciano (H)</td>
+      <td>944.79</td>
+      <td>3</td>
+      <td>46.60%</td>
+      <td>Fiorentino</td>
+      <td>858.80</td>
+      <td>0</td>
+      <td>20.21%</td>
+      <td>33.19%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-09-28</td>
+      <td>17.00</td>
+      <td>Folgore Falciano</td>
+      <td>927.79</td>
+      <td>2</td>
+      <td>38.94%</td>
+      <td>Murata (H)</td>
+      <td>862.41</td>
+      <td>0</td>
+      <td>26.19%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-12-07</td>
+      <td>16.95</td>
+      <td>Pennarossa (H)</td>
+      <td>748.65</td>
+      <td>2</td>
+      <td>39.04%</td>
+      <td>Cailungo</td>
+      <td>719.77</td>
+      <td>0</td>
+      <td>26.10%</td>
+      <td>34.86%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-11-30</td>
+      <td>16.62</td>
+      <td>Faetano (H)</td>
+      <td>778.15</td>
+      <td>1</td>
+      <td>23.60%</td>
+      <td>San Giovanni</td>
+      <td>866.50</td>
+      <td>0</td>
+      <td>42.05%</td>
+      <td>34.35%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>2025-26 Netherlands Projection - Elo, Table & Playoff</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Follow the 2025-26 Dutch football season through a Monte Carlo simulation that tracks team performance, Elo ratings, and promotion and relegation odds as they evolve throughout the year.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-test/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+        </style>
+    </head>
+
+    
+    <body>
+        <div id="site-header"></div>
+        <div id="uefa-header"></div>
+        
+        <div class="content">
+            
+            <div class="season-links">
+                <a href="/sports-history-test/uefa/simulations/Netherlands/2024/">← 2024-25</a>
+            </div>
+        
+        
+            <div class="season-header">
+                <h1 class="sim-title">2025-26 Netherlands Projection</h1>
+                <p class="update-date">Last updated: <span id="update-date"></span></p>
+            </div>
+
+            
+            <h2 class="sim-subsection">League Phase</h2>
+            
+            
+            <details>
+                <summary>Simulated Table</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation expect each team to earn by the end of the season?</i>
+                </div>
+                <iframe data-src="regular_season_summary.html" class="extra-padding" style="max-height:800px;"></iframe>
+            </details>
+
+
+            <details>
+                <summary>League Heatmaps</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where is each team expected to finish within their league?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_Level_2')">Eerste Divisie</button>
+                </div>
+                <div class="tab-content league_heatmap active" id="league_heatmap_Level_1">
+                    <iframe data-src="Level 1_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content league_heatmap" id="league_heatmap_Level_2">
+                    <iframe data-src="Level 2_finish_heatmap.html"></iframe>
+                </div>
+            </details>
+                
+            
+            <details>
+                <summary>Point Totals in Context</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does each team's actual results compare to their simulated results, Elo rating, and opponent average Elo rating in completed and upcoming games?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('comparisons', 'comparisons_sim_vs_actual')" class="active">Simulated Points</button>
+                    <button onclick="showTab('comparisons', 'comparisons_elo_vs_actual')">Team Elo</button>
+                    <button onclick="showTab('comparisons', 'comparisons_opponent_elo_vs_actual')">Opponent Elo: Completed Games</button>
+                    <button onclick="showTab('comparisons', 'comparisons_remaining_opponent_elo_vs_actual')">Opponent Elo: Remaining Games</button>
+                </div>
+                <div class="tab-content comparisons active" id="comparisons_sim_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="sim_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="team_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_remaining_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="upcoming_opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+            </details>
+            
+        
+        
+            <h2 class="sim-subsection">Season Trends</h2>
+            
+            
+            <details>
+                <summary>Elo Ratings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's Elo rating changed throughout the season?</i>
+                </div>
+
+                <div class="tab-buttons">
+                    <button onclick="showTab('elo', 'elo_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('elo', 'elo_Level_2')">Eerste Divisie</button>
+                </div>
+                
+                <div class="tab-content elo active" id="elo_Level_1">
+                    <iframe data-src="Level 1_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_Level_2">
+                    <iframe data-src="Level 2_elo_ratings.html"></iframe>
+                </div>
+            </details>
+            
+            
+            <details>
+                <summary>Simulated Points</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's expected point total changed throughout the season?</i>
+                </div>
+
+                <div class="tab-buttons">
+                    <button onclick="showTab('points', 'points_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('points', 'points_Level_2')">Eerste Divisie</button>
+                </div>
+                
+                <div class="tab-content points active" id="points_Level_1">
+                    <iframe data-src="Level 1_simulated_points.html"></iframe>
+                </div>
+                <div class="tab-content points" id="points_Level_2">
+                    <iframe data-src="Level 2_simulated_points.html"></iframe>
+                </div>
+            </details>
+            
+            
+            <details>
+                <summary>League Champion Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of winning the league changed throughout the season?</i>
+                </div>
+
+                <div class="tab-buttons">
+                    <button onclick="showTab('league_prob', 'league_prob_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('league_prob', 'league_prob_Level_2')">Eerste Divisie</button>
+                </div>
+                
+                <div class="tab-content league_prob active" id="league_prob_Level_1">
+                    <iframe data-src="Level 1_league_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content league_prob" id="league_prob_Level_2">
+                    <iframe data-src="Level 2_league_probabilities.html"></iframe>
+                </div>
+            </details>
+            
+            
+            <details>
+                <summary>Promotion and Relegation Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of getting promoted or relegated changed throughout the season?</i>
+                </div>
+
+                <div class="tab-buttons">
+                    <button onclick="showTab('promotion_prob', 'promotion_prob_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('promotion_prob', 'promotion_prob_Level_2')">Eerste Divisie</button>
+                </div>
+                
+                <div class="tab-content promotion_prob active" id="promotion_prob_Level_1">
+                    <iframe data-src="Level 1_relegation_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content promotion_prob" id="promotion_prob_Level_2">
+                    <iframe data-src="Level 2_promotion_probabilities.html"></iframe>
+                </div>
+            </details>
+            
+
+            
+            <h2 class="sim-subsection">Promotion and Relegation</h2>
+            
+            <details>
+                <summary>Simulated Points by Final Position</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many points does the simulation believe are needed to earn each position?</i>
+                </div>
+
+                <div class="tab-buttons">
+                    <button onclick="showTab('position_points', 'position_points_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('position_points', 'position_points_Level_2')">Eerste Divisie</button>
+                </div>
+
+                <div class="tab-content position_points active" id="position_points_Level_1">
+                    <iframe data-src="Level 1_position_points.html"></iframe>
+                </div>
+                <div class="tab-content position_points" id="position_points_Level_2">
+                    <iframe data-src="Level 2_position_points.html"></iframe>
+                </div>
+            </details>
+
+
+            <details>
+                <summary>Projected League for Next Season</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Which league does the simulation believe each team will play in next year according to the simulated final table?</i>
+                </div>
+
+                <div class="tab-buttons">
+                    <button onclick="showTab('next_season', 'next_season_Level_1')" class="active">Eredivisie</button>
+                    <button onclick="showTab('next_season', 'next_season_Level_2')">Eerste Divisie</button>
+                </div>
+
+                <div class="tab-content next_season active" id="next_season_Level_1">
+                    <iframe data-src="Level 1_next_season_status.html"></iframe>
+                </div>
+                <div class="tab-content next_season" id="next_season_Level_2">
+                    <iframe data-src="Level 2_next_season_status.html"></iframe>
+                </div>
+            </details>
+            
+            
+            <details>
+                <summary>Stochastic Promotion Playoff Simulation</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does the simulation expect the promotion playoff to unfold according to the simulated final table?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Playoff Progression</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_quarterfinals')">Quarterfinals</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_semifinals')">Semifinals</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_finals')">Finals</button>
+                </div>
+                
+                <!-- Playoff Advancement -->
+                <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
+                    <iframe data-src="playoff_success_preseason_playoff.html"></iframe>
+                </div>
+
+                <!-- Quarterfinals -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_quarterfinals">
+                    <iframe data-src="quarterfinals_preseason_playoff.html"></iframe>
+                </div>
+                
+                <!-- Semifinals -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_semifinals">
+                    <iframe data-src="semifinals_preseason_playoff.html"></iframe>
+                </div>
+
+                <!-- Finals -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_finals">
+                    <iframe data-src="finals_preseason_playoff.html"></iframe>
+                </div>
+            </details>
+                
+                
+<!--             <details>
+                <summary>Actual Promotion Playoff Simulation</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does the simulation expect the actual promotion playoff to unfold?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_playoff_adv')" class="active">Playoff Progression</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_quarterfinals')">Quarterfinals</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_semifinals')">Semifinals</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_finals')">Finals</button>
+                </div>
+                
+                <div class="tab-content end_of_season_playoff active" id="end_of_season_playoff_playoff_adv">
+                    <iframe data-src="playoff_success_end_of_regular_season.html"></iframe>
+                </div>
+
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_quarterfinals">
+                    <iframe data-src="quarterfinals_end_of_regular_season.html"></iframe>
+                </div>
+
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_semifinals">
+                    <iframe data-src="semifinals_end_of_regular_season.html"></iframe>
+                </div>
+                
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_finals">
+                    <iframe data-src="finals_end_of_regular_season.html"></iframe>
+                </div>
+            </details> -->
+
+
+            <h2 class="sim-subsection">Game Logs</h2>
+
+            <details>
+                <summary>League Phase</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How have the league phase matches unfolded for each team and what do their upcoming games look like?</i>
+                </div>
+                
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'completed_games')" class="active">Completed Games</button>
+                    <button onclick="showTab('games', 'games_upcoming')">Upcoming Games</button>
+                </div>
+                
+                <div class="tab-content games active" id="completed_games">
+                    <iframe data-src="team_games_table.html" class="double-extra-padding" style="max-height:800px;"></iframe>
+                </div>
+                <div class="tab-content games" id="games_upcoming">
+                    <iframe data-src="upcoming_games_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+
+
+            <details>
+                <summary>Biggest Upsets and Elo Changes</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>What have been the biggest upsets and Elo rating changes of the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'games_biggest_upsets')" class="active">Biggest Upsets</button>
+                    <button onclick="showTab('games', 'games_biggest_elo_changes')">Biggest Elo Changes</button>
+                </div>
+                <div class="tab-content games active" id="games_biggest_upsets">
+                    <iframe data-src="biggest_upsets_table.html" class="double-extra-padding"></iframe>
+                </div>
+                <div class="tab-content games" id="games_biggest_elo_changes">
+                    <iframe data-src="biggest_elo_changes_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+        </div>
+        
+        <!-- Site footer placeholder -->
+        <div id="site-footer"></div>
+        
+        <script src="/sports-history-test/scripts/main.js"></script>
+    </body>
+</html>

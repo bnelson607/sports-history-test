@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Atert Bissen" selected>Atert Bissen</option><option value="Differdange 03" >Differdange 03</option><option value="F91 Dudelange" >F91 Dudelange</option><option value="Hostert" >Hostert</option><option value="Jeunesse Canach" >Jeunesse Canach</option><option value="Jeunesse Esch" >Jeunesse Esch</option><option value="Mamer 32" >Mamer 32</option><option value="Mondorf-les-Bains" >Mondorf-les-Bains</option><option value="Progres Niedercorn" >Progres Niedercorn</option><option value="Racing FC Union Luxembourg" >Racing FC Union Luxembourg</option><option value="Rodange 91" >Rodange 91</option><option value="Swift Hesperange" >Swift Hesperange</option><option value="UN Kaerjeng" >UN Kaerjeng</option><option value="UNA Strassen" >UNA Strassen</option><option value="Union Titus Ptange" >Union Titus Ptange</option><option value="Victoria Rosport" >Victoria Rosport</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-10-08</td>
+      <td>Differdange 03</td>
+      <td>1335.39</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1156.37</td>
+      <td>61.08%</td>
+      <td>15.53%</td>
+      <td>23.40%</td>
+    </tr>
+    <tr>
+      <td>2025-10-08</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1156.37</td>
+      <td>@ Differdange 03</td>
+      <td>1335.39</td>
+      <td>15.53%</td>
+      <td>61.08%</td>
+      <td>23.40%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>76.97%</td>
+      <td>8.21%</td>
+      <td>14.82%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>28.44%</td>
+      <td>43.37%</td>
+      <td>28.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>30.02%</td>
+      <td>41.62%</td>
+      <td>28.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>45.78%</td>
+      <td>26.36%</td>
+      <td>27.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>38.53%</td>
+      <td>32.91%</td>
+      <td>28.56%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>55.32%</td>
+      <td>19.10%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>39.67%</td>
+      <td>31.82%</td>
+      <td>28.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>8.21%</td>
+      <td>76.97%</td>
+      <td>14.82%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>43.37%</td>
+      <td>28.44%</td>
+      <td>28.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>41.62%</td>
+      <td>30.02%</td>
+      <td>28.37%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>16.16%</td>
+      <td>59.98%</td>
+      <td>23.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>59.98%</td>
+      <td>16.16%</td>
+      <td>23.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>26.36%</td>
+      <td>45.78%</td>
+      <td>27.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>32.91%</td>
+      <td>38.53%</td>
+      <td>28.56%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>31.82%</td>
+      <td>39.67%</td>
+      <td>28.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-08</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>19.10%</td>
+      <td>55.32%</td>
+      <td>25.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>29.68%</td>
+      <td>41.99%</td>
+      <td>28.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>55.62%</td>
+      <td>18.90%</td>
+      <td>25.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>49.86%</td>
+      <td>23.05%</td>
+      <td>27.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>54.52%</td>
+      <td>19.64%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>38.84%</td>
+      <td>32.61%</td>
+      <td>28.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>38.85%</td>
+      <td>32.60%</td>
+      <td>28.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>35.57%</td>
+      <td>35.81%</td>
+      <td>28.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>14.47%</td>
+      <td>62.99%</td>
+      <td>22.54%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>35.81%</td>
+      <td>35.57%</td>
+      <td>28.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>19.64%</td>
+      <td>54.52%</td>
+      <td>25.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>23.05%</td>
+      <td>49.86%</td>
+      <td>27.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>41.99%</td>
+      <td>29.68%</td>
+      <td>28.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>18.90%</td>
+      <td>55.62%</td>
+      <td>25.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>62.99%</td>
+      <td>14.47%</td>
+      <td>22.54%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>32.60%</td>
+      <td>38.85%</td>
+      <td>28.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>32.61%</td>
+      <td>38.84%</td>
+      <td>28.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>71.14%</td>
+      <td>10.56%</td>
+      <td>18.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>71.48%</td>
+      <td>10.42%</td>
+      <td>18.11%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>44.41%</td>
+      <td>27.53%</td>
+      <td>28.06%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>37.79%</td>
+      <td>33.62%</td>
+      <td>28.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>38.34%</td>
+      <td>33.09%</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>45.25%</td>
+      <td>26.80%</td>
+      <td>27.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>16.55%</td>
+      <td>59.33%</td>
+      <td>24.12%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>26.42%</td>
+      <td>45.70%</td>
+      <td>27.88%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>10.56%</td>
+      <td>71.14%</td>
+      <td>18.30%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>10.42%</td>
+      <td>71.48%</td>
+      <td>18.11%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>27.53%</td>
+      <td>44.41%</td>
+      <td>28.06%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>45.70%</td>
+      <td>26.42%</td>
+      <td>27.88%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>33.62%</td>
+      <td>37.79%</td>
+      <td>28.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>33.09%</td>
+      <td>38.34%</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>26.80%</td>
+      <td>45.25%</td>
+      <td>27.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>59.33%</td>
+      <td>16.55%</td>
+      <td>24.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>48.24%</td>
+      <td>24.33%</td>
+      <td>27.43%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>46.59%</td>
+      <td>25.68%</td>
+      <td>27.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>30.19%</td>
+      <td>41.43%</td>
+      <td>28.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>63.01%</td>
+      <td>14.46%</td>
+      <td>22.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>61.50%</td>
+      <td>15.28%</td>
+      <td>23.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>21.51%</td>
+      <td>51.90%</td>
+      <td>26.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>62.42%</td>
+      <td>14.78%</td>
+      <td>22.80%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>23.59%</td>
+      <td>49.17%</td>
+      <td>27.24%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>49.17%</td>
+      <td>23.59%</td>
+      <td>27.24%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>14.78%</td>
+      <td>62.42%</td>
+      <td>22.80%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>51.90%</td>
+      <td>21.51%</td>
+      <td>26.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>15.28%</td>
+      <td>61.50%</td>
+      <td>23.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>14.46%</td>
+      <td>63.01%</td>
+      <td>22.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>41.43%</td>
+      <td>30.19%</td>
+      <td>28.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>25.68%</td>
+      <td>46.59%</td>
+      <td>27.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>24.33%</td>
+      <td>48.24%</td>
+      <td>27.43%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>24.49%</td>
+      <td>48.03%</td>
+      <td>27.47%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>10.44%</td>
+      <td>71.42%</td>
+      <td>18.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>34.67%</td>
+      <td>36.72%</td>
+      <td>28.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>26.07%</td>
+      <td>46.11%</td>
+      <td>27.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>17.05%</td>
+      <td>58.51%</td>
+      <td>24.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>21.14%</td>
+      <td>52.41%</td>
+      <td>26.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>36.72%</td>
+      <td>34.67%</td>
+      <td>28.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>46.11%</td>
+      <td>26.07%</td>
+      <td>27.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>52.41%</td>
+      <td>21.14%</td>
+      <td>26.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>58.51%</td>
+      <td>17.05%</td>
+      <td>24.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>60.74%</td>
+      <td>15.72%</td>
+      <td>23.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>48.03%</td>
+      <td>24.49%</td>
+      <td>27.47%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>71.42%</td>
+      <td>10.44%</td>
+      <td>18.14%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>15.72%</td>
+      <td>60.74%</td>
+      <td>23.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>52.59%</td>
+      <td>21.01%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>21.01%</td>
+      <td>52.59%</td>
+      <td>26.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>18.53%</td>
+      <td>56.17%</td>
+      <td>25.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>41.64%</td>
+      <td>30.00%</td>
+      <td>28.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>17.18%</td>
+      <td>58.29%</td>
+      <td>24.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>16.21%</td>
+      <td>59.90%</td>
+      <td>23.89%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>45.05%</td>
+      <td>26.97%</td>
+      <td>27.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>49.23%</td>
+      <td>23.54%</td>
+      <td>27.23%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>55.92%</td>
+      <td>18.70%</td>
+      <td>25.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>56.17%</td>
+      <td>18.53%</td>
+      <td>25.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>30.00%</td>
+      <td>41.64%</td>
+      <td>28.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>55.68%</td>
+      <td>18.86%</td>
+      <td>25.46%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>59.90%</td>
+      <td>16.21%</td>
+      <td>23.89%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>26.97%</td>
+      <td>45.05%</td>
+      <td>27.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>23.54%</td>
+      <td>49.23%</td>
+      <td>27.23%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>18.70%</td>
+      <td>55.92%</td>
+      <td>25.38%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>58.29%</td>
+      <td>17.18%</td>
+      <td>24.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-15</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>18.86%</td>
+      <td>55.68%</td>
+      <td>25.46%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>23.40%</td>
+      <td>49.41%</td>
+      <td>27.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>24.18%</td>
+      <td>48.42%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>29.89%</td>
+      <td>41.75%</td>
+      <td>28.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>48.42%</td>
+      <td>24.18%</td>
+      <td>27.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>53.28%</td>
+      <td>20.51%</td>
+      <td>26.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>55.50%</td>
+      <td>18.98%</td>
+      <td>25.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>26.03%</td>
+      <td>46.17%</td>
+      <td>27.80%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>45.51%</td>
+      <td>26.59%</td>
+      <td>27.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>41.75%</td>
+      <td>29.89%</td>
+      <td>28.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>49.41%</td>
+      <td>23.40%</td>
+      <td>27.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>45.36%</td>
+      <td>26.71%</td>
+      <td>27.93%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>26.59%</td>
+      <td>45.51%</td>
+      <td>27.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>46.17%</td>
+      <td>26.03%</td>
+      <td>27.80%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>18.98%</td>
+      <td>55.50%</td>
+      <td>25.52%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>20.51%</td>
+      <td>53.28%</td>
+      <td>26.21%</td>
+    </tr>
+    <tr>
+      <td>2026-03-22</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>26.71%</td>
+      <td>45.36%</td>
+      <td>27.93%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>39.51%</td>
+      <td>31.98%</td>
+      <td>28.51%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>67.85%</td>
+      <td>12.03%</td>
+      <td>20.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>40.39%</td>
+      <td>31.15%</td>
+      <td>28.46%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>20.81%</td>
+      <td>52.86%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>21.74%</td>
+      <td>51.59%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>47.34%</td>
+      <td>25.06%</td>
+      <td>27.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>26.15%</td>
+      <td>46.03%</td>
+      <td>27.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>34.65%</td>
+      <td>36.74%</td>
+      <td>28.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>51.59%</td>
+      <td>21.74%</td>
+      <td>26.67%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>25.06%</td>
+      <td>47.34%</td>
+      <td>27.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>31.15%</td>
+      <td>40.39%</td>
+      <td>28.46%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>12.03%</td>
+      <td>67.85%</td>
+      <td>20.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>52.86%</td>
+      <td>20.81%</td>
+      <td>26.33%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>46.03%</td>
+      <td>26.15%</td>
+      <td>27.83%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>31.98%</td>
+      <td>39.51%</td>
+      <td>28.51%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>36.74%</td>
+      <td>34.65%</td>
+      <td>28.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>13.38%</td>
+      <td>65.07%</td>
+      <td>21.55%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>46.87%</td>
+      <td>25.44%</td>
+      <td>27.69%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>22.87%</td>
+      <td>50.10%</td>
+      <td>27.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>61.20%</td>
+      <td>15.46%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>41.44%</td>
+      <td>30.18%</td>
+      <td>28.38%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>65.07%</td>
+      <td>13.38%</td>
+      <td>21.55%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>15.46%</td>
+      <td>61.20%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>50.10%</td>
+      <td>22.87%</td>
+      <td>27.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>25.44%</td>
+      <td>46.87%</td>
+      <td>27.69%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>17.96%</td>
+      <td>57.06%</td>
+      <td>24.99%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>57.06%</td>
+      <td>17.96%</td>
+      <td>24.99%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>20.91%</td>
+      <td>52.72%</td>
+      <td>26.37%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>30.18%</td>
+      <td>41.44%</td>
+      <td>28.38%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>34.88%</td>
+      <td>36.51%</td>
+      <td>28.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>36.51%</td>
+      <td>34.88%</td>
+      <td>28.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>52.72%</td>
+      <td>20.91%</td>
+      <td>26.37%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>15.25%</td>
+      <td>61.56%</td>
+      <td>23.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>38.25%</td>
+      <td>33.18%</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>40.84%</td>
+      <td>30.73%</td>
+      <td>28.43%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>41.73%</td>
+      <td>29.91%</td>
+      <td>28.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>18.75%</td>
+      <td>55.84%</td>
+      <td>25.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>24.76%</td>
+      <td>47.70%</td>
+      <td>27.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>11.61%</td>
+      <td>68.76%</td>
+      <td>19.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>68.76%</td>
+      <td>11.61%</td>
+      <td>19.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>61.56%</td>
+      <td>15.25%</td>
+      <td>23.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>33.18%</td>
+      <td>38.25%</td>
+      <td>28.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>30.73%</td>
+      <td>40.84%</td>
+      <td>28.43%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>29.91%</td>
+      <td>41.73%</td>
+      <td>28.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>55.84%</td>
+      <td>18.75%</td>
+      <td>25.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>47.70%</td>
+      <td>24.76%</td>
+      <td>27.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>27.23%</td>
+      <td>44.76%</td>
+      <td>28.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-19</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>44.76%</td>
+      <td>27.23%</td>
+      <td>28.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>61.39%</td>
+      <td>15.35%</td>
+      <td>23.26%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>54.35%</td>
+      <td>19.76%</td>
+      <td>25.89%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>12.48%</td>
+      <td>66.91%</td>
+      <td>20.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>19.76%</td>
+      <td>54.35%</td>
+      <td>25.89%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>42.65%</td>
+      <td>29.09%</td>
+      <td>28.27%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>15.98%</td>
+      <td>60.28%</td>
+      <td>23.73%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>49.38%</td>
+      <td>23.42%</td>
+      <td>27.20%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>15.35%</td>
+      <td>61.39%</td>
+      <td>23.26%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>66.91%</td>
+      <td>12.48%</td>
+      <td>20.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>65.36%</td>
+      <td>13.24%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>27.38%</td>
+      <td>44.59%</td>
+      <td>28.04%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>13.24%</td>
+      <td>65.36%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>23.42%</td>
+      <td>49.38%</td>
+      <td>27.20%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>60.28%</td>
+      <td>15.98%</td>
+      <td>23.73%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>29.09%</td>
+      <td>42.65%</td>
+      <td>28.27%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>44.59%</td>
+      <td>27.38%</td>
+      <td>28.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>14.91%</td>
+      <td>62.18%</td>
+      <td>22.91%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>25.95%</td>
+      <td>46.27%</td>
+      <td>27.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>43.72%</td>
+      <td>28.14%</td>
+      <td>28.15%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>23.78%</td>
+      <td>48.93%</td>
+      <td>27.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>25.44%</td>
+      <td>46.87%</td>
+      <td>27.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>31.90%</td>
+      <td>39.59%</td>
+      <td>28.51%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>30.76%</td>
+      <td>40.81%</td>
+      <td>28.43%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>22.28%</td>
+      <td>50.87%</td>
+      <td>26.85%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>50.87%</td>
+      <td>22.28%</td>
+      <td>26.85%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>48.93%</td>
+      <td>23.78%</td>
+      <td>27.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>46.87%</td>
+      <td>25.44%</td>
+      <td>27.69%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>46.27%</td>
+      <td>25.95%</td>
+      <td>27.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>62.18%</td>
+      <td>14.91%</td>
+      <td>22.91%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>39.59%</td>
+      <td>31.90%</td>
+      <td>28.51%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>40.81%</td>
+      <td>30.76%</td>
+      <td>28.43%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>28.14%</td>
+      <td>43.72%</td>
+      <td>28.15%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>60.55%</td>
+      <td>15.83%</td>
+      <td>23.62%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>18.45%</td>
+      <td>56.29%</td>
+      <td>25.26%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>19.85%</td>
+      <td>54.22%</td>
+      <td>25.93%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>39.36%</td>
+      <td>32.12%</td>
+      <td>28.52%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>51.34%</td>
+      <td>21.92%</td>
+      <td>26.74%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>17.06%</td>
+      <td>58.48%</td>
+      <td>24.46%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>21.18%</td>
+      <td>52.35%</td>
+      <td>26.47%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>52.35%</td>
+      <td>21.18%</td>
+      <td>26.47%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>58.48%</td>
+      <td>17.06%</td>
+      <td>24.46%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>20.41%</td>
+      <td>53.42%</td>
+      <td>26.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>21.92%</td>
+      <td>51.34%</td>
+      <td>26.74%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>32.12%</td>
+      <td>39.36%</td>
+      <td>28.52%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>54.22%</td>
+      <td>19.85%</td>
+      <td>25.93%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>56.29%</td>
+      <td>18.45%</td>
+      <td>25.26%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>15.83%</td>
+      <td>60.55%</td>
+      <td>23.62%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>53.42%</td>
+      <td>20.41%</td>
+      <td>26.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>@ Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>50.76%</td>
+      <td>22.36%</td>
+      <td>26.88%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>@ Differdange 03</td>
+      <td>1330.06</td>
+      <td>12.56%</td>
+      <td>66.74%</td>
+      <td>20.70%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>@ F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>33.86%</td>
+      <td>37.55%</td>
+      <td>28.59%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>@ Hostert</td>
+      <td>1050.37</td>
+      <td>48.91%</td>
+      <td>23.79%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>@ Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>17.31%</td>
+      <td>58.08%</td>
+      <td>24.61%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>@ Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>24.61%</td>
+      <td>47.89%</td>
+      <td>27.50%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>37.55%</td>
+      <td>33.86%</td>
+      <td>28.59%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>66.74%</td>
+      <td>12.56%</td>
+      <td>20.70%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>23.79%</td>
+      <td>48.91%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>22.36%</td>
+      <td>50.76%</td>
+      <td>26.88%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>37.43%</td>
+      <td>33.97%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>58.08%</td>
+      <td>17.31%</td>
+      <td>24.61%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>@ Rodange 91</td>
+      <td>1049.81</td>
+      <td>25.50%</td>
+      <td>46.80%</td>
+      <td>27.70%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>46.80%</td>
+      <td>25.50%</td>
+      <td>27.70%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>@ Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>33.97%</td>
+      <td>37.43%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>47.89%</td>
+      <td>24.61%</td>
+      <td>27.50%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>@ UNA Strassen</td>
+      <td>1274.20</td>
+      <td>26.37%</td>
+      <td>45.76%</td>
+      <td>27.87%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>@ Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>19.97%</td>
+      <td>54.05%</td>
+      <td>25.98%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>@ Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>46.25%</td>
+      <td>25.96%</td>
+      <td>27.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>@ Mamer 32</td>
+      <td>989.91</td>
+      <td>47.01%</td>
+      <td>25.33%</td>
+      <td>27.66%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>@ Atert Bissen</td>
+      <td>1224.08</td>
+      <td>47.47%</td>
+      <td>24.95%</td>
+      <td>27.58%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>@ UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>41.85%</td>
+      <td>29.80%</td>
+      <td>28.34%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>42.40%</td>
+      <td>29.30%</td>
+      <td>28.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>28.36%</td>
+      <td>43.46%</td>
+      <td>28.18%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>UNA Strassen</td>
+      <td>1274.20</td>
+      <td>Mondorf-les-Bains</td>
+      <td>1222.18</td>
+      <td>45.76%</td>
+      <td>26.37%</td>
+      <td>27.87%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Racing FC Union Luxembourg</td>
+      <td>1167.49</td>
+      <td>Rodange 91</td>
+      <td>1049.81</td>
+      <td>54.05%</td>
+      <td>19.97%</td>
+      <td>25.98%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>UN Kaerjeng</td>
+      <td>1097.63</td>
+      <td>Jeunesse Esch</td>
+      <td>1161.71</td>
+      <td>29.80%</td>
+      <td>41.85%</td>
+      <td>28.34%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Progres Niedercorn</td>
+      <td>1170.03</td>
+      <td>F91 Dudelange</td>
+      <td>1266.69</td>
+      <td>25.96%</td>
+      <td>46.25%</td>
+      <td>27.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Mamer 32</td>
+      <td>989.91</td>
+      <td>Jeunesse Canach</td>
+      <td>1092.32</td>
+      <td>25.33%</td>
+      <td>47.01%</td>
+      <td>27.66%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Atert Bissen</td>
+      <td>1224.08</td>
+      <td>Differdange 03</td>
+      <td>1330.06</td>
+      <td>24.95%</td>
+      <td>47.47%</td>
+      <td>27.58%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Swift Hesperange</td>
+      <td>1145.86</td>
+      <td>@ Union Titus Ptange</td>
+      <td>1070.02</td>
+      <td>43.46%</td>
+      <td>28.36%</td>
+      <td>28.18%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Hostert</td>
+      <td>1050.37</td>
+      <td>@ Victoria Rosport</td>
+      <td>1077.55</td>
+      <td>29.30%</td>
+      <td>42.40%</td>
+      <td>28.29%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

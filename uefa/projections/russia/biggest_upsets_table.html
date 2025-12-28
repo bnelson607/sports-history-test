@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-07-26</td>
+      <td>12.23%</td>
+      <td>Kamaz</td>
+      <td>1218.41</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk (H)</td>
+      <td>1381.51</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-30</td>
+      <td>12.25%</td>
+      <td>Torpedo Moscow</td>
+      <td>1239.84</td>
+      <td>1</td>
+      <td>Spartak Kostroma (H)</td>
+      <td>1402.59</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-11-29</td>
+      <td>12.93%</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1306.91</td>
+      <td>2</td>
+      <td>Akron Tolyatti (H)</td>
+      <td>1456.55</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-08-03</td>
+      <td>13.61%</td>
+      <td>Arsenal Tula</td>
+      <td>1224.12</td>
+      <td>2</td>
+      <td>Chernomorets Novorossiysk (H)</td>
+      <td>1361.32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-07-20</td>
+      <td>13.78%</td>
+      <td>Fakel Voronezh</td>
+      <td>1269.43</td>
+      <td>1</td>
+      <td>Spartak Kostroma (H)</td>
+      <td>1403.61</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-07-19</td>
+      <td>13.97%</td>
+      <td>Rotor Volgograd</td>
+      <td>1272.66</td>
+      <td>2</td>
+      <td>Volga Ulyanovsk (H)</td>
+      <td>1403.61</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-09-20</td>
+      <td>13.98%</td>
+      <td>Neftekhimik</td>
+      <td>1203.64</td>
+      <td>4</td>
+      <td>Volga Ulyanovsk (H)</td>
+      <td>1334.50</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-09-29</td>
+      <td>14.24%</td>
+      <td>SKA-Khabarovsk</td>
+      <td>1285.53</td>
+      <td>2</td>
+      <td>Ural (H)</td>
+      <td>1411.87</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-10-11</td>
+      <td>14.24%</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1127.54</td>
+      <td>3</td>
+      <td>Neftekhimik (H)</td>
+      <td>1253.90</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-08-09</td>
+      <td>14.52%</td>
+      <td>Akhmat Grozny (H)</td>
+      <td>1360.52</td>
+      <td>1</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1640.47</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-27</td>
+      <td>14.67%</td>
+      <td>Sochi</td>
+      <td>1318.40</td>
+      <td>4</td>
+      <td>Akhmat Grozny (H)</td>
+      <td>1437.81</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-07-26</td>
+      <td>15.35%</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1528.72</td>
+      <td>2</td>
+      <td>Krasnodar (H)</td>
+      <td>1637.41</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-08-23</td>
+      <td>15.38%</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1211.35</td>
+      <td>2</td>
+      <td>Chernomorets Novorossiysk (H)</td>
+      <td>1319.49</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-07-26</td>
+      <td>15.41%</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1490.61</td>
+      <td>3</td>
+      <td>Spartak Moscow (H)</td>
+      <td>1598.32</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-08-16</td>
+      <td>15.68%</td>
+      <td>Shinnik Yaroslavl</td>
+      <td>1139.98</td>
+      <td>2</td>
+      <td>Chayka Peschanokopskoye (H)</td>
+      <td>1243.69</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-08</td>
+      <td>15.99%</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.83</td>
+      <td>2</td>
+      <td>Dynamo Moscow (H)</td>
+      <td>1527.94</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-08-17</td>
+      <td>16.08%</td>
+      <td>Orenburg</td>
+      <td>1357.48</td>
+      <td>2</td>
+      <td>Akron Tolyatti (H)</td>
+      <td>1455.23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-03</td>
+      <td>16.48%</td>
+      <td>Arsenal Tula</td>
+      <td>1239.17</td>
+      <td>2</td>
+      <td>Rotor Volgograd (H)</td>
+      <td>1331.30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-11-08</td>
+      <td>17.26%</td>
+      <td>Volga Ulyanovsk</td>
+      <td>1245.96</td>
+      <td>3</td>
+      <td>Kamaz (H)</td>
+      <td>1327.39</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-10-11</td>
+      <td>17.49%</td>
+      <td>Yenisey Krasnoyarsk</td>
+      <td>1212.13</td>
+      <td>4</td>
+      <td>Volga Ulyanovsk (H)</td>
+      <td>1290.46</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-14</td>
+      <td>17.99%</td>
+      <td>Rostov (H)</td>
+      <td>1421.78</td>
+      <td>1</td>
+      <td>CSKA Moscow</td>
+      <td>1651.74</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-07-20</td>
+      <td>18.26%</td>
+      <td>Chayka Peschanokopskoye</td>
+      <td>1204.07</td>
+      <td>3</td>
+      <td>Yenisey Krasnoyarsk (H)</td>
+      <td>1272.50</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-10-19</td>
+      <td>19.22%</td>
+      <td>Yenisey Krasnoyarsk (H)</td>
+      <td>1241.04</td>
+      <td>1</td>
+      <td>Spartak Kostroma</td>
+      <td>1455.92</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-11-17</td>
+      <td>19.58%</td>
+      <td>Rodina Moscow</td>
+      <td>1376.12</td>
+      <td>2</td>
+      <td>Spartak Kostroma (H)</td>
+      <td>1428.65</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-11-01</td>
+      <td>19.58%</td>
+      <td>Akron Tolyatti</td>
+      <td>1409.29</td>
+      <td>1</td>
+      <td>Rostov (H)</td>
+      <td>1461.80</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

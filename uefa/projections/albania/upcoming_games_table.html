@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="AF Elbasani" selected>AF Elbasani</option><option value="Bylis" >Bylis</option><option value="Dinamo Tirana" >Dinamo Tirana</option><option value="Egnatia" >Egnatia</option><option value="Flamurtari" >Flamurtari</option><option value="Partizani" >Partizani</option><option value="Teuta" >Teuta</option><option value="Tirana" >Tirana</option><option value="Vllaznia" >Vllaznia</option><option value="Vora" >Vora</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-01-14</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>57.01%</td>
+      <td>13.72%</td>
+      <td>29.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>13.72%</td>
+      <td>57.01%</td>
+      <td>29.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>34.12%</td>
+      <td>26.10%</td>
+      <td>39.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>34.37%</td>
+      <td>25.88%</td>
+      <td>39.75%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>20.14%</td>
+      <td>42.18%</td>
+      <td>37.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>23.08%</td>
+      <td>37.86%</td>
+      <td>39.06%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>26.10%</td>
+      <td>34.12%</td>
+      <td>39.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>25.88%</td>
+      <td>34.37%</td>
+      <td>39.75%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>37.86%</td>
+      <td>23.08%</td>
+      <td>39.06%</td>
+    </tr>
+    <tr>
+      <td>2026-01-14</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>42.18%</td>
+      <td>20.14%</td>
+      <td>37.68%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>37.98%</td>
+      <td>22.99%</td>
+      <td>39.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>17.98%</td>
+      <td>46.04%</td>
+      <td>35.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>28.25%</td>
+      <td>31.75%</td>
+      <td>40.00%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>20.01%</td>
+      <td>42.38%</td>
+      <td>37.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>29.81%</td>
+      <td>30.13%</td>
+      <td>40.05%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>22.99%</td>
+      <td>37.98%</td>
+      <td>39.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>30.13%</td>
+      <td>29.81%</td>
+      <td>40.05%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>31.75%</td>
+      <td>28.25%</td>
+      <td>40.00%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>42.38%</td>
+      <td>20.01%</td>
+      <td>37.60%</td>
+    </tr>
+    <tr>
+      <td>2026-01-18</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>46.04%</td>
+      <td>17.98%</td>
+      <td>35.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>50.14%</td>
+      <td>16.11%</td>
+      <td>33.75%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>27.56%</td>
+      <td>32.49%</td>
+      <td>39.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>26.39%</td>
+      <td>33.79%</td>
+      <td>39.82%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>33.79%</td>
+      <td>26.39%</td>
+      <td>39.82%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>32.49%</td>
+      <td>27.56%</td>
+      <td>39.95%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>16.11%</td>
+      <td>50.14%</td>
+      <td>33.75%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>41.02%</td>
+      <td>20.87%</td>
+      <td>38.11%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>19.00%</td>
+      <td>44.12%</td>
+      <td>36.88%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>44.12%</td>
+      <td>19.00%</td>
+      <td>36.88%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>20.87%</td>
+      <td>41.02%</td>
+      <td>38.11%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>24.40%</td>
+      <td>36.16%</td>
+      <td>39.44%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>14.81%</td>
+      <td>53.58%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>11.29%</td>
+      <td>66.26%</td>
+      <td>22.45%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>36.16%</td>
+      <td>24.40%</td>
+      <td>39.44%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>31.09%</td>
+      <td>28.88%</td>
+      <td>40.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>19.27%</td>
+      <td>43.64%</td>
+      <td>37.09%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>28.88%</td>
+      <td>31.09%</td>
+      <td>40.03%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>43.64%</td>
+      <td>19.27%</td>
+      <td>37.09%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>53.58%</td>
+      <td>14.81%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>66.26%</td>
+      <td>11.29%</td>
+      <td>22.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>17.55%</td>
+      <td>46.91%</td>
+      <td>35.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>42.79%</td>
+      <td>19.77%</td>
+      <td>37.44%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>14.44%</td>
+      <td>54.70%</td>
+      <td>30.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>15.74%</td>
+      <td>51.06%</td>
+      <td>33.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>28.11%</td>
+      <td>31.90%</td>
+      <td>40.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>46.91%</td>
+      <td>17.55%</td>
+      <td>35.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>31.90%</td>
+      <td>28.11%</td>
+      <td>40.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>51.06%</td>
+      <td>15.74%</td>
+      <td>33.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>54.70%</td>
+      <td>14.44%</td>
+      <td>30.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>19.77%</td>
+      <td>42.79%</td>
+      <td>37.44%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>58.11%</td>
+      <td>13.39%</td>
+      <td>28.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>48.81%</td>
+      <td>16.67%</td>
+      <td>34.52%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>44.90%</td>
+      <td>18.57%</td>
+      <td>36.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>33.13%</td>
+      <td>26.98%</td>
+      <td>39.90%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>17.83%</td>
+      <td>46.33%</td>
+      <td>35.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>13.39%</td>
+      <td>58.11%</td>
+      <td>28.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>16.67%</td>
+      <td>48.81%</td>
+      <td>34.52%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>18.57%</td>
+      <td>44.90%</td>
+      <td>36.53%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>26.98%</td>
+      <td>33.13%</td>
+      <td>39.90%</td>
+    </tr>
+    <tr>
+      <td>2026-02-15</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>46.33%</td>
+      <td>17.83%</td>
+      <td>35.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>16.73%</td>
+      <td>48.67%</td>
+      <td>34.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>48.67%</td>
+      <td>16.73%</td>
+      <td>34.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>42.32%</td>
+      <td>20.05%</td>
+      <td>37.63%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>41.14%</td>
+      <td>20.79%</td>
+      <td>38.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>20.73%</td>
+      <td>41.23%</td>
+      <td>38.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>23.95%</td>
+      <td>36.72%</td>
+      <td>39.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>20.05%</td>
+      <td>42.32%</td>
+      <td>37.63%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>20.79%</td>
+      <td>41.14%</td>
+      <td>38.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>41.23%</td>
+      <td>20.73%</td>
+      <td>38.03%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>36.72%</td>
+      <td>23.95%</td>
+      <td>39.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>52.46%</td>
+      <td>15.21%</td>
+      <td>32.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>19.33%</td>
+      <td>43.54%</td>
+      <td>37.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>57.61%</td>
+      <td>13.54%</td>
+      <td>28.85%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>21.42%</td>
+      <td>40.19%</td>
+      <td>38.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>40.19%</td>
+      <td>21.42%</td>
+      <td>38.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>16.37%</td>
+      <td>49.51%</td>
+      <td>34.12%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>43.54%</td>
+      <td>19.33%</td>
+      <td>37.13%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>15.21%</td>
+      <td>52.46%</td>
+      <td>32.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>49.51%</td>
+      <td>16.37%</td>
+      <td>34.12%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>13.54%</td>
+      <td>57.61%</td>
+      <td>28.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>29.00%</td>
+      <td>30.97%</td>
+      <td>40.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>45.81%</td>
+      <td>18.10%</td>
+      <td>36.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>49.94%</td>
+      <td>16.19%</td>
+      <td>33.87%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>16.16%</td>
+      <td>50.00%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>50.00%</td>
+      <td>16.16%</td>
+      <td>33.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>30.97%</td>
+      <td>29.00%</td>
+      <td>40.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>16.19%</td>
+      <td>49.94%</td>
+      <td>33.87%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>18.10%</td>
+      <td>45.81%</td>
+      <td>36.10%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>47.03%</td>
+      <td>17.49%</td>
+      <td>35.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>17.49%</td>
+      <td>47.03%</td>
+      <td>35.48%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>19.11%</td>
+      <td>43.93%</td>
+      <td>36.96%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>32.31%</td>
+      <td>27.72%</td>
+      <td>39.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>47.57%</td>
+      <td>17.23%</td>
+      <td>35.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>27.95%</td>
+      <td>32.07%</td>
+      <td>39.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>44.17%</td>
+      <td>18.97%</td>
+      <td>36.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>18.97%</td>
+      <td>44.17%</td>
+      <td>36.86%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>32.07%</td>
+      <td>27.95%</td>
+      <td>39.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>43.93%</td>
+      <td>19.11%</td>
+      <td>36.96%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>27.72%</td>
+      <td>32.31%</td>
+      <td>39.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>17.23%</td>
+      <td>47.57%</td>
+      <td>35.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>39.75%</td>
+      <td>21.72%</td>
+      <td>38.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>32.52%</td>
+      <td>27.53%</td>
+      <td>39.95%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>24.28%</td>
+      <td>36.31%</td>
+      <td>39.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>27.53%</td>
+      <td>32.52%</td>
+      <td>39.95%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>31.94%</td>
+      <td>28.07%</td>
+      <td>39.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>36.31%</td>
+      <td>24.28%</td>
+      <td>39.41%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>21.72%</td>
+      <td>39.75%</td>
+      <td>38.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>22.85%</td>
+      <td>38.17%</td>
+      <td>38.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>28.07%</td>
+      <td>31.94%</td>
+      <td>39.99%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>38.17%</td>
+      <td>22.85%</td>
+      <td>38.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>31.12%</td>
+      <td>28.85%</td>
+      <td>40.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>34.32%</td>
+      <td>25.93%</td>
+      <td>39.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>13.00%</td>
+      <td>59.53%</td>
+      <td>27.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>23.39%</td>
+      <td>37.45%</td>
+      <td>39.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>24.40%</td>
+      <td>36.15%</td>
+      <td>39.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>36.15%</td>
+      <td>24.40%</td>
+      <td>39.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>37.45%</td>
+      <td>23.39%</td>
+      <td>39.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>59.53%</td>
+      <td>13.00%</td>
+      <td>27.47%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>25.93%</td>
+      <td>34.32%</td>
+      <td>39.75%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>28.85%</td>
+      <td>31.12%</td>
+      <td>40.03%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>45.89%</td>
+      <td>18.05%</td>
+      <td>36.06%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>19.02%</td>
+      <td>44.08%</td>
+      <td>36.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>13.71%</td>
+      <td>57.04%</td>
+      <td>29.25%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>18.05%</td>
+      <td>45.89%</td>
+      <td>36.06%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>40.99%</td>
+      <td>20.89%</td>
+      <td>38.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>33.83%</td>
+      <td>26.36%</td>
+      <td>39.82%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>44.08%</td>
+      <td>19.02%</td>
+      <td>36.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>20.89%</td>
+      <td>40.99%</td>
+      <td>38.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>26.36%</td>
+      <td>33.83%</td>
+      <td>39.82%</td>
+    </tr>
+    <tr>
+      <td>2026-04-12</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>57.04%</td>
+      <td>13.71%</td>
+      <td>29.25%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>64.00%</td>
+      <td>11.84%</td>
+      <td>24.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>41.78%</td>
+      <td>20.39%</td>
+      <td>37.84%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>27.15%</td>
+      <td>32.94%</td>
+      <td>39.91%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>32.94%</td>
+      <td>27.15%</td>
+      <td>39.91%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>20.39%</td>
+      <td>41.78%</td>
+      <td>37.84%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>11.84%</td>
+      <td>64.00%</td>
+      <td>24.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>12.75%</td>
+      <td>60.43%</td>
+      <td>26.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>37.21%</td>
+      <td>23.57%</td>
+      <td>39.22%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>60.43%</td>
+      <td>12.75%</td>
+      <td>26.81%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>23.57%</td>
+      <td>37.21%</td>
+      <td>39.22%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>23.88%</td>
+      <td>36.81%</td>
+      <td>39.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>39.17%</td>
+      <td>22.12%</td>
+      <td>38.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>35.13%</td>
+      <td>25.24%</td>
+      <td>39.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>14.09%</td>
+      <td>55.79%</td>
+      <td>30.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>36.81%</td>
+      <td>23.88%</td>
+      <td>39.31%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>16.72%</td>
+      <td>48.70%</td>
+      <td>34.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>22.12%</td>
+      <td>39.17%</td>
+      <td>38.70%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>25.24%</td>
+      <td>35.13%</td>
+      <td>39.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>55.79%</td>
+      <td>14.09%</td>
+      <td>30.13%</td>
+    </tr>
+    <tr>
+      <td>2026-04-26</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>48.70%</td>
+      <td>16.72%</td>
+      <td>34.58%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>28.64%</td>
+      <td>31.34%</td>
+      <td>40.02%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>46.43%</td>
+      <td>17.78%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>50.71%</td>
+      <td>15.87%</td>
+      <td>33.41%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>22.23%</td>
+      <td>39.03%</td>
+      <td>38.74%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>39.03%</td>
+      <td>22.23%</td>
+      <td>38.74%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>15.87%</td>
+      <td>50.71%</td>
+      <td>33.41%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>15.43%</td>
+      <td>51.87%</td>
+      <td>32.70%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>17.78%</td>
+      <td>46.43%</td>
+      <td>35.79%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>31.34%</td>
+      <td>28.64%</td>
+      <td>40.02%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>51.87%</td>
+      <td>15.43%</td>
+      <td>32.70%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>@ Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>16.25%</td>
+      <td>49.79%</td>
+      <td>33.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>@ Tirana</td>
+      <td>1029.77</td>
+      <td>48.18%</td>
+      <td>16.95%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>@ Egnatia</td>
+      <td>1259.77</td>
+      <td>15.00%</td>
+      <td>53.05%</td>
+      <td>31.95%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>@ Flamurtari</td>
+      <td>1047.15</td>
+      <td>39.90%</td>
+      <td>21.62%</td>
+      <td>38.48%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>53.05%</td>
+      <td>15.00%</td>
+      <td>31.95%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>19.68%</td>
+      <td>42.93%</td>
+      <td>37.38%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>16.95%</td>
+      <td>48.18%</td>
+      <td>34.87%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>21.62%</td>
+      <td>39.90%</td>
+      <td>38.48%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>49.79%</td>
+      <td>16.25%</td>
+      <td>33.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>@ Bylis</td>
+      <td>1080.89</td>
+      <td>42.93%</td>
+      <td>19.68%</td>
+      <td>37.38%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>@ AF Elbasani</td>
+      <td>1207.17</td>
+      <td>13.05%</td>
+      <td>59.33%</td>
+      <td>27.62%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>@ Teuta</td>
+      <td>1151.67</td>
+      <td>40.40%</td>
+      <td>21.28%</td>
+      <td>38.32%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>@ Partizani</td>
+      <td>1129.13</td>
+      <td>37.33%</td>
+      <td>23.48%</td>
+      <td>39.19%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Vora</td>
+      <td>1108.84</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>38.94%</td>
+      <td>22.29%</td>
+      <td>38.77%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Vllaznia</td>
+      <td>1194.27</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>55.27%</td>
+      <td>14.25%</td>
+      <td>30.48%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Teuta</td>
+      <td>1151.67</td>
+      <td>Egnatia</td>
+      <td>1259.77</td>
+      <td>21.28%</td>
+      <td>40.40%</td>
+      <td>38.32%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Partizani</td>
+      <td>1129.13</td>
+      <td>Dinamo Tirana</td>
+      <td>1215.44</td>
+      <td>23.48%</td>
+      <td>37.33%</td>
+      <td>39.19%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>AF Elbasani</td>
+      <td>1207.17</td>
+      <td>Tirana</td>
+      <td>1029.77</td>
+      <td>59.33%</td>
+      <td>13.05%</td>
+      <td>27.62%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Flamurtari</td>
+      <td>1047.15</td>
+      <td>@ Vllaznia</td>
+      <td>1194.27</td>
+      <td>14.25%</td>
+      <td>55.27%</td>
+      <td>30.48%</td>
+    </tr>
+    <tr>
+      <td>2026-05-10</td>
+      <td>Bylis</td>
+      <td>1080.89</td>
+      <td>@ Vora</td>
+      <td>1108.84</td>
+      <td>22.29%</td>
+      <td>38.94%</td>
+      <td>38.77%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

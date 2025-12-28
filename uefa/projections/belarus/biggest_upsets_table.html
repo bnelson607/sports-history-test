@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-09-19</td>
+      <td>10.06%</td>
+      <td>Smorgon</td>
+      <td>1040.93</td>
+      <td>1</td>
+      <td>Torpedo-BelAZ Zhodino (H)</td>
+      <td>1311.42</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-05-11</td>
+      <td>11.96%</td>
+      <td>Smorgon</td>
+      <td>1037.89</td>
+      <td>1</td>
+      <td>Neman Grodno (H)</td>
+      <td>1266.77</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-09-10</td>
+      <td>12.39%</td>
+      <td>Molodechno (H)</td>
+      <td>1025.68</td>
+      <td>3</td>
+      <td>Neman Grodno</td>
+      <td>1306.88</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-10-15</td>
+      <td>14.37%</td>
+      <td>Slutsk (H)</td>
+      <td>1009.18</td>
+      <td>2</td>
+      <td>Neman Grodno</td>
+      <td>1255.12</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-10-03</td>
+      <td>15.76%</td>
+      <td>BATE Borisov (H)</td>
+      <td>1117.01</td>
+      <td>1</td>
+      <td>Maxline Vitebsk</td>
+      <td>1341.16</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-08-23</td>
+      <td>16.59%</td>
+      <td>Smorgon (H)</td>
+      <td>1026.50</td>
+      <td>1</td>
+      <td>Dynamo Brest</td>
+      <td>1238.73</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-09-28</td>
+      <td>16.85%</td>
+      <td>Smorgon (H)</td>
+      <td>1056.68</td>
+      <td>1</td>
+      <td>Neman Grodno</td>
+      <td>1265.27</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-09-27</td>
+      <td>17.30%</td>
+      <td>Slaviya Mozyr</td>
+      <td>1217.57</td>
+      <td>3</td>
+      <td>Maxline Vitebsk (H)</td>
+      <td>1359.05</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-10-29</td>
+      <td>18.10%</td>
+      <td>Gomel</td>
+      <td>1157.97</td>
+      <td>1</td>
+      <td>Torpedo-BelAZ Zhodino (H)</td>
+      <td>1289.03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-06-22</td>
+      <td>18.26%</td>
+      <td>Arsenal Dzerzhinsk (H)</td>
+      <td>1124.25</td>
+      <td>2</td>
+      <td>Dynamo Minsk</td>
+      <td>1314.26</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-07-06</td>
+      <td>18.34%</td>
+      <td>Naftan Novopolotsk</td>
+      <td>1033.35</td>
+      <td>1</td>
+      <td>Arsenal Dzerzhinsk (H)</td>
+      <td>1161.31</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-10-25</td>
+      <td>18.69%</td>
+      <td>BATE Borisov (H)</td>
+      <td>1121.85</td>
+      <td>1</td>
+      <td>Torpedo-BelAZ Zhodino</td>
+      <td>1306.41</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-03-30</td>
+      <td>19.06%</td>
+      <td>Gomel</td>
+      <td>1171.77</td>
+      <td>1</td>
+      <td>Neman Grodno (H)</td>
+      <td>1290.81</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-08-29</td>
+      <td>19.44%</td>
+      <td>Molodechno</td>
+      <td>1008.57</td>
+      <td>1</td>
+      <td>Vitebsk (H)</td>
+      <td>1123.07</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-04-26</td>
+      <td>19.46%</td>
+      <td>Dynamo Brest</td>
+      <td>1179.75</td>
+      <td>1</td>
+      <td>Neman Grodno (H)</td>
+      <td>1294.05</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-09-14</td>
+      <td>19.60%</td>
+      <td>Minsk (H)</td>
+      <td>1162.19</td>
+      <td>2</td>
+      <td>Dynamo Minsk</td>
+      <td>1335.77</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-09-13</td>
+      <td>20.48%</td>
+      <td>Torpedo-BelAZ Zhodino</td>
+      <td>1294.67</td>
+      <td>1</td>
+      <td>Maxline Vitebsk (H)</td>
+      <td>1397.21</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-07-05</td>
+      <td>20.52%</td>
+      <td>Smorgon (H)</td>
+      <td>1001.57</td>
+      <td>3</td>
+      <td>Gomel</td>
+      <td>1164.68</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-06-21</td>
+      <td>20.85%</td>
+      <td>Gomel</td>
+      <td>1158.37</td>
+      <td>1</td>
+      <td>Dynamo Brest (H)</td>
+      <td>1256.78</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-09-24</td>
+      <td>21.11%</td>
+      <td>Gomel (H)</td>
+      <td>1132.07</td>
+      <td>3</td>
+      <td>Neman Grodno</td>
+      <td>1288.66</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-04-13</td>
+      <td>21.21%</td>
+      <td>Slaviya Mozyr (H)</td>
+      <td>1155.13</td>
+      <td>3</td>
+      <td>Dynamo Minsk</td>
+      <td>1310.63</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-11-02</td>
+      <td>21.31%</td>
+      <td>BATE Borisov</td>
+      <td>1139.23</td>
+      <td>2</td>
+      <td>Neman Grodno (H)</td>
+      <td>1232.62</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-11-02</td>
+      <td>22.31%</td>
+      <td>Minsk</td>
+      <td>1188.53</td>
+      <td>1</td>
+      <td>Torpedo-BelAZ Zhodino (H)</td>
+      <td>1271.43</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-06-13</td>
+      <td>22.65%</td>
+      <td>Arsenal Dzerzhinsk</td>
+      <td>1101.59</td>
+      <td>2</td>
+      <td>Gomel (H)</td>
+      <td>1181.04</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-08-16</td>
+      <td>22.77%</td>
+      <td>Naftan Novopolotsk (H)</td>
+      <td>1025.02</td>
+      <td>3</td>
+      <td>Vitebsk</td>
+      <td>1164.21</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

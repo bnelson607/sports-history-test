@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-12-07</td>
+      <td>11.25%</td>
+      <td>Celta Vigo</td>
+      <td>1945.75</td>
+      <td>2</td>
+      <td>Real Madrid (H)</td>
+      <td>2156.69</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-09-13</td>
+      <td>15.36%</td>
+      <td>Alaves</td>
+      <td>1932.26</td>
+      <td>1</td>
+      <td>Athletic Bilbao (H)</td>
+      <td>2066.52</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-12-13</td>
+      <td>15.42%</td>
+      <td>Real Sociedad B</td>
+      <td>1708.03</td>
+      <td>3</td>
+      <td>Deportivo La Coruna (H)</td>
+      <td>1841.19</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-11-22</td>
+      <td>16.30%</td>
+      <td>Real Zaragoza</td>
+      <td>1654.69</td>
+      <td>2</td>
+      <td>Eibar (H)</td>
+      <td>1774.42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-10-25</td>
+      <td>17.10%</td>
+      <td>Getafe</td>
+      <td>1919.85</td>
+      <td>1</td>
+      <td>Athletic Bilbao (H)</td>
+      <td>2028.14</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-09-26</td>
+      <td>17.41%</td>
+      <td>Real Zaragoza</td>
+      <td>1698.88</td>
+      <td>1</td>
+      <td>Mirandes (H)</td>
+      <td>1802.78</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-09-14</td>
+      <td>17.68%</td>
+      <td>Leonesa</td>
+      <td>1732.11</td>
+      <td>4</td>
+      <td>Racing Santander (H)</td>
+      <td>1832.32</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-09-29</td>
+      <td>18.36%</td>
+      <td>Castellon</td>
+      <td>1741.29</td>
+      <td>1</td>
+      <td>Leganes (H)</td>
+      <td>1832.46</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-09-30</td>
+      <td>18.56%</td>
+      <td>Real Oviedo</td>
+      <td>1871.99</td>
+      <td>2</td>
+      <td>Valencia (H)</td>
+      <td>1960.68</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-12-14</td>
+      <td>19.05%</td>
+      <td>Burgos</td>
+      <td>1773.08</td>
+      <td>2</td>
+      <td>Almeria (H)</td>
+      <td>1855.48</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-05</td>
+      <td>19.15%</td>
+      <td>Sevilla (H)</td>
+      <td>1934.98</td>
+      <td>4</td>
+      <td>Barcelona</td>
+      <td>2156.24</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-12-13</td>
+      <td>19.80%</td>
+      <td>Andorra</td>
+      <td>1685.93</td>
+      <td>1</td>
+      <td>Real Valladolid (H)</td>
+      <td>1759.28</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-09-27</td>
+      <td>20.04%</td>
+      <td>Andorra</td>
+      <td>1740.37</td>
+      <td>2</td>
+      <td>Racing Santander (H)</td>
+      <td>1810.87</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-12-07</td>
+      <td>20.16%</td>
+      <td>Castellon</td>
+      <td>1792.33</td>
+      <td>3</td>
+      <td>Deportivo La Coruna (H)</td>
+      <td>1861.44</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-08-31</td>
+      <td>20.60%</td>
+      <td>Malaga CF</td>
+      <td>1753.07</td>
+      <td>1</td>
+      <td>Las Palmas (H)</td>
+      <td>1817.05</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-10-18</td>
+      <td>20.76%</td>
+      <td>Mallorca</td>
+      <td>1898.13</td>
+      <td>3</td>
+      <td>Sevilla (H)</td>
+      <td>1960.32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-12-13</td>
+      <td>20.86%</td>
+      <td>Girona</td>
+      <td>1860.84</td>
+      <td>2</td>
+      <td>Real Sociedad (H)</td>
+      <td>1921.81</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-01</td>
+      <td>21.75%</td>
+      <td>Burgos</td>
+      <td>1786.24</td>
+      <td>2</td>
+      <td>Leganes (H)</td>
+      <td>1837.42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-10-20</td>
+      <td>21.75%</td>
+      <td>Burgos</td>
+      <td>1760.17</td>
+      <td>3</td>
+      <td>Cadiz (H)</td>
+      <td>1811.36</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-12-12</td>
+      <td>22.17%</td>
+      <td>Huesca</td>
+      <td>1721.23</td>
+      <td>2</td>
+      <td>Leonesa (H)</td>
+      <td>1767.95</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-12-08</td>
+      <td>22.31%</td>
+      <td>Albacete</td>
+      <td>1741.52</td>
+      <td>1</td>
+      <td>Burgos (H)</td>
+      <td>1786.78</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-08-17</td>
+      <td>22.36%</td>
+      <td>Getafe</td>
+      <td>1916.59</td>
+      <td>2</td>
+      <td>Celta Vigo (H)</td>
+      <td>1961.27</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-08-23</td>
+      <td>22.57%</td>
+      <td>Huesca</td>
+      <td>1771.08</td>
+      <td>1</td>
+      <td>Mirandes (H)</td>
+      <td>1813.56</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-09-28</td>
+      <td>22.73%</td>
+      <td>Granada</td>
+      <td>1734.20</td>
+      <td>1</td>
+      <td>Huesca (H)</td>
+      <td>1775.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-09-13</td>
+      <td>23.09%</td>
+      <td>Deportivo La Coruna</td>
+      <td>1792.41</td>
+      <td>5</td>
+      <td>Mirandes (H)</td>
+      <td>1829.62</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

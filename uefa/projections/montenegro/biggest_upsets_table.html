@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-11-29</td>
+      <td>10.64%</td>
+      <td>Bokelj</td>
+      <td>1169.40</td>
+      <td>1</td>
+      <td>Buducnost Podgorica (H)</td>
+      <td>1362.25</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-02</td>
+      <td>11.48%</td>
+      <td>Mladost DG</td>
+      <td>1185.07</td>
+      <td>1</td>
+      <td>Buducnost Podgorica (H)</td>
+      <td>1360.42</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-09-27</td>
+      <td>12.57%</td>
+      <td>Bokelj</td>
+      <td>1116.89</td>
+      <td>2</td>
+      <td>Decic Tuzi (H)</td>
+      <td>1271.54</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-08-10</td>
+      <td>16.10%</td>
+      <td>Sutjeska</td>
+      <td>1275.95</td>
+      <td>1</td>
+      <td>Buducnost Podgorica (H)</td>
+      <td>1375.19</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-09-21</td>
+      <td>17.56%</td>
+      <td>Jedinstvo</td>
+      <td>1207.75</td>
+      <td>2</td>
+      <td>Jezero (H)</td>
+      <td>1287.82</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-10-18</td>
+      <td>18.70%</td>
+      <td>Sutjeska</td>
+      <td>1256.25</td>
+      <td>1</td>
+      <td>Petrovac (H)</td>
+      <td>1322.50</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-12-10</td>
+      <td>19.05%</td>
+      <td>Mladost DG</td>
+      <td>1200.00</td>
+      <td>4</td>
+      <td>Decic Tuzi (H)</td>
+      <td>1262.23</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-12-10</td>
+      <td>19.35%</td>
+      <td>Mornar</td>
+      <td>1287.27</td>
+      <td>1</td>
+      <td>Sutjeska (H)</td>
+      <td>1346.02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-10-18</td>
+      <td>22.15%</td>
+      <td>Mladost DG</td>
+      <td>1188.69</td>
+      <td>1</td>
+      <td>Jedinstvo (H)</td>
+      <td>1217.66</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-08-31</td>
+      <td>24.22%</td>
+      <td>Mladost DG (H)</td>
+      <td>1181.38</td>
+      <td>3</td>
+      <td>Buducnost Podgorica</td>
+      <td>1346.79</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-08</td>
+      <td>26.62%</td>
+      <td>Mornar</td>
+      <td>1232.50</td>
+      <td>1</td>
+      <td>Arsenal Tivat (H)</td>
+      <td>1220.64</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-09-13</td>
+      <td>28.27%</td>
+      <td>Mornar</td>
+      <td>1190.69</td>
+      <td>2</td>
+      <td>Bokelj (H)</td>
+      <td>1165.16</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-10-05</td>
+      <td>28.46%</td>
+      <td>Petrovac</td>
+      <td>1293.84</td>
+      <td>3</td>
+      <td>Jezero (H)</td>
+      <td>1266.75</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-10-18</td>
+      <td>29.77%</td>
+      <td>Bokelj (H)</td>
+      <td>1119.33</td>
+      <td>3</td>
+      <td>Jezero</td>
+      <td>1238.09</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-10-05</td>
+      <td>29.81%</td>
+      <td>Buducnost Podgorica</td>
+      <td>1321.91</td>
+      <td>2</td>
+      <td>Sutjeska (H)</td>
+      <td>1284.16</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-08-17</td>
+      <td>29.96%</td>
+      <td>Arsenal Tivat (H)</td>
+      <td>1231.90</td>
+      <td>1</td>
+      <td>Buducnost Podgorica</td>
+      <td>1349.18</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-10-01</td>
+      <td>30.83%</td>
+      <td>Decic Tuzi</td>
+      <td>1231.89</td>
+      <td>2</td>
+      <td>Mladost DG (H)</td>
+      <td>1186.29</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-09-17</td>
+      <td>30.98%</td>
+      <td>Jedinstvo (H)</td>
+      <td>1188.47</td>
+      <td>1</td>
+      <td>Petrovac</td>
+      <td>1297.95</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-10-29</td>
+      <td>31.06%</td>
+      <td>Arsenal Tivat (H)</td>
+      <td>1189.02</td>
+      <td>3</td>
+      <td>Petrovac</td>
+      <td>1297.86</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-10-26</td>
+      <td>32.25%</td>
+      <td>Mornar</td>
+      <td>1267.82</td>
+      <td>3</td>
+      <td>Mladost DG (H)</td>
+      <td>1211.66</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-08-10</td>
+      <td>32.48%</td>
+      <td>Decic Tuzi</td>
+      <td>1267.92</td>
+      <td>1</td>
+      <td>Jedinstvo (H)</td>
+      <td>1210.06</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-10-01</td>
+      <td>33.91%</td>
+      <td>Mornar (H)</td>
+      <td>1214.31</td>
+      <td>1</td>
+      <td>Sutjeska</td>
+      <td>1302.36</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-11-30</td>
+      <td>34.41%</td>
+      <td>Jezero</td>
+      <td>1217.31</td>
+      <td>1</td>
+      <td>Jedinstvo (H)</td>
+      <td>1145.64</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-09-27</td>
+      <td>34.65%</td>
+      <td>Mladost DG (H)</td>
+      <td>1160.94</td>
+      <td>2</td>
+      <td>Arsenal Tivat</td>
+      <td>1243.69</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-08-24</td>
+      <td>34.95%</td>
+      <td>Jezero (H)</td>
+      <td>1218.64</td>
+      <td>2</td>
+      <td>Sutjeska</td>
+      <td>1299.34</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

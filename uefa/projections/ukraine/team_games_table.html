@@ -1,0 +1,3401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Dynamo Kyiv">Dynamo Kyiv</option><option value="Epitsentr Kamianets-Podilskyi">Epitsentr Kamianets-Podilskyi</option><option value="Karpaty Lviv">Karpaty Lviv</option><option value="Kolos Kovalivka">Kolos Kovalivka</option><option value="Kryvbas Kryvyi Rih">Kryvbas Kryvyi Rih</option><option value="Kudrivka">Kudrivka</option><option value="LNZ Cherkasy">LNZ Cherkasy</option><option value="Metalist 1925 Kharkiv">Metalist 1925 Kharkiv</option><option value="Obolon Kyiv">Obolon Kyiv</option><option value="Oleksandriya">Oleksandriya</option><option value="Polissya Zhytomyr">Polissya Zhytomyr</option><option value="Poltava">Poltava</option><option value="Rukh Lviv">Rukh Lviv</option><option value="Shakhtar Donetsk">Shakhtar Donetsk</option><option value="Veres Rivne">Veres Rivne</option><option value="Zorya Luhansk">Zorya Luhansk</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Kolos Kovalivka</td>
+      <td>1441.43</td>
+      <td>2</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1463.37</td>
+      <td>1</td>
+      <td>28.06%</td>
+      <td>34.22%</td>
+      <td>37.72%</td>
+      <td>12.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Rukh Lviv</td>
+      <td>1432.20</td>
+      <td>2</td>
+      <td>Poltava</td>
+      <td>1498.93</td>
+      <td>1</td>
+      <td>22.86%</td>
+      <td>40.52%</td>
+      <td>36.62%</td>
+      <td>14.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1463.37</td>
+      <td>1</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1441.43</td>
+      <td>2</td>
+      <td>34.22%</td>
+      <td>28.06%</td>
+      <td>37.72%</td>
+      <td>-12.87</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Poltava</td>
+      <td>1498.93</td>
+      <td>1</td>
+      <td>@ Rukh Lviv</td>
+      <td>1432.20</td>
+      <td>2</td>
+      <td>40.52%</td>
+      <td>22.86%</td>
+      <td>36.62%</td>
+      <td>-14.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>LNZ Cherkasy</td>
+      <td>1401.13</td>
+      <td>0</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1420.66</td>
+      <td>0</td>
+      <td>28.38%</td>
+      <td>33.88%</td>
+      <td>37.74%</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Dynamo Kyiv</td>
+      <td>1561.92</td>
+      <td>1</td>
+      <td>@ Veres Rivne</td>
+      <td>1402.50</td>
+      <td>0</td>
+      <td>52.90%</td>
+      <td>15.76%</td>
+      <td>31.34%</td>
+      <td>6.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Zorya Luhansk</td>
+      <td>1420.66</td>
+      <td>0</td>
+      <td>LNZ Cherkasy</td>
+      <td>1401.13</td>
+      <td>0</td>
+      <td>33.88%</td>
+      <td>28.38%</td>
+      <td>37.74%</td>
+      <td>-0.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Veres Rivne</td>
+      <td>1402.50</td>
+      <td>0</td>
+      <td>Dynamo Kyiv</td>
+      <td>1561.92</td>
+      <td>1</td>
+      <td>15.76%</td>
+      <td>52.90%</td>
+      <td>31.34%</td>
+      <td>-6.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Karpaty Lviv</td>
+      <td>1445.73</td>
+      <td>0</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1469.03</td>
+      <td>2</td>
+      <td>27.89%</td>
+      <td>34.41%</td>
+      <td>37.70%</td>
+      <td>-15.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1498.93</td>
+      <td>0</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1538.13</td>
+      <td>1</td>
+      <td>25.91%</td>
+      <td>36.67%</td>
+      <td>37.42%</td>
+      <td>-10.76</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1469.03</td>
+      <td>2</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1445.73</td>
+      <td>0</td>
+      <td>34.41%</td>
+      <td>27.89%</td>
+      <td>37.70%</td>
+      <td>15.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1538.13</td>
+      <td>1</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1498.93</td>
+      <td>0</td>
+      <td>36.67%</td>
+      <td>25.91%</td>
+      <td>37.42%</td>
+      <td>10.76</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Kudrivka</td>
+      <td>1498.93</td>
+      <td>3</td>
+      <td>Oleksandriya</td>
+      <td>1495.61</td>
+      <td>1</td>
+      <td>31.55%</td>
+      <td>30.60%</td>
+      <td>37.85%</td>
+      <td>16.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Oleksandriya</td>
+      <td>1495.61</td>
+      <td>1</td>
+      <td>@ Kudrivka</td>
+      <td>1498.93</td>
+      <td>3</td>
+      <td>30.60%</td>
+      <td>31.55%</td>
+      <td>37.85%</td>
+      <td>-16.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1384.47</td>
+      <td>0</td>
+      <td>Obolon Kyiv</td>
+      <td>1399.36</td>
+      <td>0</td>
+      <td>29.00%</td>
+      <td>33.21%</td>
+      <td>37.79%</td>
+      <td>0.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Obolon Kyiv</td>
+      <td>1399.36</td>
+      <td>0</td>
+      <td>@ Metalist 1925 Kharkiv</td>
+      <td>1384.47</td>
+      <td>0</td>
+      <td>33.21%</td>
+      <td>29.00%</td>
+      <td>37.79%</td>
+      <td>-0.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Poltava</td>
+      <td>1484.51</td>
+      <td>1</td>
+      <td>Veres Rivne</td>
+      <td>1395.58</td>
+      <td>0</td>
+      <td>43.56%</td>
+      <td>20.75%</td>
+      <td>35.69%</td>
+      <td>9.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Rukh Lviv</td>
+      <td>1446.62</td>
+      <td>1</td>
+      <td>Dynamo Kyiv</td>
+      <td>1568.83</td>
+      <td>5</td>
+      <td>18.10%</td>
+      <td>48.02%</td>
+      <td>33.87%</td>
+      <td>-16.05</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Dynamo Kyiv</td>
+      <td>1568.83</td>
+      <td>5</td>
+      <td>@ Rukh Lviv</td>
+      <td>1446.62</td>
+      <td>1</td>
+      <td>48.02%</td>
+      <td>18.10%</td>
+      <td>33.87%</td>
+      <td>16.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Veres Rivne</td>
+      <td>1395.58</td>
+      <td>0</td>
+      <td>@ Poltava</td>
+      <td>1484.51</td>
+      <td>1</td>
+      <td>20.75%</td>
+      <td>43.56%</td>
+      <td>35.69%</td>
+      <td>-9.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1384.73</td>
+      <td>0</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1450.50</td>
+      <td>2</td>
+      <td>22.96%</td>
+      <td>40.39%</td>
+      <td>36.65%</td>
+      <td>-13.93</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1488.17</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1401.47</td>
+      <td>1</td>
+      <td>43.26%</td>
+      <td>20.95%</td>
+      <td>35.79%</td>
+      <td>-15.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1450.50</td>
+      <td>2</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1384.73</td>
+      <td>0</td>
+      <td>40.39%</td>
+      <td>22.96%</td>
+      <td>36.65%</td>
+      <td>13.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>LNZ Cherkasy</td>
+      <td>1401.47</td>
+      <td>1</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1488.17</td>
+      <td>0</td>
+      <td>20.95%</td>
+      <td>43.26%</td>
+      <td>35.79%</td>
+      <td>15.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Karpaty Lviv</td>
+      <td>1429.74</td>
+      <td>3</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1548.89</td>
+      <td>3</td>
+      <td>18.32%</td>
+      <td>47.62%</td>
+      <td>34.06%</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1485.02</td>
+      <td>0</td>
+      <td>Kolos Kovalivka</td>
+      <td>1454.31</td>
+      <td>1</td>
+      <td>35.47%</td>
+      <td>26.94%</td>
+      <td>37.59%</td>
+      <td>-13.19</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Obolon Kyiv</td>
+      <td>1399.10</td>
+      <td>1</td>
+      <td>Oleksandriya</td>
+      <td>1478.64</td>
+      <td>0</td>
+      <td>21.61%</td>
+      <td>42.28%</td>
+      <td>36.11%</td>
+      <td>14.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1548.89</td>
+      <td>3</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1429.74</td>
+      <td>3</td>
+      <td>47.62%</td>
+      <td>18.32%</td>
+      <td>34.06%</td>
+      <td>-2.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Kolos Kovalivka</td>
+      <td>1454.31</td>
+      <td>1</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1485.02</td>
+      <td>0</td>
+      <td>26.94%</td>
+      <td>35.47%</td>
+      <td>37.59%</td>
+      <td>13.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Oleksandriya</td>
+      <td>1478.64</td>
+      <td>0</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1399.10</td>
+      <td>1</td>
+      <td>42.28%</td>
+      <td>21.61%</td>
+      <td>36.11%</td>
+      <td>-14.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Zorya Luhansk</td>
+      <td>1420.32</td>
+      <td>2</td>
+      <td>Kudrivka</td>
+      <td>1515.90</td>
+      <td>1</td>
+      <td>20.17%</td>
+      <td>44.46%</td>
+      <td>35.37%</td>
+      <td>15.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Kudrivka</td>
+      <td>1515.90</td>
+      <td>1</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1420.32</td>
+      <td>2</td>
+      <td>44.46%</td>
+      <td>20.17%</td>
+      <td>35.37%</td>
+      <td>-15.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Obolon Kyiv</td>
+      <td>1413.94</td>
+      <td>2</td>
+      <td>@ Rukh Lviv</td>
+      <td>1430.57</td>
+      <td>1</td>
+      <td>28.76%</td>
+      <td>33.46%</td>
+      <td>37.77%</td>
+      <td>12.70</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Rukh Lviv</td>
+      <td>1430.57</td>
+      <td>1</td>
+      <td>Obolon Kyiv</td>
+      <td>1413.94</td>
+      <td>2</td>
+      <td>33.46%</td>
+      <td>28.76%</td>
+      <td>37.77%</td>
+      <td>-12.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1370.80</td>
+      <td>4</td>
+      <td>@ Oleksandriya</td>
+      <td>1463.80</td>
+      <td>1</td>
+      <td>20.39%</td>
+      <td>44.11%</td>
+      <td>35.49%</td>
+      <td>26.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Karpaty Lviv</td>
+      <td>1431.74</td>
+      <td>1</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1467.49</td>
+      <td>1</td>
+      <td>26.32%</td>
+      <td>36.19%</td>
+      <td>37.49%</td>
+      <td>0.62</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Dynamo Kyiv</td>
+      <td>1584.87</td>
+      <td>4</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1473.10</td>
+      <td>1</td>
+      <td>46.64%</td>
+      <td>18.87%</td>
+      <td>34.50%</td>
+      <td>14.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1473.10</td>
+      <td>1</td>
+      <td>Dynamo Kyiv</td>
+      <td>1584.87</td>
+      <td>4</td>
+      <td>18.87%</td>
+      <td>46.64%</td>
+      <td>34.50%</td>
+      <td>-14.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Oleksandriya</td>
+      <td>1463.80</td>
+      <td>1</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1370.80</td>
+      <td>4</td>
+      <td>44.11%</td>
+      <td>20.39%</td>
+      <td>35.49%</td>
+      <td>-26.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Kolos Kovalivka</td>
+      <td>1467.49</td>
+      <td>1</td>
+      <td>Karpaty Lviv</td>
+      <td>1431.74</td>
+      <td>1</td>
+      <td>36.19%</td>
+      <td>26.32%</td>
+      <td>37.49%</td>
+      <td>-0.62</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1546.89</td>
+      <td>2</td>
+      <td>@ Veres Rivne</td>
+      <td>1386.50</td>
+      <td>0</td>
+      <td>53.03%</td>
+      <td>15.71%</td>
+      <td>31.27%</td>
+      <td>9.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>LNZ Cherkasy</td>
+      <td>1416.55</td>
+      <td>2</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1471.83</td>
+      <td>0</td>
+      <td>24.07%</td>
+      <td>38.93%</td>
+      <td>37.00%</td>
+      <td>19.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Poltava</td>
+      <td>1493.59</td>
+      <td>1</td>
+      <td>@ Kudrivka</td>
+      <td>1500.53</td>
+      <td>3</td>
+      <td>30.09%</td>
+      <td>32.07%</td>
+      <td>37.84%</td>
+      <td>-16.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Kudrivka</td>
+      <td>1500.53</td>
+      <td>3</td>
+      <td>Poltava</td>
+      <td>1493.59</td>
+      <td>1</td>
+      <td>32.07%</td>
+      <td>30.09%</td>
+      <td>37.84%</td>
+      <td>16.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Veres Rivne</td>
+      <td>1386.50</td>
+      <td>0</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1546.89</td>
+      <td>2</td>
+      <td>15.71%</td>
+      <td>53.03%</td>
+      <td>31.27%</td>
+      <td>-9.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1471.83</td>
+      <td>0</td>
+      <td>LNZ Cherkasy</td>
+      <td>1416.55</td>
+      <td>2</td>
+      <td>38.93%</td>
+      <td>24.07%</td>
+      <td>37.00%</td>
+      <td>-19.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1464.42</td>
+      <td>3</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1435.69</td>
+      <td>2</td>
+      <td>35.19%</td>
+      <td>27.19%</td>
+      <td>37.62%</td>
+      <td>11.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Zorya Luhansk</td>
+      <td>1435.69</td>
+      <td>2</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1464.42</td>
+      <td>3</td>
+      <td>27.19%</td>
+      <td>35.19%</td>
+      <td>37.62%</td>
+      <td>-11.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Poltava</td>
+      <td>1476.80</td>
+      <td>1</td>
+      <td>Zorya Luhansk</td>
+      <td>1424.57</td>
+      <td>4</td>
+      <td>38.50%</td>
+      <td>24.41%</td>
+      <td>37.09%</td>
+      <td>-24.11</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Kudrivka</td>
+      <td>1517.32</td>
+      <td>2</td>
+      <td>Karpaty Lviv</td>
+      <td>1432.36</td>
+      <td>2</td>
+      <td>43.02%</td>
+      <td>21.10%</td>
+      <td>35.87%</td>
+      <td>-1.45</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Karpaty Lviv</td>
+      <td>1432.36</td>
+      <td>2</td>
+      <td>@ Kudrivka</td>
+      <td>1517.32</td>
+      <td>2</td>
+      <td>21.10%</td>
+      <td>43.02%</td>
+      <td>35.87%</td>
+      <td>1.45</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Zorya Luhansk</td>
+      <td>1424.57</td>
+      <td>4</td>
+      <td>@ Poltava</td>
+      <td>1476.80</td>
+      <td>1</td>
+      <td>24.41%</td>
+      <td>38.50%</td>
+      <td>37.09%</td>
+      <td>24.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1475.54</td>
+      <td>2</td>
+      <td>Obolon Kyiv</td>
+      <td>1426.64</td>
+      <td>1</td>
+      <td>38.04%</td>
+      <td>24.78%</td>
+      <td>37.18%</td>
+      <td>10.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Kolos Kovalivka</td>
+      <td>1466.87</td>
+      <td>1</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1458.64</td>
+      <td>0</td>
+      <td>32.26%</td>
+      <td>29.91%</td>
+      <td>37.83%</td>
+      <td>11.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1397.27</td>
+      <td>2</td>
+      <td>Rukh Lviv</td>
+      <td>1417.88</td>
+      <td>0</td>
+      <td>28.24%</td>
+      <td>34.03%</td>
+      <td>37.73%</td>
+      <td>18.15</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1458.64</td>
+      <td>0</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1466.87</td>
+      <td>1</td>
+      <td>29.91%</td>
+      <td>32.26%</td>
+      <td>37.83%</td>
+      <td>-11.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Obolon Kyiv</td>
+      <td>1426.64</td>
+      <td>1</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1475.54</td>
+      <td>2</td>
+      <td>24.78%</td>
+      <td>38.04%</td>
+      <td>37.18%</td>
+      <td>-10.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Rukh Lviv</td>
+      <td>1417.88</td>
+      <td>0</td>
+      <td>@ Metalist 1925 Kharkiv</td>
+      <td>1397.27</td>
+      <td>2</td>
+      <td>34.03%</td>
+      <td>28.24%</td>
+      <td>37.73%</td>
+      <td>-18.15</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1452.00</td>
+      <td>1</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1599.33</td>
+      <td>4</td>
+      <td>16.46%</td>
+      <td>51.33%</td>
+      <td>32.21%</td>
+      <td>-12.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Oleksandriya</td>
+      <td>1437.33</td>
+      <td>0</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1556.63</td>
+      <td>2</td>
+      <td>18.31%</td>
+      <td>47.64%</td>
+      <td>34.05%</td>
+      <td>-11.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Veres Rivne</td>
+      <td>1376.76</td>
+      <td>2</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1436.38</td>
+      <td>0</td>
+      <td>23.60%</td>
+      <td>39.53%</td>
+      <td>36.86%</td>
+      <td>20.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1556.63</td>
+      <td>2</td>
+      <td>Oleksandriya</td>
+      <td>1437.33</td>
+      <td>0</td>
+      <td>47.64%</td>
+      <td>18.31%</td>
+      <td>34.05%</td>
+      <td>11.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Dynamo Kyiv</td>
+      <td>1599.33</td>
+      <td>4</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1452.00</td>
+      <td>1</td>
+      <td>51.33%</td>
+      <td>16.46%</td>
+      <td>32.21%</td>
+      <td>12.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>LNZ Cherkasy</td>
+      <td>1436.38</td>
+      <td>0</td>
+      <td>Veres Rivne</td>
+      <td>1376.76</td>
+      <td>2</td>
+      <td>39.53%</td>
+      <td>23.60%</td>
+      <td>36.86%</td>
+      <td>-20.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Kudrivka</td>
+      <td>1515.87</td>
+      <td>0</td>
+      <td>@ Veres Rivne</td>
+      <td>1396.80</td>
+      <td>2</td>
+      <td>47.61%</td>
+      <td>18.33%</td>
+      <td>34.07%</td>
+      <td>-22.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>LNZ Cherkasy</td>
+      <td>1416.34</td>
+      <td>1</td>
+      <td>@ Oleksandriya</td>
+      <td>1425.86</td>
+      <td>4</td>
+      <td>29.73%</td>
+      <td>32.44%</td>
+      <td>37.82%</td>
+      <td>-20.41</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Oleksandriya</td>
+      <td>1425.86</td>
+      <td>4</td>
+      <td>LNZ Cherkasy</td>
+      <td>1416.34</td>
+      <td>1</td>
+      <td>32.44%</td>
+      <td>29.73%</td>
+      <td>37.82%</td>
+      <td>20.41</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Veres Rivne</td>
+      <td>1396.80</td>
+      <td>2</td>
+      <td>Kudrivka</td>
+      <td>1515.87</td>
+      <td>0</td>
+      <td>18.33%</td>
+      <td>47.61%</td>
+      <td>34.07%</td>
+      <td>22.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1446.81</td>
+      <td>1</td>
+      <td>@ Rukh Lviv</td>
+      <td>1399.73</td>
+      <td>0</td>
+      <td>37.78%</td>
+      <td>24.99%</td>
+      <td>37.23%</td>
+      <td>10.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1568.10</td>
+      <td>1</td>
+      <td>@ Metalist 1925 Kharkiv</td>
+      <td>1415.42</td>
+      <td>1</td>
+      <td>52.03%</td>
+      <td>16.14%</td>
+      <td>31.83%</td>
+      <td>-2.50</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1415.42</td>
+      <td>1</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1568.10</td>
+      <td>1</td>
+      <td>16.14%</td>
+      <td>52.03%</td>
+      <td>31.83%</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Obolon Kyiv</td>
+      <td>1416.22</td>
+      <td>2</td>
+      <td>Dynamo Kyiv</td>
+      <td>1611.91</td>
+      <td>2</td>
+      <td>13.95%</td>
+      <td>57.57%</td>
+      <td>28.48%</td>
+      <td>3.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Rukh Lviv</td>
+      <td>1399.73</td>
+      <td>0</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1446.81</td>
+      <td>1</td>
+      <td>24.99%</td>
+      <td>37.78%</td>
+      <td>37.23%</td>
+      <td>-10.48</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Dynamo Kyiv</td>
+      <td>1611.91</td>
+      <td>2</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1416.22</td>
+      <td>2</td>
+      <td>57.57%</td>
+      <td>13.95%</td>
+      <td>28.48%</td>
+      <td>-3.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1485.96</td>
+      <td>0</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1439.41</td>
+      <td>1</td>
+      <td>37.71%</td>
+      <td>25.05%</td>
+      <td>37.25%</td>
+      <td>-13.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Karpaty Lviv</td>
+      <td>1433.81</td>
+      <td>1</td>
+      <td>Poltava</td>
+      <td>1452.69</td>
+      <td>1</td>
+      <td>28.47%</td>
+      <td>33.78%</td>
+      <td>37.75%</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1439.41</td>
+      <td>1</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1485.96</td>
+      <td>0</td>
+      <td>25.05%</td>
+      <td>37.71%</td>
+      <td>37.25%</td>
+      <td>13.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Kolos Kovalivka</td>
+      <td>1478.70</td>
+      <td>3</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1448.69</td>
+      <td>1</td>
+      <td>35.37%</td>
+      <td>27.03%</td>
+      <td>37.60%</td>
+      <td>15.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Zorya Luhansk</td>
+      <td>1448.69</td>
+      <td>1</td>
+      <td>Kolos Kovalivka</td>
+      <td>1478.70</td>
+      <td>3</td>
+      <td>27.03%</td>
+      <td>35.37%</td>
+      <td>37.60%</td>
+      <td>-15.66</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Poltava</td>
+      <td>1452.69</td>
+      <td>1</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1433.81</td>
+      <td>1</td>
+      <td>33.78%</td>
+      <td>28.47%</td>
+      <td>37.75%</td>
+      <td>-0.33</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Veres Rivne</td>
+      <td>1419.59</td>
+      <td>0</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1494.36</td>
+      <td>0</td>
+      <td>22.06%</td>
+      <td>41.63%</td>
+      <td>36.31%</td>
+      <td>1.28</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Kolos Kovalivka</td>
+      <td>1494.36</td>
+      <td>0</td>
+      <td>Veres Rivne</td>
+      <td>1419.59</td>
+      <td>0</td>
+      <td>41.63%</td>
+      <td>22.06%</td>
+      <td>36.31%</td>
+      <td>-1.29</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1453.14</td>
+      <td>2</td>
+      <td>Kudrivka</td>
+      <td>1493.08</td>
+      <td>0</td>
+      <td>25.82%</td>
+      <td>36.77%</td>
+      <td>37.40%</td>
+      <td>19.10</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Kudrivka</td>
+      <td>1493.08</td>
+      <td>0</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1453.14</td>
+      <td>2</td>
+      <td>36.77%</td>
+      <td>25.82%</td>
+      <td>37.40%</td>
+      <td>-19.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>LNZ Cherkasy</td>
+      <td>1395.93</td>
+      <td>1</td>
+      <td>Rukh Lviv</td>
+      <td>1389.25</td>
+      <td>0</td>
+      <td>32.04%</td>
+      <td>30.13%</td>
+      <td>37.84%</td>
+      <td>11.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Poltava</td>
+      <td>1452.36</td>
+      <td>0</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1417.92</td>
+      <td>2</td>
+      <td>36.00%</td>
+      <td>26.48%</td>
+      <td>37.52%</td>
+      <td>-18.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1472.23</td>
+      <td>5</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1457.29</td>
+      <td>4</td>
+      <td>33.22%</td>
+      <td>28.99%</td>
+      <td>37.79%</td>
+      <td>11.60</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Rukh Lviv</td>
+      <td>1389.25</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1395.93</td>
+      <td>1</td>
+      <td>30.13%</td>
+      <td>32.04%</td>
+      <td>37.84%</td>
+      <td>-11.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1417.92</td>
+      <td>2</td>
+      <td>@ Poltava</td>
+      <td>1452.36</td>
+      <td>0</td>
+      <td>26.48%</td>
+      <td>36.00%</td>
+      <td>37.52%</td>
+      <td>18.83</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1457.29</td>
+      <td>4</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1472.23</td>
+      <td>5</td>
+      <td>28.99%</td>
+      <td>33.22%</td>
+      <td>37.79%</td>
+      <td>-11.59</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Zorya Luhansk</td>
+      <td>1433.03</td>
+      <td>0</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1565.60</td>
+      <td>1</td>
+      <td>17.39%</td>
+      <td>49.39%</td>
+      <td>33.22%</td>
+      <td>-7.71</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Oleksandriya</td>
+      <td>1446.27</td>
+      <td>2</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1608.82</td>
+      <td>2</td>
+      <td>15.59%</td>
+      <td>53.31%</td>
+      <td>31.10%</td>
+      <td>2.64</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Karpaty Lviv</td>
+      <td>1434.14</td>
+      <td>2</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1419.31</td>
+      <td>0</td>
+      <td>33.20%</td>
+      <td>29.01%</td>
+      <td>37.79%</td>
+      <td>16.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1565.60</td>
+      <td>1</td>
+      <td>Zorya Luhansk</td>
+      <td>1433.03</td>
+      <td>0</td>
+      <td>49.39%</td>
+      <td>17.39%</td>
+      <td>33.22%</td>
+      <td>7.70</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Obolon Kyiv</td>
+      <td>1419.31</td>
+      <td>0</td>
+      <td>Karpaty Lviv</td>
+      <td>1434.14</td>
+      <td>2</td>
+      <td>29.01%</td>
+      <td>33.20%</td>
+      <td>37.79%</td>
+      <td>-16.41</td>
+    </tr>
+    <tr>
+      <td>2025-09-22</td>
+      <td>Dynamo Kyiv</td>
+      <td>1608.82</td>
+      <td>2</td>
+      <td>Oleksandriya</td>
+      <td>1446.27</td>
+      <td>2</td>
+      <td>53.31%</td>
+      <td>15.59%</td>
+      <td>31.10%</td>
+      <td>-2.64</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Kudrivka</td>
+      <td>1473.99</td>
+      <td>2</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1445.70</td>
+      <td>1</td>
+      <td>35.13%</td>
+      <td>27.25%</td>
+      <td>37.63%</td>
+      <td>11.13</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1445.70</td>
+      <td>1</td>
+      <td>@ Kudrivka</td>
+      <td>1473.99</td>
+      <td>2</td>
+      <td>27.25%</td>
+      <td>35.13%</td>
+      <td>37.63%</td>
+      <td>-11.13</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Karpaty Lviv</td>
+      <td>1450.54</td>
+      <td>3</td>
+      <td>Dynamo Kyiv</td>
+      <td>1606.18</td>
+      <td>3</td>
+      <td>15.97%</td>
+      <td>52.41%</td>
+      <td>31.62%</td>
+      <td>2.55</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Dynamo Kyiv</td>
+      <td>1606.18</td>
+      <td>3</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1450.54</td>
+      <td>3</td>
+      <td>52.41%</td>
+      <td>15.97%</td>
+      <td>31.62%</td>
+      <td>-2.55</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Poltava</td>
+      <td>1433.53</td>
+      <td>0</td>
+      <td>@ Oleksandriya</td>
+      <td>1448.91</td>
+      <td>1</td>
+      <td>28.93%</td>
+      <td>33.28%</td>
+      <td>37.78%</td>
+      <td>-11.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Zorya Luhansk</td>
+      <td>1425.32</td>
+      <td>0</td>
+      <td>Obolon Kyiv</td>
+      <td>1402.90</td>
+      <td>0</td>
+      <td>34.29%</td>
+      <td>28.00%</td>
+      <td>37.71%</td>
+      <td>-0.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Oleksandriya</td>
+      <td>1448.91</td>
+      <td>1</td>
+      <td>Poltava</td>
+      <td>1433.53</td>
+      <td>0</td>
+      <td>33.28%</td>
+      <td>28.93%</td>
+      <td>37.78%</td>
+      <td>11.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Obolon Kyiv</td>
+      <td>1402.90</td>
+      <td>0</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1425.32</td>
+      <td>0</td>
+      <td>28.00%</td>
+      <td>34.29%</td>
+      <td>37.71%</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1573.30</td>
+      <td>4</td>
+      <td>@ Rukh Lviv</td>
+      <td>1377.37</td>
+      <td>0</td>
+      <td>57.60%</td>
+      <td>13.94%</td>
+      <td>28.46%</td>
+      <td>11.85</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Rukh Lviv</td>
+      <td>1377.37</td>
+      <td>0</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1573.30</td>
+      <td>4</td>
+      <td>13.94%</td>
+      <td>57.60%</td>
+      <td>28.46%</td>
+      <td>-11.85</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1436.75</td>
+      <td>1</td>
+      <td>Kolos Kovalivka</td>
+      <td>1493.07</td>
+      <td>0</td>
+      <td>23.96%</td>
+      <td>39.07%</td>
+      <td>36.97%</td>
+      <td>14.06</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>LNZ Cherkasy</td>
+      <td>1407.81</td>
+      <td>0</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1483.83</td>
+      <td>0</td>
+      <td>21.94%</td>
+      <td>41.80%</td>
+      <td>36.26%</td>
+      <td>1.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Kolos Kovalivka</td>
+      <td>1493.07</td>
+      <td>0</td>
+      <td>@ Metalist 1925 Kharkiv</td>
+      <td>1436.75</td>
+      <td>1</td>
+      <td>39.07%</td>
+      <td>23.96%</td>
+      <td>36.97%</td>
+      <td>-14.06</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1483.83</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1407.81</td>
+      <td>0</td>
+      <td>41.80%</td>
+      <td>21.94%</td>
+      <td>36.26%</td>
+      <td>-1.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1472.24</td>
+      <td>4</td>
+      <td>@ Veres Rivne</td>
+      <td>1420.87</td>
+      <td>1</td>
+      <td>38.38%</td>
+      <td>24.50%</td>
+      <td>37.12%</td>
+      <td>17.90</td>
+    </tr>
+    <tr>
+      <td>2025-09-29</td>
+      <td>Veres Rivne</td>
+      <td>1420.87</td>
+      <td>1</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1472.24</td>
+      <td>4</td>
+      <td>24.50%</td>
+      <td>38.38%</td>
+      <td>37.12%</td>
+      <td>-17.90</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Zorya Luhansk</td>
+      <td>1424.93</td>
+      <td>2</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1434.57</td>
+      <td>1</td>
+      <td>29.71%</td>
+      <td>32.46%</td>
+      <td>37.82%</td>
+      <td>12.46</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Rukh Lviv</td>
+      <td>1365.52</td>
+      <td>2</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1479.01</td>
+      <td>0</td>
+      <td>18.74%</td>
+      <td>46.87%</td>
+      <td>34.40%</td>
+      <td>22.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1434.57</td>
+      <td>1</td>
+      <td>Zorya Luhansk</td>
+      <td>1424.93</td>
+      <td>2</td>
+      <td>32.46%</td>
+      <td>29.71%</td>
+      <td>37.82%</td>
+      <td>-12.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Kolos Kovalivka</td>
+      <td>1479.01</td>
+      <td>0</td>
+      <td>Rukh Lviv</td>
+      <td>1365.52</td>
+      <td>2</td>
+      <td>46.87%</td>
+      <td>18.74%</td>
+      <td>34.40%</td>
+      <td>-22.54</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Oleksandriya</td>
+      <td>1460.49</td>
+      <td>0</td>
+      <td>Karpaty Lviv</td>
+      <td>1453.09</td>
+      <td>2</td>
+      <td>32.14%</td>
+      <td>30.02%</td>
+      <td>37.83%</td>
+      <td>-17.50</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1490.14</td>
+      <td>4</td>
+      <td>Poltava</td>
+      <td>1421.95</td>
+      <td>0</td>
+      <td>40.72%</td>
+      <td>22.71%</td>
+      <td>36.56%</td>
+      <td>19.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Poltava</td>
+      <td>1421.95</td>
+      <td>0</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1490.14</td>
+      <td>4</td>
+      <td>22.71%</td>
+      <td>40.72%</td>
+      <td>36.56%</td>
+      <td>-19.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Karpaty Lviv</td>
+      <td>1453.09</td>
+      <td>2</td>
+      <td>@ Oleksandriya</td>
+      <td>1460.49</td>
+      <td>0</td>
+      <td>30.02%</td>
+      <td>32.14%</td>
+      <td>37.83%</td>
+      <td>17.50</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Obolon Kyiv</td>
+      <td>1403.30</td>
+      <td>1</td>
+      <td>Veres Rivne</td>
+      <td>1402.97</td>
+      <td>1</td>
+      <td>31.12%</td>
+      <td>31.03%</td>
+      <td>37.85%</td>
+      <td>-0.01</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Veres Rivne</td>
+      <td>1402.97</td>
+      <td>1</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1403.30</td>
+      <td>1</td>
+      <td>31.03%</td>
+      <td>31.12%</td>
+      <td>37.85%</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1450.81</td>
+      <td>1</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1603.63</td>
+      <td>1</td>
+      <td>16.13%</td>
+      <td>52.05%</td>
+      <td>31.82%</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>LNZ Cherkasy</td>
+      <td>1409.12</td>
+      <td>4</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1585.15</td>
+      <td>1</td>
+      <td>14.88%</td>
+      <td>55.05%</td>
+      <td>30.06%</td>
+      <td>30.79</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1585.15</td>
+      <td>1</td>
+      <td>LNZ Cherkasy</td>
+      <td>1409.12</td>
+      <td>4</td>
+      <td>55.05%</td>
+      <td>14.88%</td>
+      <td>30.06%</td>
+      <td>-30.79</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Dynamo Kyiv</td>
+      <td>1603.63</td>
+      <td>1</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1450.81</td>
+      <td>1</td>
+      <td>52.05%</td>
+      <td>16.13%</td>
+      <td>31.82%</td>
+      <td>-2.50</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1482.52</td>
+      <td>3</td>
+      <td>Kudrivka</td>
+      <td>1485.12</td>
+      <td>1</td>
+      <td>30.70%</td>
+      <td>31.45%</td>
+      <td>37.85%</td>
+      <td>17.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Kudrivka</td>
+      <td>1485.12</td>
+      <td>1</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1482.52</td>
+      <td>3</td>
+      <td>31.45%</td>
+      <td>30.70%</td>
+      <td>37.85%</td>
+      <td>-17.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Obolon Kyiv</td>
+      <td>1403.29</td>
+      <td>2</td>
+      <td>@ Poltava</td>
+      <td>1402.42</td>
+      <td>1</td>
+      <td>31.20%</td>
+      <td>30.95%</td>
+      <td>37.85%</td>
+      <td>12.08</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Poltava</td>
+      <td>1402.42</td>
+      <td>1</td>
+      <td>Obolon Kyiv</td>
+      <td>1403.29</td>
+      <td>2</td>
+      <td>30.95%</td>
+      <td>31.20%</td>
+      <td>37.85%</td>
+      <td>-12.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Dynamo Kyiv</td>
+      <td>1601.13</td>
+      <td>1</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1437.39</td>
+      <td>1</td>
+      <td>53.46%</td>
+      <td>15.52%</td>
+      <td>31.01%</td>
+      <td>-2.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1509.67</td>
+      <td>0</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1554.36</td>
+      <td>0</td>
+      <td>25.26%</td>
+      <td>37.44%</td>
+      <td>37.29%</td>
+      <td>0.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1554.36</td>
+      <td>0</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1509.67</td>
+      <td>0</td>
+      <td>37.44%</td>
+      <td>25.26%</td>
+      <td>37.29%</td>
+      <td>-0.77</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1499.78</td>
+      <td>2</td>
+      <td>@ Rukh Lviv</td>
+      <td>1388.05</td>
+      <td>1</td>
+      <td>46.63%</td>
+      <td>18.87%</td>
+      <td>34.50%</td>
+      <td>8.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Zorya Luhansk</td>
+      <td>1437.39</td>
+      <td>1</td>
+      <td>Dynamo Kyiv</td>
+      <td>1601.13</td>
+      <td>1</td>
+      <td>15.52%</td>
+      <td>53.46%</td>
+      <td>31.01%</td>
+      <td>2.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Rukh Lviv</td>
+      <td>1388.05</td>
+      <td>1</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1499.78</td>
+      <td>2</td>
+      <td>18.87%</td>
+      <td>46.63%</td>
+      <td>34.50%</td>
+      <td>-8.34</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Karpaty Lviv</td>
+      <td>1470.59</td>
+      <td>1</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1422.12</td>
+      <td>3</td>
+      <td>37.98%</td>
+      <td>24.83%</td>
+      <td>37.20%</td>
+      <td>-19.51</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Veres Rivne</td>
+      <td>1402.97</td>
+      <td>1</td>
+      <td>Oleksandriya</td>
+      <td>1442.99</td>
+      <td>1</td>
+      <td>25.81%</td>
+      <td>36.79%</td>
+      <td>37.40%</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>LNZ Cherkasy</td>
+      <td>1439.91</td>
+      <td>1</td>
+      <td>Kolos Kovalivka</td>
+      <td>1456.47</td>
+      <td>0</td>
+      <td>28.78%</td>
+      <td>33.45%</td>
+      <td>37.77%</td>
+      <td>12.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Kolos Kovalivka</td>
+      <td>1456.47</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1439.91</td>
+      <td>1</td>
+      <td>33.45%</td>
+      <td>28.78%</td>
+      <td>37.77%</td>
+      <td>-12.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1422.12</td>
+      <td>3</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1470.59</td>
+      <td>1</td>
+      <td>24.83%</td>
+      <td>37.98%</td>
+      <td>37.20%</td>
+      <td>19.51</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Oleksandriya</td>
+      <td>1442.99</td>
+      <td>1</td>
+      <td>@ Veres Rivne</td>
+      <td>1402.97</td>
+      <td>1</td>
+      <td>36.79%</td>
+      <td>25.81%</td>
+      <td>37.40%</td>
+      <td>-0.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1453.31</td>
+      <td>1</td>
+      <td>@ Kudrivka</td>
+      <td>1467.86</td>
+      <td>1</td>
+      <td>29.04%</td>
+      <td>33.16%</td>
+      <td>37.79%</td>
+      <td>0.26</td>
+    </tr>
+    <tr>
+      <td>2025-10-20</td>
+      <td>Kudrivka</td>
+      <td>1467.86</td>
+      <td>1</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1453.31</td>
+      <td>1</td>
+      <td>33.16%</td>
+      <td>29.04%</td>
+      <td>37.79%</td>
+      <td>-0.25</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Veres Rivne</td>
+      <td>1403.67</td>
+      <td>0</td>
+      <td>Zorya Luhansk</td>
+      <td>1440.05</td>
+      <td>0</td>
+      <td>26.25%</td>
+      <td>36.27%</td>
+      <td>37.48%</td>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1441.63</td>
+      <td>1</td>
+      <td>@ Oleksandriya</td>
+      <td>1442.30</td>
+      <td>0</td>
+      <td>30.98%</td>
+      <td>31.17%</td>
+      <td>37.85%</td>
+      <td>12.14</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Oleksandriya</td>
+      <td>1442.30</td>
+      <td>0</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1441.63</td>
+      <td>1</td>
+      <td>31.17%</td>
+      <td>30.98%</td>
+      <td>37.85%</td>
+      <td>-12.14</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Zorya Luhansk</td>
+      <td>1440.05</td>
+      <td>0</td>
+      <td>@ Veres Rivne</td>
+      <td>1403.67</td>
+      <td>0</td>
+      <td>36.27%</td>
+      <td>26.25%</td>
+      <td>37.48%</td>
+      <td>-0.64</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1453.57</td>
+      <td>0</td>
+      <td>LNZ Cherkasy</td>
+      <td>1452.60</td>
+      <td>1</td>
+      <td>31.22%</td>
+      <td>30.93%</td>
+      <td>37.85%</td>
+      <td>-12.15</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Karpaty Lviv</td>
+      <td>1451.08</td>
+      <td>0</td>
+      <td>Rukh Lviv</td>
+      <td>1379.71</td>
+      <td>0</td>
+      <td>41.16%</td>
+      <td>22.40%</td>
+      <td>36.44%</td>
+      <td>-1.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Obolon Kyiv</td>
+      <td>1415.37</td>
+      <td>0</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1510.45</td>
+      <td>4</td>
+      <td>20.22%</td>
+      <td>44.39%</td>
+      <td>35.39%</td>
+      <td>-17.76</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1510.45</td>
+      <td>4</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1415.37</td>
+      <td>0</td>
+      <td>44.39%</td>
+      <td>20.22%</td>
+      <td>35.39%</td>
+      <td>17.76</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Rukh Lviv</td>
+      <td>1379.71</td>
+      <td>0</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1451.08</td>
+      <td>0</td>
+      <td>22.40%</td>
+      <td>41.16%</td>
+      <td>36.44%</td>
+      <td>1.22</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>LNZ Cherkasy</td>
+      <td>1452.60</td>
+      <td>1</td>
+      <td>@ Metalist 1925 Kharkiv</td>
+      <td>1453.57</td>
+      <td>0</td>
+      <td>30.93%</td>
+      <td>31.22%</td>
+      <td>37.85%</td>
+      <td>12.15</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Kolos Kovalivka</td>
+      <td>1443.78</td>
+      <td>2</td>
+      <td>@ Poltava</td>
+      <td>1390.33</td>
+      <td>2</td>
+      <td>38.67%</td>
+      <td>24.27%</td>
+      <td>37.06%</td>
+      <td>-0.93</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Poltava</td>
+      <td>1390.33</td>
+      <td>2</td>
+      <td>Kolos Kovalivka</td>
+      <td>1443.78</td>
+      <td>2</td>
+      <td>24.27%</td>
+      <td>38.67%</td>
+      <td>37.06%</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1553.59</td>
+      <td>4</td>
+      <td>Kudrivka</td>
+      <td>1467.61</td>
+      <td>0</td>
+      <td>43.16%</td>
+      <td>21.01%</td>
+      <td>35.83%</td>
+      <td>18.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Dynamo Kyiv</td>
+      <td>1598.47</td>
+      <td>4</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1508.13</td>
+      <td>0</td>
+      <td>43.75%</td>
+      <td>20.62%</td>
+      <td>35.62%</td>
+      <td>18.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1508.13</td>
+      <td>0</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1598.47</td>
+      <td>4</td>
+      <td>20.62%</td>
+      <td>43.75%</td>
+      <td>35.62%</td>
+      <td>-18.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Kudrivka</td>
+      <td>1467.61</td>
+      <td>0</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1553.59</td>
+      <td>4</td>
+      <td>21.01%</td>
+      <td>43.16%</td>
+      <td>35.83%</td>
+      <td>-18.36</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Obolon Kyiv</td>
+      <td>1397.61</td>
+      <td>0</td>
+      <td>@ Kudrivka</td>
+      <td>1449.25</td>
+      <td>1</td>
+      <td>24.47%</td>
+      <td>38.42%</td>
+      <td>37.11%</td>
+      <td>-10.32</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Kudrivka</td>
+      <td>1449.25</td>
+      <td>1</td>
+      <td>Obolon Kyiv</td>
+      <td>1397.61</td>
+      <td>0</td>
+      <td>38.42%</td>
+      <td>24.47%</td>
+      <td>37.11%</td>
+      <td>10.33</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1490.06</td>
+      <td>2</td>
+      <td>Poltava</td>
+      <td>1391.26</td>
+      <td>2</td>
+      <td>44.90%</td>
+      <td>19.90%</td>
+      <td>35.20%</td>
+      <td>-1.68</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1453.77</td>
+      <td>2</td>
+      <td>Veres Rivne</td>
+      <td>1404.30</td>
+      <td>3</td>
+      <td>38.12%</td>
+      <td>24.72%</td>
+      <td>37.17%</td>
+      <td>-13.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Kolos Kovalivka</td>
+      <td>1442.85</td>
+      <td>1</td>
+      <td>Oleksandriya</td>
+      <td>1430.16</td>
+      <td>1</td>
+      <td>32.90%</td>
+      <td>29.30%</td>
+      <td>37.80%</td>
+      <td>-0.22</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Poltava</td>
+      <td>1391.26</td>
+      <td>2</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1490.06</td>
+      <td>2</td>
+      <td>19.90%</td>
+      <td>44.90%</td>
+      <td>35.20%</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Oleksandriya</td>
+      <td>1430.16</td>
+      <td>1</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1442.85</td>
+      <td>1</td>
+      <td>29.30%</td>
+      <td>32.90%</td>
+      <td>37.80%</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Veres Rivne</td>
+      <td>1404.30</td>
+      <td>3</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1453.77</td>
+      <td>2</td>
+      <td>24.72%</td>
+      <td>38.12%</td>
+      <td>37.17%</td>
+      <td>13.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1571.94</td>
+      <td>3</td>
+      <td>Dynamo Kyiv</td>
+      <td>1616.53</td>
+      <td>1</td>
+      <td>25.27%</td>
+      <td>37.43%</td>
+      <td>37.30%</td>
+      <td>19.32</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Zorya Luhansk</td>
+      <td>1439.41</td>
+      <td>1</td>
+      <td>Rukh Lviv</td>
+      <td>1380.93</td>
+      <td>0</td>
+      <td>39.38%</td>
+      <td>23.72%</td>
+      <td>36.90%</td>
+      <td>10.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Rukh Lviv</td>
+      <td>1380.93</td>
+      <td>0</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1439.41</td>
+      <td>1</td>
+      <td>23.72%</td>
+      <td>39.38%</td>
+      <td>36.90%</td>
+      <td>-10.09</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Dynamo Kyiv</td>
+      <td>1616.53</td>
+      <td>1</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1571.94</td>
+      <td>3</td>
+      <td>37.43%</td>
+      <td>25.27%</td>
+      <td>37.30%</td>
+      <td>-19.31</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1528.21</td>
+      <td>0</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1441.42</td>
+      <td>0</td>
+      <td>43.27%</td>
+      <td>20.94%</td>
+      <td>35.79%</td>
+      <td>-1.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>LNZ Cherkasy</td>
+      <td>1464.75</td>
+      <td>0</td>
+      <td>Karpaty Lviv</td>
+      <td>1449.85</td>
+      <td>1</td>
+      <td>33.22%</td>
+      <td>29.00%</td>
+      <td>37.79%</td>
+      <td>-12.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1441.42</td>
+      <td>0</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1528.21</td>
+      <td>0</td>
+      <td>20.94%</td>
+      <td>43.27%</td>
+      <td>35.79%</td>
+      <td>1.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Karpaty Lviv</td>
+      <td>1449.85</td>
+      <td>1</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1464.75</td>
+      <td>0</td>
+      <td>29.00%</td>
+      <td>33.22%</td>
+      <td>37.79%</td>
+      <td>12.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Kudrivka</td>
+      <td>1459.58</td>
+      <td>1</td>
+      <td>Kolos Kovalivka</td>
+      <td>1442.63</td>
+      <td>3</td>
+      <td>33.51%</td>
+      <td>28.72%</td>
+      <td>37.77%</td>
+      <td>-17.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1439.94</td>
+      <td>1</td>
+      <td>Obolon Kyiv</td>
+      <td>1387.29</td>
+      <td>2</td>
+      <td>38.56%</td>
+      <td>24.36%</td>
+      <td>37.08%</td>
+      <td>-13.94</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Kolos Kovalivka</td>
+      <td>1442.63</td>
+      <td>3</td>
+      <td>@ Kudrivka</td>
+      <td>1459.58</td>
+      <td>1</td>
+      <td>28.72%</td>
+      <td>33.51%</td>
+      <td>37.77%</td>
+      <td>17.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Obolon Kyiv</td>
+      <td>1387.29</td>
+      <td>2</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1439.94</td>
+      <td>1</td>
+      <td>24.36%</td>
+      <td>38.56%</td>
+      <td>37.08%</td>
+      <td>13.93</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1442.90</td>
+      <td>1</td>
+      <td>Zorya Luhansk</td>
+      <td>1449.51</td>
+      <td>3</td>
+      <td>30.14%</td>
+      <td>32.02%</td>
+      <td>37.84%</td>
+      <td>-16.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Zorya Luhansk</td>
+      <td>1449.51</td>
+      <td>3</td>
+      <td>@ Metalist 1925 Kharkiv</td>
+      <td>1442.90</td>
+      <td>1</td>
+      <td>32.02%</td>
+      <td>30.14%</td>
+      <td>37.84%</td>
+      <td>16.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Rukh Lviv</td>
+      <td>1370.84</td>
+      <td>0</td>
+      <td>@ Veres Rivne</td>
+      <td>1418.13</td>
+      <td>1</td>
+      <td>24.96%</td>
+      <td>37.81%</td>
+      <td>37.23%</td>
+      <td>-10.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1488.38</td>
+      <td>0</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1462.49</td>
+      <td>1</td>
+      <td>34.78%</td>
+      <td>27.55%</td>
+      <td>37.66%</td>
+      <td>-13.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Veres Rivne</td>
+      <td>1418.13</td>
+      <td>1</td>
+      <td>Rukh Lviv</td>
+      <td>1370.84</td>
+      <td>0</td>
+      <td>37.81%</td>
+      <td>24.96%</td>
+      <td>37.23%</td>
+      <td>10.47</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Karpaty Lviv</td>
+      <td>1462.49</td>
+      <td>1</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1488.38</td>
+      <td>0</td>
+      <td>27.55%</td>
+      <td>34.78%</td>
+      <td>37.66%</td>
+      <td>13.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Dynamo Kyiv</td>
+      <td>1597.22</td>
+      <td>0</td>
+      <td>LNZ Cherkasy</td>
+      <td>1452.11</td>
+      <td>1</td>
+      <td>51.04%</td>
+      <td>16.59%</td>
+      <td>32.37%</td>
+      <td>-16.90</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1591.26</td>
+      <td>7</td>
+      <td>Poltava</td>
+      <td>1392.94</td>
+      <td>1</td>
+      <td>57.91%</td>
+      <td>13.83%</td>
+      <td>28.26%</td>
+      <td>14.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Poltava</td>
+      <td>1392.94</td>
+      <td>1</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1591.26</td>
+      <td>7</td>
+      <td>13.83%</td>
+      <td>57.91%</td>
+      <td>28.26%</td>
+      <td>-14.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>LNZ Cherkasy</td>
+      <td>1452.11</td>
+      <td>1</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1597.22</td>
+      <td>0</td>
+      <td>16.59%</td>
+      <td>51.04%</td>
+      <td>32.37%</td>
+      <td>16.90</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1526.73</td>
+      <td>3</td>
+      <td>@ Oleksandriya</td>
+      <td>1430.38</td>
+      <td>0</td>
+      <td>44.56%</td>
+      <td>20.11%</td>
+      <td>35.33%</td>
+      <td>15.31</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Oleksandriya</td>
+      <td>1430.38</td>
+      <td>0</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1526.73</td>
+      <td>3</td>
+      <td>20.11%</td>
+      <td>44.56%</td>
+      <td>35.33%</td>
+      <td>-15.31</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>LNZ Cherkasy</td>
+      <td>1469.01</td>
+      <td>2</td>
+      <td>@ Poltava</td>
+      <td>1378.57</td>
+      <td>0</td>
+      <td>43.76%</td>
+      <td>20.62%</td>
+      <td>35.62%</td>
+      <td>12.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Poltava</td>
+      <td>1378.57</td>
+      <td>0</td>
+      <td>LNZ Cherkasy</td>
+      <td>1469.01</td>
+      <td>2</td>
+      <td>20.62%</td>
+      <td>43.76%</td>
+      <td>35.62%</td>
+      <td>-12.77</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1605.62</td>
+      <td>6</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1401.22</td>
+      <td>0</td>
+      <td>58.68%</td>
+      <td>13.57%</td>
+      <td>27.75%</td>
+      <td>13.99</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Karpaty Lviv</td>
+      <td>1475.50</td>
+      <td>1</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1426.09</td>
+      <td>2</td>
+      <td>38.11%</td>
+      <td>24.72%</td>
+      <td>37.17%</td>
+      <td>-13.82</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1426.09</td>
+      <td>2</td>
+      <td>@ Karpaty Lviv</td>
+      <td>1475.50</td>
+      <td>1</td>
+      <td>24.72%</td>
+      <td>38.11%</td>
+      <td>37.17%</td>
+      <td>13.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Dynamo Kyiv</td>
+      <td>1580.32</td>
+      <td>1</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1460.60</td>
+      <td>2</td>
+      <td>47.69%</td>
+      <td>18.28%</td>
+      <td>34.03%</td>
+      <td>-16.14</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Obolon Kyiv</td>
+      <td>1401.22</td>
+      <td>0</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1605.62</td>
+      <td>6</td>
+      <td>13.57%</td>
+      <td>58.68%</td>
+      <td>27.75%</td>
+      <td>-13.98</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Kolos Kovalivka</td>
+      <td>1460.60</td>
+      <td>2</td>
+      <td>Dynamo Kyiv</td>
+      <td>1580.32</td>
+      <td>1</td>
+      <td>18.28%</td>
+      <td>47.69%</td>
+      <td>34.03%</td>
+      <td>16.13</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1542.04</td>
+      <td>0</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1426.00</td>
+      <td>0</td>
+      <td>47.21%</td>
+      <td>18.55%</td>
+      <td>34.25%</td>
+      <td>-1.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1475.37</td>
+      <td>2</td>
+      <td>Veres Rivne</td>
+      <td>1428.60</td>
+      <td>2</td>
+      <td>37.74%</td>
+      <td>25.02%</td>
+      <td>37.24%</td>
+      <td>-0.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1426.00</td>
+      <td>0</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1542.04</td>
+      <td>0</td>
+      <td>18.55%</td>
+      <td>47.21%</td>
+      <td>34.25%</td>
+      <td>1.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Rukh Lviv</td>
+      <td>1360.36</td>
+      <td>4</td>
+      <td>Kudrivka</td>
+      <td>1441.61</td>
+      <td>2</td>
+      <td>21.45%</td>
+      <td>42.51%</td>
+      <td>36.04%</td>
+      <td>21.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Veres Rivne</td>
+      <td>1428.60</td>
+      <td>2</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1475.37</td>
+      <td>2</td>
+      <td>25.02%</td>
+      <td>37.74%</td>
+      <td>37.24%</td>
+      <td>0.82</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Kudrivka</td>
+      <td>1441.61</td>
+      <td>2</td>
+      <td>@ Rukh Lviv</td>
+      <td>1360.36</td>
+      <td>4</td>
+      <td>42.51%</td>
+      <td>21.45%</td>
+      <td>36.04%</td>
+      <td>-21.07</td>
+    </tr>
+    <tr>
+      <td>2025-11-24</td>
+      <td>Zorya Luhansk</td>
+      <td>1466.32</td>
+      <td>2</td>
+      <td>Oleksandriya</td>
+      <td>1415.07</td>
+      <td>2</td>
+      <td>38.37%</td>
+      <td>24.52%</td>
+      <td>37.12%</td>
+      <td>-0.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-24</td>
+      <td>Oleksandriya</td>
+      <td>1415.07</td>
+      <td>2</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1466.32</td>
+      <td>2</td>
+      <td>24.52%</td>
+      <td>38.37%</td>
+      <td>37.12%</td>
+      <td>0.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Kolos Kovalivka</td>
+      <td>1476.73</td>
+      <td>3</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1387.24</td>
+      <td>0</td>
+      <td>43.64%</td>
+      <td>20.70%</td>
+      <td>35.66%</td>
+      <td>15.70</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Obolon Kyiv</td>
+      <td>1387.24</td>
+      <td>0</td>
+      <td>Kolos Kovalivka</td>
+      <td>1476.73</td>
+      <td>3</td>
+      <td>20.70%</td>
+      <td>43.64%</td>
+      <td>35.66%</td>
+      <td>-15.70</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Karpaty Lviv</td>
+      <td>1461.68</td>
+      <td>0</td>
+      <td>@ Veres Rivne</td>
+      <td>1429.42</td>
+      <td>0</td>
+      <td>35.69%</td>
+      <td>26.75%</td>
+      <td>37.56%</td>
+      <td>-0.56</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Kudrivka</td>
+      <td>1420.54</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1481.79</td>
+      <td>1</td>
+      <td>23.43%</td>
+      <td>39.76%</td>
+      <td>36.81%</td>
+      <td>-10.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>LNZ Cherkasy</td>
+      <td>1481.79</td>
+      <td>1</td>
+      <td>Kudrivka</td>
+      <td>1420.54</td>
+      <td>0</td>
+      <td>39.76%</td>
+      <td>23.43%</td>
+      <td>36.81%</td>
+      <td>10.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Veres Rivne</td>
+      <td>1429.42</td>
+      <td>0</td>
+      <td>Karpaty Lviv</td>
+      <td>1461.68</td>
+      <td>0</td>
+      <td>26.75%</td>
+      <td>35.69%</td>
+      <td>37.56%</td>
+      <td>0.56</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Rukh Lviv</td>
+      <td>1381.43</td>
+      <td>1</td>
+      <td>@ Oleksandriya</td>
+      <td>1415.96</td>
+      <td>0</td>
+      <td>26.47%</td>
+      <td>36.01%</td>
+      <td>37.52%</td>
+      <td>13.32</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Oleksandriya</td>
+      <td>1415.96</td>
+      <td>0</td>
+      <td>Rukh Lviv</td>
+      <td>1381.43</td>
+      <td>1</td>
+      <td>36.01%</td>
+      <td>26.47%</td>
+      <td>37.52%</td>
+      <td>-13.32</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1439.92</td>
+      <td>0</td>
+      <td>@ Epitsentr Kamianets-Podilskyi</td>
+      <td>1427.95</td>
+      <td>0</td>
+      <td>32.79%</td>
+      <td>29.40%</td>
+      <td>37.81%</td>
+      <td>-0.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Zorya Luhansk</td>
+      <td>1465.43</td>
+      <td>0</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1540.09</td>
+      <td>2</td>
+      <td>22.07%</td>
+      <td>41.61%</td>
+      <td>36.31%</td>
+      <td>-13.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1427.95</td>
+      <td>0</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1439.92</td>
+      <td>0</td>
+      <td>29.40%</td>
+      <td>32.79%</td>
+      <td>37.81%</td>
+      <td>0.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1540.09</td>
+      <td>2</td>
+      <td>Zorya Luhansk</td>
+      <td>1465.43</td>
+      <td>0</td>
+      <td>41.61%</td>
+      <td>22.07%</td>
+      <td>36.31%</td>
+      <td>13.50</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1619.61</td>
+      <td>2</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1474.56</td>
+      <td>2</td>
+      <td>51.03%</td>
+      <td>16.60%</td>
+      <td>32.37%</td>
+      <td>-2.39</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Poltava</td>
+      <td>1365.80</td>
+      <td>2</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1564.18</td>
+      <td>1</td>
+      <td>13.83%</td>
+      <td>57.92%</td>
+      <td>28.25%</td>
+      <td>18.37</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1474.56</td>
+      <td>2</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1619.61</td>
+      <td>2</td>
+      <td>16.60%</td>
+      <td>51.03%</td>
+      <td>32.37%</td>
+      <td>2.39</td>
+    </tr>
+    <tr>
+      <td>2025-12-01</td>
+      <td>Dynamo Kyiv</td>
+      <td>1564.18</td>
+      <td>1</td>
+      <td>Poltava</td>
+      <td>1365.80</td>
+      <td>2</td>
+      <td>57.92%</td>
+      <td>13.83%</td>
+      <td>28.25%</td>
+      <td>-18.36</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Karpaty Lviv</td>
+      <td>1461.12</td>
+      <td>0</td>
+      <td>@ Zorya Luhansk</td>
+      <td>1451.92</td>
+      <td>1</td>
+      <td>32.39%</td>
+      <td>29.78%</td>
+      <td>37.83%</td>
+      <td>-12.44</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Zorya Luhansk</td>
+      <td>1451.92</td>
+      <td>1</td>
+      <td>Karpaty Lviv</td>
+      <td>1461.12</td>
+      <td>0</td>
+      <td>29.78%</td>
+      <td>32.39%</td>
+      <td>37.83%</td>
+      <td>12.44</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Dynamo Kyiv</td>
+      <td>1545.82</td>
+      <td>2</td>
+      <td>@ Kudrivka</td>
+      <td>1410.54</td>
+      <td>1</td>
+      <td>49.75%</td>
+      <td>17.21%</td>
+      <td>33.04%</td>
+      <td>7.62</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1617.22</td>
+      <td>0</td>
+      <td>@ Kolos Kovalivka</td>
+      <td>1492.43</td>
+      <td>0</td>
+      <td>48.37%</td>
+      <td>17.92%</td>
+      <td>33.72%</td>
+      <td>-2.09</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>LNZ Cherkasy</td>
+      <td>1491.79</td>
+      <td>3</td>
+      <td>Obolon Kyiv</td>
+      <td>1371.54</td>
+      <td>0</td>
+      <td>47.77%</td>
+      <td>18.24%</td>
+      <td>33.99%</td>
+      <td>13.99</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Kudrivka</td>
+      <td>1410.54</td>
+      <td>1</td>
+      <td>Dynamo Kyiv</td>
+      <td>1545.82</td>
+      <td>2</td>
+      <td>17.21%</td>
+      <td>49.75%</td>
+      <td>33.04%</td>
+      <td>-7.62</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Kolos Kovalivka</td>
+      <td>1492.43</td>
+      <td>0</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1617.22</td>
+      <td>0</td>
+      <td>17.92%</td>
+      <td>48.37%</td>
+      <td>33.72%</td>
+      <td>2.09</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Obolon Kyiv</td>
+      <td>1371.54</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1491.79</td>
+      <td>3</td>
+      <td>18.24%</td>
+      <td>47.77%</td>
+      <td>33.99%</td>
+      <td>-14.00</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1553.59</td>
+      <td>0</td>
+      <td>@ Rukh Lviv</td>
+      <td>1394.75</td>
+      <td>1</td>
+      <td>52.83%</td>
+      <td>15.79%</td>
+      <td>31.38%</td>
+      <td>-17.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Oleksandriya</td>
+      <td>1402.64</td>
+      <td>0</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1476.95</td>
+      <td>3</td>
+      <td>22.11%</td>
+      <td>41.56%</td>
+      <td>36.33%</td>
+      <td>-16.56</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1476.95</td>
+      <td>3</td>
+      <td>Oleksandriya</td>
+      <td>1402.64</td>
+      <td>0</td>
+      <td>41.56%</td>
+      <td>22.11%</td>
+      <td>36.33%</td>
+      <td>16.56</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Rukh Lviv</td>
+      <td>1394.75</td>
+      <td>1</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1553.59</td>
+      <td>0</td>
+      <td>15.79%</td>
+      <td>52.83%</td>
+      <td>31.38%</td>
+      <td>17.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1428.16</td>
+      <td>3</td>
+      <td>@ Poltava</td>
+      <td>1384.17</td>
+      <td>0</td>
+      <td>37.34%</td>
+      <td>25.34%</td>
+      <td>37.31%</td>
+      <td>18.34</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Poltava</td>
+      <td>1384.17</td>
+      <td>0</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1428.16</td>
+      <td>3</td>
+      <td>25.34%</td>
+      <td>37.34%</td>
+      <td>37.31%</td>
+      <td>-18.34</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Kudrivka</td>
+      <td>1402.92</td>
+      <td>1</td>
+      <td>@ Oleksandriya</td>
+      <td>1386.08</td>
+      <td>1</td>
+      <td>33.49%</td>
+      <td>28.74%</td>
+      <td>37.77%</td>
+      <td>-0.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1439.71</td>
+      <td>3</td>
+      <td>@ Obolon Kyiv</td>
+      <td>1357.54</td>
+      <td>1</td>
+      <td>42.64%</td>
+      <td>21.36%</td>
+      <td>36.00%</td>
+      <td>13.16</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Obolon Kyiv</td>
+      <td>1357.54</td>
+      <td>1</td>
+      <td>Metalist 1925 Kharkiv</td>
+      <td>1439.71</td>
+      <td>3</td>
+      <td>21.36%</td>
+      <td>42.64%</td>
+      <td>36.00%</td>
+      <td>-13.15</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Oleksandriya</td>
+      <td>1386.08</td>
+      <td>1</td>
+      <td>Kudrivka</td>
+      <td>1402.92</td>
+      <td>1</td>
+      <td>28.74%</td>
+      <td>33.49%</td>
+      <td>37.77%</td>
+      <td>0.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Karpaty Lviv</td>
+      <td>1448.68</td>
+      <td>2</td>
+      <td>@ Polissya Zhytomyr</td>
+      <td>1536.30</td>
+      <td>3</td>
+      <td>20.87%</td>
+      <td>43.38%</td>
+      <td>35.75%</td>
+      <td>-9.12</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Kolos Kovalivka</td>
+      <td>1494.52</td>
+      <td>1</td>
+      <td>@ Kryvbas Kryvyi Rih</td>
+      <td>1493.51</td>
+      <td>1</td>
+      <td>31.22%</td>
+      <td>30.93%</td>
+      <td>37.85%</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Kryvbas Kryvyi Rih</td>
+      <td>1493.51</td>
+      <td>1</td>
+      <td>Kolos Kovalivka</td>
+      <td>1494.52</td>
+      <td>1</td>
+      <td>30.93%</td>
+      <td>31.22%</td>
+      <td>37.85%</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>LNZ Cherkasy</td>
+      <td>1505.78</td>
+      <td>2</td>
+      <td>Zorya Luhansk</td>
+      <td>1464.36</td>
+      <td>0</td>
+      <td>36.99%</td>
+      <td>25.64%</td>
+      <td>37.37%</td>
+      <td>15.10</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Polissya Zhytomyr</td>
+      <td>1536.30</td>
+      <td>3</td>
+      <td>Karpaty Lviv</td>
+      <td>1448.68</td>
+      <td>2</td>
+      <td>43.38%</td>
+      <td>20.87%</td>
+      <td>35.75%</td>
+      <td>9.12</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Zorya Luhansk</td>
+      <td>1464.36</td>
+      <td>0</td>
+      <td>@ LNZ Cherkasy</td>
+      <td>1505.78</td>
+      <td>2</td>
+      <td>25.64%</td>
+      <td>36.99%</td>
+      <td>37.37%</td>
+      <td>-15.10</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1446.50</td>
+      <td>0</td>
+      <td>@ Shakhtar Donetsk</td>
+      <td>1615.13</td>
+      <td>5</td>
+      <td>15.26%</td>
+      <td>54.10%</td>
+      <td>30.64%</td>
+      <td>-14.88</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Dynamo Kyiv</td>
+      <td>1553.44</td>
+      <td>3</td>
+      <td>Veres Rivne</td>
+      <td>1429.98</td>
+      <td>0</td>
+      <td>48.19%</td>
+      <td>18.01%</td>
+      <td>33.80%</td>
+      <td>13.82</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Poltava</td>
+      <td>1365.83</td>
+      <td>1</td>
+      <td>Rukh Lviv</td>
+      <td>1412.04</td>
+      <td>2</td>
+      <td>25.09%</td>
+      <td>37.66%</td>
+      <td>37.25%</td>
+      <td>-10.52</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Shakhtar Donetsk</td>
+      <td>1615.13</td>
+      <td>5</td>
+      <td>Epitsentr Kamianets-Podilskyi</td>
+      <td>1446.50</td>
+      <td>0</td>
+      <td>54.10%</td>
+      <td>15.26%</td>
+      <td>30.64%</td>
+      <td>14.89</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Rukh Lviv</td>
+      <td>1412.04</td>
+      <td>2</td>
+      <td>@ Poltava</td>
+      <td>1365.83</td>
+      <td>1</td>
+      <td>37.66%</td>
+      <td>25.09%</td>
+      <td>37.25%</td>
+      <td>10.52</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Veres Rivne</td>
+      <td>1429.98</td>
+      <td>0</td>
+      <td>@ Dynamo Kyiv</td>
+      <td>1553.44</td>
+      <td>3</td>
+      <td>18.01%</td>
+      <td>48.19%</td>
+      <td>33.80%</td>
+      <td>-13.83</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

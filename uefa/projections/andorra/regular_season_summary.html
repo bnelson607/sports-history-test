@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Inter Club d Escaldes</td>
+      <td>Level 1</td>
+      <td>1285</td>
+      <td>19.88</td>
+      <td>4.55</td>
+      <td>2.57</td>
+      <td>27</td>
+      <td>62.20</td>
+      <td>35.20</td>
+      <td>45</td>
+      <td>58.26</td>
+      <td>61.85</td>
+      <td>65.16</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>UE Santa Coloma</td>
+      <td>Level 1</td>
+      <td>1271</td>
+      <td>18.97</td>
+      <td>3.92</td>
+      <td>4.11</td>
+      <td>32</td>
+      <td>61.01</td>
+      <td>29.01</td>
+      <td>44</td>
+      <td>57.46</td>
+      <td>60.64</td>
+      <td>63.65</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Atletic Escaldes</td>
+      <td>Level 1</td>
+      <td>1200</td>
+      <td>14.67</td>
+      <td>8.05</td>
+      <td>4.27</td>
+      <td>20</td>
+      <td>48.30</td>
+      <td>28.30</td>
+      <td>31</td>
+      <td>44.67</td>
+      <td>47.92</td>
+      <td>50.96</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>FC Santa Coloma</td>
+      <td>Level 1</td>
+      <td>1170</td>
+      <td>14.08</td>
+      <td>7.40</td>
+      <td>5.52</td>
+      <td>21</td>
+      <td>47.76</td>
+      <td>26.76</td>
+      <td>31</td>
+      <td>43.86</td>
+      <td>47.27</td>
+      <td>50.78</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Rangers</td>
+      <td>Level 1</td>
+      <td>1139</td>
+      <td>14.26</td>
+      <td>9.18</td>
+      <td>3.55</td>
+      <td>19</td>
+      <td>46.34</td>
+      <td>27.34</td>
+      <td>28</td>
+      <td>42.37</td>
+      <td>45.92</td>
+      <td>49.28</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Penya Encarnada</td>
+      <td>Level 1</td>
+      <td>998</td>
+      <td>8.56</td>
+      <td>14.91</td>
+      <td>3.53</td>
+      <td>10</td>
+      <td>29.20</td>
+      <td>19.20</td>
+      <td>10</td>
+      <td>25.31</td>
+      <td>28.63</td>
+      <td>32.00</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Pas de la Casa</td>
+      <td>Level 1</td>
+      <td>989</td>
+      <td>7.85</td>
+      <td>14.23</td>
+      <td>4.92</td>
+      <td>1</td>
+      <td>28.48</td>
+      <td>27.48</td>
+      <td>7</td>
+      <td>23.87</td>
+      <td>27.79</td>
+      <td>31.98</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Ordino</td>
+      <td>Level 1</td>
+      <td>968</td>
+      <td>6.66</td>
+      <td>15.87</td>
+      <td>4.47</td>
+      <td>8</td>
+      <td>24.44</td>
+      <td>16.44</td>
+      <td>8</td>
+      <td>20.73</td>
+      <td>23.82</td>
+      <td>27.07</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>Carroi</td>
+      <td>Level 1</td>
+      <td>923</td>
+      <td>6.51</td>
+      <td>16.28</td>
+      <td>4.22</td>
+      <td>11</td>
+      <td>23.73</td>
+      <td>12.73</td>
+      <td>11</td>
+      <td>20.13</td>
+      <td>23.08</td>
+      <td>26.22</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>Esperanca</td>
+      <td>Level 1</td>
+      <td>829</td>
+      <td>2.87</td>
+      <td>19.89</td>
+      <td>4.24</td>
+      <td>2</td>
+      <td>12.84</td>
+      <td>10.84</td>
+      <td>2</td>
+      <td>9.28</td>
+      <td>12.17</td>
+      <td>15.08</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

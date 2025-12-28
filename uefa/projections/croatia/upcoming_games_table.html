@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="BSK Bijelo Brdo" selected>BSK Bijelo Brdo</option><option value="Cibalia" >Cibalia</option><option value="Croatia Zmijavci" >Croatia Zmijavci</option><option value="Dubrava" >Dubrava</option><option value="Dugopolje" >Dugopolje</option><option value="Dynamo Zagreb" >Dynamo Zagreb</option><option value="HNK Gorica" >HNK Gorica</option><option value="Hajduk Split" >Hajduk Split</option><option value="Hrvace" >Hrvace</option><option value="Istra 1961" >Istra 1961</option><option value="Jarun" >Jarun</option><option value="Karlovac" >Karlovac</option><option value="Lokomotiva Zagreb" >Lokomotiva Zagreb</option><option value="Opatija" >Opatija</option><option value="Orijent" >Orijent</option><option value="Osijek" >Osijek</option><option value="Rijeka" >Rijeka</option><option value="Rudes" >Rudes</option><option value="Sesvete" >Sesvete</option><option value="Slaven Belupo" >Slaven Belupo</option><option value="Varazdin" >Varazdin</option><option value="Vukovar" >Vukovar</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Istra 1961</td>
+      <td>1563.65</td>
+      <td>Rijeka</td>
+      <td>1617.26</td>
+      <td>37.31%</td>
+      <td>31.19%</td>
+      <td>31.50%</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Rijeka</td>
+      <td>1617.26</td>
+      <td>@ Istra 1961</td>
+      <td>1563.65</td>
+      <td>31.19%</td>
+      <td>37.31%</td>
+      <td>31.50%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>50.33%</td>
+      <td>21.08%</td>
+      <td>28.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>19.69%</td>
+      <td>52.65%</td>
+      <td>27.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>19.06%</td>
+      <td>53.77%</td>
+      <td>27.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>25.20%</td>
+      <td>44.39%</td>
+      <td>30.41%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>18.34%</td>
+      <td>55.10%</td>
+      <td>26.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>44.39%</td>
+      <td>25.20%</td>
+      <td>30.41%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>53.77%</td>
+      <td>19.06%</td>
+      <td>27.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>55.10%</td>
+      <td>18.34%</td>
+      <td>26.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>21.08%</td>
+      <td>50.33%</td>
+      <td>28.58%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>52.65%</td>
+      <td>19.69%</td>
+      <td>27.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>12.56%</td>
+      <td>68.44%</td>
+      <td>19.00%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>47.31%</td>
+      <td>23.08%</td>
+      <td>29.61%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>18.20%</td>
+      <td>55.36%</td>
+      <td>26.44%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>41.33%</td>
+      <td>27.65%</td>
+      <td>31.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>23.88%</td>
+      <td>46.18%</td>
+      <td>29.94%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>68.44%</td>
+      <td>12.56%</td>
+      <td>19.00%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>23.08%</td>
+      <td>47.31%</td>
+      <td>29.61%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>55.36%</td>
+      <td>18.20%</td>
+      <td>26.44%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>27.65%</td>
+      <td>41.33%</td>
+      <td>31.02%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>46.18%</td>
+      <td>23.88%</td>
+      <td>29.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>32.87%</td>
+      <td>35.54%</td>
+      <td>31.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>58.08%</td>
+      <td>16.84%</td>
+      <td>25.08%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>35.54%</td>
+      <td>32.87%</td>
+      <td>31.59%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>47.91%</td>
+      <td>22.67%</td>
+      <td>29.42%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>50.02%</td>
+      <td>21.28%</td>
+      <td>28.70%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>16.84%</td>
+      <td>58.08%</td>
+      <td>25.08%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>22.67%</td>
+      <td>47.91%</td>
+      <td>29.42%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>21.28%</td>
+      <td>50.02%</td>
+      <td>28.70%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>34.10%</td>
+      <td>34.29%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>34.29%</td>
+      <td>34.10%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>17.69%</td>
+      <td>56.36%</td>
+      <td>25.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>27.72%</td>
+      <td>41.25%</td>
+      <td>31.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>25.06%</td>
+      <td>44.58%</td>
+      <td>30.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>44.58%</td>
+      <td>25.06%</td>
+      <td>30.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>16.31%</td>
+      <td>59.20%</td>
+      <td>24.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>20.69%</td>
+      <td>50.97%</td>
+      <td>28.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>@ Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>34.07%</td>
+      <td>34.32%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>@ Dugopolje</td>
+      <td>1357.20</td>
+      <td>26.68%</td>
+      <td>42.51%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>@ Karlovac</td>
+      <td>1407.44</td>
+      <td>21.18%</td>
+      <td>50.18%</td>
+      <td>28.64%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>@ Dubrava</td>
+      <td>1352.62</td>
+      <td>22.86%</td>
+      <td>47.62%</td>
+      <td>29.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>@ Jarun</td>
+      <td>1322.56</td>
+      <td>29.19%</td>
+      <td>39.53%</td>
+      <td>31.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>@ Orijent</td>
+      <td>1380.77</td>
+      <td>25.93%</td>
+      <td>43.45%</td>
+      <td>30.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>59.20%</td>
+      <td>16.31%</td>
+      <td>24.48%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>50.97%</td>
+      <td>20.69%</td>
+      <td>28.34%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>41.25%</td>
+      <td>27.72%</td>
+      <td>31.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>56.36%</td>
+      <td>17.69%</td>
+      <td>25.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>43.45%</td>
+      <td>25.93%</td>
+      <td>30.62%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>39.53%</td>
+      <td>29.19%</td>
+      <td>31.28%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>47.62%</td>
+      <td>22.86%</td>
+      <td>29.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>50.18%</td>
+      <td>21.18%</td>
+      <td>28.64%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>42.51%</td>
+      <td>26.68%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>34.32%</td>
+      <td>34.07%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>@ BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>23.80%</td>
+      <td>46.29%</td>
+      <td>29.91%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>@ Sesvete</td>
+      <td>1360.58</td>
+      <td>24.06%</td>
+      <td>45.93%</td>
+      <td>30.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>@ Opatija</td>
+      <td>1332.14</td>
+      <td>34.19%</td>
+      <td>34.20%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>22.59%</td>
+      <td>48.02%</td>
+      <td>29.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>16.77%</td>
+      <td>58.23%</td>
+      <td>25.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>24.59%</td>
+      <td>45.20%</td>
+      <td>30.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>45.16%</td>
+      <td>24.62%</td>
+      <td>30.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>29.73%</td>
+      <td>38.92%</td>
+      <td>31.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>@ Rudes</td>
+      <td>1373.98</td>
+      <td>23.65%</td>
+      <td>46.49%</td>
+      <td>29.85%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>@ Orijent</td>
+      <td>1380.77</td>
+      <td>17.28%</td>
+      <td>57.17%</td>
+      <td>25.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>@ Cibalia</td>
+      <td>1390.81</td>
+      <td>18.96%</td>
+      <td>53.94%</td>
+      <td>27.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>46.29%</td>
+      <td>23.80%</td>
+      <td>29.91%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>48.02%</td>
+      <td>22.59%</td>
+      <td>29.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>58.23%</td>
+      <td>16.77%</td>
+      <td>25.00%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>45.20%</td>
+      <td>24.59%</td>
+      <td>30.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>24.62%</td>
+      <td>45.16%</td>
+      <td>30.22%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>38.92%</td>
+      <td>29.73%</td>
+      <td>31.36%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>57.17%</td>
+      <td>17.28%</td>
+      <td>25.55%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>53.94%</td>
+      <td>18.96%</td>
+      <td>27.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>45.93%</td>
+      <td>24.06%</td>
+      <td>30.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>34.20%</td>
+      <td>34.19%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>46.49%</td>
+      <td>23.65%</td>
+      <td>29.85%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>25.49%</td>
+      <td>44.02%</td>
+      <td>30.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>28.65%</td>
+      <td>40.14%</td>
+      <td>31.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>39.22%</td>
+      <td>29.46%</td>
+      <td>31.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>@ Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>35.82%</td>
+      <td>32.60%</td>
+      <td>31.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>@ Dugopolje</td>
+      <td>1357.20</td>
+      <td>22.44%</td>
+      <td>48.24%</td>
+      <td>29.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>@ Sesvete</td>
+      <td>1360.58</td>
+      <td>30.31%</td>
+      <td>38.27%</td>
+      <td>31.42%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>@ Dubrava</td>
+      <td>1352.62</td>
+      <td>29.21%</td>
+      <td>39.50%</td>
+      <td>31.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>@ Jarun</td>
+      <td>1322.56</td>
+      <td>31.81%</td>
+      <td>36.65%</td>
+      <td>31.54%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>15.57%</td>
+      <td>60.85%</td>
+      <td>23.57%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>@ Hrvace</td>
+      <td>1361.84</td>
+      <td>25.50%</td>
+      <td>44.00%</td>
+      <td>30.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>11.49%</td>
+      <td>71.42%</td>
+      <td>17.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>44.00%</td>
+      <td>25.50%</td>
+      <td>30.50%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>39.50%</td>
+      <td>29.21%</td>
+      <td>31.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>38.27%</td>
+      <td>30.31%</td>
+      <td>31.42%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>48.24%</td>
+      <td>22.44%</td>
+      <td>29.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>32.60%</td>
+      <td>35.82%</td>
+      <td>31.58%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>29.46%</td>
+      <td>39.22%</td>
+      <td>31.32%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>40.14%</td>
+      <td>28.65%</td>
+      <td>31.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>44.02%</td>
+      <td>25.49%</td>
+      <td>30.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>60.85%</td>
+      <td>15.57%</td>
+      <td>23.57%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>71.42%</td>
+      <td>11.49%</td>
+      <td>17.10%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>36.65%</td>
+      <td>31.81%</td>
+      <td>31.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>45.30%</td>
+      <td>24.52%</td>
+      <td>30.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>33.17%</td>
+      <td>35.23%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>42.53%</td>
+      <td>26.66%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>29.76%</td>
+      <td>38.88%</td>
+      <td>31.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>18.03%</td>
+      <td>55.70%</td>
+      <td>26.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>28.35%</td>
+      <td>40.50%</td>
+      <td>31.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>40.50%</td>
+      <td>28.35%</td>
+      <td>31.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>@ Jarun</td>
+      <td>1322.56</td>
+      <td>21.55%</td>
+      <td>49.60%</td>
+      <td>28.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>@ Orijent</td>
+      <td>1380.77</td>
+      <td>22.16%</td>
+      <td>48.66%</td>
+      <td>29.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>@ Cibalia</td>
+      <td>1390.81</td>
+      <td>26.66%</td>
+      <td>42.53%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>@ Sesvete</td>
+      <td>1360.58</td>
+      <td>24.52%</td>
+      <td>45.30%</td>
+      <td>30.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>@ Opatija</td>
+      <td>1332.14</td>
+      <td>28.17%</td>
+      <td>40.70%</td>
+      <td>31.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>@ BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>25.51%</td>
+      <td>43.99%</td>
+      <td>30.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>48.66%</td>
+      <td>22.16%</td>
+      <td>29.18%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>49.60%</td>
+      <td>21.55%</td>
+      <td>28.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>40.70%</td>
+      <td>28.17%</td>
+      <td>31.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>39.86%</td>
+      <td>28.90%</td>
+      <td>31.24%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>55.70%</td>
+      <td>18.03%</td>
+      <td>26.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>35.23%</td>
+      <td>33.17%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>38.88%</td>
+      <td>29.76%</td>
+      <td>31.36%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>28.90%</td>
+      <td>39.86%</td>
+      <td>31.24%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>43.99%</td>
+      <td>25.51%</td>
+      <td>30.50%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>33.45%</td>
+      <td>34.94%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>63.74%</td>
+      <td>14.36%</td>
+      <td>21.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>47.55%</td>
+      <td>22.91%</td>
+      <td>29.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dubrava</td>
+      <td>1352.62</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>48.91%</td>
+      <td>22.00%</td>
+      <td>29.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Karlovac</td>
+      <td>1407.44</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>48.46%</td>
+      <td>22.30%</td>
+      <td>29.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dugopolje</td>
+      <td>1357.20</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>40.15%</td>
+      <td>28.65%</td>
+      <td>31.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>63.37%</td>
+      <td>14.51%</td>
+      <td>22.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Hrvace</td>
+      <td>1361.84</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>45.01%</td>
+      <td>24.74%</td>
+      <td>30.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Rudes</td>
+      <td>1373.98</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>50.48%</td>
+      <td>20.99%</td>
+      <td>28.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Jarun</td>
+      <td>1322.56</td>
+      <td>@ Dubrava</td>
+      <td>1352.62</td>
+      <td>22.00%</td>
+      <td>48.91%</td>
+      <td>29.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Orijent</td>
+      <td>1380.77</td>
+      <td>@ Karlovac</td>
+      <td>1407.44</td>
+      <td>22.30%</td>
+      <td>48.46%</td>
+      <td>29.25%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Cibalia</td>
+      <td>1390.81</td>
+      <td>@ Dugopolje</td>
+      <td>1357.20</td>
+      <td>28.65%</td>
+      <td>40.15%</td>
+      <td>31.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Opatija</td>
+      <td>1332.14</td>
+      <td>@ Rudes</td>
+      <td>1373.98</td>
+      <td>20.99%</td>
+      <td>50.48%</td>
+      <td>28.53%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>BSK Bijelo Brdo</td>
+      <td>1367.87</td>
+      <td>@ Croatia Zmijavci</td>
+      <td>1287.35</td>
+      <td>34.94%</td>
+      <td>33.45%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>21.79%</td>
+      <td>49.23%</td>
+      <td>28.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>22.91%</td>
+      <td>47.55%</td>
+      <td>29.54%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>20.85%</td>
+      <td>50.70%</td>
+      <td>28.44%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>14.36%</td>
+      <td>63.74%</td>
+      <td>21.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>14.51%</td>
+      <td>63.37%</td>
+      <td>22.12%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>49.23%</td>
+      <td>21.79%</td>
+      <td>28.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>50.70%</td>
+      <td>20.85%</td>
+      <td>28.44%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Sesvete</td>
+      <td>1360.58</td>
+      <td>@ Hrvace</td>
+      <td>1361.84</td>
+      <td>24.74%</td>
+      <td>45.01%</td>
+      <td>30.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>50.70%</td>
+      <td>20.85%</td>
+      <td>28.44%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>25.42%</td>
+      <td>44.10%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>21.31%</td>
+      <td>49.98%</td>
+      <td>28.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>49.98%</td>
+      <td>21.31%</td>
+      <td>28.71%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>25.68%</td>
+      <td>43.77%</td>
+      <td>30.55%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>43.77%</td>
+      <td>25.68%</td>
+      <td>30.55%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>20.48%</td>
+      <td>51.32%</td>
+      <td>28.20%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>20.85%</td>
+      <td>50.70%</td>
+      <td>28.44%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>44.10%</td>
+      <td>25.42%</td>
+      <td>30.47%</td>
+    </tr>
+    <tr>
+      <td>2026-03-21</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>51.32%</td>
+      <td>20.48%</td>
+      <td>28.20%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>33.01%</td>
+      <td>35.40%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>12.31%</td>
+      <td>69.13%</td>
+      <td>18.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>31.82%</td>
+      <td>36.64%</td>
+      <td>31.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>24.54%</td>
+      <td>45.28%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>33.93%</td>
+      <td>34.46%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>34.46%</td>
+      <td>33.93%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>45.28%</td>
+      <td>24.54%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>69.13%</td>
+      <td>12.31%</td>
+      <td>18.57%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>35.40%</td>
+      <td>33.01%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-04</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>36.64%</td>
+      <td>31.82%</td>
+      <td>31.54%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>33.64%</td>
+      <td>34.75%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>13.29%</td>
+      <td>66.46%</td>
+      <td>20.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>61.19%</td>
+      <td>15.43%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>66.46%</td>
+      <td>13.29%</td>
+      <td>20.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>21.58%</td>
+      <td>49.55%</td>
+      <td>28.87%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>15.43%</td>
+      <td>61.19%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>34.75%</td>
+      <td>33.64%</td>
+      <td>31.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>25.91%</td>
+      <td>43.48%</td>
+      <td>30.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>49.55%</td>
+      <td>21.58%</td>
+      <td>28.87%</td>
+    </tr>
+    <tr>
+      <td>2026-04-11</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>43.48%</td>
+      <td>25.91%</td>
+      <td>30.61%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>37.82%</td>
+      <td>30.72%</td>
+      <td>31.46%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>29.23%</td>
+      <td>39.48%</td>
+      <td>31.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>18.42%</td>
+      <td>54.94%</td>
+      <td>26.64%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>27.34%</td>
+      <td>41.70%</td>
+      <td>30.96%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>19.13%</td>
+      <td>53.65%</td>
+      <td>27.23%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>53.65%</td>
+      <td>19.13%</td>
+      <td>27.23%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>41.70%</td>
+      <td>27.34%</td>
+      <td>30.96%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>54.94%</td>
+      <td>18.42%</td>
+      <td>26.64%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>39.48%</td>
+      <td>29.23%</td>
+      <td>31.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-18</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>30.72%</td>
+      <td>37.82%</td>
+      <td>31.46%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>64.06%</td>
+      <td>14.23%</td>
+      <td>21.71%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>32.54%</td>
+      <td>35.88%</td>
+      <td>31.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>38.46%</td>
+      <td>30.14%</td>
+      <td>31.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>14.23%</td>
+      <td>64.06%</td>
+      <td>21.71%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>48.34%</td>
+      <td>22.37%</td>
+      <td>29.28%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>39.08%</td>
+      <td>29.58%</td>
+      <td>31.34%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>35.88%</td>
+      <td>32.54%</td>
+      <td>31.58%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>22.37%</td>
+      <td>48.34%</td>
+      <td>29.28%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>29.58%</td>
+      <td>39.08%</td>
+      <td>31.34%</td>
+    </tr>
+    <tr>
+      <td>2026-04-22</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>30.14%</td>
+      <td>38.46%</td>
+      <td>31.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>30.56%</td>
+      <td>37.99%</td>
+      <td>31.45%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>41.58%</td>
+      <td>27.44%</td>
+      <td>30.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>44.47%</td>
+      <td>25.14%</td>
+      <td>30.39%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>25.14%</td>
+      <td>44.47%</td>
+      <td>30.39%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>27.44%</td>
+      <td>41.58%</td>
+      <td>30.98%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>37.99%</td>
+      <td>30.56%</td>
+      <td>31.45%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>14.03%</td>
+      <td>64.57%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>20.95%</td>
+      <td>50.54%</td>
+      <td>28.50%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>64.57%</td>
+      <td>14.03%</td>
+      <td>21.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-25</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>50.54%</td>
+      <td>20.95%</td>
+      <td>28.50%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>16.26%</td>
+      <td>59.32%</td>
+      <td>24.42%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>21.68%</td>
+      <td>49.40%</td>
+      <td>28.92%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>40.95%</td>
+      <td>27.96%</td>
+      <td>31.08%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>24.27%</td>
+      <td>45.64%</td>
+      <td>30.09%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>59.32%</td>
+      <td>16.26%</td>
+      <td>24.42%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>19.52%</td>
+      <td>52.96%</td>
+      <td>27.53%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>49.40%</td>
+      <td>21.68%</td>
+      <td>28.92%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>27.96%</td>
+      <td>40.95%</td>
+      <td>31.08%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>45.64%</td>
+      <td>24.27%</td>
+      <td>30.09%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>52.96%</td>
+      <td>19.52%</td>
+      <td>27.53%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>50.58%</td>
+      <td>20.93%</td>
+      <td>28.49%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>60.45%</td>
+      <td>15.75%</td>
+      <td>23.80%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>53.93%</td>
+      <td>18.97%</td>
+      <td>27.10%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>49.67%</td>
+      <td>21.51%</td>
+      <td>28.83%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>21.51%</td>
+      <td>49.67%</td>
+      <td>28.83%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>18.97%</td>
+      <td>53.93%</td>
+      <td>27.10%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>35.14%</td>
+      <td>33.26%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>15.75%</td>
+      <td>60.45%</td>
+      <td>23.80%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>20.93%</td>
+      <td>50.58%</td>
+      <td>28.49%</td>
+    </tr>
+    <tr>
+      <td>2026-05-09</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>33.26%</td>
+      <td>35.14%</td>
+      <td>31.60%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>@ HNK Gorica</td>
+      <td>1475.72</td>
+      <td>27.03%</td>
+      <td>42.07%</td>
+      <td>30.89%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>@ Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>44.22%</td>
+      <td>25.34%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>@ Vukovar</td>
+      <td>1501.55</td>
+      <td>28.51%</td>
+      <td>40.31%</td>
+      <td>31.18%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>@ Istra 1961</td>
+      <td>1577.54</td>
+      <td>29.88%</td>
+      <td>38.75%</td>
+      <td>31.37%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>40.31%</td>
+      <td>28.51%</td>
+      <td>31.18%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>25.65%</td>
+      <td>43.80%</td>
+      <td>30.54%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>25.34%</td>
+      <td>44.22%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>38.75%</td>
+      <td>29.88%</td>
+      <td>31.37%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>42.07%</td>
+      <td>27.03%</td>
+      <td>30.89%</td>
+    </tr>
+    <tr>
+      <td>2026-05-16</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>@ Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>43.80%</td>
+      <td>25.65%</td>
+      <td>30.54%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>@ Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>12.42%</td>
+      <td>68.82%</td>
+      <td>18.77%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>@ Rijeka</td>
+      <td>1621.07</td>
+      <td>14.40%</td>
+      <td>63.64%</td>
+      <td>21.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>@ Hajduk Split</td>
+      <td>1644.50</td>
+      <td>14.52%</td>
+      <td>63.34%</td>
+      <td>22.14%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Varazdin</td>
+      <td>1534.02</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>38.75%</td>
+      <td>29.88%</td>
+      <td>31.37%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Osijek</td>
+      <td>1495.65</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>38.08%</td>
+      <td>30.48%</td>
+      <td>31.44%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Rijeka</td>
+      <td>1621.07</td>
+      <td>HNK Gorica</td>
+      <td>1475.72</td>
+      <td>63.64%</td>
+      <td>14.40%</td>
+      <td>21.96%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Hajduk Split</td>
+      <td>1644.50</td>
+      <td>Vukovar</td>
+      <td>1501.55</td>
+      <td>63.34%</td>
+      <td>14.52%</td>
+      <td>22.14%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Dynamo Zagreb</td>
+      <td>1687.05</td>
+      <td>Lokomotiva Zagreb</td>
+      <td>1498.32</td>
+      <td>68.82%</td>
+      <td>12.42%</td>
+      <td>18.77%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Slaven Belupo</td>
+      <td>1543.86</td>
+      <td>@ Osijek</td>
+      <td>1495.65</td>
+      <td>30.48%</td>
+      <td>38.08%</td>
+      <td>31.44%</td>
+    </tr>
+    <tr>
+      <td>2026-05-23</td>
+      <td>Istra 1961</td>
+      <td>1577.54</td>
+      <td>@ Varazdin</td>
+      <td>1534.02</td>
+      <td>29.88%</td>
+      <td>38.75%</td>
+      <td>31.37%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

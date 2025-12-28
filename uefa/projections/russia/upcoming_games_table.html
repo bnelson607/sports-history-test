@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Akhmat Grozny" selected>Akhmat Grozny</option><option value="Akron Tolyatti" >Akron Tolyatti</option><option value="Baltika Kaliningrad" >Baltika Kaliningrad</option><option value="CSKA Moscow" >CSKA Moscow</option><option value="Dynamo Makhachkala" >Dynamo Makhachkala</option><option value="Dynamo Moscow" >Dynamo Moscow</option><option value="Krasnodar" >Krasnodar</option><option value="Krylia Sovetov" >Krylia Sovetov</option><option value="Lokomotiv Moscow" >Lokomotiv Moscow</option><option value="Orenburg" >Orenburg</option><option value="Pari Nizhny Novgorod" >Pari Nizhny Novgorod</option><option value="Rostov" >Rostov</option><option value="Rubin Kazan" >Rubin Kazan</option><option value="Sochi" >Sochi</option><option value="Spartak Moscow" >Spartak Moscow</option><option value="Zenit St. Petersburg" >Zenit St. Petersburg</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>56.76%</td>
+      <td>16.30%</td>
+      <td>26.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>@ Orenburg</td>
+      <td>1330.05</td>
+      <td>37.59%</td>
+      <td>32.00%</td>
+      <td>30.41%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>53.58%</td>
+      <td>18.46%</td>
+      <td>27.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>16.30%</td>
+      <td>56.76%</td>
+      <td>26.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>7.55%</td>
+      <td>74.55%</td>
+      <td>17.90%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>14.72%</td>
+      <td>59.29%</td>
+      <td>25.99%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>@ Krasnodar</td>
+      <td>1687.55</td>
+      <td>8.65%</td>
+      <td>71.68%</td>
+      <td>19.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Sochi</td>
+      <td>1303.82</td>
+      <td>59.14%</td>
+      <td>14.81%</td>
+      <td>26.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>35.19%</td>
+      <td>34.36%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>59.29%</td>
+      <td>14.72%</td>
+      <td>25.99%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>71.68%</td>
+      <td>8.65%</td>
+      <td>19.67%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>74.55%</td>
+      <td>7.55%</td>
+      <td>17.90%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>18.46%</td>
+      <td>53.58%</td>
+      <td>27.96%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>32.00%</td>
+      <td>37.59%</td>
+      <td>30.41%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>14.81%</td>
+      <td>59.14%</td>
+      <td>26.05%</td>
+    </tr>
+    <tr>
+      <td>2026-02-27</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>34.36%</td>
+      <td>35.19%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>@ Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>12.90%</td>
+      <td>62.50%</td>
+      <td>24.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>@ Rostov</td>
+      <td>1438.53</td>
+      <td>46.73%</td>
+      <td>23.76%</td>
+      <td>29.51%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>22.15%</td>
+      <td>48.70%</td>
+      <td>29.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>@ CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>14.35%</td>
+      <td>59.92%</td>
+      <td>25.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>9.49%</td>
+      <td>69.63%</td>
+      <td>20.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>@ Orenburg</td>
+      <td>1330.05</td>
+      <td>68.38%</td>
+      <td>10.03%</td>
+      <td>21.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>55.71%</td>
+      <td>16.99%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>20.22%</td>
+      <td>51.18%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>62.50%</td>
+      <td>12.90%</td>
+      <td>24.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>23.76%</td>
+      <td>46.73%</td>
+      <td>29.51%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>48.70%</td>
+      <td>22.15%</td>
+      <td>29.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>59.92%</td>
+      <td>14.35%</td>
+      <td>25.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>69.63%</td>
+      <td>9.49%</td>
+      <td>20.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>10.03%</td>
+      <td>68.38%</td>
+      <td>21.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>16.99%</td>
+      <td>55.71%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-03-06</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>51.18%</td>
+      <td>20.22%</td>
+      <td>28.60%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>49.63%</td>
+      <td>21.41%</td>
+      <td>28.96%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>59.56%</td>
+      <td>14.56%</td>
+      <td>25.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>36.51%</td>
+      <td>33.05%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>14.56%</td>
+      <td>59.56%</td>
+      <td>25.88%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>@ Rostov</td>
+      <td>1438.53</td>
+      <td>33.05%</td>
+      <td>36.51%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>@ Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>49.26%</td>
+      <td>21.70%</td>
+      <td>29.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>29.19%</td>
+      <td>40.57%</td>
+      <td>30.24%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>27.52%</td>
+      <td>42.39%</td>
+      <td>30.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>21.41%</td>
+      <td>49.63%</td>
+      <td>28.96%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>22.32%</td>
+      <td>48.49%</td>
+      <td>29.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Sochi</td>
+      <td>1303.82</td>
+      <td>69.61%</td>
+      <td>9.50%</td>
+      <td>20.89%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>21.70%</td>
+      <td>49.26%</td>
+      <td>29.04%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>40.57%</td>
+      <td>29.19%</td>
+      <td>30.24%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>42.39%</td>
+      <td>27.52%</td>
+      <td>30.09%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>48.49%</td>
+      <td>22.32%</td>
+      <td>29.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-13</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>9.50%</td>
+      <td>69.61%</td>
+      <td>20.89%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>@ CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>8.02%</td>
+      <td>73.29%</td>
+      <td>18.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>31.74%</td>
+      <td>37.86%</td>
+      <td>30.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>50.15%</td>
+      <td>21.01%</td>
+      <td>28.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>10.41%</td>
+      <td>67.54%</td>
+      <td>22.05%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>28.52%</td>
+      <td>41.29%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>@ Krasnodar</td>
+      <td>1687.55</td>
+      <td>6.01%</td>
+      <td>78.99%</td>
+      <td>15.00%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Orenburg</td>
+      <td>1330.05</td>
+      <td>56.35%</td>
+      <td>16.56%</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>6.99%</td>
+      <td>76.11%</td>
+      <td>16.90%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>16.56%</td>
+      <td>56.35%</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>78.99%</td>
+      <td>6.01%</td>
+      <td>15.00%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>37.86%</td>
+      <td>31.74%</td>
+      <td>30.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>73.29%</td>
+      <td>8.02%</td>
+      <td>18.69%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>21.01%</td>
+      <td>50.15%</td>
+      <td>28.84%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>67.54%</td>
+      <td>10.41%</td>
+      <td>22.05%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>41.29%</td>
+      <td>28.52%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-03-20</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>76.11%</td>
+      <td>6.99%</td>
+      <td>16.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>50.91%</td>
+      <td>20.42%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>55.72%</td>
+      <td>16.99%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>59.80%</td>
+      <td>14.42%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>36.26%</td>
+      <td>33.30%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>@ Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>31.11%</td>
+      <td>38.52%</td>
+      <td>30.37%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>@ Sochi</td>
+      <td>1303.82</td>
+      <td>43.29%</td>
+      <td>26.71%</td>
+      <td>29.99%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>6.67%</td>
+      <td>77.03%</td>
+      <td>16.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>11.63%</td>
+      <td>64.96%</td>
+      <td>23.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>26.71%</td>
+      <td>43.29%</td>
+      <td>29.99%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>20.42%</td>
+      <td>50.91%</td>
+      <td>28.67%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>64.96%</td>
+      <td>11.63%</td>
+      <td>23.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>77.03%</td>
+      <td>6.67%</td>
+      <td>16.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>38.52%</td>
+      <td>31.11%</td>
+      <td>30.37%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>14.42%</td>
+      <td>59.80%</td>
+      <td>25.78%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>33.30%</td>
+      <td>36.26%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-03</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>16.99%</td>
+      <td>55.72%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>47.21%</td>
+      <td>23.36%</td>
+      <td>29.43%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>26.71%</td>
+      <td>43.30%</td>
+      <td>29.99%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>43.12%</td>
+      <td>26.87%</td>
+      <td>30.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>78.05%</td>
+      <td>6.32%</td>
+      <td>15.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>73.44%</td>
+      <td>7.97%</td>
+      <td>18.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>58.85%</td>
+      <td>14.99%</td>
+      <td>26.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>72.33%</td>
+      <td>8.39%</td>
+      <td>19.28%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>35.14%</td>
+      <td>34.41%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>7.97%</td>
+      <td>73.44%</td>
+      <td>18.60%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Rostov</td>
+      <td>1438.53</td>
+      <td>43.30%</td>
+      <td>26.71%</td>
+      <td>29.99%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>26.87%</td>
+      <td>43.12%</td>
+      <td>30.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>@ CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>6.32%</td>
+      <td>78.05%</td>
+      <td>15.63%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>34.41%</td>
+      <td>35.14%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>8.39%</td>
+      <td>72.33%</td>
+      <td>19.28%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>@ Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>14.99%</td>
+      <td>58.85%</td>
+      <td>26.16%</td>
+    </tr>
+    <tr>
+      <td>2026-04-10</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>23.36%</td>
+      <td>47.21%</td>
+      <td>29.43%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>@ Orenburg</td>
+      <td>1330.05</td>
+      <td>61.84%</td>
+      <td>13.26%</td>
+      <td>24.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>55.70%</td>
+      <td>17.00%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>@ Krasnodar</td>
+      <td>1687.55</td>
+      <td>17.22%</td>
+      <td>55.38%</td>
+      <td>27.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>@ Rostov</td>
+      <td>1438.53</td>
+      <td>13.75%</td>
+      <td>60.95%</td>
+      <td>25.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>@ Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>11.74%</td>
+      <td>64.74%</td>
+      <td>23.52%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>60.95%</td>
+      <td>13.75%</td>
+      <td>25.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>55.38%</td>
+      <td>17.22%</td>
+      <td>27.41%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>17.00%</td>
+      <td>55.70%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>13.26%</td>
+      <td>61.84%</td>
+      <td>24.90%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>47.56%</td>
+      <td>23.07%</td>
+      <td>29.37%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>24.91%</td>
+      <td>45.37%</td>
+      <td>29.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>65.37%</td>
+      <td>11.43%</td>
+      <td>23.20%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>45.37%</td>
+      <td>24.91%</td>
+      <td>29.72%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>11.43%</td>
+      <td>65.37%</td>
+      <td>23.20%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>64.74%</td>
+      <td>11.74%</td>
+      <td>23.52%</td>
+    </tr>
+    <tr>
+      <td>2026-04-17</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>@ Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>23.07%</td>
+      <td>47.56%</td>
+      <td>29.37%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>30.72%</td>
+      <td>38.93%</td>
+      <td>30.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>@ CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>10.90%</td>
+      <td>66.48%</td>
+      <td>22.62%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>18.85%</td>
+      <td>53.03%</td>
+      <td>28.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>33.26%</td>
+      <td>36.30%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>50.73%</td>
+      <td>20.56%</td>
+      <td>28.71%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>@ Orenburg</td>
+      <td>1330.05</td>
+      <td>26.88%</td>
+      <td>43.11%</td>
+      <td>30.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>18.41%</td>
+      <td>53.65%</td>
+      <td>27.94%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>@ Sochi</td>
+      <td>1303.82</td>
+      <td>35.35%</td>
+      <td>34.19%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>53.65%</td>
+      <td>18.41%</td>
+      <td>27.94%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>43.11%</td>
+      <td>26.88%</td>
+      <td>30.01%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>20.56%</td>
+      <td>50.73%</td>
+      <td>28.71%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>36.30%</td>
+      <td>33.26%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>53.03%</td>
+      <td>18.85%</td>
+      <td>28.12%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>66.48%</td>
+      <td>10.90%</td>
+      <td>22.62%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>38.93%</td>
+      <td>30.72%</td>
+      <td>30.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-21</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>34.19%</td>
+      <td>35.35%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>@ Rostov</td>
+      <td>1438.53</td>
+      <td>15.36%</td>
+      <td>58.24%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>55.89%</td>
+      <td>16.87%</td>
+      <td>27.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>17.99%</td>
+      <td>54.25%</td>
+      <td>27.76%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>65.08%</td>
+      <td>11.57%</td>
+      <td>23.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>@ Krasnodar</td>
+      <td>1687.55</td>
+      <td>6.35%</td>
+      <td>77.97%</td>
+      <td>15.68%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>16.87%</td>
+      <td>55.89%</td>
+      <td>27.24%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>7.21%</td>
+      <td>75.50%</td>
+      <td>17.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>21.87%</td>
+      <td>49.05%</td>
+      <td>29.08%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>58.24%</td>
+      <td>15.36%</td>
+      <td>26.40%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>75.50%</td>
+      <td>7.21%</td>
+      <td>17.29%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>77.97%</td>
+      <td>6.35%</td>
+      <td>15.68%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>67.43%</td>
+      <td>10.46%</td>
+      <td>22.11%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>11.57%</td>
+      <td>65.08%</td>
+      <td>23.35%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>54.25%</td>
+      <td>17.99%</td>
+      <td>27.76%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>10.46%</td>
+      <td>67.43%</td>
+      <td>22.11%</td>
+    </tr>
+    <tr>
+      <td>2026-04-24</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>@ Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>49.05%</td>
+      <td>21.87%</td>
+      <td>29.08%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>@ CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>33.51%</td>
+      <td>36.05%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>49.84%</td>
+      <td>21.25%</td>
+      <td>28.91%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>36.05%</td>
+      <td>33.51%</td>
+      <td>30.44%</td>
+    </tr>
+    <tr>
+      <td>2026-05-02</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>21.25%</td>
+      <td>49.84%</td>
+      <td>28.91%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>14.25%</td>
+      <td>60.10%</td>
+      <td>25.66%</td>
+    </tr>
+    <tr>
+      <td>2026-05-03</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>60.10%</td>
+      <td>14.25%</td>
+      <td>25.66%</td>
+    </tr>
+    <tr>
+      <td>2026-05-04</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>19.21%</td>
+      <td>52.54%</td>
+      <td>28.25%</td>
+    </tr>
+    <tr>
+      <td>2026-05-04</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>52.54%</td>
+      <td>19.21%</td>
+      <td>28.25%</td>
+    </tr>
+    <tr>
+      <td>2026-05-05</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>63.59%</td>
+      <td>12.32%</td>
+      <td>24.09%</td>
+    </tr>
+    <tr>
+      <td>2026-05-05</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>12.32%</td>
+      <td>63.59%</td>
+      <td>24.09%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>35.19%</td>
+      <td>34.36%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-06</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>34.36%</td>
+      <td>35.19%</td>
+      <td>30.45%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>@ Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>20.36%</td>
+      <td>50.99%</td>
+      <td>28.65%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>@ Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>13.75%</td>
+      <td>60.96%</td>
+      <td>25.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>@ Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>4.69%</td>
+      <td>83.15%</td>
+      <td>12.16%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>57.39%</td>
+      <td>15.90%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>@ Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>22.00%</td>
+      <td>48.89%</td>
+      <td>29.11%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>@ Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>48.61%</td>
+      <td>22.22%</td>
+      <td>29.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>@ Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>59.73%</td>
+      <td>14.46%</td>
+      <td>25.81%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>14.46%</td>
+      <td>59.73%</td>
+      <td>25.81%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>15.90%</td>
+      <td>57.39%</td>
+      <td>26.72%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>83.15%</td>
+      <td>4.69%</td>
+      <td>12.16%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>60.96%</td>
+      <td>13.75%</td>
+      <td>25.29%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>@ Orenburg</td>
+      <td>1330.05</td>
+      <td>31.68%</td>
+      <td>37.93%</td>
+      <td>30.39%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>22.22%</td>
+      <td>48.61%</td>
+      <td>29.17%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>48.89%</td>
+      <td>22.00%</td>
+      <td>29.11%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>50.99%</td>
+      <td>20.36%</td>
+      <td>28.65%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>44.35%</td>
+      <td>25.78%</td>
+      <td>29.86%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>@ Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>25.78%</td>
+      <td>44.35%</td>
+      <td>29.86%</td>
+    </tr>
+    <tr>
+      <td>2026-05-07</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>37.93%</td>
+      <td>31.68%</td>
+      <td>30.39%</td>
+    </tr>
+    <tr>
+      <td>2026-05-08</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>@ Sochi</td>
+      <td>1303.82</td>
+      <td>27.74%</td>
+      <td>42.15%</td>
+      <td>30.11%</td>
+    </tr>
+    <tr>
+      <td>2026-05-08</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>42.15%</td>
+      <td>27.74%</td>
+      <td>30.11%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>@ Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>15.92%</td>
+      <td>57.35%</td>
+      <td>26.73%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>@ Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>16.26%</td>
+      <td>56.83%</td>
+      <td>26.92%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>@ Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>29.70%</td>
+      <td>40.01%</td>
+      <td>30.28%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>@ Krasnodar</td>
+      <td>1687.55</td>
+      <td>5.55%</td>
+      <td>80.41%</td>
+      <td>14.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>@ Rostov</td>
+      <td>1438.53</td>
+      <td>57.71%</td>
+      <td>15.69%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>@ CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>24.90%</td>
+      <td>45.38%</td>
+      <td>29.72%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Sochi</td>
+      <td>1303.82</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>31.56%</td>
+      <td>38.05%</td>
+      <td>30.39%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>19.06%</td>
+      <td>52.74%</td>
+      <td>28.20%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Baltika Kaliningrad</td>
+      <td>1605.58</td>
+      <td>Dynamo Moscow</td>
+      <td>1505.46</td>
+      <td>57.35%</td>
+      <td>15.92%</td>
+      <td>26.73%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Rubin Kazan</td>
+      <td>1444.34</td>
+      <td>Pari Nizhny Novgorod</td>
+      <td>1349.08</td>
+      <td>56.83%</td>
+      <td>16.26%</td>
+      <td>26.92%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>CSKA Moscow</td>
+      <td>1630.04</td>
+      <td>Lokomotiv Moscow</td>
+      <td>1631.79</td>
+      <td>45.38%</td>
+      <td>24.90%</td>
+      <td>29.72%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Krylia Sovetov</td>
+      <td>1386.96</td>
+      <td>Akron Tolyatti</td>
+      <td>1428.91</td>
+      <td>40.01%</td>
+      <td>29.70%</td>
+      <td>30.28%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Krasnodar</td>
+      <td>1687.55</td>
+      <td>Orenburg</td>
+      <td>1330.05</td>
+      <td>80.41%</td>
+      <td>5.55%</td>
+      <td>14.04%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Rostov</td>
+      <td>1438.53</td>
+      <td>Zenit St. Petersburg</td>
+      <td>1700.24</td>
+      <td>15.69%</td>
+      <td>57.71%</td>
+      <td>26.60%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Spartak Moscow</td>
+      <td>1579.12</td>
+      <td>@ Dynamo Makhachkala</td>
+      <td>1362.34</td>
+      <td>52.74%</td>
+      <td>19.06%</td>
+      <td>28.20%</td>
+    </tr>
+    <tr>
+      <td>2026-05-17</td>
+      <td>Akhmat Grozny</td>
+      <td>1405.96</td>
+      <td>@ Sochi</td>
+      <td>1303.82</td>
+      <td>38.05%</td>
+      <td>31.56%</td>
+      <td>30.39%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

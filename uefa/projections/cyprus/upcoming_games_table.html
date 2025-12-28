@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="AEK Larnaca" selected>AEK Larnaca</option><option value="AEL Limassol" >AEL Limassol</option><option value="APOEL Nicosia" >APOEL Nicosia</option><option value="Akritas Chlorakas" >Akritas Chlorakas</option><option value="Anorthosis Famagusta" >Anorthosis Famagusta</option><option value="Apollon Limassol" >Apollon Limassol</option><option value="Aris Limassol" >Aris Limassol</option><option value="Enosis Neon Paralimni" >Enosis Neon Paralimni</option><option value="Ethnikos Achna" >Ethnikos Achna</option><option value="Olympiacos Nicosia" >Olympiacos Nicosia</option><option value="Omonia Aradippou" >Omonia Aradippou</option><option value="Omonia Nicosia" >Omonia Nicosia</option><option value="Pafos FC" >Pafos FC</option><option value="Ypsonas" >Ypsonas</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>50.84%</td>
+      <td>20.87%</td>
+      <td>28.28%</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>@ Pafos FC</td>
+      <td>1893.06</td>
+      <td>20.87%</td>
+      <td>50.84%</td>
+      <td>28.28%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>@ APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>8.46%</td>
+      <td>74.29%</td>
+      <td>17.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>@ AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>12.90%</td>
+      <td>63.87%</td>
+      <td>23.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>@ Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>42.84%</td>
+      <td>27.35%</td>
+      <td>29.80%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>@ Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>69.41%</td>
+      <td>10.38%</td>
+      <td>20.21%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>@ Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>31.75%</td>
+      <td>38.06%</td>
+      <td>30.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>@ Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>57.16%</td>
+      <td>16.61%</td>
+      <td>26.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>@ Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>66.09%</td>
+      <td>11.84%</td>
+      <td>22.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>38.06%</td>
+      <td>31.75%</td>
+      <td>30.20%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>10.38%</td>
+      <td>69.41%</td>
+      <td>20.21%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>11.84%</td>
+      <td>66.09%</td>
+      <td>22.07%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>16.61%</td>
+      <td>57.16%</td>
+      <td>26.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>74.29%</td>
+      <td>8.46%</td>
+      <td>17.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>63.87%</td>
+      <td>12.90%</td>
+      <td>23.23%</td>
+    </tr>
+    <tr>
+      <td>2026-01-03</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>27.35%</td>
+      <td>42.84%</td>
+      <td>29.80%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>@ Aris Limassol</td>
+      <td>1827.85</td>
+      <td>33.14%</td>
+      <td>36.61%</td>
+      <td>30.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>@ Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>25.10%</td>
+      <td>45.47%</td>
+      <td>29.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>@ AEL Limassol</td>
+      <td>1640.31</td>
+      <td>59.40%</td>
+      <td>15.28%</td>
+      <td>25.32%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>@ Pafos FC</td>
+      <td>1893.06</td>
+      <td>8.06%</td>
+      <td>75.39%</td>
+      <td>16.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>@ APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>12.81%</td>
+      <td>64.05%</td>
+      <td>23.14%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>43.01%</td>
+      <td>27.21%</td>
+      <td>29.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>14.33%</td>
+      <td>61.11%</td>
+      <td>24.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>75.39%</td>
+      <td>8.06%</td>
+      <td>16.55%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>36.61%</td>
+      <td>33.14%</td>
+      <td>30.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>64.05%</td>
+      <td>12.81%</td>
+      <td>23.14%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>45.47%</td>
+      <td>25.10%</td>
+      <td>29.43%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>15.28%</td>
+      <td>59.40%</td>
+      <td>25.32%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>@ Ypsonas</td>
+      <td>1554.64</td>
+      <td>27.21%</td>
+      <td>43.01%</td>
+      <td>29.78%</td>
+    </tr>
+    <tr>
+      <td>2026-01-10</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>@ Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>61.11%</td>
+      <td>14.33%</td>
+      <td>24.56%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>@ Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>41.06%</td>
+      <td>28.95%</td>
+      <td>29.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>@ AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>10.00%</td>
+      <td>70.35%</td>
+      <td>19.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>12.46%</td>
+      <td>64.77%</td>
+      <td>22.77%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>70.35%</td>
+      <td>10.00%</td>
+      <td>19.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>@ Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>64.77%</td>
+      <td>12.46%</td>
+      <td>22.77%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>28.95%</td>
+      <td>41.06%</td>
+      <td>29.99%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>8.04%</td>
+      <td>75.43%</td>
+      <td>16.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>25.41%</td>
+      <td>45.10%</td>
+      <td>29.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>65.73%</td>
+      <td>12.01%</td>
+      <td>22.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>@ Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>22.02%</td>
+      <td>49.32%</td>
+      <td>28.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>@ Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>75.43%</td>
+      <td>8.04%</td>
+      <td>16.52%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>@ Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>45.10%</td>
+      <td>25.41%</td>
+      <td>29.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>49.32%</td>
+      <td>22.02%</td>
+      <td>28.66%</td>
+    </tr>
+    <tr>
+      <td>2026-01-17</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>@ Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>12.01%</td>
+      <td>65.73%</td>
+      <td>22.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>@ Ypsonas</td>
+      <td>1554.64</td>
+      <td>33.23%</td>
+      <td>36.52%</td>
+      <td>30.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>@ APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>11.88%</td>
+      <td>66.01%</td>
+      <td>22.11%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>@ Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>18.83%</td>
+      <td>53.73%</td>
+      <td>27.45%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>@ Aris Limassol</td>
+      <td>1827.85</td>
+      <td>35.74%</td>
+      <td>34.00%</td>
+      <td>30.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>@ Pafos FC</td>
+      <td>1893.06</td>
+      <td>25.04%</td>
+      <td>45.54%</td>
+      <td>29.42%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>@ Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>38.60%</td>
+      <td>31.23%</td>
+      <td>30.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>@ Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>34.90%</td>
+      <td>34.83%</td>
+      <td>30.27%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>34.83%</td>
+      <td>34.90%</td>
+      <td>30.27%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>66.01%</td>
+      <td>11.88%</td>
+      <td>22.11%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>53.73%</td>
+      <td>18.83%</td>
+      <td>27.45%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>34.00%</td>
+      <td>35.74%</td>
+      <td>30.26%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>45.54%</td>
+      <td>25.04%</td>
+      <td>29.42%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>31.23%</td>
+      <td>38.60%</td>
+      <td>30.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-24</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>36.52%</td>
+      <td>33.23%</td>
+      <td>30.25%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>@ Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>38.23%</td>
+      <td>31.58%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>@ AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>7.16%</td>
+      <td>77.94%</td>
+      <td>14.91%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>@ Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>71.17%</td>
+      <td>9.67%</td>
+      <td>19.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>9.67%</td>
+      <td>71.17%</td>
+      <td>19.17%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>31.58%</td>
+      <td>38.23%</td>
+      <td>30.19%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>17.02%</td>
+      <td>56.49%</td>
+      <td>26.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>@ AEL Limassol</td>
+      <td>1640.31</td>
+      <td>56.49%</td>
+      <td>17.02%</td>
+      <td>26.49%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>11.86%</td>
+      <td>66.05%</td>
+      <td>22.09%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>77.94%</td>
+      <td>7.16%</td>
+      <td>14.91%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>72.07%</td>
+      <td>9.31%</td>
+      <td>18.62%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>20.58%</td>
+      <td>51.24%</td>
+      <td>28.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>@ Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>51.24%</td>
+      <td>20.58%</td>
+      <td>28.18%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>@ Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>9.31%</td>
+      <td>72.07%</td>
+      <td>18.62%</td>
+    </tr>
+    <tr>
+      <td>2026-01-31</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>@ Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>66.05%</td>
+      <td>11.86%</td>
+      <td>22.09%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>31.81%</td>
+      <td>37.99%</td>
+      <td>30.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>60.45%</td>
+      <td>14.69%</td>
+      <td>24.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>63.05%</td>
+      <td>13.31%</td>
+      <td>23.64%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>34.98%</td>
+      <td>34.76%</td>
+      <td>30.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>43.12%</td>
+      <td>27.11%</td>
+      <td>29.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>25.52%</td>
+      <td>44.97%</td>
+      <td>29.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>@ Ypsonas</td>
+      <td>1554.64</td>
+      <td>43.99%</td>
+      <td>26.36%</td>
+      <td>29.66%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>@ Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>44.97%</td>
+      <td>25.52%</td>
+      <td>29.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>@ Pafos FC</td>
+      <td>1893.06</td>
+      <td>27.11%</td>
+      <td>43.12%</td>
+      <td>29.77%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>@ Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>34.76%</td>
+      <td>34.98%</td>
+      <td>30.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>@ Aris Limassol</td>
+      <td>1827.85</td>
+      <td>13.31%</td>
+      <td>63.05%</td>
+      <td>23.64%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>@ Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>14.69%</td>
+      <td>60.45%</td>
+      <td>24.86%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>@ APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>37.99%</td>
+      <td>31.81%</td>
+      <td>30.20%</td>
+    </tr>
+    <tr>
+      <td>2026-02-07</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>26.36%</td>
+      <td>43.99%</td>
+      <td>29.66%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>@ Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>6.64%</td>
+      <td>79.44%</td>
+      <td>13.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>13.06%</td>
+      <td>63.54%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>55.21%</td>
+      <td>17.84%</td>
+      <td>26.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>79.44%</td>
+      <td>6.64%</td>
+      <td>13.92%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>46.58%</td>
+      <td>24.18%</td>
+      <td>29.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>13.12%</td>
+      <td>63.42%</td>
+      <td>23.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>32.00%</td>
+      <td>37.79%</td>
+      <td>30.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>@ Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>61.21%</td>
+      <td>14.27%</td>
+      <td>24.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>@ AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>17.84%</td>
+      <td>55.21%</td>
+      <td>26.95%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>@ AEL Limassol</td>
+      <td>1640.31</td>
+      <td>63.54%</td>
+      <td>13.06%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>@ Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>24.18%</td>
+      <td>46.58%</td>
+      <td>29.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>@ Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>63.42%</td>
+      <td>13.12%</td>
+      <td>23.45%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>@ Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>37.79%</td>
+      <td>32.00%</td>
+      <td>30.21%</td>
+    </tr>
+    <tr>
+      <td>2026-02-14</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>14.27%</td>
+      <td>61.21%</td>
+      <td>24.51%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>@ APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>40.54%</td>
+      <td>29.42%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>@ Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>40.49%</td>
+      <td>29.47%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>@ Pafos FC</td>
+      <td>1893.06</td>
+      <td>10.31%</td>
+      <td>69.58%</td>
+      <td>20.11%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>@ Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>54.51%</td>
+      <td>18.30%</td>
+      <td>27.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>@ Ypsonas</td>
+      <td>1554.64</td>
+      <td>65.64%</td>
+      <td>12.05%</td>
+      <td>22.31%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>29.42%</td>
+      <td>40.54%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>55.25%</td>
+      <td>17.82%</td>
+      <td>26.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>29.47%</td>
+      <td>40.49%</td>
+      <td>30.04%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>11.79%</td>
+      <td>66.20%</td>
+      <td>22.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>69.58%</td>
+      <td>10.31%</td>
+      <td>20.11%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>18.30%</td>
+      <td>54.51%</td>
+      <td>27.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>12.05%</td>
+      <td>65.64%</td>
+      <td>22.31%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>@ Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>17.82%</td>
+      <td>55.25%</td>
+      <td>26.94%</td>
+    </tr>
+    <tr>
+      <td>2026-02-21</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>@ Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>66.20%</td>
+      <td>11.79%</td>
+      <td>22.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>38.60%</td>
+      <td>31.23%</td>
+      <td>30.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>73.90%</td>
+      <td>8.61%</td>
+      <td>17.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>19.65%</td>
+      <td>52.54%</td>
+      <td>27.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>56.78%</td>
+      <td>16.84%</td>
+      <td>26.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>40.75%</td>
+      <td>29.23%</td>
+      <td>30.02%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>57.28%</td>
+      <td>16.53%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>@ Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>16.53%</td>
+      <td>57.28%</td>
+      <td>26.19%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>@ Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>29.23%</td>
+      <td>40.75%</td>
+      <td>30.02%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>@ Aris Limassol</td>
+      <td>1827.85</td>
+      <td>41.22%</td>
+      <td>28.80%</td>
+      <td>29.98%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>@ Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>16.84%</td>
+      <td>56.78%</td>
+      <td>26.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>@ AEL Limassol</td>
+      <td>1640.31</td>
+      <td>52.54%</td>
+      <td>19.65%</td>
+      <td>27.81%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>@ AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>8.61%</td>
+      <td>73.90%</td>
+      <td>17.49%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>@ Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>31.23%</td>
+      <td>38.60%</td>
+      <td>30.17%</td>
+    </tr>
+    <tr>
+      <td>2026-02-28</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>28.80%</td>
+      <td>41.22%</td>
+      <td>29.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>@ Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>24.82%</td>
+      <td>45.80%</td>
+      <td>29.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>@ AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>10.87%</td>
+      <td>68.26%</td>
+      <td>20.87%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>@ APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>15.27%</td>
+      <td>59.42%</td>
+      <td>25.31%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>@ Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>68.01%</td>
+      <td>10.98%</td>
+      <td>21.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>@ Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>73.74%</td>
+      <td>8.67%</td>
+      <td>17.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>@ Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>38.67%</td>
+      <td>31.17%</td>
+      <td>30.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>8.67%</td>
+      <td>73.74%</td>
+      <td>17.59%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>75.60%</td>
+      <td>7.98%</td>
+      <td>16.42%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>10.98%</td>
+      <td>68.01%</td>
+      <td>21.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>31.17%</td>
+      <td>38.67%</td>
+      <td>30.17%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>45.80%</td>
+      <td>24.82%</td>
+      <td>29.37%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>59.42%</td>
+      <td>15.27%</td>
+      <td>25.31%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>68.26%</td>
+      <td>10.87%</td>
+      <td>20.87%</td>
+    </tr>
+    <tr>
+      <td>2026-03-07</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>@ Pafos FC</td>
+      <td>1893.06</td>
+      <td>7.98%</td>
+      <td>75.60%</td>
+      <td>16.42%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>@ Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>65.57%</td>
+      <td>12.08%</td>
+      <td>22.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>@ AEL Limassol</td>
+      <td>1640.31</td>
+      <td>22.36%</td>
+      <td>48.87%</td>
+      <td>28.77%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>@ Aris Limassol</td>
+      <td>1827.85</td>
+      <td>27.70%</td>
+      <td>42.45%</td>
+      <td>29.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>@ Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>69.92%</td>
+      <td>10.17%</td>
+      <td>19.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>@ Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>43.18%</td>
+      <td>27.06%</td>
+      <td>29.76%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Ypsonas</td>
+      <td>1554.64</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>49.03%</td>
+      <td>22.24%</td>
+      <td>28.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>75.53%</td>
+      <td>8.01%</td>
+      <td>16.46%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Akritas Chlorakas</td>
+      <td>1576.26</td>
+      <td>Pafos FC</td>
+      <td>1893.06</td>
+      <td>10.17%</td>
+      <td>69.92%</td>
+      <td>19.91%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Aris Limassol</td>
+      <td>1827.85</td>
+      <td>APOEL Nicosia</td>
+      <td>1793.76</td>
+      <td>42.45%</td>
+      <td>27.70%</td>
+      <td>29.85%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Anorthosis Famagusta</td>
+      <td>1619.98</td>
+      <td>Apollon Limassol</td>
+      <td>1699.63</td>
+      <td>27.06%</td>
+      <td>43.18%</td>
+      <td>29.76%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>AEL Limassol</td>
+      <td>1640.31</td>
+      <td>Omonia Aradippou</td>
+      <td>1556.96</td>
+      <td>48.87%</td>
+      <td>22.36%</td>
+      <td>28.77%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Ethnikos Achna</td>
+      <td>1563.18</td>
+      <td>AEK Larnaca</td>
+      <td>1835.75</td>
+      <td>12.08%</td>
+      <td>65.57%</td>
+      <td>22.35%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Olympiacos Nicosia</td>
+      <td>1516.38</td>
+      <td>@ Omonia Nicosia</td>
+      <td>1854.01</td>
+      <td>8.01%</td>
+      <td>75.53%</td>
+      <td>16.46%</td>
+    </tr>
+    <tr>
+      <td>2026-03-14</td>
+      <td>Enosis Neon Paralimni</td>
+      <td>1470.06</td>
+      <td>@ Ypsonas</td>
+      <td>1554.64</td>
+      <td>22.24%</td>
+      <td>49.03%</td>
+      <td>28.73%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5845 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Admira Wacker">Admira Wacker</option><option value="Austria Klagenfurt">Austria Klagenfurt</option><option value="Austria Lustenau">Austria Lustenau</option><option value="Austria Wien">Austria Wien</option><option value="Austria Wien (A)">Austria Wien (A)</option><option value="Blau-Weiss Linz">Blau-Weiss Linz</option><option value="First Vienna">First Vienna</option><option value="Floridsdorfer">Floridsdorfer</option><option value="Grazer AK">Grazer AK</option><option value="Hartberg">Hartberg</option><option value="Hertha Wels">Hertha Wels</option><option value="Kapfenberger">Kapfenberger</option><option value="LASK">LASK</option><option value="Liefering">Liefering</option><option value="Rapid Wien">Rapid Wien</option><option value="Rapid Wien (A)">Rapid Wien (A)</option><option value="Ried">Ried</option><option value="SCR Altach">SCR Altach</option><option value="SKN St. Polten">SKN St. Polten</option><option value="SKU Amstetten">SKU Amstetten</option><option value="SV Austria Salzburg">SV Austria Salzburg</option><option value="Salzburg">Salzburg</option><option value="Schwarz-Weiss Bregenz">Schwarz-Weiss Bregenz</option><option value="Sturm Graz">Sturm Graz</option><option value="Sturm Graz (A)">Sturm Graz (A)</option><option value="WSG Tirol">WSG Tirol</option><option value="Wolfsberg">Wolfsberg</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-01</td>
+      <td>LASK</td>
+      <td>1699.14</td>
+      <td>0</td>
+      <td>Sturm Graz</td>
+      <td>1734.68</td>
+      <td>2</td>
+      <td>29.91%</td>
+      <td>39.78%</td>
+      <td>30.31%</td>
+      <td>-15.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Liefering</td>
+      <td>1489.68</td>
+      <td>0</td>
+      <td>Austria Lustenau</td>
+      <td>1478.09</td>
+      <td>4</td>
+      <td>36.41%</td>
+      <td>33.11%</td>
+      <td>30.48%</td>
+      <td>-24.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Kapfenberger</td>
+      <td>1506.23</td>
+      <td>0</td>
+      <td>Admira Wacker</td>
+      <td>1514.59</td>
+      <td>2</td>
+      <td>33.56%</td>
+      <td>35.95%</td>
+      <td>30.49%</td>
+      <td>-16.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>SKU Amstetten</td>
+      <td>1484.29</td>
+      <td>2</td>
+      <td>Sturm Graz (A)</td>
+      <td>1467.77</td>
+      <td>0</td>
+      <td>37.11%</td>
+      <td>32.43%</td>
+      <td>30.46%</td>
+      <td>15.95</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>SV Austria Salzburg</td>
+      <td>1438.28</td>
+      <td>1</td>
+      <td>Austria Klagenfurt</td>
+      <td>1466.53</td>
+      <td>2</td>
+      <td>30.85%</td>
+      <td>38.77%</td>
+      <td>30.38%</td>
+      <td>-10.87</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Austria Klagenfurt</td>
+      <td>1466.53</td>
+      <td>2</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1438.28</td>
+      <td>1</td>
+      <td>38.77%</td>
+      <td>30.85%</td>
+      <td>30.38%</td>
+      <td>10.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Sturm Graz (A)</td>
+      <td>1467.77</td>
+      <td>0</td>
+      <td>@ SKU Amstetten</td>
+      <td>1484.29</td>
+      <td>2</td>
+      <td>32.43%</td>
+      <td>37.11%</td>
+      <td>30.46%</td>
+      <td>-15.94</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Admira Wacker</td>
+      <td>1514.59</td>
+      <td>2</td>
+      <td>@ Kapfenberger</td>
+      <td>1506.23</td>
+      <td>0</td>
+      <td>35.95%</td>
+      <td>33.56%</td>
+      <td>30.49%</td>
+      <td>16.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Austria Lustenau</td>
+      <td>1478.09</td>
+      <td>4</td>
+      <td>@ Liefering</td>
+      <td>1489.68</td>
+      <td>0</td>
+      <td>33.11%</td>
+      <td>36.41%</td>
+      <td>30.48%</td>
+      <td>24.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-01</td>
+      <td>Sturm Graz</td>
+      <td>1734.68</td>
+      <td>2</td>
+      <td>@ LASK</td>
+      <td>1699.14</td>
+      <td>0</td>
+      <td>39.78%</td>
+      <td>29.91%</td>
+      <td>30.31%</td>
+      <td>15.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Rapid Wien (A)</td>
+      <td>1422.62</td>
+      <td>1</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1417.93</td>
+      <td>1</td>
+      <td>35.42%</td>
+      <td>34.08%</td>
+      <td>30.50%</td>
+      <td>-0.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Salzburg</td>
+      <td>1749.51</td>
+      <td>2</td>
+      <td>@ Ried</td>
+      <td>1669.43</td>
+      <td>2</td>
+      <td>45.79%</td>
+      <td>24.66%</td>
+      <td>29.55%</td>
+      <td>-1.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Hartberg</td>
+      <td>1665.10</td>
+      <td>2</td>
+      <td>@ WSG Tirol</td>
+      <td>1603.13</td>
+      <td>4</td>
+      <td>43.39%</td>
+      <td>26.68%</td>
+      <td>29.93%</td>
+      <td>-19.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>SCR Altach</td>
+      <td>1597.45</td>
+      <td>2</td>
+      <td>@ Wolfsberg</td>
+      <td>1737.06</td>
+      <td>0</td>
+      <td>19.09%</td>
+      <td>53.21%</td>
+      <td>27.70%</td>
+      <td>23.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>SKN St. Polten</td>
+      <td>1547.93</td>
+      <td>4</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1423.60</td>
+      <td>1</td>
+      <td>51.37%</td>
+      <td>20.37%</td>
+      <td>28.26%</td>
+      <td>13.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>WSG Tirol</td>
+      <td>1603.13</td>
+      <td>4</td>
+      <td>Hartberg</td>
+      <td>1665.10</td>
+      <td>2</td>
+      <td>26.68%</td>
+      <td>43.39%</td>
+      <td>29.93%</td>
+      <td>19.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Austria Wien (A)</td>
+      <td>1423.60</td>
+      <td>1</td>
+      <td>SKN St. Polten</td>
+      <td>1547.93</td>
+      <td>4</td>
+      <td>20.37%</td>
+      <td>51.37%</td>
+      <td>28.26%</td>
+      <td>-13.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1417.93</td>
+      <td>1</td>
+      <td>Rapid Wien (A)</td>
+      <td>1422.62</td>
+      <td>1</td>
+      <td>34.08%</td>
+      <td>35.42%</td>
+      <td>30.50%</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Ried</td>
+      <td>1669.43</td>
+      <td>2</td>
+      <td>Salzburg</td>
+      <td>1749.51</td>
+      <td>2</td>
+      <td>24.66%</td>
+      <td>45.79%</td>
+      <td>29.55%</td>
+      <td>1.34</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Wolfsberg</td>
+      <td>1737.06</td>
+      <td>0</td>
+      <td>SCR Altach</td>
+      <td>1597.45</td>
+      <td>2</td>
+      <td>53.21%</td>
+      <td>19.09%</td>
+      <td>27.70%</td>
+      <td>-23.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Floridsdorfer</td>
+      <td>1493.76</td>
+      <td>3</td>
+      <td>@ Hertha Wels</td>
+      <td>1470.94</td>
+      <td>0</td>
+      <td>38.00%</td>
+      <td>31.58%</td>
+      <td>30.42%</td>
+      <td>19.15</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Austria Wien</td>
+      <td>1712.43</td>
+      <td>2</td>
+      <td>@ Grazer AK</td>
+      <td>1606.15</td>
+      <td>2</td>
+      <td>49.14%</td>
+      <td>22.01%</td>
+      <td>28.85%</td>
+      <td>-1.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Rapid Wien</td>
+      <td>1670.86</td>
+      <td>1</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1638.62</td>
+      <td>0</td>
+      <td>39.33%</td>
+      <td>30.33%</td>
+      <td>30.34%</td>
+      <td>10.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Grazer AK</td>
+      <td>1606.15</td>
+      <td>2</td>
+      <td>Austria Wien</td>
+      <td>1712.43</td>
+      <td>2</td>
+      <td>22.01%</td>
+      <td>49.14%</td>
+      <td>28.85%</td>
+      <td>1.76</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Hertha Wels</td>
+      <td>1470.94</td>
+      <td>0</td>
+      <td>Floridsdorfer</td>
+      <td>1493.76</td>
+      <td>3</td>
+      <td>31.58%</td>
+      <td>38.00%</td>
+      <td>30.42%</td>
+      <td>-19.15</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1638.62</td>
+      <td>0</td>
+      <td>@ Rapid Wien</td>
+      <td>1670.86</td>
+      <td>1</td>
+      <td>30.33%</td>
+      <td>39.33%</td>
+      <td>30.34%</td>
+      <td>-10.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Kapfenberger</td>
+      <td>1489.89</td>
+      <td>0</td>
+      <td>@ Floridsdorfer</td>
+      <td>1512.91</td>
+      <td>2</td>
+      <td>31.55%</td>
+      <td>38.03%</td>
+      <td>30.42%</td>
+      <td>-15.62</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1418.01</td>
+      <td>2</td>
+      <td>@ SKN St. Polten</td>
+      <td>1561.39</td>
+      <td>4</td>
+      <td>18.79%</td>
+      <td>53.66%</td>
+      <td>27.56%</td>
+      <td>-10.19</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>SV Austria Salzburg</td>
+      <td>1427.41</td>
+      <td>0</td>
+      <td>@ First Vienna</td>
+      <td>1482.18</td>
+      <td>3</td>
+      <td>27.52%</td>
+      <td>42.43%</td>
+      <td>30.05%</td>
+      <td>-17.30</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Austria Lustenau</td>
+      <td>1502.55</td>
+      <td>1</td>
+      <td>Hertha Wels</td>
+      <td>1451.79</td>
+      <td>0</td>
+      <td>41.88%</td>
+      <td>28.00%</td>
+      <td>30.11%</td>
+      <td>10.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Austria Klagenfurt</td>
+      <td>1477.41</td>
+      <td>2</td>
+      <td>Austria Wien (A)</td>
+      <td>1410.14</td>
+      <td>3</td>
+      <td>44.10%</td>
+      <td>26.07%</td>
+      <td>29.83%</td>
+      <td>-14.10</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Hertha Wels</td>
+      <td>1451.79</td>
+      <td>0</td>
+      <td>@ Austria Lustenau</td>
+      <td>1502.55</td>
+      <td>1</td>
+      <td>28.00%</td>
+      <td>41.88%</td>
+      <td>30.11%</td>
+      <td>-10.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Austria Wien (A)</td>
+      <td>1410.14</td>
+      <td>3</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1477.41</td>
+      <td>2</td>
+      <td>26.07%</td>
+      <td>44.10%</td>
+      <td>29.83%</td>
+      <td>14.10</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>Floridsdorfer</td>
+      <td>1512.91</td>
+      <td>2</td>
+      <td>Kapfenberger</td>
+      <td>1489.89</td>
+      <td>0</td>
+      <td>38.03%</td>
+      <td>31.55%</td>
+      <td>30.42%</td>
+      <td>15.63</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>First Vienna</td>
+      <td>1482.18</td>
+      <td>3</td>
+      <td>SV Austria Salzburg</td>
+      <td>1427.41</td>
+      <td>0</td>
+      <td>42.43%</td>
+      <td>27.52%</td>
+      <td>30.05%</td>
+      <td>17.30</td>
+    </tr>
+    <tr>
+      <td>2025-08-08</td>
+      <td>SKN St. Polten</td>
+      <td>1561.39</td>
+      <td>4</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1418.01</td>
+      <td>2</td>
+      <td>53.66%</td>
+      <td>18.79%</td>
+      <td>27.56%</td>
+      <td>10.20</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Salzburg</td>
+      <td>1748.17</td>
+      <td>5</td>
+      <td>Grazer AK</td>
+      <td>1607.91</td>
+      <td>0</td>
+      <td>53.29%</td>
+      <td>19.04%</td>
+      <td>27.68%</td>
+      <td>16.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>SCR Altach</td>
+      <td>1620.57</td>
+      <td>1</td>
+      <td>Ried</td>
+      <td>1670.77</td>
+      <td>0</td>
+      <td>28.08%</td>
+      <td>41.80%</td>
+      <td>30.12%</td>
+      <td>13.54</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1627.88</td>
+      <td>0</td>
+      <td>Hartberg</td>
+      <td>1645.41</td>
+      <td>1</td>
+      <td>32.29%</td>
+      <td>37.25%</td>
+      <td>30.45%</td>
+      <td>-11.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Hartberg</td>
+      <td>1645.41</td>
+      <td>1</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1627.88</td>
+      <td>0</td>
+      <td>37.25%</td>
+      <td>32.29%</td>
+      <td>30.45%</td>
+      <td>11.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Ried</td>
+      <td>1670.77</td>
+      <td>0</td>
+      <td>@ SCR Altach</td>
+      <td>1620.57</td>
+      <td>1</td>
+      <td>41.80%</td>
+      <td>28.08%</td>
+      <td>30.12%</td>
+      <td>-13.53</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Liefering</td>
+      <td>1465.22</td>
+      <td>1</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1422.54</td>
+      <td>1</td>
+      <td>40.77%</td>
+      <td>29.00%</td>
+      <td>30.23%</td>
+      <td>-0.72</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Grazer AK</td>
+      <td>1607.91</td>
+      <td>0</td>
+      <td>@ Salzburg</td>
+      <td>1748.17</td>
+      <td>5</td>
+      <td>19.04%</td>
+      <td>53.29%</td>
+      <td>27.68%</td>
+      <td>-16.33</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Rapid Wien (A)</td>
+      <td>1422.54</td>
+      <td>1</td>
+      <td>Liefering</td>
+      <td>1465.22</td>
+      <td>1</td>
+      <td>29.00%</td>
+      <td>40.77%</td>
+      <td>30.23%</td>
+      <td>0.72</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Admira Wacker</td>
+      <td>1530.92</td>
+      <td>2</td>
+      <td>SKU Amstetten</td>
+      <td>1500.24</td>
+      <td>2</td>
+      <td>39.11%</td>
+      <td>30.53%</td>
+      <td>30.36%</td>
+      <td>-0.52</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>WSG Tirol</td>
+      <td>1622.82</td>
+      <td>3</td>
+      <td>LASK</td>
+      <td>1684.11</td>
+      <td>1</td>
+      <td>26.76%</td>
+      <td>43.30%</td>
+      <td>29.94%</td>
+      <td>19.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Sturm Graz</td>
+      <td>1749.71</td>
+      <td>1</td>
+      <td>Rapid Wien</td>
+      <td>1681.60</td>
+      <td>2</td>
+      <td>44.22%</td>
+      <td>25.97%</td>
+      <td>29.81%</td>
+      <td>-14.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>LASK</td>
+      <td>1684.11</td>
+      <td>1</td>
+      <td>@ WSG Tirol</td>
+      <td>1622.82</td>
+      <td>3</td>
+      <td>43.30%</td>
+      <td>26.76%</td>
+      <td>29.94%</td>
+      <td>-19.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Rapid Wien</td>
+      <td>1681.60</td>
+      <td>2</td>
+      <td>@ Sturm Graz</td>
+      <td>1749.71</td>
+      <td>1</td>
+      <td>25.97%</td>
+      <td>44.22%</td>
+      <td>29.81%</td>
+      <td>14.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Wolfsberg</td>
+      <td>1713.93</td>
+      <td>2</td>
+      <td>@ Austria Wien</td>
+      <td>1710.68</td>
+      <td>0</td>
+      <td>35.22%</td>
+      <td>34.28%</td>
+      <td>30.50%</td>
+      <td>16.59</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>SKU Amstetten</td>
+      <td>1500.24</td>
+      <td>2</td>
+      <td>@ Admira Wacker</td>
+      <td>1530.92</td>
+      <td>2</td>
+      <td>30.53%</td>
+      <td>39.11%</td>
+      <td>30.36%</td>
+      <td>0.52</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Austria Wien</td>
+      <td>1710.68</td>
+      <td>0</td>
+      <td>Wolfsberg</td>
+      <td>1713.93</td>
+      <td>2</td>
+      <td>34.28%</td>
+      <td>35.22%</td>
+      <td>30.50%</td>
+      <td>-16.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Austria Lustenau</td>
+      <td>1512.67</td>
+      <td>1</td>
+      <td>@ Kapfenberger</td>
+      <td>1474.27</td>
+      <td>3</td>
+      <td>40.18%</td>
+      <td>29.54%</td>
+      <td>30.28%</td>
+      <td>-18.58</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Hertha Wels</td>
+      <td>1441.67</td>
+      <td>1</td>
+      <td>SKU Amstetten</td>
+      <td>1500.76</td>
+      <td>0</td>
+      <td>27.01%</td>
+      <td>43.01%</td>
+      <td>29.98%</td>
+      <td>13.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>SKN St. Polten</td>
+      <td>1571.59</td>
+      <td>2</td>
+      <td>First Vienna</td>
+      <td>1499.48</td>
+      <td>1</td>
+      <td>44.75%</td>
+      <td>25.53%</td>
+      <td>29.73%</td>
+      <td>9.41</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1407.82</td>
+      <td>1</td>
+      <td>Floridsdorfer</td>
+      <td>1528.54</td>
+      <td>1</td>
+      <td>20.69%</td>
+      <td>50.93%</td>
+      <td>28.38%</td>
+      <td>1.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Kapfenberger</td>
+      <td>1474.27</td>
+      <td>3</td>
+      <td>Austria Lustenau</td>
+      <td>1512.67</td>
+      <td>1</td>
+      <td>29.54%</td>
+      <td>40.18%</td>
+      <td>30.28%</td>
+      <td>18.57</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Sturm Graz (A)</td>
+      <td>1451.83</td>
+      <td>2</td>
+      <td>@ Liefering</td>
+      <td>1464.50</td>
+      <td>2</td>
+      <td>32.96%</td>
+      <td>36.57%</td>
+      <td>30.48%</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>SKU Amstetten</td>
+      <td>1500.76</td>
+      <td>0</td>
+      <td>@ Hertha Wels</td>
+      <td>1441.67</td>
+      <td>1</td>
+      <td>43.01%</td>
+      <td>27.01%</td>
+      <td>29.98%</td>
+      <td>-13.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>First Vienna</td>
+      <td>1499.48</td>
+      <td>1</td>
+      <td>@ SKN St. Polten</td>
+      <td>1571.59</td>
+      <td>2</td>
+      <td>25.53%</td>
+      <td>44.75%</td>
+      <td>29.73%</td>
+      <td>-9.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Liefering</td>
+      <td>1464.50</td>
+      <td>2</td>
+      <td>Sturm Graz (A)</td>
+      <td>1451.83</td>
+      <td>2</td>
+      <td>36.57%</td>
+      <td>32.96%</td>
+      <td>30.48%</td>
+      <td>-0.22</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Floridsdorfer</td>
+      <td>1528.54</td>
+      <td>1</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1407.82</td>
+      <td>1</td>
+      <td>50.93%</td>
+      <td>20.69%</td>
+      <td>28.38%</td>
+      <td>-1.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Austria Wien (A)</td>
+      <td>1424.24</td>
+      <td>1</td>
+      <td>Admira Wacker</td>
+      <td>1530.40</td>
+      <td>1</td>
+      <td>22.02%</td>
+      <td>49.13%</td>
+      <td>28.85%</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Grazer AK</td>
+      <td>1591.58</td>
+      <td>1</td>
+      <td>WSG Tirol</td>
+      <td>1642.48</td>
+      <td>1</td>
+      <td>27.99%</td>
+      <td>41.90%</td>
+      <td>30.11%</td>
+      <td>0.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Hartberg</td>
+      <td>1656.65</td>
+      <td>1</td>
+      <td>Salzburg</td>
+      <td>1764.49</td>
+      <td>2</td>
+      <td>21.87%</td>
+      <td>49.34%</td>
+      <td>28.80%</td>
+      <td>-8.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Salzburg</td>
+      <td>1764.49</td>
+      <td>2</td>
+      <td>@ Hartberg</td>
+      <td>1656.65</td>
+      <td>1</td>
+      <td>49.34%</td>
+      <td>21.87%</td>
+      <td>28.80%</td>
+      <td>8.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Admira Wacker</td>
+      <td>1530.40</td>
+      <td>1</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1424.24</td>
+      <td>1</td>
+      <td>49.13%</td>
+      <td>22.02%</td>
+      <td>28.85%</td>
+      <td>-1.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Sturm Graz</td>
+      <td>1735.58</td>
+      <td>3</td>
+      <td>@ Ried</td>
+      <td>1657.24</td>
+      <td>1</td>
+      <td>45.56%</td>
+      <td>24.85%</td>
+      <td>29.59%</td>
+      <td>13.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>WSG Tirol</td>
+      <td>1642.48</td>
+      <td>1</td>
+      <td>@ Grazer AK</td>
+      <td>1591.58</td>
+      <td>1</td>
+      <td>41.90%</td>
+      <td>27.99%</td>
+      <td>30.11%</td>
+      <td>-0.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Ried</td>
+      <td>1657.24</td>
+      <td>1</td>
+      <td>Sturm Graz</td>
+      <td>1735.58</td>
+      <td>3</td>
+      <td>24.85%</td>
+      <td>45.56%</td>
+      <td>29.59%</td>
+      <td>-13.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1616.64</td>
+      <td>0</td>
+      <td>@ Wolfsberg</td>
+      <td>1730.52</td>
+      <td>3</td>
+      <td>21.30%</td>
+      <td>50.09%</td>
+      <td>28.61%</td>
+      <td>-14.01</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Rapid Wien (A)</td>
+      <td>1423.26</td>
+      <td>2</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1410.11</td>
+      <td>4</td>
+      <td>36.63%</td>
+      <td>32.89%</td>
+      <td>30.47%</td>
+      <td>-17.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>LASK</td>
+      <td>1664.45</td>
+      <td>2</td>
+      <td>Austria Wien</td>
+      <td>1694.10</td>
+      <td>1</td>
+      <td>30.67%</td>
+      <td>38.96%</td>
+      <td>30.37%</td>
+      <td>12.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>SCR Altach</td>
+      <td>1634.11</td>
+      <td>0</td>
+      <td>@ Rapid Wien</td>
+      <td>1695.72</td>
+      <td>0</td>
+      <td>26.72%</td>
+      <td>43.35%</td>
+      <td>29.93%</td>
+      <td>1.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Wolfsberg</td>
+      <td>1730.52</td>
+      <td>3</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1616.64</td>
+      <td>0</td>
+      <td>50.09%</td>
+      <td>21.30%</td>
+      <td>28.61%</td>
+      <td>14.01</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>SV Austria Salzburg</td>
+      <td>1410.11</td>
+      <td>4</td>
+      <td>Rapid Wien (A)</td>
+      <td>1423.26</td>
+      <td>2</td>
+      <td>32.89%</td>
+      <td>36.63%</td>
+      <td>30.47%</td>
+      <td>17.37</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Rapid Wien</td>
+      <td>1695.72</td>
+      <td>0</td>
+      <td>SCR Altach</td>
+      <td>1634.11</td>
+      <td>0</td>
+      <td>43.35%</td>
+      <td>26.72%</td>
+      <td>29.93%</td>
+      <td>-1.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Austria Wien</td>
+      <td>1694.10</td>
+      <td>1</td>
+      <td>@ LASK</td>
+      <td>1664.45</td>
+      <td>2</td>
+      <td>38.96%</td>
+      <td>30.67%</td>
+      <td>30.37%</td>
+      <td>-12.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Liefering</td>
+      <td>1464.28</td>
+      <td>0</td>
+      <td>@ First Vienna</td>
+      <td>1490.06</td>
+      <td>0</td>
+      <td>31.18%</td>
+      <td>38.42%</td>
+      <td>30.40%</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>SKN St. Polten</td>
+      <td>1581.00</td>
+      <td>0</td>
+      <td>@ SKU Amstetten</td>
+      <td>1486.93</td>
+      <td>0</td>
+      <td>47.60%</td>
+      <td>23.21%</td>
+      <td>29.20%</td>
+      <td>-1.56</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Hertha Wels</td>
+      <td>1455.50</td>
+      <td>0</td>
+      <td>@ Admira Wacker</td>
+      <td>1528.65</td>
+      <td>1</td>
+      <td>25.41%</td>
+      <td>44.88%</td>
+      <td>29.70%</td>
+      <td>-9.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>SKU Amstetten</td>
+      <td>1486.93</td>
+      <td>0</td>
+      <td>SKN St. Polten</td>
+      <td>1581.00</td>
+      <td>0</td>
+      <td>23.21%</td>
+      <td>47.60%</td>
+      <td>29.20%</td>
+      <td>1.56</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>First Vienna</td>
+      <td>1490.06</td>
+      <td>0</td>
+      <td>Liefering</td>
+      <td>1464.28</td>
+      <td>0</td>
+      <td>38.42%</td>
+      <td>31.18%</td>
+      <td>30.40%</td>
+      <td>-0.44</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Admira Wacker</td>
+      <td>1528.65</td>
+      <td>1</td>
+      <td>Hertha Wels</td>
+      <td>1455.50</td>
+      <td>0</td>
+      <td>44.88%</td>
+      <td>25.41%</td>
+      <td>29.70%</td>
+      <td>9.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Sturm Graz (A)</td>
+      <td>1452.05</td>
+      <td>1</td>
+      <td>Kapfenberger</td>
+      <td>1492.84</td>
+      <td>2</td>
+      <td>29.24%</td>
+      <td>40.51%</td>
+      <td>30.25%</td>
+      <td>-10.45</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Salzburg</td>
+      <td>1772.77</td>
+      <td>3</td>
+      <td>LASK</td>
+      <td>1677.29</td>
+      <td>0</td>
+      <td>47.78%</td>
+      <td>23.06%</td>
+      <td>29.16%</td>
+      <td>15.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1602.63</td>
+      <td>0</td>
+      <td>Ried</td>
+      <td>1644.21</td>
+      <td>2</td>
+      <td>29.14%</td>
+      <td>40.62%</td>
+      <td>30.24%</td>
+      <td>-14.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>LASK</td>
+      <td>1677.29</td>
+      <td>0</td>
+      <td>@ Salzburg</td>
+      <td>1772.77</td>
+      <td>3</td>
+      <td>23.06%</td>
+      <td>47.78%</td>
+      <td>29.16%</td>
+      <td>-15.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Ried</td>
+      <td>1644.21</td>
+      <td>2</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1602.63</td>
+      <td>0</td>
+      <td>40.62%</td>
+      <td>29.14%</td>
+      <td>30.24%</td>
+      <td>14.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Floridsdorfer</td>
+      <td>1526.57</td>
+      <td>1</td>
+      <td>SV Austria Salzburg</td>
+      <td>1427.48</td>
+      <td>2</td>
+      <td>48.24%</td>
+      <td>22.71%</td>
+      <td>29.06%</td>
+      <td>-15.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>SV Austria Salzburg</td>
+      <td>1427.48</td>
+      <td>2</td>
+      <td>@ Floridsdorfer</td>
+      <td>1526.57</td>
+      <td>1</td>
+      <td>22.71%</td>
+      <td>48.24%</td>
+      <td>29.06%</td>
+      <td>15.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1409.79</td>
+      <td>1</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1463.31</td>
+      <td>2</td>
+      <td>27.67%</td>
+      <td>42.26%</td>
+      <td>30.07%</td>
+      <td>-10.02</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Austria Klagenfurt</td>
+      <td>1463.31</td>
+      <td>2</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1409.79</td>
+      <td>1</td>
+      <td>42.26%</td>
+      <td>27.67%</td>
+      <td>30.07%</td>
+      <td>10.03</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Kapfenberger</td>
+      <td>1492.84</td>
+      <td>2</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1452.05</td>
+      <td>1</td>
+      <td>40.51%</td>
+      <td>29.24%</td>
+      <td>30.25%</td>
+      <td>10.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Rapid Wien</td>
+      <td>1694.69</td>
+      <td>2</td>
+      <td>@ Wolfsberg</td>
+      <td>1744.53</td>
+      <td>1</td>
+      <td>28.12%</td>
+      <td>41.76%</td>
+      <td>30.13%</td>
+      <td>13.52</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Hartberg</td>
+      <td>1648.38</td>
+      <td>3</td>
+      <td>@ Austria Wien</td>
+      <td>1681.25</td>
+      <td>1</td>
+      <td>30.25%</td>
+      <td>39.41%</td>
+      <td>30.34%</td>
+      <td>18.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Austria Wien (A)</td>
+      <td>1425.99</td>
+      <td>2</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1405.89</td>
+      <td>0</td>
+      <td>37.62%</td>
+      <td>31.94%</td>
+      <td>30.44%</td>
+      <td>15.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Wolfsberg</td>
+      <td>1744.53</td>
+      <td>1</td>
+      <td>Rapid Wien</td>
+      <td>1694.69</td>
+      <td>2</td>
+      <td>41.76%</td>
+      <td>28.12%</td>
+      <td>30.13%</td>
+      <td>-13.53</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>SCR Altach</td>
+      <td>1635.14</td>
+      <td>1</td>
+      <td>Grazer AK</td>
+      <td>1592.44</td>
+      <td>1</td>
+      <td>40.78%</td>
+      <td>29.00%</td>
+      <td>30.23%</td>
+      <td>-0.72</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Austria Wien</td>
+      <td>1681.25</td>
+      <td>1</td>
+      <td>Hartberg</td>
+      <td>1648.38</td>
+      <td>3</td>
+      <td>39.41%</td>
+      <td>30.25%</td>
+      <td>30.34%</td>
+      <td>-18.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Rapid Wien (A)</td>
+      <td>1405.89</td>
+      <td>0</td>
+      <td>Austria Wien (A)</td>
+      <td>1425.99</td>
+      <td>2</td>
+      <td>31.94%</td>
+      <td>37.62%</td>
+      <td>30.44%</td>
+      <td>-15.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Grazer AK</td>
+      <td>1592.44</td>
+      <td>1</td>
+      <td>@ SCR Altach</td>
+      <td>1635.14</td>
+      <td>1</td>
+      <td>29.00%</td>
+      <td>40.78%</td>
+      <td>30.23%</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Hertha Wels</td>
+      <td>1446.12</td>
+      <td>0</td>
+      <td>Austria Wien (A)</td>
+      <td>1441.76</td>
+      <td>1</td>
+      <td>35.38%</td>
+      <td>34.13%</td>
+      <td>30.50%</td>
+      <td>-11.98</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Austria Klagenfurt</td>
+      <td>1473.34</td>
+      <td>0</td>
+      <td>Admira Wacker</td>
+      <td>1538.03</td>
+      <td>4</td>
+      <td>26.37%</td>
+      <td>43.76%</td>
+      <td>29.88%</td>
+      <td>-19.32</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Admira Wacker</td>
+      <td>1538.03</td>
+      <td>4</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1473.34</td>
+      <td>0</td>
+      <td>43.76%</td>
+      <td>26.37%</td>
+      <td>29.88%</td>
+      <td>19.31</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>First Vienna</td>
+      <td>1489.62</td>
+      <td>1</td>
+      <td>Austria Lustenau</td>
+      <td>1494.09</td>
+      <td>1</td>
+      <td>34.11%</td>
+      <td>35.39%</td>
+      <td>30.50%</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Austria Lustenau</td>
+      <td>1494.09</td>
+      <td>1</td>
+      <td>@ First Vienna</td>
+      <td>1489.62</td>
+      <td>1</td>
+      <td>35.39%</td>
+      <td>34.11%</td>
+      <td>30.50%</td>
+      <td>-0.08</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Austria Wien (A)</td>
+      <td>1441.76</td>
+      <td>1</td>
+      <td>@ Hertha Wels</td>
+      <td>1446.12</td>
+      <td>0</td>
+      <td>34.13%</td>
+      <td>35.38%</td>
+      <td>30.50%</td>
+      <td>11.99</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Sturm Graz</td>
+      <td>1748.61</td>
+      <td>3</td>
+      <td>@ Grazer AK</td>
+      <td>1593.17</td>
+      <td>0</td>
+      <td>55.07%</td>
+      <td>17.86%</td>
+      <td>27.07%</td>
+      <td>11.89</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Ried</td>
+      <td>1658.96</td>
+      <td>3</td>
+      <td>@ LASK</td>
+      <td>1662.29</td>
+      <td>1</td>
+      <td>34.27%</td>
+      <td>35.23%</td>
+      <td>30.50%</td>
+      <td>16.89</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>SKN St. Polten</td>
+      <td>1579.44</td>
+      <td>2</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1390.12</td>
+      <td>0</td>
+      <td>58.91%</td>
+      <td>15.54%</td>
+      <td>25.55%</td>
+      <td>8.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>SKU Amstetten</td>
+      <td>1488.49</td>
+      <td>2</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1442.61</td>
+      <td>2</td>
+      <td>41.21%</td>
+      <td>28.60%</td>
+      <td>30.18%</td>
+      <td>-0.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Floridsdorfer</td>
+      <td>1511.45</td>
+      <td>2</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1441.60</td>
+      <td>0</td>
+      <td>44.44%</td>
+      <td>25.78%</td>
+      <td>29.77%</td>
+      <td>13.41</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Salzburg</td>
+      <td>1787.77</td>
+      <td>2</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1587.89</td>
+      <td>2</td>
+      <td>60.07%</td>
+      <td>14.89%</td>
+      <td>25.04%</td>
+      <td>-3.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>LASK</td>
+      <td>1662.29</td>
+      <td>1</td>
+      <td>Ried</td>
+      <td>1658.96</td>
+      <td>3</td>
+      <td>35.23%</td>
+      <td>34.27%</td>
+      <td>30.50%</td>
+      <td>-16.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Grazer AK</td>
+      <td>1593.17</td>
+      <td>0</td>
+      <td>Sturm Graz</td>
+      <td>1748.61</td>
+      <td>3</td>
+      <td>17.86%</td>
+      <td>55.07%</td>
+      <td>27.07%</td>
+      <td>-11.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Rapid Wien (A)</td>
+      <td>1390.12</td>
+      <td>0</td>
+      <td>SKN St. Polten</td>
+      <td>1579.44</td>
+      <td>2</td>
+      <td>15.54%</td>
+      <td>58.91%</td>
+      <td>25.55%</td>
+      <td>-8.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>SV Austria Salzburg</td>
+      <td>1442.61</td>
+      <td>2</td>
+      <td>SKU Amstetten</td>
+      <td>1488.49</td>
+      <td>2</td>
+      <td>28.60%</td>
+      <td>41.21%</td>
+      <td>30.18%</td>
+      <td>0.77</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1587.89</td>
+      <td>2</td>
+      <td>@ Salzburg</td>
+      <td>1787.77</td>
+      <td>2</td>
+      <td>14.89%</td>
+      <td>60.07%</td>
+      <td>25.04%</td>
+      <td>3.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Sturm Graz (A)</td>
+      <td>1441.60</td>
+      <td>0</td>
+      <td>Floridsdorfer</td>
+      <td>1511.45</td>
+      <td>2</td>
+      <td>25.78%</td>
+      <td>44.44%</td>
+      <td>29.77%</td>
+      <td>-13.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Austria Wien</td>
+      <td>1662.94</td>
+      <td>1</td>
+      <td>SCR Altach</td>
+      <td>1634.42</td>
+      <td>0</td>
+      <td>38.81%</td>
+      <td>30.82%</td>
+      <td>30.38%</td>
+      <td>10.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>WSG Tirol</td>
+      <td>1641.62</td>
+      <td>1</td>
+      <td>Wolfsberg</td>
+      <td>1731.00</td>
+      <td>1</td>
+      <td>23.68%</td>
+      <td>47.00%</td>
+      <td>29.32%</td>
+      <td>1.49</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Liefering</td>
+      <td>1464.72</td>
+      <td>2</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1399.77</td>
+      <td>2</td>
+      <td>43.79%</td>
+      <td>26.34%</td>
+      <td>29.87%</td>
+      <td>-1.09</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Wolfsberg</td>
+      <td>1731.00</td>
+      <td>1</td>
+      <td>@ WSG Tirol</td>
+      <td>1641.62</td>
+      <td>1</td>
+      <td>47.00%</td>
+      <td>23.68%</td>
+      <td>29.32%</td>
+      <td>-1.49</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>SCR Altach</td>
+      <td>1634.42</td>
+      <td>0</td>
+      <td>@ Austria Wien</td>
+      <td>1662.94</td>
+      <td>1</td>
+      <td>30.82%</td>
+      <td>38.81%</td>
+      <td>30.38%</td>
+      <td>-10.86</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Rapid Wien</td>
+      <td>1708.21</td>
+      <td>1</td>
+      <td>@ Hartberg</td>
+      <td>1666.69</td>
+      <td>0</td>
+      <td>40.61%</td>
+      <td>29.15%</td>
+      <td>30.24%</td>
+      <td>10.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Hartberg</td>
+      <td>1666.69</td>
+      <td>0</td>
+      <td>Rapid Wien</td>
+      <td>1708.21</td>
+      <td>1</td>
+      <td>29.15%</td>
+      <td>40.61%</td>
+      <td>30.24%</td>
+      <td>-10.42</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1399.77</td>
+      <td>2</td>
+      <td>Liefering</td>
+      <td>1464.72</td>
+      <td>2</td>
+      <td>26.34%</td>
+      <td>43.79%</td>
+      <td>29.87%</td>
+      <td>1.09</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Austria Klagenfurt</td>
+      <td>1454.02</td>
+      <td>2</td>
+      <td>@ Floridsdorfer</td>
+      <td>1524.86</td>
+      <td>1</td>
+      <td>25.67%</td>
+      <td>44.58%</td>
+      <td>29.75%</td>
+      <td>14.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Hertha Wels</td>
+      <td>1434.14</td>
+      <td>2</td>
+      <td>@ Kapfenberger</td>
+      <td>1503.30</td>
+      <td>3</td>
+      <td>25.86%</td>
+      <td>44.36%</td>
+      <td>29.79%</td>
+      <td>-9.51</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Rapid Wien (A)</td>
+      <td>1381.70</td>
+      <td>1</td>
+      <td>@ SKU Amstetten</td>
+      <td>1487.72</td>
+      <td>3</td>
+      <td>22.04%</td>
+      <td>49.11%</td>
+      <td>28.85%</td>
+      <td>-11.78</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Floridsdorfer</td>
+      <td>1524.86</td>
+      <td>1</td>
+      <td>Austria Klagenfurt</td>
+      <td>1454.02</td>
+      <td>2</td>
+      <td>44.58%</td>
+      <td>25.67%</td>
+      <td>29.75%</td>
+      <td>-14.21</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>SKU Amstetten</td>
+      <td>1487.72</td>
+      <td>3</td>
+      <td>Rapid Wien (A)</td>
+      <td>1381.70</td>
+      <td>1</td>
+      <td>49.11%</td>
+      <td>22.04%</td>
+      <td>28.85%</td>
+      <td>11.78</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Kapfenberger</td>
+      <td>1503.30</td>
+      <td>3</td>
+      <td>Hertha Wels</td>
+      <td>1434.14</td>
+      <td>2</td>
+      <td>44.36%</td>
+      <td>25.86%</td>
+      <td>29.79%</td>
+      <td>9.51</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Austria Lustenau</td>
+      <td>1494.01</td>
+      <td>2</td>
+      <td>Sturm Graz (A)</td>
+      <td>1428.18</td>
+      <td>1</td>
+      <td>43.91%</td>
+      <td>26.23%</td>
+      <td>29.85%</td>
+      <td>9.62</td>
+    </tr>
+    <tr>
+      <td>2025-09-12</td>
+      <td>Sturm Graz (A)</td>
+      <td>1428.18</td>
+      <td>1</td>
+      <td>@ Austria Lustenau</td>
+      <td>1494.01</td>
+      <td>2</td>
+      <td>26.23%</td>
+      <td>43.91%</td>
+      <td>29.85%</td>
+      <td>-9.62</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>First Vienna</td>
+      <td>1489.70</td>
+      <td>1</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1453.75</td>
+      <td>1</td>
+      <td>39.84%</td>
+      <td>29.85%</td>
+      <td>30.31%</td>
+      <td>-0.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Salzburg</td>
+      <td>1784.70</td>
+      <td>1</td>
+      <td>@ Wolfsberg</td>
+      <td>1729.51</td>
+      <td>3</td>
+      <td>42.48%</td>
+      <td>27.48%</td>
+      <td>30.05%</td>
+      <td>-19.37</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1400.86</td>
+      <td>2</td>
+      <td>@ Admira Wacker</td>
+      <td>1557.34</td>
+      <td>2</td>
+      <td>17.78%</td>
+      <td>55.19%</td>
+      <td>27.03%</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Grazer AK</td>
+      <td>1581.27</td>
+      <td>0</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1590.96</td>
+      <td>3</td>
+      <td>33.37%</td>
+      <td>36.14%</td>
+      <td>30.49%</td>
+      <td>-19.93</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>LASK</td>
+      <td>1645.39</td>
+      <td>0</td>
+      <td>@ SCR Altach</td>
+      <td>1623.56</td>
+      <td>1</td>
+      <td>37.86%</td>
+      <td>31.71%</td>
+      <td>30.43%</td>
+      <td>-12.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Wolfsberg</td>
+      <td>1729.51</td>
+      <td>3</td>
+      <td>Salzburg</td>
+      <td>1784.70</td>
+      <td>1</td>
+      <td>27.48%</td>
+      <td>42.48%</td>
+      <td>30.05%</td>
+      <td>19.38</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1590.96</td>
+      <td>3</td>
+      <td>Grazer AK</td>
+      <td>1581.27</td>
+      <td>0</td>
+      <td>36.14%</td>
+      <td>33.37%</td>
+      <td>30.49%</td>
+      <td>19.93</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>SCR Altach</td>
+      <td>1623.56</td>
+      <td>1</td>
+      <td>LASK</td>
+      <td>1645.39</td>
+      <td>0</td>
+      <td>31.71%</td>
+      <td>37.86%</td>
+      <td>30.43%</td>
+      <td>12.57</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Admira Wacker</td>
+      <td>1557.34</td>
+      <td>2</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1400.86</td>
+      <td>2</td>
+      <td>55.19%</td>
+      <td>17.78%</td>
+      <td>27.03%</td>
+      <td>-2.50</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Austria Wien (A)</td>
+      <td>1453.75</td>
+      <td>1</td>
+      <td>First Vienna</td>
+      <td>1489.70</td>
+      <td>1</td>
+      <td>29.85%</td>
+      <td>39.84%</td>
+      <td>30.31%</td>
+      <td>0.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Austria Wien</td>
+      <td>1673.80</td>
+      <td>1</td>
+      <td>@ Sturm Graz</td>
+      <td>1760.50</td>
+      <td>0</td>
+      <td>23.96%</td>
+      <td>46.65%</td>
+      <td>29.39%</td>
+      <td>14.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Rapid Wien</td>
+      <td>1718.63</td>
+      <td>4</td>
+      <td>WSG Tirol</td>
+      <td>1643.11</td>
+      <td>1</td>
+      <td>45.20%</td>
+      <td>25.15%</td>
+      <td>29.65%</td>
+      <td>16.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Ried</td>
+      <td>1675.85</td>
+      <td>0</td>
+      <td>Hartberg</td>
+      <td>1656.27</td>
+      <td>2</td>
+      <td>37.55%</td>
+      <td>32.01%</td>
+      <td>30.44%</td>
+      <td>-17.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Sturm Graz</td>
+      <td>1760.50</td>
+      <td>0</td>
+      <td>Austria Wien</td>
+      <td>1673.80</td>
+      <td>1</td>
+      <td>46.65%</td>
+      <td>23.96%</td>
+      <td>29.39%</td>
+      <td>-14.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Liefering</td>
+      <td>1463.63</td>
+      <td>3</td>
+      <td>SV Austria Salzburg</td>
+      <td>1443.38</td>
+      <td>2</td>
+      <td>37.64%</td>
+      <td>31.92%</td>
+      <td>30.44%</td>
+      <td>11.14</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>SV Austria Salzburg</td>
+      <td>1443.38</td>
+      <td>2</td>
+      <td>@ Liefering</td>
+      <td>1463.63</td>
+      <td>3</td>
+      <td>31.92%</td>
+      <td>37.64%</td>
+      <td>30.44%</td>
+      <td>-11.14</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Hartberg</td>
+      <td>1656.27</td>
+      <td>2</td>
+      <td>@ Ried</td>
+      <td>1675.85</td>
+      <td>0</td>
+      <td>32.01%</td>
+      <td>37.55%</td>
+      <td>30.44%</td>
+      <td>17.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>WSG Tirol</td>
+      <td>1643.11</td>
+      <td>1</td>
+      <td>@ Rapid Wien</td>
+      <td>1718.63</td>
+      <td>4</td>
+      <td>25.15%</td>
+      <td>45.20%</td>
+      <td>29.65%</td>
+      <td>-16.11</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Liefering</td>
+      <td>1474.77</td>
+      <td>1</td>
+      <td>@ Hertha Wels</td>
+      <td>1424.63</td>
+      <td>1</td>
+      <td>41.79%</td>
+      <td>28.08%</td>
+      <td>30.12%</td>
+      <td>-0.84</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Floridsdorfer</td>
+      <td>1510.65</td>
+      <td>0</td>
+      <td>@ Austria Lustenau</td>
+      <td>1503.63</td>
+      <td>0</td>
+      <td>35.76%</td>
+      <td>33.75%</td>
+      <td>30.49%</td>
+      <td>-0.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>First Vienna</td>
+      <td>1489.09</td>
+      <td>0</td>
+      <td>Austria Klagenfurt</td>
+      <td>1468.24</td>
+      <td>2</td>
+      <td>37.73%</td>
+      <td>31.84%</td>
+      <td>30.43%</td>
+      <td>-17.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Hertha Wels</td>
+      <td>1424.63</td>
+      <td>1</td>
+      <td>Liefering</td>
+      <td>1474.77</td>
+      <td>1</td>
+      <td>28.08%</td>
+      <td>41.79%</td>
+      <td>30.12%</td>
+      <td>0.84</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Rapid Wien (A)</td>
+      <td>1369.92</td>
+      <td>2</td>
+      <td>Admira Wacker</td>
+      <td>1554.84</td>
+      <td>2</td>
+      <td>15.82%</td>
+      <td>58.42%</td>
+      <td>25.76%</td>
+      <td>2.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Admira Wacker</td>
+      <td>1554.84</td>
+      <td>2</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1369.92</td>
+      <td>2</td>
+      <td>58.42%</td>
+      <td>15.82%</td>
+      <td>25.76%</td>
+      <td>-2.88</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Austria Lustenau</td>
+      <td>1503.63</td>
+      <td>0</td>
+      <td>Floridsdorfer</td>
+      <td>1510.65</td>
+      <td>0</td>
+      <td>33.75%</td>
+      <td>35.76%</td>
+      <td>30.49%</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Austria Klagenfurt</td>
+      <td>1468.24</td>
+      <td>2</td>
+      <td>@ First Vienna</td>
+      <td>1489.09</td>
+      <td>0</td>
+      <td>31.84%</td>
+      <td>37.73%</td>
+      <td>30.43%</td>
+      <td>17.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Wolfsberg</td>
+      <td>1748.89</td>
+      <td>2</td>
+      <td>@ Hartberg</td>
+      <td>1673.95</td>
+      <td>2</td>
+      <td>45.12%</td>
+      <td>25.22%</td>
+      <td>29.67%</td>
+      <td>-1.26</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Austria Wien</td>
+      <td>1688.53</td>
+      <td>3</td>
+      <td>Ried</td>
+      <td>1658.17</td>
+      <td>2</td>
+      <td>39.06%</td>
+      <td>30.58%</td>
+      <td>30.36%</td>
+      <td>10.80</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Sturm Graz</td>
+      <td>1745.77</td>
+      <td>2</td>
+      <td>@ Salzburg</td>
+      <td>1765.33</td>
+      <td>0</td>
+      <td>32.01%</td>
+      <td>37.54%</td>
+      <td>30.44%</td>
+      <td>17.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Sturm Graz (A)</td>
+      <td>1418.56</td>
+      <td>1</td>
+      <td>Austria Wien (A)</td>
+      <td>1454.36</td>
+      <td>2</td>
+      <td>29.87%</td>
+      <td>39.82%</td>
+      <td>30.31%</td>
+      <td>-10.62</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>SKN St. Polten</td>
+      <td>1587.86</td>
+      <td>2</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1432.24</td>
+      <td>1</td>
+      <td>55.09%</td>
+      <td>17.85%</td>
+      <td>27.06%</td>
+      <td>6.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>SV Austria Salzburg</td>
+      <td>1432.24</td>
+      <td>1</td>
+      <td>SKN St. Polten</td>
+      <td>1587.86</td>
+      <td>2</td>
+      <td>17.85%</td>
+      <td>55.09%</td>
+      <td>27.06%</td>
+      <td>-6.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Salzburg</td>
+      <td>1765.33</td>
+      <td>0</td>
+      <td>Sturm Graz</td>
+      <td>1745.77</td>
+      <td>2</td>
+      <td>37.54%</td>
+      <td>32.01%</td>
+      <td>30.44%</td>
+      <td>-17.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Austria Wien (A)</td>
+      <td>1454.36</td>
+      <td>2</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1418.56</td>
+      <td>1</td>
+      <td>39.82%</td>
+      <td>29.87%</td>
+      <td>30.31%</td>
+      <td>10.62</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Ried</td>
+      <td>1658.17</td>
+      <td>2</td>
+      <td>@ Austria Wien</td>
+      <td>1688.53</td>
+      <td>3</td>
+      <td>30.58%</td>
+      <td>39.06%</td>
+      <td>30.36%</td>
+      <td>-10.80</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Hartberg</td>
+      <td>1673.95</td>
+      <td>2</td>
+      <td>Wolfsberg</td>
+      <td>1748.89</td>
+      <td>2</td>
+      <td>25.22%</td>
+      <td>45.12%</td>
+      <td>29.67%</td>
+      <td>1.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>SKU Amstetten</td>
+      <td>1499.50</td>
+      <td>3</td>
+      <td>Kapfenberger</td>
+      <td>1512.81</td>
+      <td>0</td>
+      <td>32.87%</td>
+      <td>36.65%</td>
+      <td>30.47%</td>
+      <td>21.28</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Grazer AK</td>
+      <td>1561.34</td>
+      <td>1</td>
+      <td>Rapid Wien</td>
+      <td>1734.75</td>
+      <td>1</td>
+      <td>16.58%</td>
+      <td>57.12%</td>
+      <td>26.29%</td>
+      <td>2.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1610.89</td>
+      <td>0</td>
+      <td>@ LASK</td>
+      <td>1632.81</td>
+      <td>2</td>
+      <td>31.69%</td>
+      <td>37.88%</td>
+      <td>30.43%</td>
+      <td>-15.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Rapid Wien</td>
+      <td>1734.75</td>
+      <td>1</td>
+      <td>@ Grazer AK</td>
+      <td>1561.34</td>
+      <td>1</td>
+      <td>57.12%</td>
+      <td>16.58%</td>
+      <td>26.29%</td>
+      <td>-2.73</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Kapfenberger</td>
+      <td>1512.81</td>
+      <td>0</td>
+      <td>@ SKU Amstetten</td>
+      <td>1499.50</td>
+      <td>3</td>
+      <td>36.65%</td>
+      <td>32.87%</td>
+      <td>30.47%</td>
+      <td>-21.29</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>WSG Tirol</td>
+      <td>1627.00</td>
+      <td>1</td>
+      <td>@ SCR Altach</td>
+      <td>1636.13</td>
+      <td>1</td>
+      <td>33.45%</td>
+      <td>36.06%</td>
+      <td>30.49%</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>LASK</td>
+      <td>1632.81</td>
+      <td>2</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1610.89</td>
+      <td>0</td>
+      <td>37.88%</td>
+      <td>31.69%</td>
+      <td>30.43%</td>
+      <td>15.68</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>SCR Altach</td>
+      <td>1636.13</td>
+      <td>1</td>
+      <td>WSG Tirol</td>
+      <td>1627.00</td>
+      <td>1</td>
+      <td>36.06%</td>
+      <td>33.45%</td>
+      <td>30.49%</td>
+      <td>-0.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Admira Wacker</td>
+      <td>1551.96</td>
+      <td>1</td>
+      <td>Austria Lustenau</td>
+      <td>1503.75</td>
+      <td>1</td>
+      <td>41.53%</td>
+      <td>28.32%</td>
+      <td>30.15%</td>
+      <td>-0.82</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Floridsdorfer</td>
+      <td>1510.53</td>
+      <td>0</td>
+      <td>Rapid Wien (A)</td>
+      <td>1372.80</td>
+      <td>1</td>
+      <td>52.99%</td>
+      <td>19.24%</td>
+      <td>27.77%</td>
+      <td>-16.30</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Austria Klagenfurt</td>
+      <td>1485.98</td>
+      <td>2</td>
+      <td>Hertha Wels</td>
+      <td>1425.47</td>
+      <td>0</td>
+      <td>43.20%</td>
+      <td>26.85%</td>
+      <td>29.95%</td>
+      <td>13.85</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Hertha Wels</td>
+      <td>1425.47</td>
+      <td>0</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1485.98</td>
+      <td>2</td>
+      <td>26.85%</td>
+      <td>43.20%</td>
+      <td>29.95%</td>
+      <td>-13.85</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Rapid Wien (A)</td>
+      <td>1372.80</td>
+      <td>1</td>
+      <td>@ Floridsdorfer</td>
+      <td>1510.53</td>
+      <td>0</td>
+      <td>19.24%</td>
+      <td>52.99%</td>
+      <td>27.77%</td>
+      <td>16.29</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Austria Lustenau</td>
+      <td>1503.75</td>
+      <td>1</td>
+      <td>@ Admira Wacker</td>
+      <td>1551.96</td>
+      <td>1</td>
+      <td>28.32%</td>
+      <td>41.53%</td>
+      <td>30.15%</td>
+      <td>0.82</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Sturm Graz (A)</td>
+      <td>1407.94</td>
+      <td>0</td>
+      <td>@ SKN St. Polten</td>
+      <td>1594.73</td>
+      <td>4</td>
+      <td>15.70%</td>
+      <td>58.63%</td>
+      <td>25.67%</td>
+      <td>-12.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>SV Austria Salzburg</td>
+      <td>1425.37</td>
+      <td>0</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1403.36</td>
+      <td>0</td>
+      <td>37.89%</td>
+      <td>31.68%</td>
+      <td>30.43%</td>
+      <td>-0.37</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>SKN St. Polten</td>
+      <td>1594.73</td>
+      <td>4</td>
+      <td>Sturm Graz (A)</td>
+      <td>1407.94</td>
+      <td>0</td>
+      <td>58.63%</td>
+      <td>15.70%</td>
+      <td>25.67%</td>
+      <td>12.04</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1403.36</td>
+      <td>0</td>
+      <td>SV Austria Salzburg</td>
+      <td>1425.37</td>
+      <td>0</td>
+      <td>31.68%</td>
+      <td>37.89%</td>
+      <td>30.43%</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>LASK</td>
+      <td>1648.49</td>
+      <td>0</td>
+      <td>@ Wolfsberg</td>
+      <td>1747.63</td>
+      <td>1</td>
+      <td>22.70%</td>
+      <td>48.24%</td>
+      <td>29.05%</td>
+      <td>-8.54</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Ried</td>
+      <td>1647.37</td>
+      <td>0</td>
+      <td>Grazer AK</td>
+      <td>1564.07</td>
+      <td>0</td>
+      <td>46.21%</td>
+      <td>24.32%</td>
+      <td>29.47%</td>
+      <td>-1.39</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Wolfsberg</td>
+      <td>1747.63</td>
+      <td>1</td>
+      <td>LASK</td>
+      <td>1648.49</td>
+      <td>0</td>
+      <td>48.24%</td>
+      <td>22.70%</td>
+      <td>29.05%</td>
+      <td>8.55</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>SKU Amstetten</td>
+      <td>1520.78</td>
+      <td>0</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1464.98</td>
+      <td>0</td>
+      <td>42.56%</td>
+      <td>27.40%</td>
+      <td>30.03%</td>
+      <td>-0.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>SCR Altach</td>
+      <td>1635.98</td>
+      <td>0</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1595.20</td>
+      <td>1</td>
+      <td>40.51%</td>
+      <td>29.24%</td>
+      <td>30.25%</td>
+      <td>-13.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1595.20</td>
+      <td>1</td>
+      <td>SCR Altach</td>
+      <td>1635.98</td>
+      <td>0</td>
+      <td>29.24%</td>
+      <td>40.51%</td>
+      <td>30.25%</td>
+      <td>13.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Grazer AK</td>
+      <td>1564.07</td>
+      <td>0</td>
+      <td>@ Ried</td>
+      <td>1647.37</td>
+      <td>0</td>
+      <td>24.32%</td>
+      <td>46.21%</td>
+      <td>29.47%</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Austria Wien (A)</td>
+      <td>1464.98</td>
+      <td>0</td>
+      <td>SKU Amstetten</td>
+      <td>1520.78</td>
+      <td>0</td>
+      <td>27.40%</td>
+      <td>42.56%</td>
+      <td>30.03%</td>
+      <td>0.94</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Sturm Graz</td>
+      <td>1763.45</td>
+      <td>1</td>
+      <td>Hartberg</td>
+      <td>1675.20</td>
+      <td>0</td>
+      <td>46.85%</td>
+      <td>23.80%</td>
+      <td>29.35%</td>
+      <td>8.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>First Vienna</td>
+      <td>1471.35</td>
+      <td>3</td>
+      <td>@ Kapfenberger</td>
+      <td>1491.52</td>
+      <td>0</td>
+      <td>31.93%</td>
+      <td>37.63%</td>
+      <td>30.44%</td>
+      <td>21.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Austria Wien</td>
+      <td>1699.33</td>
+      <td>3</td>
+      <td>@ Rapid Wien</td>
+      <td>1732.02</td>
+      <td>1</td>
+      <td>30.27%</td>
+      <td>39.39%</td>
+      <td>30.34%</td>
+      <td>18.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Rapid Wien</td>
+      <td>1732.02</td>
+      <td>1</td>
+      <td>Austria Wien</td>
+      <td>1699.33</td>
+      <td>3</td>
+      <td>39.39%</td>
+      <td>30.27%</td>
+      <td>30.34%</td>
+      <td>-18.31</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>WSG Tirol</td>
+      <td>1627.16</td>
+      <td>1</td>
+      <td>Salzburg</td>
+      <td>1747.65</td>
+      <td>2</td>
+      <td>20.71%</td>
+      <td>50.90%</td>
+      <td>28.39%</td>
+      <td>-7.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Hartberg</td>
+      <td>1675.20</td>
+      <td>0</td>
+      <td>@ Sturm Graz</td>
+      <td>1763.45</td>
+      <td>1</td>
+      <td>23.80%</td>
+      <td>46.85%</td>
+      <td>29.35%</td>
+      <td>-8.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Salzburg</td>
+      <td>1747.65</td>
+      <td>2</td>
+      <td>@ WSG Tirol</td>
+      <td>1627.16</td>
+      <td>1</td>
+      <td>50.90%</td>
+      <td>20.71%</td>
+      <td>28.39%</td>
+      <td>7.89</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Kapfenberger</td>
+      <td>1491.52</td>
+      <td>0</td>
+      <td>First Vienna</td>
+      <td>1471.35</td>
+      <td>3</td>
+      <td>37.63%</td>
+      <td>31.93%</td>
+      <td>30.44%</td>
+      <td>-21.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Floridsdorfer</td>
+      <td>1494.23</td>
+      <td>2</td>
+      <td>@ First Vienna</td>
+      <td>1493.04</td>
+      <td>0</td>
+      <td>34.92%</td>
+      <td>34.58%</td>
+      <td>30.50%</td>
+      <td>16.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Liefering</td>
+      <td>1473.93</td>
+      <td>2</td>
+      <td>@ SKU Amstetten</td>
+      <td>1519.84</td>
+      <td>2</td>
+      <td>28.60%</td>
+      <td>41.22%</td>
+      <td>30.18%</td>
+      <td>0.77</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>First Vienna</td>
+      <td>1493.04</td>
+      <td>0</td>
+      <td>Floridsdorfer</td>
+      <td>1494.23</td>
+      <td>2</td>
+      <td>34.58%</td>
+      <td>34.92%</td>
+      <td>30.50%</td>
+      <td>-16.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>SKU Amstetten</td>
+      <td>1519.84</td>
+      <td>2</td>
+      <td>Liefering</td>
+      <td>1473.93</td>
+      <td>2</td>
+      <td>41.22%</td>
+      <td>28.60%</td>
+      <td>30.18%</td>
+      <td>-0.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Ried</td>
+      <td>1645.98</td>
+      <td>2</td>
+      <td>WSG Tirol</td>
+      <td>1619.27</td>
+      <td>0</td>
+      <td>38.55%</td>
+      <td>31.06%</td>
+      <td>30.39%</td>
+      <td>15.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Austria Wien</td>
+      <td>1717.64</td>
+      <td>0</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1608.42</td>
+      <td>1</td>
+      <td>49.51%</td>
+      <td>21.73%</td>
+      <td>28.75%</td>
+      <td>-15.44</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Grazer AK</td>
+      <td>1565.47</td>
+      <td>1</td>
+      <td>Wolfsberg</td>
+      <td>1756.18</td>
+      <td>3</td>
+      <td>15.45%</td>
+      <td>59.06%</td>
+      <td>25.49%</td>
+      <td>-8.38</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>SV Austria Salzburg</td>
+      <td>1425.00</td>
+      <td>4</td>
+      <td>Hertha Wels</td>
+      <td>1411.62</td>
+      <td>2</td>
+      <td>36.67%</td>
+      <td>32.86%</td>
+      <td>30.47%</td>
+      <td>16.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Rapid Wien (A)</td>
+      <td>1389.09</td>
+      <td>1</td>
+      <td>Kapfenberger</td>
+      <td>1469.83</td>
+      <td>0</td>
+      <td>24.59%</td>
+      <td>45.88%</td>
+      <td>29.53%</td>
+      <td>14.54</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Austria Lustenau</td>
+      <td>1504.57</td>
+      <td>3</td>
+      <td>Austria Wien (A)</td>
+      <td>1465.92</td>
+      <td>2</td>
+      <td>40.22%</td>
+      <td>29.51%</td>
+      <td>30.28%</td>
+      <td>10.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>WSG Tirol</td>
+      <td>1619.27</td>
+      <td>0</td>
+      <td>@ Ried</td>
+      <td>1645.98</td>
+      <td>2</td>
+      <td>31.06%</td>
+      <td>38.55%</td>
+      <td>30.39%</td>
+      <td>-15.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1608.42</td>
+      <td>1</td>
+      <td>@ Austria Wien</td>
+      <td>1717.64</td>
+      <td>0</td>
+      <td>21.73%</td>
+      <td>49.51%</td>
+      <td>28.75%</td>
+      <td>15.44</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Wolfsberg</td>
+      <td>1756.18</td>
+      <td>3</td>
+      <td>@ Grazer AK</td>
+      <td>1565.47</td>
+      <td>1</td>
+      <td>59.06%</td>
+      <td>15.45%</td>
+      <td>25.49%</td>
+      <td>8.37</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Austria Wien (A)</td>
+      <td>1465.92</td>
+      <td>2</td>
+      <td>@ Austria Lustenau</td>
+      <td>1504.57</td>
+      <td>3</td>
+      <td>29.51%</td>
+      <td>40.22%</td>
+      <td>30.28%</td>
+      <td>-10.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Hertha Wels</td>
+      <td>1411.62</td>
+      <td>2</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1425.00</td>
+      <td>4</td>
+      <td>32.86%</td>
+      <td>36.67%</td>
+      <td>30.47%</td>
+      <td>-16.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1403.73</td>
+      <td>1</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1395.90</td>
+      <td>3</td>
+      <td>35.87%</td>
+      <td>33.64%</td>
+      <td>30.49%</td>
+      <td>-17.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Kapfenberger</td>
+      <td>1469.83</td>
+      <td>0</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1389.09</td>
+      <td>1</td>
+      <td>45.88%</td>
+      <td>24.59%</td>
+      <td>29.53%</td>
+      <td>-14.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Sturm Graz (A)</td>
+      <td>1395.90</td>
+      <td>3</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1403.73</td>
+      <td>1</td>
+      <td>33.64%</td>
+      <td>35.87%</td>
+      <td>30.49%</td>
+      <td>17.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>LASK</td>
+      <td>1639.95</td>
+      <td>3</td>
+      <td>Hartberg</td>
+      <td>1666.31</td>
+      <td>3</td>
+      <td>31.10%</td>
+      <td>38.50%</td>
+      <td>30.40%</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>SCR Altach</td>
+      <td>1622.76</td>
+      <td>0</td>
+      <td>Sturm Graz</td>
+      <td>1772.34</td>
+      <td>2</td>
+      <td>18.31%</td>
+      <td>54.38%</td>
+      <td>27.31%</td>
+      <td>-9.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Austria Klagenfurt</td>
+      <td>1499.83</td>
+      <td>1</td>
+      <td>SKN St. Polten</td>
+      <td>1606.77</td>
+      <td>2</td>
+      <td>21.95%</td>
+      <td>49.22%</td>
+      <td>28.83%</td>
+      <td>-8.30</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Salzburg</td>
+      <td>1755.54</td>
+      <td>2</td>
+      <td>Rapid Wien</td>
+      <td>1713.71</td>
+      <td>1</td>
+      <td>40.66%</td>
+      <td>29.11%</td>
+      <td>30.24%</td>
+      <td>10.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Sturm Graz</td>
+      <td>1772.34</td>
+      <td>2</td>
+      <td>@ SCR Altach</td>
+      <td>1622.76</td>
+      <td>0</td>
+      <td>54.38%</td>
+      <td>18.31%</td>
+      <td>27.31%</td>
+      <td>9.95</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>SKN St. Polten</td>
+      <td>1606.77</td>
+      <td>2</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1499.83</td>
+      <td>1</td>
+      <td>49.22%</td>
+      <td>21.95%</td>
+      <td>28.83%</td>
+      <td>8.30</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Hartberg</td>
+      <td>1666.31</td>
+      <td>3</td>
+      <td>@ LASK</td>
+      <td>1639.95</td>
+      <td>3</td>
+      <td>38.50%</td>
+      <td>31.10%</td>
+      <td>30.40%</td>
+      <td>-0.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Rapid Wien</td>
+      <td>1713.71</td>
+      <td>1</td>
+      <td>@ Salzburg</td>
+      <td>1755.54</td>
+      <td>2</td>
+      <td>29.11%</td>
+      <td>40.66%</td>
+      <td>30.24%</td>
+      <td>-10.42</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Austria Lustenau</td>
+      <td>1515.09</td>
+      <td>0</td>
+      <td>@ SKN St. Polten</td>
+      <td>1615.07</td>
+      <td>1</td>
+      <td>22.62%</td>
+      <td>48.35%</td>
+      <td>29.03%</td>
+      <td>-8.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Austria Klagenfurt</td>
+      <td>1491.53</td>
+      <td>1</td>
+      <td>@ Kapfenberger</td>
+      <td>1455.30</td>
+      <td>1</td>
+      <td>39.88%</td>
+      <td>29.82%</td>
+      <td>30.30%</td>
+      <td>-0.62</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>Kapfenberger</td>
+      <td>1455.30</td>
+      <td>1</td>
+      <td>Austria Klagenfurt</td>
+      <td>1491.53</td>
+      <td>1</td>
+      <td>29.82%</td>
+      <td>39.88%</td>
+      <td>30.30%</td>
+      <td>0.61</td>
+    </tr>
+    <tr>
+      <td>2025-10-17</td>
+      <td>SKN St. Polten</td>
+      <td>1615.07</td>
+      <td>1</td>
+      <td>Austria Lustenau</td>
+      <td>1515.09</td>
+      <td>0</td>
+      <td>48.35%</td>
+      <td>22.62%</td>
+      <td>29.03%</td>
+      <td>8.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Wolfsberg</td>
+      <td>1764.55</td>
+      <td>1</td>
+      <td>Ried</td>
+      <td>1661.43</td>
+      <td>2</td>
+      <td>48.75%</td>
+      <td>22.31%</td>
+      <td>28.94%</td>
+      <td>-15.25</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>WSG Tirol</td>
+      <td>1603.82</td>
+      <td>2</td>
+      <td>Austria Wien</td>
+      <td>1702.20</td>
+      <td>3</td>
+      <td>22.78%</td>
+      <td>48.15%</td>
+      <td>29.08%</td>
+      <td>-8.57</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Hartberg</td>
+      <td>1665.86</td>
+      <td>0</td>
+      <td>@ Grazer AK</td>
+      <td>1557.09</td>
+      <td>0</td>
+      <td>49.45%</td>
+      <td>21.78%</td>
+      <td>28.77%</td>
+      <td>-1.79</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Floridsdorfer</td>
+      <td>1510.91</td>
+      <td>2</td>
+      <td>Liefering</td>
+      <td>1474.70</td>
+      <td>0</td>
+      <td>39.88%</td>
+      <td>29.82%</td>
+      <td>30.30%</td>
+      <td>15.00</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>SV Austria Salzburg</td>
+      <td>1441.09</td>
+      <td>0</td>
+      <td>@ Admira Wacker</td>
+      <td>1551.14</td>
+      <td>4</td>
+      <td>21.66%</td>
+      <td>49.61%</td>
+      <td>28.73%</td>
+      <td>-16.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Grazer AK</td>
+      <td>1557.09</td>
+      <td>0</td>
+      <td>Hartberg</td>
+      <td>1665.86</td>
+      <td>0</td>
+      <td>21.78%</td>
+      <td>49.45%</td>
+      <td>28.77%</td>
+      <td>1.80</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>SKU Amstetten</td>
+      <td>1519.06</td>
+      <td>2</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1386.62</td>
+      <td>0</td>
+      <td>52.35%</td>
+      <td>19.68%</td>
+      <td>27.97%</td>
+      <td>10.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Ried</td>
+      <td>1661.43</td>
+      <td>2</td>
+      <td>@ Wolfsberg</td>
+      <td>1764.55</td>
+      <td>1</td>
+      <td>22.31%</td>
+      <td>48.75%</td>
+      <td>28.94%</td>
+      <td>15.25</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Austria Wien</td>
+      <td>1702.20</td>
+      <td>3</td>
+      <td>@ WSG Tirol</td>
+      <td>1603.82</td>
+      <td>2</td>
+      <td>48.15%</td>
+      <td>22.78%</td>
+      <td>29.08%</td>
+      <td>8.58</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Liefering</td>
+      <td>1474.70</td>
+      <td>0</td>
+      <td>@ Floridsdorfer</td>
+      <td>1510.91</td>
+      <td>2</td>
+      <td>29.82%</td>
+      <td>39.88%</td>
+      <td>30.30%</td>
+      <td>-14.99</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>First Vienna</td>
+      <td>1476.36</td>
+      <td>2</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1413.01</td>
+      <td>0</td>
+      <td>43.58%</td>
+      <td>26.52%</td>
+      <td>29.90%</td>
+      <td>13.72</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Admira Wacker</td>
+      <td>1551.14</td>
+      <td>4</td>
+      <td>SV Austria Salzburg</td>
+      <td>1441.09</td>
+      <td>0</td>
+      <td>49.61%</td>
+      <td>21.66%</td>
+      <td>28.73%</td>
+      <td>16.42</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Sturm Graz (A)</td>
+      <td>1413.01</td>
+      <td>0</td>
+      <td>First Vienna</td>
+      <td>1476.36</td>
+      <td>2</td>
+      <td>26.52%</td>
+      <td>43.58%</td>
+      <td>29.90%</td>
+      <td>-13.72</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1386.62</td>
+      <td>0</td>
+      <td>SKU Amstetten</td>
+      <td>1519.06</td>
+      <td>2</td>
+      <td>19.68%</td>
+      <td>52.35%</td>
+      <td>27.97%</td>
+      <td>-10.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Sturm Graz</td>
+      <td>1782.29</td>
+      <td>4</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1623.86</td>
+      <td>3</td>
+      <td>55.41%</td>
+      <td>17.64%</td>
+      <td>26.94%</td>
+      <td>6.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>LASK</td>
+      <td>1640.39</td>
+      <td>2</td>
+      <td>@ Rapid Wien</td>
+      <td>1703.29</td>
+      <td>0</td>
+      <td>26.57%</td>
+      <td>43.52%</td>
+      <td>29.91%</td>
+      <td>19.74</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Rapid Wien (A)</td>
+      <td>1403.63</td>
+      <td>2</td>
+      <td>@ Hertha Wels</td>
+      <td>1395.53</td>
+      <td>3</td>
+      <td>35.91%</td>
+      <td>33.60%</td>
+      <td>30.49%</td>
+      <td>-12.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Rapid Wien</td>
+      <td>1703.29</td>
+      <td>0</td>
+      <td>LASK</td>
+      <td>1640.39</td>
+      <td>2</td>
+      <td>43.52%</td>
+      <td>26.57%</td>
+      <td>29.91%</td>
+      <td>-19.73</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>SCR Altach</td>
+      <td>1612.81</td>
+      <td>2</td>
+      <td>@ Salzburg</td>
+      <td>1765.95</td>
+      <td>2</td>
+      <td>18.03%</td>
+      <td>54.80%</td>
+      <td>27.16%</td>
+      <td>2.46</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1623.86</td>
+      <td>3</td>
+      <td>Sturm Graz</td>
+      <td>1782.29</td>
+      <td>4</td>
+      <td>17.64%</td>
+      <td>55.41%</td>
+      <td>26.94%</td>
+      <td>-6.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Salzburg</td>
+      <td>1765.95</td>
+      <td>2</td>
+      <td>SCR Altach</td>
+      <td>1612.81</td>
+      <td>2</td>
+      <td>54.80%</td>
+      <td>18.03%</td>
+      <td>27.16%</td>
+      <td>-2.45</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Hertha Wels</td>
+      <td>1395.53</td>
+      <td>3</td>
+      <td>Rapid Wien (A)</td>
+      <td>1403.63</td>
+      <td>2</td>
+      <td>33.60%</td>
+      <td>35.91%</td>
+      <td>30.49%</td>
+      <td>12.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Sturm Graz (A)</td>
+      <td>1399.29</td>
+      <td>0</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1490.91</td>
+      <td>0</td>
+      <td>23.45%</td>
+      <td>47.29%</td>
+      <td>29.26%</td>
+      <td>1.53</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Admira Wacker</td>
+      <td>1567.56</td>
+      <td>3</td>
+      <td>@ First Vienna</td>
+      <td>1490.08</td>
+      <td>1</td>
+      <td>45.45%</td>
+      <td>24.94%</td>
+      <td>29.61%</td>
+      <td>13.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Austria Klagenfurt</td>
+      <td>1490.91</td>
+      <td>0</td>
+      <td>Sturm Graz (A)</td>
+      <td>1399.29</td>
+      <td>0</td>
+      <td>47.29%</td>
+      <td>23.45%</td>
+      <td>29.26%</td>
+      <td>-1.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Kapfenberger</td>
+      <td>1455.91</td>
+      <td>1</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1375.97</td>
+      <td>1</td>
+      <td>45.77%</td>
+      <td>24.67%</td>
+      <td>29.55%</td>
+      <td>-1.34</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1375.97</td>
+      <td>1</td>
+      <td>Kapfenberger</td>
+      <td>1455.91</td>
+      <td>1</td>
+      <td>24.67%</td>
+      <td>45.77%</td>
+      <td>29.55%</td>
+      <td>1.34</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Liefering</td>
+      <td>1459.71</td>
+      <td>3</td>
+      <td>SKN St. Polten</td>
+      <td>1623.59</td>
+      <td>1</td>
+      <td>17.25%</td>
+      <td>56.04%</td>
+      <td>26.71%</td>
+      <td>24.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>First Vienna</td>
+      <td>1490.08</td>
+      <td>1</td>
+      <td>Admira Wacker</td>
+      <td>1567.56</td>
+      <td>3</td>
+      <td>24.94%</td>
+      <td>45.45%</td>
+      <td>29.61%</td>
+      <td>-13.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>SKN St. Polten</td>
+      <td>1623.59</td>
+      <td>1</td>
+      <td>@ Liefering</td>
+      <td>1459.71</td>
+      <td>3</td>
+      <td>56.04%</td>
+      <td>17.25%</td>
+      <td>26.71%</td>
+      <td>-24.09</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Austria Lustenau</td>
+      <td>1506.57</td>
+      <td>2</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1391.52</td>
+      <td>1</td>
+      <td>50.23%</td>
+      <td>21.20%</td>
+      <td>28.57%</td>
+      <td>8.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Austria Wien (A)</td>
+      <td>1455.40</td>
+      <td>0</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1424.68</td>
+      <td>2</td>
+      <td>39.11%</td>
+      <td>30.53%</td>
+      <td>30.36%</td>
+      <td>-18.22</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Hartberg</td>
+      <td>1664.07</td>
+      <td>2</td>
+      <td>@ SCR Altach</td>
+      <td>1615.27</td>
+      <td>2</td>
+      <td>41.61%</td>
+      <td>28.25%</td>
+      <td>30.14%</td>
+      <td>-0.83</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1617.08</td>
+      <td>0</td>
+      <td>@ WSG Tirol</td>
+      <td>1595.25</td>
+      <td>2</td>
+      <td>37.86%</td>
+      <td>31.71%</td>
+      <td>30.43%</td>
+      <td>-17.79</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Rapid Wien (A)</td>
+      <td>1391.52</td>
+      <td>1</td>
+      <td>Austria Lustenau</td>
+      <td>1506.57</td>
+      <td>2</td>
+      <td>21.20%</td>
+      <td>50.23%</td>
+      <td>28.57%</td>
+      <td>-8.05</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>SV Austria Salzburg</td>
+      <td>1424.68</td>
+      <td>2</td>
+      <td>Austria Wien (A)</td>
+      <td>1455.40</td>
+      <td>0</td>
+      <td>30.53%</td>
+      <td>39.11%</td>
+      <td>30.36%</td>
+      <td>18.21</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>WSG Tirol</td>
+      <td>1595.25</td>
+      <td>2</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1617.08</td>
+      <td>0</td>
+      <td>31.71%</td>
+      <td>37.86%</td>
+      <td>30.43%</td>
+      <td>17.78</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>LASK</td>
+      <td>1660.13</td>
+      <td>1</td>
+      <td>Grazer AK</td>
+      <td>1558.89</td>
+      <td>0</td>
+      <td>48.51%</td>
+      <td>22.50%</td>
+      <td>28.99%</td>
+      <td>8.48</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Grazer AK</td>
+      <td>1558.89</td>
+      <td>0</td>
+      <td>@ LASK</td>
+      <td>1660.13</td>
+      <td>1</td>
+      <td>22.50%</td>
+      <td>48.51%</td>
+      <td>28.99%</td>
+      <td>-8.48</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>SCR Altach</td>
+      <td>1615.27</td>
+      <td>2</td>
+      <td>Hartberg</td>
+      <td>1664.07</td>
+      <td>2</td>
+      <td>28.25%</td>
+      <td>41.61%</td>
+      <td>30.14%</td>
+      <td>0.82</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>SKU Amstetten</td>
+      <td>1529.71</td>
+      <td>1</td>
+      <td>Floridsdorfer</td>
+      <td>1525.91</td>
+      <td>1</td>
+      <td>35.30%</td>
+      <td>34.20%</td>
+      <td>30.50%</td>
+      <td>-0.06</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Austria Wien</td>
+      <td>1710.78</td>
+      <td>0</td>
+      <td>Salzburg</td>
+      <td>1763.50</td>
+      <td>3</td>
+      <td>27.77%</td>
+      <td>42.15%</td>
+      <td>30.08%</td>
+      <td>-17.42</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Wolfsberg</td>
+      <td>1749.30</td>
+      <td>3</td>
+      <td>@ Sturm Graz</td>
+      <td>1789.07</td>
+      <td>1</td>
+      <td>29.37%</td>
+      <td>40.37%</td>
+      <td>30.26%</td>
+      <td>18.65</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Rapid Wien</td>
+      <td>1683.56</td>
+      <td>2</td>
+      <td>@ Ried</td>
+      <td>1676.68</td>
+      <td>0</td>
+      <td>35.74%</td>
+      <td>33.77%</td>
+      <td>30.49%</td>
+      <td>16.40</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Salzburg</td>
+      <td>1763.50</td>
+      <td>3</td>
+      <td>@ Austria Wien</td>
+      <td>1710.78</td>
+      <td>0</td>
+      <td>42.15%</td>
+      <td>27.77%</td>
+      <td>30.08%</td>
+      <td>17.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Floridsdorfer</td>
+      <td>1525.91</td>
+      <td>1</td>
+      <td>@ SKU Amstetten</td>
+      <td>1529.71</td>
+      <td>1</td>
+      <td>34.20%</td>
+      <td>35.30%</td>
+      <td>30.50%</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Ried</td>
+      <td>1676.68</td>
+      <td>0</td>
+      <td>Rapid Wien</td>
+      <td>1683.56</td>
+      <td>2</td>
+      <td>33.77%</td>
+      <td>35.74%</td>
+      <td>30.49%</td>
+      <td>-16.41</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Sturm Graz</td>
+      <td>1789.07</td>
+      <td>1</td>
+      <td>Wolfsberg</td>
+      <td>1749.30</td>
+      <td>3</td>
+      <td>40.37%</td>
+      <td>29.37%</td>
+      <td>30.26%</td>
+      <td>-18.64</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>SV Austria Salzburg</td>
+      <td>1442.89</td>
+      <td>1</td>
+      <td>@ Kapfenberger</td>
+      <td>1454.57</td>
+      <td>4</td>
+      <td>33.10%</td>
+      <td>36.42%</td>
+      <td>30.48%</td>
+      <td>-19.81</td>
+    </tr>
+    <tr>
+      <td>2025-10-31</td>
+      <td>Kapfenberger</td>
+      <td>1454.57</td>
+      <td>4</td>
+      <td>SV Austria Salzburg</td>
+      <td>1442.89</td>
+      <td>1</td>
+      <td>36.42%</td>
+      <td>33.10%</td>
+      <td>30.48%</td>
+      <td>19.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>SCR Altach</td>
+      <td>1616.09</td>
+      <td>1</td>
+      <td>@ Grazer AK</td>
+      <td>1550.41</td>
+      <td>3</td>
+      <td>43.89%</td>
+      <td>26.25%</td>
+      <td>29.86%</td>
+      <td>-19.86</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Austria Wien</td>
+      <td>1693.36</td>
+      <td>1</td>
+      <td>@ Hartberg</td>
+      <td>1663.24</td>
+      <td>2</td>
+      <td>39.03%</td>
+      <td>30.61%</td>
+      <td>30.36%</td>
+      <td>-12.86</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>LASK</td>
+      <td>1668.61</td>
+      <td>1</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1599.29</td>
+      <td>0</td>
+      <td>44.37%</td>
+      <td>25.84%</td>
+      <td>29.79%</td>
+      <td>9.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1377.31</td>
+      <td>1</td>
+      <td>@ Hertha Wels</td>
+      <td>1407.64</td>
+      <td>1</td>
+      <td>30.58%</td>
+      <td>39.06%</td>
+      <td>30.36%</td>
+      <td>0.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Floridsdorfer</td>
+      <td>1525.98</td>
+      <td>2</td>
+      <td>@ SKN St. Polten</td>
+      <td>1599.50</td>
+      <td>0</td>
+      <td>25.37%</td>
+      <td>44.93%</td>
+      <td>29.70%</td>
+      <td>20.22</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>SKU Amstetten</td>
+      <td>1529.65</td>
+      <td>3</td>
+      <td>@ First Vienna</td>
+      <td>1477.01</td>
+      <td>2</td>
+      <td>42.13%</td>
+      <td>27.78%</td>
+      <td>30.09%</td>
+      <td>10.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Admira Wacker</td>
+      <td>1580.62</td>
+      <td>1</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1400.82</td>
+      <td>1</td>
+      <td>57.85%</td>
+      <td>16.15%</td>
+      <td>26.00%</td>
+      <td>-2.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>SKN St. Polten</td>
+      <td>1599.50</td>
+      <td>0</td>
+      <td>Floridsdorfer</td>
+      <td>1525.98</td>
+      <td>2</td>
+      <td>44.93%</td>
+      <td>25.37%</td>
+      <td>29.70%</td>
+      <td>-20.23</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Liefering</td>
+      <td>1483.80</td>
+      <td>2</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1437.18</td>
+      <td>0</td>
+      <td>41.31%</td>
+      <td>28.51%</td>
+      <td>30.17%</td>
+      <td>14.50</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Sturm Graz (A)</td>
+      <td>1400.82</td>
+      <td>1</td>
+      <td>Admira Wacker</td>
+      <td>1580.62</td>
+      <td>1</td>
+      <td>16.15%</td>
+      <td>57.85%</td>
+      <td>26.00%</td>
+      <td>2.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Austria Wien (A)</td>
+      <td>1437.18</td>
+      <td>0</td>
+      <td>Liefering</td>
+      <td>1483.80</td>
+      <td>2</td>
+      <td>28.51%</td>
+      <td>41.31%</td>
+      <td>30.17%</td>
+      <td>-14.50</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Hertha Wels</td>
+      <td>1407.64</td>
+      <td>1</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1377.31</td>
+      <td>1</td>
+      <td>39.06%</td>
+      <td>30.58%</td>
+      <td>30.36%</td>
+      <td>-0.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>First Vienna</td>
+      <td>1477.01</td>
+      <td>2</td>
+      <td>SKU Amstetten</td>
+      <td>1529.65</td>
+      <td>3</td>
+      <td>27.78%</td>
+      <td>42.13%</td>
+      <td>30.09%</td>
+      <td>-10.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1599.29</td>
+      <td>0</td>
+      <td>LASK</td>
+      <td>1668.61</td>
+      <td>1</td>
+      <td>25.84%</td>
+      <td>44.37%</td>
+      <td>29.79%</td>
+      <td>-9.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Hartberg</td>
+      <td>1663.24</td>
+      <td>2</td>
+      <td>Austria Wien</td>
+      <td>1693.36</td>
+      <td>1</td>
+      <td>30.61%</td>
+      <td>39.03%</td>
+      <td>30.36%</td>
+      <td>12.86</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Grazer AK</td>
+      <td>1550.41</td>
+      <td>3</td>
+      <td>SCR Altach</td>
+      <td>1616.09</td>
+      <td>1</td>
+      <td>26.25%</td>
+      <td>43.89%</td>
+      <td>29.86%</td>
+      <td>19.86</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Ried</td>
+      <td>1660.27</td>
+      <td>1</td>
+      <td>@ Salzburg</td>
+      <td>1780.91</td>
+      <td>4</td>
+      <td>20.69%</td>
+      <td>50.92%</td>
+      <td>28.38%</td>
+      <td>-13.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Austria Lustenau</td>
+      <td>1514.62</td>
+      <td>2</td>
+      <td>Austria Klagenfurt</td>
+      <td>1489.39</td>
+      <td>0</td>
+      <td>38.34%</td>
+      <td>31.25%</td>
+      <td>30.40%</td>
+      <td>15.53</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Rapid Wien</td>
+      <td>1699.96</td>
+      <td>2</td>
+      <td>Sturm Graz</td>
+      <td>1770.43</td>
+      <td>1</td>
+      <td>25.71%</td>
+      <td>44.53%</td>
+      <td>29.76%</td>
+      <td>14.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Wolfsberg</td>
+      <td>1767.95</td>
+      <td>0</td>
+      <td>WSG Tirol</td>
+      <td>1613.03</td>
+      <td>0</td>
+      <td>55.01%</td>
+      <td>17.90%</td>
+      <td>27.09%</td>
+      <td>-2.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Salzburg</td>
+      <td>1780.91</td>
+      <td>4</td>
+      <td>Ried</td>
+      <td>1660.27</td>
+      <td>1</td>
+      <td>50.92%</td>
+      <td>20.69%</td>
+      <td>28.38%</td>
+      <td>13.66</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>WSG Tirol</td>
+      <td>1613.03</td>
+      <td>0</td>
+      <td>@ Wolfsberg</td>
+      <td>1767.95</td>
+      <td>0</td>
+      <td>17.90%</td>
+      <td>55.01%</td>
+      <td>27.09%</td>
+      <td>2.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Austria Klagenfurt</td>
+      <td>1489.39</td>
+      <td>0</td>
+      <td>@ Austria Lustenau</td>
+      <td>1514.62</td>
+      <td>2</td>
+      <td>31.25%</td>
+      <td>38.34%</td>
+      <td>30.40%</td>
+      <td>-15.53</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Sturm Graz</td>
+      <td>1770.43</td>
+      <td>1</td>
+      <td>@ Rapid Wien</td>
+      <td>1699.96</td>
+      <td>2</td>
+      <td>44.53%</td>
+      <td>25.71%</td>
+      <td>29.76%</td>
+      <td>-14.20</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Admira Wacker</td>
+      <td>1577.81</td>
+      <td>2</td>
+      <td>SKN St. Polten</td>
+      <td>1579.27</td>
+      <td>1</td>
+      <td>34.54%</td>
+      <td>34.96%</td>
+      <td>30.50%</td>
+      <td>11.88</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Hertha Wels</td>
+      <td>1407.13</td>
+      <td>0</td>
+      <td>First Vienna</td>
+      <td>1466.96</td>
+      <td>0</td>
+      <td>26.93%</td>
+      <td>43.11%</td>
+      <td>29.97%</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Liefering</td>
+      <td>1498.30</td>
+      <td>5</td>
+      <td>Kapfenberger</td>
+      <td>1474.38</td>
+      <td>2</td>
+      <td>38.16%</td>
+      <td>31.43%</td>
+      <td>30.41%</td>
+      <td>19.09</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>Kapfenberger</td>
+      <td>1474.38</td>
+      <td>2</td>
+      <td>@ Liefering</td>
+      <td>1498.30</td>
+      <td>5</td>
+      <td>31.43%</td>
+      <td>38.16%</td>
+      <td>30.41%</td>
+      <td>-19.08</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>First Vienna</td>
+      <td>1466.96</td>
+      <td>0</td>
+      <td>@ Hertha Wels</td>
+      <td>1407.13</td>
+      <td>0</td>
+      <td>43.11%</td>
+      <td>26.93%</td>
+      <td>29.97%</td>
+      <td>-1.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-07</td>
+      <td>SKN St. Polten</td>
+      <td>1579.27</td>
+      <td>1</td>
+      <td>@ Admira Wacker</td>
+      <td>1577.81</td>
+      <td>2</td>
+      <td>34.96%</td>
+      <td>34.54%</td>
+      <td>30.50%</td>
+      <td>-11.88</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1377.82</td>
+      <td>1</td>
+      <td>Austria Lustenau</td>
+      <td>1530.15</td>
+      <td>2</td>
+      <td>18.10%</td>
+      <td>54.70%</td>
+      <td>27.20%</td>
+      <td>-6.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Rapid Wien (A)</td>
+      <td>1383.47</td>
+      <td>2</td>
+      <td>Austria Klagenfurt</td>
+      <td>1473.86</td>
+      <td>1</td>
+      <td>23.58%</td>
+      <td>47.13%</td>
+      <td>29.29%</td>
+      <td>14.84</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>SV Austria Salzburg</td>
+      <td>1423.08</td>
+      <td>1</td>
+      <td>Sturm Graz (A)</td>
+      <td>1403.63</td>
+      <td>2</td>
+      <td>37.53%</td>
+      <td>32.03%</td>
+      <td>30.44%</td>
+      <td>-12.49</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Austria Wien</td>
+      <td>1680.50</td>
+      <td>2</td>
+      <td>Grazer AK</td>
+      <td>1570.27</td>
+      <td>1</td>
+      <td>49.64%</td>
+      <td>21.64%</td>
+      <td>28.72%</td>
+      <td>8.21</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Grazer AK</td>
+      <td>1570.27</td>
+      <td>1</td>
+      <td>@ Austria Wien</td>
+      <td>1680.50</td>
+      <td>2</td>
+      <td>21.64%</td>
+      <td>49.64%</td>
+      <td>28.72%</td>
+      <td>-8.20</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1589.78</td>
+      <td>1</td>
+      <td>@ Ried</td>
+      <td>1646.62</td>
+      <td>2</td>
+      <td>27.28%</td>
+      <td>42.71%</td>
+      <td>30.02%</td>
+      <td>-9.91</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Hartberg</td>
+      <td>1676.10</td>
+      <td>2</td>
+      <td>@ Wolfsberg</td>
+      <td>1765.47</td>
+      <td>1</td>
+      <td>23.68%</td>
+      <td>47.00%</td>
+      <td>29.32%</td>
+      <td>14.82</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Ried</td>
+      <td>1646.62</td>
+      <td>2</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1589.78</td>
+      <td>1</td>
+      <td>42.71%</td>
+      <td>27.28%</td>
+      <td>30.02%</td>
+      <td>9.91</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Austria Lustenau</td>
+      <td>1530.15</td>
+      <td>2</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1377.82</td>
+      <td>1</td>
+      <td>54.70%</td>
+      <td>18.10%</td>
+      <td>27.20%</td>
+      <td>6.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Austria Klagenfurt</td>
+      <td>1473.86</td>
+      <td>1</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1383.47</td>
+      <td>2</td>
+      <td>47.13%</td>
+      <td>23.58%</td>
+      <td>29.29%</td>
+      <td>-14.84</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Sturm Graz (A)</td>
+      <td>1403.63</td>
+      <td>2</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1423.08</td>
+      <td>1</td>
+      <td>32.03%</td>
+      <td>37.53%</td>
+      <td>30.44%</td>
+      <td>12.50</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Wolfsberg</td>
+      <td>1765.47</td>
+      <td>1</td>
+      <td>Hartberg</td>
+      <td>1676.10</td>
+      <td>2</td>
+      <td>47.00%</td>
+      <td>23.68%</td>
+      <td>29.32%</td>
+      <td>-14.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>WSG Tirol</td>
+      <td>1615.51</td>
+      <td>1</td>
+      <td>Rapid Wien</td>
+      <td>1714.17</td>
+      <td>1</td>
+      <td>22.75%</td>
+      <td>48.18%</td>
+      <td>29.07%</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>LASK</td>
+      <td>1678.12</td>
+      <td>1</td>
+      <td>SCR Altach</td>
+      <td>1596.23</td>
+      <td>0</td>
+      <td>46.03%</td>
+      <td>24.46%</td>
+      <td>29.51%</td>
+      <td>9.09</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Sturm Graz</td>
+      <td>1756.23</td>
+      <td>1</td>
+      <td>Salzburg</td>
+      <td>1794.57</td>
+      <td>1</td>
+      <td>29.55%</td>
+      <td>40.17%</td>
+      <td>30.28%</td>
+      <td>0.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Floridsdorfer</td>
+      <td>1546.20</td>
+      <td>2</td>
+      <td>Austria Wien (A)</td>
+      <td>1422.68</td>
+      <td>1</td>
+      <td>51.27%</td>
+      <td>20.44%</td>
+      <td>28.29%</td>
+      <td>7.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Austria Wien (A)</td>
+      <td>1422.68</td>
+      <td>1</td>
+      <td>@ Floridsdorfer</td>
+      <td>1546.20</td>
+      <td>2</td>
+      <td>20.44%</td>
+      <td>51.27%</td>
+      <td>28.29%</td>
+      <td>-7.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Rapid Wien</td>
+      <td>1714.17</td>
+      <td>1</td>
+      <td>@ WSG Tirol</td>
+      <td>1615.51</td>
+      <td>1</td>
+      <td>48.18%</td>
+      <td>22.75%</td>
+      <td>29.07%</td>
+      <td>-1.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>SCR Altach</td>
+      <td>1596.23</td>
+      <td>0</td>
+      <td>@ LASK</td>
+      <td>1678.12</td>
+      <td>1</td>
+      <td>24.46%</td>
+      <td>46.03%</td>
+      <td>29.51%</td>
+      <td>-9.10</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Salzburg</td>
+      <td>1794.57</td>
+      <td>1</td>
+      <td>@ Sturm Graz</td>
+      <td>1756.23</td>
+      <td>1</td>
+      <td>40.17%</td>
+      <td>29.55%</td>
+      <td>30.28%</td>
+      <td>-0.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Rapid Wien (A)</td>
+      <td>1398.31</td>
+      <td>0</td>
+      <td>@ First Vienna</td>
+      <td>1465.95</td>
+      <td>2</td>
+      <td>26.03%</td>
+      <td>44.15%</td>
+      <td>29.82%</td>
+      <td>-13.52</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>First Vienna</td>
+      <td>1465.95</td>
+      <td>2</td>
+      <td>Rapid Wien (A)</td>
+      <td>1398.31</td>
+      <td>0</td>
+      <td>44.15%</td>
+      <td>26.03%</td>
+      <td>29.82%</td>
+      <td>13.52</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>SKU Amstetten</td>
+      <td>1539.70</td>
+      <td>2</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1459.02</td>
+      <td>0</td>
+      <td>45.87%</td>
+      <td>24.59%</td>
+      <td>29.54%</td>
+      <td>12.92</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Wolfsberg</td>
+      <td>1750.66</td>
+      <td>1</td>
+      <td>@ SCR Altach</td>
+      <td>1587.13</td>
+      <td>3</td>
+      <td>56.00%</td>
+      <td>17.27%</td>
+      <td>26.73%</td>
+      <td>-24.08</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Ried</td>
+      <td>1656.53</td>
+      <td>0</td>
+      <td>@ Hartberg</td>
+      <td>1690.92</td>
+      <td>2</td>
+      <td>30.05%</td>
+      <td>39.62%</td>
+      <td>30.32%</td>
+      <td>-15.08</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Hertha Wels</td>
+      <td>1408.13</td>
+      <td>3</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1416.13</td>
+      <td>0</td>
+      <td>33.61%</td>
+      <td>35.90%</td>
+      <td>30.49%</td>
+      <td>20.98</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Liefering</td>
+      <td>1517.39</td>
+      <td>0</td>
+      <td>@ Admira Wacker</td>
+      <td>1589.69</td>
+      <td>4</td>
+      <td>25.51%</td>
+      <td>44.77%</td>
+      <td>29.72%</td>
+      <td>-18.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>SCR Altach</td>
+      <td>1587.13</td>
+      <td>3</td>
+      <td>Wolfsberg</td>
+      <td>1750.66</td>
+      <td>1</td>
+      <td>17.27%</td>
+      <td>56.00%</td>
+      <td>26.73%</td>
+      <td>24.08</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1579.87</td>
+      <td>2</td>
+      <td>Austria Wien</td>
+      <td>1688.71</td>
+      <td>3</td>
+      <td>21.77%</td>
+      <td>49.46%</td>
+      <td>28.77%</td>
+      <td>-8.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Austria Lustenau</td>
+      <td>1537.10</td>
+      <td>0</td>
+      <td>SV Austria Salzburg</td>
+      <td>1410.59</td>
+      <td>0</td>
+      <td>51.64%</td>
+      <td>20.18%</td>
+      <td>28.18%</td>
+      <td>-2.06</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Austria Klagenfurt</td>
+      <td>1459.02</td>
+      <td>0</td>
+      <td>SKU Amstetten</td>
+      <td>1539.70</td>
+      <td>2</td>
+      <td>24.59%</td>
+      <td>45.87%</td>
+      <td>29.54%</td>
+      <td>-12.92</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1370.87</td>
+      <td>1</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1414.88</td>
+      <td>2</td>
+      <td>28.83%</td>
+      <td>40.96%</td>
+      <td>30.21%</td>
+      <td>-10.35</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Austria Wien (A)</td>
+      <td>1414.88</td>
+      <td>2</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1370.87</td>
+      <td>1</td>
+      <td>40.96%</td>
+      <td>28.83%</td>
+      <td>30.21%</td>
+      <td>10.35</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Sturm Graz (A)</td>
+      <td>1416.13</td>
+      <td>0</td>
+      <td>Hertha Wels</td>
+      <td>1408.13</td>
+      <td>3</td>
+      <td>35.90%</td>
+      <td>33.61%</td>
+      <td>30.49%</td>
+      <td>-20.97</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Austria Wien</td>
+      <td>1688.71</td>
+      <td>3</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1579.87</td>
+      <td>2</td>
+      <td>49.46%</td>
+      <td>21.77%</td>
+      <td>28.77%</td>
+      <td>8.24</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>SV Austria Salzburg</td>
+      <td>1410.59</td>
+      <td>0</td>
+      <td>@ Austria Lustenau</td>
+      <td>1537.10</td>
+      <td>0</td>
+      <td>20.18%</td>
+      <td>51.64%</td>
+      <td>28.18%</td>
+      <td>2.06</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Hartberg</td>
+      <td>1690.92</td>
+      <td>2</td>
+      <td>Ried</td>
+      <td>1656.53</td>
+      <td>0</td>
+      <td>39.62%</td>
+      <td>30.05%</td>
+      <td>30.32%</td>
+      <td>15.08</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Admira Wacker</td>
+      <td>1589.69</td>
+      <td>4</td>
+      <td>Liefering</td>
+      <td>1517.39</td>
+      <td>0</td>
+      <td>44.77%</td>
+      <td>25.51%</td>
+      <td>29.72%</td>
+      <td>18.81</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>SKN St. Polten</td>
+      <td>1567.39</td>
+      <td>2</td>
+      <td>Kapfenberger</td>
+      <td>1455.30</td>
+      <td>1</td>
+      <td>49.87%</td>
+      <td>21.47%</td>
+      <td>28.66%</td>
+      <td>8.14</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Salzburg</td>
+      <td>1793.92</td>
+      <td>2</td>
+      <td>WSG Tirol</td>
+      <td>1617.15</td>
+      <td>3</td>
+      <td>57.51%</td>
+      <td>16.35%</td>
+      <td>26.14%</td>
+      <td>-17.39</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Rapid Wien</td>
+      <td>1712.53</td>
+      <td>1</td>
+      <td>Grazer AK</td>
+      <td>1562.07</td>
+      <td>2</td>
+      <td>54.49%</td>
+      <td>18.24%</td>
+      <td>27.27%</td>
+      <td>-16.66</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>LASK</td>
+      <td>1687.21</td>
+      <td>3</td>
+      <td>@ Sturm Graz</td>
+      <td>1756.88</td>
+      <td>1</td>
+      <td>25.80%</td>
+      <td>44.42%</td>
+      <td>29.78%</td>
+      <td>20.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>WSG Tirol</td>
+      <td>1617.15</td>
+      <td>3</td>
+      <td>@ Salzburg</td>
+      <td>1793.92</td>
+      <td>2</td>
+      <td>16.35%</td>
+      <td>57.51%</td>
+      <td>26.14%</td>
+      <td>17.38</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Grazer AK</td>
+      <td>1562.07</td>
+      <td>2</td>
+      <td>@ Rapid Wien</td>
+      <td>1712.53</td>
+      <td>1</td>
+      <td>18.24%</td>
+      <td>54.49%</td>
+      <td>27.27%</td>
+      <td>16.66</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Kapfenberger</td>
+      <td>1455.30</td>
+      <td>1</td>
+      <td>@ SKN St. Polten</td>
+      <td>1567.39</td>
+      <td>2</td>
+      <td>21.47%</td>
+      <td>49.87%</td>
+      <td>28.66%</td>
+      <td>-8.15</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Sturm Graz</td>
+      <td>1756.88</td>
+      <td>1</td>
+      <td>LASK</td>
+      <td>1687.21</td>
+      <td>3</td>
+      <td>44.42%</td>
+      <td>25.80%</td>
+      <td>29.78%</td>
+      <td>-20.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Admira Wacker</td>
+      <td>1608.50</td>
+      <td>1</td>
+      <td>@ Floridsdorfer</td>
+      <td>1554.00</td>
+      <td>1</td>
+      <td>42.39%</td>
+      <td>27.56%</td>
+      <td>30.06%</td>
+      <td>-0.92</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Austria Klagenfurt</td>
+      <td>1446.10</td>
+      <td>2</td>
+      <td>@ Liefering</td>
+      <td>1498.58</td>
+      <td>2</td>
+      <td>27.80%</td>
+      <td>42.12%</td>
+      <td>30.09%</td>
+      <td>0.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>SKN St. Polten</td>
+      <td>1575.53</td>
+      <td>1</td>
+      <td>@ Hertha Wels</td>
+      <td>1429.11</td>
+      <td>1</td>
+      <td>54.01%</td>
+      <td>18.55%</td>
+      <td>27.44%</td>
+      <td>-2.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Austria Lustenau</td>
+      <td>1535.04</td>
+      <td>0</td>
+      <td>@ SKU Amstetten</td>
+      <td>1552.62</td>
+      <td>1</td>
+      <td>32.28%</td>
+      <td>37.26%</td>
+      <td>30.45%</td>
+      <td>-11.24</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Kapfenberger</td>
+      <td>1447.15</td>
+      <td>1</td>
+      <td>Austria Wien (A)</td>
+      <td>1425.23</td>
+      <td>2</td>
+      <td>37.88%</td>
+      <td>31.69%</td>
+      <td>30.43%</td>
+      <td>-12.58</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Hertha Wels</td>
+      <td>1429.11</td>
+      <td>1</td>
+      <td>SKN St. Polten</td>
+      <td>1575.53</td>
+      <td>1</td>
+      <td>18.55%</td>
+      <td>54.01%</td>
+      <td>27.44%</td>
+      <td>2.35</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Liefering</td>
+      <td>1498.58</td>
+      <td>2</td>
+      <td>Austria Klagenfurt</td>
+      <td>1446.10</td>
+      <td>2</td>
+      <td>42.12%</td>
+      <td>27.80%</td>
+      <td>30.09%</td>
+      <td>-0.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Floridsdorfer</td>
+      <td>1554.00</td>
+      <td>1</td>
+      <td>Admira Wacker</td>
+      <td>1608.50</td>
+      <td>1</td>
+      <td>27.56%</td>
+      <td>42.39%</td>
+      <td>30.06%</td>
+      <td>0.92</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Austria Wien (A)</td>
+      <td>1425.23</td>
+      <td>2</td>
+      <td>@ Kapfenberger</td>
+      <td>1447.15</td>
+      <td>1</td>
+      <td>31.69%</td>
+      <td>37.88%</td>
+      <td>30.43%</td>
+      <td>12.58</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>SKU Amstetten</td>
+      <td>1552.62</td>
+      <td>1</td>
+      <td>Austria Lustenau</td>
+      <td>1535.04</td>
+      <td>0</td>
+      <td>37.26%</td>
+      <td>32.28%</td>
+      <td>30.45%</td>
+      <td>11.24</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Wolfsberg</td>
+      <td>1726.58</td>
+      <td>0</td>
+      <td>@ Ried</td>
+      <td>1641.45</td>
+      <td>1</td>
+      <td>46.45%</td>
+      <td>24.12%</td>
+      <td>29.43%</td>
+      <td>-14.68</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Sturm Graz (A)</td>
+      <td>1395.16</td>
+      <td>1</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1384.79</td>
+      <td>1</td>
+      <td>36.23%</td>
+      <td>33.28%</td>
+      <td>30.48%</td>
+      <td>-0.18</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>WSG Tirol</td>
+      <td>1634.53</td>
+      <td>0</td>
+      <td>@ Austria Wien</td>
+      <td>1696.95</td>
+      <td>0</td>
+      <td>26.62%</td>
+      <td>43.46%</td>
+      <td>29.92%</td>
+      <td>1.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1571.62</td>
+      <td>1</td>
+      <td>@ Grazer AK</td>
+      <td>1578.73</td>
+      <td>3</td>
+      <td>33.74%</td>
+      <td>35.77%</td>
+      <td>30.49%</td>
+      <td>-16.39</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Rapid Wien (A)</td>
+      <td>1384.79</td>
+      <td>1</td>
+      <td>Sturm Graz (A)</td>
+      <td>1395.16</td>
+      <td>1</td>
+      <td>33.28%</td>
+      <td>36.23%</td>
+      <td>30.48%</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Ried</td>
+      <td>1641.45</td>
+      <td>1</td>
+      <td>Wolfsberg</td>
+      <td>1726.58</td>
+      <td>0</td>
+      <td>24.12%</td>
+      <td>46.45%</td>
+      <td>29.43%</td>
+      <td>14.68</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Grazer AK</td>
+      <td>1578.73</td>
+      <td>3</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1571.62</td>
+      <td>1</td>
+      <td>35.77%</td>
+      <td>33.74%</td>
+      <td>30.49%</td>
+      <td>16.40</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Austria Wien</td>
+      <td>1696.95</td>
+      <td>0</td>
+      <td>WSG Tirol</td>
+      <td>1634.53</td>
+      <td>0</td>
+      <td>43.46%</td>
+      <td>26.62%</td>
+      <td>29.92%</td>
+      <td>-1.05</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Salzburg</td>
+      <td>1776.53</td>
+      <td>1</td>
+      <td>@ SCR Altach</td>
+      <td>1611.21</td>
+      <td>1</td>
+      <td>56.21%</td>
+      <td>17.15%</td>
+      <td>26.65%</td>
+      <td>-2.62</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>First Vienna</td>
+      <td>1479.47</td>
+      <td>0</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1360.52</td>
+      <td>3</td>
+      <td>50.71%</td>
+      <td>20.85%</td>
+      <td>28.44%</td>
+      <td>-27.26</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Rapid Wien</td>
+      <td>1695.87</td>
+      <td>0</td>
+      <td>@ LASK</td>
+      <td>1707.26</td>
+      <td>3</td>
+      <td>33.14%</td>
+      <td>36.38%</td>
+      <td>30.48%</td>
+      <td>-19.83</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Hartberg</td>
+      <td>1706.00</td>
+      <td>0</td>
+      <td>Sturm Graz</td>
+      <td>1736.83</td>
+      <td>1</td>
+      <td>30.52%</td>
+      <td>39.13%</td>
+      <td>30.36%</td>
+      <td>-10.79</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1360.52</td>
+      <td>3</td>
+      <td>First Vienna</td>
+      <td>1479.47</td>
+      <td>0</td>
+      <td>20.85%</td>
+      <td>50.71%</td>
+      <td>28.44%</td>
+      <td>27.26</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>SCR Altach</td>
+      <td>1611.21</td>
+      <td>1</td>
+      <td>Salzburg</td>
+      <td>1776.53</td>
+      <td>1</td>
+      <td>17.15%</td>
+      <td>56.21%</td>
+      <td>26.65%</td>
+      <td>2.62</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Sturm Graz</td>
+      <td>1736.83</td>
+      <td>1</td>
+      <td>@ Hartberg</td>
+      <td>1706.00</td>
+      <td>0</td>
+      <td>39.13%</td>
+      <td>30.52%</td>
+      <td>30.36%</td>
+      <td>10.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>LASK</td>
+      <td>1707.26</td>
+      <td>3</td>
+      <td>Rapid Wien</td>
+      <td>1695.87</td>
+      <td>0</td>
+      <td>36.38%</td>
+      <td>33.14%</td>
+      <td>30.48%</td>
+      <td>19.83</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>WSG Tirol</td>
+      <td>1635.58</td>
+      <td>3</td>
+      <td>@ Sturm Graz</td>
+      <td>1747.61</td>
+      <td>1</td>
+      <td>21.47%</td>
+      <td>49.86%</td>
+      <td>28.67%</td>
+      <td>21.96</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Sturm Graz</td>
+      <td>1747.61</td>
+      <td>1</td>
+      <td>WSG Tirol</td>
+      <td>1635.58</td>
+      <td>3</td>
+      <td>49.86%</td>
+      <td>21.47%</td>
+      <td>28.67%</td>
+      <td>-21.95</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Rapid Wien (A)</td>
+      <td>1384.97</td>
+      <td>3</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1387.78</td>
+      <td>1</td>
+      <td>34.35%</td>
+      <td>35.15%</td>
+      <td>30.50%</td>
+      <td>16.87</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Admira Wacker</td>
+      <td>1607.58</td>
+      <td>6</td>
+      <td>Kapfenberger</td>
+      <td>1434.57</td>
+      <td>1</td>
+      <td>57.08%</td>
+      <td>16.61%</td>
+      <td>26.31%</td>
+      <td>14.28</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Austria Wien (A)</td>
+      <td>1437.81</td>
+      <td>0</td>
+      <td>@ SKN St. Polten</td>
+      <td>1573.17</td>
+      <td>2</td>
+      <td>19.43%</td>
+      <td>52.70%</td>
+      <td>27.86%</td>
+      <td>-10.53</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>SKN St. Polten</td>
+      <td>1573.17</td>
+      <td>2</td>
+      <td>Austria Wien (A)</td>
+      <td>1437.81</td>
+      <td>0</td>
+      <td>52.70%</td>
+      <td>19.43%</td>
+      <td>27.86%</td>
+      <td>10.53</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Kapfenberger</td>
+      <td>1434.57</td>
+      <td>1</td>
+      <td>@ Admira Wacker</td>
+      <td>1607.58</td>
+      <td>6</td>
+      <td>16.61%</td>
+      <td>57.08%</td>
+      <td>26.31%</td>
+      <td>-14.28</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1387.78</td>
+      <td>1</td>
+      <td>@ Rapid Wien (A)</td>
+      <td>1384.97</td>
+      <td>3</td>
+      <td>35.15%</td>
+      <td>34.35%</td>
+      <td>30.50%</td>
+      <td>-16.87</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Hertha Wels</td>
+      <td>1431.46</td>
+      <td>1</td>
+      <td>@ Floridsdorfer</td>
+      <td>1554.92</td>
+      <td>3</td>
+      <td>20.45%</td>
+      <td>51.27%</td>
+      <td>28.29%</td>
+      <td>-11.03</td>
+    </tr>
+    <tr>
+      <td>2025-12-05</td>
+      <td>Floridsdorfer</td>
+      <td>1554.92</td>
+      <td>3</td>
+      <td>Hertha Wels</td>
+      <td>1431.46</td>
+      <td>1</td>
+      <td>51.27%</td>
+      <td>20.45%</td>
+      <td>28.29%</td>
+      <td>11.03</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Austria Lustenau</td>
+      <td>1523.80</td>
+      <td>1</td>
+      <td>Liefering</td>
+      <td>1497.69</td>
+      <td>0</td>
+      <td>38.47%</td>
+      <td>31.13%</td>
+      <td>30.40%</td>
+      <td>10.95</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Hartberg</td>
+      <td>1695.21</td>
+      <td>2</td>
+      <td>LASK</td>
+      <td>1727.09</td>
+      <td>2</td>
+      <td>30.38%</td>
+      <td>39.27%</td>
+      <td>30.35%</td>
+      <td>0.54</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Rapid Wien</td>
+      <td>1676.04</td>
+      <td>1</td>
+      <td>Ried</td>
+      <td>1656.13</td>
+      <td>2</td>
+      <td>37.59%</td>
+      <td>31.97%</td>
+      <td>30.44%</td>
+      <td>-12.51</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Sturm Graz (A)</td>
+      <td>1394.98</td>
+      <td>3</td>
+      <td>SKU Amstetten</td>
+      <td>1563.86</td>
+      <td>3</td>
+      <td>16.90%</td>
+      <td>56.61%</td>
+      <td>26.49%</td>
+      <td>2.67</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>SKU Amstetten</td>
+      <td>1563.86</td>
+      <td>3</td>
+      <td>@ Sturm Graz (A)</td>
+      <td>1394.98</td>
+      <td>3</td>
+      <td>56.61%</td>
+      <td>16.90%</td>
+      <td>26.49%</td>
+      <td>-2.67</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Liefering</td>
+      <td>1497.69</td>
+      <td>0</td>
+      <td>@ Austria Lustenau</td>
+      <td>1523.80</td>
+      <td>1</td>
+      <td>31.13%</td>
+      <td>38.47%</td>
+      <td>30.40%</td>
+      <td>-10.94</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Ried</td>
+      <td>1656.13</td>
+      <td>2</td>
+      <td>@ Rapid Wien</td>
+      <td>1676.04</td>
+      <td>1</td>
+      <td>31.97%</td>
+      <td>37.59%</td>
+      <td>30.44%</td>
+      <td>12.51</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>LASK</td>
+      <td>1727.09</td>
+      <td>2</td>
+      <td>@ Hartberg</td>
+      <td>1695.21</td>
+      <td>2</td>
+      <td>39.27%</td>
+      <td>30.38%</td>
+      <td>30.35%</td>
+      <td>-0.54</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Salzburg</td>
+      <td>1773.91</td>
+      <td>2</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1555.23</td>
+      <td>0</td>
+      <td>62.09%</td>
+      <td>13.82%</td>
+      <td>24.08%</td>
+      <td>7.40</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1555.23</td>
+      <td>0</td>
+      <td>Salzburg</td>
+      <td>1773.91</td>
+      <td>2</td>
+      <td>13.82%</td>
+      <td>62.09%</td>
+      <td>24.08%</td>
+      <td>-7.40</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Austria Wien</td>
+      <td>1695.90</td>
+      <td>1</td>
+      <td>@ Wolfsberg</td>
+      <td>1711.90</td>
+      <td>2</td>
+      <td>32.50%</td>
+      <td>37.04%</td>
+      <td>30.46%</td>
+      <td>-11.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Grazer AK</td>
+      <td>1595.13</td>
+      <td>1</td>
+      <td>@ Sturm Graz</td>
+      <td>1725.66</td>
+      <td>2</td>
+      <td>19.84%</td>
+      <td>52.12%</td>
+      <td>28.04%</td>
+      <td>-7.59</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Wolfsberg</td>
+      <td>1711.90</td>
+      <td>2</td>
+      <td>Austria Wien</td>
+      <td>1695.90</td>
+      <td>1</td>
+      <td>37.04%</td>
+      <td>32.50%</td>
+      <td>30.46%</td>
+      <td>11.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>WSG Tirol</td>
+      <td>1657.54</td>
+      <td>0</td>
+      <td>SCR Altach</td>
+      <td>1613.83</td>
+      <td>3</td>
+      <td>40.91%</td>
+      <td>28.87%</td>
+      <td>30.21%</td>
+      <td>-23.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Sturm Graz</td>
+      <td>1725.66</td>
+      <td>2</td>
+      <td>Grazer AK</td>
+      <td>1595.13</td>
+      <td>1</td>
+      <td>52.12%</td>
+      <td>19.84%</td>
+      <td>28.04%</td>
+      <td>7.59</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Austria Klagenfurt</td>
+      <td>1446.99</td>
+      <td>0</td>
+      <td>SV Austria Salzburg</td>
+      <td>1412.65</td>
+      <td>1</td>
+      <td>39.62%</td>
+      <td>30.06%</td>
+      <td>30.32%</td>
+      <td>-13.01</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>SCR Altach</td>
+      <td>1613.83</td>
+      <td>3</td>
+      <td>@ WSG Tirol</td>
+      <td>1657.54</td>
+      <td>0</td>
+      <td>28.87%</td>
+      <td>40.91%</td>
+      <td>30.21%</td>
+      <td>23.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>SV Austria Salzburg</td>
+      <td>1412.65</td>
+      <td>1</td>
+      <td>@ Austria Klagenfurt</td>
+      <td>1446.99</td>
+      <td>0</td>
+      <td>30.06%</td>
+      <td>39.62%</td>
+      <td>30.32%</td>
+      <td>13.00</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Austria Lustenau</td>
+      <td>1534.75</td>
+      <td>1</td>
+      <td>@ Hertha Wels</td>
+      <td>1420.43</td>
+      <td>0</td>
+      <td>50.14%</td>
+      <td>21.26%</td>
+      <td>28.59%</td>
+      <td>8.08</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Hertha Wels</td>
+      <td>1420.43</td>
+      <td>0</td>
+      <td>Austria Lustenau</td>
+      <td>1534.75</td>
+      <td>1</td>
+      <td>21.26%</td>
+      <td>50.14%</td>
+      <td>28.59%</td>
+      <td>-8.07</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Kapfenberger</td>
+      <td>1420.29</td>
+      <td>0</td>
+      <td>Floridsdorfer</td>
+      <td>1565.95</td>
+      <td>0</td>
+      <td>18.61%</td>
+      <td>53.92%</td>
+      <td>27.47%</td>
+      <td>2.35</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Schwarz-Weiss Bregenz</td>
+      <td>1370.91</td>
+      <td>2</td>
+      <td>SKN St. Polten</td>
+      <td>1583.70</td>
+      <td>1</td>
+      <td>14.15%</td>
+      <td>61.46%</td>
+      <td>24.39%</td>
+      <td>18.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Liefering</td>
+      <td>1486.75</td>
+      <td>1</td>
+      <td>Rapid Wien (A)</td>
+      <td>1401.84</td>
+      <td>0</td>
+      <td>46.42%</td>
+      <td>24.15%</td>
+      <td>29.43%</td>
+      <td>8.99</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Austria Klagenfurt</td>
+      <td>1433.98</td>
+      <td>1</td>
+      <td>@ Austria Wien (A)</td>
+      <td>1427.28</td>
+      <td>2</td>
+      <td>35.71%</td>
+      <td>33.80%</td>
+      <td>30.49%</td>
+      <td>-12.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Rapid Wien (A)</td>
+      <td>1401.84</td>
+      <td>0</td>
+      <td>@ Liefering</td>
+      <td>1486.75</td>
+      <td>1</td>
+      <td>24.15%</td>
+      <td>46.42%</td>
+      <td>29.43%</td>
+      <td>-9.00</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>SKN St. Polten</td>
+      <td>1583.70</td>
+      <td>1</td>
+      <td>@ Schwarz-Weiss Bregenz</td>
+      <td>1370.91</td>
+      <td>2</td>
+      <td>61.46%</td>
+      <td>14.15%</td>
+      <td>24.39%</td>
+      <td>-18.29</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Admira Wacker</td>
+      <td>1621.86</td>
+      <td>1</td>
+      <td>@ SKU Amstetten</td>
+      <td>1561.19</td>
+      <td>2</td>
+      <td>43.22%</td>
+      <td>26.83%</td>
+      <td>29.95%</td>
+      <td>-13.88</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Floridsdorfer</td>
+      <td>1565.95</td>
+      <td>0</td>
+      <td>@ Kapfenberger</td>
+      <td>1420.29</td>
+      <td>0</td>
+      <td>53.92%</td>
+      <td>18.61%</td>
+      <td>27.47%</td>
+      <td>-2.35</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>SKU Amstetten</td>
+      <td>1561.19</td>
+      <td>2</td>
+      <td>Admira Wacker</td>
+      <td>1621.86</td>
+      <td>1</td>
+      <td>26.83%</td>
+      <td>43.22%</td>
+      <td>29.95%</td>
+      <td>13.88</td>
+    </tr>
+    <tr>
+      <td>2025-12-12</td>
+      <td>Austria Wien (A)</td>
+      <td>1427.28</td>
+      <td>2</td>
+      <td>Austria Klagenfurt</td>
+      <td>1433.98</td>
+      <td>1</td>
+      <td>33.80%</td>
+      <td>35.71%</td>
+      <td>30.49%</td>
+      <td>12.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>SCR Altach</td>
+      <td>1636.90</td>
+      <td>0</td>
+      <td>@ Ried</td>
+      <td>1668.64</td>
+      <td>3</td>
+      <td>30.39%</td>
+      <td>39.26%</td>
+      <td>30.35%</td>
+      <td>-18.63</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>First Vienna</td>
+      <td>1452.21</td>
+      <td>0</td>
+      <td>@ SV Austria Salzburg</td>
+      <td>1425.65</td>
+      <td>0</td>
+      <td>38.53%</td>
+      <td>31.08%</td>
+      <td>30.39%</td>
+      <td>-0.45</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>WSG Tirol</td>
+      <td>1634.47</td>
+      <td>1</td>
+      <td>@ Hartberg</td>
+      <td>1695.75</td>
+      <td>2</td>
+      <td>26.76%</td>
+      <td>43.30%</td>
+      <td>29.94%</td>
+      <td>-9.76</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>SV Austria Salzburg</td>
+      <td>1425.65</td>
+      <td>0</td>
+      <td>First Vienna</td>
+      <td>1452.21</td>
+      <td>0</td>
+      <td>31.08%</td>
+      <td>38.53%</td>
+      <td>30.39%</td>
+      <td>0.45</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Grazer AK</td>
+      <td>1587.54</td>
+      <td>1</td>
+      <td>LASK</td>
+      <td>1726.55</td>
+      <td>2</td>
+      <td>19.14%</td>
+      <td>53.14%</td>
+      <td>27.72%</td>
+      <td>-7.34</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Ried</td>
+      <td>1668.64</td>
+      <td>3</td>
+      <td>SCR Altach</td>
+      <td>1636.90</td>
+      <td>0</td>
+      <td>39.26%</td>
+      <td>30.39%</td>
+      <td>30.35%</td>
+      <td>18.63</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Hartberg</td>
+      <td>1695.75</td>
+      <td>2</td>
+      <td>WSG Tirol</td>
+      <td>1634.47</td>
+      <td>1</td>
+      <td>43.30%</td>
+      <td>26.76%</td>
+      <td>29.94%</td>
+      <td>9.77</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>LASK</td>
+      <td>1726.55</td>
+      <td>2</td>
+      <td>@ Grazer AK</td>
+      <td>1587.54</td>
+      <td>1</td>
+      <td>53.14%</td>
+      <td>19.14%</td>
+      <td>27.72%</td>
+      <td>7.33</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Rapid Wien</td>
+      <td>1663.53</td>
+      <td>1</td>
+      <td>@ Blau-Weiss Linz</td>
+      <td>1547.83</td>
+      <td>1</td>
+      <td>50.31%</td>
+      <td>21.14%</td>
+      <td>28.55%</td>
+      <td>-1.90</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Austria Wien</td>
+      <td>1684.61</td>
+      <td>3</td>
+      <td>Sturm Graz</td>
+      <td>1733.25</td>
+      <td>1</td>
+      <td>28.27%</td>
+      <td>41.59%</td>
+      <td>30.15%</td>
+      <td>19.06</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Salzburg</td>
+      <td>1781.31</td>
+      <td>2</td>
+      <td>Wolfsberg</td>
+      <td>1723.19</td>
+      <td>1</td>
+      <td>42.88%</td>
+      <td>27.13%</td>
+      <td>30.00%</td>
+      <td>9.88</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Blau-Weiss Linz</td>
+      <td>1547.83</td>
+      <td>1</td>
+      <td>Rapid Wien</td>
+      <td>1663.53</td>
+      <td>1</td>
+      <td>21.14%</td>
+      <td>50.31%</td>
+      <td>28.55%</td>
+      <td>1.90</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Wolfsberg</td>
+      <td>1723.19</td>
+      <td>1</td>
+      <td>@ Salzburg</td>
+      <td>1781.31</td>
+      <td>2</td>
+      <td>27.13%</td>
+      <td>42.88%</td>
+      <td>30.00%</td>
+      <td>-9.87</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Sturm Graz</td>
+      <td>1733.25</td>
+      <td>1</td>
+      <td>@ Austria Wien</td>
+      <td>1684.61</td>
+      <td>3</td>
+      <td>41.59%</td>
+      <td>28.27%</td>
+      <td>30.15%</td>
+      <td>-19.07</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

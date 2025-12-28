@@ -1,0 +1,4233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Cukaricki">Cukaricki</option><option value="IMT Novi Beograd">IMT Novi Beograd</option><option value="Javor">Javor</option><option value="Mladost Lucani">Mladost Lucani</option><option value="Napredak">Napredak</option><option value="Novi Pazar">Novi Pazar</option><option value="OFK Beograd">OFK Beograd</option><option value="Partizan">Partizan</option><option value="Radnicki 1923">Radnicki 1923</option><option value="Radnicki Nis">Radnicki Nis</option><option value="Radnik Surdulica">Radnik Surdulica</option><option value="Red Star Belgrade">Red Star Belgrade</option><option value="Spartak Subotica">Spartak Subotica</option><option value="TSC Backa Topola">TSC Backa Topola</option><option value="Vojvodina">Vojvodina</option><option value="Zeleznicar Pancevo">Zeleznicar Pancevo</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Cukaricki</td>
+      <td>1434.25</td>
+      <td>1</td>
+      <td>Napredak</td>
+      <td>1381.43</td>
+      <td>0</td>
+      <td>51.36%</td>
+      <td>22.63%</td>
+      <td>26.01%</td>
+      <td>8.71</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Javor</td>
+      <td>1414.76</td>
+      <td>0</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1666.72</td>
+      <td>4</td>
+      <td>9.60%</td>
+      <td>71.34%</td>
+      <td>19.06%</td>
+      <td>-7.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Napredak</td>
+      <td>1381.43</td>
+      <td>0</td>
+      <td>@ Cukaricki</td>
+      <td>1434.25</td>
+      <td>1</td>
+      <td>22.63%</td>
+      <td>51.36%</td>
+      <td>26.01%</td>
+      <td>-8.71</td>
+    </tr>
+    <tr>
+      <td>2025-07-19</td>
+      <td>Red Star Belgrade</td>
+      <td>1666.72</td>
+      <td>4</td>
+      <td>Javor</td>
+      <td>1414.76</td>
+      <td>0</td>
+      <td>71.34%</td>
+      <td>9.60%</td>
+      <td>19.06%</td>
+      <td>7.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Vojvodina</td>
+      <td>1482.16</td>
+      <td>2</td>
+      <td>Radnik Surdulica</td>
+      <td>1353.02</td>
+      <td>0</td>
+      <td>59.89%</td>
+      <td>16.21%</td>
+      <td>23.90%</td>
+      <td>9.04</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Mladost Lucani</td>
+      <td>1400.69</td>
+      <td>1</td>
+      <td>IMT Novi Beograd</td>
+      <td>1430.31</td>
+      <td>1</td>
+      <td>40.62%</td>
+      <td>32.22%</td>
+      <td>27.16%</td>
+      <td>-0.54</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Partizan</td>
+      <td>1567.63</td>
+      <td>1</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1433.38</td>
+      <td>0</td>
+      <td>46.64%</td>
+      <td>26.67%</td>
+      <td>26.70%</td>
+      <td>9.99</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Radnicki Nis</td>
+      <td>1375.36</td>
+      <td>1</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1467.27</td>
+      <td>2</td>
+      <td>19.07%</td>
+      <td>55.89%</td>
+      <td>25.04%</td>
+      <td>-7.47</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>IMT Novi Beograd</td>
+      <td>1430.31</td>
+      <td>1</td>
+      <td>@ Mladost Lucani</td>
+      <td>1400.69</td>
+      <td>1</td>
+      <td>32.22%</td>
+      <td>40.62%</td>
+      <td>27.16%</td>
+      <td>0.55</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Radnik Surdulica</td>
+      <td>1353.02</td>
+      <td>0</td>
+      <td>@ Vojvodina</td>
+      <td>1482.16</td>
+      <td>2</td>
+      <td>16.21%</td>
+      <td>59.89%</td>
+      <td>23.90%</td>
+      <td>-9.05</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1433.38</td>
+      <td>0</td>
+      <td>Partizan</td>
+      <td>1567.63</td>
+      <td>1</td>
+      <td>26.67%</td>
+      <td>46.64%</td>
+      <td>26.70%</td>
+      <td>-9.99</td>
+    </tr>
+    <tr>
+      <td>2025-07-20</td>
+      <td>TSC Backa Topola</td>
+      <td>1467.27</td>
+      <td>2</td>
+      <td>Radnicki Nis</td>
+      <td>1375.36</td>
+      <td>1</td>
+      <td>55.89%</td>
+      <td>19.07%</td>
+      <td>25.04%</td>
+      <td>7.47</td>
+    </tr>
+    <tr>
+      <td>2025-07-21</td>
+      <td>Spartak Subotica</td>
+      <td>1381.85</td>
+      <td>3</td>
+      <td>@ OFK Beograd</td>
+      <td>1430.49</td>
+      <td>1</td>
+      <td>23.05%</td>
+      <td>50.85%</td>
+      <td>26.10%</td>
+      <td>23.32</td>
+    </tr>
+    <tr>
+      <td>2025-07-21</td>
+      <td>OFK Beograd</td>
+      <td>1430.49</td>
+      <td>1</td>
+      <td>Spartak Subotica</td>
+      <td>1381.85</td>
+      <td>3</td>
+      <td>50.85%</td>
+      <td>23.05%</td>
+      <td>26.10%</td>
+      <td>-23.32</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Mladost Lucani</td>
+      <td>1400.15</td>
+      <td>1</td>
+      <td>@ Radnicki Nis</td>
+      <td>1367.89</td>
+      <td>3</td>
+      <td>32.57%</td>
+      <td>40.25%</td>
+      <td>27.18%</td>
+      <td>-16.52</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Red Star Belgrade</td>
+      <td>1673.95</td>
+      <td>7</td>
+      <td>OFK Beograd</td>
+      <td>1407.17</td>
+      <td>1</td>
+      <td>72.57%</td>
+      <td>9.02%</td>
+      <td>18.41%</td>
+      <td>8.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Radnicki Nis</td>
+      <td>1367.89</td>
+      <td>3</td>
+      <td>Mladost Lucani</td>
+      <td>1400.15</td>
+      <td>1</td>
+      <td>40.25%</td>
+      <td>32.57%</td>
+      <td>27.18%</td>
+      <td>16.51</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>OFK Beograd</td>
+      <td>1407.17</td>
+      <td>1</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1673.95</td>
+      <td>7</td>
+      <td>9.02%</td>
+      <td>72.57%</td>
+      <td>18.41%</td>
+      <td>-8.23</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>Radnik Surdulica</td>
+      <td>1343.97</td>
+      <td>0</td>
+      <td>TSC Backa Topola</td>
+      <td>1474.74</td>
+      <td>0</td>
+      <td>27.07%</td>
+      <td>46.18%</td>
+      <td>26.75%</td>
+      <td>1.28</td>
+    </tr>
+    <tr>
+      <td>2025-07-26</td>
+      <td>TSC Backa Topola</td>
+      <td>1474.74</td>
+      <td>0</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1343.97</td>
+      <td>0</td>
+      <td>46.18%</td>
+      <td>27.07%</td>
+      <td>26.75%</td>
+      <td>-1.28</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Napredak</td>
+      <td>1372.72</td>
+      <td>2</td>
+      <td>Novi Pazar</td>
+      <td>1469.54</td>
+      <td>2</td>
+      <td>31.26%</td>
+      <td>41.63%</td>
+      <td>27.11%</td>
+      <td>0.68</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Novi Pazar</td>
+      <td>1469.54</td>
+      <td>2</td>
+      <td>@ Napredak</td>
+      <td>1372.72</td>
+      <td>2</td>
+      <td>41.63%</td>
+      <td>31.26%</td>
+      <td>27.11%</td>
+      <td>-0.68</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Cukaricki</td>
+      <td>1442.96</td>
+      <td>3</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1430.86</td>
+      <td>1</td>
+      <td>29.95%</td>
+      <td>43.03%</td>
+      <td>27.02%</td>
+      <td>20.35</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1423.39</td>
+      <td>1</td>
+      <td>@ Radnicki 1923</td>
+      <td>1471.94</td>
+      <td>1</td>
+      <td>23.06%</td>
+      <td>50.84%</td>
+      <td>26.10%</td>
+      <td>1.91</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Vojvodina</td>
+      <td>1491.20</td>
+      <td>3</td>
+      <td>@ Spartak Subotica</td>
+      <td>1405.17</td>
+      <td>1</td>
+      <td>40.13%</td>
+      <td>32.69%</td>
+      <td>27.18%</td>
+      <td>16.56</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Spartak Subotica</td>
+      <td>1405.17</td>
+      <td>1</td>
+      <td>Vojvodina</td>
+      <td>1491.20</td>
+      <td>3</td>
+      <td>32.69%</td>
+      <td>40.13%</td>
+      <td>27.18%</td>
+      <td>-16.55</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>IMT Novi Beograd</td>
+      <td>1430.86</td>
+      <td>1</td>
+      <td>Cukaricki</td>
+      <td>1442.96</td>
+      <td>3</td>
+      <td>43.03%</td>
+      <td>29.95%</td>
+      <td>27.02%</td>
+      <td>-20.36</td>
+    </tr>
+    <tr>
+      <td>2025-07-27</td>
+      <td>Radnicki 1923</td>
+      <td>1471.94</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1423.39</td>
+      <td>1</td>
+      <td>50.84%</td>
+      <td>23.06%</td>
+      <td>26.10%</td>
+      <td>-1.91</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Radnik Surdulica</td>
+      <td>1345.25</td>
+      <td>0</td>
+      <td>@ Mladost Lucani</td>
+      <td>1383.63</td>
+      <td>1</td>
+      <td>24.11%</td>
+      <td>49.59%</td>
+      <td>26.30%</td>
+      <td>-9.18</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Javor</td>
+      <td>1407.53</td>
+      <td>0</td>
+      <td>@ OFK Beograd</td>
+      <td>1398.94</td>
+      <td>1</td>
+      <td>29.51%</td>
+      <td>43.50%</td>
+      <td>26.99%</td>
+      <td>-10.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Spartak Subotica</td>
+      <td>1388.62</td>
+      <td>0</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1473.46</td>
+      <td>2</td>
+      <td>19.67%</td>
+      <td>55.10%</td>
+      <td>25.24%</td>
+      <td>-10.88</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>TSC Backa Topola</td>
+      <td>1473.46</td>
+      <td>2</td>
+      <td>Spartak Subotica</td>
+      <td>1388.62</td>
+      <td>0</td>
+      <td>55.10%</td>
+      <td>19.67%</td>
+      <td>25.24%</td>
+      <td>10.87</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>OFK Beograd</td>
+      <td>1398.94</td>
+      <td>1</td>
+      <td>Javor</td>
+      <td>1407.53</td>
+      <td>0</td>
+      <td>43.50%</td>
+      <td>29.51%</td>
+      <td>26.99%</td>
+      <td>10.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-02</td>
+      <td>Mladost Lucani</td>
+      <td>1383.63</td>
+      <td>1</td>
+      <td>Radnik Surdulica</td>
+      <td>1345.25</td>
+      <td>0</td>
+      <td>49.59%</td>
+      <td>24.11%</td>
+      <td>26.30%</td>
+      <td>9.19</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Partizan</td>
+      <td>1577.62</td>
+      <td>2</td>
+      <td>Radnicki 1923</td>
+      <td>1470.03</td>
+      <td>1</td>
+      <td>57.61%</td>
+      <td>17.81%</td>
+      <td>24.59%</td>
+      <td>7.01</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Cukaricki</td>
+      <td>1463.31</td>
+      <td>1</td>
+      <td>Radnicki Nis</td>
+      <td>1384.40</td>
+      <td>1</td>
+      <td>54.42%</td>
+      <td>20.19%</td>
+      <td>25.39%</td>
+      <td>-2.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Radnicki 1923</td>
+      <td>1470.03</td>
+      <td>1</td>
+      <td>@ Partizan</td>
+      <td>1577.62</td>
+      <td>2</td>
+      <td>17.81%</td>
+      <td>57.61%</td>
+      <td>24.59%</td>
+      <td>-7.00</td>
+    </tr>
+    <tr>
+      <td>2025-08-03</td>
+      <td>Radnicki Nis</td>
+      <td>1384.40</td>
+      <td>1</td>
+      <td>@ Cukaricki</td>
+      <td>1463.31</td>
+      <td>1</td>
+      <td>20.19%</td>
+      <td>54.42%</td>
+      <td>25.39%</td>
+      <td>2.40</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Napredak</td>
+      <td>1373.40</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1425.30</td>
+      <td>0</td>
+      <td>22.72%</td>
+      <td>51.25%</td>
+      <td>26.03%</td>
+      <td>1.96</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Novi Pazar</td>
+      <td>1468.86</td>
+      <td>1</td>
+      <td>IMT Novi Beograd</td>
+      <td>1410.50</td>
+      <td>2</td>
+      <td>52.02%</td>
+      <td>22.09%</td>
+      <td>25.89%</td>
+      <td>-16.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>IMT Novi Beograd</td>
+      <td>1410.50</td>
+      <td>2</td>
+      <td>@ Novi Pazar</td>
+      <td>1468.86</td>
+      <td>1</td>
+      <td>22.09%</td>
+      <td>52.02%</td>
+      <td>25.89%</td>
+      <td>16.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-04</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1425.30</td>
+      <td>0</td>
+      <td>Napredak</td>
+      <td>1373.40</td>
+      <td>0</td>
+      <td>51.25%</td>
+      <td>22.72%</td>
+      <td>26.03%</td>
+      <td>-1.97</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Cukaricki</td>
+      <td>1460.91</td>
+      <td>1</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1336.07</td>
+      <td>3</td>
+      <td>45.41%</td>
+      <td>27.77%</td>
+      <td>26.83%</td>
+      <td>-21.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>OFK Beograd</td>
+      <td>1409.76</td>
+      <td>1</td>
+      <td>Vojvodina</td>
+      <td>1507.76</td>
+      <td>2</td>
+      <td>31.11%</td>
+      <td>41.79%</td>
+      <td>27.10%</td>
+      <td>-11.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Vojvodina</td>
+      <td>1507.76</td>
+      <td>2</td>
+      <td>@ OFK Beograd</td>
+      <td>1409.76</td>
+      <td>1</td>
+      <td>41.79%</td>
+      <td>31.11%</td>
+      <td>27.10%</td>
+      <td>11.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Spartak Subotica</td>
+      <td>1377.74</td>
+      <td>1</td>
+      <td>Mladost Lucani</td>
+      <td>1392.82</td>
+      <td>1</td>
+      <td>42.62%</td>
+      <td>30.32%</td>
+      <td>27.05%</td>
+      <td>-0.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Mladost Lucani</td>
+      <td>1392.82</td>
+      <td>1</td>
+      <td>@ Spartak Subotica</td>
+      <td>1377.74</td>
+      <td>1</td>
+      <td>30.32%</td>
+      <td>42.62%</td>
+      <td>27.05%</td>
+      <td>0.81</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>TSC Backa Topola</td>
+      <td>1484.33</td>
+      <td>0</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1682.18</td>
+      <td>1</td>
+      <td>12.07%</td>
+      <td>66.58%</td>
+      <td>21.35%</td>
+      <td>-4.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Red Star Belgrade</td>
+      <td>1682.18</td>
+      <td>1</td>
+      <td>TSC Backa Topola</td>
+      <td>1484.33</td>
+      <td>0</td>
+      <td>66.58%</td>
+      <td>12.07%</td>
+      <td>21.35%</td>
+      <td>4.69</td>
+    </tr>
+    <tr>
+      <td>2025-08-09</td>
+      <td>Radnik Surdulica</td>
+      <td>1336.07</td>
+      <td>3</td>
+      <td>Cukaricki</td>
+      <td>1460.91</td>
+      <td>1</td>
+      <td>27.77%</td>
+      <td>45.41%</td>
+      <td>26.83%</td>
+      <td>21.24</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Napredak</td>
+      <td>1375.36</td>
+      <td>2</td>
+      <td>Partizan</td>
+      <td>1584.63</td>
+      <td>7</td>
+      <td>19.22%</td>
+      <td>55.69%</td>
+      <td>25.09%</td>
+      <td>-16.83</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Radnicki Nis</td>
+      <td>1386.80</td>
+      <td>2</td>
+      <td>Novi Pazar</td>
+      <td>1452.05</td>
+      <td>3</td>
+      <td>35.56%</td>
+      <td>37.19%</td>
+      <td>27.25%</td>
+      <td>-12.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Partizan</td>
+      <td>1584.63</td>
+      <td>7</td>
+      <td>@ Napredak</td>
+      <td>1375.36</td>
+      <td>2</td>
+      <td>55.69%</td>
+      <td>19.22%</td>
+      <td>25.09%</td>
+      <td>16.82</td>
+    </tr>
+    <tr>
+      <td>2025-08-10</td>
+      <td>Novi Pazar</td>
+      <td>1452.05</td>
+      <td>3</td>
+      <td>@ Radnicki Nis</td>
+      <td>1386.80</td>
+      <td>2</td>
+      <td>37.19%</td>
+      <td>35.56%</td>
+      <td>27.25%</td>
+      <td>12.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>IMT Novi Beograd</td>
+      <td>1427.32</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1423.33</td>
+      <td>4</td>
+      <td>45.18%</td>
+      <td>27.97%</td>
+      <td>26.85%</td>
+      <td>-25.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1423.33</td>
+      <td>4</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1427.32</td>
+      <td>1</td>
+      <td>27.97%</td>
+      <td>45.18%</td>
+      <td>26.85%</td>
+      <td>25.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Javor</td>
+      <td>1396.71</td>
+      <td>2</td>
+      <td>Radnicki 1923</td>
+      <td>1463.03</td>
+      <td>2</td>
+      <td>35.41%</td>
+      <td>37.34%</td>
+      <td>27.25%</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <td>2025-08-11</td>
+      <td>Radnicki 1923</td>
+      <td>1463.03</td>
+      <td>2</td>
+      <td>@ Javor</td>
+      <td>1396.71</td>
+      <td>2</td>
+      <td>37.34%</td>
+      <td>35.41%</td>
+      <td>27.25%</td>
+      <td>-0.13</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Red Star Belgrade</td>
+      <td>1686.87</td>
+      <td>4</td>
+      <td>@ Mladost Lucani</td>
+      <td>1393.63</td>
+      <td>1</td>
+      <td>64.35%</td>
+      <td>13.36%</td>
+      <td>22.29%</td>
+      <td>9.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Spartak Subotica</td>
+      <td>1376.94</td>
+      <td>1</td>
+      <td>@ Cukaricki</td>
+      <td>1439.67</td>
+      <td>2</td>
+      <td>21.67%</td>
+      <td>52.54%</td>
+      <td>25.79%</td>
+      <td>-8.39</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Cukaricki</td>
+      <td>1439.67</td>
+      <td>2</td>
+      <td>Spartak Subotica</td>
+      <td>1376.94</td>
+      <td>1</td>
+      <td>52.54%</td>
+      <td>21.67%</td>
+      <td>25.79%</td>
+      <td>8.38</td>
+    </tr>
+    <tr>
+      <td>2025-08-15</td>
+      <td>Mladost Lucani</td>
+      <td>1393.63</td>
+      <td>1</td>
+      <td>Red Star Belgrade</td>
+      <td>1686.87</td>
+      <td>4</td>
+      <td>13.36%</td>
+      <td>64.35%</td>
+      <td>22.29%</td>
+      <td>-9.07</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Novi Pazar</td>
+      <td>1464.51</td>
+      <td>2</td>
+      <td>Radnik Surdulica</td>
+      <td>1357.31</td>
+      <td>0</td>
+      <td>57.57%</td>
+      <td>17.84%</td>
+      <td>24.60%</td>
+      <td>9.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Vojvodina</td>
+      <td>1519.03</td>
+      <td>2</td>
+      <td>Javor</td>
+      <td>1396.83</td>
+      <td>2</td>
+      <td>59.16%</td>
+      <td>16.71%</td>
+      <td>24.13%</td>
+      <td>-3.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Radnik Surdulica</td>
+      <td>1357.31</td>
+      <td>0</td>
+      <td>@ Novi Pazar</td>
+      <td>1464.51</td>
+      <td>2</td>
+      <td>17.84%</td>
+      <td>57.57%</td>
+      <td>24.60%</td>
+      <td>-9.92</td>
+    </tr>
+    <tr>
+      <td>2025-08-16</td>
+      <td>Javor</td>
+      <td>1396.83</td>
+      <td>2</td>
+      <td>@ Vojvodina</td>
+      <td>1519.03</td>
+      <td>2</td>
+      <td>16.71%</td>
+      <td>59.16%</td>
+      <td>24.13%</td>
+      <td>3.04</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1449.25</td>
+      <td>3</td>
+      <td>Radnicki Nis</td>
+      <td>1374.34</td>
+      <td>0</td>
+      <td>53.96%</td>
+      <td>20.54%</td>
+      <td>25.49%</td>
+      <td>13.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>TSC Backa Topola</td>
+      <td>1479.64</td>
+      <td>1</td>
+      <td>OFK Beograd</td>
+      <td>1398.49</td>
+      <td>3</td>
+      <td>54.68%</td>
+      <td>19.99%</td>
+      <td>25.33%</td>
+      <td>-24.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Radnicki 1923</td>
+      <td>1462.90</td>
+      <td>0</td>
+      <td>Napredak</td>
+      <td>1358.53</td>
+      <td>0</td>
+      <td>57.26%</td>
+      <td>18.06%</td>
+      <td>24.68%</td>
+      <td>-2.78</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>OFK Beograd</td>
+      <td>1398.49</td>
+      <td>3</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1479.64</td>
+      <td>1</td>
+      <td>19.99%</td>
+      <td>54.68%</td>
+      <td>25.33%</td>
+      <td>24.80</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Radnicki Nis</td>
+      <td>1374.34</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1449.25</td>
+      <td>3</td>
+      <td>20.54%</td>
+      <td>53.96%</td>
+      <td>25.49%</td>
+      <td>-13.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-17</td>
+      <td>Napredak</td>
+      <td>1358.53</td>
+      <td>0</td>
+      <td>@ Radnicki 1923</td>
+      <td>1462.90</td>
+      <td>0</td>
+      <td>18.06%</td>
+      <td>57.26%</td>
+      <td>24.68%</td>
+      <td>2.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>IMT Novi Beograd</td>
+      <td>1401.40</td>
+      <td>1</td>
+      <td>@ Partizan</td>
+      <td>1601.45</td>
+      <td>5</td>
+      <td>11.96%</td>
+      <td>66.78%</td>
+      <td>21.26%</td>
+      <td>-9.28</td>
+    </tr>
+    <tr>
+      <td>2025-08-18</td>
+      <td>Partizan</td>
+      <td>1601.45</td>
+      <td>5</td>
+      <td>IMT Novi Beograd</td>
+      <td>1401.40</td>
+      <td>1</td>
+      <td>66.78%</td>
+      <td>11.96%</td>
+      <td>21.26%</td>
+      <td>9.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Napredak</td>
+      <td>1361.32</td>
+      <td>0</td>
+      <td>@ Javor</td>
+      <td>1399.87</td>
+      <td>0</td>
+      <td>24.09%</td>
+      <td>49.61%</td>
+      <td>26.30%</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-22</td>
+      <td>Javor</td>
+      <td>1399.87</td>
+      <td>0</td>
+      <td>Napredak</td>
+      <td>1361.32</td>
+      <td>0</td>
+      <td>49.61%</td>
+      <td>24.09%</td>
+      <td>26.30%</td>
+      <td>-1.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Vojvodina</td>
+      <td>1515.99</td>
+      <td>2</td>
+      <td>TSC Backa Topola</td>
+      <td>1454.84</td>
+      <td>0</td>
+      <td>52.35%</td>
+      <td>21.82%</td>
+      <td>25.83%</td>
+      <td>11.93</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>OFK Beograd</td>
+      <td>1423.29</td>
+      <td>1</td>
+      <td>Mladost Lucani</td>
+      <td>1384.56</td>
+      <td>1</td>
+      <td>49.63%</td>
+      <td>24.07%</td>
+      <td>26.30%</td>
+      <td>-1.74</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>Mladost Lucani</td>
+      <td>1384.56</td>
+      <td>1</td>
+      <td>@ OFK Beograd</td>
+      <td>1423.29</td>
+      <td>1</td>
+      <td>24.07%</td>
+      <td>49.63%</td>
+      <td>26.30%</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>2025-08-23</td>
+      <td>TSC Backa Topola</td>
+      <td>1454.84</td>
+      <td>0</td>
+      <td>@ Vojvodina</td>
+      <td>1515.99</td>
+      <td>2</td>
+      <td>21.82%</td>
+      <td>52.35%</td>
+      <td>25.83%</td>
+      <td>-11.93</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>IMT Novi Beograd</td>
+      <td>1392.12</td>
+      <td>2</td>
+      <td>Radnicki 1923</td>
+      <td>1460.12</td>
+      <td>0</td>
+      <td>35.17%</td>
+      <td>37.58%</td>
+      <td>27.24%</td>
+      <td>18.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1463.10</td>
+      <td>2</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1347.39</td>
+      <td>1</td>
+      <td>44.19%</td>
+      <td>28.87%</td>
+      <td>26.94%</td>
+      <td>10.64</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Novi Pazar</td>
+      <td>1474.43</td>
+      <td>1</td>
+      <td>@ Spartak Subotica</td>
+      <td>1368.55</td>
+      <td>1</td>
+      <td>42.87%</td>
+      <td>30.10%</td>
+      <td>27.04%</td>
+      <td>-0.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Radnicki Nis</td>
+      <td>1360.49</td>
+      <td>2</td>
+      <td>Partizan</td>
+      <td>1610.74</td>
+      <td>2</td>
+      <td>16.08%</td>
+      <td>60.09%</td>
+      <td>23.84%</td>
+      <td>3.16</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Radnik Surdulica</td>
+      <td>1347.39</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1463.10</td>
+      <td>2</td>
+      <td>28.87%</td>
+      <td>44.19%</td>
+      <td>26.94%</td>
+      <td>-10.64</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Spartak Subotica</td>
+      <td>1368.55</td>
+      <td>1</td>
+      <td>Novi Pazar</td>
+      <td>1474.43</td>
+      <td>1</td>
+      <td>30.10%</td>
+      <td>42.87%</td>
+      <td>27.04%</td>
+      <td>0.84</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Partizan</td>
+      <td>1610.74</td>
+      <td>2</td>
+      <td>@ Radnicki Nis</td>
+      <td>1360.49</td>
+      <td>2</td>
+      <td>60.09%</td>
+      <td>16.08%</td>
+      <td>23.84%</td>
+      <td>-3.16</td>
+    </tr>
+    <tr>
+      <td>2025-08-24</td>
+      <td>Radnicki 1923</td>
+      <td>1460.12</td>
+      <td>0</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1392.12</td>
+      <td>2</td>
+      <td>37.58%</td>
+      <td>35.17%</td>
+      <td>27.24%</td>
+      <td>-18.35</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>Cukaricki</td>
+      <td>1448.05</td>
+      <td>1</td>
+      <td>OFK Beograd</td>
+      <td>1421.55</td>
+      <td>3</td>
+      <td>48.10%</td>
+      <td>25.38%</td>
+      <td>26.52%</td>
+      <td>-22.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-29</td>
+      <td>OFK Beograd</td>
+      <td>1421.55</td>
+      <td>3</td>
+      <td>@ Cukaricki</td>
+      <td>1448.05</td>
+      <td>1</td>
+      <td>25.38%</td>
+      <td>48.10%</td>
+      <td>26.52%</td>
+      <td>22.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Radnik Surdulica</td>
+      <td>1336.75</td>
+      <td>0</td>
+      <td>@ Partizan</td>
+      <td>1607.58</td>
+      <td>2</td>
+      <td>8.87%</td>
+      <td>72.90%</td>
+      <td>18.23%</td>
+      <td>-4.66</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Javor</td>
+      <td>1398.13</td>
+      <td>2</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1442.91</td>
+      <td>2</td>
+      <td>23.44%</td>
+      <td>50.38%</td>
+      <td>26.18%</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>TSC Backa Topola</td>
+      <td>1442.91</td>
+      <td>2</td>
+      <td>Javor</td>
+      <td>1398.13</td>
+      <td>2</td>
+      <td>50.38%</td>
+      <td>23.44%</td>
+      <td>26.18%</td>
+      <td>-1.85</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Partizan</td>
+      <td>1607.58</td>
+      <td>2</td>
+      <td>Radnik Surdulica</td>
+      <td>1336.75</td>
+      <td>0</td>
+      <td>72.90%</td>
+      <td>8.87%</td>
+      <td>18.23%</td>
+      <td>4.65</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Vojvodina</td>
+      <td>1527.92</td>
+      <td>0</td>
+      <td>@ Mladost Lucani</td>
+      <td>1386.31</td>
+      <td>0</td>
+      <td>47.59%</td>
+      <td>25.83%</td>
+      <td>26.58%</td>
+      <td>-1.47</td>
+    </tr>
+    <tr>
+      <td>2025-08-30</td>
+      <td>Mladost Lucani</td>
+      <td>1386.31</td>
+      <td>0</td>
+      <td>Vojvodina</td>
+      <td>1527.92</td>
+      <td>0</td>
+      <td>25.83%</td>
+      <td>47.59%</td>
+      <td>26.58%</td>
+      <td>1.46</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Novi Pazar</td>
+      <td>1473.59</td>
+      <td>1</td>
+      <td>Red Star Belgrade</td>
+      <td>1695.94</td>
+      <td>5</td>
+      <td>18.15%</td>
+      <td>57.13%</td>
+      <td>24.72%</td>
+      <td>-14.26</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Red Star Belgrade</td>
+      <td>1695.94</td>
+      <td>5</td>
+      <td>@ Novi Pazar</td>
+      <td>1473.59</td>
+      <td>1</td>
+      <td>57.13%</td>
+      <td>18.15%</td>
+      <td>24.72%</td>
+      <td>14.27</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Napredak</td>
+      <td>1363.06</td>
+      <td>3</td>
+      <td>IMT Novi Beograd</td>
+      <td>1410.47</td>
+      <td>1</td>
+      <td>38.12%</td>
+      <td>34.65%</td>
+      <td>27.24%</td>
+      <td>17.29</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Radnicki 1923</td>
+      <td>1441.77</td>
+      <td>1</td>
+      <td>Radnicki Nis</td>
+      <td>1363.65</td>
+      <td>0</td>
+      <td>54.33%</td>
+      <td>20.26%</td>
+      <td>25.41%</td>
+      <td>7.89</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1473.74</td>
+      <td>1</td>
+      <td>Spartak Subotica</td>
+      <td>1369.39</td>
+      <td>1</td>
+      <td>57.26%</td>
+      <td>18.06%</td>
+      <td>24.68%</td>
+      <td>-2.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Spartak Subotica</td>
+      <td>1369.39</td>
+      <td>1</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1473.74</td>
+      <td>1</td>
+      <td>18.06%</td>
+      <td>57.26%</td>
+      <td>24.68%</td>
+      <td>2.79</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>Radnicki Nis</td>
+      <td>1363.65</td>
+      <td>0</td>
+      <td>@ Radnicki 1923</td>
+      <td>1441.77</td>
+      <td>1</td>
+      <td>20.26%</td>
+      <td>54.33%</td>
+      <td>25.41%</td>
+      <td>-7.90</td>
+    </tr>
+    <tr>
+      <td>2025-08-31</td>
+      <td>IMT Novi Beograd</td>
+      <td>1410.47</td>
+      <td>1</td>
+      <td>@ Napredak</td>
+      <td>1363.06</td>
+      <td>3</td>
+      <td>34.65%</td>
+      <td>38.12%</td>
+      <td>27.24%</td>
+      <td>-17.29</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Vojvodina</td>
+      <td>1526.45</td>
+      <td>3</td>
+      <td>Cukaricki</td>
+      <td>1425.78</td>
+      <td>1</td>
+      <td>56.86%</td>
+      <td>18.35%</td>
+      <td>24.79%</td>
+      <td>10.20</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Javor</td>
+      <td>1399.98</td>
+      <td>2</td>
+      <td>IMT Novi Beograd</td>
+      <td>1393.18</td>
+      <td>0</td>
+      <td>45.55%</td>
+      <td>27.63%</td>
+      <td>26.81%</td>
+      <td>14.53</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Radnicki 1923</td>
+      <td>1449.66</td>
+      <td>3</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1332.09</td>
+      <td>2</td>
+      <td>44.44%</td>
+      <td>28.64%</td>
+      <td>26.91%</td>
+      <td>10.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Radnik Surdulica</td>
+      <td>1332.09</td>
+      <td>2</td>
+      <td>Radnicki 1923</td>
+      <td>1449.66</td>
+      <td>3</td>
+      <td>28.64%</td>
+      <td>44.44%</td>
+      <td>26.91%</td>
+      <td>-10.57</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Novi Pazar</td>
+      <td>1459.33</td>
+      <td>2</td>
+      <td>@ OFK Beograd</td>
+      <td>1443.81</td>
+      <td>0</td>
+      <td>30.38%</td>
+      <td>42.56%</td>
+      <td>27.06%</td>
+      <td>20.18</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>OFK Beograd</td>
+      <td>1443.81</td>
+      <td>0</td>
+      <td>Novi Pazar</td>
+      <td>1459.33</td>
+      <td>2</td>
+      <td>42.56%</td>
+      <td>30.38%</td>
+      <td>27.06%</td>
+      <td>-20.17</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>IMT Novi Beograd</td>
+      <td>1393.18</td>
+      <td>0</td>
+      <td>@ Javor</td>
+      <td>1399.98</td>
+      <td>2</td>
+      <td>27.63%</td>
+      <td>45.55%</td>
+      <td>26.81%</td>
+      <td>-14.54</td>
+    </tr>
+    <tr>
+      <td>2025-09-13</td>
+      <td>Cukaricki</td>
+      <td>1425.78</td>
+      <td>1</td>
+      <td>@ Vojvodina</td>
+      <td>1526.45</td>
+      <td>3</td>
+      <td>18.35%</td>
+      <td>56.86%</td>
+      <td>24.79%</td>
+      <td>-10.19</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Partizan</td>
+      <td>1612.23</td>
+      <td>5</td>
+      <td>@ Spartak Subotica</td>
+      <td>1372.18</td>
+      <td>2</td>
+      <td>59.03%</td>
+      <td>16.80%</td>
+      <td>24.17%</td>
+      <td>11.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1470.95</td>
+      <td>1</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1710.21</td>
+      <td>7</td>
+      <td>10.13%</td>
+      <td>70.25%</td>
+      <td>19.61%</td>
+      <td>-9.42</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Napredak</td>
+      <td>1380.35</td>
+      <td>0</td>
+      <td>@ Radnicki Nis</td>
+      <td>1355.75</td>
+      <td>3</td>
+      <td>31.56%</td>
+      <td>41.32%</td>
+      <td>27.13%</td>
+      <td>-19.74</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Spartak Subotica</td>
+      <td>1372.18</td>
+      <td>2</td>
+      <td>Partizan</td>
+      <td>1612.23</td>
+      <td>5</td>
+      <td>16.80%</td>
+      <td>59.03%</td>
+      <td>24.17%</td>
+      <td>-11.47</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>TSC Backa Topola</td>
+      <td>1441.06</td>
+      <td>1</td>
+      <td>Mladost Lucani</td>
+      <td>1387.77</td>
+      <td>0</td>
+      <td>51.41%</td>
+      <td>22.59%</td>
+      <td>26.00%</td>
+      <td>8.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Radnicki Nis</td>
+      <td>1355.75</td>
+      <td>3</td>
+      <td>Napredak</td>
+      <td>1380.35</td>
+      <td>0</td>
+      <td>41.32%</td>
+      <td>31.56%</td>
+      <td>27.13%</td>
+      <td>19.75</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Red Star Belgrade</td>
+      <td>1710.21</td>
+      <td>7</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1470.95</td>
+      <td>1</td>
+      <td>70.25%</td>
+      <td>10.13%</td>
+      <td>19.61%</td>
+      <td>9.43</td>
+    </tr>
+    <tr>
+      <td>2025-09-14</td>
+      <td>Mladost Lucani</td>
+      <td>1387.77</td>
+      <td>0</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1441.06</td>
+      <td>1</td>
+      <td>22.59%</td>
+      <td>51.41%</td>
+      <td>26.00%</td>
+      <td>-8.69</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Radnik Surdulica</td>
+      <td>1321.52</td>
+      <td>3</td>
+      <td>@ Napredak</td>
+      <td>1360.61</td>
+      <td>1</td>
+      <td>24.03%</td>
+      <td>49.68%</td>
+      <td>26.29%</td>
+      <td>22.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-19</td>
+      <td>Napredak</td>
+      <td>1360.61</td>
+      <td>1</td>
+      <td>Radnik Surdulica</td>
+      <td>1321.52</td>
+      <td>3</td>
+      <td>49.68%</td>
+      <td>24.03%</td>
+      <td>26.29%</td>
+      <td>-22.87</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>OFK Beograd</td>
+      <td>1423.64</td>
+      <td>3</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1461.53</td>
+      <td>1</td>
+      <td>24.16%</td>
+      <td>49.53%</td>
+      <td>26.31%</td>
+      <td>22.81</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Novi Pazar</td>
+      <td>1479.51</td>
+      <td>1</td>
+      <td>Vojvodina</td>
+      <td>1536.65</td>
+      <td>0</td>
+      <td>36.73%</td>
+      <td>36.03%</td>
+      <td>27.25%</td>
+      <td>12.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Partizan</td>
+      <td>1623.70</td>
+      <td>1</td>
+      <td>Red Star Belgrade</td>
+      <td>1719.64</td>
+      <td>2</td>
+      <td>31.38%</td>
+      <td>41.51%</td>
+      <td>27.12%</td>
+      <td>-11.35</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Vojvodina</td>
+      <td>1536.65</td>
+      <td>0</td>
+      <td>@ Novi Pazar</td>
+      <td>1479.51</td>
+      <td>1</td>
+      <td>36.03%</td>
+      <td>36.73%</td>
+      <td>27.25%</td>
+      <td>-12.58</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Radnicki 1923</td>
+      <td>1460.24</td>
+      <td>2</td>
+      <td>Spartak Subotica</td>
+      <td>1360.71</td>
+      <td>0</td>
+      <td>56.73%</td>
+      <td>18.45%</td>
+      <td>24.82%</td>
+      <td>10.24</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Spartak Subotica</td>
+      <td>1360.71</td>
+      <td>0</td>
+      <td>@ Radnicki 1923</td>
+      <td>1460.24</td>
+      <td>2</td>
+      <td>18.45%</td>
+      <td>56.73%</td>
+      <td>24.82%</td>
+      <td>-10.25</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1461.53</td>
+      <td>1</td>
+      <td>OFK Beograd</td>
+      <td>1423.64</td>
+      <td>3</td>
+      <td>49.53%</td>
+      <td>24.16%</td>
+      <td>26.31%</td>
+      <td>-22.82</td>
+    </tr>
+    <tr>
+      <td>2025-09-20</td>
+      <td>Red Star Belgrade</td>
+      <td>1719.64</td>
+      <td>2</td>
+      <td>@ Partizan</td>
+      <td>1623.70</td>
+      <td>1</td>
+      <td>41.51%</td>
+      <td>31.38%</td>
+      <td>27.12%</td>
+      <td>11.34</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>IMT Novi Beograd</td>
+      <td>1378.64</td>
+      <td>1</td>
+      <td>Radnicki Nis</td>
+      <td>1375.50</td>
+      <td>0</td>
+      <td>45.07%</td>
+      <td>28.07%</td>
+      <td>26.86%</td>
+      <td>10.41</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Cukaricki</td>
+      <td>1415.59</td>
+      <td>4</td>
+      <td>TSC Backa Topola</td>
+      <td>1449.75</td>
+      <td>2</td>
+      <td>39.99%</td>
+      <td>32.83%</td>
+      <td>27.19%</td>
+      <td>16.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Javor</td>
+      <td>1414.51</td>
+      <td>1</td>
+      <td>@ Mladost Lucani</td>
+      <td>1379.08</td>
+      <td>2</td>
+      <td>33.00%</td>
+      <td>39.81%</td>
+      <td>27.19%</td>
+      <td>-11.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>TSC Backa Topola</td>
+      <td>1449.75</td>
+      <td>2</td>
+      <td>@ Cukaricki</td>
+      <td>1415.59</td>
+      <td>4</td>
+      <td>32.83%</td>
+      <td>39.99%</td>
+      <td>27.19%</td>
+      <td>-16.61</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Radnicki Nis</td>
+      <td>1375.50</td>
+      <td>0</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1378.64</td>
+      <td>1</td>
+      <td>28.07%</td>
+      <td>45.07%</td>
+      <td>26.86%</td>
+      <td>-10.41</td>
+    </tr>
+    <tr>
+      <td>2025-09-21</td>
+      <td>Mladost Lucani</td>
+      <td>1379.08</td>
+      <td>2</td>
+      <td>Javor</td>
+      <td>1414.51</td>
+      <td>1</td>
+      <td>39.81%</td>
+      <td>33.00%</td>
+      <td>27.19%</td>
+      <td>11.79</td>
+    </tr>
+    <tr>
+      <td>2025-09-24</td>
+      <td>Novi Pazar</td>
+      <td>1492.09</td>
+      <td>1</td>
+      <td>Radnicki 1923</td>
+      <td>1470.48</td>
+      <td>1</td>
+      <td>47.48%</td>
+      <td>25.93%</td>
+      <td>26.60%</td>
+      <td>-1.46</td>
+    </tr>
+    <tr>
+      <td>2025-09-24</td>
+      <td>Radnicki 1923</td>
+      <td>1470.48</td>
+      <td>1</td>
+      <td>@ Novi Pazar</td>
+      <td>1492.09</td>
+      <td>1</td>
+      <td>25.93%</td>
+      <td>47.48%</td>
+      <td>26.60%</td>
+      <td>1.45</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>IMT Novi Beograd</td>
+      <td>1389.05</td>
+      <td>0</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1344.39</td>
+      <td>2</td>
+      <td>34.26%</td>
+      <td>38.51%</td>
+      <td>27.23%</td>
+      <td>-17.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-26</td>
+      <td>Radnik Surdulica</td>
+      <td>1344.39</td>
+      <td>2</td>
+      <td>IMT Novi Beograd</td>
+      <td>1389.05</td>
+      <td>0</td>
+      <td>38.51%</td>
+      <td>34.26%</td>
+      <td>27.23%</td>
+      <td>17.15</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Javor</td>
+      <td>1402.72</td>
+      <td>2</td>
+      <td>Radnicki Nis</td>
+      <td>1365.09</td>
+      <td>1</td>
+      <td>49.50%</td>
+      <td>24.18%</td>
+      <td>26.32%</td>
+      <td>9.22</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Vojvodina</td>
+      <td>1524.07</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1438.71</td>
+      <td>1</td>
+      <td>55.15%</td>
+      <td>19.63%</td>
+      <td>25.22%</td>
+      <td>-2.50</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1438.71</td>
+      <td>1</td>
+      <td>@ Vojvodina</td>
+      <td>1524.07</td>
+      <td>1</td>
+      <td>19.63%</td>
+      <td>55.15%</td>
+      <td>25.22%</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Partizan</td>
+      <td>1612.35</td>
+      <td>2</td>
+      <td>@ OFK Beograd</td>
+      <td>1446.45</td>
+      <td>0</td>
+      <td>50.62%</td>
+      <td>23.24%</td>
+      <td>26.14%</td>
+      <td>12.60</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>OFK Beograd</td>
+      <td>1446.45</td>
+      <td>0</td>
+      <td>Partizan</td>
+      <td>1612.35</td>
+      <td>2</td>
+      <td>23.24%</td>
+      <td>50.62%</td>
+      <td>26.14%</td>
+      <td>-12.60</td>
+    </tr>
+    <tr>
+      <td>2025-09-27</td>
+      <td>Radnicki Nis</td>
+      <td>1365.09</td>
+      <td>1</td>
+      <td>@ Javor</td>
+      <td>1402.72</td>
+      <td>2</td>
+      <td>24.18%</td>
+      <td>49.50%</td>
+      <td>26.32%</td>
+      <td>-9.21</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Cukaricki</td>
+      <td>1432.20</td>
+      <td>1</td>
+      <td>@ Mladost Lucani</td>
+      <td>1390.87</td>
+      <td>1</td>
+      <td>33.80%</td>
+      <td>38.98%</td>
+      <td>27.22%</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Novi Pazar</td>
+      <td>1490.63</td>
+      <td>0</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1433.14</td>
+      <td>1</td>
+      <td>36.08%</td>
+      <td>36.68%</td>
+      <td>27.25%</td>
+      <td>-12.59</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Napredak</td>
+      <td>1337.74</td>
+      <td>1</td>
+      <td>@ Spartak Subotica</td>
+      <td>1350.46</td>
+      <td>2</td>
+      <td>26.94%</td>
+      <td>46.33%</td>
+      <td>26.73%</td>
+      <td>-10.08</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Spartak Subotica</td>
+      <td>1350.46</td>
+      <td>2</td>
+      <td>Napredak</td>
+      <td>1337.74</td>
+      <td>1</td>
+      <td>46.33%</td>
+      <td>26.94%</td>
+      <td>26.73%</td>
+      <td>10.07</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Mladost Lucani</td>
+      <td>1390.87</td>
+      <td>1</td>
+      <td>Cukaricki</td>
+      <td>1432.20</td>
+      <td>1</td>
+      <td>38.98%</td>
+      <td>33.80%</td>
+      <td>27.22%</td>
+      <td>-0.33</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>TSC Backa Topola</td>
+      <td>1433.14</td>
+      <td>1</td>
+      <td>Novi Pazar</td>
+      <td>1490.63</td>
+      <td>0</td>
+      <td>36.68%</td>
+      <td>36.08%</td>
+      <td>27.25%</td>
+      <td>12.60</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Radnicki 1923</td>
+      <td>1471.93</td>
+      <td>1</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1730.98</td>
+      <td>2</td>
+      <td>9.32%</td>
+      <td>71.93%</td>
+      <td>18.75%</td>
+      <td>-3.49</td>
+    </tr>
+    <tr>
+      <td>2025-09-28</td>
+      <td>Red Star Belgrade</td>
+      <td>1730.98</td>
+      <td>2</td>
+      <td>Radnicki 1923</td>
+      <td>1471.93</td>
+      <td>1</td>
+      <td>71.93%</td>
+      <td>9.32%</td>
+      <td>18.75%</td>
+      <td>3.49</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Radnik Surdulica</td>
+      <td>1361.54</td>
+      <td>2</td>
+      <td>@ Radnicki Nis</td>
+      <td>1355.88</td>
+      <td>4</td>
+      <td>29.14%</td>
+      <td>43.90%</td>
+      <td>26.96%</td>
+      <td>-15.16</td>
+    </tr>
+    <tr>
+      <td>2025-10-03</td>
+      <td>Radnicki Nis</td>
+      <td>1355.88</td>
+      <td>4</td>
+      <td>Radnik Surdulica</td>
+      <td>1361.54</td>
+      <td>2</td>
+      <td>43.90%</td>
+      <td>29.14%</td>
+      <td>26.96%</td>
+      <td>15.16</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Vojvodina</td>
+      <td>1521.57</td>
+      <td>0</td>
+      <td>@ Partizan</td>
+      <td>1624.95</td>
+      <td>1</td>
+      <td>18.14%</td>
+      <td>57.15%</td>
+      <td>24.71%</td>
+      <td>-7.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Partizan</td>
+      <td>1624.95</td>
+      <td>1</td>
+      <td>Vojvodina</td>
+      <td>1521.57</td>
+      <td>0</td>
+      <td>57.15%</td>
+      <td>18.14%</td>
+      <td>24.71%</td>
+      <td>7.13</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1441.21</td>
+      <td>1</td>
+      <td>TSC Backa Topola</td>
+      <td>1445.74</td>
+      <td>0</td>
+      <td>44.05%</td>
+      <td>29.00%</td>
+      <td>26.95%</td>
+      <td>10.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Radnicki 1923</td>
+      <td>1468.44</td>
+      <td>0</td>
+      <td>OFK Beograd</td>
+      <td>1433.85</td>
+      <td>2</td>
+      <td>49.12%</td>
+      <td>24.51%</td>
+      <td>26.37%</td>
+      <td>-22.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Novi Pazar</td>
+      <td>1478.04</td>
+      <td>1</td>
+      <td>Mladost Lucani</td>
+      <td>1390.54</td>
+      <td>0</td>
+      <td>55.39%</td>
+      <td>19.44%</td>
+      <td>25.16%</td>
+      <td>7.60</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>TSC Backa Topola</td>
+      <td>1445.74</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1441.21</td>
+      <td>1</td>
+      <td>29.00%</td>
+      <td>44.05%</td>
+      <td>26.95%</td>
+      <td>-10.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>OFK Beograd</td>
+      <td>1433.85</td>
+      <td>2</td>
+      <td>@ Radnicki 1923</td>
+      <td>1468.44</td>
+      <td>0</td>
+      <td>24.51%</td>
+      <td>49.12%</td>
+      <td>26.37%</td>
+      <td>22.66</td>
+    </tr>
+    <tr>
+      <td>2025-10-04</td>
+      <td>Mladost Lucani</td>
+      <td>1390.54</td>
+      <td>0</td>
+      <td>@ Novi Pazar</td>
+      <td>1478.04</td>
+      <td>1</td>
+      <td>19.44%</td>
+      <td>55.39%</td>
+      <td>25.16%</td>
+      <td>-7.61</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Napredak</td>
+      <td>1327.66</td>
+      <td>0</td>
+      <td>Red Star Belgrade</td>
+      <td>1734.47</td>
+      <td>3</td>
+      <td>8.26%</td>
+      <td>74.26%</td>
+      <td>17.48%</td>
+      <td>-5.23</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>IMT Novi Beograd</td>
+      <td>1371.90</td>
+      <td>1</td>
+      <td>Spartak Subotica</td>
+      <td>1360.53</td>
+      <td>0</td>
+      <td>46.15%</td>
+      <td>27.10%</td>
+      <td>26.75%</td>
+      <td>10.12</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Javor</td>
+      <td>1411.94</td>
+      <td>0</td>
+      <td>@ Cukaricki</td>
+      <td>1432.53</td>
+      <td>1</td>
+      <td>26.04%</td>
+      <td>47.35%</td>
+      <td>26.61%</td>
+      <td>-9.80</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Cukaricki</td>
+      <td>1432.53</td>
+      <td>1</td>
+      <td>Javor</td>
+      <td>1411.94</td>
+      <td>0</td>
+      <td>47.35%</td>
+      <td>26.04%</td>
+      <td>26.61%</td>
+      <td>9.80</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Red Star Belgrade</td>
+      <td>1734.47</td>
+      <td>3</td>
+      <td>@ Napredak</td>
+      <td>1327.66</td>
+      <td>0</td>
+      <td>74.26%</td>
+      <td>8.26%</td>
+      <td>17.48%</td>
+      <td>5.24</td>
+    </tr>
+    <tr>
+      <td>2025-10-05</td>
+      <td>Spartak Subotica</td>
+      <td>1360.53</td>
+      <td>0</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1371.90</td>
+      <td>1</td>
+      <td>27.10%</td>
+      <td>46.15%</td>
+      <td>26.75%</td>
+      <td>-10.11</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>TSC Backa Topola</td>
+      <td>1435.06</td>
+      <td>0</td>
+      <td>Partizan</td>
+      <td>1632.08</td>
+      <td>1</td>
+      <td>20.28%</td>
+      <td>54.30%</td>
+      <td>25.42%</td>
+      <td>-7.91</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>OFK Beograd</td>
+      <td>1456.51</td>
+      <td>4</td>
+      <td>Napredak</td>
+      <td>1322.43</td>
+      <td>0</td>
+      <td>60.40%</td>
+      <td>15.87%</td>
+      <td>23.73%</td>
+      <td>12.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Vojvodina</td>
+      <td>1514.44</td>
+      <td>4</td>
+      <td>Radnicki 1923</td>
+      <td>1445.78</td>
+      <td>1</td>
+      <td>53.24%</td>
+      <td>21.12%</td>
+      <td>25.65%</td>
+      <td>14.19</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Napredak</td>
+      <td>1322.43</td>
+      <td>0</td>
+      <td>@ OFK Beograd</td>
+      <td>1456.51</td>
+      <td>4</td>
+      <td>15.87%</td>
+      <td>60.40%</td>
+      <td>23.73%</td>
+      <td>-12.52</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Javor</td>
+      <td>1402.14</td>
+      <td>3</td>
+      <td>Radnik Surdulica</td>
+      <td>1346.38</td>
+      <td>2</td>
+      <td>51.71%</td>
+      <td>22.34%</td>
+      <td>25.95%</td>
+      <td>8.61</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Radnik Surdulica</td>
+      <td>1346.38</td>
+      <td>2</td>
+      <td>@ Javor</td>
+      <td>1402.14</td>
+      <td>3</td>
+      <td>22.34%</td>
+      <td>51.71%</td>
+      <td>25.95%</td>
+      <td>-8.61</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Partizan</td>
+      <td>1632.08</td>
+      <td>1</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1435.06</td>
+      <td>0</td>
+      <td>54.30%</td>
+      <td>20.28%</td>
+      <td>25.42%</td>
+      <td>7.90</td>
+    </tr>
+    <tr>
+      <td>2025-10-18</td>
+      <td>Radnicki 1923</td>
+      <td>1445.78</td>
+      <td>1</td>
+      <td>@ Vojvodina</td>
+      <td>1514.44</td>
+      <td>4</td>
+      <td>21.12%</td>
+      <td>53.24%</td>
+      <td>25.65%</td>
+      <td>-14.19</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>IMT Novi Beograd</td>
+      <td>1382.02</td>
+      <td>1</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1739.71</td>
+      <td>6</td>
+      <td>6.12%</td>
+      <td>79.53%</td>
+      <td>14.35%</td>
+      <td>-4.71</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Radnicki Nis</td>
+      <td>1371.04</td>
+      <td>0</td>
+      <td>@ Spartak Subotica</td>
+      <td>1350.42</td>
+      <td>2</td>
+      <td>31.04%</td>
+      <td>41.87%</td>
+      <td>27.10%</td>
+      <td>-15.92</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1451.89</td>
+      <td>1</td>
+      <td>@ Mladost Lucani</td>
+      <td>1382.93</td>
+      <td>2</td>
+      <td>37.72%</td>
+      <td>35.04%</td>
+      <td>27.24%</td>
+      <td>-13.01</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Novi Pazar</td>
+      <td>1485.64</td>
+      <td>1</td>
+      <td>@ Cukaricki</td>
+      <td>1442.33</td>
+      <td>1</td>
+      <td>34.08%</td>
+      <td>38.70%</td>
+      <td>27.22%</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Spartak Subotica</td>
+      <td>1350.42</td>
+      <td>2</td>
+      <td>Radnicki Nis</td>
+      <td>1371.04</td>
+      <td>0</td>
+      <td>41.87%</td>
+      <td>31.04%</td>
+      <td>27.10%</td>
+      <td>15.91</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Red Star Belgrade</td>
+      <td>1739.71</td>
+      <td>6</td>
+      <td>IMT Novi Beograd</td>
+      <td>1382.02</td>
+      <td>1</td>
+      <td>79.53%</td>
+      <td>6.12%</td>
+      <td>14.35%</td>
+      <td>4.71</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Mladost Lucani</td>
+      <td>1382.93</td>
+      <td>2</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1451.89</td>
+      <td>1</td>
+      <td>35.04%</td>
+      <td>37.72%</td>
+      <td>27.24%</td>
+      <td>13.02</td>
+    </tr>
+    <tr>
+      <td>2025-10-19</td>
+      <td>Cukaricki</td>
+      <td>1442.33</td>
+      <td>1</td>
+      <td>Novi Pazar</td>
+      <td>1485.64</td>
+      <td>1</td>
+      <td>38.70%</td>
+      <td>34.08%</td>
+      <td>27.22%</td>
+      <td>-0.30</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Partizan</td>
+      <td>1639.98</td>
+      <td>3</td>
+      <td>Mladost Lucani</td>
+      <td>1395.95</td>
+      <td>0</td>
+      <td>70.66%</td>
+      <td>9.93%</td>
+      <td>19.41%</td>
+      <td>6.51</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Napredak</td>
+      <td>1309.91</td>
+      <td>1</td>
+      <td>Vojvodina</td>
+      <td>1528.63</td>
+      <td>4</td>
+      <td>18.44%</td>
+      <td>56.73%</td>
+      <td>24.82%</td>
+      <td>-12.54</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Mladost Lucani</td>
+      <td>1395.95</td>
+      <td>0</td>
+      <td>@ Partizan</td>
+      <td>1639.98</td>
+      <td>3</td>
+      <td>9.93%</td>
+      <td>70.66%</td>
+      <td>19.41%</td>
+      <td>-6.51</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Javor</td>
+      <td>1410.75</td>
+      <td>2</td>
+      <td>@ Novi Pazar</td>
+      <td>1485.94</td>
+      <td>1</td>
+      <td>20.52%</td>
+      <td>53.99%</td>
+      <td>25.49%</td>
+      <td>17.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Vojvodina</td>
+      <td>1528.63</td>
+      <td>4</td>
+      <td>@ Napredak</td>
+      <td>1309.91</td>
+      <td>1</td>
+      <td>56.73%</td>
+      <td>18.44%</td>
+      <td>24.82%</td>
+      <td>12.55</td>
+    </tr>
+    <tr>
+      <td>2025-10-24</td>
+      <td>Novi Pazar</td>
+      <td>1485.94</td>
+      <td>1</td>
+      <td>Javor</td>
+      <td>1410.75</td>
+      <td>2</td>
+      <td>53.99%</td>
+      <td>20.52%</td>
+      <td>25.49%</td>
+      <td>-17.35</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>IMT Novi Beograd</td>
+      <td>1377.31</td>
+      <td>1</td>
+      <td>OFK Beograd</td>
+      <td>1469.03</td>
+      <td>1</td>
+      <td>31.93%</td>
+      <td>40.92%</td>
+      <td>27.15%</td>
+      <td>0.59</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Radnicki 1923</td>
+      <td>1431.59</td>
+      <td>2</td>
+      <td>TSC Backa Topola</td>
+      <td>1427.15</td>
+      <td>1</td>
+      <td>45.24%</td>
+      <td>27.91%</td>
+      <td>26.84%</td>
+      <td>10.36</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1438.88</td>
+      <td>1</td>
+      <td>Cukaricki</td>
+      <td>1442.03</td>
+      <td>0</td>
+      <td>44.23%</td>
+      <td>28.83%</td>
+      <td>26.93%</td>
+      <td>10.63</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>TSC Backa Topola</td>
+      <td>1427.15</td>
+      <td>1</td>
+      <td>@ Radnicki 1923</td>
+      <td>1431.59</td>
+      <td>2</td>
+      <td>27.91%</td>
+      <td>45.24%</td>
+      <td>26.84%</td>
+      <td>-10.36</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Radnik Surdulica</td>
+      <td>1337.77</td>
+      <td>2</td>
+      <td>Spartak Subotica</td>
+      <td>1366.33</td>
+      <td>0</td>
+      <td>40.77%</td>
+      <td>32.08%</td>
+      <td>27.15%</td>
+      <td>16.32</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Spartak Subotica</td>
+      <td>1366.33</td>
+      <td>0</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1337.77</td>
+      <td>2</td>
+      <td>32.08%</td>
+      <td>40.77%</td>
+      <td>27.15%</td>
+      <td>-16.32</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>Cukaricki</td>
+      <td>1442.03</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1438.88</td>
+      <td>1</td>
+      <td>28.83%</td>
+      <td>44.23%</td>
+      <td>26.93%</td>
+      <td>-10.63</td>
+    </tr>
+    <tr>
+      <td>2025-10-25</td>
+      <td>OFK Beograd</td>
+      <td>1469.03</td>
+      <td>1</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1377.31</td>
+      <td>1</td>
+      <td>40.92%</td>
+      <td>31.93%</td>
+      <td>27.15%</td>
+      <td>-0.59</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Radnicki Nis</td>
+      <td>1355.12</td>
+      <td>0</td>
+      <td>Red Star Belgrade</td>
+      <td>1744.42</td>
+      <td>0</td>
+      <td>8.89%</td>
+      <td>72.85%</td>
+      <td>18.26%</td>
+      <td>4.68</td>
+    </tr>
+    <tr>
+      <td>2025-10-26</td>
+      <td>Red Star Belgrade</td>
+      <td>1744.42</td>
+      <td>0</td>
+      <td>@ Radnicki Nis</td>
+      <td>1355.12</td>
+      <td>0</td>
+      <td>72.85%</td>
+      <td>8.89%</td>
+      <td>18.26%</td>
+      <td>-4.69</td>
+    </tr>
+    <tr>
+      <td>2025-10-30</td>
+      <td>Red Star Belgrade</td>
+      <td>1739.73</td>
+      <td>2</td>
+      <td>@ Vojvodina</td>
+      <td>1541.18</td>
+      <td>3</td>
+      <td>54.48%</td>
+      <td>20.14%</td>
+      <td>25.38%</td>
+      <td>-17.48</td>
+    </tr>
+    <tr>
+      <td>2025-10-30</td>
+      <td>Vojvodina</td>
+      <td>1541.18</td>
+      <td>3</td>
+      <td>Red Star Belgrade</td>
+      <td>1739.73</td>
+      <td>2</td>
+      <td>20.14%</td>
+      <td>54.48%</td>
+      <td>25.38%</td>
+      <td>17.48</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Partizan</td>
+      <td>1646.49</td>
+      <td>1</td>
+      <td>@ Cukaricki</td>
+      <td>1431.40</td>
+      <td>4</td>
+      <td>56.33%</td>
+      <td>18.74%</td>
+      <td>24.93%</td>
+      <td>-31.16</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Cukaricki</td>
+      <td>1431.40</td>
+      <td>4</td>
+      <td>Partizan</td>
+      <td>1646.49</td>
+      <td>1</td>
+      <td>18.74%</td>
+      <td>56.33%</td>
+      <td>24.93%</td>
+      <td>31.16</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Javor</td>
+      <td>1428.10</td>
+      <td>1</td>
+      <td>Spartak Subotica</td>
+      <td>1350.01</td>
+      <td>1</td>
+      <td>54.33%</td>
+      <td>20.26%</td>
+      <td>25.41%</td>
+      <td>-2.38</td>
+    </tr>
+    <tr>
+      <td>2025-11-01</td>
+      <td>Spartak Subotica</td>
+      <td>1350.01</td>
+      <td>1</td>
+      <td>@ Javor</td>
+      <td>1428.10</td>
+      <td>1</td>
+      <td>20.26%</td>
+      <td>54.33%</td>
+      <td>25.41%</td>
+      <td>2.39</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Vojvodina</td>
+      <td>1558.66</td>
+      <td>1</td>
+      <td>IMT Novi Beograd</td>
+      <td>1377.90</td>
+      <td>3</td>
+      <td>64.99%</td>
+      <td>12.98%</td>
+      <td>22.03%</td>
+      <td>-28.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>IMT Novi Beograd</td>
+      <td>1377.90</td>
+      <td>3</td>
+      <td>@ Vojvodina</td>
+      <td>1558.66</td>
+      <td>1</td>
+      <td>12.98%</td>
+      <td>64.99%</td>
+      <td>22.03%</td>
+      <td>28.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Red Star Belgrade</td>
+      <td>1722.25</td>
+      <td>1</td>
+      <td>Radnik Surdulica</td>
+      <td>1354.09</td>
+      <td>1</td>
+      <td>80.26%</td>
+      <td>5.84%</td>
+      <td>13.89%</td>
+      <td>-5.34</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>TSC Backa Topola</td>
+      <td>1416.79</td>
+      <td>1</td>
+      <td>Napredak</td>
+      <td>1297.37</td>
+      <td>1</td>
+      <td>58.87%</td>
+      <td>16.91%</td>
+      <td>24.22%</td>
+      <td>-3.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Napredak</td>
+      <td>1297.37</td>
+      <td>1</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1416.79</td>
+      <td>1</td>
+      <td>16.91%</td>
+      <td>58.87%</td>
+      <td>24.22%</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Radnik Surdulica</td>
+      <td>1354.09</td>
+      <td>1</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1722.25</td>
+      <td>1</td>
+      <td>5.84%</td>
+      <td>80.26%</td>
+      <td>13.89%</td>
+      <td>5.34</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1449.51</td>
+      <td>0</td>
+      <td>@ Novi Pazar</td>
+      <td>1468.59</td>
+      <td>1</td>
+      <td>26.21%</td>
+      <td>47.15%</td>
+      <td>26.64%</td>
+      <td>-9.85</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Novi Pazar</td>
+      <td>1468.59</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1449.51</td>
+      <td>0</td>
+      <td>47.15%</td>
+      <td>26.21%</td>
+      <td>26.64%</td>
+      <td>9.85</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>OFK Beograd</td>
+      <td>1468.44</td>
+      <td>0</td>
+      <td>Radnicki Nis</td>
+      <td>1359.80</td>
+      <td>1</td>
+      <td>57.72%</td>
+      <td>17.73%</td>
+      <td>24.55%</td>
+      <td>-18.36</td>
+    </tr>
+    <tr>
+      <td>2025-11-03</td>
+      <td>Radnicki Nis</td>
+      <td>1359.80</td>
+      <td>1</td>
+      <td>@ OFK Beograd</td>
+      <td>1468.44</td>
+      <td>0</td>
+      <td>17.73%</td>
+      <td>57.72%</td>
+      <td>24.55%</td>
+      <td>18.37</td>
+    </tr>
+    <tr>
+      <td>2025-11-05</td>
+      <td>Javor</td>
+      <td>1425.72</td>
+      <td>2</td>
+      <td>Partizan</td>
+      <td>1615.33</td>
+      <td>3</td>
+      <td>20.95%</td>
+      <td>53.45%</td>
+      <td>25.61%</td>
+      <td>-8.14</td>
+    </tr>
+    <tr>
+      <td>2025-11-05</td>
+      <td>Partizan</td>
+      <td>1615.33</td>
+      <td>3</td>
+      <td>@ Javor</td>
+      <td>1425.72</td>
+      <td>2</td>
+      <td>53.45%</td>
+      <td>20.95%</td>
+      <td>25.61%</td>
+      <td>8.14</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>OFK Beograd</td>
+      <td>1450.08</td>
+      <td>0</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1359.43</td>
+      <td>1</td>
+      <td>40.77%</td>
+      <td>32.07%</td>
+      <td>27.15%</td>
+      <td>-13.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Napredak</td>
+      <td>1300.37</td>
+      <td>0</td>
+      <td>Mladost Lucani</td>
+      <td>1389.44</td>
+      <td>1</td>
+      <td>32.28%</td>
+      <td>40.55%</td>
+      <td>27.16%</td>
+      <td>-11.60</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Radnicki Nis</td>
+      <td>1378.17</td>
+      <td>0</td>
+      <td>Vojvodina</td>
+      <td>1530.01</td>
+      <td>1</td>
+      <td>24.71%</td>
+      <td>48.88%</td>
+      <td>26.41%</td>
+      <td>-9.38</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Vojvodina</td>
+      <td>1530.01</td>
+      <td>1</td>
+      <td>@ Radnicki Nis</td>
+      <td>1378.17</td>
+      <td>0</td>
+      <td>48.88%</td>
+      <td>24.71%</td>
+      <td>26.41%</td>
+      <td>9.38</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Mladost Lucani</td>
+      <td>1389.44</td>
+      <td>1</td>
+      <td>@ Napredak</td>
+      <td>1300.37</td>
+      <td>0</td>
+      <td>40.55%</td>
+      <td>32.28%</td>
+      <td>27.16%</td>
+      <td>11.59</td>
+    </tr>
+    <tr>
+      <td>2025-11-08</td>
+      <td>Radnik Surdulica</td>
+      <td>1359.43</td>
+      <td>1</td>
+      <td>OFK Beograd</td>
+      <td>1450.08</td>
+      <td>0</td>
+      <td>32.07%</td>
+      <td>40.77%</td>
+      <td>27.15%</td>
+      <td>13.80</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1439.66</td>
+      <td>2</td>
+      <td>Javor</td>
+      <td>1417.58</td>
+      <td>0</td>
+      <td>47.54%</td>
+      <td>25.87%</td>
+      <td>26.59%</td>
+      <td>13.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Partizan</td>
+      <td>1623.47</td>
+      <td>2</td>
+      <td>Novi Pazar</td>
+      <td>1478.44</td>
+      <td>0</td>
+      <td>61.51%</td>
+      <td>15.14%</td>
+      <td>23.36%</td>
+      <td>8.44</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Spartak Subotica</td>
+      <td>1352.40</td>
+      <td>2</td>
+      <td>Red Star Belgrade</td>
+      <td>1716.91</td>
+      <td>3</td>
+      <td>9.87%</td>
+      <td>70.78%</td>
+      <td>19.35%</td>
+      <td>-3.74</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Javor</td>
+      <td>1417.58</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1439.66</td>
+      <td>2</td>
+      <td>25.87%</td>
+      <td>47.54%</td>
+      <td>26.59%</td>
+      <td>-13.78</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Red Star Belgrade</td>
+      <td>1716.91</td>
+      <td>3</td>
+      <td>@ Spartak Subotica</td>
+      <td>1352.40</td>
+      <td>2</td>
+      <td>70.78%</td>
+      <td>9.87%</td>
+      <td>19.35%</td>
+      <td>3.73</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>Novi Pazar</td>
+      <td>1478.44</td>
+      <td>0</td>
+      <td>@ Partizan</td>
+      <td>1623.47</td>
+      <td>2</td>
+      <td>15.14%</td>
+      <td>61.51%</td>
+      <td>23.36%</td>
+      <td>-8.44</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>TSC Backa Topola</td>
+      <td>1413.79</td>
+      <td>1</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1406.55</td>
+      <td>1</td>
+      <td>29.34%</td>
+      <td>43.69%</td>
+      <td>26.98%</td>
+      <td>0.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-09</td>
+      <td>IMT Novi Beograd</td>
+      <td>1406.55</td>
+      <td>1</td>
+      <td>TSC Backa Topola</td>
+      <td>1413.79</td>
+      <td>1</td>
+      <td>43.69%</td>
+      <td>29.34%</td>
+      <td>26.98%</td>
+      <td>-0.95</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Radnik Surdulica</td>
+      <td>1373.23</td>
+      <td>3</td>
+      <td>Vojvodina</td>
+      <td>1539.39</td>
+      <td>1</td>
+      <td>23.22%</td>
+      <td>50.65%</td>
+      <td>26.13%</td>
+      <td>23.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-21</td>
+      <td>Vojvodina</td>
+      <td>1539.39</td>
+      <td>1</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1373.23</td>
+      <td>3</td>
+      <td>50.65%</td>
+      <td>23.22%</td>
+      <td>26.13%</td>
+      <td>-23.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Cukaricki</td>
+      <td>1462.56</td>
+      <td>1</td>
+      <td>@ Napredak</td>
+      <td>1288.77</td>
+      <td>1</td>
+      <td>51.57%</td>
+      <td>22.45%</td>
+      <td>25.97%</td>
+      <td>-2.01</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>OFK Beograd</td>
+      <td>1436.28</td>
+      <td>2</td>
+      <td>@ Spartak Subotica</td>
+      <td>1348.66</td>
+      <td>2</td>
+      <td>40.35%</td>
+      <td>32.48%</td>
+      <td>27.17%</td>
+      <td>-0.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Spartak Subotica</td>
+      <td>1348.66</td>
+      <td>2</td>
+      <td>OFK Beograd</td>
+      <td>1436.28</td>
+      <td>2</td>
+      <td>32.48%</td>
+      <td>40.35%</td>
+      <td>27.17%</td>
+      <td>0.51</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1453.44</td>
+      <td>3</td>
+      <td>@ Partizan</td>
+      <td>1631.91</td>
+      <td>1</td>
+      <td>13.11%</td>
+      <td>64.77%</td>
+      <td>22.12%</td>
+      <td>28.58</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Partizan</td>
+      <td>1631.91</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1453.44</td>
+      <td>3</td>
+      <td>64.77%</td>
+      <td>13.11%</td>
+      <td>22.12%</td>
+      <td>-28.58</td>
+    </tr>
+    <tr>
+      <td>2025-11-22</td>
+      <td>Napredak</td>
+      <td>1288.77</td>
+      <td>1</td>
+      <td>Cukaricki</td>
+      <td>1462.56</td>
+      <td>1</td>
+      <td>22.45%</td>
+      <td>51.57%</td>
+      <td>25.97%</td>
+      <td>2.02</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Radnicki 1923</td>
+      <td>1441.95</td>
+      <td>0</td>
+      <td>Novi Pazar</td>
+      <td>1470.00</td>
+      <td>0</td>
+      <td>40.84%</td>
+      <td>32.01%</td>
+      <td>27.15%</td>
+      <td>-0.57</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Red Star Belgrade</td>
+      <td>1720.64</td>
+      <td>0</td>
+      <td>@ Javor</td>
+      <td>1403.80</td>
+      <td>1</td>
+      <td>66.56%</td>
+      <td>12.08%</td>
+      <td>21.36%</td>
+      <td>-20.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>IMT Novi Beograd</td>
+      <td>1405.60</td>
+      <td>1</td>
+      <td>Mladost Lucani</td>
+      <td>1401.03</td>
+      <td>2</td>
+      <td>45.26%</td>
+      <td>27.90%</td>
+      <td>26.84%</td>
+      <td>-14.98</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Javor</td>
+      <td>1403.80</td>
+      <td>1</td>
+      <td>Red Star Belgrade</td>
+      <td>1720.64</td>
+      <td>0</td>
+      <td>12.08%</td>
+      <td>66.56%</td>
+      <td>21.36%</td>
+      <td>20.64</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Mladost Lucani</td>
+      <td>1401.03</td>
+      <td>2</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1405.60</td>
+      <td>1</td>
+      <td>27.90%</td>
+      <td>45.26%</td>
+      <td>26.84%</td>
+      <td>14.99</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Novi Pazar</td>
+      <td>1470.00</td>
+      <td>0</td>
+      <td>@ Radnicki 1923</td>
+      <td>1441.95</td>
+      <td>0</td>
+      <td>32.01%</td>
+      <td>40.84%</td>
+      <td>27.15%</td>
+      <td>0.57</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>TSC Backa Topola</td>
+      <td>1414.74</td>
+      <td>1</td>
+      <td>@ Radnicki Nis</td>
+      <td>1368.79</td>
+      <td>1</td>
+      <td>34.44%</td>
+      <td>38.32%</td>
+      <td>27.23%</td>
+      <td>0.24</td>
+    </tr>
+    <tr>
+      <td>2025-11-23</td>
+      <td>Radnicki Nis</td>
+      <td>1368.79</td>
+      <td>1</td>
+      <td>TSC Backa Topola</td>
+      <td>1414.74</td>
+      <td>1</td>
+      <td>38.32%</td>
+      <td>34.44%</td>
+      <td>27.23%</td>
+      <td>-0.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>Cukaricki</td>
+      <td>1460.55</td>
+      <td>1</td>
+      <td>IMT Novi Beograd</td>
+      <td>1390.62</td>
+      <td>1</td>
+      <td>53.38%</td>
+      <td>21.00%</td>
+      <td>25.62%</td>
+      <td>-2.26</td>
+    </tr>
+    <tr>
+      <td>2025-11-28</td>
+      <td>IMT Novi Beograd</td>
+      <td>1390.62</td>
+      <td>1</td>
+      <td>@ Cukaricki</td>
+      <td>1460.55</td>
+      <td>1</td>
+      <td>21.00%</td>
+      <td>53.38%</td>
+      <td>25.62%</td>
+      <td>2.26</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Radnicki 1923</td>
+      <td>1441.38</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1482.02</td>
+      <td>1</td>
+      <td>23.87%</td>
+      <td>49.87%</td>
+      <td>26.26%</td>
+      <td>-9.12</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Mladost Lucani</td>
+      <td>1416.02</td>
+      <td>2</td>
+      <td>Radnicki Nis</td>
+      <td>1368.54</td>
+      <td>1</td>
+      <td>50.71%</td>
+      <td>23.17%</td>
+      <td>26.12%</td>
+      <td>8.88</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Vojvodina</td>
+      <td>1516.14</td>
+      <td>2</td>
+      <td>Spartak Subotica</td>
+      <td>1349.17</td>
+      <td>0</td>
+      <td>63.67%</td>
+      <td>13.77%</td>
+      <td>22.56%</td>
+      <td>7.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Napredak</td>
+      <td>1290.79</td>
+      <td>1</td>
+      <td>@ Novi Pazar</td>
+      <td>1470.57</td>
+      <td>2</td>
+      <td>13.04%</td>
+      <td>64.90%</td>
+      <td>22.07%</td>
+      <td>-5.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Spartak Subotica</td>
+      <td>1349.17</td>
+      <td>0</td>
+      <td>@ Vojvodina</td>
+      <td>1516.14</td>
+      <td>2</td>
+      <td>13.77%</td>
+      <td>63.67%</td>
+      <td>22.56%</td>
+      <td>-7.65</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Radnicki Nis</td>
+      <td>1368.54</td>
+      <td>1</td>
+      <td>@ Mladost Lucani</td>
+      <td>1416.02</td>
+      <td>2</td>
+      <td>23.17%</td>
+      <td>50.71%</td>
+      <td>26.12%</td>
+      <td>-8.89</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Javor</td>
+      <td>1424.44</td>
+      <td>0</td>
+      <td>@ Partizan</td>
+      <td>1603.33</td>
+      <td>4</td>
+      <td>13.09%</td>
+      <td>64.81%</td>
+      <td>22.10%</td>
+      <td>-10.24</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Novi Pazar</td>
+      <td>1470.57</td>
+      <td>2</td>
+      <td>Napredak</td>
+      <td>1290.79</td>
+      <td>1</td>
+      <td>64.90%</td>
+      <td>13.04%</td>
+      <td>22.07%</td>
+      <td>5.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Partizan</td>
+      <td>1603.33</td>
+      <td>4</td>
+      <td>Javor</td>
+      <td>1424.44</td>
+      <td>0</td>
+      <td>64.81%</td>
+      <td>13.09%</td>
+      <td>22.10%</td>
+      <td>10.25</td>
+    </tr>
+    <tr>
+      <td>2025-11-29</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1482.02</td>
+      <td>1</td>
+      <td>Radnicki 1923</td>
+      <td>1441.38</td>
+      <td>0</td>
+      <td>49.87%</td>
+      <td>23.87%</td>
+      <td>26.26%</td>
+      <td>9.11</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Red Star Belgrade</td>
+      <td>1700.00</td>
+      <td>4</td>
+      <td>@ OFK Beograd</td>
+      <td>1435.77</td>
+      <td>3</td>
+      <td>61.51%</td>
+      <td>15.13%</td>
+      <td>23.36%</td>
+      <td>5.96</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>Radnik Surdulica</td>
+      <td>1396.48</td>
+      <td>2</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1414.98</td>
+      <td>0</td>
+      <td>26.28%</td>
+      <td>47.08%</td>
+      <td>26.65%</td>
+      <td>21.88</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>TSC Backa Topola</td>
+      <td>1414.98</td>
+      <td>0</td>
+      <td>Radnik Surdulica</td>
+      <td>1396.48</td>
+      <td>2</td>
+      <td>47.08%</td>
+      <td>26.28%</td>
+      <td>26.65%</td>
+      <td>-21.87</td>
+    </tr>
+    <tr>
+      <td>2025-11-30</td>
+      <td>OFK Beograd</td>
+      <td>1435.77</td>
+      <td>3</td>
+      <td>Red Star Belgrade</td>
+      <td>1700.00</td>
+      <td>4</td>
+      <td>15.13%</td>
+      <td>61.51%</td>
+      <td>23.36%</td>
+      <td>-5.97</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Radnicki 1923</td>
+      <td>1432.26</td>
+      <td>2</td>
+      <td>@ Mladost Lucani</td>
+      <td>1424.90</td>
+      <td>0</td>
+      <td>29.35%</td>
+      <td>43.67%</td>
+      <td>26.98%</td>
+      <td>20.59</td>
+    </tr>
+    <tr>
+      <td>2025-12-03</td>
+      <td>Mladost Lucani</td>
+      <td>1424.90</td>
+      <td>0</td>
+      <td>Radnicki 1923</td>
+      <td>1432.26</td>
+      <td>2</td>
+      <td>43.67%</td>
+      <td>29.35%</td>
+      <td>26.98%</td>
+      <td>-20.59</td>
+    </tr>
+    <tr>
+      <td>2025-12-04</td>
+      <td>Red Star Belgrade</td>
+      <td>1705.96</td>
+      <td>3</td>
+      <td>Cukaricki</td>
+      <td>1458.29</td>
+      <td>0</td>
+      <td>70.97%</td>
+      <td>9.78%</td>
+      <td>19.25%</td>
+      <td>6.40</td>
+    </tr>
+    <tr>
+      <td>2025-12-04</td>
+      <td>Cukaricki</td>
+      <td>1458.29</td>
+      <td>0</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1705.96</td>
+      <td>3</td>
+      <td>9.78%</td>
+      <td>70.97%</td>
+      <td>19.25%</td>
+      <td>-6.39</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>OFK Beograd</td>
+      <td>1429.80</td>
+      <td>1</td>
+      <td>@ Javor</td>
+      <td>1414.20</td>
+      <td>0</td>
+      <td>30.39%</td>
+      <td>42.55%</td>
+      <td>27.06%</td>
+      <td>14.27</td>
+    </tr>
+    <tr>
+      <td>2025-12-06</td>
+      <td>Javor</td>
+      <td>1414.20</td>
+      <td>0</td>
+      <td>OFK Beograd</td>
+      <td>1429.80</td>
+      <td>1</td>
+      <td>42.55%</td>
+      <td>30.39%</td>
+      <td>27.06%</td>
+      <td>-14.27</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>IMT Novi Beograd</td>
+      <td>1392.88</td>
+      <td>2</td>
+      <td>Novi Pazar</td>
+      <td>1475.68</td>
+      <td>3</td>
+      <td>33.13%</td>
+      <td>39.68%</td>
+      <td>27.20%</td>
+      <td>-11.83</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Radnicki 1923</td>
+      <td>1452.85</td>
+      <td>2</td>
+      <td>Partizan</td>
+      <td>1613.58</td>
+      <td>4</td>
+      <td>23.77%</td>
+      <td>49.98%</td>
+      <td>26.24%</td>
+      <td>-12.84</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Partizan</td>
+      <td>1613.58</td>
+      <td>4</td>
+      <td>@ Radnicki 1923</td>
+      <td>1452.85</td>
+      <td>2</td>
+      <td>49.98%</td>
+      <td>23.77%</td>
+      <td>26.24%</td>
+      <td>12.84</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Novi Pazar</td>
+      <td>1475.68</td>
+      <td>3</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1392.88</td>
+      <td>2</td>
+      <td>39.68%</td>
+      <td>33.13%</td>
+      <td>27.20%</td>
+      <td>11.82</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1491.13</td>
+      <td>1</td>
+      <td>@ Napredak</td>
+      <td>1285.68</td>
+      <td>2</td>
+      <td>55.26%</td>
+      <td>19.55%</td>
+      <td>25.20%</td>
+      <td>-17.70</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Vojvodina</td>
+      <td>1523.79</td>
+      <td>1</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1712.36</td>
+      <td>0</td>
+      <td>12.56%</td>
+      <td>65.72%</td>
+      <td>21.72%</td>
+      <td>20.44</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Napredak</td>
+      <td>1285.68</td>
+      <td>2</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1491.13</td>
+      <td>1</td>
+      <td>19.55%</td>
+      <td>55.26%</td>
+      <td>25.20%</td>
+      <td>17.70</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Red Star Belgrade</td>
+      <td>1712.36</td>
+      <td>0</td>
+      <td>Vojvodina</td>
+      <td>1523.79</td>
+      <td>1</td>
+      <td>65.72%</td>
+      <td>12.56%</td>
+      <td>21.72%</td>
+      <td>-20.44</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Cukaricki</td>
+      <td>1451.90</td>
+      <td>2</td>
+      <td>@ Radnicki Nis</td>
+      <td>1359.65</td>
+      <td>1</td>
+      <td>41.00%</td>
+      <td>31.86%</td>
+      <td>27.14%</td>
+      <td>11.48</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>TSC Backa Topola</td>
+      <td>1393.11</td>
+      <td>2</td>
+      <td>@ Spartak Subotica</td>
+      <td>1341.52</td>
+      <td>1</td>
+      <td>35.23%</td>
+      <td>37.52%</td>
+      <td>27.24%</td>
+      <td>12.96</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Radnicki Nis</td>
+      <td>1359.65</td>
+      <td>1</td>
+      <td>Cukaricki</td>
+      <td>1451.90</td>
+      <td>2</td>
+      <td>31.86%</td>
+      <td>41.00%</td>
+      <td>27.14%</td>
+      <td>-11.48</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Radnik Surdulica</td>
+      <td>1418.36</td>
+      <td>0</td>
+      <td>Mladost Lucani</td>
+      <td>1404.31</td>
+      <td>0</td>
+      <td>46.50%</td>
+      <td>26.79%</td>
+      <td>26.71%</td>
+      <td>-1.32</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Spartak Subotica</td>
+      <td>1341.52</td>
+      <td>1</td>
+      <td>TSC Backa Topola</td>
+      <td>1393.11</td>
+      <td>2</td>
+      <td>37.52%</td>
+      <td>35.23%</td>
+      <td>27.24%</td>
+      <td>-12.96</td>
+    </tr>
+    <tr>
+      <td>2025-12-08</td>
+      <td>Mladost Lucani</td>
+      <td>1404.31</td>
+      <td>0</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1418.36</td>
+      <td>0</td>
+      <td>26.79%</td>
+      <td>46.50%</td>
+      <td>26.71%</td>
+      <td>1.32</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Cukaricki</td>
+      <td>1463.38</td>
+      <td>1</td>
+      <td>Radnik Surdulica</td>
+      <td>1417.04</td>
+      <td>1</td>
+      <td>50.57%</td>
+      <td>23.28%</td>
+      <td>26.15%</td>
+      <td>-1.87</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Vojvodina</td>
+      <td>1544.23</td>
+      <td>0</td>
+      <td>OFK Beograd</td>
+      <td>1444.07</td>
+      <td>0</td>
+      <td>56.80%</td>
+      <td>18.39%</td>
+      <td>24.81%</td>
+      <td>-2.72</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Partizan</td>
+      <td>1626.42</td>
+      <td>3</td>
+      <td>Napredak</td>
+      <td>1303.38</td>
+      <td>2</td>
+      <td>77.00%</td>
+      <td>7.10%</td>
+      <td>15.89%</td>
+      <td>2.52</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Radnicki 1923</td>
+      <td>1440.01</td>
+      <td>1</td>
+      <td>Javor</td>
+      <td>1399.93</td>
+      <td>1</td>
+      <td>49.80%</td>
+      <td>23.93%</td>
+      <td>26.27%</td>
+      <td>-1.77</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1473.43</td>
+      <td>1</td>
+      <td>IMT Novi Beograd</td>
+      <td>1381.05</td>
+      <td>0</td>
+      <td>55.94%</td>
+      <td>19.03%</td>
+      <td>25.03%</td>
+      <td>7.46</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>IMT Novi Beograd</td>
+      <td>1381.05</td>
+      <td>0</td>
+      <td>@ Zeleznicar Pancevo</td>
+      <td>1473.43</td>
+      <td>1</td>
+      <td>19.03%</td>
+      <td>55.94%</td>
+      <td>25.03%</td>
+      <td>-7.45</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Javor</td>
+      <td>1399.93</td>
+      <td>1</td>
+      <td>@ Radnicki 1923</td>
+      <td>1440.01</td>
+      <td>1</td>
+      <td>23.93%</td>
+      <td>49.80%</td>
+      <td>26.27%</td>
+      <td>1.77</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Napredak</td>
+      <td>1303.38</td>
+      <td>2</td>
+      <td>@ Partizan</td>
+      <td>1626.42</td>
+      <td>3</td>
+      <td>7.10%</td>
+      <td>77.00%</td>
+      <td>15.89%</td>
+      <td>-2.52</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>OFK Beograd</td>
+      <td>1444.07</td>
+      <td>0</td>
+      <td>@ Vojvodina</td>
+      <td>1544.23</td>
+      <td>0</td>
+      <td>18.39%</td>
+      <td>56.80%</td>
+      <td>24.81%</td>
+      <td>2.72</td>
+    </tr>
+    <tr>
+      <td>2025-12-13</td>
+      <td>Radnik Surdulica</td>
+      <td>1417.04</td>
+      <td>1</td>
+      <td>@ Cukaricki</td>
+      <td>1463.38</td>
+      <td>1</td>
+      <td>23.28%</td>
+      <td>50.57%</td>
+      <td>26.15%</td>
+      <td>1.87</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Spartak Subotica</td>
+      <td>1328.56</td>
+      <td>0</td>
+      <td>@ Mladost Lucani</td>
+      <td>1405.63</td>
+      <td>0</td>
+      <td>20.35%</td>
+      <td>54.21%</td>
+      <td>25.44%</td>
+      <td>2.37</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Radnicki Nis</td>
+      <td>1348.17</td>
+      <td>0</td>
+      <td>@ Novi Pazar</td>
+      <td>1487.50</td>
+      <td>1</td>
+      <td>15.51%</td>
+      <td>60.93%</td>
+      <td>23.56%</td>
+      <td>-6.12</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Mladost Lucani</td>
+      <td>1405.63</td>
+      <td>0</td>
+      <td>Spartak Subotica</td>
+      <td>1328.56</td>
+      <td>0</td>
+      <td>54.21%</td>
+      <td>20.35%</td>
+      <td>25.44%</td>
+      <td>-2.37</td>
+    </tr>
+    <tr>
+      <td>2025-12-14</td>
+      <td>Novi Pazar</td>
+      <td>1487.50</td>
+      <td>1</td>
+      <td>Radnicki Nis</td>
+      <td>1348.17</td>
+      <td>0</td>
+      <td>60.93%</td>
+      <td>15.51%</td>
+      <td>23.56%</td>
+      <td>6.12</td>
+    </tr>
+    <tr>
+      <td>2025-12-15</td>
+      <td>Red Star Belgrade</td>
+      <td>1691.92</td>
+      <td>0</td>
+      <td>@ TSC Backa Topola</td>
+      <td>1406.07</td>
+      <td>0</td>
+      <td>63.64%</td>
+      <td>13.79%</td>
+      <td>22.57%</td>
+      <td>-3.63</td>
+    </tr>
+    <tr>
+      <td>2025-12-15</td>
+      <td>TSC Backa Topola</td>
+      <td>1406.07</td>
+      <td>0</td>
+      <td>Red Star Belgrade</td>
+      <td>1691.92</td>
+      <td>0</td>
+      <td>13.79%</td>
+      <td>63.64%</td>
+      <td>22.57%</td>
+      <td>3.62</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Partizan</td>
+      <td>1628.94</td>
+      <td>0</td>
+      <td>@ IMT Novi Beograd</td>
+      <td>1373.60</td>
+      <td>1</td>
+      <td>60.61%</td>
+      <td>15.73%</td>
+      <td>23.66%</td>
+      <td>-19.13</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1480.89</td>
+      <td>0</td>
+      <td>@ Radnicki Nis</td>
+      <td>1342.05</td>
+      <td>1</td>
+      <td>47.23%</td>
+      <td>26.14%</td>
+      <td>26.63%</td>
+      <td>-15.51</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Mladost Lucani</td>
+      <td>1403.26</td>
+      <td>0</td>
+      <td>@ Red Star Belgrade</td>
+      <td>1688.29</td>
+      <td>4</td>
+      <td>8.35%</td>
+      <td>74.05%</td>
+      <td>17.60%</td>
+      <td>-6.13</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Radnicki Nis</td>
+      <td>1342.05</td>
+      <td>1</td>
+      <td>Zeleznicar Pancevo</td>
+      <td>1480.89</td>
+      <td>0</td>
+      <td>26.14%</td>
+      <td>47.23%</td>
+      <td>26.63%</td>
+      <td>15.51</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>IMT Novi Beograd</td>
+      <td>1373.60</td>
+      <td>1</td>
+      <td>Partizan</td>
+      <td>1628.94</td>
+      <td>0</td>
+      <td>15.73%</td>
+      <td>60.61%</td>
+      <td>23.66%</td>
+      <td>19.14</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Javor</td>
+      <td>1401.70</td>
+      <td>1</td>
+      <td>Vojvodina</td>
+      <td>1541.51</td>
+      <td>2</td>
+      <td>26.03%</td>
+      <td>47.35%</td>
+      <td>26.61%</td>
+      <td>-9.80</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Vojvodina</td>
+      <td>1541.51</td>
+      <td>2</td>
+      <td>@ Javor</td>
+      <td>1401.70</td>
+      <td>1</td>
+      <td>47.35%</td>
+      <td>26.03%</td>
+      <td>26.61%</td>
+      <td>9.79</td>
+    </tr>
+    <tr>
+      <td>2025-12-20</td>
+      <td>Red Star Belgrade</td>
+      <td>1688.29</td>
+      <td>4</td>
+      <td>Mladost Lucani</td>
+      <td>1403.26</td>
+      <td>0</td>
+      <td>74.05%</td>
+      <td>8.35%</td>
+      <td>17.60%</td>
+      <td>6.13</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Spartak Subotica</td>
+      <td>1330.93</td>
+      <td>1</td>
+      <td>Cukaricki</td>
+      <td>1461.51</td>
+      <td>3</td>
+      <td>27.09%</td>
+      <td>46.16%</td>
+      <td>26.75%</td>
+      <td>-14.30</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>TSC Backa Topola</td>
+      <td>1409.69</td>
+      <td>1</td>
+      <td>@ OFK Beograd</td>
+      <td>1446.79</td>
+      <td>0</td>
+      <td>24.24%</td>
+      <td>49.43%</td>
+      <td>26.33%</td>
+      <td>16.11</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Radnik Surdulica</td>
+      <td>1418.91</td>
+      <td>1</td>
+      <td>Novi Pazar</td>
+      <td>1493.62</td>
+      <td>0</td>
+      <td>34.24%</td>
+      <td>38.54%</td>
+      <td>27.23%</td>
+      <td>13.22</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>OFK Beograd</td>
+      <td>1446.79</td>
+      <td>0</td>
+      <td>TSC Backa Topola</td>
+      <td>1409.69</td>
+      <td>1</td>
+      <td>49.43%</td>
+      <td>24.24%</td>
+      <td>26.33%</td>
+      <td>-16.11</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Cukaricki</td>
+      <td>1461.51</td>
+      <td>3</td>
+      <td>@ Spartak Subotica</td>
+      <td>1330.93</td>
+      <td>1</td>
+      <td>46.16%</td>
+      <td>27.09%</td>
+      <td>26.75%</td>
+      <td>14.30</td>
+    </tr>
+    <tr>
+      <td>2025-12-21</td>
+      <td>Novi Pazar</td>
+      <td>1493.62</td>
+      <td>0</td>
+      <td>@ Radnik Surdulica</td>
+      <td>1418.91</td>
+      <td>1</td>
+      <td>38.54%</td>
+      <td>34.24%</td>
+      <td>27.23%</td>
+      <td>-13.22</td>
+    </tr>
+    <tr>
+      <td>2025-12-22</td>
+      <td>Napredak</td>
+      <td>1300.86</td>
+      <td>0</td>
+      <td>Radnicki 1923</td>
+      <td>1438.24</td>
+      <td>1</td>
+      <td>26.31%</td>
+      <td>47.04%</td>
+      <td>26.65%</td>
+      <td>-9.88</td>
+    </tr>
+    <tr>
+      <td>2025-12-22</td>
+      <td>Radnicki 1923</td>
+      <td>1438.24</td>
+      <td>1</td>
+      <td>@ Napredak</td>
+      <td>1300.86</td>
+      <td>0</td>
+      <td>47.04%</td>
+      <td>26.31%</td>
+      <td>26.65%</td>
+      <td>9.88</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

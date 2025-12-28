@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-12-06</td>
+      <td>12.88%</td>
+      <td>Club NXT (H)</td>
+      <td>1536.72</td>
+      <td>3</td>
+      <td>Beerschot</td>
+      <td>1791.41</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-30</td>
+      <td>13.35%</td>
+      <td>Antwerp</td>
+      <td>1811.51</td>
+      <td>1</td>
+      <td>Club Brugge (H)</td>
+      <td>1988.63</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-08-10</td>
+      <td>14.61%</td>
+      <td>Zulte Waregem</td>
+      <td>1786.15</td>
+      <td>3</td>
+      <td>Anderlecht (H)</td>
+      <td>1938.71</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-09-13</td>
+      <td>15.37%</td>
+      <td>La Louviere (H)</td>
+      <td>1756.91</td>
+      <td>1</td>
+      <td>Club Brugge</td>
+      <td>1963.51</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-12-26</td>
+      <td>15.93%</td>
+      <td>Charleroi</td>
+      <td>1812.63</td>
+      <td>2</td>
+      <td>Anderlecht (H)</td>
+      <td>1942.58</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-09-19</td>
+      <td>16.12%</td>
+      <td>Genk II</td>
+      <td>1584.42</td>
+      <td>2</td>
+      <td>Lommel (H)</td>
+      <td>1711.28</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-12-16</td>
+      <td>16.13%</td>
+      <td>Jong KAA Gent</td>
+      <td>1613.16</td>
+      <td>2</td>
+      <td>Beerschot (H)</td>
+      <td>1739.81</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-11-23</td>
+      <td>16.25%</td>
+      <td>Dender</td>
+      <td>1705.49</td>
+      <td>2</td>
+      <td>Antwerp (H)</td>
+      <td>1830.26</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-11-09</td>
+      <td>16.45%</td>
+      <td>Olympic Charleroi</td>
+      <td>1473.68</td>
+      <td>1</td>
+      <td>Francs Borains (H)</td>
+      <td>1595.35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-12-07</td>
+      <td>18.03%</td>
+      <td>Westerlo (H)</td>
+      <td>1801.70</td>
+      <td>4</td>
+      <td>Anderlecht</td>
+      <td>1968.18</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-12-07</td>
+      <td>18.79%</td>
+      <td>RFC Liege (H)</td>
+      <td>1653.55</td>
+      <td>2</td>
+      <td>Kortrijk</td>
+      <td>1810.17</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-11-29</td>
+      <td>18.85%</td>
+      <td>Francs Borains</td>
+      <td>1599.47</td>
+      <td>3</td>
+      <td>RWDM Brussels (H)</td>
+      <td>1687.85</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-08-31</td>
+      <td>18.87%</td>
+      <td>Genk II</td>
+      <td>1579.20</td>
+      <td>2</td>
+      <td>Club NXT (H)</td>
+      <td>1667.34</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-11-30</td>
+      <td>19.27%</td>
+      <td>Olympic Charleroi</td>
+      <td>1487.22</td>
+      <td>4</td>
+      <td>Genk II (H)</td>
+      <td>1570.29</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-11-07</td>
+      <td>19.50%</td>
+      <td>Jong KAA Gent</td>
+      <td>1634.37</td>
+      <td>2</td>
+      <td>RFC Liege (H)</td>
+      <td>1714.66</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-28</td>
+      <td>19.84%</td>
+      <td>Standard Liege</td>
+      <td>1804.28</td>
+      <td>1</td>
+      <td>Mechelen (H)</td>
+      <td>1880.59</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-09-20</td>
+      <td>20.01%</td>
+      <td>Zulte Waregem</td>
+      <td>1791.59</td>
+      <td>2</td>
+      <td>Charleroi (H)</td>
+      <td>1865.92</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-02</td>
+      <td>20.08%</td>
+      <td>Oud-Heverlee Leuven (H)</td>
+      <td>1764.51</td>
+      <td>4</td>
+      <td>Gent</td>
+      <td>1905.39</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-09-17</td>
+      <td>20.94%</td>
+      <td>Charleroi</td>
+      <td>1849.18</td>
+      <td>1</td>
+      <td>Genk (H)</td>
+      <td>1912.93</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-10-04</td>
+      <td>20.97%</td>
+      <td>Sint-Truiden</td>
+      <td>1826.96</td>
+      <td>3</td>
+      <td>Mechelen (H)</td>
+      <td>1890.46</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-14</td>
+      <td>21.11%</td>
+      <td>Westerlo</td>
+      <td>1818.76</td>
+      <td>3</td>
+      <td>Sint-Truiden (H)</td>
+      <td>1880.64</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-12-18</td>
+      <td>21.30%</td>
+      <td>Eupen</td>
+      <td>1683.34</td>
+      <td>1</td>
+      <td>Patro Eisden Maasmechelen (H)</td>
+      <td>1743.24</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-12-05</td>
+      <td>21.50%</td>
+      <td>Dender</td>
+      <td>1725.09</td>
+      <td>2</td>
+      <td>La Louviere (H)</td>
+      <td>1782.83</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-16</td>
+      <td>21.97%</td>
+      <td>Anderlecht II</td>
+      <td>1597.77</td>
+      <td>1</td>
+      <td>Jong KAA Gent (H)</td>
+      <td>1650.63</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-09-21</td>
+      <td>22.01%</td>
+      <td>Standard Liege</td>
+      <td>1795.22</td>
+      <td>2</td>
+      <td>Westerlo (H)</td>
+      <td>1847.64</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

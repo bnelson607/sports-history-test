@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-12-06</td>
+      <td>50.54</td>
+      <td>FC Kosice (H)</td>
+      <td>1357.25</td>
+      <td>2</td>
+      <td>7.44%</td>
+      <td>Slovan Bratislava</td>
+      <td>1718.78</td>
+      <td>0</td>
+      <td>70.85%</td>
+      <td>21.70%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-09-13</td>
+      <td>50.38</td>
+      <td>Ruzomberok</td>
+      <td>1370.97</td>
+      <td>3</td>
+      <td>16.79%</td>
+      <td>Trencin (H)</td>
+      <td>1515.39</td>
+      <td>0</td>
+      <td>54.64%</td>
+      <td>28.56%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-11-30</td>
+      <td>42.89</td>
+      <td>Zeleziarne Podbrezova (H)</td>
+      <td>1497.18</td>
+      <td>2</td>
+      <td>14.84%</td>
+      <td>Zilina</td>
+      <td>1700.82</td>
+      <td>0</td>
+      <td>57.38%</td>
+      <td>27.78%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-12-06</td>
+      <td>39.95</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1515.64</td>
+      <td>4</td>
+      <td>35.42%</td>
+      <td>Zemplin Michalovce (H)</td>
+      <td>1493.77</td>
+      <td>0</td>
+      <td>33.77%</td>
+      <td>30.80%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-10-26</td>
+      <td>36.81</td>
+      <td>Tatran Presov</td>
+      <td>1371.45</td>
+      <td>1</td>
+      <td>6.08%</td>
+      <td>Slovan Bratislava (H)</td>
+      <td>1748.60</td>
+      <td>0</td>
+      <td>74.35%</td>
+      <td>19.57%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-12-03</td>
+      <td>35.99</td>
+      <td>Ruzomberok</td>
+      <td>1415.24</td>
+      <td>2</td>
+      <td>7.13%</td>
+      <td>Slovan Bratislava (H)</td>
+      <td>1754.76</td>
+      <td>1</td>
+      <td>71.62%</td>
+      <td>21.25%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-08-31</td>
+      <td>35.46</td>
+      <td>FC DAC 1904</td>
+      <td>1640.62</td>
+      <td>3</td>
+      <td>34.21%</td>
+      <td>Spartak Trnava (H)</td>
+      <td>1627.20</td>
+      <td>0</td>
+      <td>34.98%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-07-27</td>
+      <td>32.19</td>
+      <td>Zeleziarne Podbrezova (H)</td>
+      <td>1504.52</td>
+      <td>3</td>
+      <td>28.88%</td>
+      <td>FC Kosice</td>
+      <td>1562.63</td>
+      <td>1</td>
+      <td>40.47%</td>
+      <td>30.65%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-12-06</td>
+      <td>31.81</td>
+      <td>Ruzomberok</td>
+      <td>1451.23</td>
+      <td>2</td>
+      <td>12.66%</td>
+      <td>Zilina (H)</td>
+      <td>1657.94</td>
+      <td>1</td>
+      <td>60.71%</td>
+      <td>26.63%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-11-09</td>
+      <td>30.99</td>
+      <td>Tatran Presov (H)</td>
+      <td>1391.62</td>
+      <td>2</td>
+      <td>13.84%</td>
+      <td>Spartak Trnava</td>
+      <td>1610.58</td>
+      <td>1</td>
+      <td>58.85%</td>
+      <td>27.30%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-08-24</td>
+      <td>30.21</td>
+      <td>Zilina (H)</td>
+      <td>1563.44</td>
+      <td>3</td>
+      <td>41.48%</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1529.99</td>
+      <td>0</td>
+      <td>27.93%</td>
+      <td>30.59%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-09-21</td>
+      <td>29.86</td>
+      <td>Zemplin Michalovce</td>
+      <td>1458.92</td>
+      <td>1</td>
+      <td>15.56%</td>
+      <td>Spartak Trnava (H)</td>
+      <td>1619.94</td>
+      <td>0</td>
+      <td>56.34%</td>
+      <td>28.10%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-11-08</td>
+      <td>28.97</td>
+      <td>Trencin (H)</td>
+      <td>1374.86</td>
+      <td>2</td>
+      <td>34.19%</td>
+      <td>FC Kosice</td>
+      <td>1393.78</td>
+      <td>0</td>
+      <td>35.00%</td>
+      <td>30.81%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-09-13</td>
+      <td>28.20</td>
+      <td>Spartak Trnava</td>
+      <td>1591.74</td>
+      <td>4</td>
+      <td>49.04%</td>
+      <td>Skalica (H)</td>
+      <td>1465.83</td>
+      <td>0</td>
+      <td>21.23%</td>
+      <td>29.73%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-09-14</td>
+      <td>28.14</td>
+      <td>Tatran Presov</td>
+      <td>1362.01</td>
+      <td>2</td>
+      <td>18.36%</td>
+      <td>Zemplin Michalovce (H)</td>
+      <td>1487.06</td>
+      <td>1</td>
+      <td>52.58%</td>
+      <td>29.06%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-10-25</td>
+      <td>27.54</td>
+      <td>Zeleziarne Podbrezova</td>
+      <td>1484.60</td>
+      <td>4</td>
+      <td>36.66%</td>
+      <td>FC Kosice (H)</td>
+      <td>1454.06</td>
+      <td>2</td>
+      <td>32.56%</td>
+      <td>30.79%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-08-02</td>
+      <td>27.53</td>
+      <td>Zemplin Michalovce (H)</td>
+      <td>1459.39</td>
+      <td>3</td>
+      <td>36.67%</td>
+      <td>Komarno</td>
+      <td>1460.96</td>
+      <td>1</td>
+      <td>32.54%</td>
+      <td>30.79%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-09-20</td>
+      <td>27.48</td>
+      <td>Ruzomberok</td>
+      <td>1421.35</td>
+      <td>3</td>
+      <td>36.75%</td>
+      <td>Tatran Presov (H)</td>
+      <td>1390.15</td>
+      <td>1</td>
+      <td>32.46%</td>
+      <td>30.79%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-09-13</td>
+      <td>26.30</td>
+      <td>Komarno</td>
+      <td>1424.36</td>
+      <td>3</td>
+      <td>21.66%</td>
+      <td>FC Kosice (H)</td>
+      <td>1513.69</td>
+      <td>2</td>
+      <td>48.52%</td>
+      <td>29.82%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-08-12</td>
+      <td>25.83</td>
+      <td>Skalica</td>
+      <td>1478.02</td>
+      <td>3</td>
+      <td>39.55%</td>
+      <td>Ruzomberok (H)</td>
+      <td>1426.71</td>
+      <td>1</td>
+      <td>29.76%</td>
+      <td>30.69%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-20</td>
+      <td>25.78</td>
+      <td>Zeleziarne Podbrezova (H)</td>
+      <td>1484.70</td>
+      <td>2</td>
+      <td>39.63%</td>
+      <td>Trencin</td>
+      <td>1465.01</td>
+      <td>0</td>
+      <td>29.68%</td>
+      <td>30.69%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-10-19</td>
+      <td>25.47</td>
+      <td>FC Kosice (H)</td>
+      <td>1428.59</td>
+      <td>3</td>
+      <td>23.26%</td>
+      <td>Zemplin Michalovce</td>
+      <td>1534.65</td>
+      <td>2</td>
+      <td>46.66%</td>
+      <td>30.08%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-09-27</td>
+      <td>25.03</td>
+      <td>Zemplin Michalovce (H)</td>
+      <td>1488.78</td>
+      <td>2</td>
+      <td>40.87%</td>
+      <td>Skalica</td>
+      <td>1459.91</td>
+      <td>0</td>
+      <td>28.51%</td>
+      <td>30.62%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-23</td>
+      <td>24.78</td>
+      <td>FC DAC 1904 (H)</td>
+      <td>1615.84</td>
+      <td>4</td>
+      <td>48.58%</td>
+      <td>Trencin</td>
+      <td>1526.02</td>
+      <td>1</td>
+      <td>21.61%</td>
+      <td>29.81%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-08-30</td>
+      <td>24.61</td>
+      <td>Komarno (H)</td>
+      <td>1399.75</td>
+      <td>1</td>
+      <td>24.95%</td>
+      <td>Skalica</td>
+      <td>1490.44</td>
+      <td>0</td>
+      <td>44.74%</td>
+      <td>30.31%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

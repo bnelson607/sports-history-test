@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-11-30</td>
+      <td>25.61</td>
+      <td>FC Santa Coloma</td>
+      <td>1142.58</td>
+      <td>6</td>
+      <td>49.55%</td>
+      <td>Penya Encarnada (H)</td>
+      <td>1013.67</td>
+      <td>0</td>
+      <td>34.06%</td>
+      <td>16.39%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-12-07</td>
+      <td>22.20</td>
+      <td>Penya Encarnada</td>
+      <td>988.06</td>
+      <td>4</td>
+      <td>29.30%</td>
+      <td>Ordino (H)</td>
+      <td>1008.35</td>
+      <td>2</td>
+      <td>54.44%</td>
+      <td>16.26%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-11-09</td>
+      <td>20.24</td>
+      <td>UE Santa Coloma (H)</td>
+      <td>1205.99</td>
+      <td>4</td>
+      <td>44.75%</td>
+      <td>Inter Club d Escaldes</td>
+      <td>1258.28</td>
+      <td>1</td>
+      <td>38.80%</td>
+      <td>16.45%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-12-17</td>
+      <td>19.33</td>
+      <td>Carroi (H)</td>
+      <td>885.66</td>
+      <td>2</td>
+      <td>16.93%</td>
+      <td>FC Santa Coloma</td>
+      <td>1176.01</td>
+      <td>1</td>
+      <td>67.65%</td>
+      <td>15.43%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-12-20</td>
+      <td>17.99</td>
+      <td>Carroi (H)</td>
+      <td>904.98</td>
+      <td>3</td>
+      <td>40.62%</td>
+      <td>Ordino</td>
+      <td>986.15</td>
+      <td>1</td>
+      <td>42.92%</td>
+      <td>16.46%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-11-26</td>
+      <td>16.86</td>
+      <td>Inter Club d Escaldes</td>
+      <td>1246.83</td>
+      <td>3</td>
+      <td>43.80%</td>
+      <td>FC Santa Coloma (H)</td>
+      <td>1159.44</td>
+      <td>1</td>
+      <td>39.74%</td>
+      <td>16.45%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-11-06</td>
+      <td>16.38</td>
+      <td>Ordino</td>
+      <td>993.77</td>
+      <td>4</td>
+      <td>26.87%</td>
+      <td>Penya Encarnada (H)</td>
+      <td>1034.77</td>
+      <td>3</td>
+      <td>56.97%</td>
+      <td>16.17%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-11-02</td>
+      <td>15.69</td>
+      <td>UE Santa Coloma</td>
+      <td>1174.83</td>
+      <td>3</td>
+      <td>54.84%</td>
+      <td>Pas de la Casa (H)</td>
+      <td>1004.97</td>
+      <td>0</td>
+      <td>28.91%</td>
+      <td>16.25%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-11-05</td>
+      <td>15.47</td>
+      <td>UE Santa Coloma (H)</td>
+      <td>1190.52</td>
+      <td>2</td>
+      <td>47.68%</td>
+      <td>Atletic Escaldes</td>
+      <td>1221.71</td>
+      <td>0</td>
+      <td>35.90%</td>
+      <td>16.42%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-11-23</td>
+      <td>14.54</td>
+      <td>Rangers</td>
+      <td>1162.13</td>
+      <td>3</td>
+      <td>50.22%</td>
+      <td>Penya Encarnada (H)</td>
+      <td>1028.20</td>
+      <td>1</td>
+      <td>33.40%</td>
+      <td>16.38%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-22</td>
+      <td>14.34</td>
+      <td>UE Santa Coloma</td>
+      <td>1163.81</td>
+      <td>2</td>
+      <td>50.77%</td>
+      <td>Ordino (H)</td>
+      <td>1025.78</td>
+      <td>0</td>
+      <td>32.87%</td>
+      <td>16.36%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-11-02</td>
+      <td>14.17</td>
+      <td>Rangers</td>
+      <td>1149.50</td>
+      <td>2</td>
+      <td>51.23%</td>
+      <td>Ordino (H)</td>
+      <td>1007.94</td>
+      <td>0</td>
+      <td>32.41%</td>
+      <td>16.35%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-12-21</td>
+      <td>13.76</td>
+      <td>FC Santa Coloma (H)</td>
+      <td>1156.68</td>
+      <td>2</td>
+      <td>52.33%</td>
+      <td>Rangers</td>
+      <td>1153.02</td>
+      <td>0</td>
+      <td>31.34%</td>
+      <td>16.33%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-12-21</td>
+      <td>13.47</td>
+      <td>UE Santa Coloma</td>
+      <td>1257.66</td>
+      <td>2</td>
+      <td>37.68%</td>
+      <td>Atletic Escaldes (H)</td>
+      <td>1213.48</td>
+      <td>1</td>
+      <td>45.89%</td>
+      <td>16.44%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-11-01</td>
+      <td>13.26</td>
+      <td>Atletic Escaldes</td>
+      <td>1208.45</td>
+      <td>2</td>
+      <td>53.66%</td>
+      <td>Penya Encarnada (H)</td>
+      <td>1048.03</td>
+      <td>0</td>
+      <td>30.05%</td>
+      <td>16.29%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-10-18</td>
+      <td>13.08</td>
+      <td>Rangers (H)</td>
+      <td>1127.71</td>
+      <td>2</td>
+      <td>39.18%</td>
+      <td>Atletic Escaldes</td>
+      <td>1219.08</td>
+      <td>1</td>
+      <td>44.37%</td>
+      <td>16.45%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-12-14</td>
+      <td>11.41</td>
+      <td>Inter Club d Escaldes</td>
+      <td>1266.26</td>
+      <td>1</td>
+      <td>45.84%</td>
+      <td>Rangers (H)</td>
+      <td>1164.43</td>
+      <td>0</td>
+      <td>37.72%</td>
+      <td>16.44%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-10-19</td>
+      <td>11.28</td>
+      <td>FC Santa Coloma (H)</td>
+      <td>1134.16</td>
+      <td>1</td>
+      <td>46.34%</td>
+      <td>UE Santa Coloma</td>
+      <td>1175.09</td>
+      <td>0</td>
+      <td>37.23%</td>
+      <td>16.43%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-11-23</td>
+      <td>10.58</td>
+      <td>UE Santa Coloma</td>
+      <td>1226.22</td>
+      <td>5</td>
+      <td>70.54%</td>
+      <td>Carroi (H)</td>
+      <td>901.40</td>
+      <td>0</td>
+      <td>14.37%</td>
+      <td>15.09%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-11-09</td>
+      <td>9.81</td>
+      <td>Penya Encarnada</td>
+      <td>1018.40</td>
+      <td>1</td>
+      <td>52.03%</td>
+      <td>Esperanca (H)</td>
+      <td>870.69</td>
+      <td>0</td>
+      <td>31.63%</td>
+      <td>16.33%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-11-09</td>
+      <td>9.15</td>
+      <td>Ordino (H)</td>
+      <td>1010.15</td>
+      <td>3</td>
+      <td>64.31%</td>
+      <td>Carroi</td>
+      <td>901.76</td>
+      <td>1</td>
+      <td>19.96%</td>
+      <td>15.73%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-11-23</td>
+      <td>8.79</td>
+      <td>Inter Club d Escaldes (H)</td>
+      <td>1238.04</td>
+      <td>1</td>
+      <td>55.86%</td>
+      <td>Atletic Escaldes</td>
+      <td>1206.24</td>
+      <td>0</td>
+      <td>27.93%</td>
+      <td>16.21%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-11-16</td>
+      <td>8.79</td>
+      <td>Carroi (H)</td>
+      <td>892.61</td>
+      <td>2</td>
+      <td>55.85%</td>
+      <td>Esperanca</td>
+      <td>860.88</td>
+      <td>1</td>
+      <td>27.94%</td>
+      <td>16.21%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-10-26</td>
+      <td>8.71</td>
+      <td>Rangers</td>
+      <td>1140.79</td>
+      <td>2</td>
+      <td>65.43%</td>
+      <td>Esperanca (H)</td>
+      <td>874.56</td>
+      <td>0</td>
+      <td>18.93%</td>
+      <td>15.64%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-11-23</td>
+      <td>8.26</td>
+      <td>FC Santa Coloma (H)</td>
+      <td>1151.18</td>
+      <td>3</td>
+      <td>66.55%</td>
+      <td>Ordino</td>
+      <td>1019.29</td>
+      <td>1</td>
+      <td>17.91%</td>
+      <td>15.54%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

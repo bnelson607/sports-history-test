@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Barcelona</td>
+      <td>Level 1</td>
+      <td>2195</td>
+      <td>27.95</td>
+      <td>4.93</td>
+      <td>5.12</td>
+      <td>46</td>
+      <td>88.97</td>
+      <td>42.97</td>
+      <td>66</td>
+      <td>85.06</td>
+      <td>88.62</td>
+      <td>92.03</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <td>Real Madrid</td>
+      <td>Level 1</td>
+      <td>2143</td>
+      <td>24.81</td>
+      <td>5.77</td>
+      <td>7.42</td>
+      <td>42</td>
+      <td>81.85</td>
+      <td>39.85</td>
+      <td>59</td>
+      <td>77.84</td>
+      <td>81.50</td>
+      <td>84.96</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Atletico Madrid</td>
+      <td>Level 1</td>
+      <td>2110</td>
+      <td>22.12</td>
+      <td>7.16</td>
+      <td>8.72</td>
+      <td>37</td>
+      <td>75.08</td>
+      <td>38.08</td>
+      <td>52</td>
+      <td>70.95</td>
+      <td>74.57</td>
+      <td>78.34</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Villarreal</td>
+      <td>Level 1</td>
+      <td>2087</td>
+      <td>22.60</td>
+      <td>8.00</td>
+      <td>7.40</td>
+      <td>35</td>
+      <td>75.21</td>
+      <td>40.21</td>
+      <td>54</td>
+      <td>70.74</td>
+      <td>74.70</td>
+      <td>78.75</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>Real Betis</td>
+      <td>Level 1</td>
+      <td>2023</td>
+      <td>16.16</td>
+      <td>9.49</td>
+      <td>12.35</td>
+      <td>28</td>
+      <td>60.83</td>
+      <td>32.83</td>
+      <td>42</td>
+      <td>56.49</td>
+      <td>60.32</td>
+      <td>64.11</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>Espanyol</td>
+      <td>Level 1</td>
+      <td>1993</td>
+      <td>18.28</td>
+      <td>11.38</td>
+      <td>8.35</td>
+      <td>33</td>
+      <td>63.18</td>
+      <td>30.18</td>
+      <td>46</td>
+      <td>58.89</td>
+      <td>62.62</td>
+      <td>66.44</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>Celta Vigo</td>
+      <td>Level 1</td>
+      <td>1982</td>
+      <td>13.31</td>
+      <td>11.36</td>
+      <td>13.33</td>
+      <td>23</td>
+      <td>53.26</td>
+      <td>30.26</td>
+      <td>32</td>
+      <td>48.96</td>
+      <td>52.69</td>
+      <td>56.56</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Athletic Bilbao</td>
+      <td>Level 1</td>
+      <td>1980</td>
+      <td>14.64</td>
+      <td>16.10</td>
+      <td>7.26</td>
+      <td>23</td>
+      <td>51.18</td>
+      <td>28.18</td>
+      <td>30</td>
+      <td>46.88</td>
+      <td>50.69</td>
+      <td>54.45</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>Osasuna</td>
+      <td>Level 1</td>
+      <td>1934</td>
+      <td>11.98</td>
+      <td>17.42</td>
+      <td>8.59</td>
+      <td>18</td>
+      <td>44.54</td>
+      <td>26.54</td>
+      <td>22</td>
+      <td>40.04</td>
+      <td>43.98</td>
+      <td>47.93</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Elche</td>
+      <td>Level 1</td>
+      <td>1927</td>
+      <td>11.62</td>
+      <td>13.91</td>
+      <td>12.47</td>
+      <td>22</td>
+      <td>47.34</td>
+      <td>25.34</td>
+      <td>26</td>
+      <td>43.00</td>
+      <td>46.75</td>
+      <td>50.53</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>Rayo Vallecano</td>
+      <td>Level 1</td>
+      <td>1925</td>
+      <td>11.18</td>
+      <td>15.40</td>
+      <td>11.43</td>
+      <td>18</td>
+      <td>44.96</td>
+      <td>26.96</td>
+      <td>24</td>
+      <td>40.48</td>
+      <td>44.39</td>
+      <td>48.32</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>Mallorca</td>
+      <td>Level 1</td>
+      <td>1924</td>
+      <td>10.96</td>
+      <td>15.60</td>
+      <td>11.44</td>
+      <td>18</td>
+      <td>44.33</td>
+      <td>26.33</td>
+      <td>25</td>
+      <td>39.98</td>
+      <td>43.73</td>
+      <td>47.62</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Sevilla</td>
+      <td>Level 1</td>
+      <td>1920</td>
+      <td>12.85</td>
+      <td>17.72</td>
+      <td>7.43</td>
+      <td>20</td>
+      <td>45.97</td>
+      <td>25.97</td>
+      <td>28</td>
+      <td>41.52</td>
+      <td>45.49</td>
+      <td>49.28</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Valencia</td>
+      <td>Level 1</td>
+      <td>1919</td>
+      <td>9.45</td>
+      <td>16.01</td>
+      <td>12.54</td>
+      <td>16</td>
+      <td>40.88</td>
+      <td>24.88</td>
+      <td>21</td>
+      <td>36.53</td>
+      <td>40.33</td>
+      <td>44.10</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Real Sociedad</td>
+      <td>Level 1</td>
+      <td>1908</td>
+      <td>10.46</td>
+      <td>17.24</td>
+      <td>10.30</td>
+      <td>17</td>
+      <td>41.68</td>
+      <td>24.68</td>
+      <td>23</td>
+      <td>37.37</td>
+      <td>41.08</td>
+      <td>44.92</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>Getafe</td>
+      <td>Level 1</td>
+      <td>1904</td>
+      <td>12.40</td>
+      <td>18.11</td>
+      <td>7.49</td>
+      <td>20</td>
+      <td>44.68</td>
+      <td>24.68</td>
+      <td>25</td>
+      <td>40.27</td>
+      <td>44.08</td>
+      <td>47.99</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>Alaves</td>
+      <td>Level 1</td>
+      <td>1900</td>
+      <td>11.11</td>
+      <td>18.53</td>
+      <td>8.36</td>
+      <td>18</td>
+      <td>41.70</td>
+      <td>23.70</td>
+      <td>23</td>
+      <td>37.44</td>
+      <td>41.08</td>
+      <td>44.82</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>Girona</td>
+      <td>Level 1</td>
+      <td>1864</td>
+      <td>8.27</td>
+      <td>18.43</td>
+      <td>11.30</td>
+      <td>15</td>
+      <td>36.11</td>
+      <td>21.11</td>
+      <td>18</td>
+      <td>31.84</td>
+      <td>35.39</td>
+      <td>39.24</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>Levante</td>
+      <td>Level 1</td>
+      <td>1861</td>
+      <td>7.74</td>
+      <td>20.88</td>
+      <td>9.37</td>
+      <td>10</td>
+      <td>32.60</td>
+      <td>22.60</td>
+      <td>14</td>
+      <td>28.34</td>
+      <td>31.96</td>
+      <td>35.74</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>Las Palmas</td>
+      <td>Level 2</td>
+      <td>1855</td>
+      <td>20.07</td>
+      <td>8.98</td>
+      <td>12.94</td>
+      <td>34</td>
+      <td>73.16</td>
+      <td>39.16</td>
+      <td>46</td>
+      <td>68.57</td>
+      <td>72.72</td>
+      <td>76.78</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>Racing Santander</td>
+      <td>Level 2</td>
+      <td>1853</td>
+      <td>22.06</td>
+      <td>9.96</td>
+      <td>9.98</td>
+      <td>37</td>
+      <td>76.17</td>
+      <td>39.17</td>
+      <td>51</td>
+      <td>71.61</td>
+      <td>75.73</td>
+      <td>79.79</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <td>Real Oviedo</td>
+      <td>Level 1</td>
+      <td>1837</td>
+      <td>6.73</td>
+      <td>21.18</td>
+      <td>10.09</td>
+      <td>11</td>
+      <td>30.28</td>
+      <td>19.28</td>
+      <td>13</td>
+      <td>26.12</td>
+      <td>29.64</td>
+      <td>33.27</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <td>Almeria</td>
+      <td>Level 2</td>
+      <td>1830</td>
+      <td>19.50</td>
+      <td>11.45</td>
+      <td>11.05</td>
+      <td>32</td>
+      <td>69.55</td>
+      <td>37.55</td>
+      <td>48</td>
+      <td>64.84</td>
+      <td>68.99</td>
+      <td>73.21</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>Castellon</td>
+      <td>Level 2</td>
+      <td>1808</td>
+      <td>18.80</td>
+      <td>13.00</td>
+      <td>10.21</td>
+      <td>31</td>
+      <td>66.60</td>
+      <td>35.60</td>
+      <td>43</td>
+      <td>61.80</td>
+      <td>66.06</td>
+      <td>70.33</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Deportivo La Coruna</td>
+      <td>Level 2</td>
+      <td>1802</td>
+      <td>18.38</td>
+      <td>12.50</td>
+      <td>11.11</td>
+      <td>32</td>
+      <td>66.26</td>
+      <td>34.26</td>
+      <td>45</td>
+      <td>61.57</td>
+      <td>65.73</td>
+      <td>69.88</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Cadiz</td>
+      <td>Level 2</td>
+      <td>1791</td>
+      <td>16.98</td>
+      <td>12.87</td>
+      <td>12.16</td>
+      <td>30</td>
+      <td>63.09</td>
+      <td>33.09</td>
+      <td>43</td>
+      <td>58.45</td>
+      <td>62.61</td>
+      <td>66.65</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>Burgos</td>
+      <td>Level 2</td>
+      <td>1785</td>
+      <td>16.92</td>
+      <td>13.91</td>
+      <td>11.17</td>
+      <td>29</td>
+      <td>61.92</td>
+      <td>32.92</td>
+      <td>41</td>
+      <td>57.23</td>
+      <td>61.42</td>
+      <td>65.56</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>Leganes</td>
+      <td>Level 2</td>
+      <td>1777</td>
+      <td>12.90</td>
+      <td>15.02</td>
+      <td>14.09</td>
+      <td>20</td>
+      <td>52.78</td>
+      <td>32.78</td>
+      <td>32</td>
+      <td>48.20</td>
+      <td>52.30</td>
+      <td>56.36</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>Sporting Gijon</td>
+      <td>Level 2</td>
+      <td>1773</td>
+      <td>17.48</td>
+      <td>15.36</td>
+      <td>9.16</td>
+      <td>30</td>
+      <td>61.59</td>
+      <td>31.59</td>
+      <td>41</td>
+      <td>56.91</td>
+      <td>61.03</td>
+      <td>65.18</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Malaga CF</td>
+      <td>Level 2</td>
+      <td>1772</td>
+      <td>15.43</td>
+      <td>15.36</td>
+      <td>11.22</td>
+      <td>26</td>
+      <td>57.50</td>
+      <td>31.50</td>
+      <td>35</td>
+      <td>52.83</td>
+      <td>56.94</td>
+      <td>61.11</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Cordoba</td>
+      <td>Level 2</td>
+      <td>1768</td>
+      <td>14.62</td>
+      <td>13.30</td>
+      <td>14.07</td>
+      <td>26</td>
+      <td>57.95</td>
+      <td>31.95</td>
+      <td>37</td>
+      <td>53.34</td>
+      <td>57.35</td>
+      <td>61.48</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>AD Ceuta FC</td>
+      <td>Level 2</td>
+      <td>1768</td>
+      <td>16.62</td>
+      <td>14.18</td>
+      <td>11.21</td>
+      <td>29</td>
+      <td>61.06</td>
+      <td>32.06</td>
+      <td>41</td>
+      <td>56.43</td>
+      <td>60.49</td>
+      <td>64.60</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Granada</td>
+      <td>Level 2</td>
+      <td>1761</td>
+      <td>12.03</td>
+      <td>14.78</td>
+      <td>15.19</td>
+      <td>21</td>
+      <td>51.28</td>
+      <td>30.28</td>
+      <td>31</td>
+      <td>46.61</td>
+      <td>50.72</td>
+      <td>54.92</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>Eibar</td>
+      <td>Level 2</td>
+      <td>1750</td>
+      <td>12.82</td>
+      <td>16.94</td>
+      <td>12.25</td>
+      <td>21</td>
+      <td>50.69</td>
+      <td>29.69</td>
+      <td>30</td>
+      <td>45.95</td>
+      <td>50.15</td>
+      <td>54.28</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Huesca</td>
+      <td>Level 2</td>
+      <td>1741</td>
+      <td>13.56</td>
+      <td>17.29</td>
+      <td>11.14</td>
+      <td>23</td>
+      <td>51.83</td>
+      <td>28.83</td>
+      <td>33</td>
+      <td>47.16</td>
+      <td>51.26</td>
+      <td>55.34</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <td>Albacete</td>
+      <td>Level 2</td>
+      <td>1739</td>
+      <td>13.72</td>
+      <td>17.09</td>
+      <td>11.19</td>
+      <td>23</td>
+      <td>52.35</td>
+      <td>29.35</td>
+      <td>32</td>
+      <td>47.67</td>
+      <td>51.79</td>
+      <td>55.95</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <td>Leonesa</td>
+      <td>Level 2</td>
+      <td>1737</td>
+      <td>14.72</td>
+      <td>19.11</td>
+      <td>8.16</td>
+      <td>23</td>
+      <td>52.34</td>
+      <td>29.34</td>
+      <td>30</td>
+      <td>47.62</td>
+      <td>51.69</td>
+      <td>55.98</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>Real Valladolid</td>
+      <td>Level 2</td>
+      <td>1730</td>
+      <td>13.16</td>
+      <td>16.71</td>
+      <td>12.13</td>
+      <td>24</td>
+      <td>51.61</td>
+      <td>27.61</td>
+      <td>32</td>
+      <td>47.06</td>
+      <td>50.97</td>
+      <td>54.99</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>Mirandes</td>
+      <td>Level 2</td>
+      <td>1723</td>
+      <td>11.17</td>
+      <td>20.72</td>
+      <td>10.11</td>
+      <td>16</td>
+      <td>43.62</td>
+      <td>27.62</td>
+      <td>22</td>
+      <td>39.06</td>
+      <td>43.04</td>
+      <td>47.07</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Real Sociedad B</td>
+      <td>Level 2</td>
+      <td>1719</td>
+      <td>12.93</td>
+      <td>19.89</td>
+      <td>9.18</td>
+      <td>21</td>
+      <td>47.96</td>
+      <td>26.96</td>
+      <td>27</td>
+      <td>43.27</td>
+      <td>47.40</td>
+      <td>51.46</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>Level 2</td>
+      <td>1712</td>
+      <td>12.98</td>
+      <td>16.96</td>
+      <td>12.06</td>
+      <td>24</td>
+      <td>51.01</td>
+      <td>27.01</td>
+      <td>30</td>
+      <td>46.45</td>
+      <td>50.29</td>
+      <td>54.44</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Real Zaragoza</td>
+      <td>Level 2</td>
+      <td>1677</td>
+      <td>9.78</td>
+      <td>21.25</td>
+      <td>10.97</td>
+      <td>17</td>
+      <td>40.31</td>
+      <td>23.31</td>
+      <td>22</td>
+      <td>35.83</td>
+      <td>39.63</td>
+      <td>43.58</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

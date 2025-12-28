@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-12-01</td>
+      <td>33.86</td>
+      <td>Fredericia</td>
+      <td>1504.64</td>
+      <td>3</td>
+      <td>10.85%</td>
+      <td>Brondby (H)</td>
+      <td>1755.38</td>
+      <td>1</td>
+      <td>69.60%</td>
+      <td>19.55%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-08-18</td>
+      <td>32.09</td>
+      <td>Aarhus GF</td>
+      <td>1628.51</td>
+      <td>5</td>
+      <td>31.98%</td>
+      <td>Odense (H)</td>
+      <td>1636.36</td>
+      <td>1</td>
+      <td>44.03%</td>
+      <td>23.99%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-08-01</td>
+      <td>31.85</td>
+      <td>Vejle BK (H)</td>
+      <td>1576.95</td>
+      <td>4</td>
+      <td>32.38%</td>
+      <td>Odense</td>
+      <td>1652.76</td>
+      <td>0</td>
+      <td>43.61%</td>
+      <td>24.01%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-08-15</td>
+      <td>31.26</td>
+      <td>Esbjerg</td>
+      <td>1430.57</td>
+      <td>5</td>
+      <td>33.34%</td>
+      <td>B.93 (H)</td>
+      <td>1428.14</td>
+      <td>1</td>
+      <td>42.62%</td>
+      <td>24.04%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-11-09</td>
+      <td>31.04</td>
+      <td>Vejle BK (H)</td>
+      <td>1511.04</td>
+      <td>2</td>
+      <td>15.46%</td>
+      <td>FC Copenhagen</td>
+      <td>1755.25</td>
+      <td>0</td>
+      <td>62.98%</td>
+      <td>21.56%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-08-29</td>
+      <td>29.54</td>
+      <td>Aarhus Fremad (H)</td>
+      <td>1413.71</td>
+      <td>5</td>
+      <td>36.23%</td>
+      <td>Aalborg</td>
+      <td>1461.27</td>
+      <td>1</td>
+      <td>39.67%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-11-22</td>
+      <td>29.49</td>
+      <td>Kolding IF</td>
+      <td>1467.61</td>
+      <td>3</td>
+      <td>28.89%</td>
+      <td>Aalborg (H)</td>
+      <td>1499.94</td>
+      <td>0</td>
+      <td>47.29%</td>
+      <td>23.82%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-08-22</td>
+      <td>29.21</td>
+      <td>Aalborg (H)</td>
+      <td>1432.06</td>
+      <td>4</td>
+      <td>36.80%</td>
+      <td>Hvidovre</td>
+      <td>1475.59</td>
+      <td>0</td>
+      <td>39.10%</td>
+      <td>24.10%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-08-16</td>
+      <td>28.57</td>
+      <td>Hobro</td>
+      <td>1378.74</td>
+      <td>2</td>
+      <td>19.85%</td>
+      <td>Hillerod (H)</td>
+      <td>1496.72</td>
+      <td>0</td>
+      <td>57.45%</td>
+      <td>22.70%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-12-07</td>
+      <td>28.42</td>
+      <td>Nordsjaelland (H)</td>
+      <td>1612.27</td>
+      <td>5</td>
+      <td>43.34%</td>
+      <td>Silkeborg</td>
+      <td>1609.48</td>
+      <td>0</td>
+      <td>32.65%</td>
+      <td>24.02%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-17</td>
+      <td>28.35</td>
+      <td>Silkeborg (H)</td>
+      <td>1596.80</td>
+      <td>3</td>
+      <td>20.27%</td>
+      <td>FC Copenhagen</td>
+      <td>1781.15</td>
+      <td>1</td>
+      <td>56.95%</td>
+      <td>22.78%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-08-03</td>
+      <td>28.34</td>
+      <td>Viborg</td>
+      <td>1618.84</td>
+      <td>2</td>
+      <td>20.28%</td>
+      <td>Brondby (H)</td>
+      <td>1732.11</td>
+      <td>0</td>
+      <td>56.94%</td>
+      <td>22.78%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-08-08</td>
+      <td>27.66</td>
+      <td>B.93</td>
+      <td>1400.48</td>
+      <td>4</td>
+      <td>32.23%</td>
+      <td>Hobro (H)</td>
+      <td>1406.40</td>
+      <td>1</td>
+      <td>43.77%</td>
+      <td>24.00%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-08-24</td>
+      <td>26.56</td>
+      <td>Sonderjyske (H)</td>
+      <td>1583.68</td>
+      <td>2</td>
+      <td>23.73%</td>
+      <td>Brondby</td>
+      <td>1732.66</td>
+      <td>0</td>
+      <td>52.95%</td>
+      <td>23.32%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-11-29</td>
+      <td>26.31</td>
+      <td>Esbjerg</td>
+      <td>1449.38</td>
+      <td>3</td>
+      <td>24.24%</td>
+      <td>Hvidovre (H)</td>
+      <td>1522.47</td>
+      <td>1</td>
+      <td>52.37%</td>
+      <td>23.39%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-02</td>
+      <td>26.06</td>
+      <td>Odense</td>
+      <td>1575.94</td>
+      <td>4</td>
+      <td>24.72%</td>
+      <td>Nordsjaelland (H)</td>
+      <td>1644.51</td>
+      <td>2</td>
+      <td>51.83%</td>
+      <td>23.45%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-08-09</td>
+      <td>24.95</td>
+      <td>Aarhus Fremad (H)</td>
+      <td>1402.67</td>
+      <td>3</td>
+      <td>27.03%</td>
+      <td>Hillerod</td>
+      <td>1521.67</td>
+      <td>1</td>
+      <td>49.29%</td>
+      <td>23.68%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-12-07</td>
+      <td>24.83</td>
+      <td>Sonderjyske</td>
+      <td>1675.38</td>
+      <td>2</td>
+      <td>27.29%</td>
+      <td>FC Copenhagen (H)</td>
+      <td>1721.10</td>
+      <td>0</td>
+      <td>49.00%</td>
+      <td>23.70%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-09-14</td>
+      <td>24.66</td>
+      <td>Aalborg (H)</td>
+      <td>1431.73</td>
+      <td>4</td>
+      <td>44.60%</td>
+      <td>Middlefart BK</td>
+      <td>1419.64</td>
+      <td>0</td>
+      <td>31.43%</td>
+      <td>23.97%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-09-22</td>
+      <td>23.60</td>
+      <td>Randers (H)</td>
+      <td>1632.80</td>
+      <td>3</td>
+      <td>40.22%</td>
+      <td>Nordsjaelland</td>
+      <td>1652.37</td>
+      <td>0</td>
+      <td>35.69%</td>
+      <td>24.09%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-10-05</td>
+      <td>23.60</td>
+      <td>Nordsjaelland</td>
+      <td>1616.70</td>
+      <td>3</td>
+      <td>40.22%</td>
+      <td>Vejle BK (H)</td>
+      <td>1565.29</td>
+      <td>0</td>
+      <td>35.69%</td>
+      <td>24.09%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-11-07</td>
+      <td>23.41</td>
+      <td>Horsens</td>
+      <td>1470.70</td>
+      <td>3</td>
+      <td>30.38%</td>
+      <td>Kolding IF (H)</td>
+      <td>1491.02</td>
+      <td>1</td>
+      <td>45.71%</td>
+      <td>23.91%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-11-07</td>
+      <td>23.01</td>
+      <td>Hobro (H)</td>
+      <td>1363.74</td>
+      <td>2</td>
+      <td>31.27%</td>
+      <td>Aarhus Fremad</td>
+      <td>1448.09</td>
+      <td>0</td>
+      <td>44.77%</td>
+      <td>23.96%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-24</td>
+      <td>22.63</td>
+      <td>Hobro (H)</td>
+      <td>1396.19</td>
+      <td>2</td>
+      <td>32.13%</td>
+      <td>Esbjerg</td>
+      <td>1473.94</td>
+      <td>0</td>
+      <td>43.88%</td>
+      <td>24.00%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-08-31</td>
+      <td>22.58</td>
+      <td>Sonderjyske</td>
+      <td>1610.23</td>
+      <td>2</td>
+      <td>32.25%</td>
+      <td>Silkeborg (H)</td>
+      <td>1616.07</td>
+      <td>0</td>
+      <td>43.75%</td>
+      <td>24.00%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="AP Brera Strumica" selected>AP Brera Strumica</option><option value="Arsimi" >Arsimi</option><option value="Bashkimi" >Bashkimi</option><option value="Makedonija GP" >Makedonija GP</option><option value="Pelister" >Pelister</option><option value="Rabotnicki" >Rabotnicki</option><option value="Shkendija" >Shkendija</option><option value="Shkupi" >Shkupi</option><option value="Sileks" >Sileks</option><option value="Struga" >Struga</option><option value="Tikvesh" >Tikvesh</option><option value="Vardar" >Vardar</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Selected Team</th>
+      <th colspan="2" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-12-07</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>40.63%</td>
+      <td>34.96%</td>
+      <td>24.41%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Pelister</td>
+      <td>934.49</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>48.87%</td>
+      <td>27.00%</td>
+      <td>24.14%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>30.44%</td>
+      <td>45.26%</td>
+      <td>24.30%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>11.73%</td>
+      <td>66.68%</td>
+      <td>21.58%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>57.82%</td>
+      <td>18.87%</td>
+      <td>23.31%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>Arsimi</td>
+      <td>1100.54</td>
+      <td>58.33%</td>
+      <td>18.43%</td>
+      <td>23.24%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>@ AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>34.96%</td>
+      <td>40.63%</td>
+      <td>24.41%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>@ Pelister</td>
+      <td>934.49</td>
+      <td>27.00%</td>
+      <td>48.87%</td>
+      <td>24.14%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>@ Shkendija</td>
+      <td>1174.62</td>
+      <td>45.26%</td>
+      <td>30.44%</td>
+      <td>24.30%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>@ Shkupi</td>
+      <td>753.19</td>
+      <td>66.68%</td>
+      <td>11.73%</td>
+      <td>21.58%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>@ Sileks</td>
+      <td>1120.39</td>
+      <td>18.87%</td>
+      <td>57.82%</td>
+      <td>23.31%</td>
+    </tr>
+    <tr>
+      <td>2025-12-07</td>
+      <td>Arsimi</td>
+      <td>1100.54</td>
+      <td>@ Vardar</td>
+      <td>1245.01</td>
+      <td>18.43%</td>
+      <td>58.33%</td>
+      <td>23.24%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>@ Arsimi</td>
+      <td>1095.43</td>
+      <td>18.56%</td>
+      <td>58.18%</td>
+      <td>23.26%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>@ Bashkimi</td>
+      <td>980.93</td>
+      <td>29.29%</td>
+      <td>46.46%</td>
+      <td>24.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>@ Makedonija GP</td>
+      <td>954.22</td>
+      <td>14.12%</td>
+      <td>63.55%</td>
+      <td>22.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>@ Struga</td>
+      <td>1250.28</td>
+      <td>19.72%</td>
+      <td>56.84%</td>
+      <td>23.43%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>@ Tikvesh</td>
+      <td>1036.65</td>
+      <td>52.97%</td>
+      <td>23.19%</td>
+      <td>23.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>23.19%</td>
+      <td>52.97%</td>
+      <td>23.84%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>56.84%</td>
+      <td>19.72%</td>
+      <td>23.43%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>7.74%</td>
+      <td>72.66%</td>
+      <td>19.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>63.55%</td>
+      <td>14.12%</td>
+      <td>22.33%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>46.46%</td>
+      <td>29.29%</td>
+      <td>24.25%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>58.18%</td>
+      <td>18.56%</td>
+      <td>23.26%</td>
+    </tr>
+    <tr>
+      <td>2026-02-05</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>@ Rabotnicki</td>
+      <td>874.28</td>
+      <td>72.66%</td>
+      <td>7.74%</td>
+      <td>19.60%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>@ Sileks</td>
+      <td>1120.39</td>
+      <td>42.36%</td>
+      <td>33.25%</td>
+      <td>24.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>@ Pelister</td>
+      <td>939.61</td>
+      <td>68.69%</td>
+      <td>10.31%</td>
+      <td>21.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>@ Shkupi</td>
+      <td>753.19</td>
+      <td>70.85%</td>
+      <td>8.87%</td>
+      <td>20.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>@ Vardar</td>
+      <td>1245.01</td>
+      <td>10.46%</td>
+      <td>68.47%</td>
+      <td>21.07%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>@ Makedonija GP</td>
+      <td>954.22</td>
+      <td>46.15%</td>
+      <td>29.58%</td>
+      <td>24.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>51.06%</td>
+      <td>24.95%</td>
+      <td>23.99%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>29.58%</td>
+      <td>46.15%</td>
+      <td>24.27%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>10.31%</td>
+      <td>68.69%</td>
+      <td>21.01%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>8.87%</td>
+      <td>70.85%</td>
+      <td>20.29%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>33.25%</td>
+      <td>42.36%</td>
+      <td>24.38%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>@ AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>24.95%</td>
+      <td>51.06%</td>
+      <td>23.99%</td>
+    </tr>
+    <tr>
+      <td>2026-02-22</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>68.47%</td>
+      <td>10.46%</td>
+      <td>21.07%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>@ Rabotnicki</td>
+      <td>874.28</td>
+      <td>20.54%</td>
+      <td>55.91%</td>
+      <td>23.55%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>58.00%</td>
+      <td>18.72%</td>
+      <td>23.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>44.77%</td>
+      <td>30.91%</td>
+      <td>24.32%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>55.91%</td>
+      <td>20.54%</td>
+      <td>23.55%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>66.30%</td>
+      <td>12.01%</td>
+      <td>21.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>41.61%</td>
+      <td>34.00%</td>
+      <td>24.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>29.42%</td>
+      <td>46.32%</td>
+      <td>24.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>@ Tikvesh</td>
+      <td>1036.65</td>
+      <td>46.32%</td>
+      <td>29.42%</td>
+      <td>24.26%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>@ Struga</td>
+      <td>1250.28</td>
+      <td>34.00%</td>
+      <td>41.61%</td>
+      <td>24.40%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>@ Arsimi</td>
+      <td>1095.43</td>
+      <td>18.72%</td>
+      <td>58.00%</td>
+      <td>23.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>@ Bashkimi</td>
+      <td>980.93</td>
+      <td>30.91%</td>
+      <td>44.77%</td>
+      <td>24.32%</td>
+    </tr>
+    <tr>
+      <td>2026-03-01</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>@ Shkendija</td>
+      <td>1174.62</td>
+      <td>12.01%</td>
+      <td>66.30%</td>
+      <td>21.68%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>@ Arsimi</td>
+      <td>1095.43</td>
+      <td>27.17%</td>
+      <td>48.69%</td>
+      <td>24.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>@ AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>67.76%</td>
+      <td>10.96%</td>
+      <td>21.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>@ Pelister</td>
+      <td>939.61</td>
+      <td>57.60%</td>
+      <td>19.06%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>@ Vardar</td>
+      <td>1245.01</td>
+      <td>25.82%</td>
+      <td>50.12%</td>
+      <td>24.06%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>@ Makedonija GP</td>
+      <td>954.22</td>
+      <td>24.75%</td>
+      <td>51.27%</td>
+      <td>23.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>50.12%</td>
+      <td>25.82%</td>
+      <td>24.06%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>15.29%</td>
+      <td>62.09%</td>
+      <td>22.63%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>19.06%</td>
+      <td>57.60%</td>
+      <td>23.34%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>51.27%</td>
+      <td>24.75%</td>
+      <td>23.98%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>10.96%</td>
+      <td>67.76%</td>
+      <td>21.28%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>48.69%</td>
+      <td>27.17%</td>
+      <td>24.15%</td>
+    </tr>
+    <tr>
+      <td>2026-03-04</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>@ Shkupi</td>
+      <td>753.19</td>
+      <td>62.09%</td>
+      <td>15.29%</td>
+      <td>22.63%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>@ Bashkimi</td>
+      <td>980.93</td>
+      <td>31.14%</td>
+      <td>44.53%</td>
+      <td>24.33%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>@ Rabotnicki</td>
+      <td>874.28</td>
+      <td>61.49%</td>
+      <td>15.77%</td>
+      <td>22.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>@ Sileks</td>
+      <td>1120.39</td>
+      <td>51.41%</td>
+      <td>24.62%</td>
+      <td>23.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>@ Shkendija</td>
+      <td>1174.62</td>
+      <td>12.77%</td>
+      <td>65.29%</td>
+      <td>21.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Tikvesh</td>
+      <td>1036.65</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>53.26%</td>
+      <td>22.92%</td>
+      <td>23.81%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Struga</td>
+      <td>1250.28</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>81.56%</td>
+      <td>3.43%</td>
+      <td>15.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Sileks</td>
+      <td>1120.39</td>
+      <td>Vardar</td>
+      <td>1245.01</td>
+      <td>24.62%</td>
+      <td>51.41%</td>
+      <td>23.97%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Shkendija</td>
+      <td>1174.62</td>
+      <td>AP Brera Strumica</td>
+      <td>952.45</td>
+      <td>65.29%</td>
+      <td>12.77%</td>
+      <td>21.94%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Rabotnicki</td>
+      <td>874.28</td>
+      <td>Arsimi</td>
+      <td>1095.43</td>
+      <td>15.77%</td>
+      <td>61.49%</td>
+      <td>22.73%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Bashkimi</td>
+      <td>980.93</td>
+      <td>Makedonija GP</td>
+      <td>954.22</td>
+      <td>44.53%</td>
+      <td>31.14%</td>
+      <td>24.33%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Shkupi</td>
+      <td>753.19</td>
+      <td>@ Struga</td>
+      <td>1250.28</td>
+      <td>3.43%</td>
+      <td>81.56%</td>
+      <td>15.01%</td>
+    </tr>
+    <tr>
+      <td>2026-03-08</td>
+      <td>Pelister</td>
+      <td>939.61</td>
+      <td>@ Tikvesh</td>
+      <td>1036.65</td>
+      <td>22.92%</td>
+      <td>53.26%</td>
+      <td>23.81%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            function filterRows() {
+                const selected = teamFilter.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = team === selected ? "" : "none";
+                });
+            }
+
+            // Apply default filter on load
+            filterRows();
+
+            teamFilter.addEventListener("change", filterRows);
+        });
+    </script>
+</body>
+</html>

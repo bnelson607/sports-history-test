@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ararat-Armenia</td>
+      <td>Level 1</td>
+      <td>1673</td>
+      <td>10.48</td>
+      <td>0.22</td>
+      <td>4.3</td>
+      <td>34</td>
+      <td>35.75</td>
+      <td>1.75</td>
+      <td>34</td>
+      <td>34.11</td>
+      <td>34.94</td>
+      <td>35.96</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>Urartu</td>
+      <td>Level 1</td>
+      <td>1601</td>
+      <td>8.00</td>
+      <td>2.00</td>
+      <td>5.0</td>
+      <td>29</td>
+      <td>29.00</td>
+      <td>-0.00</td>
+      <td>29</td>
+      <td>28.25</td>
+      <td>28.50</td>
+      <td>28.75</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>Pyunik</td>
+      <td>Level 1</td>
+      <td>1518</td>
+      <td>8.60</td>
+      <td>3.80</td>
+      <td>2.6</td>
+      <td>26</td>
+      <td>28.39</td>
+      <td>2.39</td>
+      <td>26</td>
+      <td>26.40</td>
+      <td>28.05</td>
+      <td>29.05</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>Noah</td>
+      <td>Level 1</td>
+      <td>1492</td>
+      <td>6.32</td>
+      <td>3.38</td>
+      <td>5.3</td>
+      <td>23</td>
+      <td>24.26</td>
+      <td>1.26</td>
+      <td>23</td>
+      <td>22.32</td>
+      <td>23.40</td>
+      <td>24.43</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>Alashkert</td>
+      <td>Level 1</td>
+      <td>1471</td>
+      <td>9.00</td>
+      <td>4.00</td>
+      <td>2.0</td>
+      <td>29</td>
+      <td>29.00</td>
+      <td>-0.00</td>
+      <td>29</td>
+      <td>28.25</td>
+      <td>28.50</td>
+      <td>28.75</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>Van</td>
+      <td>Level 1</td>
+      <td>1428</td>
+      <td>6.00</td>
+      <td>6.00</td>
+      <td>3.0</td>
+      <td>21</td>
+      <td>21.00</td>
+      <td>-0.00</td>
+      <td>21</td>
+      <td>16.50</td>
+      <td>18.00</td>
+      <td>19.50</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>BKMA Yerevan</td>
+      <td>Level 1</td>
+      <td>1349</td>
+      <td>3.00</td>
+      <td>6.00</td>
+      <td>6.0</td>
+      <td>15</td>
+      <td>15.00</td>
+      <td>-0.00</td>
+      <td>15</td>
+      <td>11.25</td>
+      <td>12.50</td>
+      <td>13.75</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Shirak</td>
+      <td>Level 1</td>
+      <td>1263</td>
+      <td>2.00</td>
+      <td>9.00</td>
+      <td>4.0</td>
+      <td>10</td>
+      <td>10.00</td>
+      <td>-0.00</td>
+      <td>10</td>
+      <td>4.75</td>
+      <td>6.50</td>
+      <td>8.25</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Gandzasar Kapan</td>
+      <td>Level 1</td>
+      <td>1244</td>
+      <td>2.00</td>
+      <td>9.00</td>
+      <td>4.0</td>
+      <td>10</td>
+      <td>10.00</td>
+      <td>-0.00</td>
+      <td>10</td>
+      <td>4.75</td>
+      <td>6.50</td>
+      <td>8.25</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Ararat</td>
+      <td>Level 1</td>
+      <td>1149</td>
+      <td>0.00</td>
+      <td>12.00</td>
+      <td>3.0</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>-0.00</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

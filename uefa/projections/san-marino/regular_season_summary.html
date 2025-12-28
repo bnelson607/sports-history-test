@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Current</th>
+      <th>Avg. Pts.</th>
+      <th>Exp. Pts. Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Virtus</td>
+      <td>Level 1</td>
+      <td>1120</td>
+      <td>20.97</td>
+      <td>3.24</td>
+      <td>5.79</td>
+      <td>35</td>
+      <td>68.69</td>
+      <td>33.69</td>
+      <td>51</td>
+      <td>65.19</td>
+      <td>68.27</td>
+      <td>71.25</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>La Fiorita</td>
+      <td>Level 1</td>
+      <td>1114</td>
+      <td>17.80</td>
+      <td>2.28</td>
+      <td>9.92</td>
+      <td>30</td>
+      <td>63.33</td>
+      <td>33.33</td>
+      <td>48</td>
+      <td>59.82</td>
+      <td>62.86</td>
+      <td>65.94</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>Tre Fiori</td>
+      <td>Level 1</td>
+      <td>1091</td>
+      <td>20.50</td>
+      <td>2.43</td>
+      <td>7.07</td>
+      <td>36</td>
+      <td>68.57</td>
+      <td>32.57</td>
+      <td>52</td>
+      <td>65.04</td>
+      <td>68.16</td>
+      <td>71.29</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>Tre Penne</td>
+      <td>Level 1</td>
+      <td>1021</td>
+      <td>16.01</td>
+      <td>5.33</td>
+      <td>8.65</td>
+      <td>28</td>
+      <td>56.69</td>
+      <td>28.69</td>
+      <td>39</td>
+      <td>53.01</td>
+      <td>56.22</td>
+      <td>59.40</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Cosmos</td>
+      <td>Level 1</td>
+      <td>992</td>
+      <td>12.56</td>
+      <td>7.81</td>
+      <td>9.62</td>
+      <td>20</td>
+      <td>47.32</td>
+      <td>27.32</td>
+      <td>31</td>
+      <td>43.56</td>
+      <td>46.85</td>
+      <td>50.10</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Domagnano</td>
+      <td>Level 1</td>
+      <td>981</td>
+      <td>15.04</td>
+      <td>5.08</td>
+      <td>9.88</td>
+      <td>29</td>
+      <td>54.99</td>
+      <td>25.99</td>
+      <td>38</td>
+      <td>51.31</td>
+      <td>54.46</td>
+      <td>57.66</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>Folgore Falciano</td>
+      <td>Level 1</td>
+      <td>953</td>
+      <td>13.46</td>
+      <td>8.58</td>
+      <td>7.96</td>
+      <td>24</td>
+      <td>48.33</td>
+      <td>24.33</td>
+      <td>30</td>
+      <td>44.62</td>
+      <td>47.78</td>
+      <td>51.01</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Juvenes Dogana</td>
+      <td>Level 1</td>
+      <td>885</td>
+      <td>10.48</td>
+      <td>9.53</td>
+      <td>9.99</td>
+      <td>20</td>
+      <td>41.42</td>
+      <td>21.42</td>
+      <td>26</td>
+      <td>37.78</td>
+      <td>40.90</td>
+      <td>43.97</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>Fiorentino</td>
+      <td>Level 1</td>
+      <td>883</td>
+      <td>11.17</td>
+      <td>10.89</td>
+      <td>7.95</td>
+      <td>21</td>
+      <td>41.45</td>
+      <td>20.45</td>
+      <td>25</td>
+      <td>37.76</td>
+      <td>40.92</td>
+      <td>44.04</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>San Giovanni</td>
+      <td>Level 1</td>
+      <td>842</td>
+      <td>5.62</td>
+      <td>13.52</td>
+      <td>10.87</td>
+      <td>9</td>
+      <td>27.72</td>
+      <td>18.72</td>
+      <td>11</td>
+      <td>24.08</td>
+      <td>27.10</td>
+      <td>30.26</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>Murata</td>
+      <td>Level 1</td>
+      <td>774</td>
+      <td>4.53</td>
+      <td>16.75</td>
+      <td>8.72</td>
+      <td>7</td>
+      <td>22.32</td>
+      <td>15.32</td>
+      <td>9</td>
+      <td>18.74</td>
+      <td>21.66</td>
+      <td>24.71</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Pennarossa</td>
+      <td>Level 1</td>
+      <td>760</td>
+      <td>8.31</td>
+      <td>15.20</td>
+      <td>6.49</td>
+      <td>17</td>
+      <td>31.41</td>
+      <td>14.41</td>
+      <td>19</td>
+      <td>27.88</td>
+      <td>30.76</td>
+      <td>33.74</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Libertas</td>
+      <td>Level 1</td>
+      <td>757</td>
+      <td>5.18</td>
+      <td>15.33</td>
+      <td>9.50</td>
+      <td>11</td>
+      <td>25.03</td>
+      <td>14.03</td>
+      <td>12</td>
+      <td>21.58</td>
+      <td>24.36</td>
+      <td>27.29</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Faetano</td>
+      <td>Level 1</td>
+      <td>756</td>
+      <td>6.28</td>
+      <td>17.20</td>
+      <td>6.53</td>
+      <td>11</td>
+      <td>25.35</td>
+      <td>14.35</td>
+      <td>12</td>
+      <td>21.91</td>
+      <td>24.69</td>
+      <td>27.72</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>Cailungo</td>
+      <td>Level 1</td>
+      <td>691</td>
+      <td>3.70</td>
+      <td>20.06</td>
+      <td>6.24</td>
+      <td>5</td>
+      <td>17.34</td>
+      <td>12.34</td>
+      <td>6</td>
+      <td>13.96</td>
+      <td>16.66</td>
+      <td>19.55</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>San Marino Academy</td>
+      <td>Level 1</td>
+      <td>666</td>
+      <td>2.32</td>
+      <td>20.69</td>
+      <td>6.98</td>
+      <td>3</td>
+      <td>13.96</td>
+      <td>10.96</td>
+      <td>3</td>
+      <td>10.61</td>
+      <td>13.20</td>
+      <td>16.02</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

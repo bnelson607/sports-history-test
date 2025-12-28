@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-08-31</td>
+      <td>13.40%</td>
+      <td>Udinese</td>
+      <td>1899.37</td>
+      <td>2</td>
+      <td>Inter Milan (H)</td>
+      <td>2116.60</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-09</td>
+      <td>16.68%</td>
+      <td>Sassuolo</td>
+      <td>1926.84</td>
+      <td>3</td>
+      <td>Atalanta (H)</td>
+      <td>2065.60</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-12-06</td>
+      <td>16.73%</td>
+      <td>Hellas Verona (H)</td>
+      <td>1843.89</td>
+      <td>3</td>
+      <td>Atalanta</td>
+      <td>2044.51</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-12-14</td>
+      <td>16.76%</td>
+      <td>Udinese (H)</td>
+      <td>1899.47</td>
+      <td>1</td>
+      <td>Napoli</td>
+      <td>2099.63</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-12-01</td>
+      <td>16.78%</td>
+      <td>Cremonese</td>
+      <td>1911.77</td>
+      <td>3</td>
+      <td>Bologna (H)</td>
+      <td>2048.54</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-09-14</td>
+      <td>17.30%</td>
+      <td>Torino</td>
+      <td>1933.28</td>
+      <td>1</td>
+      <td>Roma (H)</td>
+      <td>2059.75</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-12-07</td>
+      <td>17.59%</td>
+      <td>Cagliari (H)</td>
+      <td>1883.62</td>
+      <td>1</td>
+      <td>Roma</td>
+      <td>2067.38</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-11-02</td>
+      <td>17.97%</td>
+      <td>Lecce</td>
+      <td>1859.10</td>
+      <td>1</td>
+      <td>Fiorentina (H)</td>
+      <td>1973.08</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-08-23</td>
+      <td>17.98%</td>
+      <td>Cremonese</td>
+      <td>1909.23</td>
+      <td>2</td>
+      <td>AC Milan (H)</td>
+      <td>2022.96</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-11-01</td>
+      <td>18.02%</td>
+      <td>Udinese (H)</td>
+      <td>1900.53</td>
+      <td>1</td>
+      <td>Atalanta</td>
+      <td>2076.54</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-18</td>
+      <td>19.18%</td>
+      <td>Torino (H)</td>
+      <td>1927.70</td>
+      <td>1</td>
+      <td>Napoli</td>
+      <td>2084.36</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-08-24</td>
+      <td>19.20%</td>
+      <td>Carrarese</td>
+      <td>1753.27</td>
+      <td>2</td>
+      <td>Spezia (H)</td>
+      <td>1846.70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-12-14</td>
+      <td>19.82%</td>
+      <td>Hellas Verona</td>
+      <td>1859.99</td>
+      <td>2</td>
+      <td>Fiorentina (H)</td>
+      <td>1943.98</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-10-19</td>
+      <td>20.19%</td>
+      <td>Padova</td>
+      <td>1715.26</td>
+      <td>1</td>
+      <td>Catanzaro (H)</td>
+      <td>1793.99</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-09-21</td>
+      <td>20.63%</td>
+      <td>Pescara (H)</td>
+      <td>1682.64</td>
+      <td>4</td>
+      <td>Empoli</td>
+      <td>1818.23</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-23</td>
+      <td>20.87%</td>
+      <td>AC Milan</td>
+      <td>2056.80</td>
+      <td>1</td>
+      <td>Inter Milan (H)</td>
+      <td>2126.29</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-09-27</td>
+      <td>20.96%</td>
+      <td>Padova</td>
+      <td>1711.68</td>
+      <td>1</td>
+      <td>Monza (H)</td>
+      <td>1779.97</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-01</td>
+      <td>21.24%</td>
+      <td>Virtus Entella (H)</td>
+      <td>1669.64</td>
+      <td>1</td>
+      <td>Empoli</td>
+      <td>1797.26</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-11-29</td>
+      <td>22.58%</td>
+      <td>Avellino</td>
+      <td>1716.56</td>
+      <td>1</td>
+      <td>Sudtirol (H)</td>
+      <td>1765.25</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-11-02</td>
+      <td>22.66%</td>
+      <td>Mantova</td>
+      <td>1700.82</td>
+      <td>1</td>
+      <td>Sampdoria (H)</td>
+      <td>1748.61</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-12-13</td>
+      <td>22.75%</td>
+      <td>Padova</td>
+      <td>1719.98</td>
+      <td>2</td>
+      <td>Reggiana 1919 (H)</td>
+      <td>1766.74</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-09-20</td>
+      <td>22.75%</td>
+      <td>Juve Stabia</td>
+      <td>1784.58</td>
+      <td>3</td>
+      <td>Spezia (H)</td>
+      <td>1831.31</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-10-04</td>
+      <td>22.81%</td>
+      <td>Lecce</td>
+      <td>1859.53</td>
+      <td>1</td>
+      <td>Parma (H)</td>
+      <td>1905.55</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-11-03</td>
+      <td>22.86%</td>
+      <td>Genoa</td>
+      <td>1890.85</td>
+      <td>2</td>
+      <td>Sassuolo (H)</td>
+      <td>1936.40</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-09-21</td>
+      <td>23.35%</td>
+      <td>Como</td>
+      <td>1963.69</td>
+      <td>2</td>
+      <td>Fiorentina (H)</td>
+      <td>2003.83</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

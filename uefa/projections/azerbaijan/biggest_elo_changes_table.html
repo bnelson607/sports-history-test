@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Tie Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-10-19</td>
+      <td>25.89</td>
+      <td>Sabah (H)</td>
+      <td>1478.61</td>
+      <td>3</td>
+      <td>18.98%</td>
+      <td>Zira</td>
+      <td>1599.58</td>
+      <td>0</td>
+      <td>48.85%</td>
+      <td>32.16%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-10-17</td>
+      <td>25.36</td>
+      <td>Kapaz</td>
+      <td>1275.96</td>
+      <td>4</td>
+      <td>19.82%</td>
+      <td>Shamakhi (H)</td>
+      <td>1386.18</td>
+      <td>1</td>
+      <td>47.44%</td>
+      <td>32.74%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-08-17</td>
+      <td>19.10</td>
+      <td>Sumgayit (H)</td>
+      <td>1358.72</td>
+      <td>3</td>
+      <td>32.92%</td>
+      <td>Kapaz</td>
+      <td>1353.30</td>
+      <td>0</td>
+      <td>31.37%</td>
+      <td>35.71%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-08-22</td>
+      <td>18.62</td>
+      <td>Sumgayit</td>
+      <td>1377.81</td>
+      <td>1</td>
+      <td>11.09%</td>
+      <td>Qarabag (H)</td>
+      <td>1654.63</td>
+      <td>0</td>
+      <td>68.27%</td>
+      <td>20.64%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-12-13</td>
+      <td>17.40</td>
+      <td>Shamakhi (H)</td>
+      <td>1374.74</td>
+      <td>2</td>
+      <td>13.47%</td>
+      <td>Zira</td>
+      <td>1591.26</td>
+      <td>1</td>
+      <td>60.99%</td>
+      <td>25.54%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-09-14</td>
+      <td>16.64</td>
+      <td>Shamakhi (H)</td>
+      <td>1361.17</td>
+      <td>3</td>
+      <td>39.22%</td>
+      <td>Karvan</td>
+      <td>1311.40</td>
+      <td>0</td>
+      <td>25.70%</td>
+      <td>35.09%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-09-20</td>
+      <td>16.39</td>
+      <td>Sabah (H)</td>
+      <td>1455.72</td>
+      <td>2</td>
+      <td>30.45%</td>
+      <td>Turan Tovuz</td>
+      <td>1467.77</td>
+      <td>0</td>
+      <td>33.87%</td>
+      <td>35.68%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-12-18</td>
+      <td>15.46</td>
+      <td>Sabah (H)</td>
+      <td>1555.18</td>
+      <td>2</td>
+      <td>17.69%</td>
+      <td>Qarabag</td>
+      <td>1694.26</td>
+      <td>1</td>
+      <td>51.21%</td>
+      <td>31.10%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-11-30</td>
+      <td>15.39</td>
+      <td>Gabala (H)</td>
+      <td>1338.99</td>
+      <td>2</td>
+      <td>17.87%</td>
+      <td>Araz-Naxcivan</td>
+      <td>1475.38</td>
+      <td>1</td>
+      <td>50.86%</td>
+      <td>31.26%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-09-20</td>
+      <td>15.25</td>
+      <td>Gabala (H)</td>
+      <td>1379.87</td>
+      <td>3</td>
+      <td>42.77%</td>
+      <td>Kapaz</td>
+      <td>1304.39</td>
+      <td>0</td>
+      <td>22.94%</td>
+      <td>34.29%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-18</td>
+      <td>14.92</td>
+      <td>Sumgayit (H)</td>
+      <td>1358.09</td>
+      <td>4</td>
+      <td>43.63%</td>
+      <td>Karvan</td>
+      <td>1276.30</td>
+      <td>1</td>
+      <td>22.33%</td>
+      <td>34.05%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-11-02</td>
+      <td>14.85</td>
+      <td>Sumgayit (H)</td>
+      <td>1367.64</td>
+      <td>3</td>
+      <td>19.25%</td>
+      <td>Araz-Naxcivan</td>
+      <td>1485.07</td>
+      <td>2</td>
+      <td>48.39%</td>
+      <td>32.36%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-11-07</td>
+      <td>14.74</td>
+      <td>Sumgayit</td>
+      <td>1382.49</td>
+      <td>2</td>
+      <td>35.61%</td>
+      <td>Gabala (H)</td>
+      <td>1358.29</td>
+      <td>0</td>
+      <td>28.83%</td>
+      <td>35.57%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-09-21</td>
+      <td>14.73</td>
+      <td>Qarabag</td>
+      <td>1639.68</td>
+      <td>5</td>
+      <td>52.88%</td>
+      <td>Araz-Naxcivan (H)</td>
+      <td>1487.65</td>
+      <td>0</td>
+      <td>16.85%</td>
+      <td>30.27%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-10-04</td>
+      <td>14.50</td>
+      <td>Turan Tovuz</td>
+      <td>1462.33</td>
+      <td>3</td>
+      <td>44.70%</td>
+      <td>Sumgayit (H)</td>
+      <td>1372.59</td>
+      <td>0</td>
+      <td>21.58%</td>
+      <td>33.72%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-29</td>
+      <td>14.47</td>
+      <td>Sabah</td>
+      <td>1515.38</td>
+      <td>3</td>
+      <td>44.78%</td>
+      <td>Imishli (H)</td>
+      <td>1425.05</td>
+      <td>0</td>
+      <td>21.53%</td>
+      <td>33.69%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-10-03</td>
+      <td>14.15</td>
+      <td>Araz-Naxcivan (H)</td>
+      <td>1471.35</td>
+      <td>2</td>
+      <td>37.45%</td>
+      <td>Imishli</td>
+      <td>1434.16</td>
+      <td>0</td>
+      <td>27.19%</td>
+      <td>35.36%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-09-21</td>
+      <td>14.04</td>
+      <td>Neftchi Baku</td>
+      <td>1424.66</td>
+      <td>2</td>
+      <td>37.79%</td>
+      <td>Sumgayit (H)</td>
+      <td>1385.05</td>
+      <td>0</td>
+      <td>26.89%</td>
+      <td>35.32%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-12-14</td>
+      <td>13.96</td>
+      <td>Kapaz (H)</td>
+      <td>1266.98</td>
+      <td>1</td>
+      <td>21.80%</td>
+      <td>Gabala</td>
+      <td>1354.38</td>
+      <td>0</td>
+      <td>44.38%</td>
+      <td>33.82%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-08-31</td>
+      <td>13.60</td>
+      <td>Imishli</td>
+      <td>1394.42</td>
+      <td>1</td>
+      <td>22.95%</td>
+      <td>Sabah (H)</td>
+      <td>1469.83</td>
+      <td>0</td>
+      <td>42.76%</td>
+      <td>34.29%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-11-07</td>
+      <td>13.39</td>
+      <td>Shamakhi (H)</td>
+      <td>1357.06</td>
+      <td>1</td>
+      <td>23.63%</td>
+      <td>Imishli</td>
+      <td>1425.78</td>
+      <td>0</td>
+      <td>41.84%</td>
+      <td>34.53%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-12-13</td>
+      <td>13.25</td>
+      <td>Sabah</td>
+      <td>1541.93</td>
+      <td>3</td>
+      <td>40.25%</td>
+      <td>Turan Tovuz (H)</td>
+      <td>1484.71</td>
+      <td>1</td>
+      <td>24.86%</td>
+      <td>34.89%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-10-26</td>
+      <td>13.07</td>
+      <td>Neftchi Baku</td>
+      <td>1439.57</td>
+      <td>2</td>
+      <td>40.81%</td>
+      <td>Gabala (H)</td>
+      <td>1378.31</td>
+      <td>0</td>
+      <td>24.42%</td>
+      <td>34.77%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-10-24</td>
+      <td>13.06</td>
+      <td>Imishli</td>
+      <td>1419.33</td>
+      <td>3</td>
+      <td>48.46%</td>
+      <td>Kapaz (H)</td>
+      <td>1301.32</td>
+      <td>0</td>
+      <td>19.21%</td>
+      <td>32.33%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-12-21</td>
+      <td>12.86</td>
+      <td>Araz-Naxcivan (H)</td>
+      <td>1458.10</td>
+      <td>2</td>
+      <td>41.46%</td>
+      <td>Shamakhi</td>
+      <td>1392.13</td>
+      <td>0</td>
+      <td>23.92%</td>
+      <td>34.62%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

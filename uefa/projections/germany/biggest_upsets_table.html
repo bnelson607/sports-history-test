@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-08-23</td>
+      <td>15.67%</td>
+      <td>Hoffenheim</td>
+      <td>1872.65</td>
+      <td>2</td>
+      <td>Bayer Leverkusen (H)</td>
+      <td>2032.32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-09-21</td>
+      <td>16.86%</td>
+      <td>Union Berlin</td>
+      <td>1849.43</td>
+      <td>4</td>
+      <td>Eintracht Frankfurt (H)</td>
+      <td>1992.26</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-12-06</td>
+      <td>17.09%</td>
+      <td>Augsburg (H)</td>
+      <td>1830.40</td>
+      <td>2</td>
+      <td>Bayer Leverkusen</td>
+      <td>2051.61</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-12-07</td>
+      <td>18.52%</td>
+      <td>1. FC Magdeburg</td>
+      <td>1654.79</td>
+      <td>2</td>
+      <td>Hertha BSC (H)</td>
+      <td>1776.11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-11-08</td>
+      <td>18.97%</td>
+      <td>1. FC Schweinfurt 05 (H)</td>
+      <td>1376.15</td>
+      <td>2</td>
+      <td>Hoffenheim II</td>
+      <td>1573.39</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-11-21</td>
+      <td>19.93%</td>
+      <td>Dynamo Dresden</td>
+      <td>1622.35</td>
+      <td>2</td>
+      <td>VfL Bochum (H)</td>
+      <td>1726.86</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-12-12</td>
+      <td>20.00%</td>
+      <td>Union Berlin (H)</td>
+      <td>1846.52</td>
+      <td>3</td>
+      <td>RB Leipzig</td>
+      <td>2031.66</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-09-13</td>
+      <td>20.21%</td>
+      <td>Hertha BSC</td>
+      <td>1688.39</td>
+      <td>3</td>
+      <td>Hannover 96 (H)</td>
+      <td>1789.75</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-11-29</td>
+      <td>20.32%</td>
+      <td>1. FC Heidenheim</td>
+      <td>1779.02</td>
+      <td>2</td>
+      <td>Union Berlin (H)</td>
+      <td>1879.08</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-12-20</td>
+      <td>21.08%</td>
+      <td>1. FC Magdeburg</td>
+      <td>1679.38</td>
+      <td>3</td>
+      <td>1. FC Kaiserslautern (H)</td>
+      <td>1771.07</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-11-29</td>
+      <td>21.59%</td>
+      <td>Eintracht Braunschweig (H)</td>
+      <td>1617.06</td>
+      <td>2</td>
+      <td>1. FC Kaiserslautern</td>
+      <td>1784.71</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-08-24</td>
+      <td>21.60%</td>
+      <td>Dynamo Dresden</td>
+      <td>1652.92</td>
+      <td>2</td>
+      <td>Arminia Bielefeld (H)</td>
+      <td>1739.06</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-08-31</td>
+      <td>21.98%</td>
+      <td>Alemannia Aachen</td>
+      <td>1481.69</td>
+      <td>3</td>
+      <td>Rot-Weiss Essen (H)</td>
+      <td>1563.75</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-10-25</td>
+      <td>22.13%</td>
+      <td>Arminia Bielefeld (H)</td>
+      <td>1682.00</td>
+      <td>2</td>
+      <td>Elversberg</td>
+      <td>1844.03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-12-21</td>
+      <td>22.53%</td>
+      <td>Eintracht Braunschweig (H)</td>
+      <td>1654.39</td>
+      <td>2</td>
+      <td>Schalke 04</td>
+      <td>1812.24</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-22</td>
+      <td>22.57%</td>
+      <td>Hannover 96</td>
+      <td>1753.01</td>
+      <td>2</td>
+      <td>Paderborn 07 (H)</td>
+      <td>1829.02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-12-06</td>
+      <td>22.90%</td>
+      <td>SSV Ulm</td>
+      <td>1455.17</td>
+      <td>1</td>
+      <td>Viktoria Koln (H)</td>
+      <td>1527.90</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-09-19</td>
+      <td>23.09%</td>
+      <td>Greuther Furth</td>
+      <td>1666.13</td>
+      <td>3</td>
+      <td>Arminia Bielefeld (H)</td>
+      <td>1736.92</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-12-06</td>
+      <td>23.24%</td>
+      <td>1. FC Heidenheim (H)</td>
+      <td>1795.75</td>
+      <td>2</td>
+      <td>SC Freiburg</td>
+      <td>1946.52</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-09-13</td>
+      <td>23.32%</td>
+      <td>1. FC Schweinfurt 05</td>
+      <td>1455.12</td>
+      <td>3</td>
+      <td>FC Ingolstadt 04 (H)</td>
+      <td>1523.67</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-10-05</td>
+      <td>23.96%</td>
+      <td>VfB Stuttgart II</td>
+      <td>1490.95</td>
+      <td>3</td>
+      <td>Hoffenheim II (H)</td>
+      <td>1553.27</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-10-17</td>
+      <td>24.28%</td>
+      <td>Eintracht Braunschweig</td>
+      <td>1651.44</td>
+      <td>2</td>
+      <td>Dusseldorf (H)</td>
+      <td>1710.67</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-10-24</td>
+      <td>24.31%</td>
+      <td>Alemannia Aachen</td>
+      <td>1475.04</td>
+      <td>2</td>
+      <td>Wehen Wiesbaden (H)</td>
+      <td>1533.98</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-08-23</td>
+      <td>24.43%</td>
+      <td>Dusseldorf</td>
+      <td>1707.07</td>
+      <td>2</td>
+      <td>Paderborn 07 (H)</td>
+      <td>1764.92</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-12-20</td>
+      <td>24.61%</td>
+      <td>VfB Stuttgart II</td>
+      <td>1510.73</td>
+      <td>2</td>
+      <td>VfL Osnabruck (H)</td>
+      <td>1566.85</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-08-30</td>
+      <td>8.64%</td>
+      <td>Telstar</td>
+      <td>1749.03</td>
+      <td>2</td>
+      <td>PSV Eindhoven (H)</td>
+      <td>2041.36</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-12-19</td>
+      <td>9.81%</td>
+      <td>Jong PSV</td>
+      <td>1600.51</td>
+      <td>2</td>
+      <td>ADO Den Haag (H)</td>
+      <td>1861.55</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-11-28</td>
+      <td>13.27%</td>
+      <td>Jong Utrecht</td>
+      <td>1528.26</td>
+      <td>2</td>
+      <td>Dordrecht (H)</td>
+      <td>1713.66</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-11-22</td>
+      <td>13.74%</td>
+      <td>Excelsior</td>
+      <td>1769.79</td>
+      <td>2</td>
+      <td>Ajax (H)</td>
+      <td>1946.48</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-08-23</td>
+      <td>14.61%</td>
+      <td>Jong PSV</td>
+      <td>1583.17</td>
+      <td>2</td>
+      <td>Dordrecht (H)</td>
+      <td>1744.36</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-11-23</td>
+      <td>15.56%</td>
+      <td>NEC Nijmegen</td>
+      <td>1866.30</td>
+      <td>4</td>
+      <td>Feyenoord (H)</td>
+      <td>2011.88</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-08-22</td>
+      <td>17.31%</td>
+      <td>MVV Maastricht</td>
+      <td>1592.68</td>
+      <td>1</td>
+      <td>De Graafschap (H)</td>
+      <td>1711.85</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-10-21</td>
+      <td>17.44%</td>
+      <td>Jong Utrecht</td>
+      <td>1507.81</td>
+      <td>1</td>
+      <td>VVV-Venlo (H)</td>
+      <td>1625.19</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-11-03</td>
+      <td>17.88%</td>
+      <td>FC Eindhoven</td>
+      <td>1560.40</td>
+      <td>2</td>
+      <td>Jong Alkmaar (H)</td>
+      <td>1671.57</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-09-14</td>
+      <td>18.21%</td>
+      <td>Groningen</td>
+      <td>1815.86</td>
+      <td>1</td>
+      <td>Utrecht (H)</td>
+      <td>1922.60</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-12-12</td>
+      <td>18.54%</td>
+      <td>Jong Utrecht</td>
+      <td>1536.87</td>
+      <td>4</td>
+      <td>Jong Alkmaar (H)</td>
+      <td>1639.23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-12-12</td>
+      <td>19.05%</td>
+      <td>FC Eindhoven</td>
+      <td>1592.47</td>
+      <td>4</td>
+      <td>Dordrecht (H)</td>
+      <td>1688.18</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-11-03</td>
+      <td>19.30%</td>
+      <td>Almere City</td>
+      <td>1626.57</td>
+      <td>1</td>
+      <td>Dordrecht (H)</td>
+      <td>1719.14</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-12-12</td>
+      <td>19.31%</td>
+      <td>Roda JC Kerkrade</td>
+      <td>1655.91</td>
+      <td>3</td>
+      <td>De Graafschap (H)</td>
+      <td>1748.41</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-12-05</td>
+      <td>19.33%</td>
+      <td>VVV-Venlo</td>
+      <td>1594.96</td>
+      <td>2</td>
+      <td>RKC Waalwijk (H)</td>
+      <td>1687.14</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-24</td>
+      <td>19.68%</td>
+      <td>TOP Oss</td>
+      <td>1562.32</td>
+      <td>1</td>
+      <td>Jong Alkmaar (H)</td>
+      <td>1650.23</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-09-12</td>
+      <td>19.82%</td>
+      <td>Jong Utrecht (H)</td>
+      <td>1501.04</td>
+      <td>2</td>
+      <td>RKC Waalwijk</td>
+      <td>1712.78</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-09</td>
+      <td>21.00%</td>
+      <td>Go Ahead Eagles (H)</td>
+      <td>1825.94</td>
+      <td>2</td>
+      <td>Feyenoord</td>
+      <td>2023.78</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-09-05</td>
+      <td>21.28%</td>
+      <td>Emmen</td>
+      <td>1629.94</td>
+      <td>3</td>
+      <td>De Graafschap (H)</td>
+      <td>1698.99</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-09-12</td>
+      <td>22.47%</td>
+      <td>Jong PSV</td>
+      <td>1605.63</td>
+      <td>4</td>
+      <td>Almere City (H)</td>
+      <td>1661.60</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-19</td>
+      <td>22.61%</td>
+      <td>TOP Oss</td>
+      <td>1578.80</td>
+      <td>4</td>
+      <td>FC Eindhoven (H)</td>
+      <td>1633.29</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-08-15</td>
+      <td>22.96%</td>
+      <td>Jong PSV</td>
+      <td>1567.01</td>
+      <td>2</td>
+      <td>VVV-Venlo (H)</td>
+      <td>1617.83</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-12-12</td>
+      <td>23.28%</td>
+      <td>VVV-Venlo</td>
+      <td>1607.28</td>
+      <td>1</td>
+      <td>Den Bosch (H)</td>
+      <td>1654.78</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-12-05</td>
+      <td>23.80%</td>
+      <td>MVV Maastricht</td>
+      <td>1564.56</td>
+      <td>4</td>
+      <td>Helmond Sport (H)</td>
+      <td>1606.75</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-11-07</td>
+      <td>23.86%</td>
+      <td>VVV-Venlo</td>
+      <td>1612.03</td>
+      <td>2</td>
+      <td>Jong Alkmaar (H)</td>
+      <td>1653.61</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>
