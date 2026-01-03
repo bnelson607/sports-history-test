@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-09-20</td>
+      <td>204.03</td>
+      <td>San Diego State (H)</td>
+      <td>1297.89</td>
+      <td>34</td>
+      <td>9.38%</td>
+      <td>California</td>
+      <td>1725.53</td>
+      <td>0</td>
+      <td>90.62%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-11-15</td>
+      <td>197.76</td>
+      <td>Nevada (H)</td>
+      <td>1091.59</td>
+      <td>55</td>
+      <td>23.65%</td>
+      <td>San Jose State</td>
+      <td>1330.44</td>
+      <td>10</td>
+      <td>76.35%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-09-13</td>
+      <td>182.14</td>
+      <td>North Texas (H)</td>
+      <td>1391.24</td>
+      <td>59</td>
+      <td>32.61%</td>
+      <td>Washington State</td>
+      <td>1553.28</td>
+      <td>10</td>
+      <td>67.39%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-10-10</td>
+      <td>172.67</td>
+      <td>Colorado State (H)</td>
+      <td>1284.33</td>
+      <td>49</td>
+      <td>15.48%</td>
+      <td>Fresno State</td>
+      <td>1613.57</td>
+      <td>21</td>
+      <td>84.52%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-11-01</td>
+      <td>164.38</td>
+      <td>Fresno State</td>
+      <td>1377.20</td>
+      <td>30</td>
+      <td>11.23%</td>
+      <td>Boise State (H)</td>
+      <td>1696.15</td>
+      <td>7</td>
+      <td>88.77%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-11-15</td>
+      <td>162.79</td>
+      <td>Texas State</td>
+      <td>1364.50</td>
+      <td>41</td>
+      <td>18.86%</td>
+      <td>Southern Mississippi (H)</td>
+      <td>1578.69</td>
+      <td>14</td>
+      <td>81.14%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-09-27</td>
+      <td>159.93</td>
+      <td>Duke</td>
+      <td>1520.02</td>
+      <td>38</td>
+      <td>29.98%</td>
+      <td>Syracuse (H)</td>
+      <td>1628.99</td>
+      <td>3</td>
+      <td>70.02%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-11-22</td>
+      <td>153.83</td>
+      <td>UTSA (H)</td>
+      <td>1486.25</td>
+      <td>58</td>
+      <td>31.67%</td>
+      <td>East Carolina</td>
+      <td>1655.66</td>
+      <td>24</td>
+      <td>68.33%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-11-08</td>
+      <td>152.38</td>
+      <td>Hawaii (H)</td>
+      <td>1500.59</td>
+      <td>38</td>
+      <td>30.23%</td>
+      <td>San Diego State</td>
+      <td>1681.60</td>
+      <td>6</td>
+      <td>69.77%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-10-11</td>
+      <td>152.36</td>
+      <td>UCLA</td>
+      <td>1340.08</td>
+      <td>38</td>
+      <td>21.08%</td>
+      <td>Michigan State (H)</td>
+      <td>1530.34</td>
+      <td>13</td>
+      <td>78.92%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-10-30</td>
+      <td>149.09</td>
+      <td>UTSA (H)</td>
+      <td>1383.69</td>
+      <td>48</td>
+      <td>17.67%</td>
+      <td>Tulane</td>
+      <td>1685.64</td>
+      <td>26</td>
+      <td>82.33%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-10-14</td>
+      <td>147.44</td>
+      <td>Florida International</td>
+      <td>1156.46</td>
+      <td>25</td>
+      <td>12.39%</td>
+      <td>Western Kentucky (H)</td>
+      <td>1456.16</td>
+      <td>6</td>
+      <td>87.61%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-10-10</td>
+      <td>145.86</td>
+      <td>South Florida</td>
+      <td>1516.01</td>
+      <td>63</td>
+      <td>27.30%</td>
+      <td>North Texas (H)</td>
+      <td>1647.59</td>
+      <td>36</td>
+      <td>72.70%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-08-30</td>
+      <td>143.13</td>
+      <td>Utah</td>
+      <td>1489.31</td>
+      <td>43</td>
+      <td>35.47%</td>
+      <td>UCLA (H)</td>
+      <td>1555.28</td>
+      <td>10</td>
+      <td>64.53%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-11-01</td>
+      <td>142.47</td>
+      <td>Florida State (H)</td>
+      <td>1413.84</td>
+      <td>42</td>
+      <td>37.63%</td>
+      <td>Wake Forest</td>
+      <td>1537.89</td>
+      <td>7</td>
+      <td>62.37%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-09-20</td>
+      <td>141.21</td>
+      <td>Coastal Carolina</td>
+      <td>1227.26</td>
+      <td>38</td>
+      <td>13.80%</td>
+      <td>South Alabama (H)</td>
+      <td>1505.64</td>
+      <td>20</td>
+      <td>86.20%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-10-18</td>
+      <td>135.26</td>
+      <td>Central Michigan</td>
+      <td>1259.77</td>
+      <td>27</td>
+      <td>23.55%</td>
+      <td>Bowling Green (H)</td>
+      <td>1425.44</td>
+      <td>6</td>
+      <td>76.45%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-10-09</td>
+      <td>134.82</td>
+      <td>Kennesaw State (H)</td>
+      <td>1322.11</td>
+      <td>35</td>
+      <td>34.01%</td>
+      <td>Louisiana Tech</td>
+      <td>1473.27</td>
+      <td>7</td>
+      <td>65.99%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-10-11</td>
+      <td>131.27</td>
+      <td>Marshall (H)</td>
+      <td>1441.37</td>
+      <td>48</td>
+      <td>30.60%</td>
+      <td>Old Dominion</td>
+      <td>1619.37</td>
+      <td>24</td>
+      <td>69.40%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-11-08</td>
+      <td>130.76</td>
+      <td>Kentucky (H)</td>
+      <td>1506.29</td>
+      <td>38</td>
+      <td>39.17%</td>
+      <td>Florida</td>
+      <td>1619.09</td>
+      <td>7</td>
+      <td>60.83%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-09-13</td>
+      <td>130.51</td>
+      <td>Southern Mississippi (H)</td>
+      <td>1213.16</td>
+      <td>38</td>
+      <td>15.50%</td>
+      <td>Appalachian State</td>
+      <td>1542.21</td>
+      <td>22</td>
+      <td>84.50%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-09-13</td>
+      <td>130.41</td>
+      <td>Vanderbilt</td>
+      <td>1723.86</td>
+      <td>31</td>
+      <td>31.05%</td>
+      <td>South Carolina (H)</td>
+      <td>1824.14</td>
+      <td>7</td>
+      <td>68.95%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-08-30</td>
+      <td>130.41</td>
+      <td>Fresno State (H)</td>
+      <td>1426.18</td>
+      <td>42</td>
+      <td>36.17%</td>
+      <td>Georgia Southern</td>
+      <td>1561.02</td>
+      <td>14</td>
+      <td>63.83%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-09-20</td>
+      <td>127.36</td>
+      <td>Texas Tech</td>
+      <td>1592.28</td>
+      <td>34</td>
+      <td>32.67%</td>
+      <td>Utah (H)</td>
+      <td>1679.74</td>
+      <td>10</td>
+      <td>67.33%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-11-22</td>
+      <td>124.55</td>
+      <td>Wisconsin (H)</td>
+      <td>1419.95</td>
+      <td>27</td>
+      <td>21.76%</td>
+      <td>Illinois</td>
+      <td>1677.34</td>
+      <td>10</td>
+      <td>78.24%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

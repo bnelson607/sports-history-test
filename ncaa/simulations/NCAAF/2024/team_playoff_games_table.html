@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="Alabama">Alabama</option><option value="Arizona State">Arizona State</option><option value="Arkansas">Arkansas</option><option value="Arkansas State">Arkansas State</option><option value="Army">Army</option><option value="BYU">BYU</option><option value="Baylor">Baylor</option><option value="Boise State">Boise State</option><option value="Boston College">Boston College</option><option value="Bowling Green">Bowling Green</option><option value="Buffalo">Buffalo</option><option value="California">California</option><option value="Clemson">Clemson</option><option value="Coastal Carolina">Coastal Carolina</option><option value="Colorado">Colorado</option><option value="Colorado State">Colorado State</option><option value="Connecticut">Connecticut</option><option value="Duke">Duke</option><option value="East Carolina">East Carolina</option><option value="Florida">Florida</option><option value="Fresno State">Fresno State</option><option value="Georgia">Georgia</option><option value="Georgia Southern">Georgia Southern</option><option value="Georgia Tech">Georgia Tech</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Iowa State">Iowa State</option><option value="Jacksonville State">Jacksonville State</option><option value="James Madison">James Madison</option><option value="Kansas State">Kansas State</option><option value="LSU">LSU</option><option value="Liberty">Liberty</option><option value="Louisiana">Louisiana</option><option value="Louisiana Tech">Louisiana Tech</option><option value="Louisville">Louisville</option><option value="Memphis">Memphis</option><option value="Miami (FL)">Miami (FL)</option><option value="Miami (OH)">Miami (OH)</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Missouri">Missouri</option><option value="Navy">Navy</option><option value="Nebraska">Nebraska</option><option value="Nevada-Las Vegas">Nevada-Las Vegas</option><option value="North Carolina">North Carolina</option><option value="North Carolina State">North Carolina State</option><option value="North Texas">North Texas</option><option value="Northern Illinois">Northern Illinois</option><option value="Notre Dame">Notre Dame</option><option value="Ohio">Ohio</option><option value="Ohio State">Ohio State</option><option value="Oklahoma">Oklahoma</option><option value="Ole Miss">Ole Miss</option><option value="Oregon">Oregon</option><option value="Penn State">Penn State</option><option value="Pitt">Pitt</option><option value="Rutgers">Rutgers</option><option value="SMU">SMU</option><option value="Sam Houston">Sam Houston</option><option value="San Jose State">San Jose State</option><option value="South Alabama">South Alabama</option><option value="South Carolina">South Carolina</option><option value="South Florida">South Florida</option><option value="Syracuse">Syracuse</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Texas A&M">Texas A&M</option><option value="Texas Christian">Texas Christian</option><option value="Texas State">Texas State</option><option value="Texas Tech">Texas Tech</option><option value="Toledo">Toledo</option><option value="Tulane">Tulane</option><option value="USC">USC</option><option value="UTSA">UTSA</option><option value="Vanderbilt">Vanderbilt</option><option value="Virginia Tech">Virginia Tech</option><option value="Washington">Washington</option><option value="Washington State">Washington State</option><option value="West Virginia">West Virginia</option><option value="Western Kentucky">Western Kentucky</option><option value="Western Michigan">Western Michigan</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="2" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2024-12-14</td>
+      <td>Western Michigan</td>
+      <td>1307.95</td>
+      <td>23</td>
+      <td>South Alabama</td>
+      <td>1535.81</td>
+      <td>30</td>
+      <td>23.05%</td>
+      <td>76.95%</td>
+      <td>-19.14</td>
+    </tr>
+    <tr>
+      <td>2024-12-14</td>
+      <td>South Alabama</td>
+      <td>1535.81</td>
+      <td>30</td>
+      <td>@ Western Michigan</td>
+      <td>1307.95</td>
+      <td>23</td>
+      <td>76.95%</td>
+      <td>23.05%</td>
+      <td>19.14</td>
+    </tr>
+    <tr>
+      <td>2024-12-17</td>
+      <td>West Virginia</td>
+      <td>1492.28</td>
+      <td>37</td>
+      <td>Memphis</td>
+      <td>1665.23</td>
+      <td>42</td>
+      <td>28.60%</td>
+      <td>71.40%</td>
+      <td>-20.07</td>
+    </tr>
+    <tr>
+      <td>2024-12-17</td>
+      <td>Memphis</td>
+      <td>1665.23</td>
+      <td>42</td>
+      <td>@ West Virginia</td>
+      <td>1492.28</td>
+      <td>37</td>
+      <td>71.40%</td>
+      <td>28.60%</td>
+      <td>20.07</td>
+    </tr>
+    <tr>
+      <td>2024-12-18</td>
+      <td>Nevada-Las Vegas</td>
+      <td>1673.53</td>
+      <td>24</td>
+      <td>@ California</td>
+      <td>1566.12</td>
+      <td>13</td>
+      <td>63.84%</td>
+      <td>36.16%</td>
+      <td>37.64</td>
+    </tr>
+    <tr>
+      <td>2024-12-18</td>
+      <td>James Madison</td>
+      <td>1537.22</td>
+      <td>27</td>
+      <td>@ Western Kentucky</td>
+      <td>1423.92</td>
+      <td>17</td>
+      <td>64.55%</td>
+      <td>35.45%</td>
+      <td>35.18</td>
+    </tr>
+    <tr>
+      <td>2024-12-18</td>
+      <td>Western Kentucky</td>
+      <td>1423.92</td>
+      <td>17</td>
+      <td>James Madison</td>
+      <td>1537.22</td>
+      <td>27</td>
+      <td>35.45%</td>
+      <td>64.55%</td>
+      <td>-35.17</td>
+    </tr>
+    <tr>
+      <td>2024-12-18</td>
+      <td>California</td>
+      <td>1566.12</td>
+      <td>13</td>
+      <td>Nevada-Las Vegas</td>
+      <td>1673.53</td>
+      <td>24</td>
+      <td>36.16%</td>
+      <td>63.84%</td>
+      <td>-37.64</td>
+    </tr>
+    <tr>
+      <td>2024-12-19</td>
+      <td>Sam Houston</td>
+      <td>1456.07</td>
+      <td>31</td>
+      <td>Georgia Southern</td>
+      <td>1540.36</td>
+      <td>26</td>
+      <td>39.03%</td>
+      <td>60.97%</td>
+      <td>42.78</td>
+    </tr>
+    <tr>
+      <td>2024-12-19</td>
+      <td>Georgia Southern</td>
+      <td>1540.36</td>
+      <td>26</td>
+      <td>@ Sam Houston</td>
+      <td>1456.07</td>
+      <td>31</td>
+      <td>60.97%</td>
+      <td>39.03%</td>
+      <td>-42.78</td>
+    </tr>
+    <tr>
+      <td>2024-12-20</td>
+      <td>Tulane</td>
+      <td>1584.03</td>
+      <td>8</td>
+      <td>Florida</td>
+      <td>1746.46</td>
+      <td>33</td>
+      <td>29.75%</td>
+      <td>70.25%</td>
+      <td>-46.67</td>
+    </tr>
+    <tr>
+      <td>2024-12-20</td>
+      <td>Florida</td>
+      <td>1746.46</td>
+      <td>33</td>
+      <td>@ Tulane</td>
+      <td>1584.03</td>
+      <td>8</td>
+      <td>70.25%</td>
+      <td>29.75%</td>
+      <td>46.68</td>
+    </tr>
+    <tr>
+      <td>2024-12-20</td>
+      <td>Jacksonville State</td>
+      <td>1649.55</td>
+      <td>27</td>
+      <td>@ Ohio</td>
+      <td>1712.49</td>
+      <td>30</td>
+      <td>41.75%</td>
+      <td>58.25%</td>
+      <td>-22.69</td>
+    </tr>
+    <tr>
+      <td>2024-12-20</td>
+      <td>Notre Dame</td>
+      <td>2024.50</td>
+      <td>27</td>
+      <td>Indiana</td>
+      <td>1847.94</td>
+      <td>17</td>
+      <td>71.79%</td>
+      <td>28.21%</td>
+      <td>27.99</td>
+    </tr>
+    <tr>
+      <td>2024-12-20</td>
+      <td>Indiana</td>
+      <td>1847.94</td>
+      <td>17</td>
+      <td>@ Notre Dame</td>
+      <td>2024.50</td>
+      <td>27</td>
+      <td>28.21%</td>
+      <td>71.79%</td>
+      <td>-28.00</td>
+    </tr>
+    <tr>
+      <td>2024-12-20</td>
+      <td>Ohio</td>
+      <td>1712.49</td>
+      <td>30</td>
+      <td>Jacksonville State</td>
+      <td>1649.55</td>
+      <td>27</td>
+      <td>58.25%</td>
+      <td>41.75%</td>
+      <td>22.70</td>
+    </tr>
+    <tr>
+      <td>2024-12-21</td>
+      <td>Clemson</td>
+      <td>1829.20</td>
+      <td>24</td>
+      <td>@ Texas</td>
+      <td>1953.35</td>
+      <td>38</td>
+      <td>34.15%</td>
+      <td>65.85%</td>
+      <td>-40.09</td>
+    </tr>
+    <tr>
+      <td>2024-12-21</td>
+      <td>Tennessee</td>
+      <td>1866.23</td>
+      <td>17</td>
+      <td>@ Ohio State</td>
+      <td>1973.59</td>
+      <td>42</td>
+      <td>36.17%</td>
+      <td>63.83%</td>
+      <td>-56.75</td>
+    </tr>
+    <tr>
+      <td>2024-12-21</td>
+      <td>SMU</td>
+      <td>1848.56</td>
+      <td>10</td>
+      <td>@ Penn State</td>
+      <td>1904.72</td>
+      <td>38</td>
+      <td>42.63%</td>
+      <td>57.37%</td>
+      <td>-70.78</td>
+    </tr>
+    <tr>
+      <td>2024-12-21</td>
+      <td>Texas</td>
+      <td>1953.35</td>
+      <td>38</td>
+      <td>Clemson</td>
+      <td>1829.20</td>
+      <td>24</td>
+      <td>65.85%</td>
+      <td>34.15%</td>
+      <td>40.10</td>
+    </tr>
+    <tr>
+      <td>2024-12-21</td>
+      <td>Ohio State</td>
+      <td>1973.59</td>
+      <td>42</td>
+      <td>Tennessee</td>
+      <td>1866.23</td>
+      <td>17</td>
+      <td>63.83%</td>
+      <td>36.17%</td>
+      <td>56.76</td>
+    </tr>
+    <tr>
+      <td>2024-12-21</td>
+      <td>Penn State</td>
+      <td>1904.72</td>
+      <td>38</td>
+      <td>SMU</td>
+      <td>1848.56</td>
+      <td>10</td>
+      <td>57.37%</td>
+      <td>42.63%</td>
+      <td>70.78</td>
+    </tr>
+    <tr>
+      <td>2024-12-23</td>
+      <td>Coastal Carolina</td>
+      <td>1382.03</td>
+      <td>15</td>
+      <td>UTSA</td>
+      <td>1476.10</td>
+      <td>44</td>
+      <td>37.81%</td>
+      <td>62.19%</td>
+      <td>-63.89</td>
+    </tr>
+    <tr>
+      <td>2024-12-23</td>
+      <td>Northern Illinois</td>
+      <td>1479.71</td>
+      <td>28</td>
+      <td>Fresno State</td>
+      <td>1457.37</td>
+      <td>20</td>
+      <td>52.95%</td>
+      <td>47.05%</td>
+      <td>41.76</td>
+    </tr>
+    <tr>
+      <td>2024-12-23</td>
+      <td>Fresno State</td>
+      <td>1457.37</td>
+      <td>20</td>
+      <td>@ Northern Illinois</td>
+      <td>1479.71</td>
+      <td>28</td>
+      <td>47.05%</td>
+      <td>52.95%</td>
+      <td>-41.76</td>
+    </tr>
+    <tr>
+      <td>2024-12-23</td>
+      <td>UTSA</td>
+      <td>1476.10</td>
+      <td>44</td>
+      <td>@ Coastal Carolina</td>
+      <td>1382.03</td>
+      <td>15</td>
+      <td>62.19%</td>
+      <td>37.81%</td>
+      <td>63.89</td>
+    </tr>
+    <tr>
+      <td>2024-12-24</td>
+      <td>San Jose State</td>
+      <td>1467.91</td>
+      <td>39</td>
+      <td>@ South Florida</td>
+      <td>1363.32</td>
+      <td>41</td>
+      <td>63.49%</td>
+      <td>36.51%</td>
+      <td>-28.17</td>
+    </tr>
+    <tr>
+      <td>2024-12-24</td>
+      <td>South Florida</td>
+      <td>1363.32</td>
+      <td>41</td>
+      <td>San Jose State</td>
+      <td>1467.91</td>
+      <td>39</td>
+      <td>36.51%</td>
+      <td>63.49%</td>
+      <td>28.17</td>
+    </tr>
+    <tr>
+      <td>2024-12-26</td>
+      <td>Arkansas State</td>
+      <td>1394.74</td>
+      <td>38</td>
+      <td>@ Bowling Green</td>
+      <td>1501.40</td>
+      <td>31</td>
+      <td>36.26%</td>
+      <td>63.74%</td>
+      <td>52.92</td>
+    </tr>
+    <tr>
+      <td>2024-12-26</td>
+      <td>Kansas State</td>
+      <td>1695.81</td>
+      <td>44</td>
+      <td>@ Rutgers</td>
+      <td>1597.95</td>
+      <td>41</td>
+      <td>62.66%</td>
+      <td>37.34%</td>
+      <td>20.30</td>
+    </tr>
+    <tr>
+      <td>2024-12-26</td>
+      <td>Pitt</td>
+      <td>1454.06</td>
+      <td>46</td>
+      <td>@ Toledo</td>
+      <td>1343.06</td>
+      <td>48</td>
+      <td>64.27%</td>
+      <td>35.73%</td>
+      <td>-28.52</td>
+    </tr>
+    <tr>
+      <td>2024-12-26</td>
+      <td>Bowling Green</td>
+      <td>1501.40</td>
+      <td>31</td>
+      <td>Arkansas State</td>
+      <td>1394.74</td>
+      <td>38</td>
+      <td>63.74%</td>
+      <td>36.26%</td>
+      <td>-52.92</td>
+    </tr>
+    <tr>
+      <td>2024-12-26</td>
+      <td>Toledo</td>
+      <td>1343.06</td>
+      <td>48</td>
+      <td>Pitt</td>
+      <td>1454.06</td>
+      <td>46</td>
+      <td>35.73%</td>
+      <td>64.27%</td>
+      <td>28.53</td>
+    </tr>
+    <tr>
+      <td>2024-12-26</td>
+      <td>Rutgers</td>
+      <td>1597.95</td>
+      <td>41</td>
+      <td>Kansas State</td>
+      <td>1695.81</td>
+      <td>44</td>
+      <td>37.34%</td>
+      <td>62.66%</td>
+      <td>-20.29</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Arkansas</td>
+      <td>1526.08</td>
+      <td>39</td>
+      <td>@ Texas Tech</td>
+      <td>1647.94</td>
+      <td>26</td>
+      <td>34.42%</td>
+      <td>65.58%</td>
+      <td>74.20</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Navy</td>
+      <td>1621.26</td>
+      <td>21</td>
+      <td>@ Oklahoma</td>
+      <td>1605.66</td>
+      <td>20</td>
+      <td>52.06%</td>
+      <td>47.94%</td>
+      <td>15.04</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Syracuse</td>
+      <td>1653.65</td>
+      <td>52</td>
+      <td>@ Washington State</td>
+      <td>1516.86</td>
+      <td>35</td>
+      <td>67.34%</td>
+      <td>32.66%</td>
+      <td>42.26</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>USC</td>
+      <td>1659.02</td>
+      <td>35</td>
+      <td>Texas A&M</td>
+      <td>1722.39</td>
+      <td>31</td>
+      <td>41.70%</td>
+      <td>58.30%</td>
+      <td>36.59</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Washington State</td>
+      <td>1516.86</td>
+      <td>35</td>
+      <td>Syracuse</td>
+      <td>1653.65</td>
+      <td>52</td>
+      <td>32.66%</td>
+      <td>67.34%</td>
+      <td>-42.25</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Oklahoma</td>
+      <td>1605.66</td>
+      <td>20</td>
+      <td>Navy</td>
+      <td>1621.26</td>
+      <td>21</td>
+      <td>47.94%</td>
+      <td>52.06%</td>
+      <td>-15.04</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Vanderbilt</td>
+      <td>1520.98</td>
+      <td>35</td>
+      <td>Georgia Tech</td>
+      <td>1645.17</td>
+      <td>27</td>
+      <td>34.14%</td>
+      <td>65.86%</td>
+      <td>58.45</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Texas Tech</td>
+      <td>1647.94</td>
+      <td>26</td>
+      <td>Arkansas</td>
+      <td>1526.08</td>
+      <td>39</td>
+      <td>65.58%</td>
+      <td>34.42%</td>
+      <td>-74.20</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Georgia Tech</td>
+      <td>1645.17</td>
+      <td>27</td>
+      <td>@ Vanderbilt</td>
+      <td>1520.98</td>
+      <td>35</td>
+      <td>65.86%</td>
+      <td>34.14%</td>
+      <td>-58.45</td>
+    </tr>
+    <tr>
+      <td>2024-12-27</td>
+      <td>Texas A&M</td>
+      <td>1722.39</td>
+      <td>31</td>
+      <td>@ USC</td>
+      <td>1659.02</td>
+      <td>35</td>
+      <td>58.30%</td>
+      <td>41.70%</td>
+      <td>-36.59</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Army</td>
+      <td>1620.99</td>
+      <td>27</td>
+      <td>@ Louisiana Tech</td>
+      <td>1264.82</td>
+      <td>6</td>
+      <td>86.81%</td>
+      <td>13.19%</td>
+      <td>18.97</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>BYU</td>
+      <td>1736.17</td>
+      <td>36</td>
+      <td>@ Colorado</td>
+      <td>1716.01</td>
+      <td>14</td>
+      <td>52.66%</td>
+      <td>47.34%</td>
+      <td>69.67</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Connecticut</td>
+      <td>1496.97</td>
+      <td>27</td>
+      <td>@ North Carolina</td>
+      <td>1477.87</td>
+      <td>14</td>
+      <td>52.52%</td>
+      <td>47.48%</td>
+      <td>53.72</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>East Carolina</td>
+      <td>1353.56</td>
+      <td>26</td>
+      <td>@ North Carolina State</td>
+      <td>1510.04</td>
+      <td>21</td>
+      <td>30.41%</td>
+      <td>69.59%</td>
+      <td>48.83</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Boston College</td>
+      <td>1620.50</td>
+      <td>15</td>
+      <td>@ Nebraska</td>
+      <td>1543.68</td>
+      <td>20</td>
+      <td>60.02%</td>
+      <td>39.98%</td>
+      <td>-42.12</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Colorado State</td>
+      <td>1486.33</td>
+      <td>17</td>
+      <td>@ Miami (OH)</td>
+      <td>1561.33</td>
+      <td>43</td>
+      <td>40.21%</td>
+      <td>59.79%</td>
+      <td>-64.33</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Louisiana</td>
+      <td>1562.86</td>
+      <td>3</td>
+      <td>@ Texas Christian</td>
+      <td>1619.62</td>
+      <td>34</td>
+      <td>42.55%</td>
+      <td>57.45%</td>
+      <td>-74.34</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Louisiana Tech</td>
+      <td>1264.82</td>
+      <td>6</td>
+      <td>Army</td>
+      <td>1620.99</td>
+      <td>27</td>
+      <td>13.19%</td>
+      <td>86.81%</td>
+      <td>-18.96</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Nebraska</td>
+      <td>1543.68</td>
+      <td>20</td>
+      <td>Boston College</td>
+      <td>1620.50</td>
+      <td>15</td>
+      <td>39.98%</td>
+      <td>60.02%</td>
+      <td>42.11</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Colorado</td>
+      <td>1716.01</td>
+      <td>14</td>
+      <td>BYU</td>
+      <td>1736.17</td>
+      <td>36</td>
+      <td>47.34%</td>
+      <td>52.66%</td>
+      <td>-69.68</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Miami (OH)</td>
+      <td>1561.33</td>
+      <td>43</td>
+      <td>Colorado State</td>
+      <td>1486.33</td>
+      <td>17</td>
+      <td>59.79%</td>
+      <td>40.21%</td>
+      <td>64.34</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>North Carolina</td>
+      <td>1477.87</td>
+      <td>14</td>
+      <td>Connecticut</td>
+      <td>1496.97</td>
+      <td>27</td>
+      <td>47.48%</td>
+      <td>52.52%</td>
+      <td>-53.71</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>North Carolina State</td>
+      <td>1510.04</td>
+      <td>21</td>
+      <td>East Carolina</td>
+      <td>1353.56</td>
+      <td>26</td>
+      <td>69.59%</td>
+      <td>30.41%</td>
+      <td>-48.82</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Miami (FL)</td>
+      <td>1777.72</td>
+      <td>41</td>
+      <td>@ Iowa State</td>
+      <td>1696.45</td>
+      <td>42</td>
+      <td>60.59%</td>
+      <td>39.41%</td>
+      <td>-19.01</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Iowa State</td>
+      <td>1696.45</td>
+      <td>42</td>
+      <td>Miami (FL)</td>
+      <td>1777.72</td>
+      <td>41</td>
+      <td>39.41%</td>
+      <td>60.59%</td>
+      <td>19.01</td>
+    </tr>
+    <tr>
+      <td>2024-12-28</td>
+      <td>Texas Christian</td>
+      <td>1619.62</td>
+      <td>34</td>
+      <td>Louisiana</td>
+      <td>1562.86</td>
+      <td>3</td>
+      <td>57.45%</td>
+      <td>42.55%</td>
+      <td>74.34</td>
+    </tr>
+    <tr>
+      <td>2024-12-30</td>
+      <td>Iowa</td>
+      <td>1767.66</td>
+      <td>24</td>
+      <td>Missouri</td>
+      <td>1718.63</td>
+      <td>27</td>
+      <td>56.45%</td>
+      <td>43.55%</td>
+      <td>-30.68</td>
+    </tr>
+    <tr>
+      <td>2024-12-30</td>
+      <td>Missouri</td>
+      <td>1718.63</td>
+      <td>27</td>
+      <td>@ Iowa</td>
+      <td>1767.66</td>
+      <td>24</td>
+      <td>43.55%</td>
+      <td>56.45%</td>
+      <td>30.68</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Alabama</td>
+      <td>1850.43</td>
+      <td>13</td>
+      <td>@ Michigan</td>
+      <td>1777.68</td>
+      <td>19</td>
+      <td>59.51%</td>
+      <td>40.49%</td>
+      <td>-45.73</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Michigan</td>
+      <td>1777.68</td>
+      <td>19</td>
+      <td>Alabama</td>
+      <td>1850.43</td>
+      <td>13</td>
+      <td>40.49%</td>
+      <td>59.51%</td>
+      <td>45.74</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>LSU</td>
+      <td>1749.16</td>
+      <td>44</td>
+      <td>Baylor</td>
+      <td>1751.01</td>
+      <td>31</td>
+      <td>49.76%</td>
+      <td>50.24%</td>
+      <td>56.85</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Illinois</td>
+      <td>1718.22</td>
+      <td>21</td>
+      <td>South Carolina</td>
+      <td>1902.47</td>
+      <td>17</td>
+      <td>27.39%</td>
+      <td>72.61%</td>
+      <td>45.57</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Washington</td>
+      <td>1640.42</td>
+      <td>34</td>
+      <td>Louisville</td>
+      <td>1742.03</td>
+      <td>35</td>
+      <td>36.88%</td>
+      <td>63.12%</td>
+      <td>-11.58</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Louisville</td>
+      <td>1742.03</td>
+      <td>35</td>
+      <td>@ Washington</td>
+      <td>1640.42</td>
+      <td>34</td>
+      <td>63.12%</td>
+      <td>36.88%</td>
+      <td>11.57</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>South Carolina</td>
+      <td>1902.47</td>
+      <td>17</td>
+      <td>@ Illinois</td>
+      <td>1718.22</td>
+      <td>21</td>
+      <td>72.61%</td>
+      <td>27.39%</td>
+      <td>-45.57</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Penn State</td>
+      <td>1975.50</td>
+      <td>31</td>
+      <td>@ Boise State</td>
+      <td>1853.02</td>
+      <td>14</td>
+      <td>65.65%</td>
+      <td>34.35%</td>
+      <td>44.44</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Baylor</td>
+      <td>1751.01</td>
+      <td>31</td>
+      <td>@ LSU</td>
+      <td>1749.16</td>
+      <td>44</td>
+      <td>50.24%</td>
+      <td>49.76%</td>
+      <td>-56.85</td>
+    </tr>
+    <tr>
+      <td>2024-12-31</td>
+      <td>Boise State</td>
+      <td>1853.02</td>
+      <td>14</td>
+      <td>Penn State</td>
+      <td>1975.50</td>
+      <td>31</td>
+      <td>34.35%</td>
+      <td>65.65%</td>
+      <td>-44.43</td>
+    </tr>
+    <tr>
+      <td>2025-01-01</td>
+      <td>Texas</td>
+      <td>1993.45</td>
+      <td>39</td>
+      <td>Arizona State</td>
+      <td>1865.78</td>
+      <td>31</td>
+      <td>66.27%</td>
+      <td>33.73%</td>
+      <td>29.93</td>
+    </tr>
+    <tr>
+      <td>2025-01-01</td>
+      <td>Oregon</td>
+      <td>2091.20</td>
+      <td>21</td>
+      <td>@ Ohio State</td>
+      <td>2030.35</td>
+      <td>41</td>
+      <td>57.98%</td>
+      <td>42.02%</td>
+      <td>-81.36</td>
+    </tr>
+    <tr>
+      <td>2025-01-01</td>
+      <td>Arizona State</td>
+      <td>1865.78</td>
+      <td>31</td>
+      <td>@ Texas</td>
+      <td>1993.45</td>
+      <td>39</td>
+      <td>33.73%</td>
+      <td>66.27%</td>
+      <td>-29.94</td>
+    </tr>
+    <tr>
+      <td>2025-01-01</td>
+      <td>Ohio State</td>
+      <td>2030.35</td>
+      <td>41</td>
+      <td>Oregon</td>
+      <td>2091.20</td>
+      <td>21</td>
+      <td>42.02%</td>
+      <td>57.98%</td>
+      <td>81.36</td>
+    </tr>
+    <tr>
+      <td>2025-01-02</td>
+      <td>Georgia</td>
+      <td>2003.54</td>
+      <td>10</td>
+      <td>@ Notre Dame</td>
+      <td>2052.49</td>
+      <td>23</td>
+      <td>43.56%</td>
+      <td>56.44%</td>
+      <td>-49.29</td>
+    </tr>
+    <tr>
+      <td>2025-01-02</td>
+      <td>Ole Miss</td>
+      <td>1882.04</td>
+      <td>52</td>
+      <td>@ Duke</td>
+      <td>1703.82</td>
+      <td>20</td>
+      <td>71.97%</td>
+      <td>28.03%</td>
+      <td>49.76</td>
+    </tr>
+    <tr>
+      <td>2025-01-02</td>
+      <td>Notre Dame</td>
+      <td>2052.49</td>
+      <td>23</td>
+      <td>Georgia</td>
+      <td>2003.54</td>
+      <td>10</td>
+      <td>56.44%</td>
+      <td>43.56%</td>
+      <td>49.29</td>
+    </tr>
+    <tr>
+      <td>2025-01-02</td>
+      <td>Duke</td>
+      <td>1703.82</td>
+      <td>20</td>
+      <td>Ole Miss</td>
+      <td>1882.04</td>
+      <td>52</td>
+      <td>28.03%</td>
+      <td>71.97%</td>
+      <td>-49.77</td>
+    </tr>
+    <tr>
+      <td>2025-01-03</td>
+      <td>North Texas</td>
+      <td>1308.89</td>
+      <td>28</td>
+      <td>@ Texas State</td>
+      <td>1556.90</td>
+      <td>30</td>
+      <td>21.21%</td>
+      <td>78.79%</td>
+      <td>-9.41</td>
+    </tr>
+    <tr>
+      <td>2025-01-03</td>
+      <td>Texas State</td>
+      <td>1556.90</td>
+      <td>30</td>
+      <td>North Texas</td>
+      <td>1308.89</td>
+      <td>28</td>
+      <td>78.79%</td>
+      <td>21.21%</td>
+      <td>9.42</td>
+    </tr>
+    <tr>
+      <td>2025-01-03</td>
+      <td>Virginia Tech</td>
+      <td>1656.60</td>
+      <td>10</td>
+      <td>Minnesota</td>
+      <td>1677.16</td>
+      <td>24</td>
+      <td>47.28%</td>
+      <td>52.72%</td>
+      <td>-55.52</td>
+    </tr>
+    <tr>
+      <td>2025-01-03</td>
+      <td>Minnesota</td>
+      <td>1677.16</td>
+      <td>24</td>
+      <td>@ Virginia Tech</td>
+      <td>1656.60</td>
+      <td>10</td>
+      <td>52.72%</td>
+      <td>47.28%</td>
+      <td>55.52</td>
+    </tr>
+    <tr>
+      <td>2025-01-04</td>
+      <td>Buffalo</td>
+      <td>1408.71</td>
+      <td>26</td>
+      <td>@ Liberty</td>
+      <td>1531.15</td>
+      <td>7</td>
+      <td>34.35%</td>
+      <td>65.65%</td>
+      <td>89.80</td>
+    </tr>
+    <tr>
+      <td>2025-01-04</td>
+      <td>Liberty</td>
+      <td>1531.15</td>
+      <td>7</td>
+      <td>Buffalo</td>
+      <td>1408.71</td>
+      <td>26</td>
+      <td>65.65%</td>
+      <td>34.35%</td>
+      <td>-89.80</td>
+    </tr>
+    <tr>
+      <td>2025-01-09</td>
+      <td>Notre Dame</td>
+      <td>2101.78</td>
+      <td>27</td>
+      <td>@ Penn State</td>
+      <td>2019.94</td>
+      <td>24</td>
+      <td>60.66%</td>
+      <td>39.34%</td>
+      <td>21.38</td>
+    </tr>
+    <tr>
+      <td>2025-01-09</td>
+      <td>Penn State</td>
+      <td>2019.94</td>
+      <td>24</td>
+      <td>Notre Dame</td>
+      <td>2101.78</td>
+      <td>27</td>
+      <td>39.34%</td>
+      <td>60.66%</td>
+      <td>-21.38</td>
+    </tr>
+    <tr>
+      <td>2025-01-10</td>
+      <td>Texas</td>
+      <td>2023.38</td>
+      <td>14</td>
+      <td>@ Ohio State</td>
+      <td>2111.71</td>
+      <td>28</td>
+      <td>38.53%</td>
+      <td>61.47%</td>
+      <td>-45.23</td>
+    </tr>
+    <tr>
+      <td>2025-01-10</td>
+      <td>Ohio State</td>
+      <td>2111.71</td>
+      <td>28</td>
+      <td>Texas</td>
+      <td>2023.38</td>
+      <td>14</td>
+      <td>61.47%</td>
+      <td>38.53%</td>
+      <td>45.24</td>
+    </tr>
+    <tr>
+      <td>2025-01-20</td>
+      <td>Ohio State</td>
+      <td>2156.95</td>
+      <td>34</td>
+      <td>Notre Dame</td>
+      <td>2123.16</td>
+      <td>23</td>
+      <td>54.46%</td>
+      <td>45.54%</td>
+      <td>47.40</td>
+    </tr>
+    <tr>
+      <td>2025-01-20</td>
+      <td>Notre Dame</td>
+      <td>2123.16</td>
+      <td>23</td>
+      <td>@ Ohio State</td>
+      <td>2156.95</td>
+      <td>34</td>
+      <td>45.54%</td>
+      <td>54.46%</td>
+      <td>-47.40</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

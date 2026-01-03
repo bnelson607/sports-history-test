@@ -1,0 +1,5233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Division or Conference:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Conference</th>
+      <th>Elo</th>
+      <th>Conf. Record</th>
+      <th>Avg. Wins</th>
+      <th>Luck</th>
+      <th>Percentile</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div style="text-align:left">Houston</div></td>
+      <td>Big 12</td>
+      <td>1940</td>
+      <td>19-1</td>
+      <td>15.89</td>
+      <td>3.11</td>
+      <td>99.32%</td>
+      <td>8</td>
+      <td>14.28</td>
+      <td>15.47</td>
+      <td>16.60</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Florida</div></td>
+      <td>SEC</td>
+      <td>1929</td>
+      <td>14-4</td>
+      <td>13.41</td>
+      <td>0.59</td>
+      <td>75.61%</td>
+      <td>7</td>
+      <td>11.88</td>
+      <td>12.98</td>
+      <td>13.98</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Duke</div></td>
+      <td>ACC</td>
+      <td>1913</td>
+      <td>19-1</td>
+      <td>17.54</td>
+      <td>1.46</td>
+      <td>94.48%</td>
+      <td>11</td>
+      <td>16.16</td>
+      <td>17.15</td>
+      <td>17.99</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">St Johns</div></td>
+      <td>Big East</td>
+      <td>1888</td>
+      <td>18-2</td>
+      <td>15.71</td>
+      <td>2.29</td>
+      <td>95.63%</td>
+      <td>8</td>
+      <td>14.06</td>
+      <td>15.28</td>
+      <td>16.45</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Michigan State</div></td>
+      <td>Big Ten</td>
+      <td>1873</td>
+      <td>17-3</td>
+      <td>14.59</td>
+      <td>2.41</td>
+      <td>95.08%</td>
+      <td>6</td>
+      <td>12.86</td>
+      <td>14.13</td>
+      <td>15.39</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Auburn</div></td>
+      <td>SEC</td>
+      <td>1859</td>
+      <td>15-3</td>
+      <td>14.77</td>
+      <td>0.23</td>
+      <td>66.53%</td>
+      <td>8</td>
+      <td>13.26</td>
+      <td>14.36</td>
+      <td>15.39</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tennessee</div></td>
+      <td>SEC</td>
+      <td>1840</td>
+      <td>12-6</td>
+      <td>12.43</td>
+      <td>-0.43</td>
+      <td>50.69%</td>
+      <td>5</td>
+      <td>10.71</td>
+      <td>11.97</td>
+      <td>13.20</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Maryland</div></td>
+      <td>Big Ten</td>
+      <td>1831</td>
+      <td>14-6</td>
+      <td>12.09</td>
+      <td>1.91</td>
+      <td>89.02%</td>
+      <td>5</td>
+      <td>10.24</td>
+      <td>11.61</td>
+      <td>12.97</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Gonzaga</div></td>
+      <td>WCC</td>
+      <td>1831</td>
+      <td>14-4</td>
+      <td>13.84</td>
+      <td>0.16</td>
+      <td>64.98%</td>
+      <td>6</td>
+      <td>12.28</td>
+      <td>13.41</td>
+      <td>14.47</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Alabama</div></td>
+      <td>SEC</td>
+      <td>1824</td>
+      <td>13-5</td>
+      <td>12.39</td>
+      <td>0.61</td>
+      <td>73.07%</td>
+      <td>6</td>
+      <td>10.70</td>
+      <td>11.93</td>
+      <td>13.12</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Saint Marys</div></td>
+      <td>WCC</td>
+      <td>1807</td>
+      <td>17-1</td>
+      <td>14.82</td>
+      <td>2.18</td>
+      <td>97.93%</td>
+      <td>8</td>
+      <td>13.33</td>
+      <td>14.39</td>
+      <td>15.40</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Clemson</div></td>
+      <td>ACC</td>
+      <td>1804</td>
+      <td>18-2</td>
+      <td>15.41</td>
+      <td>2.59</td>
+      <td>97.51%</td>
+      <td>8</td>
+      <td>13.75</td>
+      <td>14.98</td>
+      <td>16.12</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Colorado State</div></td>
+      <td>MWC</td>
+      <td>1797</td>
+      <td>16-4</td>
+      <td>12.24</td>
+      <td>3.76</td>
+      <td>99.30%</td>
+      <td>6</td>
+      <td>10.47</td>
+      <td>11.76</td>
+      <td>12.95</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas Tech</div></td>
+      <td>Big 12</td>
+      <td>1795</td>
+      <td>15-5</td>
+      <td>13.25</td>
+      <td>1.75</td>
+      <td>89.15%</td>
+      <td>7</td>
+      <td>11.47</td>
+      <td>12.78</td>
+      <td>14.02</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Arizona</div></td>
+      <td>Big 12</td>
+      <td>1793</td>
+      <td>14-7</td>
+      <td>13.68</td>
+      <td>0.32</td>
+      <td>65.60%</td>
+      <td>6</td>
+      <td>11.83</td>
+      <td>13.21</td>
+      <td>14.58</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">BYU</div></td>
+      <td>Big 12</td>
+      <td>1792</td>
+      <td>14-6</td>
+      <td>11.37</td>
+      <td>2.63</td>
+      <td>93.78%</td>
+      <td>4</td>
+      <td>9.46</td>
+      <td>10.89</td>
+      <td>12.31</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wisconsin</div></td>
+      <td>Big Ten</td>
+      <td>1790</td>
+      <td>13-7</td>
+      <td>14.06</td>
+      <td>-1.06</td>
+      <td>36.17%</td>
+      <td>6</td>
+      <td>12.36</td>
+      <td>13.62</td>
+      <td>14.81</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Louisville</div></td>
+      <td>ACC</td>
+      <td>1787</td>
+      <td>18-2</td>
+      <td>13.99</td>
+      <td>4.01</td>
+      <td>99.82%</td>
+      <td>7</td>
+      <td>12.35</td>
+      <td>13.52</td>
+      <td>14.67</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">VCU</div></td>
+      <td>A-10</td>
+      <td>1785</td>
+      <td>15-3</td>
+      <td>13.80</td>
+      <td>1.20</td>
+      <td>85.91%</td>
+      <td>7</td>
+      <td>12.22</td>
+      <td>13.36</td>
+      <td>14.46</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UC San Diego</div></td>
+      <td>Big West</td>
+      <td>1782</td>
+      <td>18-2</td>
+      <td>16.24</td>
+      <td>1.76</td>
+      <td>94.10%</td>
+      <td>10</td>
+      <td>14.67</td>
+      <td>15.81</td>
+      <td>16.84</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Iowa State</div></td>
+      <td>Big 12</td>
+      <td>1777</td>
+      <td>14-7</td>
+      <td>15.45</td>
+      <td>-1.45</td>
+      <td>29.24%</td>
+      <td>7</td>
+      <td>13.72</td>
+      <td>15.02</td>
+      <td>16.21</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Connecticut</div></td>
+      <td>Big East</td>
+      <td>1774</td>
+      <td>14-6</td>
+      <td>14.97</td>
+      <td>-0.97</td>
+      <td>37.52%</td>
+      <td>8</td>
+      <td>13.35</td>
+      <td>14.52</td>
+      <td>15.64</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Drake</div></td>
+      <td>MVC</td>
+      <td>1770</td>
+      <td>17-3</td>
+      <td>16.66</td>
+      <td>0.34</td>
+      <td>69.38%</td>
+      <td>10</td>
+      <td>15.17</td>
+      <td>16.27</td>
+      <td>17.27</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Michigan</div></td>
+      <td>Big Ten</td>
+      <td>1763</td>
+      <td>14-6</td>
+      <td>11.70</td>
+      <td>2.30</td>
+      <td>92.82%</td>
+      <td>4</td>
+      <td>9.89</td>
+      <td>11.21</td>
+      <td>12.55</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Memphis</div></td>
+      <td>AAC</td>
+      <td>1759</td>
+      <td>16-2</td>
+      <td>15.12</td>
+      <td>0.88</td>
+      <td>83.05%</td>
+      <td>8</td>
+      <td>13.63</td>
+      <td>14.69</td>
+      <td>15.68</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New Mexico</div></td>
+      <td>MWC</td>
+      <td>1752</td>
+      <td>17-3</td>
+      <td>15.41</td>
+      <td>1.59</td>
+      <td>89.48%</td>
+      <td>8</td>
+      <td>13.77</td>
+      <td>14.97</td>
+      <td>16.08</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Illinois</div></td>
+      <td>Big Ten</td>
+      <td>1746</td>
+      <td>12-8</td>
+      <td>12.12</td>
+      <td>-0.12</td>
+      <td>56.97%</td>
+      <td>5</td>
+      <td>10.26</td>
+      <td>11.65</td>
+      <td>12.97</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Creighton</div></td>
+      <td>Big East</td>
+      <td>1746</td>
+      <td>15-5</td>
+      <td>12.80</td>
+      <td>2.20</td>
+      <td>93.56%</td>
+      <td>5</td>
+      <td>11.08</td>
+      <td>12.32</td>
+      <td>13.58</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas A&M</div></td>
+      <td>SEC</td>
+      <td>1734</td>
+      <td>11-7</td>
+      <td>10.64</td>
+      <td>0.36</td>
+      <td>67.72%</td>
+      <td>3</td>
+      <td>8.91</td>
+      <td>10.15</td>
+      <td>11.43</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Oregon</div></td>
+      <td>Big Ten</td>
+      <td>1733</td>
+      <td>12-8</td>
+      <td>11.23</td>
+      <td>0.77</td>
+      <td>74.14%</td>
+      <td>4</td>
+      <td>9.39</td>
+      <td>10.74</td>
+      <td>12.06</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Xavier</div></td>
+      <td>Big East</td>
+      <td>1728</td>
+      <td>13-7</td>
+      <td>10.05</td>
+      <td>2.95</td>
+      <td>96.85%</td>
+      <td>2</td>
+      <td>8.24</td>
+      <td>9.55</td>
+      <td>10.84</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kentucky</div></td>
+      <td>SEC</td>
+      <td>1722</td>
+      <td>10-8</td>
+      <td>8.62</td>
+      <td>1.38</td>
+      <td>84.18%</td>
+      <td>2</td>
+      <td>6.82</td>
+      <td>8.10</td>
+      <td>9.42</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Carolina</div></td>
+      <td>ACC</td>
+      <td>1722</td>
+      <td>13-7</td>
+      <td>12.42</td>
+      <td>0.58</td>
+      <td>72.28%</td>
+      <td>5</td>
+      <td>10.68</td>
+      <td>11.98</td>
+      <td>13.18</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Marquette</div></td>
+      <td>Big East</td>
+      <td>1716</td>
+      <td>13-7</td>
+      <td>14.46</td>
+      <td>-1.46</td>
+      <td>27.41%</td>
+      <td>8</td>
+      <td>12.84</td>
+      <td>14.02</td>
+      <td>15.16</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Boise State</div></td>
+      <td>MWC</td>
+      <td>1713</td>
+      <td>14-6</td>
+      <td>12.88</td>
+      <td>1.12</td>
+      <td>81.00%</td>
+      <td>6</td>
+      <td>11.12</td>
+      <td>12.41</td>
+      <td>13.68</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UCLA</div></td>
+      <td>Big Ten</td>
+      <td>1712</td>
+      <td>13-7</td>
+      <td>10.42</td>
+      <td>2.58</td>
+      <td>93.38%</td>
+      <td>4</td>
+      <td>8.51</td>
+      <td>9.91</td>
+      <td>11.33</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Baylor</div></td>
+      <td>Big 12</td>
+      <td>1712</td>
+      <td>10-10</td>
+      <td>11.12</td>
+      <td>-1.12</td>
+      <td>37.03%</td>
+      <td>4</td>
+      <td>9.29</td>
+      <td>10.64</td>
+      <td>11.95</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Purdue</div></td>
+      <td>Big Ten</td>
+      <td>1708</td>
+      <td>13-7</td>
+      <td>13.89</td>
+      <td>-0.89</td>
+      <td>41.26%</td>
+      <td>6</td>
+      <td>12.11</td>
+      <td>13.44</td>
+      <td>14.75</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Yale</div></td>
+      <td>Ivy</td>
+      <td>1705</td>
+      <td>13-1</td>
+      <td>11.28</td>
+      <td>1.72</td>
+      <td>96.18%</td>
+      <td>5</td>
+      <td>9.88</td>
+      <td>10.84</td>
+      <td>11.77</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kansas</div></td>
+      <td>Big 12</td>
+      <td>1702</td>
+      <td>11-9</td>
+      <td>12.28</td>
+      <td>-1.28</td>
+      <td>33.82%</td>
+      <td>5</td>
+      <td>10.45</td>
+      <td>11.80</td>
+      <td>13.12</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Liberty</div></td>
+      <td>CUSA</td>
+      <td>1701</td>
+      <td>13-5</td>
+      <td>12.78</td>
+      <td>0.22</td>
+      <td>64.09%</td>
+      <td>5</td>
+      <td>11.04</td>
+      <td>12.34</td>
+      <td>13.59</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Missouri</div></td>
+      <td>SEC</td>
+      <td>1700</td>
+      <td>10-8</td>
+      <td>8.54</td>
+      <td>1.46</td>
+      <td>85.04%</td>
+      <td>2</td>
+      <td>6.75</td>
+      <td>8.04</td>
+      <td>9.34</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Mississippi</div></td>
+      <td>SEC</td>
+      <td>1697</td>
+      <td>10-8</td>
+      <td>9.01</td>
+      <td>0.99</td>
+      <td>78.48%</td>
+      <td>1</td>
+      <td>7.22</td>
+      <td>8.54</td>
+      <td>9.82</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Georgia</div></td>
+      <td>SEC</td>
+      <td>1696</td>
+      <td>8-10</td>
+      <td>7.72</td>
+      <td>0.28</td>
+      <td>66.43%</td>
+      <td>1</td>
+      <td>6.02</td>
+      <td>7.24</td>
+      <td>8.48</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">High Point</div></td>
+      <td>Big South</td>
+      <td>1694</td>
+      <td>14-2</td>
+      <td>12.53</td>
+      <td>1.47</td>
+      <td>90.69%</td>
+      <td>6</td>
+      <td>11.03</td>
+      <td>12.11</td>
+      <td>13.15</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Oklahoma</div></td>
+      <td>SEC</td>
+      <td>1694</td>
+      <td>6-12</td>
+      <td>7.67</td>
+      <td>-1.67</td>
+      <td>27.03%</td>
+      <td>1</td>
+      <td>5.86</td>
+      <td>7.14</td>
+      <td>8.46</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">George Mason</div></td>
+      <td>A-10</td>
+      <td>1689</td>
+      <td>15-3</td>
+      <td>13.07</td>
+      <td>1.93</td>
+      <td>93.01%</td>
+      <td>4</td>
+      <td>11.41</td>
+      <td>12.61</td>
+      <td>13.76</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">San Diego State</div></td>
+      <td>MWC</td>
+      <td>1687</td>
+      <td>14-6</td>
+      <td>14.62</td>
+      <td>-0.62</td>
+      <td>45.77%</td>
+      <td>8</td>
+      <td>12.93</td>
+      <td>14.19</td>
+      <td>15.38</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Utah State</div></td>
+      <td>MWC</td>
+      <td>1680</td>
+      <td>15-5</td>
+      <td>14.61</td>
+      <td>0.39</td>
+      <td>69.28%</td>
+      <td>7</td>
+      <td>13.02</td>
+      <td>14.17</td>
+      <td>15.32</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Grand Canyon</div></td>
+      <td>WAC</td>
+      <td>1677</td>
+      <td>13-3</td>
+      <td>12.52</td>
+      <td>0.48</td>
+      <td>71.45%</td>
+      <td>5</td>
+      <td>10.96</td>
+      <td>12.13</td>
+      <td>13.19</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Arkansas</div></td>
+      <td>SEC</td>
+      <td>1677</td>
+      <td>8-10</td>
+      <td>6.48</td>
+      <td>1.52</td>
+      <td>87.30%</td>
+      <td>0</td>
+      <td>4.76</td>
+      <td>5.95</td>
+      <td>7.18</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">McNeese State</div></td>
+      <td>Southland</td>
+      <td>1668</td>
+      <td>19-1</td>
+      <td>17.05</td>
+      <td>1.95</td>
+      <td>96.84%</td>
+      <td>11</td>
+      <td>15.55</td>
+      <td>16.64</td>
+      <td>17.64</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Mississippi State</div></td>
+      <td>SEC</td>
+      <td>1667</td>
+      <td>8-10</td>
+      <td>9.71</td>
+      <td>-1.71</td>
+      <td>25.53%</td>
+      <td>3</td>
+      <td>7.96</td>
+      <td>9.23</td>
+      <td>10.51</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Villanova</div></td>
+      <td>Big East</td>
+      <td>1665</td>
+      <td>11-9</td>
+      <td>11.07</td>
+      <td>-0.07</td>
+      <td>57.99%</td>
+      <td>3</td>
+      <td>9.26</td>
+      <td>10.61</td>
+      <td>11.86</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Dayton</div></td>
+      <td>A-10</td>
+      <td>1665</td>
+      <td>12-6</td>
+      <td>11.59</td>
+      <td>0.41</td>
+      <td>68.72%</td>
+      <td>4</td>
+      <td>9.85</td>
+      <td>11.15</td>
+      <td>12.38</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UC Irvine</div></td>
+      <td>Big West</td>
+      <td>1664</td>
+      <td>17-3</td>
+      <td>16.24</td>
+      <td>0.76</td>
+      <td>77.82%</td>
+      <td>10</td>
+      <td>14.66</td>
+      <td>15.82</td>
+      <td>16.88</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Chattanooga</div></td>
+      <td>Southern</td>
+      <td>1663</td>
+      <td>15-3</td>
+      <td>11.70</td>
+      <td>3.30</td>
+      <td>98.87%</td>
+      <td>6</td>
+      <td>10.01</td>
+      <td>11.22</td>
+      <td>12.45</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Indiana</div></td>
+      <td>Big Ten</td>
+      <td>1660</td>
+      <td>10-10</td>
+      <td>7.89</td>
+      <td>2.11</td>
+      <td>90.91%</td>
+      <td>1</td>
+      <td>6.07</td>
+      <td>7.37</td>
+      <td>8.70</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">San Francisco</div></td>
+      <td>WCC</td>
+      <td>1656</td>
+      <td>13-5</td>
+      <td>11.56</td>
+      <td>1.44</td>
+      <td>87.54%</td>
+      <td>5</td>
+      <td>9.91</td>
+      <td>11.08</td>
+      <td>12.26</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northwestern</div></td>
+      <td>Big Ten</td>
+      <td>1655</td>
+      <td>7-13</td>
+      <td>8.50</td>
+      <td>-1.50</td>
+      <td>31.58%</td>
+      <td>2</td>
+      <td>6.58</td>
+      <td>7.98</td>
+      <td>9.39</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">SMU</div></td>
+      <td>ACC</td>
+      <td>1651</td>
+      <td>13-7</td>
+      <td>13.55</td>
+      <td>-0.55</td>
+      <td>47.79%</td>
+      <td>5</td>
+      <td>11.70</td>
+      <td>13.11</td>
+      <td>14.46</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Akron</div></td>
+      <td>MAC</td>
+      <td>1651</td>
+      <td>17-1</td>
+      <td>14.43</td>
+      <td>2.57</td>
+      <td>98.37%</td>
+      <td>8</td>
+      <td>12.85</td>
+      <td>14.03</td>
+      <td>15.08</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Penn State</div></td>
+      <td>Big Ten</td>
+      <td>1649</td>
+      <td>6-14</td>
+      <td>8.28</td>
+      <td>-2.28</td>
+      <td>17.47%</td>
+      <td>2</td>
+      <td>6.43</td>
+      <td>7.75</td>
+      <td>9.10</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wake Forest</div></td>
+      <td>ACC</td>
+      <td>1647</td>
+      <td>13-7</td>
+      <td>12.78</td>
+      <td>0.22</td>
+      <td>64.69%</td>
+      <td>5</td>
+      <td>11.07</td>
+      <td>12.32</td>
+      <td>13.57</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Lipscomb</div></td>
+      <td>A-Sun</td>
+      <td>1641</td>
+      <td>14-4</td>
+      <td>14.11</td>
+      <td>-0.11</td>
+      <td>58.49%</td>
+      <td>7</td>
+      <td>12.57</td>
+      <td>13.67</td>
+      <td>14.71</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Santa Clara</div></td>
+      <td>WCC</td>
+      <td>1640</td>
+      <td>12-6</td>
+      <td>11.86</td>
+      <td>0.14</td>
+      <td>64.42%</td>
+      <td>6</td>
+      <td>10.22</td>
+      <td>11.39</td>
+      <td>12.56</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Bradley</div></td>
+      <td>MVC</td>
+      <td>1640</td>
+      <td>15-5</td>
+      <td>13.58</td>
+      <td>1.42</td>
+      <td>83.91%</td>
+      <td>5</td>
+      <td>11.76</td>
+      <td>13.14</td>
+      <td>14.45</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Utah Valley</div></td>
+      <td>WAC</td>
+      <td>1640</td>
+      <td>15-1</td>
+      <td>11.47</td>
+      <td>3.53</td>
+      <td>99.71%</td>
+      <td>4</td>
+      <td>9.88</td>
+      <td>11.02</td>
+      <td>12.10</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Texas</div></td>
+      <td>AAC</td>
+      <td>1640</td>
+      <td>14-4</td>
+      <td>13.77</td>
+      <td>0.23</td>
+      <td>66.16%</td>
+      <td>7</td>
+      <td>12.18</td>
+      <td>13.34</td>
+      <td>14.45</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UNC Wilmington</div></td>
+      <td>CAA</td>
+      <td>1638</td>
+      <td>14-4</td>
+      <td>13.01</td>
+      <td>0.99</td>
+      <td>81.52%</td>
+      <td>5</td>
+      <td>11.36</td>
+      <td>12.56</td>
+      <td>13.69</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Troy</div></td>
+      <td>Sun Belt</td>
+      <td>1638</td>
+      <td>13-5</td>
+      <td>12.52</td>
+      <td>0.48</td>
+      <td>71.61%</td>
+      <td>6</td>
+      <td>10.90</td>
+      <td>12.06</td>
+      <td>13.20</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Saint Josephs</div></td>
+      <td>A-10</td>
+      <td>1636</td>
+      <td>12-7</td>
+      <td>12.06</td>
+      <td>-0.06</td>
+      <td>58.67%</td>
+      <td>5</td>
+      <td>10.30</td>
+      <td>11.59</td>
+      <td>12.83</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Loyola (IL)</div></td>
+      <td>A-10</td>
+      <td>1636</td>
+      <td>12-6</td>
+      <td>9.13</td>
+      <td>2.87</td>
+      <td>95.97%</td>
+      <td>3</td>
+      <td>7.27</td>
+      <td>8.65</td>
+      <td>9.97</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas</div></td>
+      <td>SEC</td>
+      <td>1636</td>
+      <td>6-12</td>
+      <td>7.56</td>
+      <td>-1.56</td>
+      <td>28.75%</td>
+      <td>0</td>
+      <td>5.74</td>
+      <td>7.04</td>
+      <td>8.38</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Iowa</div></td>
+      <td>Big Ten</td>
+      <td>1632</td>
+      <td>7-13</td>
+      <td>7.75</td>
+      <td>-0.75</td>
+      <td>45.59%</td>
+      <td>1</td>
+      <td>5.91</td>
+      <td>7.22</td>
+      <td>8.60</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Ohio State</div></td>
+      <td>Big Ten</td>
+      <td>1631</td>
+      <td>9-11</td>
+      <td>10.73</td>
+      <td>-1.73</td>
+      <td>26.94%</td>
+      <td>3</td>
+      <td>8.86</td>
+      <td>10.27</td>
+      <td>11.64</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Robert Morris</div></td>
+      <td>Horizon</td>
+      <td>1631</td>
+      <td>15-5</td>
+      <td>10.46</td>
+      <td>4.54</td>
+      <td>99.58%</td>
+      <td>3</td>
+      <td>8.61</td>
+      <td>9.96</td>
+      <td>11.29</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cincinnati</div></td>
+      <td>Big 12</td>
+      <td>1626</td>
+      <td>7-13</td>
+      <td>10.01</td>
+      <td>-3.01</td>
+      <td>10.83%</td>
+      <td>3</td>
+      <td>8.10</td>
+      <td>9.51</td>
+      <td>10.91</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">West Virginia</div></td>
+      <td>Big 12</td>
+      <td>1622</td>
+      <td>11-10</td>
+      <td>8.68</td>
+      <td>2.32</td>
+      <td>92.71%</td>
+      <td>1</td>
+      <td>6.81</td>
+      <td>8.18</td>
+      <td>9.56</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Bryant</div></td>
+      <td>AEC</td>
+      <td>1622</td>
+      <td>14-2</td>
+      <td>11.70</td>
+      <td>2.30</td>
+      <td>96.55%</td>
+      <td>4</td>
+      <td>10.12</td>
+      <td>11.26</td>
+      <td>12.39</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UAB</div></td>
+      <td>AAC</td>
+      <td>1621</td>
+      <td>13-5</td>
+      <td>10.73</td>
+      <td>2.27</td>
+      <td>94.06%</td>
+      <td>3</td>
+      <td>9.05</td>
+      <td>10.25</td>
+      <td>11.50</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Montana</div></td>
+      <td>Big Sky</td>
+      <td>1613</td>
+      <td>15-3</td>
+      <td>11.72</td>
+      <td>3.28</td>
+      <td>98.38%</td>
+      <td>6</td>
+      <td>10.02</td>
+      <td>11.25</td>
+      <td>12.49</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern California</div></td>
+      <td>Big Ten</td>
+      <td>1609</td>
+      <td>7-13</td>
+      <td>8.16</td>
+      <td>-1.16</td>
+      <td>36.68%</td>
+      <td>1</td>
+      <td>6.33</td>
+      <td>7.63</td>
+      <td>8.95</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Arkansas State</div></td>
+      <td>Sun Belt</td>
+      <td>1608</td>
+      <td>13-5</td>
+      <td>14.41</td>
+      <td>-1.41</td>
+      <td>27.19%</td>
+      <td>8</td>
+      <td>12.86</td>
+      <td>13.99</td>
+      <td>14.98</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kansas State</div></td>
+      <td>Big 12</td>
+      <td>1607</td>
+      <td>9-11</td>
+      <td>7.35</td>
+      <td>1.65</td>
+      <td>86.52%</td>
+      <td>1</td>
+      <td>5.47</td>
+      <td>6.81</td>
+      <td>8.18</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Vanderbilt</div></td>
+      <td>SEC</td>
+      <td>1604</td>
+      <td>8-10</td>
+      <td>6.33</td>
+      <td>1.67</td>
+      <td>87.86%</td>
+      <td>1</td>
+      <td>4.49</td>
+      <td>5.81</td>
+      <td>7.11</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Omaha</div></td>
+      <td>Summit</td>
+      <td>1602</td>
+      <td>13-3</td>
+      <td>9.33</td>
+      <td>3.67</td>
+      <td>99.62%</td>
+      <td>3</td>
+      <td>7.64</td>
+      <td>8.87</td>
+      <td>9.98</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wofford</div></td>
+      <td>Southern</td>
+      <td>1602</td>
+      <td>10-8</td>
+      <td>11.08</td>
+      <td>-1.08</td>
+      <td>37.25%</td>
+      <td>4</td>
+      <td>9.33</td>
+      <td>10.58</td>
+      <td>11.82</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UNLV</div></td>
+      <td>MWC</td>
+      <td>1600</td>
+      <td>11-9</td>
+      <td>9.85</td>
+      <td>1.15</td>
+      <td>81.16%</td>
+      <td>3</td>
+      <td>8.07</td>
+      <td>9.35</td>
+      <td>10.65</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northern Iowa</div></td>
+      <td>MVC</td>
+      <td>1598</td>
+      <td>14-6</td>
+      <td>12.18</td>
+      <td>1.82</td>
+      <td>88.12%</td>
+      <td>4</td>
+      <td>10.31</td>
+      <td>11.70</td>
+      <td>13.05</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Saint Louis</div></td>
+      <td>A-10</td>
+      <td>1598</td>
+      <td>11-7</td>
+      <td>8.26</td>
+      <td>2.74</td>
+      <td>95.29%</td>
+      <td>1</td>
+      <td>6.39</td>
+      <td>7.74</td>
+      <td>9.10</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Stanford</div></td>
+      <td>ACC</td>
+      <td>1595</td>
+      <td>11-9</td>
+      <td>9.84</td>
+      <td>1.16</td>
+      <td>81.95%</td>
+      <td>2</td>
+      <td>8.12</td>
+      <td>9.34</td>
+      <td>10.61</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northern Colorado</div></td>
+      <td>Big Sky</td>
+      <td>1592</td>
+      <td>15-3</td>
+      <td>13.56</td>
+      <td>1.44</td>
+      <td>87.82%</td>
+      <td>6</td>
+      <td>11.96</td>
+      <td>13.13</td>
+      <td>14.28</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Rutgers</div></td>
+      <td>Big Ten</td>
+      <td>1588</td>
+      <td>8-12</td>
+      <td>6.21</td>
+      <td>1.79</td>
+      <td>88.39%</td>
+      <td>0</td>
+      <td>4.35</td>
+      <td>5.66</td>
+      <td>6.98</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Towson</div></td>
+      <td>CAA</td>
+      <td>1587</td>
+      <td>16-2</td>
+      <td>11.30</td>
+      <td>4.70</td>
+      <td>99.97%</td>
+      <td>3</td>
+      <td>9.63</td>
+      <td>10.84</td>
+      <td>11.96</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Belmont</div></td>
+      <td>MVC</td>
+      <td>1587</td>
+      <td>13-7</td>
+      <td>11.97</td>
+      <td>1.03</td>
+      <td>78.81%</td>
+      <td>5</td>
+      <td>10.17</td>
+      <td>11.49</td>
+      <td>12.79</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UCF</div></td>
+      <td>Big 12</td>
+      <td>1587</td>
+      <td>7-13</td>
+      <td>7.58</td>
+      <td>-0.58</td>
+      <td>49.00%</td>
+      <td>1</td>
+      <td>5.69</td>
+      <td>7.05</td>
+      <td>8.44</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">St Bonaventure</div></td>
+      <td>A-10</td>
+      <td>1585</td>
+      <td>9-9</td>
+      <td>10.75</td>
+      <td>-1.75</td>
+      <td>24.32%</td>
+      <td>4</td>
+      <td>9.03</td>
+      <td>10.29</td>
+      <td>11.53</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Colorado</div></td>
+      <td>Big 12</td>
+      <td>1585</td>
+      <td>3-18</td>
+      <td>6.34</td>
+      <td>-3.34</td>
+      <td>6.64%</td>
+      <td>0</td>
+      <td>4.48</td>
+      <td>5.79</td>
+      <td>7.12</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Alabama</div></td>
+      <td>A-Sun</td>
+      <td>1585</td>
+      <td>14-4</td>
+      <td>12.48</td>
+      <td>1.52</td>
+      <td>88.45%</td>
+      <td>5</td>
+      <td>10.79</td>
+      <td>12.04</td>
+      <td>13.20</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Furman</div></td>
+      <td>Southern</td>
+      <td>1584</td>
+      <td>11-7</td>
+      <td>11.57</td>
+      <td>-0.57</td>
+      <td>47.88%</td>
+      <td>4</td>
+      <td>9.90</td>
+      <td>11.10</td>
+      <td>12.31</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Nebraska</div></td>
+      <td>Big Ten</td>
+      <td>1584</td>
+      <td>7-13</td>
+      <td>10.51</td>
+      <td>-3.51</td>
+      <td>6.76%</td>
+      <td>2</td>
+      <td>8.60</td>
+      <td>10.00</td>
+      <td>11.42</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cal State Northridge</div></td>
+      <td>Big West</td>
+      <td>1583</td>
+      <td>14-6</td>
+      <td>13.12</td>
+      <td>0.88</td>
+      <td>77.44%</td>
+      <td>6</td>
+      <td>11.35</td>
+      <td>12.65</td>
+      <td>13.88</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Georgia Tech</div></td>
+      <td>ACC</td>
+      <td>1579</td>
+      <td>10-10</td>
+      <td>7.96</td>
+      <td>2.04</td>
+      <td>91.67%</td>
+      <td>2</td>
+      <td>6.18</td>
+      <td>7.45</td>
+      <td>8.74</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tulane</div></td>
+      <td>AAC</td>
+      <td>1579</td>
+      <td>12-6</td>
+      <td>9.16</td>
+      <td>2.84</td>
+      <td>96.13%</td>
+      <td>3</td>
+      <td>7.33</td>
+      <td>8.66</td>
+      <td>9.94</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Winthrop</div></td>
+      <td>Big South</td>
+      <td>1578</td>
+      <td>11-5</td>
+      <td>9.14</td>
+      <td>1.86</td>
+      <td>91.58%</td>
+      <td>3</td>
+      <td>7.42</td>
+      <td>8.66</td>
+      <td>9.85</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Charleston</div></td>
+      <td>CAA</td>
+      <td>1576</td>
+      <td>13-5</td>
+      <td>13.29</td>
+      <td>-0.29</td>
+      <td>54.34%</td>
+      <td>6</td>
+      <td>11.66</td>
+      <td>12.82</td>
+      <td>13.94</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cornell</div></td>
+      <td>Ivy</td>
+      <td>1576</td>
+      <td>9-5</td>
+      <td>8.59</td>
+      <td>0.41</td>
+      <td>72.09%</td>
+      <td>3</td>
+      <td>7.05</td>
+      <td>8.12</td>
+      <td>9.16</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Butler</div></td>
+      <td>Big East</td>
+      <td>1575</td>
+      <td>6-14</td>
+      <td>7.32</td>
+      <td>-1.32</td>
+      <td>33.78%</td>
+      <td>1</td>
+      <td>5.48</td>
+      <td>6.79</td>
+      <td>8.10</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Utah</div></td>
+      <td>Big 12</td>
+      <td>1570</td>
+      <td>8-12</td>
+      <td>8.12</td>
+      <td>-0.12</td>
+      <td>57.86%</td>
+      <td>1</td>
+      <td>6.27</td>
+      <td>7.61</td>
+      <td>8.93</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Carolina</div></td>
+      <td>SEC</td>
+      <td>1569</td>
+      <td>2-16</td>
+      <td>4.29</td>
+      <td>-2.29</td>
+      <td>15.15%</td>
+      <td>0</td>
+      <td>2.52</td>
+      <td>3.73</td>
+      <td>4.94</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Middle Tennessee</div></td>
+      <td>CUSA</td>
+      <td>1564</td>
+      <td>12-6</td>
+      <td>10.67</td>
+      <td>1.33</td>
+      <td>83.05%</td>
+      <td>2</td>
+      <td>8.87</td>
+      <td>10.20</td>
+      <td>11.50</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Nevada</div></td>
+      <td>MWC</td>
+      <td>1563</td>
+      <td>8-12</td>
+      <td>10.74</td>
+      <td>-2.74</td>
+      <td>11.01%</td>
+      <td>4</td>
+      <td>9.00</td>
+      <td>10.22</td>
+      <td>11.51</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">George Washington</div></td>
+      <td>A-10</td>
+      <td>1560</td>
+      <td>9-9</td>
+      <td>8.66</td>
+      <td>0.34</td>
+      <td>67.22%</td>
+      <td>2</td>
+      <td>6.86</td>
+      <td>8.14</td>
+      <td>9.47</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Milwaukee</div></td>
+      <td>Horizon</td>
+      <td>1558</td>
+      <td>14-6</td>
+      <td>13.96</td>
+      <td>0.04</td>
+      <td>60.71%</td>
+      <td>6</td>
+      <td>12.22</td>
+      <td>13.50</td>
+      <td>14.74</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Miami (OH)</div></td>
+      <td>MAC</td>
+      <td>1555</td>
+      <td>14-4</td>
+      <td>12.94</td>
+      <td>1.06</td>
+      <td>81.75%</td>
+      <td>6</td>
+      <td>11.28</td>
+      <td>12.47</td>
+      <td>13.65</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Jacksonville State</div></td>
+      <td>CUSA</td>
+      <td>1554</td>
+      <td>12-6</td>
+      <td>9.96</td>
+      <td>2.04</td>
+      <td>91.52%</td>
+      <td>2</td>
+      <td>8.20</td>
+      <td>9.46</td>
+      <td>10.76</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Florida Atlantic</div></td>
+      <td>AAC</td>
+      <td>1554</td>
+      <td>10-8</td>
+      <td>10.71</td>
+      <td>-0.71</td>
+      <td>45.40%</td>
+      <td>4</td>
+      <td>8.97</td>
+      <td>10.22</td>
+      <td>11.52</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Oklahoma State</div></td>
+      <td>Big 12</td>
+      <td>1554</td>
+      <td>7-13</td>
+      <td>6.47</td>
+      <td>0.53</td>
+      <td>70.73%</td>
+      <td>0</td>
+      <td>4.61</td>
+      <td>5.91</td>
+      <td>7.30</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Alabama</div></td>
+      <td>Sun Belt</td>
+      <td>1550</td>
+      <td>13-5</td>
+      <td>12.90</td>
+      <td>0.10</td>
+      <td>62.36%</td>
+      <td>6</td>
+      <td>11.21</td>
+      <td>12.45</td>
+      <td>13.64</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Oregon State</div></td>
+      <td>WCC</td>
+      <td>1549</td>
+      <td>10-8</td>
+      <td>10.58</td>
+      <td>-0.58</td>
+      <td>47.44%</td>
+      <td>4</td>
+      <td>8.96</td>
+      <td>10.11</td>
+      <td>11.24</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Minnesota</div></td>
+      <td>Big Ten</td>
+      <td>1548</td>
+      <td>7-13</td>
+      <td>5.82</td>
+      <td>1.18</td>
+      <td>82.31%</td>
+      <td>0</td>
+      <td>4.03</td>
+      <td>5.30</td>
+      <td>6.57</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New Mexico State</div></td>
+      <td>CUSA</td>
+      <td>1548</td>
+      <td>10-8</td>
+      <td>8.66</td>
+      <td>1.34</td>
+      <td>83.35%</td>
+      <td>2</td>
+      <td>6.85</td>
+      <td>8.19</td>
+      <td>9.49</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Central Connecticut State</div></td>
+      <td>NEC</td>
+      <td>1547</td>
+      <td>14-2</td>
+      <td>15.37</td>
+      <td>-1.37</td>
+      <td>26.09%</td>
+      <td>8</td>
+      <td>13.93</td>
+      <td>14.99</td>
+      <td>15.90</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">St Thomas (MN)</div></td>
+      <td>Summit</td>
+      <td>1547</td>
+      <td>12-4</td>
+      <td>12.33</td>
+      <td>-0.33</td>
+      <td>52.55%</td>
+      <td>6</td>
+      <td>10.83</td>
+      <td>11.90</td>
+      <td>12.90</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Merrimack</div></td>
+      <td>MAAC</td>
+      <td>1547</td>
+      <td>14-6</td>
+      <td>13.62</td>
+      <td>0.38</td>
+      <td>67.29%</td>
+      <td>6</td>
+      <td>11.80</td>
+      <td>13.15</td>
+      <td>14.48</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">TCU</div></td>
+      <td>Big 12</td>
+      <td>1547</td>
+      <td>9-11</td>
+      <td>7.78</td>
+      <td>1.22</td>
+      <td>81.48%</td>
+      <td>1</td>
+      <td>5.95</td>
+      <td>7.29</td>
+      <td>8.62</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kennesaw State</div></td>
+      <td>CUSA</td>
+      <td>1546</td>
+      <td>10-8</td>
+      <td>8.08</td>
+      <td>1.92</td>
+      <td>89.45%</td>
+      <td>2</td>
+      <td>6.25</td>
+      <td>7.56</td>
+      <td>8.89</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Marshall</div></td>
+      <td>Sun Belt</td>
+      <td>1544</td>
+      <td>12-6</td>
+      <td>10.29</td>
+      <td>1.71</td>
+      <td>87.72%</td>
+      <td>3</td>
+      <td>8.48</td>
+      <td>9.78</td>
+      <td>11.09</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Norfolk State</div></td>
+      <td>MEAC</td>
+      <td>1544</td>
+      <td>11-3</td>
+      <td>11.47</td>
+      <td>-0.47</td>
+      <td>48.44%</td>
+      <td>6</td>
+      <td>10.11</td>
+      <td>11.05</td>
+      <td>11.92</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Louisiana Tech</div></td>
+      <td>CUSA</td>
+      <td>1544</td>
+      <td>9-9</td>
+      <td>11.05</td>
+      <td>-2.05</td>
+      <td>21.19%</td>
+      <td>3</td>
+      <td>9.23</td>
+      <td>10.60</td>
+      <td>11.89</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Duquesne</div></td>
+      <td>A-10</td>
+      <td>1543</td>
+      <td>8-10</td>
+      <td>8.23</td>
+      <td>-0.23</td>
+      <td>55.75%</td>
+      <td>1</td>
+      <td>6.40</td>
+      <td>7.72</td>
+      <td>9.02</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">East Tennessee State</div></td>
+      <td>Southern</td>
+      <td>1541</td>
+      <td>12-6</td>
+      <td>10.66</td>
+      <td>1.34</td>
+      <td>85.92%</td>
+      <td>5</td>
+      <td>9.01</td>
+      <td>10.17</td>
+      <td>11.39</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Dakota State</div></td>
+      <td>Summit</td>
+      <td>1541</td>
+      <td>10-6</td>
+      <td>11.11</td>
+      <td>-1.11</td>
+      <td>33.64%</td>
+      <td>5</td>
+      <td>9.53</td>
+      <td>10.66</td>
+      <td>11.75</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Florida State</div></td>
+      <td>ACC</td>
+      <td>1541</td>
+      <td>8-12</td>
+      <td>9.80</td>
+      <td>-1.80</td>
+      <td>23.38%</td>
+      <td>2</td>
+      <td>8.08</td>
+      <td>9.30</td>
+      <td>10.57</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kent State</div></td>
+      <td>MAC</td>
+      <td>1541</td>
+      <td>11-7</td>
+      <td>11.86</td>
+      <td>-0.86</td>
+      <td>41.50%</td>
+      <td>5</td>
+      <td>10.15</td>
+      <td>11.39</td>
+      <td>12.61</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UC Riverside</div></td>
+      <td>Big West</td>
+      <td>1541</td>
+      <td>14-6</td>
+      <td>10.91</td>
+      <td>3.09</td>
+      <td>97.33%</td>
+      <td>4</td>
+      <td>9.12</td>
+      <td>10.40</td>
+      <td>11.70</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Virginia</div></td>
+      <td>ACC</td>
+      <td>1540</td>
+      <td>8-12</td>
+      <td>7.81</td>
+      <td>0.19</td>
+      <td>64.06%</td>
+      <td>1</td>
+      <td>5.97</td>
+      <td>7.30</td>
+      <td>8.66</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Pittsburgh</div></td>
+      <td>ACC</td>
+      <td>1539</td>
+      <td>8-12</td>
+      <td>11.71</td>
+      <td>-3.71</td>
+      <td>4.51%</td>
+      <td>4</td>
+      <td>9.97</td>
+      <td>11.24</td>
+      <td>12.52</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Washington State</div></td>
+      <td>WCC</td>
+      <td>1538</td>
+      <td>8-10</td>
+      <td>10.95</td>
+      <td>-2.95</td>
+      <td>5.39%</td>
+      <td>5</td>
+      <td>9.36</td>
+      <td>10.44</td>
+      <td>11.54</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Carolina State</div></td>
+      <td>MEAC</td>
+      <td>1534</td>
+      <td>11-3</td>
+      <td>9.77</td>
+      <td>1.23</td>
+      <td>87.91%</td>
+      <td>4</td>
+      <td>8.24</td>
+      <td>9.30</td>
+      <td>10.35</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Arizona State</div></td>
+      <td>Big 12</td>
+      <td>1534</td>
+      <td>4-16</td>
+      <td>6.62</td>
+      <td>-2.62</td>
+      <td>13.01%</td>
+      <td>0</td>
+      <td>4.80</td>
+      <td>6.08</td>
+      <td>7.44</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Youngstown State</div></td>
+      <td>Horizon</td>
+      <td>1531</td>
+      <td>13-7</td>
+      <td>12.20</td>
+      <td>0.80</td>
+      <td>75.00%</td>
+      <td>5</td>
+      <td>10.38</td>
+      <td>11.73</td>
+      <td>13.00</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Radford</div></td>
+      <td>Big South</td>
+      <td>1530</td>
+      <td>9-7</td>
+      <td>9.82</td>
+      <td>-0.82</td>
+      <td>42.13%</td>
+      <td>3</td>
+      <td>8.13</td>
+      <td>9.34</td>
+      <td>10.54</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UC Santa Barbara</div></td>
+      <td>Big West</td>
+      <td>1530</td>
+      <td>11-9</td>
+      <td>11.12</td>
+      <td>-0.12</td>
+      <td>58.10%</td>
+      <td>4</td>
+      <td>9.29</td>
+      <td>10.61</td>
+      <td>11.95</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Syracuse</div></td>
+      <td>ACC</td>
+      <td>1527</td>
+      <td>7-13</td>
+      <td>7.22</td>
+      <td>-0.22</td>
+      <td>56.09%</td>
+      <td>0</td>
+      <td>5.32</td>
+      <td>6.69</td>
+      <td>8.03</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Drexel</div></td>
+      <td>CAA</td>
+      <td>1526</td>
+      <td>9-9</td>
+      <td>9.81</td>
+      <td>-0.81</td>
+      <td>43.66%</td>
+      <td>1</td>
+      <td>7.92</td>
+      <td>9.33</td>
+      <td>10.72</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Samford</div></td>
+      <td>Southern</td>
+      <td>1526</td>
+      <td>12-6</td>
+      <td>13.00</td>
+      <td>-1.00</td>
+      <td>37.63%</td>
+      <td>6</td>
+      <td>11.32</td>
+      <td>12.55</td>
+      <td>13.73</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Seattle</div></td>
+      <td>WAC</td>
+      <td>1525</td>
+      <td>8-8</td>
+      <td>8.82</td>
+      <td>-0.82</td>
+      <td>41.79%</td>
+      <td>2</td>
+      <td>7.09</td>
+      <td>8.36</td>
+      <td>9.59</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cal Poly</div></td>
+      <td>Big West</td>
+      <td>1524</td>
+      <td>8-12</td>
+      <td>6.32</td>
+      <td>1.68</td>
+      <td>89.10%</td>
+      <td>1</td>
+      <td>4.56</td>
+      <td>5.77</td>
+      <td>6.99</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Georgetown</div></td>
+      <td>Big East</td>
+      <td>1524</td>
+      <td>8-12</td>
+      <td>7.38</td>
+      <td>0.62</td>
+      <td>72.91%</td>
+      <td>1</td>
+      <td>5.55</td>
+      <td>6.86</td>
+      <td>8.15</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UNC Greensboro</div></td>
+      <td>Southern</td>
+      <td>1523</td>
+      <td>13-5</td>
+      <td>11.23</td>
+      <td>1.77</td>
+      <td>89.76%</td>
+      <td>5</td>
+      <td>9.47</td>
+      <td>10.73</td>
+      <td>11.96</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cleveland State</div></td>
+      <td>Horizon</td>
+      <td>1522</td>
+      <td>14-6</td>
+      <td>13.05</td>
+      <td>0.95</td>
+      <td>78.04%</td>
+      <td>5</td>
+      <td>11.26</td>
+      <td>12.57</td>
+      <td>13.84</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Illinois State</div></td>
+      <td>MVC</td>
+      <td>1522</td>
+      <td>10-10</td>
+      <td>9.70</td>
+      <td>0.30</td>
+      <td>65.74%</td>
+      <td>3</td>
+      <td>7.88</td>
+      <td>9.21</td>
+      <td>10.56</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Notre Dame</div></td>
+      <td>ACC</td>
+      <td>1520</td>
+      <td>8-12</td>
+      <td>8.50</td>
+      <td>-0.50</td>
+      <td>49.55%</td>
+      <td>1</td>
+      <td>6.66</td>
+      <td>8.02</td>
+      <td>9.35</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Mount St Marys</div></td>
+      <td>MAAC</td>
+      <td>1519</td>
+      <td>12-8</td>
+      <td>11.13</td>
+      <td>0.87</td>
+      <td>75.46%</td>
+      <td>4</td>
+      <td>9.26</td>
+      <td>10.63</td>
+      <td>11.97</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Murray State</div></td>
+      <td>MVC</td>
+      <td>1518</td>
+      <td>9-11</td>
+      <td>8.45</td>
+      <td>0.55</td>
+      <td>70.07%</td>
+      <td>1</td>
+      <td>6.55</td>
+      <td>7.94</td>
+      <td>9.34</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Vermont</div></td>
+      <td>AEC</td>
+      <td>1515</td>
+      <td>13-3</td>
+      <td>9.60</td>
+      <td>3.40</td>
+      <td>99.13%</td>
+      <td>4</td>
+      <td>7.96</td>
+      <td>9.12</td>
+      <td>10.29</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wichita State</div></td>
+      <td>AAC</td>
+      <td>1515</td>
+      <td>8-10</td>
+      <td>8.42</td>
+      <td>-0.42</td>
+      <td>51.45%</td>
+      <td>2</td>
+      <td>6.64</td>
+      <td>7.93</td>
+      <td>9.18</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">LSU</div></td>
+      <td>SEC</td>
+      <td>1512</td>
+      <td>3-15</td>
+      <td>4.42</td>
+      <td>-1.42</td>
+      <td>29.51%</td>
+      <td>0</td>
+      <td>2.75</td>
+      <td>3.84</td>
+      <td>4.98</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">James Madison</div></td>
+      <td>Sun Belt</td>
+      <td>1512</td>
+      <td>13-5</td>
+      <td>12.34</td>
+      <td>0.66</td>
+      <td>73.28%</td>
+      <td>5</td>
+      <td>10.59</td>
+      <td>11.88</td>
+      <td>13.11</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">American</div></td>
+      <td>Patriot</td>
+      <td>1512</td>
+      <td>13-5</td>
+      <td>11.19</td>
+      <td>1.81</td>
+      <td>88.78%</td>
+      <td>3</td>
+      <td>9.37</td>
+      <td>10.70</td>
+      <td>12.00</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Oakland</div></td>
+      <td>Horizon</td>
+      <td>1509</td>
+      <td>11-9</td>
+      <td>11.86</td>
+      <td>-0.86</td>
+      <td>41.86%</td>
+      <td>5</td>
+      <td>10.07</td>
+      <td>11.39</td>
+      <td>12.68</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Quinnipiac</div></td>
+      <td>MAAC</td>
+      <td>1509</td>
+      <td>15-5</td>
+      <td>13.28</td>
+      <td>1.72</td>
+      <td>88.75%</td>
+      <td>6</td>
+      <td>11.51</td>
+      <td>12.80</td>
+      <td>14.08</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Lamar</div></td>
+      <td>Southland</td>
+      <td>1509</td>
+      <td>14-6</td>
+      <td>12.35</td>
+      <td>1.65</td>
+      <td>88.34%</td>
+      <td>5</td>
+      <td>10.62</td>
+      <td>11.85</td>
+      <td>13.07</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">California Baptist</div></td>
+      <td>WAC</td>
+      <td>1509</td>
+      <td>9-7</td>
+      <td>8.81</td>
+      <td>0.19</td>
+      <td>65.04%</td>
+      <td>3</td>
+      <td>7.10</td>
+      <td>8.31</td>
+      <td>9.56</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Jacksonville</div></td>
+      <td>A-Sun</td>
+      <td>1507</td>
+      <td>12-6</td>
+      <td>12.63</td>
+      <td>-0.63</td>
+      <td>46.04%</td>
+      <td>5</td>
+      <td>10.93</td>
+      <td>12.18</td>
+      <td>13.38</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">DePaul</div></td>
+      <td>Big East</td>
+      <td>1505</td>
+      <td>4-16</td>
+      <td>4.70</td>
+      <td>-0.70</td>
+      <td>46.80%</td>
+      <td>0</td>
+      <td>3.01</td>
+      <td>4.15</td>
+      <td>5.40</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Eastern Kentucky</div></td>
+      <td>A-Sun</td>
+      <td>1505</td>
+      <td>12-6</td>
+      <td>10.91</td>
+      <td>1.09</td>
+      <td>80.77%</td>
+      <td>4</td>
+      <td>9.19</td>
+      <td>10.41</td>
+      <td>11.68</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">California</div></td>
+      <td>ACC</td>
+      <td>1505</td>
+      <td>6-14</td>
+      <td>6.96</td>
+      <td>-0.96</td>
+      <td>40.44%</td>
+      <td>1</td>
+      <td>5.20</td>
+      <td>6.43</td>
+      <td>7.69</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern Illinois-Edwardsville</div></td>
+      <td>OVC</td>
+      <td>1504</td>
+      <td>13-7</td>
+      <td>13.56</td>
+      <td>-0.56</td>
+      <td>47.98%</td>
+      <td>4</td>
+      <td>11.76</td>
+      <td>13.10</td>
+      <td>14.42</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Providence</div></td>
+      <td>Big East</td>
+      <td>1503</td>
+      <td>6-14</td>
+      <td>7.34</td>
+      <td>-1.34</td>
+      <td>33.68%</td>
+      <td>1</td>
+      <td>5.49</td>
+      <td>6.80</td>
+      <td>8.14</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">NC State</div></td>
+      <td>ACC</td>
+      <td>1503</td>
+      <td>5-15</td>
+      <td>9.07</td>
+      <td>-4.07</td>
+      <td>3.25%</td>
+      <td>2</td>
+      <td>7.26</td>
+      <td>8.58</td>
+      <td>9.89</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Jackson State</div></td>
+      <td>SWAC</td>
+      <td>1500</td>
+      <td>14-4</td>
+      <td>11.44</td>
+      <td>2.56</td>
+      <td>96.30%</td>
+      <td>4</td>
+      <td>9.75</td>
+      <td>10.97</td>
+      <td>12.16</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Bucknell</div></td>
+      <td>Patriot</td>
+      <td>1500</td>
+      <td>13-5</td>
+      <td>10.45</td>
+      <td>2.55</td>
+      <td>95.14%</td>
+      <td>3</td>
+      <td>8.65</td>
+      <td>9.97</td>
+      <td>11.29</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Maine</div></td>
+      <td>AEC</td>
+      <td>1500</td>
+      <td>10-6</td>
+      <td>10.09</td>
+      <td>-0.09</td>
+      <td>58.47%</td>
+      <td>2</td>
+      <td>8.36</td>
+      <td>9.61</td>
+      <td>10.83</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Davidson</div></td>
+      <td>A-10</td>
+      <td>1498</td>
+      <td>6-12</td>
+      <td>8.80</td>
+      <td>-2.80</td>
+      <td>11.12%</td>
+      <td>2</td>
+      <td>7.02</td>
+      <td>8.29</td>
+      <td>9.63</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Dartmouth</div></td>
+      <td>Ivy</td>
+      <td>1497</td>
+      <td>8-6</td>
+      <td>5.90</td>
+      <td>2.10</td>
+      <td>94.39%</td>
+      <td>0</td>
+      <td>4.26</td>
+      <td>5.39</td>
+      <td>6.55</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">East Carolina</div></td>
+      <td>AAC</td>
+      <td>1495</td>
+      <td>10-8</td>
+      <td>7.33</td>
+      <td>2.67</td>
+      <td>95.52%</td>
+      <td>1</td>
+      <td>5.50</td>
+      <td>6.81</td>
+      <td>8.09</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Princeton</div></td>
+      <td>Ivy</td>
+      <td>1493</td>
+      <td>8-6</td>
+      <td>8.84</td>
+      <td>-0.84</td>
+      <td>41.16%</td>
+      <td>2</td>
+      <td>7.23</td>
+      <td>8.38</td>
+      <td>9.52</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southeast Missouri State</div></td>
+      <td>OVC</td>
+      <td>1493</td>
+      <td>15-5</td>
+      <td>12.39</td>
+      <td>2.61</td>
+      <td>95.03%</td>
+      <td>5</td>
+      <td>10.53</td>
+      <td>11.93</td>
+      <td>13.27</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Washington</div></td>
+      <td>Big Ten</td>
+      <td>1492</td>
+      <td>4-16</td>
+      <td>6.04</td>
+      <td>-2.04</td>
+      <td>21.08%</td>
+      <td>0</td>
+      <td>4.21</td>
+      <td>5.49</td>
+      <td>6.83</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Temple</div></td>
+      <td>AAC</td>
+      <td>1492</td>
+      <td>9-9</td>
+      <td>9.83</td>
+      <td>-0.83</td>
+      <td>42.37%</td>
+      <td>3</td>
+      <td>8.09</td>
+      <td>9.35</td>
+      <td>10.61</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern</div></td>
+      <td>SWAC</td>
+      <td>1492</td>
+      <td>15-3</td>
+      <td>14.15</td>
+      <td>0.85</td>
+      <td>79.27%</td>
+      <td>8</td>
+      <td>12.54</td>
+      <td>13.73</td>
+      <td>14.81</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Iona</div></td>
+      <td>MAAC</td>
+      <td>1492</td>
+      <td>12-8</td>
+      <td>9.56</td>
+      <td>2.44</td>
+      <td>92.56%</td>
+      <td>3</td>
+      <td>7.65</td>
+      <td>9.04</td>
+      <td>10.46</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UNC Asheville</div></td>
+      <td>Big South</td>
+      <td>1490</td>
+      <td>11-5</td>
+      <td>10.80</td>
+      <td>0.20</td>
+      <td>66.28%</td>
+      <td>3</td>
+      <td>9.20</td>
+      <td>10.33</td>
+      <td>11.46</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Brown</div></td>
+      <td>Ivy</td>
+      <td>1489</td>
+      <td>6-8</td>
+      <td>7.43</td>
+      <td>-1.43</td>
+      <td>28.71%</td>
+      <td>2</td>
+      <td>5.79</td>
+      <td>6.91</td>
+      <td>8.05</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Nicholls State</div></td>
+      <td>Southland</td>
+      <td>1488</td>
+      <td>13-7</td>
+      <td>12.22</td>
+      <td>0.78</td>
+      <td>75.15%</td>
+      <td>5</td>
+      <td>10.41</td>
+      <td>11.75</td>
+      <td>12.99</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Florida Gulf Coast</div></td>
+      <td>A-Sun</td>
+      <td>1488</td>
+      <td>13-5</td>
+      <td>11.85</td>
+      <td>1.15</td>
+      <td>82.76%</td>
+      <td>5</td>
+      <td>10.19</td>
+      <td>11.38</td>
+      <td>12.58</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northern Kentucky</div></td>
+      <td>Horizon</td>
+      <td>1487</td>
+      <td>11-9</td>
+      <td>9.49</td>
+      <td>1.51</td>
+      <td>84.92%</td>
+      <td>2</td>
+      <td>7.65</td>
+      <td>8.97</td>
+      <td>10.34</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Monmouth</div></td>
+      <td>CAA</td>
+      <td>1486</td>
+      <td>10-8</td>
+      <td>8.19</td>
+      <td>1.81</td>
+      <td>88.37%</td>
+      <td>2</td>
+      <td>6.36</td>
+      <td>7.69</td>
+      <td>9.00</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Delaware</div></td>
+      <td>CAA</td>
+      <td>1486</td>
+      <td>5-13</td>
+      <td>7.49</td>
+      <td>-2.49</td>
+      <td>14.34%</td>
+      <td>1</td>
+      <td>5.68</td>
+      <td>6.98</td>
+      <td>8.27</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Illinois-Chicago</div></td>
+      <td>MVC</td>
+      <td>1485</td>
+      <td>10-10</td>
+      <td>10.61</td>
+      <td>-0.61</td>
+      <td>47.45%</td>
+      <td>3</td>
+      <td>8.78</td>
+      <td>10.13</td>
+      <td>11.45</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">IPFW</div></td>
+      <td>Horizon</td>
+      <td>1484</td>
+      <td>12-8</td>
+      <td>13.55</td>
+      <td>-1.55</td>
+      <td>28.36%</td>
+      <td>6</td>
+      <td>11.77</td>
+      <td>13.10</td>
+      <td>14.39</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Dakota State</div></td>
+      <td>Summit</td>
+      <td>1484</td>
+      <td>11-5</td>
+      <td>11.81</td>
+      <td>-0.81</td>
+      <td>40.69%</td>
+      <td>6</td>
+      <td>10.27</td>
+      <td>11.36</td>
+      <td>12.42</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">San Jose State</div></td>
+      <td>MWC</td>
+      <td>1484</td>
+      <td>7-13</td>
+      <td>6.37</td>
+      <td>0.63</td>
+      <td>74.71%</td>
+      <td>1</td>
+      <td>4.63</td>
+      <td>5.84</td>
+      <td>7.02</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Hampton</div></td>
+      <td>CAA</td>
+      <td>1484</td>
+      <td>8-10</td>
+      <td>7.01</td>
+      <td>0.99</td>
+      <td>80.08%</td>
+      <td>1</td>
+      <td>5.23</td>
+      <td>6.49</td>
+      <td>7.73</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Indiana State</div></td>
+      <td>MVC</td>
+      <td>1482</td>
+      <td>8-12</td>
+      <td>9.14</td>
+      <td>-1.14</td>
+      <td>36.96%</td>
+      <td>2</td>
+      <td>7.30</td>
+      <td>8.65</td>
+      <td>9.97</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Montana State</div></td>
+      <td>Big Sky</td>
+      <td>1480</td>
+      <td>9-9</td>
+      <td>10.16</td>
+      <td>-1.16</td>
+      <td>36.09%</td>
+      <td>4</td>
+      <td>8.34</td>
+      <td>9.68</td>
+      <td>10.97</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Portland State</div></td>
+      <td>Big Sky</td>
+      <td>1479</td>
+      <td>11-7</td>
+      <td>11.06</td>
+      <td>-0.06</td>
+      <td>58.49%</td>
+      <td>3</td>
+      <td>9.26</td>
+      <td>10.58</td>
+      <td>11.88</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Abilene Christian</div></td>
+      <td>WAC</td>
+      <td>1479</td>
+      <td>8-8</td>
+      <td>7.49</td>
+      <td>0.51</td>
+      <td>71.69%</td>
+      <td>2</td>
+      <td>5.74</td>
+      <td>6.97</td>
+      <td>8.22</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern Illinois</div></td>
+      <td>MVC</td>
+      <td>1478</td>
+      <td>8-12</td>
+      <td>8.63</td>
+      <td>-0.63</td>
+      <td>47.17%</td>
+      <td>2</td>
+      <td>6.73</td>
+      <td>8.14</td>
+      <td>9.52</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Harvard</div></td>
+      <td>Ivy</td>
+      <td>1477</td>
+      <td>7-7</td>
+      <td>4.93</td>
+      <td>2.07</td>
+      <td>94.64%</td>
+      <td>0</td>
+      <td>3.31</td>
+      <td>4.39</td>
+      <td>5.52</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Manhattan</div></td>
+      <td>MAAC</td>
+      <td>1477</td>
+      <td>12-8</td>
+      <td>10.08</td>
+      <td>1.92</td>
+      <td>88.15%</td>
+      <td>3</td>
+      <td>8.19</td>
+      <td>9.58</td>
+      <td>10.97</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Appalachian State</div></td>
+      <td>Sun Belt</td>
+      <td>1474</td>
+      <td>10-8</td>
+      <td>12.28</td>
+      <td>-2.28</td>
+      <td>15.95%</td>
+      <td>6</td>
+      <td>10.54</td>
+      <td>11.83</td>
+      <td>13.00</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UTEP</div></td>
+      <td>CUSA</td>
+      <td>1468</td>
+      <td>7-11</td>
+      <td>8.96</td>
+      <td>-1.96</td>
+      <td>21.86%</td>
+      <td>2</td>
+      <td>7.17</td>
+      <td>8.46</td>
+      <td>9.77</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Virginia Tech</div></td>
+      <td>ACC</td>
+      <td>1466</td>
+      <td>8-12</td>
+      <td>6.27</td>
+      <td>1.73</td>
+      <td>88.05%</td>
+      <td>0</td>
+      <td>4.44</td>
+      <td>5.73</td>
+      <td>7.04</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas A&M-Corpus Christi</div></td>
+      <td>Southland</td>
+      <td>1463</td>
+      <td>12-8</td>
+      <td>12.82</td>
+      <td>-0.82</td>
+      <td>42.34%</td>
+      <td>6</td>
+      <td>11.07</td>
+      <td>12.37</td>
+      <td>13.66</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Alabama State</div></td>
+      <td>SWAC</td>
+      <td>1460</td>
+      <td>12-6</td>
+      <td>9.48</td>
+      <td>2.52</td>
+      <td>95.08%</td>
+      <td>3</td>
+      <td>7.69</td>
+      <td>8.97</td>
+      <td>10.30</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Valparaiso</div></td>
+      <td>MVC</td>
+      <td>1457</td>
+      <td>6-14</td>
+      <td>5.61</td>
+      <td>0.39</td>
+      <td>69.20%</td>
+      <td>0</td>
+      <td>3.81</td>
+      <td>5.05</td>
+      <td>6.37</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tennessee State</div></td>
+      <td>OVC</td>
+      <td>1455</td>
+      <td>12-8</td>
+      <td>10.78</td>
+      <td>1.22</td>
+      <td>81.23%</td>
+      <td>3</td>
+      <td>8.93</td>
+      <td>10.28</td>
+      <td>11.62</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Loyola Marymount</div></td>
+      <td>WCC</td>
+      <td>1454</td>
+      <td>8-10</td>
+      <td>8.12</td>
+      <td>-0.12</td>
+      <td>59.75%</td>
+      <td>2</td>
+      <td>6.51</td>
+      <td>7.61</td>
+      <td>8.71</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Dakota</div></td>
+      <td>Summit</td>
+      <td>1453</td>
+      <td>9-7</td>
+      <td>7.02</td>
+      <td>1.98</td>
+      <td>92.63%</td>
+      <td>1</td>
+      <td>5.33</td>
+      <td>6.52</td>
+      <td>7.70</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Rhode Island</div></td>
+      <td>A-10</td>
+      <td>1453</td>
+      <td>7-11</td>
+      <td>9.31</td>
+      <td>-2.31</td>
+      <td>17.57%</td>
+      <td>2</td>
+      <td>7.47</td>
+      <td>8.81</td>
+      <td>10.13</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northeastern</div></td>
+      <td>CAA</td>
+      <td>1453</td>
+      <td>9-9</td>
+      <td>8.84</td>
+      <td>0.16</td>
+      <td>64.09%</td>
+      <td>2</td>
+      <td>7.07</td>
+      <td>8.34</td>
+      <td>9.62</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Queens (NC)</div></td>
+      <td>A-Sun</td>
+      <td>1453</td>
+      <td>11-7</td>
+      <td>11.17</td>
+      <td>-0.17</td>
+      <td>56.51%</td>
+      <td>4</td>
+      <td>9.46</td>
+      <td>10.70</td>
+      <td>11.88</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Sam Houston</div></td>
+      <td>CUSA</td>
+      <td>1449</td>
+      <td>6-12</td>
+      <td>6.61</td>
+      <td>-0.61</td>
+      <td>48.79%</td>
+      <td>0</td>
+      <td>4.76</td>
+      <td>6.06</td>
+      <td>7.44</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Western Kentucky</div></td>
+      <td>CUSA</td>
+      <td>1449</td>
+      <td>8-10</td>
+      <td>8.98</td>
+      <td>-0.98</td>
+      <td>40.26%</td>
+      <td>2</td>
+      <td>7.15</td>
+      <td>8.47</td>
+      <td>9.81</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Sacred Heart</div></td>
+      <td>MAAC</td>
+      <td>1446</td>
+      <td>10-10</td>
+      <td>9.70</td>
+      <td>0.30</td>
+      <td>65.42%</td>
+      <td>2</td>
+      <td>7.76</td>
+      <td>9.18</td>
+      <td>10.63</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Idaho State</div></td>
+      <td>Big Sky</td>
+      <td>1445</td>
+      <td>10-8</td>
+      <td>8.91</td>
+      <td>1.09</td>
+      <td>79.84%</td>
+      <td>1</td>
+      <td>7.11</td>
+      <td>8.41</td>
+      <td>9.73</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northwestern State</div></td>
+      <td>Southland</td>
+      <td>1444</td>
+      <td>12-8</td>
+      <td>9.20</td>
+      <td>2.80</td>
+      <td>95.70%</td>
+      <td>1</td>
+      <td>7.35</td>
+      <td>8.69</td>
+      <td>10.02</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Georgia State</div></td>
+      <td>Sun Belt</td>
+      <td>1442</td>
+      <td>8-10</td>
+      <td>6.85</td>
+      <td>1.15</td>
+      <td>82.07%</td>
+      <td>1</td>
+      <td>5.10</td>
+      <td>6.35</td>
+      <td>7.61</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UTSA</div></td>
+      <td>AAC</td>
+      <td>1440</td>
+      <td>6-12</td>
+      <td>6.11</td>
+      <td>-0.11</td>
+      <td>59.14%</td>
+      <td>0</td>
+      <td>4.33</td>
+      <td>5.58</td>
+      <td>6.84</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Elon</div></td>
+      <td>CAA</td>
+      <td>1440</td>
+      <td>8-10</td>
+      <td>10.33</td>
+      <td>-2.33</td>
+      <td>16.02%</td>
+      <td>3</td>
+      <td>8.55</td>
+      <td>9.84</td>
+      <td>11.11</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Presbyterian</div></td>
+      <td>Big South</td>
+      <td>1439</td>
+      <td>7-9</td>
+      <td>5.55</td>
+      <td>1.45</td>
+      <td>87.68%</td>
+      <td>1</td>
+      <td>3.91</td>
+      <td>4.99</td>
+      <td>6.17</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Toledo</div></td>
+      <td>MAC</td>
+      <td>1439</td>
+      <td>10-8</td>
+      <td>10.33</td>
+      <td>-0.33</td>
+      <td>53.30%</td>
+      <td>4</td>
+      <td>8.58</td>
+      <td>9.84</td>
+      <td>11.06</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas State</div></td>
+      <td>Sun Belt</td>
+      <td>1439</td>
+      <td>9-9</td>
+      <td>9.65</td>
+      <td>-0.65</td>
+      <td>46.65%</td>
+      <td>3</td>
+      <td>7.92</td>
+      <td>9.16</td>
+      <td>10.42</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Central Michigan</div></td>
+      <td>MAC</td>
+      <td>1439</td>
+      <td>7-11</td>
+      <td>10.17</td>
+      <td>-3.17</td>
+      <td>6.53%</td>
+      <td>3</td>
+      <td>8.41</td>
+      <td>9.65</td>
+      <td>10.89</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northern Arizona</div></td>
+      <td>Big Sky</td>
+      <td>1439</td>
+      <td>8-10</td>
+      <td>8.73</td>
+      <td>-0.73</td>
+      <td>44.72%</td>
+      <td>1</td>
+      <td>6.91</td>
+      <td>8.25</td>
+      <td>9.56</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Ohio</div></td>
+      <td>MAC</td>
+      <td>1438</td>
+      <td>10-8</td>
+      <td>10.96</td>
+      <td>-0.96</td>
+      <td>39.68%</td>
+      <td>4</td>
+      <td>9.18</td>
+      <td>10.48</td>
+      <td>11.75</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Eastern Michigan</div></td>
+      <td>MAC</td>
+      <td>1438</td>
+      <td>9-9</td>
+      <td>7.45</td>
+      <td>1.55</td>
+      <td>86.68%</td>
+      <td>1</td>
+      <td>5.66</td>
+      <td>6.92</td>
+      <td>8.22</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UT Arlington</div></td>
+      <td>WAC</td>
+      <td>1437</td>
+      <td>6-10</td>
+      <td>8.44</td>
+      <td>-2.44</td>
+      <td>13.97%</td>
+      <td>2</td>
+      <td>6.70</td>
+      <td>7.93</td>
+      <td>9.19</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Boston College</div></td>
+      <td>ACC</td>
+      <td>1436</td>
+      <td>4-16</td>
+      <td>5.65</td>
+      <td>-1.65</td>
+      <td>27.43%</td>
+      <td>0</td>
+      <td>3.84</td>
+      <td>5.08</td>
+      <td>6.42</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Pepperdine</div></td>
+      <td>WCC</td>
+      <td>1436</td>
+      <td>4-14</td>
+      <td>6.32</td>
+      <td>-2.32</td>
+      <td>12.30%</td>
+      <td>0</td>
+      <td>4.68</td>
+      <td>5.79</td>
+      <td>6.89</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Navy</div></td>
+      <td>Patriot</td>
+      <td>1435</td>
+      <td>10-8</td>
+      <td>7.63</td>
+      <td>2.37</td>
+      <td>93.01%</td>
+      <td>1</td>
+      <td>5.76</td>
+      <td>7.13</td>
+      <td>8.49</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Massachusetts-Lowell</div></td>
+      <td>AEC</td>
+      <td>1435</td>
+      <td>6-10</td>
+      <td>10.16</td>
+      <td>-4.16</td>
+      <td>2.12%</td>
+      <td>3</td>
+      <td>8.48</td>
+      <td>9.72</td>
+      <td>10.86</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas Southern</div></td>
+      <td>SWAC</td>
+      <td>1433</td>
+      <td>12-6</td>
+      <td>11.78</td>
+      <td>0.22</td>
+      <td>64.88%</td>
+      <td>5</td>
+      <td>10.09</td>
+      <td>11.32</td>
+      <td>12.56</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Georgia Southern</div></td>
+      <td>Sun Belt</td>
+      <td>1431</td>
+      <td>8-10</td>
+      <td>7.84</td>
+      <td>0.16</td>
+      <td>64.16%</td>
+      <td>1</td>
+      <td>6.09</td>
+      <td>7.31</td>
+      <td>8.62</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Long Island University</div></td>
+      <td>NEC</td>
+      <td>1431</td>
+      <td>12-4</td>
+      <td>8.59</td>
+      <td>3.41</td>
+      <td>98.42%</td>
+      <td>2</td>
+      <td>6.80</td>
+      <td>8.11</td>
+      <td>9.40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tulsa</div></td>
+      <td>AAC</td>
+      <td>1431</td>
+      <td>6-12</td>
+      <td>5.23</td>
+      <td>0.77</td>
+      <td>77.12%</td>
+      <td>0</td>
+      <td>3.49</td>
+      <td>4.68</td>
+      <td>5.89</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Massachusetts</div></td>
+      <td>A-10</td>
+      <td>1430</td>
+      <td>7-11</td>
+      <td>7.20</td>
+      <td>-0.20</td>
+      <td>56.61%</td>
+      <td>0</td>
+      <td>5.41</td>
+      <td>6.69</td>
+      <td>7.93</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Florida</div></td>
+      <td>AAC</td>
+      <td>1429</td>
+      <td>6-12</td>
+      <td>7.69</td>
+      <td>-1.69</td>
+      <td>26.27%</td>
+      <td>1</td>
+      <td>5.91</td>
+      <td>7.18</td>
+      <td>8.47</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Albany</div></td>
+      <td>AEC</td>
+      <td>1428</td>
+      <td>8-8</td>
+      <td>7.88</td>
+      <td>0.12</td>
+      <td>64.06%</td>
+      <td>2</td>
+      <td>6.18</td>
+      <td>7.39</td>
+      <td>8.59</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Portland</div></td>
+      <td>WCC</td>
+      <td>1426</td>
+      <td>7-11</td>
+      <td>5.08</td>
+      <td>1.92</td>
+      <td>95.50%</td>
+      <td>0</td>
+      <td>3.57</td>
+      <td>4.57</td>
+      <td>5.58</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">William and Mary</div></td>
+      <td>CAA</td>
+      <td>1425</td>
+      <td>11-7</td>
+      <td>9.46</td>
+      <td>1.54</td>
+      <td>85.95%</td>
+      <td>3</td>
+      <td>7.63</td>
+      <td>8.95</td>
+      <td>10.29</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Evansville</div></td>
+      <td>MVC</td>
+      <td>1424</td>
+      <td>8-12</td>
+      <td>6.79</td>
+      <td>1.21</td>
+      <td>81.09%</td>
+      <td>0</td>
+      <td>4.91</td>
+      <td>6.26</td>
+      <td>7.64</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Bethune-Cookman</div></td>
+      <td>SWAC</td>
+      <td>1423</td>
+      <td>13-5</td>
+      <td>11.80</td>
+      <td>1.20</td>
+      <td>81.68%</td>
+      <td>5</td>
+      <td>10.04</td>
+      <td>11.33</td>
+      <td>12.62</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Hofstra</div></td>
+      <td>CAA</td>
+      <td>1423</td>
+      <td>6-12</td>
+      <td>9.70</td>
+      <td>-3.70</td>
+      <td>4.70%</td>
+      <td>2</td>
+      <td>7.88</td>
+      <td>9.19</td>
+      <td>10.52</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Campbell</div></td>
+      <td>CAA</td>
+      <td>1422</td>
+      <td>10-8</td>
+      <td>9.28</td>
+      <td>0.72</td>
+      <td>74.26%</td>
+      <td>3</td>
+      <td>7.45</td>
+      <td>8.76</td>
+      <td>10.05</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southeastern Louisiana</div></td>
+      <td>Southland</td>
+      <td>1422</td>
+      <td>12-8</td>
+      <td>12.57</td>
+      <td>-0.57</td>
+      <td>47.84%</td>
+      <td>5</td>
+      <td>10.76</td>
+      <td>12.11</td>
+      <td>13.42</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">La Salle</div></td>
+      <td>A-10</td>
+      <td>1421</td>
+      <td>5-14</td>
+      <td>5.48</td>
+      <td>-0.48</td>
+      <td>51.46%</td>
+      <td>0</td>
+      <td>3.73</td>
+      <td>4.93</td>
+      <td>6.16</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Longwood</div></td>
+      <td>Big South</td>
+      <td>1419</td>
+      <td>7-9</td>
+      <td>9.45</td>
+      <td>-2.45</td>
+      <td>13.33%</td>
+      <td>2</td>
+      <td>7.72</td>
+      <td>8.95</td>
+      <td>10.22</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Siena</div></td>
+      <td>MAAC</td>
+      <td>1415</td>
+      <td>9-11</td>
+      <td>9.68</td>
+      <td>-0.68</td>
+      <td>46.25%</td>
+      <td>2</td>
+      <td>7.83</td>
+      <td>9.18</td>
+      <td>10.53</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Little Rock</div></td>
+      <td>OVC</td>
+      <td>1415</td>
+      <td>12-8</td>
+      <td>14.33</td>
+      <td>-2.33</td>
+      <td>16.87%</td>
+      <td>6</td>
+      <td>12.54</td>
+      <td>13.91</td>
+      <td>15.17</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Richmond</div></td>
+      <td>A-10</td>
+      <td>1414</td>
+      <td>5-13</td>
+      <td>4.55</td>
+      <td>0.45</td>
+      <td>71.85%</td>
+      <td>0</td>
+      <td>2.81</td>
+      <td>4.03</td>
+      <td>5.21</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cal State Bakersfield</div></td>
+      <td>Big West</td>
+      <td>1413</td>
+      <td>8-12</td>
+      <td>7.88</td>
+      <td>0.12</td>
+      <td>62.75%</td>
+      <td>1</td>
+      <td>6.08</td>
+      <td>7.39</td>
+      <td>8.68</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Incarnate Word</div></td>
+      <td>Southland</td>
+      <td>1412</td>
+      <td>9-11</td>
+      <td>8.08</td>
+      <td>0.92</td>
+      <td>76.41%</td>
+      <td>1</td>
+      <td>6.19</td>
+      <td>7.55</td>
+      <td>8.92</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tarleton State</div></td>
+      <td>WAC</td>
+      <td>1411</td>
+      <td>7-9</td>
+      <td>5.90</td>
+      <td>1.10</td>
+      <td>82.11%</td>
+      <td>0</td>
+      <td>4.19</td>
+      <td>5.35</td>
+      <td>6.60</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Saint Francis (PA)</div></td>
+      <td>NEC</td>
+      <td>1411</td>
+      <td>8-8</td>
+      <td>6.94</td>
+      <td>1.06</td>
+      <td>80.98%</td>
+      <td>1</td>
+      <td>5.21</td>
+      <td>6.42</td>
+      <td>7.67</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Hawaii</div></td>
+      <td>Big West</td>
+      <td>1410</td>
+      <td>7-13</td>
+      <td>9.70</td>
+      <td>-2.70</td>
+      <td>11.85%</td>
+      <td>3</td>
+      <td>7.93</td>
+      <td>9.21</td>
+      <td>10.49</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Fordham</div></td>
+      <td>A-10</td>
+      <td>1409</td>
+      <td>3-15</td>
+      <td>5.09</td>
+      <td>-2.09</td>
+      <td>17.55%</td>
+      <td>0</td>
+      <td>3.37</td>
+      <td>4.54</td>
+      <td>5.75</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Old Dominion</div></td>
+      <td>Sun Belt</td>
+      <td>1409</td>
+      <td>8-10</td>
+      <td>6.07</td>
+      <td>1.93</td>
+      <td>90.52%</td>
+      <td>0</td>
+      <td>4.26</td>
+      <td>5.54</td>
+      <td>6.83</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wright State</div></td>
+      <td>Horizon</td>
+      <td>1409</td>
+      <td>8-12</td>
+      <td>11.34</td>
+      <td>-3.34</td>
+      <td>7.23%</td>
+      <td>5</td>
+      <td>9.46</td>
+      <td>10.84</td>
+      <td>12.21</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Marist</div></td>
+      <td>MAAC</td>
+      <td>1407</td>
+      <td>13-7</td>
+      <td>14.29</td>
+      <td>-1.29</td>
+      <td>32.31%</td>
+      <td>7</td>
+      <td>12.52</td>
+      <td>13.86</td>
+      <td>15.09</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Idaho</div></td>
+      <td>Big Sky</td>
+      <td>1406</td>
+      <td>8-10</td>
+      <td>8.19</td>
+      <td>-0.19</td>
+      <td>56.65%</td>
+      <td>1</td>
+      <td>6.33</td>
+      <td>7.67</td>
+      <td>9.00</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UC Davis</div></td>
+      <td>Big West</td>
+      <td>1406</td>
+      <td>9-11</td>
+      <td>8.51</td>
+      <td>0.49</td>
+      <td>70.07%</td>
+      <td>1</td>
+      <td>6.71</td>
+      <td>7.99</td>
+      <td>9.33</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Austin Peay</div></td>
+      <td>A-Sun</td>
+      <td>1404</td>
+      <td>8-10</td>
+      <td>8.65</td>
+      <td>-0.65</td>
+      <td>46.53%</td>
+      <td>3</td>
+      <td>6.95</td>
+      <td>8.15</td>
+      <td>9.35</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Seton Hall</div></td>
+      <td>Big East</td>
+      <td>1403</td>
+      <td>2-18</td>
+      <td>4.21</td>
+      <td>-2.21</td>
+      <td>14.88%</td>
+      <td>0</td>
+      <td>2.52</td>
+      <td>3.65</td>
+      <td>4.82</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Rice</div></td>
+      <td>AAC</td>
+      <td>1400</td>
+      <td>4-14</td>
+      <td>7.68</td>
+      <td>-3.68</td>
+      <td>4.11%</td>
+      <td>2</td>
+      <td>5.94</td>
+      <td>7.15</td>
+      <td>8.45</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Pennsylvania</div></td>
+      <td>Ivy</td>
+      <td>1400</td>
+      <td>4-10</td>
+      <td>4.24</td>
+      <td>-0.24</td>
+      <td>58.14%</td>
+      <td>0</td>
+      <td>2.58</td>
+      <td>3.67</td>
+      <td>4.83</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">VMI</div></td>
+      <td>Southern</td>
+      <td>1399</td>
+      <td>7-11</td>
+      <td>5.20</td>
+      <td>1.80</td>
+      <td>91.10%</td>
+      <td>0</td>
+      <td>3.47</td>
+      <td>4.66</td>
+      <td>5.85</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Eastern Illinois</div></td>
+      <td>OVC</td>
+      <td>1396</td>
+      <td>8-12</td>
+      <td>6.67</td>
+      <td>1.33</td>
+      <td>82.43%</td>
+      <td>0</td>
+      <td>4.78</td>
+      <td>6.17</td>
+      <td>7.53</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Delaware State</div></td>
+      <td>MEAC</td>
+      <td>1395</td>
+      <td>8-6</td>
+      <td>8.13</td>
+      <td>-0.13</td>
+      <td>58.43%</td>
+      <td>3</td>
+      <td>6.47</td>
+      <td>7.64</td>
+      <td>8.79</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wyoming</div></td>
+      <td>MWC</td>
+      <td>1394</td>
+      <td>5-15</td>
+      <td>7.17</td>
+      <td>-2.17</td>
+      <td>17.72%</td>
+      <td>1</td>
+      <td>5.41</td>
+      <td>6.64</td>
+      <td>7.89</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Bowling Green</div></td>
+      <td>MAC</td>
+      <td>1392</td>
+      <td>8-10</td>
+      <td>7.56</td>
+      <td>0.44</td>
+      <td>69.85%</td>
+      <td>2</td>
+      <td>5.78</td>
+      <td>7.06</td>
+      <td>8.32</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Dakota</div></td>
+      <td>Summit</td>
+      <td>1389</td>
+      <td>5-11</td>
+      <td>5.27</td>
+      <td>-0.27</td>
+      <td>56.79%</td>
+      <td>0</td>
+      <td>3.60</td>
+      <td>4.72</td>
+      <td>5.88</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Western Michigan</div></td>
+      <td>MAC</td>
+      <td>1389</td>
+      <td>9-9</td>
+      <td>6.80</td>
+      <td>2.20</td>
+      <td>93.66%</td>
+      <td>1</td>
+      <td>5.08</td>
+      <td>6.30</td>
+      <td>7.51</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kansas City</div></td>
+      <td>Summit</td>
+      <td>1388</td>
+      <td>4-12</td>
+      <td>7.64</td>
+      <td>-3.64</td>
+      <td>3.12%</td>
+      <td>1</td>
+      <td>5.97</td>
+      <td>7.14</td>
+      <td>8.34</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Miami (FL)</div></td>
+      <td>ACC</td>
+      <td>1387</td>
+      <td>3-17</td>
+      <td>3.50</td>
+      <td>-0.50</td>
+      <td>52.76%</td>
+      <td>0</td>
+      <td>1.87</td>
+      <td>2.89</td>
+      <td>4.03</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Colgate</div></td>
+      <td>Patriot</td>
+      <td>1386</td>
+      <td>10-8</td>
+      <td>11.09</td>
+      <td>-1.09</td>
+      <td>37.88%</td>
+      <td>4</td>
+      <td>9.23</td>
+      <td>10.63</td>
+      <td>11.96</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Rider</div></td>
+      <td>MAAC</td>
+      <td>1385</td>
+      <td>9-11</td>
+      <td>8.58</td>
+      <td>0.42</td>
+      <td>68.64%</td>
+      <td>2</td>
+      <td>6.76</td>
+      <td>8.10</td>
+      <td>9.39</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Florida International</div></td>
+      <td>CUSA</td>
+      <td>1385</td>
+      <td>3-15</td>
+      <td>4.25</td>
+      <td>-1.25</td>
+      <td>34.87%</td>
+      <td>0</td>
+      <td>2.50</td>
+      <td>3.65</td>
+      <td>4.89</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Mercer</div></td>
+      <td>Southern</td>
+      <td>1384</td>
+      <td>6-12</td>
+      <td>7.67</td>
+      <td>-1.67</td>
+      <td>25.27%</td>
+      <td>1</td>
+      <td>5.98</td>
+      <td>7.19</td>
+      <td>8.41</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Saint Peters</div></td>
+      <td>MAAC</td>
+      <td>1383</td>
+      <td>7-13</td>
+      <td>10.31</td>
+      <td>-3.31</td>
+      <td>7.58%</td>
+      <td>2</td>
+      <td>8.45</td>
+      <td>9.82</td>
+      <td>11.16</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Boston University</div></td>
+      <td>Patriot</td>
+      <td>1383</td>
+      <td>10-8</td>
+      <td>9.70</td>
+      <td>0.30</td>
+      <td>65.15%</td>
+      <td>3</td>
+      <td>7.82</td>
+      <td>9.23</td>
+      <td>10.59</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Charlotte</div></td>
+      <td>AAC</td>
+      <td>1378</td>
+      <td>3-15</td>
+      <td>5.22</td>
+      <td>-2.22</td>
+      <td>15.84%</td>
+      <td>0</td>
+      <td>3.48</td>
+      <td>4.69</td>
+      <td>5.87</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Gardner-Webb</div></td>
+      <td>Big South</td>
+      <td>1378</td>
+      <td>5-11</td>
+      <td>6.93</td>
+      <td>-1.93</td>
+      <td>20.13%</td>
+      <td>2</td>
+      <td>5.24</td>
+      <td>6.42</td>
+      <td>7.63</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Fairfield</div></td>
+      <td>MAAC</td>
+      <td>1377</td>
+      <td>8-12</td>
+      <td>7.17</td>
+      <td>0.83</td>
+      <td>75.43%</td>
+      <td>1</td>
+      <td>5.31</td>
+      <td>6.62</td>
+      <td>7.98</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Binghamton</div></td>
+      <td>AEC</td>
+      <td>1376</td>
+      <td>7-9</td>
+      <td>7.99</td>
+      <td>-0.99</td>
+      <td>39.72%</td>
+      <td>1</td>
+      <td>6.23</td>
+      <td>7.49</td>
+      <td>8.77</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Missouri State</div></td>
+      <td>MVC</td>
+      <td>1372</td>
+      <td>2-18</td>
+      <td>6.67</td>
+      <td>-4.67</td>
+      <td>0.86%</td>
+      <td>1</td>
+      <td>4.91</td>
+      <td>6.14</td>
+      <td>7.44</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Florida A&M</div></td>
+      <td>SWAC</td>
+      <td>1369</td>
+      <td>10-8</td>
+      <td>9.08</td>
+      <td>0.92</td>
+      <td>77.93%</td>
+      <td>2</td>
+      <td>7.30</td>
+      <td>8.58</td>
+      <td>9.84</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Lafayette</div></td>
+      <td>Patriot</td>
+      <td>1369</td>
+      <td>7-11</td>
+      <td>7.75</td>
+      <td>-0.75</td>
+      <td>45.11%</td>
+      <td>1</td>
+      <td>5.89</td>
+      <td>7.25</td>
+      <td>8.63</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Ball State</div></td>
+      <td>MAC</td>
+      <td>1366</td>
+      <td>7-11</td>
+      <td>8.18</td>
+      <td>-1.18</td>
+      <td>34.83%</td>
+      <td>2</td>
+      <td>6.46</td>
+      <td>7.68</td>
+      <td>8.89</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Florida</div></td>
+      <td>A-Sun</td>
+      <td>1365</td>
+      <td>8-10</td>
+      <td>9.04</td>
+      <td>-1.04</td>
+      <td>37.98%</td>
+      <td>2</td>
+      <td>7.28</td>
+      <td>8.56</td>
+      <td>9.79</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Alcorn State</div></td>
+      <td>SWAC</td>
+      <td>1363</td>
+      <td>11-7</td>
+      <td>10.98</td>
+      <td>0.02</td>
+      <td>61.12%</td>
+      <td>4</td>
+      <td>9.27</td>
+      <td>10.51</td>
+      <td>11.72</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Fairleigh Dickinson</div></td>
+      <td>NEC</td>
+      <td>1356</td>
+      <td>8-8</td>
+      <td>8.59</td>
+      <td>-0.59</td>
+      <td>47.33%</td>
+      <td>2</td>
+      <td>6.87</td>
+      <td>8.12</td>
+      <td>9.34</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Morgan State</div></td>
+      <td>MEAC</td>
+      <td>1355</td>
+      <td>7-7</td>
+      <td>6.38</td>
+      <td>0.62</td>
+      <td>75.74%</td>
+      <td>1</td>
+      <td>4.74</td>
+      <td>5.87</td>
+      <td>6.97</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Texas-Rio Grande Valley</div></td>
+      <td>Southland</td>
+      <td>1355</td>
+      <td>8-12</td>
+      <td>8.57</td>
+      <td>-0.57</td>
+      <td>49.23%</td>
+      <td>1</td>
+      <td>6.71</td>
+      <td>8.04</td>
+      <td>9.42</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Lehigh</div></td>
+      <td>Patriot</td>
+      <td>1354</td>
+      <td>6-12</td>
+      <td>9.11</td>
+      <td>-3.11</td>
+      <td>8.93%</td>
+      <td>1</td>
+      <td>7.27</td>
+      <td>8.60</td>
+      <td>9.94</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Stephen F. Austin</div></td>
+      <td>Southland</td>
+      <td>1349</td>
+      <td>7-13</td>
+      <td>10.09</td>
+      <td>-3.09</td>
+      <td>9.03%</td>
+      <td>3</td>
+      <td>8.26</td>
+      <td>9.61</td>
+      <td>10.91</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Mercyhurst</div></td>
+      <td>NEC</td>
+      <td>1349</td>
+      <td>9-7</td>
+      <td>7.10</td>
+      <td>1.90</td>
+      <td>91.07%</td>
+      <td>1</td>
+      <td>5.36</td>
+      <td>6.59</td>
+      <td>7.82</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">UMBC</div></td>
+      <td>AEC</td>
+      <td>1349</td>
+      <td>5-11</td>
+      <td>7.46</td>
+      <td>-2.46</td>
+      <td>13.61%</td>
+      <td>1</td>
+      <td>5.73</td>
+      <td>6.96</td>
+      <td>8.18</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Louisiana</div></td>
+      <td>Sun Belt</td>
+      <td>1348</td>
+      <td>8-10</td>
+      <td>5.49</td>
+      <td>2.51</td>
+      <td>95.33%</td>
+      <td>0</td>
+      <td>3.72</td>
+      <td>4.94</td>
+      <td>6.21</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Niagara</div></td>
+      <td>MAAC</td>
+      <td>1348</td>
+      <td>6-14</td>
+      <td>7.82</td>
+      <td>-1.82</td>
+      <td>24.84%</td>
+      <td>1</td>
+      <td>6.01</td>
+      <td>7.32</td>
+      <td>8.64</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Loyola (MD)</div></td>
+      <td>Patriot</td>
+      <td>1343</td>
+      <td>6-12</td>
+      <td>6.93</td>
+      <td>-0.93</td>
+      <td>41.72%</td>
+      <td>1</td>
+      <td>5.11</td>
+      <td>6.40</td>
+      <td>7.74</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Denver</div></td>
+      <td>Summit</td>
+      <td>1341</td>
+      <td>5-11</td>
+      <td>3.34</td>
+      <td>1.66</td>
+      <td>92.60%</td>
+      <td>0</td>
+      <td>1.77</td>
+      <td>2.76</td>
+      <td>3.81</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Grambling</div></td>
+      <td>SWAC</td>
+      <td>1341</td>
+      <td>7-11</td>
+      <td>7.59</td>
+      <td>-0.59</td>
+      <td>48.32%</td>
+      <td>1</td>
+      <td>5.74</td>
+      <td>7.08</td>
+      <td>8.43</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Fresno State</div></td>
+      <td>MWC</td>
+      <td>1338</td>
+      <td>2-18</td>
+      <td>3.66</td>
+      <td>-1.66</td>
+      <td>23.64%</td>
+      <td>0</td>
+      <td>2.06</td>
+      <td>3.09</td>
+      <td>4.19</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Carolina Central</div></td>
+      <td>MEAC</td>
+      <td>1338</td>
+      <td>6-8</td>
+      <td>6.46</td>
+      <td>-0.46</td>
+      <td>50.95%</td>
+      <td>0</td>
+      <td>4.82</td>
+      <td>5.96</td>
+      <td>7.08</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Weber State</div></td>
+      <td>Big Sky</td>
+      <td>1335</td>
+      <td>5-13</td>
+      <td>6.99</td>
+      <td>-1.99</td>
+      <td>20.92%</td>
+      <td>1</td>
+      <td>5.22</td>
+      <td>6.48</td>
+      <td>7.75</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tennessee-Martin</div></td>
+      <td>OVC</td>
+      <td>1334</td>
+      <td>9-11</td>
+      <td>10.82</td>
+      <td>-1.82</td>
+      <td>24.84%</td>
+      <td>3</td>
+      <td>9.01</td>
+      <td>10.33</td>
+      <td>11.70</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tennessee Tech</div></td>
+      <td>OVC</td>
+      <td>1331</td>
+      <td>10-10</td>
+      <td>9.47</td>
+      <td>0.53</td>
+      <td>69.65%</td>
+      <td>2</td>
+      <td>7.59</td>
+      <td>8.96</td>
+      <td>10.36</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Lindenwood</div></td>
+      <td>OVC</td>
+      <td>1331</td>
+      <td>10-10</td>
+      <td>6.91</td>
+      <td>3.09</td>
+      <td>96.55%</td>
+      <td>0</td>
+      <td>5.03</td>
+      <td>6.38</td>
+      <td>7.76</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Stony Brook</div></td>
+      <td>CAA</td>
+      <td>1329</td>
+      <td>4-14</td>
+      <td>4.82</td>
+      <td>-0.82</td>
+      <td>43.69%</td>
+      <td>0</td>
+      <td>3.14</td>
+      <td>4.27</td>
+      <td>5.47</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Charleston Southern</div></td>
+      <td>Big South</td>
+      <td>1328</td>
+      <td>6-10</td>
+      <td>4.82</td>
+      <td>1.18</td>
+      <td>85.26%</td>
+      <td>0</td>
+      <td>3.21</td>
+      <td>4.28</td>
+      <td>5.40</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Eastern Washington</div></td>
+      <td>Big Sky</td>
+      <td>1328</td>
+      <td>6-12</td>
+      <td>7.69</td>
+      <td>-1.69</td>
+      <td>26.60%</td>
+      <td>2</td>
+      <td>5.89</td>
+      <td>7.17</td>
+      <td>8.49</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Houston Christian</div></td>
+      <td>Southland</td>
+      <td>1326</td>
+      <td>9-11</td>
+      <td>7.62</td>
+      <td>1.38</td>
+      <td>83.38%</td>
+      <td>1</td>
+      <td>5.72</td>
+      <td>7.10</td>
+      <td>8.46</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">IU Indy</div></td>
+      <td>Horizon</td>
+      <td>1324</td>
+      <td>6-14</td>
+      <td>4.11</td>
+      <td>1.89</td>
+      <td>91.56%</td>
+      <td>0</td>
+      <td>2.38</td>
+      <td>3.54</td>
+      <td>4.76</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New Hampshire</div></td>
+      <td>AEC</td>
+      <td>1324</td>
+      <td>6-10</td>
+      <td>3.93</td>
+      <td>2.07</td>
+      <td>93.99%</td>
+      <td>0</td>
+      <td>2.28</td>
+      <td>3.37</td>
+      <td>4.54</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Columbia</div></td>
+      <td>Ivy</td>
+      <td>1324</td>
+      <td>1-13</td>
+      <td>4.79</td>
+      <td>-3.79</td>
+      <td>1.49%</td>
+      <td>0</td>
+      <td>3.18</td>
+      <td>4.27</td>
+      <td>5.38</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Howard</div></td>
+      <td>MEAC</td>
+      <td>1323</td>
+      <td>7-7</td>
+      <td>7.24</td>
+      <td>-0.24</td>
+      <td>56.18%</td>
+      <td>1</td>
+      <td>5.59</td>
+      <td>6.74</td>
+      <td>7.88</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Western Illinois</div></td>
+      <td>OVC</td>
+      <td>1319</td>
+      <td>6-14</td>
+      <td>7.14</td>
+      <td>-1.14</td>
+      <td>36.76%</td>
+      <td>1</td>
+      <td>5.33</td>
+      <td>6.62</td>
+      <td>7.90</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Western Carolina</div></td>
+      <td>Southern</td>
+      <td>1319</td>
+      <td>4-14</td>
+      <td>5.22</td>
+      <td>-1.22</td>
+      <td>34.24%</td>
+      <td>0</td>
+      <td>3.52</td>
+      <td>4.68</td>
+      <td>5.84</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Pacific</div></td>
+      <td>WCC</td>
+      <td>1314</td>
+      <td>4-14</td>
+      <td>2.46</td>
+      <td>1.54</td>
+      <td>93.23%</td>
+      <td>0</td>
+      <td>1.03</td>
+      <td>1.86</td>
+      <td>2.82</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern Mississippi</div></td>
+      <td>Sun Belt</td>
+      <td>1311</td>
+      <td>5-13</td>
+      <td>6.62</td>
+      <td>-1.62</td>
+      <td>25.67%</td>
+      <td>1</td>
+      <td>4.95</td>
+      <td>6.08</td>
+      <td>7.32</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Utah Tech</div></td>
+      <td>WAC</td>
+      <td>1311</td>
+      <td>2-14</td>
+      <td>4.18</td>
+      <td>-2.18</td>
+      <td>14.17%</td>
+      <td>0</td>
+      <td>2.53</td>
+      <td>3.62</td>
+      <td>4.74</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern Utah</div></td>
+      <td>WAC</td>
+      <td>1309</td>
+      <td>4-12</td>
+      <td>4.38</td>
+      <td>-0.38</td>
+      <td>54.29%</td>
+      <td>0</td>
+      <td>2.74</td>
+      <td>3.83</td>
+      <td>4.93</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">San Diego</div></td>
+      <td>WCC</td>
+      <td>1304</td>
+      <td>2-16</td>
+      <td>3.39</td>
+      <td>-1.39</td>
+      <td>27.46%</td>
+      <td>0</td>
+      <td>1.87</td>
+      <td>2.83</td>
+      <td>3.83</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Stonehill</div></td>
+      <td>NEC</td>
+      <td>1301</td>
+      <td>7-9</td>
+      <td>8.62</td>
+      <td>-1.62</td>
+      <td>26.77%</td>
+      <td>1</td>
+      <td>6.88</td>
+      <td>8.15</td>
+      <td>9.40</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Air Force</div></td>
+      <td>MWC</td>
+      <td>1300</td>
+      <td>1-19</td>
+      <td>2.46</td>
+      <td>-1.46</td>
+      <td>24.13%</td>
+      <td>0</td>
+      <td>1.03</td>
+      <td>1.86</td>
+      <td>2.83</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Central Arkansas</div></td>
+      <td>A-Sun</td>
+      <td>1299</td>
+      <td>4-14</td>
+      <td>4.19</td>
+      <td>-0.19</td>
+      <td>59.21%</td>
+      <td>0</td>
+      <td>2.53</td>
+      <td>3.62</td>
+      <td>4.76</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Long Beach State</div></td>
+      <td>Big West</td>
+      <td>1297</td>
+      <td>3-17</td>
+      <td>5.74</td>
+      <td>-2.74</td>
+      <td>10.03%</td>
+      <td>0</td>
+      <td>4.02</td>
+      <td>5.20</td>
+      <td>6.47</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Army</div></td>
+      <td>Patriot</td>
+      <td>1295</td>
+      <td>10-8</td>
+      <td>8.25</td>
+      <td>1.75</td>
+      <td>87.69%</td>
+      <td>0</td>
+      <td>6.40</td>
+      <td>7.74</td>
+      <td>9.03</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Coastal Carolina</div></td>
+      <td>Sun Belt</td>
+      <td>1294</td>
+      <td>3-15</td>
+      <td>5.20</td>
+      <td>-2.20</td>
+      <td>14.33%</td>
+      <td>0</td>
+      <td>3.53</td>
+      <td>4.65</td>
+      <td>5.80</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Morehead State</div></td>
+      <td>OVC</td>
+      <td>1293</td>
+      <td>10-10</td>
+      <td>11.22</td>
+      <td>-1.22</td>
+      <td>34.92%</td>
+      <td>4</td>
+      <td>9.41</td>
+      <td>10.73</td>
+      <td>12.04</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Wagner</div></td>
+      <td>NEC</td>
+      <td>1290</td>
+      <td>6-10</td>
+      <td>7.38</td>
+      <td>-1.38</td>
+      <td>30.60%</td>
+      <td>1</td>
+      <td>5.66</td>
+      <td>6.87</td>
+      <td>8.08</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Oral Roberts</div></td>
+      <td>Summit</td>
+      <td>1286</td>
+      <td>3-13</td>
+      <td>4.14</td>
+      <td>-1.14</td>
+      <td>35.66%</td>
+      <td>0</td>
+      <td>2.50</td>
+      <td>3.57</td>
+      <td>4.70</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Holy Cross</div></td>
+      <td>Patriot</td>
+      <td>1285</td>
+      <td>5-13</td>
+      <td>7.90</td>
+      <td>-2.90</td>
+      <td>10.77%</td>
+      <td>1</td>
+      <td>6.08</td>
+      <td>7.40</td>
+      <td>8.75</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Bellarmine</div></td>
+      <td>A-Sun</td>
+      <td>1276</td>
+      <td>2-16</td>
+      <td>3.13</td>
+      <td>-1.13</td>
+      <td>35.08%</td>
+      <td>0</td>
+      <td>1.54</td>
+      <td>2.55</td>
+      <td>3.62</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Stetson</div></td>
+      <td>A-Sun</td>
+      <td>1269</td>
+      <td>6-12</td>
+      <td>6.07</td>
+      <td>-0.07</td>
+      <td>60.41%</td>
+      <td>1</td>
+      <td>4.33</td>
+      <td>5.54</td>
+      <td>6.78</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Louisiana-Monroe</div></td>
+      <td>Sun Belt</td>
+      <td>1266</td>
+      <td>3-15</td>
+      <td>3.54</td>
+      <td>-0.54</td>
+      <td>50.96%</td>
+      <td>0</td>
+      <td>1.95</td>
+      <td>2.96</td>
+      <td>4.07</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">NJIT</div></td>
+      <td>AEC</td>
+      <td>1264</td>
+      <td>3-13</td>
+      <td>3.17</td>
+      <td>-0.17</td>
+      <td>60.67%</td>
+      <td>0</td>
+      <td>1.56</td>
+      <td>2.59</td>
+      <td>3.69</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">North Carolina A&T</div></td>
+      <td>CAA</td>
+      <td>1264</td>
+      <td>3-15</td>
+      <td>3.48</td>
+      <td>-0.48</td>
+      <td>52.70%</td>
+      <td>0</td>
+      <td>1.86</td>
+      <td>2.89</td>
+      <td>3.99</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Buffalo</div></td>
+      <td>MAC</td>
+      <td>1263</td>
+      <td>4-14</td>
+      <td>3.89</td>
+      <td>0.11</td>
+      <td>66.04%</td>
+      <td>0</td>
+      <td>2.21</td>
+      <td>3.30</td>
+      <td>4.51</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">East Texas A&M</div></td>
+      <td>Southland</td>
+      <td>1260</td>
+      <td>3-17</td>
+      <td>4.83</td>
+      <td>-1.83</td>
+      <td>22.86%</td>
+      <td>0</td>
+      <td>3.10</td>
+      <td>4.28</td>
+      <td>5.53</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Green Bay</div></td>
+      <td>Horizon</td>
+      <td>1258</td>
+      <td>2-18</td>
+      <td>4.88</td>
+      <td>-2.88</td>
+      <td>6.62%</td>
+      <td>0</td>
+      <td>3.22</td>
+      <td>4.34</td>
+      <td>5.51</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cal State Fullerton</div></td>
+      <td>Big West</td>
+      <td>1258</td>
+      <td>1-19</td>
+      <td>4.23</td>
+      <td>-3.23</td>
+      <td>3.94%</td>
+      <td>0</td>
+      <td>2.55</td>
+      <td>3.67</td>
+      <td>4.81</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">West Georgia</div></td>
+      <td>A-Sun</td>
+      <td>1249</td>
+      <td>4-14</td>
+      <td>3.78</td>
+      <td>0.22</td>
+      <td>69.25%</td>
+      <td>0</td>
+      <td>2.18</td>
+      <td>3.24</td>
+      <td>4.33</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Southern Indiana</div></td>
+      <td>OVC</td>
+      <td>1247</td>
+      <td>5-15</td>
+      <td>6.71</td>
+      <td>-1.71</td>
+      <td>26.56%</td>
+      <td>0</td>
+      <td>4.89</td>
+      <td>6.19</td>
+      <td>7.53</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Maryland-Eastern Shore</div></td>
+      <td>MEAC</td>
+      <td>1244</td>
+      <td>2-12</td>
+      <td>3.42</td>
+      <td>-1.42</td>
+      <td>27.13%</td>
+      <td>0</td>
+      <td>1.88</td>
+      <td>2.87</td>
+      <td>3.89</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Detroit Mercy</div></td>
+      <td>Horizon</td>
+      <td>1244</td>
+      <td>4-16</td>
+      <td>5.11</td>
+      <td>-1.11</td>
+      <td>37.45%</td>
+      <td>0</td>
+      <td>3.38</td>
+      <td>4.55</td>
+      <td>5.76</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Coppin State</div></td>
+      <td>MEAC</td>
+      <td>1241</td>
+      <td>4-10</td>
+      <td>3.12</td>
+      <td>0.88</td>
+      <td>83.40%</td>
+      <td>0</td>
+      <td>1.57</td>
+      <td>2.55</td>
+      <td>3.60</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">South Carolina Upstate</div></td>
+      <td>Big South</td>
+      <td>1240</td>
+      <td>2-14</td>
+      <td>2.95</td>
+      <td>-0.95</td>
+      <td>39.45%</td>
+      <td>0</td>
+      <td>1.40</td>
+      <td>2.39</td>
+      <td>3.44</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Alabama A&M</div></td>
+      <td>SWAC</td>
+      <td>1238</td>
+      <td>6-12</td>
+      <td>7.04</td>
+      <td>-1.04</td>
+      <td>38.94%</td>
+      <td>1</td>
+      <td>5.23</td>
+      <td>6.52</td>
+      <td>7.81</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Canisius</div></td>
+      <td>MAAC</td>
+      <td>1235</td>
+      <td>3-17</td>
+      <td>4.77</td>
+      <td>-1.77</td>
+      <td>23.75%</td>
+      <td>0</td>
+      <td>3.06</td>
+      <td>4.23</td>
+      <td>5.46</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Northern Illinois</div></td>
+      <td>MAC</td>
+      <td>1227</td>
+      <td>2-16</td>
+      <td>3.44</td>
+      <td>-1.44</td>
+      <td>28.66%</td>
+      <td>0</td>
+      <td>1.81</td>
+      <td>2.83</td>
+      <td>3.94</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Le Moyne</div></td>
+      <td>NEC</td>
+      <td>1219</td>
+      <td>4-12</td>
+      <td>5.77</td>
+      <td>-1.77</td>
+      <td>24.07%</td>
+      <td>0</td>
+      <td>4.05</td>
+      <td>5.26</td>
+      <td>6.49</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Sacramento State</div></td>
+      <td>Big Sky</td>
+      <td>1215</td>
+      <td>3-15</td>
+      <td>2.98</td>
+      <td>0.02</td>
+      <td>65.99%</td>
+      <td>0</td>
+      <td>1.38</td>
+      <td>2.39</td>
+      <td>3.49</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Arkansas-Pine Bluff</div></td>
+      <td>SWAC</td>
+      <td>1205</td>
+      <td>3-15</td>
+      <td>5.01</td>
+      <td>-2.01</td>
+      <td>18.11%</td>
+      <td>0</td>
+      <td>3.33</td>
+      <td>4.44</td>
+      <td>5.64</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Citadel</div></td>
+      <td>Southern</td>
+      <td>1205</td>
+      <td>0-18</td>
+      <td>2.66</td>
+      <td>-2.66</td>
+      <td>3.69%</td>
+      <td>0</td>
+      <td>1.19</td>
+      <td>2.08</td>
+      <td>3.03</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Chicago State</div></td>
+      <td>NEC</td>
+      <td>1197</td>
+      <td>4-12</td>
+      <td>5.65</td>
+      <td>-1.65</td>
+      <td>25.33%</td>
+      <td>0</td>
+      <td>3.98</td>
+      <td>5.13</td>
+      <td>6.31</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New Orleans</div></td>
+      <td>Southland</td>
+      <td>1175</td>
+      <td>2-18</td>
+      <td>4.61</td>
+      <td>-2.61</td>
+      <td>10.21%</td>
+      <td>0</td>
+      <td>2.94</td>
+      <td>4.02</td>
+      <td>5.24</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Prairie View</div></td>
+      <td>SWAC</td>
+      <td>1173</td>
+      <td>4-14</td>
+      <td>6.27</td>
+      <td>-2.27</td>
+      <td>15.96%</td>
+      <td>0</td>
+      <td>4.52</td>
+      <td>5.74</td>
+      <td>6.93</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Mississippi Valley State</div></td>
+      <td>SWAC</td>
+      <td>1062</td>
+      <td>1-17</td>
+      <td>3.37</td>
+      <td>-2.37</td>
+      <td>10.04%</td>
+      <td>0</td>
+      <td>1.76</td>
+      <td>2.79</td>
+      <td>3.88</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Conference");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
