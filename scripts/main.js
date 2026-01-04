@@ -26,6 +26,13 @@ fetch('/sports-history-test/uefa/header.html')
         document.getElementById('uefa-header').innerHTML = data;
     });
 
+// Load NCAA header HTML dynamically
+fetch('/sports-history-test/ncaa/header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('ncaa-header').innerHTML = data;
+    });
+
 // Tab switching function
 function showTab(group, tabId) {
     const tabElement = document.getElementById(tabId);
