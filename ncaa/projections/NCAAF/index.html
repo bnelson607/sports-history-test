@@ -89,102 +89,44 @@
             
                 
                 
-            <h2 class="sim-subsection">Playoffs</h2>
-            
-                
+            <h2 class="sim-subsection">Playoff</h2>
+                    
             <details>
-                <summary>Playoff Seed Probabilities</summary>
+                <summary>Playoff Simulation</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How likely is each team to earn each playoff seed?</i>
-                </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('preseason_playoff_seed', 'preseason_playoff_seed_afc')" class="active">AFC</button>
-                    <button onclick="showTab('preseason_playoff_seed', 'preseason_playoff_seed_nfc')">NFC</button>
-                </div>
-                <div class="tab-content preseason_playoff_seed active" id="preseason_playoff_seed_afc">
-                    <iframe data-src="AFC_playoff_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content preseason_playoff_seed" id="preseason_playoff_seed_nfc">
-                    <iframe data-src="NFC_playoff_heatmap.html"></iframe>
-                </div>
-            </details>
-            
-                
-            <details>
-                <summary>Playoff Seed Wins</summary>
-                <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many wins does the simulation believe each seed will have?</i>
-                </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_afc')" class="active">AFC</button>
-                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_nfc')">NFC</button>
-                </div>
-                <div class="tab-content playoff_seed_wins active" id="playoff_seed_wins_afc">
-                    <iframe data-src="AFC_playoff_seed_wins.html"></iframe>
-                </div>
-                <div class="tab-content playoff_seed_wins" id="playoff_seed_wins_nfc">
-                    <iframe data-src="NFC_playoff_seed_wins.html"></iframe>
-                </div>
-            </details>
-            
-                
-            <details>
-                <summary>Current Playoff Simulation</summary>
-                <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How does the simulation expect the playoffs to unfold?</i>
+                    <i>How does the simulation expect the playoff to unfold?</i>
                 </div>
                 <div class="tab-buttons">
                     <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Playoff Progression</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_wild_card_round')">Wild Card Round</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_div_round')">Divisional Round</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_conf_champ')">Conference Championship</button>
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_super_bowl')">Super Bowl</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_first_round')">First Round</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_quarterfinals')">Quarterfinals</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_semifinals')">Semifinals</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship')">Championship</button>
                 </div>
                 
                 <!-- Playoff Advancement -->
                 <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
-                    <iframe data-src="playoff_success_preseason_playoff.html"></iframe>
+                    <iframe data-src="playoff_success_end_of_regular_season.html"></iframe>
                 </div>
                 
-                <!-- Wild Card Round -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_wild_card_round">
-                    <div class="iframe-block">
-                        <div class="graph-label">AFC</div>
-                        <iframe data-src="wild_card_round_preseason_playoff_afc.html"></iframe>
-                    </div>
-                    <div class="iframe-block">
-                        <div class="graph-label">NFC</div>
-                        <iframe data-src="wild_card_round_preseason_playoff_nfc.html"></iframe>
-                    </div>
+                <!-- First Round -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_first_round">
+                    <iframe data-src="first_round_end_of_regular_season.html"></iframe>
                 </div>
                 
-                <!-- Divisional Round -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_div_round">
-                    <div class="iframe-block">
-                        <div class="graph-label">AFC</div>
-                        <iframe data-src="divisional_round_preseason_playoff_afc.html"></iframe>
-                    </div>
-                    <div class="iframe-block">
-                        <div class="graph-label">NFC</div>
-                        <iframe data-src="divisional_round_preseason_playoff_nfc.html"></iframe>
-                    </div>
+                <!-- Quarterfinals -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_quarterfinals">
+                    <iframe data-src="quarterfinals_end_of_regular_season.html"></iframe>
                 </div>
                 
-                <!-- Conference Championship -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_conf_champ">
-                    <div class="iframe-block">
-                        <div class="graph-label">AFC</div>
-                        <iframe data-src="conference_championship_preseason_playoff_afc.html"></iframe>
-                    </div>
-                    <div class="iframe-block">
-                        <div class="graph-label">NFC</div>
-                        <iframe data-src="conference_championship_preseason_playoff_nfc.html"></iframe>
-                    </div>
+                <!-- Semifinals -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_semifinals">
+                    <iframe data-src="semifinals_end_of_regular_season.html"></iframe>
                 </div>
                 
-                <!-- Super Bowl -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_super_bowl">
-                    <iframe data-src="super_bowl_preseason_playoff.html"></iframe>
+                <!-- Quarterfinals -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_championship">
+                    <iframe data-src="championship_end_of_regular_season.html"></iframe>
                 </div>
             </details>
 
@@ -197,40 +139,8 @@
                 <div class="subheading" style="margin: 0.75em 0;">
                     <i>How has each team's Elo rating changed throughout the season?</i>
                 </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('elo', 'elo_AFC_East')" class="active">AFC East</button>
-                    <button onclick="showTab('elo', 'elo_AFC_North')">AFC North</button>
-                    <button onclick="showTab('elo', 'elo_AFC_South')">AFC South</button>
-                    <button onclick="showTab('elo', 'elo_AFC_West')">AFC West</button>
-                    <button onclick="showTab('elo', 'elo_NFC_East')">NFC East</button>
-                    <button onclick="showTab('elo', 'elo_NFC_North')">NFC North</button>
-                    <button onclick="showTab('elo', 'elo_NFC_South')">NFC South</button>
-                    <button onclick="showTab('elo', 'elo_NFC_West')">NFC West</button>
-                </div>
-                <div class="tab-content elo active" id="elo_AFC_East">
-                    <iframe data-src="AFC East_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_AFC_North">
-                    <iframe data-src="AFC North_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_AFC_South">
-                    <iframe data-src="AFC South_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_AFC_West">
-                    <iframe data-src="AFC West_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_NFC_East">
-                    <iframe data-src="NFC East_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_NFC_North">
-                    <iframe data-src="NFC North_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_NFC_South">
-                    <iframe data-src="NFC South_elo_ratings.html"></iframe>
-                </div>
-                <div class="tab-content elo" id="elo_NFC_West">
-                    <iframe data-src="NFC West_elo_ratings.html"></iframe>
-                </div>
+
+                <iframe data-src="elo_ratings_over_time.html"></iframe>
             </details>
             
                 
@@ -239,132 +149,22 @@
                 <div class="subheading" style="margin: 0.75em 0;">
                     <i>How has each team's expected win total changed throughout the season?</i>
                 </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('wins', 'wins_AFC_East')" class="active">AFC East</button>
-                    <button onclick="showTab('wins', 'wins_AFC_North')">AFC North</button>
-                    <button onclick="showTab('wins', 'wins_AFC_South')">AFC South</button>
-                    <button onclick="showTab('wins', 'wins_AFC_West')">AFC West</button>
-                    <button onclick="showTab('wins', 'wins_NFC_East')">NFC East</button>
-                    <button onclick="showTab('wins', 'wins_NFC_North')">NFC North</button>
-                    <button onclick="showTab('wins', 'wins_NFC_South')">NFC South</button>
-                    <button onclick="showTab('wins', 'wins_NFC_West')">NFC West</button>
-                </div>
-                <div class="tab-content wins active" id="wins_AFC_East">
-                    <iframe data-src="AFC East_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_AFC_North">
-                    <iframe data-src="AFC North_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_AFC_South">
-                    <iframe data-src="AFC South_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_AFC_West">
-                    <iframe data-src="AFC West_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_NFC_East">
-                    <iframe data-src="NFC East_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_NFC_North">
-                    <iframe data-src="NFC North_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_NFC_South">
-                    <iframe data-src="NFC South_simulated_wins.html"></iframe>
-                </div>
-                <div class="tab-content wins" id="wins_NFC_West">
-                    <iframe data-src="NFC West_simulated_wins.html"></iframe>
-                </div>
+                
+                <iframe data-src="simulated_wins_over_time.html"></iframe>
             </details>
             
                 
             <details class="plot-section" data-expanded="false">
-                <summary>Division Champion Probabilities</summary>
+                <summary>Conference Champion Probabilities</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How has each team's probability of winning the division changed throughout the season?</i>
+                    <i>How has each team's probability of winning the conference changed throughout the season?</i>
                 </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('div_prob', 'div_prob_AFC_East')" class="active">AFC East</button>
-                    <button onclick="showTab('div_prob', 'div_prob_AFC_North')">AFC North</button>
-                    <button onclick="showTab('div_prob', 'div_prob_AFC_South')">AFC South</button>
-                    <button onclick="showTab('div_prob', 'div_prob_AFC_West')">AFC West</button>
-                    <button onclick="showTab('div_prob', 'div_prob_NFC_East')">NFC East</button>
-                    <button onclick="showTab('div_prob', 'div_prob_NFC_North')">NFC North</button>
-                    <button onclick="showTab('div_prob', 'div_prob_NFC_South')">NFC South</button>
-                    <button onclick="showTab('div_prob', 'div_prob_NFC_West')">NFC West</button>
-                </div>
-                <div class="tab-content div_prob active" id="div_prob_AFC_East">
-                    <iframe data-src="AFC East_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_AFC_North">
-                    <iframe data-src="AFC North_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_AFC_South">
-                    <iframe data-src="AFC South_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_AFC_West">
-                    <iframe data-src="AFC West_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_NFC_East">
-                    <iframe data-src="NFC East_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_NFC_North">
-                    <iframe data-src="NFC North_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_NFC_South">
-                    <iframe data-src="NFC South_division_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content div_prob" id="div_prob_NFC_West">
-                    <iframe data-src="NFC West_division_probabilities.html"></iframe>
-                </div>
-            </details>
-            
                 
-            <details class="plot-section" data-expanded="false">
-                <summary>Playoff Probabilities</summary>
-                <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How has each team's probability of making the playoffs changed throughout the season?</i>
-                </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_East')" class="active">AFC East</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_North')">AFC North</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_South')">AFC South</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_West')">AFC West</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_East')">NFC East</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_North')">NFC North</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_South')">NFC South</button>
-                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_West')">NFC West</button>
-                </div>
-                <div class="tab-content playoff_prob active" id="playoff_prob_AFC_East">
-                    <iframe data-src="AFC East_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_AFC_North">
-                    <iframe data-src="AFC North_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_AFC_South">
-                    <iframe data-src="AFC South_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_AFC_West">
-                    <iframe data-src="AFC West_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_NFC_East">
-                    <iframe data-src="NFC East_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_NFC_North">
-                    <iframe data-src="NFC North_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_NFC_South">
-                    <iframe data-src="NFC South_playoff_probabilities.html"></iframe>
-                </div>
-                <div class="tab-content playoff_prob" id="playoff_prob_NFC_West">
-                    <iframe data-src="NFC West_playoff_probabilities.html"></iframe>
-                </div>
+                <iframe data-src="conference_probabilities_over_time.html"></iframe>
             </details>
 
 
             
-            
-            
-
-
             <h2 class="sim-subsection">Game Logs</h2>
 
             <details>
