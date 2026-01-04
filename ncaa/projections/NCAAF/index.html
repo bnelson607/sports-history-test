@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>2025 NFL Projection – Elo, Playoffs & Standings</title>
+        <title>2025 NCAAF Projection – Elo, Playoffs & Standings</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Follow the 2025 NFL season through a Monte Carlo simulation that tracks team performance, Elo ratings, and playoff odds as they evolve throughout the year.">
+        <meta name="description" content="Follow the 2025 NCAA football season through a Monte Carlo simulation that tracks team performance, Elo ratings, and playoff odds as they evolve throughout the year.">
         
         <!-- Link to external styles -->
         <link rel="stylesheet" href="/sports-history-test/styles.css" />
@@ -22,11 +22,11 @@
         <div class="content">
             
             <div class="season-links">
-                <a href="/sports-history-test/simulations/NFL/2024/">← 2024</a>
+                <a href="/sports-history-test/simulations/NCAA/2024/">← 2024</a>
             </div>
               
             <div class="season-header">
-                <h1 class="sim-title">2025 NFL Projection</h1>
+                <h1 class="sim-title">2025 NCAAF Projection</h1>
                 <p class="update-date">Last updated: <span id="update-date"></span></p>
             </div>
             
@@ -37,7 +37,7 @@
             <details class="plot-section" data-expanded="false">
                 <summary>Simulated Standings</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>How many games does the simulation expect each team to win by the end of the season?</i>
+                    <i>How many conference games does the simulation expect each team to win by the end of the season?</i>
                 </div>
                 <iframe data-src="regular_season_summary.html" class="extra-padding"></iframe>
             </details>
@@ -45,68 +45,13 @@
             
             
             <details class="plot-section" data-expanded="false">
-                <summary>Division Heatmaps</summary>
+                <summary>Conference Heatmaps</summary>
                 <div class="subheading" style="margin: 0.75em 0;">
-                    <i>Where is each team expected to finish within their division?</i>
+                    <i>Where is each team expected to finish within their conference?</i>
                 </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_East')" class="active">AFC East</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_North')">AFC North</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_South')">AFC South</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_West')">AFC West</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_East')">NFC East</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_North')">NFC North</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_South')">NFC South</button>
-                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_West')">NFC West</button>
-                </div>
-                <div class="tab-content div_heatmap active" id="div_heatmap_AFC_East">
-                    <iframe data-src="AFC East_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_AFC_North">
-                    <iframe data-src="AFC North_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_AFC_South">
-                    <iframe data-src="AFC South_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_AFC_West">
-                    <iframe data-src="AFC West_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_NFC_East">
-                    <iframe data-src="NFC East_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_NFC_North">
-                    <iframe data-src="NFC North_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_NFC_South">
-                    <iframe data-src="NFC South_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content div_heatmap" id="div_heatmap_NFC_West">
-                    <iframe data-src="NFC West_finish_heatmap.html"></iframe>
-                </div>
-            </details>
-            
                 
-            <details class="plot-section" data-expanded="false">
-                <summary>League & Conference Heatmaps</summary>
-                <div class="subheading" style="margin: 0.75em 0;">
-                    <i>Where is each team expected to finish within their conference and the league as a whole?</i>
-                </div>
-                <div class="tab-buttons">
-                    <button onclick="showTab('league_heatmap', 'league_heatmap_AFC')" class="active">AFC</button>
-                    <button onclick="showTab('league_heatmap', 'league_heatmap_NFC')">NFC</button>
-                    <button onclick="showTab('league_heatmap', 'league_heatmap_NFL')">NFL</button>
-                </div>
-                <div class="tab-content league_heatmap active" id="league_heatmap_AFC">
-                    <iframe data-src="AFC_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content league_heatmap" id="league_heatmap_NFC">
-                    <iframe data-src="NFC_finish_heatmap.html"></iframe>
-                </div>
-                <div class="tab-content league_heatmap" id="league_heatmap_NFL">
-                    <iframe data-src="league_finish_heatmap.html"></iframe>
-                </div>
+                <iframe data-src="combined_conference_heatmap.html"></iframe>
             </details>
-
 
 
             <details>
