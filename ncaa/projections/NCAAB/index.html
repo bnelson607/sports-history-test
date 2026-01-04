@@ -89,7 +89,7 @@
             
                 
                 
-            <h2 class="sim-subsection">March Madness</h2>
+            <!-- <h2 class="sim-subsection">March Madness</h2>
                     
             <details>
                 <summary>Playoff Simulation</summary>
@@ -97,7 +97,7 @@
                     <i>How does the simulation expect the playoff to unfold?</i>
                 </div>
                 <div class="tab-buttons">
-                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Playoff Progression</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Tournament Progression</button>
                     <button onclick="showTab('preseason_playoff', 'preseason_playoff_round_of_64')">Round of 64</button>
                     <button onclick="showTab('preseason_playoff', 'preseason_playoff_round_of_32')">Round of 32</button>
                     <button onclick="showTab('preseason_playoff', 'preseason_playoff_sweet_16')">Sweet 16</button>
@@ -106,21 +106,11 @@
                     <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship')">Championship</button>
                 </div>
                 
-                <!-- Playoff Advancement -->
                 <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
                     <iframe data-src="playoff_success_end_of_regular_season.html"></iframe>
                 </div>
                 
-                <!-- Round of 64 -->
                 <div class="tab-content preseason_playoff" id="preseason_playoff_round_of_64">
-                    <div class="iframe-block">
-                        <div class="graph-label">East</div>
-                        <iframe data-src="round_of_64_end_of_regular_season_east.html"></iframe>
-                    </div>
-                    <div class="iframe-block">
-                        <div class="graph-label">Midwest</div>
-                        <iframe data-src="round_of_64_end_of_regular_season_midwest.html"></iframe>
-                    </div>
                     <div class="iframe-block">
                         <div class="graph-label">South</div>
                         <iframe data-src="round_of_64_end_of_regular_season_south.html"></iframe>
@@ -129,23 +119,81 @@
                         <div class="graph-label">West</div>
                         <iframe data-src="round_of_64_end_of_regular_season_west.html"></iframe>
                     </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="round_of_64_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="round_of_64_end_of_regular_season_midwest.html"></iframe>
+                    </div>
+                </div>
+
+                <div class="tab-content preseason_playoff" id="preseason_playoff_round_of_32">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_midwest.html"></iframe>
+                    </div>
                 </div>
                 
-                <!-- Quarterfinals -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_quarterfinals">
-                    <iframe data-src="quarterfinals_end_of_regular_season.html"></iframe>
+                <div class="tab-content preseason_playoff" id="preseason_playoff_sweet_16">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_midwest.html"></iframe>
+                    </div>
+                </div>
+
+                <div class="tab-content preseason_playoff" id="preseason_playoff_elite_eight">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="elite_eight_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_midwest.html"></iframe>
+                    </div>
                 </div>
                 
-                <!-- Semifinals -->
-                <div class="tab-content preseason_playoff" id="preseason_playoff_semifinals">
-                    <iframe data-src="semifinals_end_of_regular_season.html"></iframe>
+                <div class="tab-content preseason_playoff" id="preseason_playoff_final_four">
+                    <iframe data-src="final_four_end_of_regular_season.html"></iframe>
                 </div>
                 
-                <!-- Quarterfinals -->
                 <div class="tab-content preseason_playoff" id="preseason_playoff_championship">
                     <iframe data-src="championship_end_of_regular_season.html"></iframe>
                 </div>
-            </details>
+            </details> -->
 
 
 
