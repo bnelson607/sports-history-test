@@ -631,7 +631,7 @@ nav.ncaa-nav .dropbtn {
 }
 
 .main-left,
-.sidebar-right {
+.main-right {
     flex: 1 1 0;     /* Both columns grow and shrink equally */
     min-width: 0;    /* Prevent overflow, allow equal shrinking */
     width: 100%;     /* Ensures proper behavior in flex layout */
@@ -642,12 +642,12 @@ nav.ncaa-nav .dropbtn {
 --------------------------*/
 
 /* Space between sections inside sidebar */
-.sidebar-right section {
+.main-right section {
     margin-bottom: 25px;
 }
 
 /* Section Headers for Weekly Updates and Polls */
-.sidebar-right h2 {
+.main-right h2 {
     font-size: 1.5em;               /* Section header size */
     color: #003366;                 /* Deep navy */
     border-bottom: 1px solid #ccc;  /* Divider line under header */
@@ -725,7 +725,7 @@ nav.ncaa-nav .dropbtn {
   }
 
   .main-left,
-  .sidebar-right {
+  .main-right {
     width: 100%;
     max-width: none;
   }
@@ -733,7 +733,7 @@ nav.ncaa-nav .dropbtn {
 
 /* Responsive tweak: allow scrolling instead of breaking */
 @media (max-width: 600px) {
-    .sidebar-right {
+    .main-right {
         width: 100%;
         padding: 0 10px;
     }
@@ -777,14 +777,14 @@ nav.ncaa-nav .dropbtn {
     }
 
     .main-left,
-    .sidebar-right {
+    .main-right {
         width: 100%;
         max-width: none;
         padding-left: 0;
         padding-right: 0;
     }
 
-    .sidebar-right section {
+    .main-right section {
         margin-bottom: 15px;
     }
 }
