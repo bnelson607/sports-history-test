@@ -563,7 +563,8 @@ nav.ncaa-nav .dropbtn {
   Content Containers
 ------------------------------------*/
 .content,
-.article-list-page {
+.article-list-page,
+.site-updates {
   background-color: white;
   border-left: 6px solid #002744;
   border-radius: 8px;
