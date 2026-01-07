@@ -24,70 +24,10 @@
         <div id="uefa-header"></div>
 
         <div class="home-layout">
-            <!-- Left side: Featured Article + Power Rankings -->
-            <main class="main-left">
-                <div class="featured-article-box">
-                    <h1 class="article-header" style="margin-top: 0;">Featured Articles</h1>
-
-                    <div class="article-list">
-                        <li>
-                            <h2 class="article-title-link" style="margin: 0.25em 0;">
-                                <a href="/sports-history-test/uefa/articles/England/promoted-team-performance/" style="text-decoration: none; color: #003366;">
-                                    How Promoted Teams Fare in the EPL
-                                </a>
-                            </h2>
-                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
-                                Published: October 15, 2025
-                            </div>
-                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
-                                How unusual is it for all three promoted teams to be immediately relegated in the same season?
-                            </div>
-                        </li>
-
-                        
-                        <li>
-                            <h2 class="article-title-link" style="margin: 0.25em 0;">
-                                <a href="/sports-history-test/uefa/articles/Spain/top-three-dominance/" style="text-decoration: none; color: #003366;">
-                                    Spain's Top Three: How Atlético Madrid Challenges Real Madrid and Barcelona
-                                </a>
-                            </h2>
-                            <div class="meta" style="font-size: 0.95em; color: #666; margin-bottom: 0.75em;">
-                                Published: October 15, 2025
-                            </div>
-                            <div class="preview" style="font-size: 1.05em; color: #222; line-height: 1.6;">
-                                How close has Atlético Madrid been to disrupting the dominance the Real Madrid-Barclona duopoly?
-                            </div>
-                        </li>
-
-                    </div>
-
-
-                </div>
-
-                <!-- Power Rankings Section -->
-                <div class="power-rankings">
-                    <h1 class="article-header centered">Current Elo Ratings</h1>
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" data-sport="england">England</button>
-                        <button class="tab-btn" data-sport="france">France</button>
-                        <button class="tab-btn" data-sport="germany">Germany</button>
-                        <button class="tab-btn" data-sport="italy">Italy</button>
-                        <button class="tab-btn" data-sport="spain">Spain</button>
-<!--                         <button class="tab-btn" data-sport="wales">Wales</button> -->
-                    </div>
-                    <div id="england" class="tab-content active"><div id="england-table-placeholder"></div></div>
-                    <div id="france" class="tab-content"><div id="france-table-placeholder"></div></div>
-                    <div id="germany" class="tab-content"><div id="germany-table-placeholder"></div></div>
-                    <div id="italy" class="tab-content"><div id="italy-table-placeholder"></div></div>
-                    <div id="spain" class="tab-content"><div id="spain-table-placeholder"></div></div>
-<!--                     <div id="wales" class="tab-content"><div id="wales-table-placeholder"></div></div> -->
-                </div>
-            </main>
-
-            <!-- Right sidebar -->
-            <aside class="main-right">
-
-                <section class="site-updates" id="mlb-snapshot">
+            
+            <!-- Left sidebar -->
+            <div class="main-left">
+                <section class="sport-card" id="england-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/England/">England Projections</a></h2>
                     <div class="sidebar-table-wrapper">
                         <div id="england-sidebar-placeholder"></div>
@@ -95,15 +35,7 @@
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/England/">England Season Simulation Archive</a></p>
                 </section>
 
-                <section class="site-updates" id="mlb-snapshot">
-                    <h2><a href="/sports-history-test/uefa/projections/France/">France Projections</a></h2>
-                    <div class="sidebar-table-wrapper">
-                        <div id="france-sidebar-placeholder"></div>
-                    </div>
-                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/France/">France Season Simulation Archive</a></p>
-                </section>
-
-                <section class="site-updates" id="mlb-snapshot">
+                <section class="sport-card" id="germany-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/Germany/">Germany Projections</a></h2>
                     <div class="sidebar-table-wrapper">
                         <div id="germany-sidebar-placeholder"></div>
@@ -111,23 +43,34 @@
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Germany/">Germany Season Simulation Archive</a></p>
                 </section>
 
-                <section class="site-updates" id="mlb-snapshot">
-                    <h2><a href="/sports-history-test/uefa/projections/Italy/">Italy Projections</a></h2>
-                    <div class="sidebar-table-wrapper">
-                        <div id="italy-sidebar-placeholder"></div>
-                    </div>
-                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Italy/">Italy Season Simulation Archive</a></p>
-                </section>
-
-                <section class="site-updates" id="mlb-snapshot">
+                <section class="sport-card" id="spain-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/Spain/">Spain Projections</a></h2>
                     <div class="sidebar-table-wrapper">
                         <div id="spain-sidebar-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Spain/">Spain Season Simulation Archive</a></p>
                 </section>
-            
-            </aside>
+            </div>
+
+
+            <!-- Right sidebar -->
+            <div class="main-right"> 
+                <section class="sport-card" id="france-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/France/">France Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="france-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/France/">France Season Simulation Archive</a></p>
+                </section>
+
+                <section class="sport-card" id="italy-snapshot">
+                    <h2><a href="/sports-history-test/uefa/projections/Italy/">Italy Projections</a></h2>
+                    <div class="sidebar-table-wrapper">
+                        <div id="italy-sidebar-placeholder"></div>
+                    </div>
+                    <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/Italy/">Italy Season Simulation Archive</a></p>
+                </section>
+            </div>
         </div>
 
         <div id="site-footer"></div>
