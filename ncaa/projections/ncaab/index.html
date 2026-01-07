@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>2025-26 NCAAB Projection – Elo, Playoffs & Standings</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Follow the 2025-26 NCAA basketball season through a Monte Carlo simulation that tracks team performance, Elo ratings, and playoff odds as they evolve throughout the year.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-test/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+            /* Minimal or unique styles can go here */
+        </style>
+    </head>
+    
+    <body>
+        <div id="site-header"></div>
+        <div id="ncaa-header"></div>
+        
+        <div class="content">
+            
+            <div class="season-links">
+                <a href="/sports-history-test/ncaa/simulations/NCAAB/2024/">← 2024-25</a>
+            </div>
+              
+            <div class="season-header">
+                <h1 class="sim-title">2025-26 NCAAB Projection</h1>
+                <p class="update-date">Last updated: <span id="update-date"></span></p>
+            </div>
+            
+
+            <h2 class="sim-subsection">Regular Season</h2>
+            
+            
+            <details class="plot-section" data-expanded="false">
+                <summary>Simulated Standings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many conference games does the simulation expect each team to win by the end of the season?</i>
+                </div>
+                <iframe data-src="regular_season_summary.html" class="extra-padding" style="max-height:800px;"></iframe>
+            </details>
+
+            
+            
+            <details class="plot-section" data-expanded="false">
+                <summary>Conference Heatmaps</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where is each team expected to finish within their conference?</i>
+                </div>
+                
+                <iframe data-src="combined_conference_heatmap.html"></iframe>
+            </details>
+
+
+            <details>
+                <summary>Win Totals in Context</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does each team's actual results compare to their simulated results, Elo rating, and opponent average Elo rating in completed and upcoming games?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('comparisons', 'comparisons_sim_vs_actual')" class="active">Simulated Wins</button>
+                    <button onclick="showTab('comparisons', 'comparisons_elo_vs_actual')">Team Elo</button>
+                    <button onclick="showTab('comparisons', 'comparisons_opponent_elo_vs_actual')">Opponent Elo: Completed Games</button>
+                    <button onclick="showTab('comparisons', 'comparisons_remaining_opponent_elo_vs_actual')">Opponent Elo: Remaining Games</button>
+                </div>
+                <div class="tab-content comparisons active" id="comparisons_sim_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="sim_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="team_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_remaining_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="upcoming_opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+            </details>
+            
+                
+                
+            <!-- <h2 class="sim-subsection">March Madness</h2>
+                    
+            <details>
+                <summary>Tournament Simulation</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How does the simulation expect the tournament to unfold?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Tournament Progression</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_round_of_64')">Round of 64</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_round_of_32')">Round of 32</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_sweet_16')">Sweet 16</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_elite_eight')">Elite Eight</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_final_four')">Final Four</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_championship')">Championship</button>
+                </div>
+                
+                <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
+                    <iframe data-src="playoff_success_end_of_regular_season.html"></iframe>
+                </div>
+                
+                <div class="tab-content preseason_playoff" id="preseason_playoff_round_of_64">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="round_of_64_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="round_of_64_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="round_of_64_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="round_of_64_end_of_regular_season_midwest.html"></iframe>
+                    </div>
+                </div>
+
+                <div class="tab-content preseason_playoff" id="preseason_playoff_round_of_32">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="round_of_32_end_of_regular_season_midwest.html"></iframe>
+                    </div>
+                </div>
+                
+                <div class="tab-content preseason_playoff" id="preseason_playoff_sweet_16">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_midwest.html"></iframe>
+                    </div>
+                </div>
+
+                <div class="tab-content preseason_playoff" id="preseason_playoff_elite_eight">
+                    <div class="iframe-block">
+                        <div class="graph-label">South</div>
+                        <iframe data-src="elite_eight_end_of_regular_season_south.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">West</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_west.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">East</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_east.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">Midwest</div>
+                        <iframe data-src="sweet_16_end_of_regular_season_midwest.html"></iframe>
+                    </div>
+                </div>
+                
+                <div class="tab-content preseason_playoff" id="preseason_playoff_final_four">
+                    <iframe data-src="final_four_end_of_regular_season.html"></iframe>
+                </div>
+                
+                <div class="tab-content preseason_playoff" id="preseason_playoff_championship">
+                    <iframe data-src="championship_end_of_regular_season.html"></iframe>
+                </div>
+            </details> -->
+
+
+
+            <h2 class="sim-subsection">Season Trends</h2>
+            
+            <details class="plot-section" data-expanded="false">
+                <summary>Elo Ratings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's Elo rating changed throughout the season?</i>
+                </div>
+
+                <iframe data-src="elo_ratings_over_time.html"></iframe>
+            </details>
+            
+                
+            <details class="plot-section" data-expanded="false">
+                <summary>Simulated Wins</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's expected win total changed throughout the season?</i>
+                </div>
+                
+                <iframe data-src="simulated_wins_over_time.html"></iframe>
+            </details>
+            
+                
+            <details class="plot-section" data-expanded="false">
+                <summary>Conference Champion Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's probability of winning the conference changed throughout the season?</i>
+                </div>
+                
+                <iframe data-src="conference_probabilities_over_time.html"></iframe>
+            </details>
+
+
+            
+            <h2 class="sim-subsection">Game Logs</h2>
+
+            <details>
+                <summary>Season Schedule</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How has each team's regular season unfolded?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'completed_games')" class="active">Completed Games</button>
+                    <button onclick="showTab('games', 'games_upcoming')">Upcoming Games</button>
+                </div>
+                <div class="tab-content games active" id="completed_games">
+                    <iframe data-src="team_games_table.html" class="double-extra-padding" style="max-height:800px;"></iframe>
+                </div>
+                <div class="tab-content games" id="games_upcoming">
+                    <iframe data-src="upcoming_games_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+
+
+            
+            <details>
+                <summary>Upsets</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>What have been the biggest upsets and Elo rating changes of the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'games_biggest_upsets')" class="active">Biggest Upsets</button>
+                    <button onclick="showTab('games', 'games_biggest_elo_changes')">Biggest Elo Changes</button>
+                </div>
+                <div class="tab-content games active" id="games_biggest_upsets">
+                    <iframe data-src="biggest_upsets_table.html" class="double-extra-padding"></iframe>
+                </div>
+                <div class="tab-content games" id="games_biggest_elo_changes">
+                    <iframe data-src="biggest_elo_changes_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+
+
+            
+        </div>
+        
+            
+        <div id="site-footer"></div>
+        
+            
+        <!-- Load JavaScript -->
+        <script src="/sports-history-test/scripts/main.js"></script>
+        
+        <!-- Custom script for cache busting -->
+        <script>
+          document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+            const url = new URL(iframe.getAttribute('data-src'), window.location.href);
+            url.searchParams.set('v', new Date().toISOString().slice(0,10).replace(/-/g, ''));
+            iframe.setAttribute('data-src', url.toString());
+          });
+        </script>
+
+         <!-- Original custom script for cache busting -->
+<!--         <script>
+          document.querySelectorAll('iframe').forEach(iframe => {
+            const url = new URL(iframe.src);
+            url.searchParams.set('v', new Date().toISOString().slice(0,10).replace(/-/g, ''));
+            iframe.src = url.toString();
+          });
+        </script> -->
+    </body>
+</html>
