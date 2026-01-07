@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2024-07-14</td>
+      <td>8.42</td>
+      <td>Oakland Athletics</td>
+      <td>1424.08</td>
+      <td>18</td>
+      <td>28.28%</td>
+      <td>Philadelphia Phillies (H)</td>
+      <td>1570.70</td>
+      <td>3</td>
+      <td>71.72%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2024-08-12</td>
+      <td>6.92</td>
+      <td>Chicago White Sox (H)</td>
+      <td>1364.00</td>
+      <td>12</td>
+      <td>27.78%</td>
+      <td>New York Yankees</td>
+      <td>1545.01</td>
+      <td>2</td>
+      <td>72.22%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2024-07-06</td>
+      <td>6.88</td>
+      <td>Oakland Athletics (H)</td>
+      <td>1417.97</td>
+      <td>19</td>
+      <td>31.54%</td>
+      <td>Baltimore Orioles</td>
+      <td>1567.63</td>
+      <td>8</td>
+      <td>68.46%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2024-07-24</td>
+      <td>6.86</td>
+      <td>Colorado Rockies (H)</td>
+      <td>1406.79</td>
+      <td>20</td>
+      <td>37.20%</td>
+      <td>Boston Red Sox</td>
+      <td>1512.77</td>
+      <td>7</td>
+      <td>62.80%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2024-08-31</td>
+      <td>6.65</td>
+      <td>Toronto Blue Jays</td>
+      <td>1496.85</td>
+      <td>15</td>
+      <td>43.36%</td>
+      <td>Minnesota Twins (H)</td>
+      <td>1528.26</td>
+      <td>0</td>
+      <td>56.64%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2024-04-27</td>
+      <td>6.47</td>
+      <td>Boston Red Sox (H)</td>
+      <td>1502.54</td>
+      <td>17</td>
+      <td>48.24%</td>
+      <td>Chicago Cubs</td>
+      <td>1529.78</td>
+      <td>0</td>
+      <td>51.76%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2024-04-11</td>
+      <td>6.35</td>
+      <td>New York Mets</td>
+      <td>1494.08</td>
+      <td>16</td>
+      <td>39.48%</td>
+      <td>Atlanta Braves (H)</td>
+      <td>1553.27</td>
+      <td>4</td>
+      <td>60.52%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2024-09-04</td>
+      <td>6.16</td>
+      <td>Chicago White Sox</td>
+      <td>1346.53</td>
+      <td>8</td>
+      <td>23.21%</td>
+      <td>Baltimore Orioles (H)</td>
+      <td>1539.36</td>
+      <td>1</td>
+      <td>76.79%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2024-08-13</td>
+      <td>6.11</td>
+      <td>Detroit Tigers (H)</td>
+      <td>1482.57</td>
+      <td>15</td>
+      <td>46.12%</td>
+      <td>Seattle Mariners</td>
+      <td>1524.63</td>
+      <td>1</td>
+      <td>53.88%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2024-04-19</td>
+      <td>6.02</td>
+      <td>Arizona Diamondbacks</td>
+      <td>1502.94</td>
+      <td>17</td>
+      <td>50.35%</td>
+      <td>San Francisco Giants (H)</td>
+      <td>1485.50</td>
+      <td>1</td>
+      <td>49.65%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2024-09-04</td>
+      <td>6.00</td>
+      <td>Los Angeles Angels (H)</td>
+      <td>1438.48</td>
+      <td>10</td>
+      <td>34.06%</td>
+      <td>Los Angeles Dodgers</td>
+      <td>1568.31</td>
+      <td>1</td>
+      <td>65.94%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2024-05-04</td>
+      <td>5.97</td>
+      <td>Oakland Athletics (H)</td>
+      <td>1443.53</td>
+      <td>20</td>
+      <td>50.77%</td>
+      <td>Miami Marlins</td>
+      <td>1453.22</td>
+      <td>4</td>
+      <td>49.23%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2024-05-17</td>
+      <td>5.96</td>
+      <td>Detroit Tigers</td>
+      <td>1485.67</td>
+      <td>13</td>
+      <td>45.50%</td>
+      <td>Arizona Diamondbacks (H)</td>
+      <td>1501.97</td>
+      <td>0</td>
+      <td>54.50%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2024-09-27</td>
+      <td>5.96</td>
+      <td>Miami Marlins</td>
+      <td>1424.70</td>
+      <td>15</td>
+      <td>37.77%</td>
+      <td>Toronto Blue Jays (H)</td>
+      <td>1496.43</td>
+      <td>5</td>
+      <td>62.23%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2024-09-08</td>
+      <td>5.96</td>
+      <td>Miami Marlins (H)</td>
+      <td>1428.47</td>
+      <td>10</td>
+      <td>34.52%</td>
+      <td>Philadelphia Phillies</td>
+      <td>1554.74</td>
+      <td>1</td>
+      <td>65.48%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2024-07-09</td>
+      <td>5.92</td>
+      <td>Pittsburgh Pirates</td>
+      <td>1478.28</td>
+      <td>12</td>
+      <td>38.23%</td>
+      <td>Milwaukee Brewers (H)</td>
+      <td>1546.57</td>
+      <td>2</td>
+      <td>61.77%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2024-06-15</td>
+      <td>5.88</td>
+      <td>Colorado Rockies (H)</td>
+      <td>1419.92</td>
+      <td>16</td>
+      <td>44.01%</td>
+      <td>Pittsburgh Pirates</td>
+      <td>1476.75</td>
+      <td>4</td>
+      <td>55.99%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2024-09-24</td>
+      <td>5.87</td>
+      <td>San Francisco Giants</td>
+      <td>1503.01</td>
+      <td>11</td>
+      <td>41.61%</td>
+      <td>Arizona Diamondbacks (H)</td>
+      <td>1546.85</td>
+      <td>0</td>
+      <td>58.39%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2024-03-31</td>
+      <td>5.79</td>
+      <td>Kansas City Royals (H)</td>
+      <td>1453.62</td>
+      <td>11</td>
+      <td>42.42%</td>
+      <td>Minnesota Twins</td>
+      <td>1521.70</td>
+      <td>0</td>
+      <td>57.58%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2024-04-27</td>
+      <td>5.78</td>
+      <td>New York Yankees</td>
+      <td>1518.80</td>
+      <td>15</td>
+      <td>44.90%</td>
+      <td>Milwaukee Brewers (H)</td>
+      <td>1539.34</td>
+      <td>3</td>
+      <td>55.10%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2024-09-11</td>
+      <td>5.75</td>
+      <td>San Francisco Giants (H)</td>
+      <td>1489.34</td>
+      <td>13</td>
+      <td>42.78%</td>
+      <td>Milwaukee Brewers</td>
+      <td>1554.93</td>
+      <td>2</td>
+      <td>57.22%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2024-08-24</td>
+      <td>5.72</td>
+      <td>Colorado Rockies</td>
+      <td>1402.04</td>
+      <td>9</td>
+      <td>28.59%</td>
+      <td>New York Yankees (H)</td>
+      <td>1546.06</td>
+      <td>2</td>
+      <td>71.41%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2024-06-30</td>
+      <td>5.68</td>
+      <td>Texas Rangers</td>
+      <td>1497.76</td>
+      <td>11</td>
+      <td>37.51%</td>
+      <td>Baltimore Orioles (H)</td>
+      <td>1571.42</td>
+      <td>2</td>
+      <td>62.49%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2024-06-17</td>
+      <td>5.63</td>
+      <td>New York Mets</td>
+      <td>1494.45</td>
+      <td>14</td>
+      <td>46.38%</td>
+      <td>Texas Rangers (H)</td>
+      <td>1504.62</td>
+      <td>2</td>
+      <td>53.62%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2024-07-05</td>
+      <td>5.57</td>
+      <td>Pittsburgh Pirates (H)</td>
+      <td>1472.80</td>
+      <td>14</td>
+      <td>46.92%</td>
+      <td>New York Mets</td>
+      <td>1509.28</td>
+      <td>2</td>
+      <td>53.08%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

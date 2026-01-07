@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="../../tablesort.min.js"></script>
+    <script src="../../tablesort.number.min.js"></script>
+</head>
+<body>
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="4" halign="left">Winning Team</th>
+      <th colspan="4" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Elo Change</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-12-14</td>
+      <td>19.14</td>
+      <td>Brooklyn Nets (H)</td>
+      <td>1362.93</td>
+      <td>127</td>
+      <td>38.13%</td>
+      <td>Milwaukee Bucks</td>
+      <td>1482.82</td>
+      <td>82</td>
+      <td>61.87%</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-12-05</td>
+      <td>17.28</td>
+      <td>Charlotte Hornets</td>
+      <td>1355.22</td>
+      <td>111</td>
+      <td>25.05%</td>
+      <td>Toronto Raptors (H)</td>
+      <td>1509.87</td>
+      <td>86</td>
+      <td>74.95%</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2025-10-22</td>
+      <td>15.82</td>
+      <td>San Antonio Spurs</td>
+      <td>1455.15</td>
+      <td>125</td>
+      <td>40.29%</td>
+      <td>Dallas Mavericks (H)</td>
+      <td>1487.69</td>
+      <td>92</td>
+      <td>59.71%</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-10-24</td>
+      <td>15.43</td>
+      <td>Miami Heat</td>
+      <td>1489.10</td>
+      <td>146</td>
+      <td>40.82%</td>
+      <td>Memphis Grizzlies (H)</td>
+      <td>1517.84</td>
+      <td>114</td>
+      <td>59.18%</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-12-14</td>
+      <td>15.26</td>
+      <td>Washington Wizards</td>
+      <td>1293.53</td>
+      <td>108</td>
+      <td>24.08%</td>
+      <td>Indiana Pacers (H)</td>
+      <td>1457.27</td>
+      <td>89</td>
+      <td>75.92%</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2025-11-01</td>
+      <td>15.11</td>
+      <td>Houston Rockets</td>
+      <td>1549.17</td>
+      <td>128</td>
+      <td>36.92%</td>
+      <td>Boston Celtics (H)</td>
+      <td>1606.42</td>
+      <td>101</td>
+      <td>63.08%</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-12-31</td>
+      <td>14.99</td>
+      <td>Atlanta Hawks (H)</td>
+      <td>1450.66</td>
+      <td>126</td>
+      <td>33.63%</td>
+      <td>Minnesota Timberwolves</td>
+      <td>1604.53</td>
+      <td>102</td>
+      <td>66.37%</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-12-27</td>
+      <td>14.91</td>
+      <td>Brooklyn Nets</td>
+      <td>1395.80</td>
+      <td>123</td>
+      <td>19.18%</td>
+      <td>Minnesota Timberwolves (H)</td>
+      <td>1609.85</td>
+      <td>107</td>
+      <td>80.82%</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-12-26</td>
+      <td>14.84</td>
+      <td>Washington Wizards (H)</td>
+      <td>1304.26</td>
+      <td>138</td>
+      <td>29.78%</td>
+      <td>Toronto Raptors</td>
+      <td>1489.07</td>
+      <td>117</td>
+      <td>70.22%</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-11-25</td>
+      <td>14.75</td>
+      <td>Washington Wizards (H)</td>
+      <td>1298.92</td>
+      <td>132</td>
+      <td>26.61%</td>
+      <td>Atlanta Hawks</td>
+      <td>1510.90</td>
+      <td>113</td>
+      <td>73.39%</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2025-11-21</td>
+      <td>14.50</td>
+      <td>Miami Heat</td>
+      <td>1516.88</td>
+      <td>143</td>
+      <td>47.57%</td>
+      <td>Chicago Bulls (H)</td>
+      <td>1497.99</td>
+      <td>107</td>
+      <td>52.43%</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-12-23</td>
+      <td>14.48</td>
+      <td>San Antonio Spurs (H)</td>
+      <td>1548.93</td>
+      <td>130</td>
+      <td>29.77%</td>
+      <td>Oklahoma City Thunder</td>
+      <td>1733.77</td>
+      <td>110</td>
+      <td>70.23%</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-11-04</td>
+      <td>14.34</td>
+      <td>Toronto Raptors (H)</td>
+      <td>1450.99</td>
+      <td>128</td>
+      <td>41.22%</td>
+      <td>Milwaukee Bucks</td>
+      <td>1548.41</td>
+      <td>100</td>
+      <td>58.78%</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-10-22</td>
+      <td>14.21</td>
+      <td>Utah Jazz (H)</td>
+      <td>1398.49</td>
+      <td>129</td>
+      <td>32.72%</td>
+      <td>Los Angeles Clippers</td>
+      <td>1559.46</td>
+      <td>108</td>
+      <td>67.28%</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-12-11</td>
+      <td>13.84</td>
+      <td>New Orleans Pelicans (H)</td>
+      <td>1338.78</td>
+      <td>143</td>
+      <td>37.40%</td>
+      <td>Portland Trail Blazers</td>
+      <td>1464.06</td>
+      <td>120</td>
+      <td>62.60%</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2025-11-11</td>
+      <td>13.83</td>
+      <td>Utah Jazz (H)</td>
+      <td>1383.37</td>
+      <td>152</td>
+      <td>38.77%</td>
+      <td>Indiana Pacers</td>
+      <td>1498.57</td>
+      <td>128</td>
+      <td>61.23%</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2025-12-29</td>
+      <td>13.83</td>
+      <td>Miami Heat (H)</td>
+      <td>1508.37</td>
+      <td>147</td>
+      <td>38.79%</td>
+      <td>Denver Nuggets</td>
+      <td>1623.38</td>
+      <td>123</td>
+      <td>61.21%</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-11-12</td>
+      <td>13.51</td>
+      <td>Atlanta Hawks</td>
+      <td>1491.89</td>
+      <td>133</td>
+      <td>48.98%</td>
+      <td>Sacramento Kings (H)</td>
+      <td>1463.21</td>
+      <td>100</td>
+      <td>51.02%</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2025-12-25</td>
+      <td>13.41</td>
+      <td>San Antonio Spurs</td>
+      <td>1563.41</td>
+      <td>117</td>
+      <td>24.91%</td>
+      <td>Oklahoma City Thunder (H)</td>
+      <td>1719.29</td>
+      <td>102</td>
+      <td>75.09%</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-10-31</td>
+      <td>13.37</td>
+      <td>Atlanta Hawks</td>
+      <td>1467.25</td>
+      <td>128</td>
+      <td>35.15%</td>
+      <td>Indiana Pacers (H)</td>
+      <td>1537.90</td>
+      <td>108</td>
+      <td>64.85%</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2025-12-03</td>
+      <td>13.28</td>
+      <td>Los Angeles Clippers</td>
+      <td>1472.41</td>
+      <td>115</td>
+      <td>39.92%</td>
+      <td>Atlanta Hawks (H)</td>
+      <td>1507.62</td>
+      <td>92</td>
+      <td>60.08%</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-12-26</td>
+      <td>13.28</td>
+      <td>Charlotte Hornets</td>
+      <td>1380.04</td>
+      <td>120</td>
+      <td>25.63%</td>
+      <td>Orlando Magic (H)</td>
+      <td>1529.36</td>
+      <td>105</td>
+      <td>74.37%</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-12-06</td>
+      <td>13.19</td>
+      <td>Sacramento Kings</td>
+      <td>1411.52</td>
+      <td>127</td>
+      <td>28.50%</td>
+      <td>Miami Heat (H)</td>
+      <td>1535.54</td>
+      <td>111</td>
+      <td>71.50%</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2025-12-23</td>
+      <td>13.10</td>
+      <td>Los Angeles Clippers (H)</td>
+      <td>1472.27</td>
+      <td>128</td>
+      <td>36.49%</td>
+      <td>Houston Rockets</td>
+      <td>1604.34</td>
+      <td>108</td>
+      <td>63.51%</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-12-27</td>
+      <td>12.99</td>
+      <td>Utah Jazz</td>
+      <td>1390.76</td>
+      <td>127</td>
+      <td>21.81%</td>
+      <td>San Antonio Spurs (H)</td>
+      <td>1576.81</td>
+      <td>114</td>
+      <td>78.19%</td>
+    </tr>
+  </tbody>
+</table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+        });
+    </script>
+</body>
+</html>

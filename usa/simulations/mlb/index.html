@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>All MLB Simulations</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Explore the archive of sports simulations of every Major League Baseball (MLB) season.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-simulations/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+            /* Minimal or unique styles can go here */
+        </style>
+    </head>
+    
+    <body>
+        <div id="site-header"></div>
+        <div id="usa-header"></div>
+        
+        <div class="article-list-page">
+            <h1 class="article-header">All MLB Simulations</h1>
+            
+            <ul class="article-list">
+                <li>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2025/">2025 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2024/">2024 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2023/">2023 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2022/">2022 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2021/">2021 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2020/">2020 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2019/">2019 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2018/">2018 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2017/">2017 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2016/">2016 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2015/">2015 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2014/">2014 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2013/">2013 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2012/">2012 Season</a></h2>
+                    <h2 class="article-title-link"><a href="/sports-history-simulations/usa/simulations/MLB/2011/">2011 Season</a></h2>
+                </li>
+            </ul>
+            
+            <p><a href="/sports-history-simulations/usa/">← Back to Homepage</a></p>
+        </div>
+        
+        
+        <div id="site-footer"></div>
+
+        
+        <!-- Load JavaScript -->
+        <script src="/sports-history-simulations/scripts/main.js"></script>
+        
+        <!-- Custom script for cache busting -->
+        <script>
+          document.querySelectorAll('iframe').forEach(iframe => {
+            const url = new URL(iframe.src);
+            url.searchParams.set('v', new Date().toISOString().slice(0,10).replace(/-/g, ''));
+            iframe.src = url.toString();
+          });
+        </script>
+    </body>
+</html>

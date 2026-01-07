@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>2023 NFL Simulation – Elo, Playoffs & Standings</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Explore the 2023 NFL season through a Monte Carlo simulation that tracks team performance, Elo ratings, and playoff odds as they evolved throughout the year.">
+        
+        <!-- Link to external styles -->
+        <link rel="stylesheet" href="/sports-history-simulations/styles.css" />
+        
+        <!-- Add any simulation-specific styles here if needed -->
+        <style>
+            /* Minimal or unique styles can go here */
+        </style>
+    </head>
+    
+    
+    <body>
+        <div id="site-header"></div>
+        <div id="usa-header"></div>
+        
+        <div class="content">
+            
+            <div class="season-links">
+                <a href="/sports-history-simulations/usa/simulations/NFL/2022/">← 2022</a>
+                <a href="/sports-history-simulations/usa/simulations/NFL/2024/">2024 →</a>
+            </div>
+            
+                
+            <div class="season-header">
+                <h1 class="sim-title">2023 NFL Season</h1>
+            </div>
+
+
+            <h2 class="sim-subsection">Season In Review</h2>
+            
+            <details class="plot-section" data-expanded="true">
+                <summary>Regular Season</summary>
+
+<!--                 <section class="season-in-review">
+                    <h3>League News & Notes</h3>
+                    
+                    <ul>
+                        <li></li>
+                    </ul>
+                </section> -->
+
+
+                <section class="season-in-review">
+                    <h3>Standings</h3>
+    
+                    <div class="side-by-side-flex-wrapper">
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>AFC East</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Buffalo</td><td>11</td><td>6</td><td>.647</td></tr>
+                                <tr><td>Miami</td><td>11</td><td>6</td><td>.647</td></tr>
+                                <tr><td>N.Y. Jets</td><td>7</td><td>10</td><td>.412</td></tr>
+                                <tr><td>New England</td><td>4</td><td>13</td><td>.235</td></tr>
+                            </table>
+                        </div>
+                
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>AFC North</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Baltimore</td><td>13</td><td>4</td><td>.765</td></tr>
+                                <tr><td>Cleveland</td><td>11</td><td>6</td><td>.647</td></tr>
+                                <tr><td>Pittsburgh</td><td>10</td><td>7</td><td>.588</td></tr>
+                                <tr><td>Cincinnati</td><td>9</td><td>8</td><td>.529</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>AFC South</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Houston</td><td>10</td><td>7</td><td>.588</td></tr>
+                                <tr><td>Jacksonville</td><td>9</td><td>8</td><td>.529</td></tr>
+                                <tr><td>Indianapolis</td><td>9</td><td>8</td><td>.529</td></tr>
+                                <tr><td>Tennessee</td><td>6</td><td>11</td><td>.353</td></tr>
+                            </table>
+                        </div>
+                
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>AFC West</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Kansas City</td><td>11</td><td>6</td><td>.647</td></tr>
+                                <tr><td>Las Vegas</td><td>8</td><td>9</td><td>.471</td></tr>
+                                <tr><td>Denver</td><td>8</td><td>9</td><td>.471</td></tr>
+                                <tr><td>L.A. Chargers</td><td>5</td><td>12</td><td>.294</td></tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="side-by-side-flex-wrapper">
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>NFC East</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Dallas</td><td>12</td><td>5</td><td>.706</td></tr>
+                                <tr><td>Philadelphia</td><td>11</td><td>6</td><td>.647</td></tr>
+                                <tr><td>N.Y. Giants</td><td>6</td><td>11</td><td>.353</td></tr>
+                                <tr><td>Washington</td><td>4</td><td>13</td><td>.235</td></tr>
+                            </table>
+                        </div>
+                
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>NFC North</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Detroit</td><td>12</td><td>5</td><td>.706</td></tr>
+                                <tr><td>Green Bay</td><td>9</td><td>8</td><td>.529</td></tr>
+                                <tr><td>Minnesota</td><td>7</td><td>10</td><td>.412</td></tr>
+                                <tr><td>Chicago</td><td>7</td><td>10</td><td>.412</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>NFC South</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>Tampa Bay</td><td>9</td><td>8</td><td>.529</td></tr>
+                                <tr><td>New Orleans</td><td>9</td><td>8</td><td>.529</td></tr>
+                                <tr><td>Atlanta</td><td>7</td><td>10</td><td>.412</td></tr>
+                                <tr><td>Carolina</td><td>2</td><td>15</td><td>.118</td></tr>
+                            </table>
+                        </div>
+                
+                        <div class="standings-table-container">
+                            <table class="standings-table nfl-no-ties">
+                                <tr><th>NFC West</th><th>W</th><th>L</th><th>Pct.</th></tr>
+                                <tr><td>San Francisco</td><td>12</td><td>5</td><td>.706</td></tr>
+                                <tr><td>L.A. Rams</td><td>10</td><td>7</td><td>.588</td></tr>
+                                <tr><td>Seattle</td><td>9</td><td>8</td><td>.529</td></tr>
+                                <tr><td>Arizona</td><td>4</td><td>13</td><td>.235</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="season-in-review">
+                    <h3>Tiebreakers</h3>
+                    
+                    <ul>
+                        <li>Buffalo won the AFC East title over Miami by virtue of a head-to-head sweep during the regular season.</li>
+                        <li>Cleveland earned the 6-seed over Miami by finishing with a better conference record (8-4 vs. 7-5).</li>
+                        <li>San Francisco earned the 1-seed over Dallas and Detroit based on having a better conference record.</li>
+                        <li>Dallas earned the 2-seed over Detroit from their head-to-head victory in Week 17.</li>
+                        <li>Green Bay earned the 7-seed over Seattle by having a better strength of victory (.458 vs. .392) and over New Orleans by having a better conference record (7-5 vs. 6-6).</li>
+                    </ul>
+                </section>
+            </details>
+
+            
+
+            <details class="plot-section" data-expanded="true">
+                <summary>Playoffs</summary>
+
+                <section class="season-in-review">
+                    <h3>Bracket</h3>
+                
+                    <!-- Actual Playoff Bracket -->
+                    <div class="playoffs-wrapper">
+                    
+                        <!-- Main part of bracket -->
+                        <div class="bracket-container">
+                            <div class="bracket">
+                                
+                                <!-- AFC -->
+                                <div class="region" id="left">
+                                    <div class="round">
+                                        <div class="round-title">Wild Card</div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">5</div>
+                                                <div class="name">Cleveland</div>
+                                                <div class="score">14</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">4</div>
+                                                <div class="name">Houston</div>
+                                                <div class="score">45</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team.placeholder">
+                                                <div class="seed"></div>
+                                                <div class="name"></div>
+                                                <div class="score"></div>
+                                            </div>
+                                            <div class="team.placeholder">
+                                                <div class="seed"></div>
+                                                <div class="name"></div>
+                                                <div class="score"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">7</div>
+                                                <div class="name">Pittsburgh</div>
+                                                <div class="score">17</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">2</div>
+                                                <div class="name">Buffalo</div>
+                                                <div class="score">31</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">6</div>
+                                                <div class="name">Miami</div>
+                                                <div class="score">7</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Kansas City</div>
+                                                <div class="score">26</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="round">
+                                        <div class="round-title">Divisional Round</div>
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">4</div>
+                                                <div class="name">Houston</div>
+                                                <div class="score">10</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">1</div>
+                                                <div class="name">Baltimore</div>
+                                                <div class="score">34</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Kansas City</div>
+                                                <div class="score">27</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">2</div>
+                                                <div class="name">Buffalo</div>
+                                                <div class="score">24</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="round">
+                                        <div class="round-title">AFC Championship</div>
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Kansas City</div>
+                                                <div class="score">17</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">1</div>
+                                                <div class="name">Baltimore</div>
+                                                <div class="score">10</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                
+                                <!-- Super Bowl -->
+                                <div class="region finals" id="finals">
+                                    <div class="round" data-round="3">
+                                        <div class="round-title">Super Bowl LVIII</div>
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Kansas City</div>
+                                                <div class="score">25</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">1</div>
+                                                <div class="name">San Francisco</div>
+                                                <div class="score">22</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                <!-- NFC -->
+                                <div class="region" id="right" style="flex-direction: row-reverse;">
+                                    <div class="round">
+                                        <div class="round-title">Wild Card</div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">7</div>
+                                                <div class="name">Green Bay</div>
+                                                <div class="score">48</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">2</div>
+                                                <div class="name">Dallas</div>
+                                                <div class="score">32</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team.placeholder">
+                                                <div class="seed"></div>
+                                                <div class="name"></div>
+                                                <div class="score"></div>
+                                            </div>
+                                            <div class="team.placeholder">
+                                                <div class="seed"></div>
+                                                <div class="name"></div>
+                                                <div class="score"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">6</div>
+                                                <div class="name">L.A. Rams</div>
+                                                <div class="score">23</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Detroit</div>
+                                                <div class="score">24</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">5</div>
+                                                <div class="name">Philadelphia</div>
+                                                <div class="score">9</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">4</div>
+                                                <div class="name">Tampa Bay</div>
+                                                <div class="score">32</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="round">
+                                        <div class="round-title">Divisional Round</div>
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">7</div>
+                                                <div class="name">Green Bay</div>
+                                                <div class="score">21</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">1</div>
+                                                <div class="name">San Francisco</div>
+                                                <div class="score">24</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">4</div>
+                                                <div class="name">Tampa Bay</div>
+                                                <div class="score">23</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Detroit</div>
+                                                <div class="score">31</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="round">
+                                        <div class="round-title">NFC Championship</div>
+                                        <div class="matchup">
+                                            <div class="team">
+                                                <div class="seed">3</div>
+                                                <div class="name">Detroit</div>
+                                                <div class="score">31</div>
+                                            </div>
+                                            <div class="team">
+                                                <div class="seed">1</div>
+                                                <div class="name">San Francisco</div>
+                                                <div class="score">34</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </details>
+
+
+<!--             <details class="plot-section" data-expanded="true">
+                <summary>Season Highlights</summary>
+
+
+                <section class="season-in-review">
+                    <h3>Storylines</h3>
+                    
+                    <ul>
+                        <li>Detroit won their first division title since 1993 and won their first playoff game since the 1991 season to break a 9-game playoff losing streak.</li>
+                        <li>Kansas City won their eighth consecutive AFC West title and made their ninth consecutive playoff appearance.</li>
+                        <li>The New York Jets missed the playoffs for 12th straight year.</li>
+                        <li>Buffalo made the playoffs for the fifth consecutive season.</li>
+                        <li>Green Bay went 6-2 in their final 8 games to snag the final wild card spot in the NFC before becoming the first 7-seed to win a playoff game (48-32 over Dallas).</li>
+                        <li>The AFC North became the first division since 1935 to have all of its teams finish above .500.</li>
+                        <li>Baltimore won an NFL record 10 games against teams that finished with a winning record.</li>
+                        <li>Carolina was shutout in their final two games of the season, becoming the first team to suffer back-to-back shutout losses since the 2008 Browns.</li>
+                    </ul>
+                </section>
+
+                <section class="season-in-review">
+                    <h3>Extremes</h3>
+    
+                    <div class="side-by-side-flex-wrapper">
+                        <div class="review-table-container">
+                            <table class="review-table">
+                                <tr><th>League Best Record</th><td>Ravens (13-4)</td></tr>
+                                <tr><th>Biggest Improvement</th><td>Texans (3-13-1 → 10-7)</td></tr>
+                                <tr><th>Longest Winning Streak</th><td>Ravens, Chiefs, 49ers (6)</td></tr>
+                                <tr><th>Franchise Best Season</th><td>None</td></tr>
+                                <tr><th>Most Wins Above Expected</th><td>Rams (+2.52)</td></tr>
+                                <tr><th>Most Unlikely Playoff Team</th><td>Rams (24.35%)</td></tr>
+                            </table>
+                        </div>
+                
+                        <div class="review-table-container">
+                            <table class="review-table">
+                                <tr><th>League Worst Record</th><td>Panthers (2-15)</td></tr>
+                                <tr><th>Biggest Decline</th><td>Vikings (13-4 → 7-10)</td></tr>
+                                <tr><th>Longest Losing Streak</th><td>Commanders (8)</td></tr>
+                                <tr><th>Franchise Worst Season</th><td>None</td></tr>
+                                <tr><th>Most Wins Below Expected</th><td>Panthers (-4.01)</td></tr>
+                                <tr><th>Best Team to Miss Playoffs</th><td>Bengals (1542)</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </details> -->
+            
+            
+            
+            <!-- Beginning of Simulation Content -->
+            <h2 class="sim-subsection">Regular Season</h2>
+            
+            
+            <details class="plot-section" data-expanded="false">
+                <summary>Simulated Standings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many games would we have expected each team to win?</i>
+                </div>
+                <iframe data-src="regular_season_summary.html" class="extra-padding"></iframe>
+            </details>
+            
+            
+            <details class="plot-section" data-expanded="false">
+                <summary>Division Heatmaps</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where was each team expected to finish within their division?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_East')" class="active">AFC East</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_North')">AFC North</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_South')">AFC South</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_AFC_West')">AFC West</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_East')">NFC East</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_North')">NFC North</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_South')">NFC South</button>
+                    <button onclick="showTab('div_heatmap', 'div_heatmap_NFC_West')">NFC West</button>
+                </div>
+                <div class="tab-content div_heatmap active" id="div_heatmap_AFC_East">
+                    <iframe data-src="AFC East_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_AFC_North">
+                    <iframe data-src="AFC North_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_AFC_South">
+                    <iframe data-src="AFC South_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_AFC_West">
+                    <iframe data-src="AFC West_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_NFC_East">
+                    <iframe data-src="NFC East_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_NFC_North">
+                    <iframe data-src="NFC North_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_NFC_South">
+                    <iframe data-src="NFC South_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content div_heatmap" id="div_heatmap_NFC_West">
+                    <iframe data-src="NFC West_finish_heatmap.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details class="plot-section" data-expanded="false">
+                <summary>League & Conference Heatmaps</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>Where was each team expected to finish within their conference and the league as a whole?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_AFC')" class="active">AFC</button>
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_NFC')">NFC</button>
+                    <button onclick="showTab('league_heatmap', 'league_heatmap_NFL')">NFL</button>
+                </div>
+                <div class="tab-content league_heatmap active" id="league_heatmap_AFC">
+                    <iframe data-src="AFC_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content league_heatmap" id="league_heatmap_NFC">
+                    <iframe data-src="NFC_finish_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content league_heatmap" id="league_heatmap_NFL">
+                    <iframe data-src="league_finish_heatmap.html"></iframe>
+                </div>
+            </details>
+
+
+            <details>
+                <summary>Win Totals in Context</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>
+                    How did each team's actual results compare to their simulated results, Elo rating,
+                    opponent average Elo rating, and relative position of their actual points within simulated outcomes?
+                    </i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('comparisons', 'comparisons_sim_vs_actual')" class="active">Simulated Points</button>
+                    <button onclick="showTab('comparisons', 'comparisons_elo_vs_actual')">Team Elo</button>
+                    <button onclick="showTab('comparisons', 'comparisons_opponent_elo_vs_actual')">Opponent Elo</button>
+                    <button onclick="showTab('comparisons', 'comparisons_percentile_vs_actual')">Percentile</button>
+                </div>
+                <div class="tab-content comparisons active" id="comparisons_sim_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="sim_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="team_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_opponent_elo_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="opponent_elo_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+                <div class="tab-content comparisons" id="comparisons_percentile_vs_actual">
+                    <div class="iframe-wrapper">
+                        <iframe data-src="percentile_vs_actual_graph.html"></iframe>
+                    </div>
+                </div>
+            </details>
+
+
+
+            <h2 class="sim-subsection">Playoffs</h2>
+
+            <details>
+                <summary>Stochastic Playoff Bracket Simulation</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did the simulation expect the playoffs to unfold?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_playoff_adv')" class="active">Playoff Progression</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_wild_card_round')">Wild Card Round</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_div_round')">Divisional Round</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_conf_champ')">Conference Championship</button>
+                    <button onclick="showTab('preseason_playoff', 'preseason_playoff_super_bowl')">Super Bowl</button>
+                </div>
+                
+                <!-- Playoff Advancement -->
+                <div class="tab-content preseason_playoff active" id="preseason_playoff_playoff_adv">
+                    <iframe data-src="playoff_success_preseason_playoff.html"></iframe>
+                </div>
+                
+                <!-- Wild Card Round -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_wild_card_round">
+                    <div class="iframe-block">
+                        <div class="graph-label">AFC</div>
+                        <iframe data-src="wild_card_round_preseason_playoff_afc.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">NFC</div>
+                        <iframe data-src="wild_card_round_preseason_playoff_nfc.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Divisional Round -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_div_round">
+                    <div class="iframe-block">
+                        <div class="graph-label">AFC</div>
+                        <iframe data-src="divisional_round_preseason_playoff_afc.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">NFC</div>
+                        <iframe data-src="divisional_round_preseason_playoff_nfc.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Conference Championship -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_conf_champ">
+                    <div class="iframe-block">
+                        <div class="graph-label">AFC</div>
+                        <iframe data-src="conference_championship_preseason_playoff_afc.html"></iframe>
+                    </div>
+                    <div class="iframe-block">
+                        <div class="graph-label">NFC</div>
+                        <iframe data-src="conference_championship_preseason_playoff_nfc.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Super Bowl -->
+                <div class="tab-content preseason_playoff" id="preseason_playoff_super_bowl">
+                    <iframe data-src="super_bowl_preseason_playoff.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Playoff Seed Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How likely was each team to earn each playoff seed?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('preseason_playoff_seed', 'preseason_playoff_seed_afc')" class="active">AFC</button>
+                    <button onclick="showTab('preseason_playoff_seed', 'preseason_playoff_seed_nfc')">NFC</button>
+                </div>
+                <div class="tab-content preseason_playoff_seed active" id="preseason_playoff_seed_afc">
+                    <iframe data-src="AFC_playoff_heatmap.html"></iframe>
+                </div>
+                <div class="tab-content preseason_playoff_seed" id="preseason_playoff_seed_nfc">
+                    <iframe data-src="NFC_playoff_heatmap.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Playoff Seed Wins</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How many wins did the simulation believe were needed to earn each seed?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_afc')" class="active">AFC</button>
+                    <button onclick="showTab('playoff_seed_wins', 'playoff_seed_wins_nfc')">NFC</button>
+                </div>
+                <div class="tab-content playoff_seed_wins active" id="playoff_seed_wins_afc">
+                    <iframe data-src="AFC_playoff_seed_wins.html"></iframe>
+                </div>
+                <div class="tab-content playoff_seed_wins" id="playoff_seed_wins_nfc">
+                    <iframe data-src="NFC_playoff_seed_wins.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details>
+                <summary>Actual Playoff Bracket Simulation</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did the simulation expect the actual playoff bracket to unfold after the end of the regular season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_playoff_adv')" class="active">Playoff Progression</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_wild_card_round')">Wild Card Round</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_div_round')">Divisional Round</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_conf_champ')">Conference Championship</button>
+                    <button onclick="showTab('end_of_season_playoff', 'end_of_season_playoff_super_bowl')">Super Bowl</button>
+                </div>
+                
+                <!-- Playoff Progression -->
+                <div class="tab-content end_of_season_playoff active" id="end_of_season_playoff_playoff_adv">
+                    <iframe data-src="playoff_success_end_of_regular_season.html"></iframe>
+                </div>
+                
+                <!-- Wild Card Round -->
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_wild_card_round">
+                    <div class="iframe-block">
+                        <iframe data-src="wild_card_round_end_of_regular_season_combined_conferences.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Divisional Round -->
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_div_round">
+                    <div class="iframe-block">
+                        <iframe data-src="divisional_round_end_of_regular_season_combined_conferences.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Conference Championship -->
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_conf_champ">
+                    <div class="iframe-block">
+                        <iframe data-src="conference_championship_end_of_regular_season_combined_conferences.html"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Super Bowl -->
+                <div class="tab-content end_of_season_playoff" id="end_of_season_playoff_super_bowl">
+                    <iframe data-src="super_bowl_end_of_regular_season.html"></iframe>
+                </div>
+            </details>
+            
+                
+                
+            <h2 class="sim-subsection">Season Trends</h2>
+            
+            
+            <details class="plot-section" data-expanded="false">
+                <summary>Elo Ratings</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did each team's Elo rating change throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('elo', 'elo_AFC_East')" class="active">AFC East</button>
+                    <button onclick="showTab('elo', 'elo_AFC_North')">AFC North</button>
+                    <button onclick="showTab('elo', 'elo_AFC_South')">AFC South</button>
+                    <button onclick="showTab('elo', 'elo_AFC_West')">AFC West</button>
+                    <button onclick="showTab('elo', 'elo_NFC_East')">NFC East</button>
+                    <button onclick="showTab('elo', 'elo_NFC_North')">NFC North</button>
+                    <button onclick="showTab('elo', 'elo_NFC_South')">NFC South</button>
+                    <button onclick="showTab('elo', 'elo_NFC_West')">NFC West</button>
+                </div>
+                <div class="tab-content elo active" id="elo_AFC_East">
+                    <iframe data-src="AFC East_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_AFC_North">
+                    <iframe data-src="AFC North_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_AFC_South">
+                    <iframe data-src="AFC South_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_AFC_West">
+                    <iframe data-src="AFC West_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_NFC_East">
+                    <iframe data-src="NFC East_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_NFC_North">
+                    <iframe data-src="NFC North_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_NFC_South">
+                    <iframe data-src="NFC South_elo_ratings.html"></iframe>
+                </div>
+                <div class="tab-content elo" id="elo_NFC_West">
+                    <iframe data-src="NFC West_elo_ratings.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details class="plot-section" data-expanded="false">
+                <summary>Simulated Wins</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did each team's simulated win total change throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('wins', 'wins_AFC_East')" class="active">AFC East</button>
+                    <button onclick="showTab('wins', 'wins_AFC_North')">AFC North</button>
+                    <button onclick="showTab('wins', 'wins_AFC_South')">AFC South</button>
+                    <button onclick="showTab('wins', 'wins_AFC_West')">AFC West</button>
+                    <button onclick="showTab('wins', 'wins_NFC_East')">NFC East</button>
+                    <button onclick="showTab('wins', 'wins_NFC_North')">NFC North</button>
+                    <button onclick="showTab('wins', 'wins_NFC_South')">NFC South</button>
+                    <button onclick="showTab('wins', 'wins_NFC_West')">NFC West</button>
+                </div>
+                <div class="tab-content wins active" id="wins_AFC_East">
+                    <iframe data-src="AFC East_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_AFC_North">
+                    <iframe data-src="AFC North_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_AFC_South">
+                    <iframe data-src="AFC South_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_AFC_West">
+                    <iframe data-src="AFC West_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_NFC_East">
+                    <iframe data-src="NFC East_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_NFC_North">
+                    <iframe data-src="NFC North_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_NFC_South">
+                    <iframe data-src="NFC South_simulated_wins.html"></iframe>
+                </div>
+                <div class="tab-content wins" id="wins_NFC_West">
+                    <iframe data-src="NFC West_simulated_wins.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details class="plot-section" data-expanded="false">
+                <summary>Division Champion Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did each team's probability of winning the division change throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('div_prob', 'div_prob_AFC_East')" class="active">AFC East</button>
+                    <button onclick="showTab('div_prob', 'div_prob_AFC_North')">AFC North</button>
+                    <button onclick="showTab('div_prob', 'div_prob_AFC_South')">AFC South</button>
+                    <button onclick="showTab('div_prob', 'div_prob_AFC_West')">AFC West</button>
+                    <button onclick="showTab('div_prob', 'div_prob_NFC_East')">NFC East</button>
+                    <button onclick="showTab('div_prob', 'div_prob_NFC_North')">NFC North</button>
+                    <button onclick="showTab('div_prob', 'div_prob_NFC_South')">NFC South</button>
+                    <button onclick="showTab('div_prob', 'div_prob_NFC_West')">NFC West</button>
+                </div>
+                <div class="tab-content div_prob active" id="div_prob_AFC_East">
+                    <iframe data-src="AFC East_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_AFC_North">
+                    <iframe data-src="AFC North_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_AFC_South">
+                    <iframe data-src="AFC South_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_AFC_West">
+                    <iframe data-src="AFC West_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_NFC_East">
+                    <iframe data-src="NFC East_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_NFC_North">
+                    <iframe data-src="NFC North_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_NFC_South">
+                    <iframe data-src="NFC South_division_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content div_prob" id="div_prob_NFC_West">
+                    <iframe data-src="NFC West_division_probabilities.html"></iframe>
+                </div>
+            </details>
+            
+                
+            <details class="plot-section" data-expanded="false">
+                <summary>Playoff Probabilities</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did each team's probability of making the playoffs change throughout the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_East')" class="active">AFC East</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_North')">AFC North</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_South')">AFC South</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_AFC_West')">AFC West</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_East')">NFC East</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_North')">NFC North</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_South')">NFC South</button>
+                    <button onclick="showTab('playoff_prob', 'playoff_prob_NFC_West')">NFC West</button>
+                </div>
+                <div class="tab-content playoff_prob active" id="playoff_prob_AFC_East">
+                    <iframe data-src="AFC East_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_AFC_North">
+                    <iframe data-src="AFC North_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_AFC_South">
+                    <iframe data-src="AFC South_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_AFC_West">
+                    <iframe data-src="AFC West_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_NFC_East">
+                    <iframe data-src="NFC East_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_NFC_North">
+                    <iframe data-src="NFC North_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_NFC_South">
+                    <iframe data-src="NFC South_playoff_probabilities.html"></iframe>
+                </div>
+                <div class="tab-content playoff_prob" id="playoff_prob_NFC_West">
+                    <iframe data-src="NFC West_playoff_probabilities.html"></iframe>
+                </div>
+            </details>
+            
+
+
+            <h2 class="sim-subsection">Game Logs</h2>
+
+            <details>
+                <summary>Regular Season</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did each team's regular season unfold?</i>?</i>
+                </div>
+                <iframe data-src="team_games_table.html" class="extra-padding" style="max-height:800px;"></iframe>
+            </details>
+
+        
+            <details>
+                <summary>Playoffs</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>How did each playoff team's postseason unfold?</i>?</i>
+                </div>
+                <iframe data-src="team_playoff_games_table.html" class="extra-padding" style="max-height:800px;"></iframe>
+            </details>
+
+
+            <details>
+                <summary>Biggest Upsets and Elo Changes</summary>
+                <div class="subheading" style="margin: 0.75em 0;">
+                    <i>What were the biggest upsets and Elo rating changes of the season?</i>
+                </div>
+                <div class="tab-buttons">
+                    <button onclick="showTab('games', 'games_biggest_upsets')" class="active">Biggest Upsets</button>
+                    <button onclick="showTab('games', 'games_biggest_elo_changes')">Biggest Elo Changes</button>
+                </div>
+                <div class="tab-content games active" id="games_biggest_upsets">
+                    <iframe data-src="biggest_upsets_table.html" class="double-extra-padding"></iframe>
+                </div>
+                <div class="tab-content games" id="games_biggest_elo_changes">
+                    <iframe data-src="biggest_elo_changes_table.html" class="double-extra-padding"></iframe>
+                </div>
+            </details>
+        </div>
+        
+            
+        <div id="site-footer"></div>
+        
+            
+        <script src="/sports-history-simulations/scripts/main.js"></script>
+    </body>
+</html>

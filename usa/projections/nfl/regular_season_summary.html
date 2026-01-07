@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Division or Conference:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Conference</th>
+      <th>Division</th>
+      <th>Elo</th>
+      <th>Record</th>
+      <th>Avg. Wins</th>
+      <th>Exp. Wins Rem.</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+      <th>Playoffs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div style="text-align:left">Seattle Seahawks</div></td>
+      <td>NFC</td>
+      <td>NFC West</td>
+      <td>1739</td>
+      <td>14-3</td>
+      <td>14.00</td>
+      <td>-0.00</td>
+      <td>14</td>
+      <td>13.25</td>
+      <td>13.50</td>
+      <td>13.75</td>
+      <td>14</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Denver Broncos</div></td>
+      <td>AFC</td>
+      <td>AFC West</td>
+      <td>1681</td>
+      <td>14-3</td>
+      <td>14.00</td>
+      <td>-0.00</td>
+      <td>14</td>
+      <td>13.25</td>
+      <td>13.50</td>
+      <td>13.75</td>
+      <td>14</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Los Angeles Rams</div></td>
+      <td>NFC</td>
+      <td>NFC West</td>
+      <td>1681</td>
+      <td>12-5</td>
+      <td>12.00</td>
+      <td>-0.00</td>
+      <td>12</td>
+      <td>11.25</td>
+      <td>11.50</td>
+      <td>11.75</td>
+      <td>12</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Houston Texans</div></td>
+      <td>AFC</td>
+      <td>AFC South</td>
+      <td>1677</td>
+      <td>12-5</td>
+      <td>12.00</td>
+      <td>-0.00</td>
+      <td>12</td>
+      <td>11.25</td>
+      <td>11.50</td>
+      <td>11.75</td>
+      <td>12</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Jacksonville Jaguars</div></td>
+      <td>AFC</td>
+      <td>AFC South</td>
+      <td>1658</td>
+      <td>13-4</td>
+      <td>13.00</td>
+      <td>-0.00</td>
+      <td>13</td>
+      <td>12.25</td>
+      <td>12.50</td>
+      <td>12.75</td>
+      <td>13</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Buffalo Bills</div></td>
+      <td>AFC</td>
+      <td>AFC East</td>
+      <td>1656</td>
+      <td>12-5</td>
+      <td>12.00</td>
+      <td>-0.00</td>
+      <td>12</td>
+      <td>11.25</td>
+      <td>11.50</td>
+      <td>11.75</td>
+      <td>12</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New England Patriots</div></td>
+      <td>AFC</td>
+      <td>AFC East</td>
+      <td>1638</td>
+      <td>14-3</td>
+      <td>14.00</td>
+      <td>-0.00</td>
+      <td>14</td>
+      <td>13.25</td>
+      <td>13.50</td>
+      <td>13.75</td>
+      <td>14</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">San Francisco 49ers</div></td>
+      <td>NFC</td>
+      <td>NFC West</td>
+      <td>1605</td>
+      <td>12-5</td>
+      <td>12.00</td>
+      <td>-0.00</td>
+      <td>12</td>
+      <td>11.25</td>
+      <td>11.50</td>
+      <td>11.75</td>
+      <td>12</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Philadelphia Eagles</div></td>
+      <td>NFC</td>
+      <td>NFC East</td>
+      <td>1593</td>
+      <td>11-6</td>
+      <td>11.00</td>
+      <td>-0.00</td>
+      <td>11</td>
+      <td>10.25</td>
+      <td>10.50</td>
+      <td>10.75</td>
+      <td>11</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Detroit Lions</div></td>
+      <td>NFC</td>
+      <td>NFC North</td>
+      <td>1568</td>
+      <td>9-8</td>
+      <td>9.00</td>
+      <td>-0.00</td>
+      <td>9</td>
+      <td>8.25</td>
+      <td>8.50</td>
+      <td>8.75</td>
+      <td>9</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Green Bay Packers</div></td>
+      <td>NFC</td>
+      <td>NFC North</td>
+      <td>1562</td>
+      <td>9-7-1</td>
+      <td>9.50</td>
+      <td>-0.00</td>
+      <td>10</td>
+      <td>9.12</td>
+      <td>9.25</td>
+      <td>9.38</td>
+      <td>10</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Minnesota Vikings</div></td>
+      <td>NFC</td>
+      <td>NFC North</td>
+      <td>1557</td>
+      <td>9-8</td>
+      <td>9.00</td>
+      <td>-0.00</td>
+      <td>9</td>
+      <td>8.25</td>
+      <td>8.50</td>
+      <td>8.75</td>
+      <td>9</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Los Angeles Chargers</div></td>
+      <td>AFC</td>
+      <td>AFC West</td>
+      <td>1556</td>
+      <td>11-6</td>
+      <td>11.00</td>
+      <td>-0.00</td>
+      <td>11</td>
+      <td>10.25</td>
+      <td>10.50</td>
+      <td>10.75</td>
+      <td>11</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Baltimore Ravens</div></td>
+      <td>AFC</td>
+      <td>AFC North</td>
+      <td>1553</td>
+      <td>8-9</td>
+      <td>8.00</td>
+      <td>-0.00</td>
+      <td>8</td>
+      <td>7.62</td>
+      <td>7.75</td>
+      <td>7.88</td>
+      <td>8</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Chicago Bears</div></td>
+      <td>NFC</td>
+      <td>NFC North</td>
+      <td>1551</td>
+      <td>11-6</td>
+      <td>11.00</td>
+      <td>-0.00</td>
+      <td>11</td>
+      <td>10.25</td>
+      <td>10.50</td>
+      <td>10.75</td>
+      <td>11</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Pittsburgh Steelers</div></td>
+      <td>AFC</td>
+      <td>AFC North</td>
+      <td>1535</td>
+      <td>10-7</td>
+      <td>10.00</td>
+      <td>-0.00</td>
+      <td>10</td>
+      <td>9.62</td>
+      <td>9.75</td>
+      <td>9.88</td>
+      <td>10</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Kansas City Chiefs</div></td>
+      <td>AFC</td>
+      <td>AFC West</td>
+      <td>1467</td>
+      <td>6-11</td>
+      <td>6.00</td>
+      <td>-0.00</td>
+      <td>6</td>
+      <td>5.25</td>
+      <td>5.50</td>
+      <td>5.75</td>
+      <td>6</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Indianapolis Colts</div></td>
+      <td>AFC</td>
+      <td>AFC South</td>
+      <td>1458</td>
+      <td>8-9</td>
+      <td>8.00</td>
+      <td>-0.00</td>
+      <td>8</td>
+      <td>7.62</td>
+      <td>7.75</td>
+      <td>7.88</td>
+      <td>8</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tampa Bay Buccaneers</div></td>
+      <td>NFC</td>
+      <td>NFC South</td>
+      <td>1457</td>
+      <td>8-9</td>
+      <td>8.00</td>
+      <td>-0.00</td>
+      <td>8</td>
+      <td>7.62</td>
+      <td>7.75</td>
+      <td>7.88</td>
+      <td>8</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Atlanta Falcons</div></td>
+      <td>NFC</td>
+      <td>NFC South</td>
+      <td>1454</td>
+      <td>8-9</td>
+      <td>8.00</td>
+      <td>-0.00</td>
+      <td>8</td>
+      <td>7.62</td>
+      <td>7.75</td>
+      <td>7.88</td>
+      <td>8</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cincinnati Bengals</div></td>
+      <td>AFC</td>
+      <td>AFC North</td>
+      <td>1451</td>
+      <td>6-11</td>
+      <td>6.00</td>
+      <td>-0.00</td>
+      <td>6</td>
+      <td>5.25</td>
+      <td>5.50</td>
+      <td>5.75</td>
+      <td>6</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Dallas Cowboys</div></td>
+      <td>NFC</td>
+      <td>NFC East</td>
+      <td>1415</td>
+      <td>7-9-1</td>
+      <td>7.50</td>
+      <td>-0.00</td>
+      <td>8</td>
+      <td>7.12</td>
+      <td>7.25</td>
+      <td>7.38</td>
+      <td>8</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Miami Dolphins</div></td>
+      <td>AFC</td>
+      <td>AFC East</td>
+      <td>1410</td>
+      <td>7-10</td>
+      <td>7.00</td>
+      <td>-0.00</td>
+      <td>7</td>
+      <td>6.25</td>
+      <td>6.50</td>
+      <td>6.75</td>
+      <td>7</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New Orleans Saints</div></td>
+      <td>NFC</td>
+      <td>NFC South</td>
+      <td>1409</td>
+      <td>6-11</td>
+      <td>6.00</td>
+      <td>-0.00</td>
+      <td>6</td>
+      <td>5.25</td>
+      <td>5.50</td>
+      <td>5.75</td>
+      <td>6</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Washington Commanders</div></td>
+      <td>NFC</td>
+      <td>NFC East</td>
+      <td>1400</td>
+      <td>5-12</td>
+      <td>5.00</td>
+      <td>-0.00</td>
+      <td>5</td>
+      <td>4.25</td>
+      <td>4.50</td>
+      <td>4.75</td>
+      <td>5</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Carolina Panthers</div></td>
+      <td>NFC</td>
+      <td>NFC South</td>
+      <td>1397</td>
+      <td>8-9</td>
+      <td>8.00</td>
+      <td>-0.00</td>
+      <td>8</td>
+      <td>7.62</td>
+      <td>7.75</td>
+      <td>7.88</td>
+      <td>8</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New York Giants</div></td>
+      <td>NFC</td>
+      <td>NFC East</td>
+      <td>1390</td>
+      <td>4-13</td>
+      <td>4.00</td>
+      <td>-0.00</td>
+      <td>4</td>
+      <td>3.25</td>
+      <td>3.50</td>
+      <td>3.75</td>
+      <td>4</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Cleveland Browns</div></td>
+      <td>AFC</td>
+      <td>AFC North</td>
+      <td>1371</td>
+      <td>5-12</td>
+      <td>5.00</td>
+      <td>-0.00</td>
+      <td>5</td>
+      <td>4.25</td>
+      <td>4.50</td>
+      <td>4.75</td>
+      <td>5</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Arizona Cardinals</div></td>
+      <td>NFC</td>
+      <td>NFC West</td>
+      <td>1318</td>
+      <td>3-14</td>
+      <td>3.00</td>
+      <td>-0.00</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Tennessee Titans</div></td>
+      <td>AFC</td>
+      <td>AFC South</td>
+      <td>1284</td>
+      <td>3-14</td>
+      <td>3.00</td>
+      <td>-0.00</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">New York Jets</div></td>
+      <td>AFC</td>
+      <td>AFC East</td>
+      <td>1262</td>
+      <td>3-14</td>
+      <td>3.00</td>
+      <td>-0.00</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td><div style="text-align:left">Las Vegas Raiders</div></td>
+      <td>AFC</td>
+      <td>AFC West</td>
+      <td>1245</td>
+      <td>3-14</td>
+      <td>3.00</td>
+      <td>-0.00</td>
+      <td>3</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>3</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Conference");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Division or League:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>League</th>
+      <th>Division</th>
+      <th>Elo</th>
+      <th>Record</th>
+      <th>Avg. Wins</th>
+      <th>Luck</th>
+      <th>Percentile</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+      <th>Playoffs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Milwaukee Brewers</td>
+      <td>National</td>
+      <td>NL Central</td>
+      <td>1568</td>
+      <td>97-65</td>
+      <td>91.71</td>
+      <td>5.29</td>
+      <td>82.41%</td>
+      <td>65</td>
+      <td>86.99</td>
+      <td>91.23</td>
+      <td>95.42</td>
+      <td>118</td>
+      <td>81.93%</td>
+    </tr>
+    <tr>
+      <td>Los Angeles Dodgers</td>
+      <td>National</td>
+      <td>NL West</td>
+      <td>1563</td>
+      <td>93-69</td>
+      <td>93.75</td>
+      <td>-0.75</td>
+      <td>48.29%</td>
+      <td>65</td>
+      <td>89.07</td>
+      <td>93.27</td>
+      <td>97.47</td>
+      <td>119</td>
+      <td>88.59%</td>
+    </tr>
+    <tr>
+      <td>New York Yankees</td>
+      <td>American</td>
+      <td>AL East</td>
+      <td>1559</td>
+      <td>94-68</td>
+      <td>91.78</td>
+      <td>2.22</td>
+      <td>66.95%</td>
+      <td>64</td>
+      <td>87.05</td>
+      <td>91.27</td>
+      <td>95.49</td>
+      <td>118</td>
+      <td>89.64%</td>
+    </tr>
+    <tr>
+      <td>Philadelphia Phillies</td>
+      <td>National</td>
+      <td>NL East</td>
+      <td>1555</td>
+      <td>96-66</td>
+      <td>89.66</td>
+      <td>6.34</td>
+      <td>86.18%</td>
+      <td>63</td>
+      <td>84.92</td>
+      <td>89.18</td>
+      <td>93.39</td>
+      <td>118</td>
+      <td>73.10%</td>
+    </tr>
+    <tr>
+      <td>Chicago Cubs</td>
+      <td>National</td>
+      <td>NL Central</td>
+      <td>1543</td>
+      <td>92-70</td>
+      <td>90.27</td>
+      <td>1.73</td>
+      <td>63.85%</td>
+      <td>64</td>
+      <td>85.56</td>
+      <td>89.79</td>
+      <td>93.99</td>
+      <td>115</td>
+      <td>75.14%</td>
+    </tr>
+    <tr>
+      <td>Seattle Mariners</td>
+      <td>American</td>
+      <td>AL West</td>
+      <td>1538</td>
+      <td>90-72</td>
+      <td>86.84</td>
+      <td>3.16</td>
+      <td>71.97%</td>
+      <td>61</td>
+      <td>82.11</td>
+      <td>86.34</td>
+      <td>90.59</td>
+      <td>114</td>
+      <td>69.43%</td>
+    </tr>
+    <tr>
+      <td>Boston Red Sox</td>
+      <td>American</td>
+      <td>AL East</td>
+      <td>1537</td>
+      <td>89-73</td>
+      <td>83.47</td>
+      <td>5.53</td>
+      <td>83.07%</td>
+      <td>56</td>
+      <td>78.73</td>
+      <td>82.96</td>
+      <td>87.23</td>
+      <td>114</td>
+      <td>48.06%</td>
+    </tr>
+    <tr>
+      <td>San Diego Padres</td>
+      <td>National</td>
+      <td>NL West</td>
+      <td>1536</td>
+      <td>90-72</td>
+      <td>89.08</td>
+      <td>0.92</td>
+      <td>58.80%</td>
+      <td>63</td>
+      <td>84.34</td>
+      <td>88.60</td>
+      <td>92.83</td>
+      <td>116</td>
+      <td>68.35%</td>
+    </tr>
+    <tr>
+      <td>Toronto Blue Jays</td>
+      <td>American</td>
+      <td>AL East</td>
+      <td>1533</td>
+      <td>94-68</td>
+      <td>82.23</td>
+      <td>11.77</td>
+      <td>97.42%</td>
+      <td>54</td>
+      <td>77.46</td>
+      <td>81.72</td>
+      <td>85.98</td>
+      <td>110</td>
+      <td>40.23%</td>
+    </tr>
+    <tr>
+      <td>Cleveland Guardians</td>
+      <td>American</td>
+      <td>AL Central</td>
+      <td>1515</td>
+      <td>88-74</td>
+      <td>82.22</td>
+      <td>5.78</td>
+      <td>84.02%</td>
+      <td>55</td>
+      <td>77.47</td>
+      <td>81.72</td>
+      <td>85.95</td>
+      <td>112</td>
+      <td>40.87%</td>
+    </tr>
+    <tr>
+      <td>New York Mets</td>
+      <td>National</td>
+      <td>NL East</td>
+      <td>1514</td>
+      <td>83-79</td>
+      <td>88.23</td>
+      <td>-5.23</td>
+      <td>22.55%</td>
+      <td>63</td>
+      <td>83.48</td>
+      <td>87.74</td>
+      <td>91.97</td>
+      <td>115</td>
+      <td>64.85%</td>
+    </tr>
+    <tr>
+      <td>Cincinnati Reds</td>
+      <td>National</td>
+      <td>NL Central</td>
+      <td>1512</td>
+      <td>83-79</td>
+      <td>80.87</td>
+      <td>2.13</td>
+      <td>66.27%</td>
+      <td>55</td>
+      <td>76.13</td>
+      <td>80.37</td>
+      <td>84.60</td>
+      <td>108</td>
+      <td>20.21%</td>
+    </tr>
+    <tr>
+      <td>Houston Astros</td>
+      <td>American</td>
+      <td>AL West</td>
+      <td>1512</td>
+      <td>87-75</td>
+      <td>88.39</td>
+      <td>-1.39</td>
+      <td>44.19%</td>
+      <td>59</td>
+      <td>83.70</td>
+      <td>87.90</td>
+      <td>92.15</td>
+      <td>114</td>
+      <td>77.89%</td>
+    </tr>
+    <tr>
+      <td>Texas Rangers</td>
+      <td>American</td>
+      <td>AL West</td>
+      <td>1511</td>
+      <td>81-81</td>
+      <td>81.66</td>
+      <td>-0.66</td>
+      <td>48.99%</td>
+      <td>54</td>
+      <td>76.89</td>
+      <td>81.16</td>
+      <td>85.43</td>
+      <td>109</td>
+      <td>36.92%</td>
+    </tr>
+    <tr>
+      <td>Arizona Diamondbacks</td>
+      <td>National</td>
+      <td>NL West</td>
+      <td>1510</td>
+      <td>80-82</td>
+      <td>84.96</td>
+      <td>-4.96</td>
+      <td>23.97%</td>
+      <td>56</td>
+      <td>80.20</td>
+      <td>84.47</td>
+      <td>88.73</td>
+      <td>112</td>
+      <td>42.59%</td>
+    </tr>
+    <tr>
+      <td>Kansas City Royals</td>
+      <td>American</td>
+      <td>AL Central</td>
+      <td>1507</td>
+      <td>82-80</td>
+      <td>81.44</td>
+      <td>0.56</td>
+      <td>56.68%</td>
+      <td>56</td>
+      <td>76.70</td>
+      <td>80.94</td>
+      <td>85.19</td>
+      <td>112</td>
+      <td>36.36%</td>
+    </tr>
+    <tr>
+      <td>Atlanta Braves</td>
+      <td>National</td>
+      <td>NL East</td>
+      <td>1505</td>
+      <td>76-86</td>
+      <td>83.25</td>
+      <td>-7.25</td>
+      <td>14.06%</td>
+      <td>57</td>
+      <td>78.51</td>
+      <td>82.77</td>
+      <td>87.01</td>
+      <td>111</td>
+      <td>33.04%</td>
+    </tr>
+    <tr>
+      <td>Detroit Tigers</td>
+      <td>American</td>
+      <td>AL Central</td>
+      <td>1504</td>
+      <td>87-75</td>
+      <td>88.54</td>
+      <td>-1.54</td>
+      <td>43.41%</td>
+      <td>59</td>
+      <td>83.82</td>
+      <td>88.03</td>
+      <td>92.27</td>
+      <td>116</td>
+      <td>79.02%</td>
+    </tr>
+    <tr>
+      <td>San Francisco Giants</td>
+      <td>National</td>
+      <td>NL West</td>
+      <td>1500</td>
+      <td>81-81</td>
+      <td>83.29</td>
+      <td>-2.29</td>
+      <td>38.66%</td>
+      <td>54</td>
+      <td>78.55</td>
+      <td>82.80</td>
+      <td>87.02</td>
+      <td>109</td>
+      <td>32.17%</td>
+    </tr>
+    <tr>
+      <td>Tampa Bay Rays</td>
+      <td>American</td>
+      <td>AL East</td>
+      <td>1496</td>
+      <td>77-85</td>
+      <td>82.53</td>
+      <td>-5.53</td>
+      <td>21.24%</td>
+      <td>57</td>
+      <td>77.77</td>
+      <td>82.04</td>
+      <td>86.30</td>
+      <td>114</td>
+      <td>42.10%</td>
+    </tr>
+    <tr>
+      <td>Baltimore Orioles</td>
+      <td>American</td>
+      <td>AL East</td>
+      <td>1482</td>
+      <td>75-87</td>
+      <td>77.43</td>
+      <td>-2.43</td>
+      <td>38.20%</td>
+      <td>53</td>
+      <td>72.64</td>
+      <td>76.90</td>
+      <td>81.22</td>
+      <td>105</td>
+      <td>16.07%</td>
+    </tr>
+    <tr>
+      <td>Sacramento Athletics</td>
+      <td>American</td>
+      <td>AL West</td>
+      <td>1477</td>
+      <td>76-86</td>
+      <td>70.91</td>
+      <td>5.09</td>
+      <td>81.51%</td>
+      <td>44</td>
+      <td>66.18</td>
+      <td>70.39</td>
+      <td>74.65</td>
+      <td>97</td>
+      <td>2.44%</td>
+    </tr>
+    <tr>
+      <td>St. Louis Cardinals</td>
+      <td>National</td>
+      <td>NL Central</td>
+      <td>1476</td>
+      <td>78-84</td>
+      <td>80.02</td>
+      <td>-2.02</td>
+      <td>40.62%</td>
+      <td>52</td>
+      <td>75.25</td>
+      <td>79.50</td>
+      <td>83.78</td>
+      <td>108</td>
+      <td>16.76%</td>
+    </tr>
+    <tr>
+      <td>Pittsburgh Pirates</td>
+      <td>National</td>
+      <td>NL Central</td>
+      <td>1475</td>
+      <td>71-91</td>
+      <td>71.88</td>
+      <td>-0.88</td>
+      <td>47.89%</td>
+      <td>44</td>
+      <td>67.12</td>
+      <td>71.33</td>
+      <td>75.60</td>
+      <td>100</td>
+      <td>1.48%</td>
+    </tr>
+    <tr>
+      <td>Miami Marlins</td>
+      <td>National</td>
+      <td>NL East</td>
+      <td>1473</td>
+      <td>79-83</td>
+      <td>71.17</td>
+      <td>7.83</td>
+      <td>90.85%</td>
+      <td>42</td>
+      <td>66.43</td>
+      <td>70.65</td>
+      <td>74.88</td>
+      <td>98</td>
+      <td>1.21%</td>
+    </tr>
+    <tr>
+      <td>Minnesota Twins</td>
+      <td>American</td>
+      <td>AL Central</td>
+      <td>1458</td>
+      <td>70-92</td>
+      <td>78.23</td>
+      <td>-8.23</td>
+      <td>10.89%</td>
+      <td>44</td>
+      <td>73.47</td>
+      <td>77.73</td>
+      <td>81.95</td>
+      <td>106</td>
+      <td>19.45%</td>
+    </tr>
+    <tr>
+      <td>Los Angeles Angels</td>
+      <td>American</td>
+      <td>AL West</td>
+      <td>1430</td>
+      <td>72-90</td>
+      <td>69.46</td>
+      <td>2.54</td>
+      <td>68.84%</td>
+      <td>42</td>
+      <td>64.72</td>
+      <td>68.94</td>
+      <td>73.15</td>
+      <td>99</td>
+      <td>1.44%</td>
+    </tr>
+    <tr>
+      <td>Chicago White Sox</td>
+      <td>American</td>
+      <td>AL Central</td>
+      <td>1430</td>
+      <td>60-102</td>
+      <td>62.67</td>
+      <td>-2.67</td>
+      <td>36.60%</td>
+      <td>38</td>
+      <td>57.96</td>
+      <td>62.11</td>
+      <td>66.33</td>
+      <td>92</td>
+      <td>0.07%</td>
+    </tr>
+    <tr>
+      <td>Washington Nationals</td>
+      <td>National</td>
+      <td>NL East</td>
+      <td>1425</td>
+      <td>66-96</td>
+      <td>69.25</td>
+      <td>-3.25</td>
+      <td>33.16%</td>
+      <td>44</td>
+      <td>64.50</td>
+      <td>68.70</td>
+      <td>72.95</td>
+      <td>99</td>
+      <td>0.57%</td>
+    </tr>
+    <tr>
+      <td>Colorado Rockies</td>
+      <td>National</td>
+      <td>NL West</td>
+      <td>1356</td>
+      <td>43-119</td>
+      <td>54.81</td>
+      <td>-11.81</td>
+      <td>2.69%</td>
+      <td>31</td>
+      <td>50.25</td>
+      <td>54.27</td>
+      <td>58.31</td>
+      <td>82</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("League");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
