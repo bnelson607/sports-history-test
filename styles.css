@@ -64,7 +64,7 @@ h3 {
   font-family: 'Barlow Semi Condensed', sans-serif;
   letter-spacing: 1px;
   position: relative;
-  top: -0.61em;  /* Adjusts the title up due to different formatting for article title */
+  top: -0.61em;    /* Adjusts the title up due to different formatting for article title */
   margin-bottom: -0.61em;
 }
 
@@ -399,11 +399,6 @@ nav {
   margin-bottom: 0; /* Remove bottom margin from all elements inside #site-header */
 }
 
-#usa-header * {
-  margin-top: 0;    /* Remove top margin from all elements inside #usa-header */
-  margin-bottom: 0; /* Remove bottom margin from all elements inside #usa-header */
-}
-
 /* Main Nav Bar Color (default) */
 nav.main-nav {
   background-color: #002744; /* Deep navy */
@@ -444,9 +439,11 @@ nav.ncaa-nav {
   font-family: 'Bebas Neue', sans-serif; /* Button font */
   transition: background-color 0.3s ease; /* Smooth hover transition */
 }
+
 .dropbtn:hover {
   background-color: #004080;          /* Slightly lighter navy on hover */
 }
+
 .dropdown-content {
   display: none;                     /* Hidden by default */
   position: absolute;               /* Positioned absolutely */
@@ -566,8 +563,7 @@ nav.ncaa-nav .dropbtn {
   Content Containers
 ------------------------------------*/
 .content,
-.article-list-page,
-.site-updates {
+.article-list-page {
   background-color: white;
   border-left: 6px solid #002744;
   border-radius: 8px;
@@ -577,7 +573,6 @@ nav.ncaa-nav .dropbtn {
 }
 
 /* Now define both boxes together — equally */
-.featured-article-box,
 .power-rankings {
   background-color: white;
   border-left: 6px solid #002744;
@@ -590,21 +585,9 @@ nav.ncaa-nav .dropbtn {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.featured-article-box {
-  max-width: 600px;               /* Limit width */
-  padding: 20px;                 /* Padding inside boxes */
-}
-
 .article-list-page {
   max-width: 800px;               /* Limit width */
   padding: 20px;                 /* Padding inside boxes */
-}
-
-/* Optionally limit width for sidebar content boxes */
-.site-updates {
-  max-width: 600px;              /* Match sidebar width */
-  margin-left: 0;               /* Align left edge inside sidebar */
-  margin-right: 0;
 }
 
 /* Places date of last update on page */
@@ -637,9 +620,9 @@ nav.ncaa-nav .dropbtn {
     width: 100%;     /* Ensures proper behavior in flex layout */
 }
 
-/*------------------------
-  Sidebar: Weekly Links
---------------------------*/
+/*---------------------
+  Home Page Containers
+-----------------------*/
 
 /* Space between sections inside sidebar */
 .main-left,
@@ -662,93 +645,11 @@ nav.ncaa-nav .dropbtn {
   font-size: 1.2rem;
 }
 
-/* Sidebar table: same style as power rankings but allows 4 columns */
-.sidebar-table {
-    table-layout: fixed;              /* Ensures column widths are respected */
-    width: 100%;                       /* Table takes up full container width */
-    font-family: 'Inter', sans-serif; /* Use same font as main site */
-    border-collapse: collapse;         /* Collapse borders between cells */
-    border: 1px solid #ccc;            /* Light gray border around the table */
+/* Homepage updates list */
+.site-updates {
+    margin-bottom: 30px;            /* Space at bottom of homepage updates */
 }
 
-/* Table header and cell styling */
-.sidebar-table th,
-.sidebar-table td {
-    padding: 4px 8px;                  /* Space inside each cell */
-    border: 1px solid #ccc;            /* Gray borders between cells */
-    text-align: left;                   /* Default left-aligned text */
-    white-space: nowrap;                /* Prevent line breaks inside cells */
-}
-
-.power-rankings {
-  width: 100%;      /* fills its container */
-  max-width: 600px; /* optional: keep same width as other boxes */
-  padding: 20px;    /* optional */
-  box-sizing: border-box; /* include padding in width calculation */
-}
-
-/* Tables inside power rankings */
-.power-rankings table {
-    table-layout: fixed;
-    width: 100%;           /* fills the power-rankings container */
-    border-collapse: collapse;
-}
-
-/* Column width adjustments for power ranking tables */
-.power-rankings th:nth-child(1),
-.power-rankings td:nth-child(1) { width: 25%; }
-.power-rankings th:nth-child(2),
-.power-rankings td:nth-child(2) { width: 45%; text-align: center; }
-.power-rankings th:nth-child(3),
-.power-rankings td:nth-child(3) { width: 30%; text-align: center; }
-
-/* Column width adjustments for sidebar tables */
-.sidebar-table th:nth-child(1),
-.sidebar-table td:nth-child(1) { width: 40%; }
-.sidebar-table th:nth-child(2),
-.sidebar-table td:nth-child(2) { width: 15%; text-align: center; }
-.sidebar-table th:nth-child(3),
-.sidebar-table td:nth-child(3) { width: 20%; text-align: center; }
-.sidebar-table th:nth-child(4),
-.sidebar-table td:nth-child(4) { width: 25%; text-align: center; }
-
-
-/* Make each placeholder's wrapper scroll horizontally */
-.sidebar-table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Make tables inside those wrappers behave properly */
-.sidebar-table-wrapper table {
-    width: 100%;
-    min-width: 450px;
-    border-collapse: collapse;
-}
-
-@media (max-width: 800px) {
-  .home-layout {
-    flex-direction: column;
-  }
-
-  .main-left,
-  .main-right {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-/* Responsive tweak: allow scrolling instead of breaking */
-@media (max-width: 600px) {
-    .main-left,
-    .main-right {
-        width: 100%;
-        padding: 0 10px;
-    }
-}
-
-
-/* Weekly Updates List */
 .site-updates ul {
     list-style-type: none;          /* Remove bullets */
     padding-left: 0;                /* Remove default padding */
@@ -763,14 +664,54 @@ nav.ncaa-nav .dropbtn {
     text-decoration: none;          /* Remove underline */
     color: #0055a5;                 /* Brighter link color */
 }
+
 .site-updates a:hover {
     text-decoration: underline;     /* Underline on hover */
 }
 
 
-/* Space between Weekly Updates and Polls */
-.site-updates {
-    margin-bottom: 30px;            /* Separate weekly updates from polls */
+/* Cards on homepages */
+.sidebar-table-wrapper {  /* Make each placeholder's wrapper scroll horizontally */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-table-wrapper table,   /* Make tables inside those wrappers behave properly */
+.sidebar-table {
+    width: 100%;                       /* Table takes up full container width */
+    min-width: 450px;
+    font-family: 'Inter', sans-serif; /* Use same font as main site */
+    border-collapse: collapse;         /* Collapse borders between cells */
+    border: 1px solid #ccc;            /* Light gray border around the table */
+    table-layout: fixed;              /* Ensures column widths are respected */
+}
+
+/* Table header and cell styling */
+.sidebar-table th,
+.sidebar-table td {
+    padding: 4px 8px;                  /* Space inside each cell */
+    border: 1px solid #ccc;            /* Gray borders between cells */
+    text-align: left;                   /* Default left-aligned text */
+    white-space: nowrap;                /* Prevent line breaks inside cells */
+}
+
+/* Column width adjustments for sidebar tables */
+.sidebar-table th:nth-child(1),
+.sidebar-table td:nth-child(1) { width: 40%; }
+.sidebar-table th:nth-child(2),
+.sidebar-table td:nth-child(2) { width: 15%; text-align: center; }
+.sidebar-table th:nth-child(3),
+.sidebar-table td:nth-child(3) { width: 20%; text-align: center; }
+.sidebar-table th:nth-child(4),
+.sidebar-table td:nth-child(4) { width: 25%; text-align: center; }
+
+/* Add date of most recent update */
+.sidebar-table-date {
+    font-weight: bold;             /* Bold date label */
+    font-size: 1em;                /* Normal font size */
+    color: #333;                   /* Dark gray text */
+    margin-bottom: 0.5em;          /* Space below */
+    text-align: left;              /* Align left */
 }
 
 
@@ -778,8 +719,7 @@ nav.ncaa-nav .dropbtn {
   Responsive Layout for Smaller Screens for Homepage
 -----------------------------------------------------*/
 
-/* Responsive: stack columns on smaller screens */
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     .home-layout {
         flex-direction: column;
     }
@@ -788,32 +728,35 @@ nav.ncaa-nav .dropbtn {
     .main-right {
         width: 100%;
         max-width: none;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0 10px; /* or 0 if you prefer */
     }
 
-    .main-left section
+    .main-left section,
     .main-right section {
         margin-bottom: 15px;
     }
 }
 
+
 /*-----------------------------------
-  Article List
+  Season Summary List
 ------------------------------------*/
 .article-list {
-  list-style: none;               /* Remove bullets */
-  margin: 0;                     /* Remove default margin */
-  padding: 0;                    /* Remove default padding */
+    list-style: none;               /* Remove bullets */
+    margin: 0;                      /* Remove default margin */
+    padding: 0;                     /* Remove default padding */
 }
+
 .article-list li {
-  margin-bottom: 2.5em;          /* Space between articles */
+    margin-bottom: 2.5em;           /* Space between articles */
 }
+
 .article-list h3 {
-  margin-bottom: 0.1em;          /* Reduce space between title and date */
+    margin-bottom: 0.1em;           /* Reduce space between title and date */
 }
+
 .extra-top-margin {
-  margin-top: 48px;              /* Spacing between article sections */
+    margin-top: 48px;               /* Spacing between article sections */
 }
 
 /*-----------------------------------
@@ -824,105 +767,60 @@ table {
   border-collapse: collapse;     /* Merge borders */
   margin: 8px 0;                 /* Vertical spacing */
 }
+
+/* Table cells */
 th, td {
-  border: 1px solid #999999;        /* Unified cell borders */
+  border: 1px solid #999999;     /* Unified cell borders */
   padding: 8px 12px;             /* Cell padding */
   text-align: center;            /* Center content */
 }
+
+/* Table headers */
 th {
   background-color: #f1f1f1;     /* Unified light gray header background */
 }
 
-/* Power rankings table on homepage */
-.power-table {
-  width: 100%;                   /* Full width */
-  border-collapse: collapse;     /* Merge borders */
-  font-size: 16px;               /* Font size */
-  text-align: left;              /* Left align text */
-  table-layout: fixed;           /* Enforce equal/fixed column widths */
-}
-
-.power-table thead {
-  background-color: #002744;     /* Dark navy header */
-  color: #333;                  /* White header text */
-  font-weight: bold;             /* Bold header text */
-}
-
-.power-table th, .power-table td {
-  padding: 4px;                  /* Padding for cells */
-  border-bottom: 1px solid #999999; /* Unified light bottom border */
-  overflow: hidden;              /* Prevent content from overflowing cell */
-  white-space: normal;           /* Allow text wrapping */
-  text-overflow: ellipsis;       /* Add "..." for clipped text */
-}
-
-/* Set fixed widths for each column */
-.power-table th:nth-child(1),
-.power-table td:nth-child(1) {
-  width: 15%;                   /* Rank column width */
-}
-
-.power-table th:nth-child(2),
-.power-table td:nth-child(2) {
-  width: 65%;                  /* Team column width */
-}
-
-.power-table th:nth-child(3),
-.power-table td:nth-child(3) {
-  width: 20%;                  /* Elo Rating column width */
-}
-
-.power-table tbody tr:nth-child(even) {
-  background-color: #f1f1f1;     /* Unified light gray even rows */
-}
-
-.power-table tbody tr:hover {
-  background-color: #f1f1f1;     /* Unified highlight on hover */
-  transition: background-color 0.3s; /* Smooth transition */
-}
-
-.power-table-date {
-  font-weight: bold;             /* Bold date label */
-  font-size: 1em;                /* Normal font size */
-  color: #333;                   /* Dark gray text */
-  margin-bottom: 0.5em;          /* Space below */
-  text-align: left;              /* Align left */
-}
 
 /*-----------------------------------
   Tabs
 ------------------------------------*/
 .tab-buttons {
-  display: flex;                /* Flex container */
-  justify-content: center;      /* Center buttons */
-  flex-wrap: wrap;             /* Wrap buttons on smaller screens */
-  gap: 10px;                   /* Space between buttons */
-  margin: 10px 0;              /* Vertical margin */
+    display: flex;                /* Flex container */
+    justify-content: center;      /* Center buttons */
+    flex-wrap: wrap;              /* Wrap buttons on smaller screens */
+    gap: 10px;                    /* Space between buttons */
+    margin: 10px 0;               /* Vertical margin */
 }
+
 .tab-buttons button {
-  padding: 10px 15px;           /* Button padding */
-  border: none;                /* Remove border */
-  background-color: #f1f1f1;       /* Unified light gray background */
-  cursor: pointer;             /* Pointer cursor */
-  border-radius: 4px;           /* Rounded corners */
-  font-family: 'Inter', sans-serif; /* Button font */
-  font-weight: 600;            /* Semi-bold text */
+    padding: 10px 15px;                /* Button padding */
+    border: none;                      /* Remove border */
+    background-color: #f1f1f1;         /* Unified light gray background */
+    cursor: pointer;                   /* Pointer cursor */
+    border-radius: 4px;                /* Rounded corners */
+    font-family: 'Inter', sans-serif;  /* Button font */
+    font-weight: 600;                  /* Semi-bold text */
 }
+
 .tab-buttons button.active {
-  background-color: #002744;    /* Dark navy background */
-  color: white;                /* White text */
+    background-color: #002744;    /* Dark navy background */
+    color: white;                 /* White text */
 }
+
 .tab-content {
-  display: none;               /* Hide tab content by default */
+    display: none;               /* Hide tab content by default */
 }
+
 .tab-content.active {
-  display: block;              /* Show active tab content */
-  justify-content: center;     /* Center content on active tab */
+    display: block;              /* Show active tab content */
+    justify-content: center;     /* Center content on active tab */
 }
+
 
 /*-----------------------------------
   Collapsible Sections
 ------------------------------------*/
+
 details {
   background: white;            /* White background */
   border: 1px solid #999999;    /* Unified light gray border */
@@ -930,6 +828,7 @@ details {
   padding: 5px;                 /* Padding inside details */
   margin-bottom: 5px;           /* Space below */
 }
+
 summary {
   font-size: 1.1em !important;  /* Slightly larger font */
   cursor: pointer !important;   /* Pointer cursor */
@@ -938,133 +837,49 @@ summary {
   line-height: 1.3 !important;  /* Taller line height */
 }
 
+
 /*-----------------------------------
   Iframes & Graph Labels
 ------------------------------------*/
+
+/* General iframe styling */
 iframe {
-  display: block;              /* Block-level for spacing */
-  width: 100%;                 /* Full container width */
-  max-width: 1200px;           /* Max width limit */
-  margin: 5px auto;            /* Center horizontally with vertical margin */
-  background: white;           /* White background */
-  border: none;                /* No border */
-  overflow-x: hidden;          /* Prevent horizontal scroll */
-  box-sizing: border-box;      /* Include border/padding in width */
+    display: block;              /* Block-level for spacing */
+    width: 100%;                 /* Full container width */
+    max-width: 1200px;           /* Max width limit */
+    margin: 5px auto;            /* Center horizontally with vertical margin */
+    background: white;           /* White background */
+    border: none;                /* No border */
+    overflow-x: hidden;          /* Prevent horizontal scroll */
+    box-sizing: border-box;      /* Include border/padding in width */
 }
-.iframe-block {
-  display: flex;              /* Flex container */
-  flex-direction: column;     /* Vertical stacking */
-  align-items: center;        /* Center children horizontally */
-  box-sizing: border-box;     /* Include border/padding */
-  overflow-x: hidden;         /* Prevent horizontal overflow */
-  width: 100%;                /* Full width */
-}
+
+.iframe-block,
 .iframe-wrapper {
-  max-width: 1200px;         /* Max width */
-  width: 100%;               /* Take full width up to max-width */
-  margin: 0 auto;            /* Center horizontally */
-  overflow-x: hidden;        /* Prevent horizontal scroll if iframe content overflows */
-  box-sizing: border-box;
+    display: flex;              /* Flex container */
+    flex-direction: column;     /* Vertical stacking */
+    align-items: center;        /* Center children horizontally */
+    width: 100%;                /* Full width */
+    max-width: 1200px;         /* Max width */
+    margin: 0 auto;            /* Center horizontally */
+    overflow-x: hidden;         /* Prevent horizontal overflow */
+    box-sizing: border-box;     /* Include border/padding */
 }
+
+/* Ensure iframe fills wrapper */
 .iframe-wrapper iframe {
-  width: 100%;
-  border: none;
-  display: block;
+    width: 100%;
+    border: none;
+    display: block;
 }
+
+/* Labels above graphs */
 .graph-label {
-  align-self: flex-start;     /* Align label to start of container */
-  font-size: 1.25rem;         /* Larger font size */
-  font-weight: 600;           /* Semi-bold */
-  color: #002744;             /* Deep navy color (unchanged as primary) */
-  margin: 0 0 8px 10px;       /* Bottom and left margin */
-}
-
-
-/*--------------------------
-  Related Articles Section
---------------------------*/
-
-/* Outer container for the related articles */
-.related-articles {
-  margin: 60px 0;
-  padding: 30px;
-  background-color: white;           /* Match article background */
-  border-left: 6px solid #002744;    /* Blue stripe on the left */
-  border-radius: 4px;
-}
-
-/* Section heading style */
-.related-articles h2 {
-  font-family: 'Barlow Semi Condensed', sans-serif;  /* Sporty header font */
-  font-size: 28px;                    /* Medium-large heading */
-  color: #A4161A;                     /* Historic red (unchanged as accent) */
-  margin-bottom: 20px;                /* Space below the heading */
-  letter-spacing: 1px;                /* Slight spacing between letters */
-  margin-top: 0;                      /* Reduce margin above header text */
-}
-
-/* Grid container to hold all article cards */
-.related-grid {
-  display: flex;                      /* Flexbox layout */
-  justify-content: space-between;    /* Evenly distribute cards with space between */
-  gap: 20px;                         /* Horizontal gap between cards */
-  flex-wrap: nowrap;                 /* Keep all 3 cards on the same row */
-  align-items: stretch;              /* Make all cards equal height */
-}
-
-/* Individual article card */
-.related-card {
-  flex: 1 1 0;                       /* Equal width, no shrinking, grow if needed */
-  background-color: white;           /* White card background */
-  border-radius: 8px;                /* Rounded corners */
-  padding: 20px;                    /* Inner padding */
-  text-decoration: none;             /* Remove underline from link */
-  color: #1C1C1C;                   /* Dark text (unchanged) */
-  border: 1px solid #999999;         /* Standardized border color */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover animation */
-  display: flex;                    /* Make the card content flexible */
-  flex-direction: column;           /* Stack title and paragraph vertically */
-  justify-content: flex-start;      /* Align items at top */
-}
-
-/* Spacer div to push content up and keep equal heights */
-.related-card .spacer {
-  flex-grow: 1;                     /* Takes remaining space at bottom */
-}
-
-/* Hover effect on cards */
-.related-card:hover {
-  transform: translateY(-4px);       /* Subtle lift on hover */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Deeper shadow on hover */
-}
-
-/* Title inside each card */
-.related-card h3 {
-  font-size: 20px;                   /* Medium title font */
-  color: #002744;                    /* Deep navy for titles (primary) */
-  margin-bottom: 10px;               /* Space below title */
-  font-family: 'Barlow Semi Condensed', sans-serif; /* Matching header font */
-  letter-spacing: 0.5px;             /* Small letter spacing */
-  margin-top: 0;                     /* Reduce spacing above article name inside tile */
-}
-
-/* Description text inside each card */
-.related-card p {
-  font-size: 16px;                   /* Standard paragraph size */
-  line-height: 1.4;                  /* Comfortable line spacing */
-  margin: 0;                        /* No extra margin */
-  flex-grow: 0;                    /* Prevent description from growing */
-}
-
-/* Responsive fallback: stack cards vertically on narrow screens */
-@media (max-width: 900px) {
-  .related-grid {
-    flex-wrap: wrap;                /* Allow wrapping to new row */
-  }
-  .related-card {
-    flex: 1 1 100%;                 /* Full width per card */
-  }
+    align-self: flex-start;     /* Align label to start of container */
+    font-size: 1.25rem;         /* Larger font size */
+    font-weight: 600;           /* Semi-bold */
+    color: #002744;             /* Deep navy color (unchanged as primary) */
+    margin: 0 0 8px 10px;       /* Bottom and left margin */
 }
 
 
@@ -1089,21 +904,6 @@ iframe {
   box-sizing: border-box;     /* Include borders/padding in sizing */
   border: 1px solid #ccc;     /* Light border for clarity */
 }
-
-/* Make sure review tables have the red bar, padding, and no visible borders */
-/* .side-by-side-flex-wrapper .review-table { */
-/*   border-left: 4px solid #A4161A;  /* red vertical bar */ */
-/*   padding-left: 1rem; */
-/*   border-collapse: collapse; */
-/*   flex: 1 1 45%;                   /* ensure they sit side by side */ */
-/*   max-width: none;                 /* override max-width if needed */ */
-/*   border: 1px solid #ccc;          /* remove gray border from old CSS */ */
-/* } */
-
-/* .side-by-side-flex-wrapper .review-table td { */
-/*   padding: 4px 8px; */
-/*   border: none; */
-/* } */
 
 .review-section-container {
     border-left: 4px solid #A4161A;  /* red vertical bar for heading + tables */
