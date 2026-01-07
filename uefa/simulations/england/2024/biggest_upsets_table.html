@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2025-02-22</td>
+      <td>12.32%</td>
+      <td>West Ham United</td>
+      <td>1945.34</td>
+      <td>1</td>
+      <td>Arsenal (H)</td>
+      <td>2204.77</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2024-11-23</td>
+      <td>14.59%</td>
+      <td>Shrewsbury Town (H)</td>
+      <td>1493.52</td>
+      <td>3</td>
+      <td>Birmingham City</td>
+      <td>1742.79</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2024-09-14</td>
+      <td>15.59%</td>
+      <td>Nottingham Forest</td>
+      <td>1956.10</td>
+      <td>1</td>
+      <td>Liverpool (H)</td>
+      <td>2142.41</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2025-03-09</td>
+      <td>15.66%</td>
+      <td>Portsmouth (H)</td>
+      <td>1778.98</td>
+      <td>1</td>
+      <td>Leeds United</td>
+      <td>2006.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2025-03-15</td>
+      <td>15.77%</td>
+      <td>Tranmere Rovers</td>
+      <td>1325.14</td>
+      <td>1</td>
+      <td>Bradford City (H)</td>
+      <td>1507.86</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2024-11-02</td>
+      <td>15.82%</td>
+      <td>Bournemouth (H)</td>
+      <td>1986.87</td>
+      <td>2</td>
+      <td>Manchester City</td>
+      <td>2210.79</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2025-04-05</td>
+      <td>15.99%</td>
+      <td>Braintree Town (H)</td>
+      <td>1176.89</td>
+      <td>2</td>
+      <td>Barnet</td>
+      <td>1397.39</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2025-02-15</td>
+      <td>16.10%</td>
+      <td>Braintree Town (H)</td>
+      <td>1141.92</td>
+      <td>2</td>
+      <td>Forest Green Rovers</td>
+      <td>1360.43</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-05-03</td>
+      <td>16.29%</td>
+      <td>Bournemouth</td>
+      <td>2024.11</td>
+      <td>2</td>
+      <td>Arsenal (H)</td>
+      <td>2196.86</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2025-03-22</td>
+      <td>16.51%</td>
+      <td>Fylde (H)</td>
+      <td>1131.42</td>
+      <td>3</td>
+      <td>Forest Green Rovers</td>
+      <td>1342.07</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2024-10-19</td>
+      <td>16.60%</td>
+      <td>Bournemouth (H)</td>
+      <td>1971.24</td>
+      <td>2</td>
+      <td>Arsenal</td>
+      <td>2180.14</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2025-02-22</td>
+      <td>16.91%</td>
+      <td>Fylde</td>
+      <td>1136.00</td>
+      <td>2</td>
+      <td>Altrincham (H)</td>
+      <td>1297.21</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2025-04-06</td>
+      <td>16.99%</td>
+      <td>Fulham (H)</td>
+      <td>2019.59</td>
+      <td>3</td>
+      <td>Liverpool</td>
+      <td>2221.32</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2025-04-26</td>
+      <td>17.00%</td>
+      <td>Shrewsbury Town</td>
+      <td>1453.77</td>
+      <td>2</td>
+      <td>Barnsley (H)</td>
+      <td>1613.34</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2025-04-12</td>
+      <td>17.05%</td>
+      <td>Ebbsfleet United (H)</td>
+      <td>1049.68</td>
+      <td>4</td>
+      <td>Sutton United</td>
+      <td>1250.35</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2024-12-04</td>
+      <td>17.18%</td>
+      <td>Burton Albion</td>
+      <td>1493.60</td>
+      <td>1</td>
+      <td>Peterborough United (H)</td>
+      <td>1649.83</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2024-11-09</td>
+      <td>17.37%</td>
+      <td>Brighton and Hove Albion (H)</td>
+      <td>2005.17</td>
+      <td>2</td>
+      <td>Manchester City</td>
+      <td>2200.20</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2025-05-19</td>
+      <td>17.65%</td>
+      <td>Brighton and Hove Albion (H)</td>
+      <td>2017.24</td>
+      <td>3</td>
+      <td>Liverpool</td>
+      <td>2207.40</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2024-12-15</td>
+      <td>17.68%</td>
+      <td>Manchester United</td>
+      <td>2017.19</td>
+      <td>2</td>
+      <td>Manchester City (H)</td>
+      <td>2164.88</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2025-04-12</td>
+      <td>17.71%</td>
+      <td>Plymouth Argyle (H)</td>
+      <td>1708.29</td>
+      <td>2</td>
+      <td>Sheffield United</td>
+      <td>1897.43</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2024-11-23</td>
+      <td>17.76%</td>
+      <td>Tottenham Hotspur</td>
+      <td>2043.86</td>
+      <td>4</td>
+      <td>Manchester City (H)</td>
+      <td>2190.05</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2025-01-21</td>
+      <td>17.85%</td>
+      <td>Burton Albion</td>
+      <td>1489.09</td>
+      <td>2</td>
+      <td>Wigan Athletic (H)</td>
+      <td>1633.85</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2025-02-04</td>
+      <td>17.91%</td>
+      <td>Fylde</td>
+      <td>1133.20</td>
+      <td>2</td>
+      <td>Halifax Town (H)</td>
+      <td>1276.94</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2024-10-22</td>
+      <td>17.92%</td>
+      <td>Crawley Town (H)</td>
+      <td>1502.50</td>
+      <td>3</td>
+      <td>Lincoln City</td>
+      <td>1688.09</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2025-04-02</td>
+      <td>17.92%</td>
+      <td>Ipswich Town</td>
+      <td>1884.79</td>
+      <td>2</td>
+      <td>Bournemouth (H)</td>
+      <td>2028.33</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>
