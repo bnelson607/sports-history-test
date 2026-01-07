@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2024-11-20</td>
+      <td>7.33%</td>
+      <td>Briton Ferry Llansawel (H)</td>
+      <td>1040.13</td>
+      <td>3</td>
+      <td>The New Saints</td>
+      <td>1422.41</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2024-09-24</td>
+      <td>10.74%</td>
+      <td>Briton Ferry Llansawel</td>
+      <td>1035.50</td>
+      <td>1</td>
+      <td>Penybont (H)</td>
+      <td>1294.59</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2024-10-15</td>
+      <td>11.45%</td>
+      <td>Aberystwyth Town</td>
+      <td>944.49</td>
+      <td>4</td>
+      <td>Caernarfon Town (H)</td>
+      <td>1189.32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2024-10-09</td>
+      <td>13.59%</td>
+      <td>Caernarfon Town</td>
+      <td>1185.13</td>
+      <td>2</td>
+      <td>The New Saints (H)</td>
+      <td>1391.69</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2024-09-24</td>
+      <td>14.79%</td>
+      <td>Bala Town</td>
+      <td>1210.60</td>
+      <td>3</td>
+      <td>The New Saints (H)</td>
+      <td>1398.47</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2024-12-21</td>
+      <td>16.45%</td>
+      <td>Aberystwyth Town (H)</td>
+      <td>955.75</td>
+      <td>3</td>
+      <td>Caernarfon Town</td>
+      <td>1156.93</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2024-09-07</td>
+      <td>16.87%</td>
+      <td>Barry Town United</td>
+      <td>1074.04</td>
+      <td>2</td>
+      <td>Connahs Quay Nomads (H)</td>
+      <td>1232.79</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2024-12-04</td>
+      <td>17.28%</td>
+      <td>Bala Town (H)</td>
+      <td>1203.67</td>
+      <td>1</td>
+      <td>The New Saints</td>
+      <td>1393.99</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2025-01-11</td>
+      <td>19.33%</td>
+      <td>Caernarfon Town</td>
+      <td>1111.16</td>
+      <td>2</td>
+      <td>Bala Town (H)</td>
+      <td>1239.89</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2024-09-20</td>
+      <td>20.91%</td>
+      <td>Penybont (H)</td>
+      <td>1272.41</td>
+      <td>2</td>
+      <td>The New Saints</td>
+      <td>1420.64</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2024-11-08</td>
+      <td>21.58%</td>
+      <td>Aberystwyth Town (H)</td>
+      <td>959.06</td>
+      <td>3</td>
+      <td>Newtown</td>
+      <td>1100.33</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2024-12-26</td>
+      <td>22.03%</td>
+      <td>Briton Ferry Llansawel</td>
+      <td>1070.87</td>
+      <td>3</td>
+      <td>Cardiff Metropolitan (H)</td>
+      <td>1170.69</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2024-10-12</td>
+      <td>22.58%</td>
+      <td>Newtown</td>
+      <td>1116.48</td>
+      <td>2</td>
+      <td>Caernarfon Town (H)</td>
+      <td>1210.79</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2024-09-14</td>
+      <td>23.49%</td>
+      <td>Flint Town United (H)</td>
+      <td>1071.53</td>
+      <td>1</td>
+      <td>Haverfordwest County</td>
+      <td>1193.87</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2024-08-11</td>
+      <td>23.86%</td>
+      <td>Haverfordwest County</td>
+      <td>1140.79</td>
+      <td>1</td>
+      <td>Connahs Quay Nomads (H)</td>
+      <td>1222.70</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2024-08-23</td>
+      <td>23.93%</td>
+      <td>Caernarfon Town</td>
+      <td>1103.73</td>
+      <td>4</td>
+      <td>Newtown (H)</td>
+      <td>1184.98</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2024-10-04</td>
+      <td>24.22%</td>
+      <td>Flint Town United</td>
+      <td>1067.34</td>
+      <td>4</td>
+      <td>Newtown (H)</td>
+      <td>1145.87</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2024-09-07</td>
+      <td>28.10%</td>
+      <td>Cardiff Metropolitan</td>
+      <td>1173.36</td>
+      <td>1</td>
+      <td>Bala Town (H)</td>
+      <td>1218.07</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2024-10-04</td>
+      <td>29.99%</td>
+      <td>Haverfordwest County</td>
+      <td>1202.73</td>
+      <td>2</td>
+      <td>Bala Town (H)</td>
+      <td>1232.23</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2024-10-15</td>
+      <td>30.10%</td>
+      <td>Barry Town United</td>
+      <td>1109.34</td>
+      <td>4</td>
+      <td>Newtown (H)</td>
+      <td>1137.94</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2024-10-05</td>
+      <td>31.71%</td>
+      <td>Caernarfon Town</td>
+      <td>1167.17</td>
+      <td>2</td>
+      <td>Cardiff Metropolitan (H)</td>
+      <td>1183.42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2024-09-13</td>
+      <td>32.31%</td>
+      <td>Newtown (H)</td>
+      <td>1144.02</td>
+      <td>2</td>
+      <td>Cardiff Metropolitan</td>
+      <td>1192.64</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2024-08-31</td>
+      <td>32.43%</td>
+      <td>Penybont</td>
+      <td>1224.98</td>
+      <td>2</td>
+      <td>Bala Town (H)</td>
+      <td>1235.78</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2024-11-09</td>
+      <td>32.48%</td>
+      <td>Barry Town United (H)</td>
+      <td>1138.80</td>
+      <td>3</td>
+      <td>Connahs Quay Nomads</td>
+      <td>1186.14</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2024-08-23</td>
+      <td>32.54%</td>
+      <td>Aberystwyth Town (H)</td>
+      <td>1043.01</td>
+      <td>1</td>
+      <td>Barry Town United</td>
+      <td>1089.88</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>

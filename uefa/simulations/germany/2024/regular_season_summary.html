@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            margin: 0 10px;
+            padding: 4px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Use CDN version of Tablesort for local compatibility -->
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls" id="filterControls" style="display: none;">
+        <label for="regionFilter" id="regionLabel">Filter by Level:
+            <select id="regionFilter">
+                <option value="">All</option>
+            </select>
+        </label>
+    </div>
+
+    <table class="dataframe sortable">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Team</th>
+      <th>Level</th>
+      <th>Elo</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+      <th>Actual</th>
+      <th>Avg. Pts.</th>
+      <th>Luck</th>
+      <th>Percentile</th>
+      <th>Min</th>
+      <th>Q1</th>
+      <th>Median</th>
+      <th>Q3</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bayern Munich</td>
+      <td>Level 1</td>
+      <td>2180</td>
+      <td>19.44</td>
+      <td>5.68</td>
+      <td>8.88</td>
+      <td>82</td>
+      <td>67.20</td>
+      <td>14.80</td>
+      <td>98.97%</td>
+      <td>40</td>
+      <td>62.07</td>
+      <td>66.80</td>
+      <td>71.44</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>Bayer Leverkusen</td>
+      <td>Level 1</td>
+      <td>2126</td>
+      <td>20.04</td>
+      <td>5.22</td>
+      <td>8.74</td>
+      <td>69</td>
+      <td>68.86</td>
+      <td>0.14</td>
+      <td>53.08%</td>
+      <td>41</td>
+      <td>63.76</td>
+      <td>68.48</td>
+      <td>73.04</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Borussia Dortmund</td>
+      <td>Level 1</td>
+      <td>2042</td>
+      <td>13.65</td>
+      <td>9.51</td>
+      <td>10.84</td>
+      <td>57</td>
+      <td>51.79</td>
+      <td>5.21</td>
+      <td>78.35%</td>
+      <td>26</td>
+      <td>46.40</td>
+      <td>51.24</td>
+      <td>56.27</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>Eintracht Frankfurt</td>
+      <td>Level 1</td>
+      <td>2029</td>
+      <td>14.36</td>
+      <td>8.91</td>
+      <td>10.72</td>
+      <td>60</td>
+      <td>53.81</td>
+      <td>6.19</td>
+      <td>82.44%</td>
+      <td>28</td>
+      <td>48.41</td>
+      <td>53.31</td>
+      <td>58.24</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>VfB Stuttgart</td>
+      <td>Level 1</td>
+      <td>1996</td>
+      <td>15.20</td>
+      <td>8.22</td>
+      <td>10.58</td>
+      <td>50</td>
+      <td>56.18</td>
+      <td>-6.18</td>
+      <td>21.11%</td>
+      <td>30</td>
+      <td>50.87</td>
+      <td>55.66</td>
+      <td>60.62</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>RB Leipzig</td>
+      <td>Level 1</td>
+      <td>1984</td>
+      <td>15.44</td>
+      <td>8.13</td>
+      <td>10.42</td>
+      <td>51</td>
+      <td>56.76</td>
+      <td>-5.76</td>
+      <td>22.91%</td>
+      <td>28</td>
+      <td>51.42</td>
+      <td>56.25</td>
+      <td>61.11</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Mainz 05</td>
+      <td>Level 1</td>
+      <td>1975</td>
+      <td>12.66</td>
+      <td>10.52</td>
+      <td>10.82</td>
+      <td>52</td>
+      <td>48.81</td>
+      <td>3.19</td>
+      <td>70.04%</td>
+      <td>23</td>
+      <td>43.61</td>
+      <td>48.25</td>
+      <td>52.99</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>Werder Bremen</td>
+      <td>Level 1</td>
+      <td>1946</td>
+      <td>10.93</td>
+      <td>12.09</td>
+      <td>10.98</td>
+      <td>51</td>
+      <td>43.78</td>
+      <td>7.22</td>
+      <td>86.43%</td>
+      <td>19</td>
+      <td>38.52</td>
+      <td>43.21</td>
+      <td>48.09</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>SC Freiburg</td>
+      <td>Level 1</td>
+      <td>1940</td>
+      <td>10.73</td>
+      <td>12.21</td>
+      <td>11.06</td>
+      <td>55</td>
+      <td>43.25</td>
+      <td>11.75</td>
+      <td>95.74%</td>
+      <td>15</td>
+      <td>37.90</td>
+      <td>42.67</td>
+      <td>47.59</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>Wolfsburg</td>
+      <td>Level 1</td>
+      <td>1899</td>
+      <td>10.60</td>
+      <td>12.43</td>
+      <td>10.97</td>
+      <td>43</td>
+      <td>42.76</td>
+      <td>0.24</td>
+      <td>54.22%</td>
+      <td>19</td>
+      <td>37.53</td>
+      <td>42.26</td>
+      <td>46.87</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <td>Borussia Monchengladbach</td>
+      <td>Level 1</td>
+      <td>1889</td>
+      <td>10.65</td>
+      <td>12.41</td>
+      <td>10.94</td>
+      <td>45</td>
+      <td>42.89</td>
+      <td>2.11</td>
+      <td>64.74%</td>
+      <td>18</td>
+      <td>37.67</td>
+      <td>42.31</td>
+      <td>47.15</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>Augsburg</td>
+      <td>Level 1</td>
+      <td>1874</td>
+      <td>9.65</td>
+      <td>13.53</td>
+      <td>10.82</td>
+      <td>43</td>
+      <td>39.76</td>
+      <td>3.24</td>
+      <td>70.49%</td>
+      <td>15</td>
+      <td>34.47</td>
+      <td>39.14</td>
+      <td>43.92</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>Hoffenheim</td>
+      <td>Level 1</td>
+      <td>1852</td>
+      <td>9.10</td>
+      <td>14.12</td>
+      <td>10.78</td>
+      <td>32</td>
+      <td>38.07</td>
+      <td>-6.07</td>
+      <td>21.14%</td>
+      <td>16</td>
+      <td>32.85</td>
+      <td>37.52</td>
+      <td>42.17</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>Union Berlin</td>
+      <td>Level 1</td>
+      <td>1847</td>
+      <td>8.54</td>
+      <td>14.88</td>
+      <td>10.57</td>
+      <td>40</td>
+      <td>36.20</td>
+      <td>3.80</td>
+      <td>74.58%</td>
+      <td>11</td>
+      <td>31.17</td>
+      <td>35.60</td>
+      <td>40.10</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>Hamburger SV</td>
+      <td>Level 2</td>
+      <td>1846</td>
+      <td>14.78</td>
+      <td>7.19</td>
+      <td>10.03</td>
+      <td>53</td>
+      <td>54.37</td>
+      <td>-1.37</td>
+      <td>45.26%</td>
+      <td>30</td>
+      <td>49.10</td>
+      <td>53.89</td>
+      <td>58.67</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>1. FC Koln</td>
+      <td>Level 2</td>
+      <td>1844</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>100.00%</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>St. Pauli</td>
+      <td>Level 1</td>
+      <td>1838</td>
+      <td>8.64</td>
+      <td>14.72</td>
+      <td>10.64</td>
+      <td>32</td>
+      <td>36.56</td>
+      <td>-4.56</td>
+      <td>28.12%</td>
+      <td>14</td>
+      <td>31.36</td>
+      <td>35.88</td>
+      <td>40.57</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Elversberg</td>
+      <td>Level 2</td>
+      <td>1825</td>
+      <td>11.39</td>
+      <td>10.05</td>
+      <td>10.56</td>
+      <td>57</td>
+      <td>44.72</td>
+      <td>12.28</td>
+      <td>96.67%</td>
+      <td>16</td>
+      <td>39.53</td>
+      <td>44.15</td>
+      <td>48.90</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>1. FC Heidenheim</td>
+      <td>Level 1</td>
+      <td>1820</td>
+      <td>8.36</td>
+      <td>15.24</td>
+      <td>10.39</td>
+      <td>29</td>
+      <td>35.49</td>
+      <td>-6.49</td>
+      <td>18.75%</td>
+      <td>10</td>
+      <td>30.38</td>
+      <td>34.82</td>
+      <td>39.47</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>Holstein Kiel</td>
+      <td>Level 1</td>
+      <td>1802</td>
+      <td>7.23</td>
+      <td>16.63</td>
+      <td>10.13</td>
+      <td>25</td>
+      <td>31.83</td>
+      <td>-6.83</td>
+      <td>16.36%</td>
+      <td>12</td>
+      <td>26.88</td>
+      <td>31.11</td>
+      <td>35.66</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>VfL Bochum</td>
+      <td>Level 1</td>
+      <td>1793</td>
+      <td>6.62</td>
+      <td>17.39</td>
+      <td>9.99</td>
+      <td>25</td>
+      <td>29.85</td>
+      <td>-4.85</td>
+      <td>25.82%</td>
+      <td>9</td>
+      <td>24.82</td>
+      <td>29.19</td>
+      <td>33.64</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>Paderborn 07</td>
+      <td>Level 2</td>
+      <td>1786</td>
+      <td>12.87</td>
+      <td>8.58</td>
+      <td>10.55</td>
+      <td>52</td>
+      <td>49.15</td>
+      <td>2.85</td>
+      <td>68.51%</td>
+      <td>25</td>
+      <td>43.96</td>
+      <td>48.65</td>
+      <td>53.38</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Dusseldorf</td>
+      <td>Level 2</td>
+      <td>1780</td>
+      <td>14.14</td>
+      <td>7.58</td>
+      <td>10.28</td>
+      <td>51</td>
+      <td>52.69</td>
+      <td>-1.69</td>
+      <td>43.22%</td>
+      <td>24</td>
+      <td>47.46</td>
+      <td>52.21</td>
+      <td>56.88</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>Karlsruher SC</td>
+      <td>Level 2</td>
+      <td>1770</td>
+      <td>13.14</td>
+      <td>8.47</td>
+      <td>10.40</td>
+      <td>48</td>
+      <td>49.81</td>
+      <td>-1.81</td>
+      <td>42.76%</td>
+      <td>24</td>
+      <td>44.63</td>
+      <td>49.24</td>
+      <td>53.89</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>1. FC Kaiserslautern</td>
+      <td>Level 2</td>
+      <td>1760</td>
+      <td>11.52</td>
+      <td>9.72</td>
+      <td>10.76</td>
+      <td>53</td>
+      <td>45.32</td>
+      <td>7.68</td>
+      <td>87.82%</td>
+      <td>20</td>
+      <td>40.02</td>
+      <td>44.73</td>
+      <td>49.57</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>Hannover 96</td>
+      <td>Level 2</td>
+      <td>1754</td>
+      <td>12.86</td>
+      <td>8.53</td>
+      <td>10.60</td>
+      <td>47</td>
+      <td>49.20</td>
+      <td>-2.20</td>
+      <td>40.05%</td>
+      <td>24</td>
+      <td>43.94</td>
+      <td>48.77</td>
+      <td>53.47</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <td>1. FC Magdeburg</td>
+      <td>Level 2</td>
+      <td>1741</td>
+      <td>10.95</td>
+      <td>10.36</td>
+      <td>10.69</td>
+      <td>47</td>
+      <td>43.55</td>
+      <td>3.45</td>
+      <td>71.60%</td>
+      <td>19</td>
+      <td>38.34</td>
+      <td>42.93</td>
+      <td>47.75</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>Nurnberg</td>
+      <td>Level 2</td>
+      <td>1738</td>
+      <td>9.74</td>
+      <td>11.59</td>
+      <td>10.67</td>
+      <td>48</td>
+      <td>39.90</td>
+      <td>8.10</td>
+      <td>89.06%</td>
+      <td>19</td>
+      <td>34.76</td>
+      <td>39.17</td>
+      <td>43.88</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Hertha BSC</td>
+      <td>Level 2</td>
+      <td>1719</td>
+      <td>11.01</td>
+      <td>10.22</td>
+      <td>10.77</td>
+      <td>41</td>
+      <td>43.80</td>
+      <td>-2.80</td>
+      <td>37.37%</td>
+      <td>16</td>
+      <td>38.51</td>
+      <td>43.25</td>
+      <td>48.03</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>Preussen Munster</td>
+      <td>Level 2</td>
+      <td>1710</td>
+      <td>8.23</td>
+      <td>13.29</td>
+      <td>10.49</td>
+      <td>36</td>
+      <td>35.17</td>
+      <td>0.83</td>
+      <td>58.59%</td>
+      <td>11</td>
+      <td>29.94</td>
+      <td>34.50</td>
+      <td>39.29</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>Darmstadt 98</td>
+      <td>Level 2</td>
+      <td>1707</td>
+      <td>9.46</td>
+      <td>11.91</td>
+      <td>10.64</td>
+      <td>39</td>
+      <td>39.01</td>
+      <td>-0.01</td>
+      <td>53.36%</td>
+      <td>18</td>
+      <td>33.76</td>
+      <td>38.41</td>
+      <td>43.14</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>Arminia Bielefeld</td>
+      <td>Level 3</td>
+      <td>1683</td>
+      <td>15.37</td>
+      <td>10.13</td>
+      <td>12.50</td>
+      <td>72</td>
+      <td>58.62</td>
+      <td>13.38</td>
+      <td>96.39%</td>
+      <td>31</td>
+      <td>52.90</td>
+      <td>58.15</td>
+      <td>63.34</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Schalke 04</td>
+      <td>Level 2</td>
+      <td>1677</td>
+      <td>10.31</td>
+      <td>11.06</td>
+      <td>10.63</td>
+      <td>38</td>
+      <td>41.57</td>
+      <td>-3.57</td>
+      <td>33.39%</td>
+      <td>18</td>
+      <td>36.38</td>
+      <td>41.03</td>
+      <td>45.62</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>Greuther Furth</td>
+      <td>Level 2</td>
+      <td>1675</td>
+      <td>9.65</td>
+      <td>11.72</td>
+      <td>10.63</td>
+      <td>38</td>
+      <td>39.58</td>
+      <td>-1.58</td>
+      <td>44.03%</td>
+      <td>16</td>
+      <td>34.51</td>
+      <td>38.95</td>
+      <td>43.58</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>SSV Ulm</td>
+      <td>Level 2</td>
+      <td>1670</td>
+      <td>9.43</td>
+      <td>11.87</td>
+      <td>10.70</td>
+      <td>30</td>
+      <td>38.98</td>
+      <td>-8.98</td>
+      <td>10.48%</td>
+      <td>13</td>
+      <td>33.75</td>
+      <td>38.39</td>
+      <td>43.03</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Eintracht Braunschweig</td>
+      <td>Level 2</td>
+      <td>1667</td>
+      <td>8.22</td>
+      <td>13.45</td>
+      <td>10.34</td>
+      <td>35</td>
+      <td>34.99</td>
+      <td>0.01</td>
+      <td>53.74%</td>
+      <td>11</td>
+      <td>29.95</td>
+      <td>34.38</td>
+      <td>38.91</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td>Dynamo Dresden</td>
+      <td>Level 3</td>
+      <td>1652</td>
+      <td>16.97</td>
+      <td>8.91</td>
+      <td>12.12</td>
+      <td>70</td>
+      <td>63.04</td>
+      <td>6.96</td>
+      <td>83.42%</td>
+      <td>37</td>
+      <td>57.26</td>
+      <td>62.50</td>
+      <td>67.80</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Saarbrucken</td>
+      <td>Level 3</td>
+      <td>1606</td>
+      <td>16.38</td>
+      <td>9.18</td>
+      <td>12.44</td>
+      <td>65</td>
+      <td>61.58</td>
+      <td>3.42</td>
+      <td>69.10%</td>
+      <td>34</td>
+      <td>55.79</td>
+      <td>61.13</td>
+      <td>66.37</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>Rot-Weiss Essen</td>
+      <td>Level 3</td>
+      <td>1586</td>
+      <td>12.14</td>
+      <td>12.97</td>
+      <td>12.90</td>
+      <td>56</td>
+      <td>49.31</td>
+      <td>6.69</td>
+      <td>82.91%</td>
+      <td>24</td>
+      <td>43.64</td>
+      <td>48.67</td>
+      <td>53.84</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>Verl</td>
+      <td>Level 3</td>
+      <td>1581</td>
+      <td>13.39</td>
+      <td>11.77</td>
+      <td>12.84</td>
+      <td>57</td>
+      <td>53.02</td>
+      <td>3.98</td>
+      <td>72.52%</td>
+      <td>25</td>
+      <td>47.39</td>
+      <td>52.45</td>
+      <td>57.60</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>Hansa Rostock</td>
+      <td>Level 3</td>
+      <td>1576</td>
+      <td>14.18</td>
+      <td>11.12</td>
+      <td>12.70</td>
+      <td>60</td>
+      <td>55.24</td>
+      <td>4.76</td>
+      <td>75.19%</td>
+      <td>27</td>
+      <td>49.46</td>
+      <td>54.59</td>
+      <td>59.95</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <td>Viktoria Koln</td>
+      <td>Level 3</td>
+      <td>1562</td>
+      <td>13.12</td>
+      <td>12.09</td>
+      <td>12.80</td>
+      <td>59</td>
+      <td>52.15</td>
+      <td>6.85</td>
+      <td>83.11%</td>
+      <td>23</td>
+      <td>46.36</td>
+      <td>51.61</td>
+      <td>56.86</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Jahn Regensburg</td>
+      <td>Level 2</td>
+      <td>1561</td>
+      <td>5.40</td>
+      <td>17.52</td>
+      <td>9.08</td>
+      <td>24</td>
+      <td>25.29</td>
+      <td>-1.29</td>
+      <td>45.73%</td>
+      <td>5</td>
+      <td>20.59</td>
+      <td>24.67</td>
+      <td>28.75</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>FC Ingolstadt 04</td>
+      <td>Level 3</td>
+      <td>1558</td>
+      <td>14.46</td>
+      <td>10.88</td>
+      <td>12.66</td>
+      <td>54</td>
+      <td>56.03</td>
+      <td>-2.03</td>
+      <td>42.38%</td>
+      <td>30</td>
+      <td>50.42</td>
+      <td>55.50</td>
+      <td>60.70</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <td>Wehen Wiesbaden</td>
+      <td>Level 3</td>
+      <td>1547</td>
+      <td>13.62</td>
+      <td>11.61</td>
+      <td>12.77</td>
+      <td>55</td>
+      <td>53.63</td>
+      <td>1.37</td>
+      <td>60.23%</td>
+      <td>26</td>
+      <td>47.90</td>
+      <td>53.03</td>
+      <td>58.38</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>1860 Munich</td>
+      <td>Level 3</td>
+      <td>1541</td>
+      <td>11.40</td>
+      <td>13.79</td>
+      <td>12.81</td>
+      <td>53</td>
+      <td>47.00</td>
+      <td>6.00</td>
+      <td>80.78%</td>
+      <td>20</td>
+      <td>41.34</td>
+      <td>46.35</td>
+      <td>51.55</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>Energie Cottbus</td>
+      <td>Level 3</td>
+      <td>1535</td>
+      <td>14.48</td>
+      <td>10.94</td>
+      <td>12.58</td>
+      <td>62</td>
+      <td>56.02</td>
+      <td>5.98</td>
+      <td>80.14%</td>
+      <td>30</td>
+      <td>50.33</td>
+      <td>55.43</td>
+      <td>60.65</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>VfL Osnabruck</td>
+      <td>Level 3</td>
+      <td>1528</td>
+      <td>11.76</td>
+      <td>13.39</td>
+      <td>12.85</td>
+      <td>48</td>
+      <td>48.12</td>
+      <td>-0.12</td>
+      <td>52.74%</td>
+      <td>24</td>
+      <td>42.50</td>
+      <td>47.50</td>
+      <td>52.65</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>Alemannia Aachen</td>
+      <td>Level 3</td>
+      <td>1525</td>
+      <td>10.82</td>
+      <td>14.49</td>
+      <td>12.69</td>
+      <td>50</td>
+      <td>45.14</td>
+      <td>4.86</td>
+      <td>77.07%</td>
+      <td>18</td>
+      <td>39.72</td>
+      <td>44.55</td>
+      <td>49.54</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>SV Waldhof</td>
+      <td>Level 3</td>
+      <td>1522</td>
+      <td>11.38</td>
+      <td>13.97</td>
+      <td>12.65</td>
+      <td>46</td>
+      <td>46.80</td>
+      <td>-0.80</td>
+      <td>49.32%</td>
+      <td>18</td>
+      <td>41.20</td>
+      <td>46.13</td>
+      <td>51.30</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>VfB Stuttgart II</td>
+      <td>Level 3</td>
+      <td>1494</td>
+      <td>9.28</td>
+      <td>16.38</td>
+      <td>12.34</td>
+      <td>47</td>
+      <td>40.18</td>
+      <td>6.82</td>
+      <td>84.27%</td>
+      <td>15</td>
+      <td>34.68</td>
+      <td>39.65</td>
+      <td>44.55</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Erzgebirge Aue</td>
+      <td>Level 3</td>
+      <td>1488</td>
+      <td>12.59</td>
+      <td>12.54</td>
+      <td>12.87</td>
+      <td>50</td>
+      <td>50.63</td>
+      <td>-0.63</td>
+      <td>49.55%</td>
+      <td>25</td>
+      <td>44.89</td>
+      <td>50.08</td>
+      <td>55.19</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>Borussia Dortmund II</td>
+      <td>Level 3</td>
+      <td>1465</td>
+      <td>12.16</td>
+      <td>12.96</td>
+      <td>12.88</td>
+      <td>43</td>
+      <td>49.36</td>
+      <td>-6.36</td>
+      <td>21.84%</td>
+      <td>25</td>
+      <td>43.72</td>
+      <td>48.81</td>
+      <td>53.90</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Hannover 96 II</td>
+      <td>Level 3</td>
+      <td>1461</td>
+      <td>9.64</td>
+      <td>15.94</td>
+      <td>12.42</td>
+      <td>37</td>
+      <td>41.33</td>
+      <td>-4.33</td>
+      <td>30.02%</td>
+      <td>16</td>
+      <td>35.94</td>
+      <td>40.62</td>
+      <td>45.69</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>SV Sandhausen</td>
+      <td>Level 3</td>
+      <td>1405</td>
+      <td>12.06</td>
+      <td>13.48</td>
+      <td>12.46</td>
+      <td>35</td>
+      <td>48.65</td>
+      <td>-13.65</td>
+      <td>3.55%</td>
+      <td>20</td>
+      <td>43.16</td>
+      <td>48.08</td>
+      <td>53.22</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>SpVgg Unterhaching</td>
+      <td>Level 3</td>
+      <td>1386</td>
+      <td>8.65</td>
+      <td>17.29</td>
+      <td>12.06</td>
+      <td>25</td>
+      <td>38.00</td>
+      <td>-13.00</td>
+      <td>3.40%</td>
+      <td>13</td>
+      <td>32.65</td>
+      <td>37.30</td>
+      <td>42.21</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const table = document.querySelector('table.sortable');
+            const rows = Array.from(table.querySelectorAll('tbody tr'));
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+
+            const divColIndex = headers.indexOf("Division");
+            const confColIndex = headers.indexOf("Level");
+
+            const regionFilter = document.getElementById("regionFilter");
+            const regionLabel = document.getElementById("regionLabel");
+            const filterControls = document.getElementById("filterControls");
+
+            const divisionSet = new Set();
+            const conferenceSet = new Set();
+
+            rows.forEach(row => {
+                if (divColIndex !== -1) {
+                    const divVal = row.cells[divColIndex].textContent.trim();
+                    if (divVal) divisionSet.add(divVal);
+                }
+                if (confColIndex !== -1) {
+                    const confVal = row.cells[confColIndex].textContent.trim();
+                    if (confVal) conferenceSet.add(confVal);
+                }
+            });
+
+            const sortedDivisions = Array.from(divisionSet).sort();
+            const sortedConfs = Array.from(conferenceSet).sort();
+
+            sortedDivisions.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            sortedConfs.forEach(val => {
+                const opt = document.createElement("option");
+                opt.value = val;
+                opt.textContent = val;
+                regionFilter.appendChild(opt);
+            });
+
+            if (sortedDivisions.length > 0 || sortedConfs.length > 0) {
+                regionLabel.style.display = "inline-block";
+                filterControls.style.display = "block";
+            }
+
+            regionFilter.addEventListener("change", function () {
+                const selected = regionFilter.value;
+
+                rows.forEach(row => {
+                    const divVal = divColIndex !== -1 ? row.cells[divColIndex].textContent.trim() : "";
+                    const confVal = confColIndex !== -1 ? row.cells[confColIndex].textContent.trim() : "";
+
+                    const matches = !selected || divVal === selected || confVal === selected;
+                    row.style.display = matches ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

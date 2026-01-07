@@ -1,0 +1,7066 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="">All</option>
+                <option value="Arizona Cardinals">Arizona Cardinals</option><option value="Atlanta Falcons">Atlanta Falcons</option><option value="Baltimore Ravens">Baltimore Ravens</option><option value="Buffalo Bills">Buffalo Bills</option><option value="Carolina Panthers">Carolina Panthers</option><option value="Chicago Bears">Chicago Bears</option><option value="Cincinnati Bengals">Cincinnati Bengals</option><option value="Cleveland Browns">Cleveland Browns</option><option value="Dallas Cowboys">Dallas Cowboys</option><option value="Denver Broncos">Denver Broncos</option><option value="Detroit Lions">Detroit Lions</option><option value="Green Bay Packers">Green Bay Packers</option><option value="Houston Texans">Houston Texans</option><option value="Indianapolis Colts">Indianapolis Colts</option><option value="Jacksonville Jaguars">Jacksonville Jaguars</option><option value="Kansas City Chiefs">Kansas City Chiefs</option><option value="Las Vegas Raiders">Las Vegas Raiders</option><option value="Los Angeles Chargers">Los Angeles Chargers</option><option value="Los Angeles Rams">Los Angeles Rams</option><option value="Miami Dolphins">Miami Dolphins</option><option value="Minnesota Vikings">Minnesota Vikings</option><option value="New England Patriots">New England Patriots</option><option value="New Orleans Saints">New Orleans Saints</option><option value="New York Giants">New York Giants</option><option value="New York Jets">New York Jets</option><option value="Philadelphia Eagles">Philadelphia Eagles</option><option value="Pittsburgh Steelers">Pittsburgh Steelers</option><option value="San Francisco 49ers">San Francisco 49ers</option><option value="Seattle Seahawks">Seattle Seahawks</option><option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option><option value="Tennessee Titans">Tennessee Titans</option><option value="Washington Commanders">Washington Commanders</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2023-09-07</td>
+      <td>Kansas City Chiefs</td>
+      <td>1615.87</td>
+      <td>20</td>
+      <td>Detroit Lions</td>
+      <td>1515.18</td>
+      <td>21</td>
+      <td>69.28%</td>
+      <td>30.49%</td>
+      <td>0.23%</td>
+      <td>-10.21</td>
+    </tr>
+    <tr>
+      <td>2023-09-07</td>
+      <td>Detroit Lions</td>
+      <td>1515.18</td>
+      <td>21</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1615.87</td>
+      <td>20</td>
+      <td>30.49%</td>
+      <td>69.28%</td>
+      <td>0.23%</td>
+      <td>10.21</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Cleveland Browns</td>
+      <td>1492.55</td>
+      <td>24</td>
+      <td>Cincinnati Bengals</td>
+      <td>1607.83</td>
+      <td>3</td>
+      <td>39.46%</td>
+      <td>60.32%</td>
+      <td>0.23%</td>
+      <td>40.71</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Atlanta Falcons</td>
+      <td>1458.78</td>
+      <td>24</td>
+      <td>Carolina Panthers</td>
+      <td>1488.57</td>
+      <td>10</td>
+      <td>51.60%</td>
+      <td>48.18%</td>
+      <td>0.23%</td>
+      <td>26.56</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Carolina Panthers</td>
+      <td>1488.57</td>
+      <td>10</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1458.78</td>
+      <td>24</td>
+      <td>48.18%</td>
+      <td>51.60%</td>
+      <td>0.23%</td>
+      <td>-26.56</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Dallas Cowboys</td>
+      <td>1570.13</td>
+      <td>40</td>
+      <td>@ New York Giants</td>
+      <td>1489.29</td>
+      <td>0</td>
+      <td>55.50%</td>
+      <td>44.28%</td>
+      <td>0.23%</td>
+      <td>41.27</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Los Angeles Rams</td>
+      <td>1444.93</td>
+      <td>30</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1498.24</td>
+      <td>13</td>
+      <td>36.56%</td>
+      <td>63.22%</td>
+      <td>0.23%</td>
+      <td>38.39</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Philadelphia Eagles</td>
+      <td>1588.66</td>
+      <td>25</td>
+      <td>@ New England Patriots</td>
+      <td>1505.79</td>
+      <td>20</td>
+      <td>55.79%</td>
+      <td>43.99%</td>
+      <td>0.23%</td>
+      <td>14.49</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Miami Dolphins</td>
+      <td>1489.44</td>
+      <td>36</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1505.89</td>
+      <td>34</td>
+      <td>41.60%</td>
+      <td>58.17%</td>
+      <td>0.23%</td>
+      <td>12.12</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Las Vegas Raiders</td>
+      <td>1477.67</td>
+      <td>17</td>
+      <td>@ Denver Broncos</td>
+      <td>1430.62</td>
+      <td>16</td>
+      <td>50.66%</td>
+      <td>49.11%</td>
+      <td>0.23%</td>
+      <td>7.24</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Green Bay Packers</td>
+      <td>1514.44</td>
+      <td>38</td>
+      <td>@ Chicago Bears</td>
+      <td>1404.94</td>
+      <td>20</td>
+      <td>59.52%</td>
+      <td>40.25%</td>
+      <td>0.23%</td>
+      <td>25.18</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>San Francisco 49ers</td>
+      <td>1603.97</td>
+      <td>30</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1520.07</td>
+      <td>7</td>
+      <td>55.93%</td>
+      <td>43.84%</td>
+      <td>0.23%</td>
+      <td>30.99</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Tennessee Titans</td>
+      <td>1458.57</td>
+      <td>15</td>
+      <td>@ New Orleans Saints</td>
+      <td>1499.43</td>
+      <td>16</td>
+      <td>38.23%</td>
+      <td>61.54%</td>
+      <td>0.23%</td>
+      <td>-5.63</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1480.64</td>
+      <td>20</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1504.29</td>
+      <td>17</td>
+      <td>40.60%</td>
+      <td>59.18%</td>
+      <td>0.23%</td>
+      <td>15.10</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Houston Texans</td>
+      <td>1401.91</td>
+      <td>9</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1515.91</td>
+      <td>25</td>
+      <td>28.89%</td>
+      <td>70.88%</td>
+      <td>0.23%</td>
+      <td>-17.04</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Arizona Cardinals</td>
+      <td>1427.23</td>
+      <td>16</td>
+      <td>@ Washington Commanders</td>
+      <td>1497.19</td>
+      <td>20</td>
+      <td>34.36%</td>
+      <td>65.41%</td>
+      <td>0.23%</td>
+      <td>-10.13</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1525.40</td>
+      <td>31</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1413.05</td>
+      <td>21</td>
+      <td>59.91%</td>
+      <td>39.86%</td>
+      <td>0.23%</td>
+      <td>18.58</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Cincinnati Bengals</td>
+      <td>1607.83</td>
+      <td>3</td>
+      <td>@ Cleveland Browns</td>
+      <td>1492.55</td>
+      <td>24</td>
+      <td>60.32%</td>
+      <td>39.46%</td>
+      <td>0.23%</td>
+      <td>-40.71</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Chicago Bears</td>
+      <td>1404.94</td>
+      <td>20</td>
+      <td>Green Bay Packers</td>
+      <td>1514.44</td>
+      <td>38</td>
+      <td>40.25%</td>
+      <td>59.52%</td>
+      <td>0.23%</td>
+      <td>-25.17</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>New York Giants</td>
+      <td>1489.29</td>
+      <td>0</td>
+      <td>Dallas Cowboys</td>
+      <td>1570.13</td>
+      <td>40</td>
+      <td>44.28%</td>
+      <td>55.50%</td>
+      <td>0.23%</td>
+      <td>-41.26</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Seattle Seahawks</td>
+      <td>1498.24</td>
+      <td>13</td>
+      <td>Los Angeles Rams</td>
+      <td>1444.93</td>
+      <td>30</td>
+      <td>63.22%</td>
+      <td>36.56%</td>
+      <td>0.23%</td>
+      <td>-38.39</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>New England Patriots</td>
+      <td>1505.79</td>
+      <td>20</td>
+      <td>Philadelphia Eagles</td>
+      <td>1588.66</td>
+      <td>25</td>
+      <td>43.99%</td>
+      <td>55.79%</td>
+      <td>0.23%</td>
+      <td>-14.50</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Los Angeles Chargers</td>
+      <td>1505.89</td>
+      <td>34</td>
+      <td>Miami Dolphins</td>
+      <td>1489.44</td>
+      <td>36</td>
+      <td>58.17%</td>
+      <td>41.60%</td>
+      <td>0.23%</td>
+      <td>-12.11</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Denver Broncos</td>
+      <td>1430.62</td>
+      <td>16</td>
+      <td>Las Vegas Raiders</td>
+      <td>1477.67</td>
+      <td>17</td>
+      <td>49.11%</td>
+      <td>50.66%</td>
+      <td>0.23%</td>
+      <td>-7.23</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1520.07</td>
+      <td>7</td>
+      <td>San Francisco 49ers</td>
+      <td>1603.97</td>
+      <td>30</td>
+      <td>43.84%</td>
+      <td>55.93%</td>
+      <td>0.23%</td>
+      <td>-30.98</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>New Orleans Saints</td>
+      <td>1499.43</td>
+      <td>16</td>
+      <td>Tennessee Titans</td>
+      <td>1458.57</td>
+      <td>15</td>
+      <td>61.54%</td>
+      <td>38.23%</td>
+      <td>0.23%</td>
+      <td>5.64</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Minnesota Vikings</td>
+      <td>1504.29</td>
+      <td>17</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1480.64</td>
+      <td>20</td>
+      <td>59.18%</td>
+      <td>40.60%</td>
+      <td>0.23%</td>
+      <td>-15.10</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Baltimore Ravens</td>
+      <td>1515.91</td>
+      <td>25</td>
+      <td>Houston Texans</td>
+      <td>1401.91</td>
+      <td>9</td>
+      <td>70.88%</td>
+      <td>28.89%</td>
+      <td>0.23%</td>
+      <td>17.04</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Washington Commanders</td>
+      <td>1497.19</td>
+      <td>20</td>
+      <td>Arizona Cardinals</td>
+      <td>1427.23</td>
+      <td>16</td>
+      <td>65.41%</td>
+      <td>34.36%</td>
+      <td>0.23%</td>
+      <td>10.13</td>
+    </tr>
+    <tr>
+      <td>2023-09-10</td>
+      <td>Indianapolis Colts</td>
+      <td>1413.05</td>
+      <td>21</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1525.40</td>
+      <td>31</td>
+      <td>39.86%</td>
+      <td>59.91%</td>
+      <td>0.23%</td>
+      <td>-18.58</td>
+    </tr>
+    <tr>
+      <td>2023-09-11</td>
+      <td>Buffalo Bills</td>
+      <td>1600.18</td>
+      <td>16</td>
+      <td>@ New York Jets</td>
+      <td>1453.32</td>
+      <td>22</td>
+      <td>64.57%</td>
+      <td>35.21%</td>
+      <td>0.23%</td>
+      <td>-23.29</td>
+    </tr>
+    <tr>
+      <td>2023-09-11</td>
+      <td>New York Jets</td>
+      <td>1453.32</td>
+      <td>22</td>
+      <td>Buffalo Bills</td>
+      <td>1600.18</td>
+      <td>16</td>
+      <td>35.21%</td>
+      <td>64.57%</td>
+      <td>0.23%</td>
+      <td>23.29</td>
+    </tr>
+    <tr>
+      <td>2023-09-14</td>
+      <td>Minnesota Vikings</td>
+      <td>1489.19</td>
+      <td>28</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1603.15</td>
+      <td>34</td>
+      <td>28.90%</td>
+      <td>70.88%</td>
+      <td>0.23%</td>
+      <td>-10.43</td>
+    </tr>
+    <tr>
+      <td>2023-09-14</td>
+      <td>Philadelphia Eagles</td>
+      <td>1603.15</td>
+      <td>34</td>
+      <td>Minnesota Vikings</td>
+      <td>1489.19</td>
+      <td>28</td>
+      <td>70.88%</td>
+      <td>28.90%</td>
+      <td>0.23%</td>
+      <td>10.44</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Miami Dolphins</td>
+      <td>1501.56</td>
+      <td>24</td>
+      <td>@ New England Patriots</td>
+      <td>1491.29</td>
+      <td>17</td>
+      <td>45.38%</td>
+      <td>54.39%</td>
+      <td>0.23%</td>
+      <td>21.20</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>San Francisco 49ers</td>
+      <td>1634.96</td>
+      <td>30</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1483.32</td>
+      <td>23</td>
+      <td>65.19%</td>
+      <td>34.58%</td>
+      <td>0.23%</td>
+      <td>13.49</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>New York Giants</td>
+      <td>1448.03</td>
+      <td>31</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1417.10</td>
+      <td>28</td>
+      <td>48.34%</td>
+      <td>51.43%</td>
+      <td>0.23%</td>
+      <td>13.12</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Los Angeles Chargers</td>
+      <td>1493.78</td>
+      <td>24</td>
+      <td>@ Tennessee Titans</td>
+      <td>1452.94</td>
+      <td>27</td>
+      <td>49.77%</td>
+      <td>50.01%</td>
+      <td>0.23%</td>
+      <td>-12.70</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Kansas City Chiefs</td>
+      <td>1605.66</td>
+      <td>17</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1543.98</td>
+      <td>9</td>
+      <td>52.76%</td>
+      <td>47.01%</td>
+      <td>0.23%</td>
+      <td>19.60</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Atlanta Falcons</td>
+      <td>1485.34</td>
+      <td>25</td>
+      <td>Green Bay Packers</td>
+      <td>1539.62</td>
+      <td>24</td>
+      <td>48.08%</td>
+      <td>51.70%</td>
+      <td>0.23%</td>
+      <td>7.62</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Seattle Seahawks</td>
+      <td>1459.85</td>
+      <td>37</td>
+      <td>@ Detroit Lions</td>
+      <td>1525.39</td>
+      <td>31</td>
+      <td>34.94%</td>
+      <td>64.83%</td>
+      <td>0.23%</td>
+      <td>23.39</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Indianapolis Colts</td>
+      <td>1394.47</td>
+      <td>31</td>
+      <td>@ Houston Texans</td>
+      <td>1384.87</td>
+      <td>20</td>
+      <td>45.28%</td>
+      <td>54.49%</td>
+      <td>0.23%</td>
+      <td>26.62</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Baltimore Ravens</td>
+      <td>1532.95</td>
+      <td>27</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1567.12</td>
+      <td>24</td>
+      <td>39.15%</td>
+      <td>60.63%</td>
+      <td>0.23%</td>
+      <td>15.47</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Chicago Bears</td>
+      <td>1379.77</td>
+      <td>17</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1495.74</td>
+      <td>27</td>
+      <td>28.66%</td>
+      <td>71.12%</td>
+      <td>0.23%</td>
+      <td>-13.36</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Las Vegas Raiders</td>
+      <td>1484.91</td>
+      <td>10</td>
+      <td>@ Buffalo Bills</td>
+      <td>1576.89</td>
+      <td>38</td>
+      <td>31.56%</td>
+      <td>68.21%</td>
+      <td>0.23%</td>
+      <td>-24.63</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Green Bay Packers</td>
+      <td>1539.62</td>
+      <td>24</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1485.34</td>
+      <td>25</td>
+      <td>51.70%</td>
+      <td>48.08%</td>
+      <td>0.23%</td>
+      <td>-7.62</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Washington Commanders</td>
+      <td>1507.32</td>
+      <td>35</td>
+      <td>@ Denver Broncos</td>
+      <td>1423.39</td>
+      <td>33</td>
+      <td>55.94%</td>
+      <td>43.84%</td>
+      <td>0.23%</td>
+      <td>9.14</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Buffalo Bills</td>
+      <td>1576.89</td>
+      <td>38</td>
+      <td>Las Vegas Raiders</td>
+      <td>1484.91</td>
+      <td>10</td>
+      <td>68.21%</td>
+      <td>31.56%</td>
+      <td>0.23%</td>
+      <td>24.63</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1543.98</td>
+      <td>9</td>
+      <td>Kansas City Chiefs</td>
+      <td>1605.66</td>
+      <td>17</td>
+      <td>47.01%</td>
+      <td>52.76%</td>
+      <td>0.23%</td>
+      <td>-19.60</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1495.74</td>
+      <td>27</td>
+      <td>Chicago Bears</td>
+      <td>1379.77</td>
+      <td>17</td>
+      <td>71.12%</td>
+      <td>28.66%</td>
+      <td>0.23%</td>
+      <td>13.36</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Cincinnati Bengals</td>
+      <td>1567.12</td>
+      <td>24</td>
+      <td>Baltimore Ravens</td>
+      <td>1532.95</td>
+      <td>27</td>
+      <td>60.63%</td>
+      <td>39.15%</td>
+      <td>0.23%</td>
+      <td>-15.47</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Houston Texans</td>
+      <td>1384.87</td>
+      <td>20</td>
+      <td>Indianapolis Colts</td>
+      <td>1394.47</td>
+      <td>31</td>
+      <td>54.49%</td>
+      <td>45.28%</td>
+      <td>0.23%</td>
+      <td>-26.62</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Detroit Lions</td>
+      <td>1525.39</td>
+      <td>31</td>
+      <td>Seattle Seahawks</td>
+      <td>1459.85</td>
+      <td>37</td>
+      <td>64.83%</td>
+      <td>34.94%</td>
+      <td>0.23%</td>
+      <td>-23.39</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Tennessee Titans</td>
+      <td>1452.94</td>
+      <td>27</td>
+      <td>Los Angeles Chargers</td>
+      <td>1493.78</td>
+      <td>24</td>
+      <td>50.01%</td>
+      <td>49.77%</td>
+      <td>0.23%</td>
+      <td>12.70</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Arizona Cardinals</td>
+      <td>1417.10</td>
+      <td>28</td>
+      <td>New York Giants</td>
+      <td>1448.03</td>
+      <td>31</td>
+      <td>51.43%</td>
+      <td>48.34%</td>
+      <td>0.23%</td>
+      <td>-13.12</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Los Angeles Rams</td>
+      <td>1483.32</td>
+      <td>23</td>
+      <td>San Francisco 49ers</td>
+      <td>1634.96</td>
+      <td>30</td>
+      <td>34.58%</td>
+      <td>65.19%</td>
+      <td>0.23%</td>
+      <td>-13.49</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Dallas Cowboys</td>
+      <td>1611.40</td>
+      <td>30</td>
+      <td>New York Jets</td>
+      <td>1476.61</td>
+      <td>10</td>
+      <td>73.28%</td>
+      <td>26.50%</td>
+      <td>0.23%</td>
+      <td>17.48</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>Denver Broncos</td>
+      <td>1423.39</td>
+      <td>33</td>
+      <td>Washington Commanders</td>
+      <td>1507.32</td>
+      <td>35</td>
+      <td>43.84%</td>
+      <td>55.94%</td>
+      <td>0.23%</td>
+      <td>-9.14</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>New England Patriots</td>
+      <td>1491.29</td>
+      <td>17</td>
+      <td>Miami Dolphins</td>
+      <td>1501.56</td>
+      <td>24</td>
+      <td>54.39%</td>
+      <td>45.38%</td>
+      <td>0.23%</td>
+      <td>-21.20</td>
+    </tr>
+    <tr>
+      <td>2023-09-17</td>
+      <td>New York Jets</td>
+      <td>1476.61</td>
+      <td>10</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1611.40</td>
+      <td>30</td>
+      <td>26.50%</td>
+      <td>73.28%</td>
+      <td>0.23%</td>
+      <td>-17.47</td>
+    </tr>
+    <tr>
+      <td>2023-09-18</td>
+      <td>Carolina Panthers</td>
+      <td>1462.01</td>
+      <td>17</td>
+      <td>New Orleans Saints</td>
+      <td>1505.07</td>
+      <td>20</td>
+      <td>49.69%</td>
+      <td>50.09%</td>
+      <td>0.23%</td>
+      <td>-12.68</td>
+    </tr>
+    <tr>
+      <td>2023-09-18</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1489.09</td>
+      <td>26</td>
+      <td>Cleveland Browns</td>
+      <td>1533.26</td>
+      <td>22</td>
+      <td>49.53%</td>
+      <td>50.25%</td>
+      <td>0.23%</td>
+      <td>14.80</td>
+    </tr>
+    <tr>
+      <td>2023-09-18</td>
+      <td>New Orleans Saints</td>
+      <td>1505.07</td>
+      <td>20</td>
+      <td>@ Carolina Panthers</td>
+      <td>1462.01</td>
+      <td>17</td>
+      <td>50.09%</td>
+      <td>49.69%</td>
+      <td>0.23%</td>
+      <td>12.68</td>
+    </tr>
+    <tr>
+      <td>2023-09-18</td>
+      <td>Cleveland Browns</td>
+      <td>1533.26</td>
+      <td>22</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1489.09</td>
+      <td>26</td>
+      <td>50.25%</td>
+      <td>49.53%</td>
+      <td>0.23%</td>
+      <td>-14.80</td>
+    </tr>
+    <tr>
+      <td>2023-09-21</td>
+      <td>New York Giants</td>
+      <td>1461.15</td>
+      <td>12</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1648.45</td>
+      <td>30</td>
+      <td>21.04%</td>
+      <td>78.74%</td>
+      <td>0.23%</td>
+      <td>-13.17</td>
+    </tr>
+    <tr>
+      <td>2023-09-21</td>
+      <td>San Francisco 49ers</td>
+      <td>1648.45</td>
+      <td>30</td>
+      <td>New York Giants</td>
+      <td>1461.15</td>
+      <td>12</td>
+      <td>78.74%</td>
+      <td>21.04%</td>
+      <td>0.23%</td>
+      <td>13.17</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Las Vegas Raiders</td>
+      <td>1460.28</td>
+      <td>18</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1503.89</td>
+      <td>23</td>
+      <td>49.61%</td>
+      <td>50.16%</td>
+      <td>0.23%</td>
+      <td>-16.34</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Arizona Cardinals</td>
+      <td>1403.98</td>
+      <td>28</td>
+      <td>Dallas Cowboys</td>
+      <td>1628.88</td>
+      <td>16</td>
+      <td>25.75%</td>
+      <td>74.03%</td>
+      <td>0.23%</td>
+      <td>37.76</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Kansas City Chiefs</td>
+      <td>1625.26</td>
+      <td>41</td>
+      <td>Chicago Bears</td>
+      <td>1366.41</td>
+      <td>10</td>
+      <td>84.77%</td>
+      <td>15.00%</td>
+      <td>0.23%</td>
+      <td>12.32</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Seattle Seahawks</td>
+      <td>1483.24</td>
+      <td>37</td>
+      <td>Carolina Panthers</td>
+      <td>1449.33</td>
+      <td>27</td>
+      <td>60.59%</td>
+      <td>39.18%</td>
+      <td>0.23%</td>
+      <td>18.26</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1524.38</td>
+      <td>17</td>
+      <td>Houston Texans</td>
+      <td>1358.25</td>
+      <td>37</td>
+      <td>76.64%</td>
+      <td>23.13%</td>
+      <td>0.23%</td>
+      <td>-50.48</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Minnesota Vikings</td>
+      <td>1478.76</td>
+      <td>24</td>
+      <td>Los Angeles Chargers</td>
+      <td>1481.08</td>
+      <td>28</td>
+      <td>55.53%</td>
+      <td>44.25%</td>
+      <td>0.23%</td>
+      <td>-16.36</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Green Bay Packers</td>
+      <td>1532.00</td>
+      <td>18</td>
+      <td>New Orleans Saints</td>
+      <td>1517.75</td>
+      <td>17</td>
+      <td>57.86%</td>
+      <td>41.91%</td>
+      <td>0.23%</td>
+      <td>6.18</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Miami Dolphins</td>
+      <td>1522.76</td>
+      <td>70</td>
+      <td>Denver Broncos</td>
+      <td>1414.25</td>
+      <td>20</td>
+      <td>70.23%</td>
+      <td>29.54%</td>
+      <td>0.23%</td>
+      <td>30.80</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Baltimore Ravens</td>
+      <td>1548.42</td>
+      <td>19</td>
+      <td>Indianapolis Colts</td>
+      <td>1421.09</td>
+      <td>22</td>
+      <td>72.43%</td>
+      <td>27.34%</td>
+      <td>0.23%</td>
+      <td>-18.48</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>New York Jets</td>
+      <td>1459.14</td>
+      <td>10</td>
+      <td>New England Patriots</td>
+      <td>1470.09</td>
+      <td>15</td>
+      <td>54.30%</td>
+      <td>45.48%</td>
+      <td>0.23%</td>
+      <td>-17.89</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Detroit Lions</td>
+      <td>1502.00</td>
+      <td>20</td>
+      <td>Atlanta Falcons</td>
+      <td>1492.96</td>
+      <td>6</td>
+      <td>57.13%</td>
+      <td>42.64%</td>
+      <td>0.23%</td>
+      <td>23.51</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Chicago Bears</td>
+      <td>1366.41</td>
+      <td>10</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1625.26</td>
+      <td>41</td>
+      <td>15.00%</td>
+      <td>84.77%</td>
+      <td>0.23%</td>
+      <td>-12.33</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Dallas Cowboys</td>
+      <td>1628.88</td>
+      <td>16</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1403.98</td>
+      <td>28</td>
+      <td>74.03%</td>
+      <td>25.75%</td>
+      <td>0.23%</td>
+      <td>-37.77</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Cleveland Browns</td>
+      <td>1518.46</td>
+      <td>27</td>
+      <td>Tennessee Titans</td>
+      <td>1465.64</td>
+      <td>3</td>
+      <td>63.15%</td>
+      <td>36.62%</td>
+      <td>0.23%</td>
+      <td>26.45</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Carolina Panthers</td>
+      <td>1449.33</td>
+      <td>27</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1483.24</td>
+      <td>37</td>
+      <td>39.18%</td>
+      <td>60.59%</td>
+      <td>0.23%</td>
+      <td>-18.27</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>New England Patriots</td>
+      <td>1470.09</td>
+      <td>15</td>
+      <td>@ New York Jets</td>
+      <td>1459.14</td>
+      <td>10</td>
+      <td>45.48%</td>
+      <td>54.30%</td>
+      <td>0.23%</td>
+      <td>17.89</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Los Angeles Chargers</td>
+      <td>1481.08</td>
+      <td>28</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1478.76</td>
+      <td>24</td>
+      <td>44.25%</td>
+      <td>55.53%</td>
+      <td>0.23%</td>
+      <td>16.35</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Houston Texans</td>
+      <td>1358.25</td>
+      <td>37</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1524.38</td>
+      <td>17</td>
+      <td>23.13%</td>
+      <td>76.64%</td>
+      <td>0.23%</td>
+      <td>50.48</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>New Orleans Saints</td>
+      <td>1517.75</td>
+      <td>17</td>
+      <td>@ Green Bay Packers</td>
+      <td>1532.00</td>
+      <td>18</td>
+      <td>41.91%</td>
+      <td>57.86%</td>
+      <td>0.23%</td>
+      <td>-6.18</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Denver Broncos</td>
+      <td>1414.25</td>
+      <td>20</td>
+      <td>@ Miami Dolphins</td>
+      <td>1522.76</td>
+      <td>70</td>
+      <td>29.54%</td>
+      <td>70.23%</td>
+      <td>0.23%</td>
+      <td>-30.81</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Indianapolis Colts</td>
+      <td>1421.09</td>
+      <td>22</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1548.42</td>
+      <td>19</td>
+      <td>27.34%</td>
+      <td>72.43%</td>
+      <td>0.23%</td>
+      <td>18.48</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Tennessee Titans</td>
+      <td>1465.64</td>
+      <td>3</td>
+      <td>@ Cleveland Browns</td>
+      <td>1518.46</td>
+      <td>27</td>
+      <td>36.62%</td>
+      <td>63.15%</td>
+      <td>0.23%</td>
+      <td>-26.45</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Buffalo Bills</td>
+      <td>1601.52</td>
+      <td>37</td>
+      <td>@ Washington Commanders</td>
+      <td>1516.46</td>
+      <td>3</td>
+      <td>56.10%</td>
+      <td>43.68%</td>
+      <td>0.23%</td>
+      <td>37.53</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Atlanta Falcons</td>
+      <td>1492.96</td>
+      <td>6</td>
+      <td>@ Detroit Lions</td>
+      <td>1502.00</td>
+      <td>20</td>
+      <td>42.64%</td>
+      <td>57.13%</td>
+      <td>0.23%</td>
+      <td>-23.52</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1503.89</td>
+      <td>23</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1460.28</td>
+      <td>18</td>
+      <td>50.16%</td>
+      <td>49.61%</td>
+      <td>0.23%</td>
+      <td>16.34</td>
+    </tr>
+    <tr>
+      <td>2023-09-24</td>
+      <td>Washington Commanders</td>
+      <td>1516.46</td>
+      <td>3</td>
+      <td>Buffalo Bills</td>
+      <td>1601.52</td>
+      <td>37</td>
+      <td>43.68%</td>
+      <td>56.10%</td>
+      <td>0.23%</td>
+      <td>-37.54</td>
+    </tr>
+    <tr>
+      <td>2023-09-25</td>
+      <td>Philadelphia Eagles</td>
+      <td>1613.59</td>
+      <td>25</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1509.10</td>
+      <td>11</td>
+      <td>58.82%</td>
+      <td>40.95%</td>
+      <td>0.23%</td>
+      <td>22.59</td>
+    </tr>
+    <tr>
+      <td>2023-09-25</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1509.10</td>
+      <td>11</td>
+      <td>Philadelphia Eagles</td>
+      <td>1613.59</td>
+      <td>25</td>
+      <td>40.95%</td>
+      <td>58.82%</td>
+      <td>0.23%</td>
+      <td>-22.58</td>
+    </tr>
+    <tr>
+      <td>2023-09-25</td>
+      <td>Cincinnati Bengals</td>
+      <td>1551.65</td>
+      <td>19</td>
+      <td>Los Angeles Rams</td>
+      <td>1469.83</td>
+      <td>16</td>
+      <td>66.93%</td>
+      <td>32.84%</td>
+      <td>0.23%</td>
+      <td>8.39</td>
+    </tr>
+    <tr>
+      <td>2023-09-25</td>
+      <td>Los Angeles Rams</td>
+      <td>1469.83</td>
+      <td>16</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1551.65</td>
+      <td>19</td>
+      <td>32.84%</td>
+      <td>66.93%</td>
+      <td>0.23%</td>
+      <td>-8.39</td>
+    </tr>
+    <tr>
+      <td>2023-09-28</td>
+      <td>Detroit Lions</td>
+      <td>1525.51</td>
+      <td>34</td>
+      <td>@ Green Bay Packers</td>
+      <td>1538.18</td>
+      <td>20</td>
+      <td>42.13%</td>
+      <td>57.64%</td>
+      <td>0.23%</td>
+      <td>31.77</td>
+    </tr>
+    <tr>
+      <td>2023-09-28</td>
+      <td>Green Bay Packers</td>
+      <td>1538.18</td>
+      <td>20</td>
+      <td>Detroit Lions</td>
+      <td>1525.51</td>
+      <td>34</td>
+      <td>57.64%</td>
+      <td>42.13%</td>
+      <td>0.23%</td>
+      <td>-31.77</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Atlanta Falcons</td>
+      <td>1469.44</td>
+      <td>7</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1473.90</td>
+      <td>23</td>
+      <td>43.29%</td>
+      <td>56.49%</td>
+      <td>0.23%</td>
+      <td>-25.52</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Miami Dolphins</td>
+      <td>1553.56</td>
+      <td>20</td>
+      <td>@ Buffalo Bills</td>
+      <td>1639.05</td>
+      <td>48</td>
+      <td>32.38%</td>
+      <td>67.40%</td>
+      <td>0.23%</td>
+      <td>-25.26</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Minnesota Vikings</td>
+      <td>1462.40</td>
+      <td>21</td>
+      <td>@ Carolina Panthers</td>
+      <td>1431.06</td>
+      <td>13</td>
+      <td>48.40%</td>
+      <td>51.37%</td>
+      <td>0.23%</td>
+      <td>21.41</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Denver Broncos</td>
+      <td>1383.44</td>
+      <td>31</td>
+      <td>@ Chicago Bears</td>
+      <td>1354.08</td>
+      <td>28</td>
+      <td>48.11%</td>
+      <td>51.66%</td>
+      <td>0.23%</td>
+      <td>13.18</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1473.90</td>
+      <td>23</td>
+      <td>Atlanta Falcons</td>
+      <td>1469.44</td>
+      <td>7</td>
+      <td>56.49%</td>
+      <td>43.29%</td>
+      <td>0.23%</td>
+      <td>25.52</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Cincinnati Bengals</td>
+      <td>1560.04</td>
+      <td>3</td>
+      <td>@ Tennessee Titans</td>
+      <td>1439.19</td>
+      <td>27</td>
+      <td>61.08%</td>
+      <td>38.69%</td>
+      <td>0.23%</td>
+      <td>-44.08</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Baltimore Ravens</td>
+      <td>1529.94</td>
+      <td>28</td>
+      <td>@ Cleveland Browns</td>
+      <td>1544.91</td>
+      <td>3</td>
+      <td>41.81%</td>
+      <td>57.96%</td>
+      <td>0.23%</td>
+      <td>42.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Los Angeles Rams</td>
+      <td>1461.44</td>
+      <td>29</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1439.57</td>
+      <td>23</td>
+      <td>47.04%</td>
+      <td>52.73%</td>
+      <td>0.23%</td>
+      <td>19.03</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1520.23</td>
+      <td>6</td>
+      <td>@ Houston Texans</td>
+      <td>1408.73</td>
+      <td>30</td>
+      <td>59.80%</td>
+      <td>39.98%</td>
+      <td>0.23%</td>
+      <td>-43.14</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1486.52</td>
+      <td>26</td>
+      <td>@ New Orleans Saints</td>
+      <td>1511.57</td>
+      <td>9</td>
+      <td>40.40%</td>
+      <td>59.37%</td>
+      <td>0.23%</td>
+      <td>36.06</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Washington Commanders</td>
+      <td>1478.92</td>
+      <td>31</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1636.18</td>
+      <td>34</td>
+      <td>24.05%</td>
+      <td>75.72%</td>
+      <td>0.23%</td>
+      <td>-6.14</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Las Vegas Raiders</td>
+      <td>1443.94</td>
+      <td>17</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1497.43</td>
+      <td>24</td>
+      <td>36.53%</td>
+      <td>63.24%</td>
+      <td>0.23%</td>
+      <td>-14.25</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Arizona Cardinals</td>
+      <td>1441.74</td>
+      <td>16</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1661.62</td>
+      <td>35</td>
+      <td>18.09%</td>
+      <td>81.68%</td>
+      <td>0.23%</td>
+      <td>-11.63</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>New England Patriots</td>
+      <td>1487.98</td>
+      <td>3</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1591.11</td>
+      <td>38</td>
+      <td>30.19%</td>
+      <td>69.58%</td>
+      <td>0.23%</td>
+      <td>-26.34</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Kansas City Chiefs</td>
+      <td>1637.58</td>
+      <td>23</td>
+      <td>@ New York Jets</td>
+      <td>1441.25</td>
+      <td>20</td>
+      <td>70.76%</td>
+      <td>29.01%</td>
+      <td>0.23%</td>
+      <td>7.41</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>San Francisco 49ers</td>
+      <td>1661.62</td>
+      <td>35</td>
+      <td>Arizona Cardinals</td>
+      <td>1441.74</td>
+      <td>16</td>
+      <td>81.68%</td>
+      <td>18.09%</td>
+      <td>0.23%</td>
+      <td>11.63</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Houston Texans</td>
+      <td>1408.73</td>
+      <td>30</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1520.23</td>
+      <td>6</td>
+      <td>39.98%</td>
+      <td>59.80%</td>
+      <td>0.23%</td>
+      <td>43.14</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Buffalo Bills</td>
+      <td>1639.05</td>
+      <td>48</td>
+      <td>Miami Dolphins</td>
+      <td>1553.56</td>
+      <td>20</td>
+      <td>67.40%</td>
+      <td>32.38%</td>
+      <td>0.23%</td>
+      <td>25.26</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Tennessee Titans</td>
+      <td>1439.19</td>
+      <td>27</td>
+      <td>Cincinnati Bengals</td>
+      <td>1560.04</td>
+      <td>3</td>
+      <td>38.69%</td>
+      <td>61.08%</td>
+      <td>0.23%</td>
+      <td>44.07</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Cleveland Browns</td>
+      <td>1544.91</td>
+      <td>3</td>
+      <td>Baltimore Ravens</td>
+      <td>1529.94</td>
+      <td>28</td>
+      <td>57.96%</td>
+      <td>41.81%</td>
+      <td>0.23%</td>
+      <td>-42.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Los Angeles Chargers</td>
+      <td>1497.43</td>
+      <td>24</td>
+      <td>Las Vegas Raiders</td>
+      <td>1443.94</td>
+      <td>17</td>
+      <td>63.24%</td>
+      <td>36.53%</td>
+      <td>0.23%</td>
+      <td>14.25</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Indianapolis Colts</td>
+      <td>1439.57</td>
+      <td>23</td>
+      <td>Los Angeles Rams</td>
+      <td>1461.44</td>
+      <td>29</td>
+      <td>52.73%</td>
+      <td>47.04%</td>
+      <td>0.23%</td>
+      <td>-19.03</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>New Orleans Saints</td>
+      <td>1511.57</td>
+      <td>9</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1486.52</td>
+      <td>26</td>
+      <td>59.37%</td>
+      <td>40.40%</td>
+      <td>0.23%</td>
+      <td>-36.05</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Carolina Panthers</td>
+      <td>1431.06</td>
+      <td>13</td>
+      <td>Minnesota Vikings</td>
+      <td>1462.40</td>
+      <td>21</td>
+      <td>51.37%</td>
+      <td>48.40%</td>
+      <td>0.23%</td>
+      <td>-21.41</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Philadelphia Eagles</td>
+      <td>1636.18</td>
+      <td>34</td>
+      <td>Washington Commanders</td>
+      <td>1478.92</td>
+      <td>31</td>
+      <td>75.72%</td>
+      <td>24.05%</td>
+      <td>0.23%</td>
+      <td>6.14</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>New York Jets</td>
+      <td>1441.25</td>
+      <td>20</td>
+      <td>Kansas City Chiefs</td>
+      <td>1637.58</td>
+      <td>23</td>
+      <td>29.01%</td>
+      <td>70.76%</td>
+      <td>0.23%</td>
+      <td>-7.41</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Dallas Cowboys</td>
+      <td>1591.11</td>
+      <td>38</td>
+      <td>New England Patriots</td>
+      <td>1487.98</td>
+      <td>3</td>
+      <td>69.58%</td>
+      <td>30.19%</td>
+      <td>0.23%</td>
+      <td>26.34</td>
+    </tr>
+    <tr>
+      <td>2023-10-01</td>
+      <td>Chicago Bears</td>
+      <td>1354.08</td>
+      <td>28</td>
+      <td>Denver Broncos</td>
+      <td>1383.44</td>
+      <td>31</td>
+      <td>51.66%</td>
+      <td>48.11%</td>
+      <td>0.23%</td>
+      <td>-13.18</td>
+    </tr>
+    <tr>
+      <td>2023-10-02</td>
+      <td>New York Giants</td>
+      <td>1447.98</td>
+      <td>3</td>
+      <td>Seattle Seahawks</td>
+      <td>1501.50</td>
+      <td>24</td>
+      <td>48.18%</td>
+      <td>51.59%</td>
+      <td>0.23%</td>
+      <td>-32.53</td>
+    </tr>
+    <tr>
+      <td>2023-10-02</td>
+      <td>Seattle Seahawks</td>
+      <td>1501.50</td>
+      <td>24</td>
+      <td>@ New York Giants</td>
+      <td>1447.98</td>
+      <td>3</td>
+      <td>51.59%</td>
+      <td>48.18%</td>
+      <td>0.23%</td>
+      <td>32.54</td>
+    </tr>
+    <tr>
+      <td>2023-10-05</td>
+      <td>Chicago Bears</td>
+      <td>1340.90</td>
+      <td>40</td>
+      <td>@ Washington Commanders</td>
+      <td>1472.78</td>
+      <td>20</td>
+      <td>26.82%</td>
+      <td>72.95%</td>
+      <td>0.23%</td>
+      <td>48.05</td>
+    </tr>
+    <tr>
+      <td>2023-10-05</td>
+      <td>Washington Commanders</td>
+      <td>1472.78</td>
+      <td>20</td>
+      <td>Chicago Bears</td>
+      <td>1340.90</td>
+      <td>40</td>
+      <td>72.95%</td>
+      <td>26.82%</td>
+      <td>0.23%</td>
+      <td>-48.05</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Arizona Cardinals</td>
+      <td>1430.11</td>
+      <td>20</td>
+      <td>Cincinnati Bengals</td>
+      <td>1515.96</td>
+      <td>34</td>
+      <td>43.57%</td>
+      <td>56.21%</td>
+      <td>0.23%</td>
+      <td>-24.02</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Los Angeles Rams</td>
+      <td>1480.47</td>
+      <td>14</td>
+      <td>Philadelphia Eagles</td>
+      <td>1642.32</td>
+      <td>23</td>
+      <td>33.26%</td>
+      <td>66.51%</td>
+      <td>0.23%</td>
+      <td>-14.71</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>New England Patriots</td>
+      <td>1461.64</td>
+      <td>0</td>
+      <td>New Orleans Saints</td>
+      <td>1475.52</td>
+      <td>34</td>
+      <td>53.88%</td>
+      <td>45.90%</td>
+      <td>0.23%</td>
+      <td>-46.28</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Denver Broncos</td>
+      <td>1396.62</td>
+      <td>21</td>
+      <td>New York Jets</td>
+      <td>1433.84</td>
+      <td>31</td>
+      <td>50.53%</td>
+      <td>49.24%</td>
+      <td>0.23%</td>
+      <td>-23.54</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Miami Dolphins</td>
+      <td>1528.30</td>
+      <td>31</td>
+      <td>New York Giants</td>
+      <td>1415.45</td>
+      <td>16</td>
+      <td>70.75%</td>
+      <td>29.03%</td>
+      <td>0.23%</td>
+      <td>16.58</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Indianapolis Colts</td>
+      <td>1420.54</td>
+      <td>23</td>
+      <td>Tennessee Titans</td>
+      <td>1483.26</td>
+      <td>16</td>
+      <td>46.86%</td>
+      <td>52.91%</td>
+      <td>0.23%</td>
+      <td>20.62</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Detroit Lions</td>
+      <td>1557.28</td>
+      <td>42</td>
+      <td>Carolina Panthers</td>
+      <td>1409.65</td>
+      <td>24</td>
+      <td>74.69%</td>
+      <td>25.08%</td>
+      <td>0.23%</td>
+      <td>15.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Atlanta Falcons</td>
+      <td>1443.92</td>
+      <td>21</td>
+      <td>Houston Texans</td>
+      <td>1451.87</td>
+      <td>19</td>
+      <td>54.72%</td>
+      <td>45.05%</td>
+      <td>0.23%</td>
+      <td>9.39</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Buffalo Bills</td>
+      <td>1664.31</td>
+      <td>20</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1499.42</td>
+      <td>25</td>
+      <td>76.51%</td>
+      <td>23.26%</td>
+      <td>0.23%</td>
+      <td>-25.20</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1477.09</td>
+      <td>17</td>
+      <td>Baltimore Ravens</td>
+      <td>1572.63</td>
+      <td>10</td>
+      <td>42.20%</td>
+      <td>57.57%</td>
+      <td>0.23%</td>
+      <td>22.43</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Minnesota Vikings</td>
+      <td>1483.81</td>
+      <td>20</td>
+      <td>Kansas City Chiefs</td>
+      <td>1644.99</td>
+      <td>27</td>
+      <td>33.35%</td>
+      <td>66.43%</td>
+      <td>0.23%</td>
+      <td>-13.01</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>New Orleans Saints</td>
+      <td>1475.52</td>
+      <td>34</td>
+      <td>@ New England Patriots</td>
+      <td>1461.64</td>
+      <td>0</td>
+      <td>45.90%</td>
+      <td>53.88%</td>
+      <td>0.23%</td>
+      <td>46.27</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Baltimore Ravens</td>
+      <td>1572.63</td>
+      <td>10</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1477.09</td>
+      <td>17</td>
+      <td>57.57%</td>
+      <td>42.20%</td>
+      <td>0.23%</td>
+      <td>-22.44</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Kansas City Chiefs</td>
+      <td>1644.99</td>
+      <td>27</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1483.81</td>
+      <td>20</td>
+      <td>66.43%</td>
+      <td>33.35%</td>
+      <td>0.23%</td>
+      <td>13.01</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>New York Jets</td>
+      <td>1433.84</td>
+      <td>31</td>
+      <td>@ Denver Broncos</td>
+      <td>1396.62</td>
+      <td>21</td>
+      <td>49.24%</td>
+      <td>50.53%</td>
+      <td>0.23%</td>
+      <td>23.54</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Philadelphia Eagles</td>
+      <td>1642.32</td>
+      <td>23</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1480.47</td>
+      <td>14</td>
+      <td>66.51%</td>
+      <td>33.26%</td>
+      <td>0.23%</td>
+      <td>14.71</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Cincinnati Bengals</td>
+      <td>1515.96</td>
+      <td>34</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1430.11</td>
+      <td>20</td>
+      <td>56.21%</td>
+      <td>43.57%</td>
+      <td>0.23%</td>
+      <td>24.03</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1499.42</td>
+      <td>25</td>
+      <td>@ Buffalo Bills</td>
+      <td>1664.31</td>
+      <td>20</td>
+      <td>23.26%</td>
+      <td>76.51%</td>
+      <td>0.23%</td>
+      <td>25.20</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Houston Texans</td>
+      <td>1451.87</td>
+      <td>19</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1443.92</td>
+      <td>21</td>
+      <td>45.05%</td>
+      <td>54.72%</td>
+      <td>0.23%</td>
+      <td>-9.38</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Carolina Panthers</td>
+      <td>1409.65</td>
+      <td>24</td>
+      <td>@ Detroit Lions</td>
+      <td>1557.28</td>
+      <td>42</td>
+      <td>25.08%</td>
+      <td>74.69%</td>
+      <td>0.23%</td>
+      <td>-15.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Tennessee Titans</td>
+      <td>1483.26</td>
+      <td>16</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1420.54</td>
+      <td>23</td>
+      <td>52.91%</td>
+      <td>46.86%</td>
+      <td>0.23%</td>
+      <td>-20.62</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>New York Giants</td>
+      <td>1415.45</td>
+      <td>16</td>
+      <td>@ Miami Dolphins</td>
+      <td>1528.30</td>
+      <td>31</td>
+      <td>29.03%</td>
+      <td>70.75%</td>
+      <td>0.23%</td>
+      <td>-16.58</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>San Francisco 49ers</td>
+      <td>1673.25</td>
+      <td>42</td>
+      <td>Dallas Cowboys</td>
+      <td>1617.45</td>
+      <td>10</td>
+      <td>63.55%</td>
+      <td>36.22%</td>
+      <td>0.23%</td>
+      <td>30.21</td>
+    </tr>
+    <tr>
+      <td>2023-10-08</td>
+      <td>Dallas Cowboys</td>
+      <td>1617.45</td>
+      <td>10</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1673.25</td>
+      <td>42</td>
+      <td>36.22%</td>
+      <td>63.55%</td>
+      <td>0.23%</td>
+      <td>-30.21</td>
+    </tr>
+    <tr>
+      <td>2023-10-09</td>
+      <td>Las Vegas Raiders</td>
+      <td>1429.69</td>
+      <td>17</td>
+      <td>Green Bay Packers</td>
+      <td>1506.41</td>
+      <td>13</td>
+      <td>44.86%</td>
+      <td>54.91%</td>
+      <td>0.23%</td>
+      <td>16.18</td>
+    </tr>
+    <tr>
+      <td>2023-10-09</td>
+      <td>Green Bay Packers</td>
+      <td>1506.41</td>
+      <td>13</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1429.69</td>
+      <td>17</td>
+      <td>54.91%</td>
+      <td>44.86%</td>
+      <td>0.23%</td>
+      <td>-16.18</td>
+    </tr>
+    <tr>
+      <td>2023-10-12</td>
+      <td>Kansas City Chiefs</td>
+      <td>1658.00</td>
+      <td>19</td>
+      <td>Denver Broncos</td>
+      <td>1373.08</td>
+      <td>8</td>
+      <td>86.59%</td>
+      <td>13.19%</td>
+      <td>0.23%</td>
+      <td>6.46</td>
+    </tr>
+    <tr>
+      <td>2023-10-12</td>
+      <td>Denver Broncos</td>
+      <td>1373.08</td>
+      <td>8</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1658.00</td>
+      <td>19</td>
+      <td>13.19%</td>
+      <td>86.59%</td>
+      <td>0.23%</td>
+      <td>-6.45</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>New York Giants</td>
+      <td>1398.87</td>
+      <td>9</td>
+      <td>@ Buffalo Bills</td>
+      <td>1639.11</td>
+      <td>14</td>
+      <td>16.42%</td>
+      <td>83.36%</td>
+      <td>0.23%</td>
+      <td>-5.42</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>San Francisco 49ers</td>
+      <td>1703.46</td>
+      <td>17</td>
+      <td>@ Cleveland Browns</td>
+      <td>1502.22</td>
+      <td>19</td>
+      <td>71.34%</td>
+      <td>28.43%</td>
+      <td>0.23%</td>
+      <td>-14.86</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Tennessee Titans</td>
+      <td>1462.64</td>
+      <td>16</td>
+      <td>Baltimore Ravens</td>
+      <td>1550.19</td>
+      <td>24</td>
+      <td>43.32%</td>
+      <td>56.45%</td>
+      <td>0.23%</td>
+      <td>-18.06</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Cleveland Browns</td>
+      <td>1502.22</td>
+      <td>19</td>
+      <td>San Francisco 49ers</td>
+      <td>1703.46</td>
+      <td>17</td>
+      <td>28.43%</td>
+      <td>71.34%</td>
+      <td>0.23%</td>
+      <td>14.86</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Atlanta Falcons</td>
+      <td>1453.31</td>
+      <td>16</td>
+      <td>Washington Commanders</td>
+      <td>1424.73</td>
+      <td>24</td>
+      <td>59.86%</td>
+      <td>39.92%</td>
+      <td>0.23%</td>
+      <td>-24.93</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Miami Dolphins</td>
+      <td>1544.88</td>
+      <td>42</td>
+      <td>Carolina Panthers</td>
+      <td>1393.96</td>
+      <td>21</td>
+      <td>75.05%</td>
+      <td>24.73%</td>
+      <td>0.23%</td>
+      <td>16.72</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Chicago Bears</td>
+      <td>1388.95</td>
+      <td>13</td>
+      <td>Minnesota Vikings</td>
+      <td>1470.80</td>
+      <td>19</td>
+      <td>44.13%</td>
+      <td>55.64%</td>
+      <td>0.23%</td>
+      <td>-15.93</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Cincinnati Bengals</td>
+      <td>1539.99</td>
+      <td>17</td>
+      <td>Seattle Seahawks</td>
+      <td>1534.04</td>
+      <td>13</td>
+      <td>56.70%</td>
+      <td>43.08%</td>
+      <td>0.23%</td>
+      <td>12.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1524.62</td>
+      <td>37</td>
+      <td>Indianapolis Colts</td>
+      <td>1441.16</td>
+      <td>20</td>
+      <td>67.14%</td>
+      <td>32.63%</td>
+      <td>0.23%</td>
+      <td>19.84</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Houston Texans</td>
+      <td>1442.49</td>
+      <td>20</td>
+      <td>New Orleans Saints</td>
+      <td>1521.79</td>
+      <td>13</td>
+      <td>44.49%</td>
+      <td>55.28%</td>
+      <td>0.23%</td>
+      <td>21.54</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Las Vegas Raiders</td>
+      <td>1445.87</td>
+      <td>21</td>
+      <td>New England Patriots</td>
+      <td>1415.36</td>
+      <td>17</td>
+      <td>60.12%</td>
+      <td>39.65%</td>
+      <td>0.23%</td>
+      <td>11.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Los Angeles Rams</td>
+      <td>1465.76</td>
+      <td>26</td>
+      <td>Arizona Cardinals</td>
+      <td>1406.09</td>
+      <td>9</td>
+      <td>64.06%</td>
+      <td>35.71%</td>
+      <td>0.23%</td>
+      <td>21.70</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Baltimore Ravens</td>
+      <td>1550.19</td>
+      <td>24</td>
+      <td>@ Tennessee Titans</td>
+      <td>1462.64</td>
+      <td>16</td>
+      <td>56.45%</td>
+      <td>43.32%</td>
+      <td>0.23%</td>
+      <td>18.06</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1522.58</td>
+      <td>6</td>
+      <td>Detroit Lions</td>
+      <td>1572.97</td>
+      <td>20</td>
+      <td>48.63%</td>
+      <td>51.14%</td>
+      <td>0.23%</td>
+      <td>-26.81</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Buffalo Bills</td>
+      <td>1639.11</td>
+      <td>14</td>
+      <td>New York Giants</td>
+      <td>1398.87</td>
+      <td>9</td>
+      <td>83.36%</td>
+      <td>16.42%</td>
+      <td>0.23%</td>
+      <td>5.42</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Philadelphia Eagles</td>
+      <td>1657.03</td>
+      <td>14</td>
+      <td>@ New York Jets</td>
+      <td>1457.38</td>
+      <td>20</td>
+      <td>71.15%</td>
+      <td>28.62%</td>
+      <td>0.23%</td>
+      <td>-25.66</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Detroit Lions</td>
+      <td>1572.97</td>
+      <td>20</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1522.58</td>
+      <td>6</td>
+      <td>51.14%</td>
+      <td>48.63%</td>
+      <td>0.23%</td>
+      <td>26.82</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Arizona Cardinals</td>
+      <td>1406.09</td>
+      <td>9</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1465.76</td>
+      <td>26</td>
+      <td>35.71%</td>
+      <td>64.06%</td>
+      <td>0.23%</td>
+      <td>-21.71</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>New England Patriots</td>
+      <td>1415.36</td>
+      <td>17</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1445.87</td>
+      <td>21</td>
+      <td>39.65%</td>
+      <td>60.12%</td>
+      <td>0.23%</td>
+      <td>-11.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>New Orleans Saints</td>
+      <td>1521.79</td>
+      <td>13</td>
+      <td>@ Houston Texans</td>
+      <td>1442.49</td>
+      <td>20</td>
+      <td>55.28%</td>
+      <td>44.49%</td>
+      <td>0.23%</td>
+      <td>-21.54</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Indianapolis Colts</td>
+      <td>1441.16</td>
+      <td>20</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1524.62</td>
+      <td>37</td>
+      <td>32.63%</td>
+      <td>67.14%</td>
+      <td>0.23%</td>
+      <td>-19.84</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Seattle Seahawks</td>
+      <td>1534.04</td>
+      <td>13</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1539.99</td>
+      <td>17</td>
+      <td>43.08%</td>
+      <td>56.70%</td>
+      <td>0.23%</td>
+      <td>-12.70</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Minnesota Vikings</td>
+      <td>1470.80</td>
+      <td>19</td>
+      <td>@ Chicago Bears</td>
+      <td>1388.95</td>
+      <td>13</td>
+      <td>55.64%</td>
+      <td>44.13%</td>
+      <td>0.23%</td>
+      <td>15.93</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Carolina Panthers</td>
+      <td>1393.96</td>
+      <td>21</td>
+      <td>@ Miami Dolphins</td>
+      <td>1544.88</td>
+      <td>42</td>
+      <td>24.73%</td>
+      <td>75.05%</td>
+      <td>0.23%</td>
+      <td>-16.71</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>Washington Commanders</td>
+      <td>1424.73</td>
+      <td>24</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1453.31</td>
+      <td>16</td>
+      <td>39.92%</td>
+      <td>59.86%</td>
+      <td>0.23%</td>
+      <td>24.94</td>
+    </tr>
+    <tr>
+      <td>2023-10-15</td>
+      <td>New York Jets</td>
+      <td>1457.38</td>
+      <td>20</td>
+      <td>Philadelphia Eagles</td>
+      <td>1657.03</td>
+      <td>14</td>
+      <td>28.62%</td>
+      <td>71.15%</td>
+      <td>0.23%</td>
+      <td>25.67</td>
+    </tr>
+    <tr>
+      <td>2023-10-16</td>
+      <td>Dallas Cowboys</td>
+      <td>1587.24</td>
+      <td>20</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1511.68</td>
+      <td>17</td>
+      <td>54.75%</td>
+      <td>45.03%</td>
+      <td>0.23%</td>
+      <td>11.49</td>
+    </tr>
+    <tr>
+      <td>2023-10-16</td>
+      <td>Los Angeles Chargers</td>
+      <td>1511.68</td>
+      <td>17</td>
+      <td>Dallas Cowboys</td>
+      <td>1587.24</td>
+      <td>20</td>
+      <td>45.03%</td>
+      <td>54.75%</td>
+      <td>0.23%</td>
+      <td>-11.49</td>
+    </tr>
+    <tr>
+      <td>2023-10-19</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1544.46</td>
+      <td>31</td>
+      <td>@ New Orleans Saints</td>
+      <td>1500.25</td>
+      <td>24</td>
+      <td>50.25%</td>
+      <td>49.52%</td>
+      <td>0.23%</td>
+      <td>19.30</td>
+    </tr>
+    <tr>
+      <td>2023-10-19</td>
+      <td>New Orleans Saints</td>
+      <td>1500.25</td>
+      <td>24</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1544.46</td>
+      <td>31</td>
+      <td>49.52%</td>
+      <td>50.25%</td>
+      <td>0.23%</td>
+      <td>-19.30</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1499.52</td>
+      <td>24</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1487.46</td>
+      <td>17</td>
+      <td>45.64%</td>
+      <td>54.14%</td>
+      <td>0.23%</td>
+      <td>21.10</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Denver Broncos</td>
+      <td>1366.63</td>
+      <td>19</td>
+      <td>Green Bay Packers</td>
+      <td>1490.23</td>
+      <td>17</td>
+      <td>38.32%</td>
+      <td>61.46%</td>
+      <td>0.23%</td>
+      <td>12.80</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Seattle Seahawks</td>
+      <td>1521.34</td>
+      <td>20</td>
+      <td>Arizona Cardinals</td>
+      <td>1384.38</td>
+      <td>10</td>
+      <td>73.52%</td>
+      <td>26.25%</td>
+      <td>0.23%</td>
+      <td>12.24</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Los Angeles Rams</td>
+      <td>1487.46</td>
+      <td>17</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1499.52</td>
+      <td>24</td>
+      <td>54.14%</td>
+      <td>45.64%</td>
+      <td>0.23%</td>
+      <td>-21.10</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>New York Giants</td>
+      <td>1393.45</td>
+      <td>14</td>
+      <td>Washington Commanders</td>
+      <td>1449.67</td>
+      <td>7</td>
+      <td>47.80%</td>
+      <td>51.98%</td>
+      <td>0.23%</td>
+      <td>20.26</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Atlanta Falcons</td>
+      <td>1428.38</td>
+      <td>16</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1495.77</td>
+      <td>13</td>
+      <td>34.70%</td>
+      <td>65.08%</td>
+      <td>0.23%</td>
+      <td>16.60</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Buffalo Bills</td>
+      <td>1644.53</td>
+      <td>25</td>
+      <td>@ New England Patriots</td>
+      <td>1403.67</td>
+      <td>29</td>
+      <td>75.75%</td>
+      <td>24.03%</td>
+      <td>0.23%</td>
+      <td>-22.31</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Las Vegas Raiders</td>
+      <td>1457.56</td>
+      <td>12</td>
+      <td>@ Chicago Bears</td>
+      <td>1373.02</td>
+      <td>30</td>
+      <td>56.02%</td>
+      <td>43.75%</td>
+      <td>0.23%</td>
+      <td>-35.01</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Detroit Lions</td>
+      <td>1599.79</td>
+      <td>6</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1568.25</td>
+      <td>38</td>
+      <td>48.43%</td>
+      <td>51.35%</td>
+      <td>0.23%</td>
+      <td>-40.37</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Washington Commanders</td>
+      <td>1449.67</td>
+      <td>7</td>
+      <td>@ New York Giants</td>
+      <td>1393.45</td>
+      <td>14</td>
+      <td>51.98%</td>
+      <td>47.80%</td>
+      <td>0.23%</td>
+      <td>-20.26</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Arizona Cardinals</td>
+      <td>1384.38</td>
+      <td>10</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1521.34</td>
+      <td>20</td>
+      <td>26.25%</td>
+      <td>73.52%</td>
+      <td>0.23%</td>
+      <td>-12.25</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Green Bay Packers</td>
+      <td>1490.23</td>
+      <td>17</td>
+      <td>@ Denver Broncos</td>
+      <td>1366.63</td>
+      <td>19</td>
+      <td>61.46%</td>
+      <td>38.32%</td>
+      <td>0.23%</td>
+      <td>-12.80</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Los Angeles Chargers</td>
+      <td>1500.19</td>
+      <td>17</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1664.46</td>
+      <td>31</td>
+      <td>23.32%</td>
+      <td>76.45%</td>
+      <td>0.23%</td>
+      <td>-12.87</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Miami Dolphins</td>
+      <td>1561.60</td>
+      <td>17</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1631.37</td>
+      <td>31</td>
+      <td>34.39%</td>
+      <td>65.39%</td>
+      <td>0.23%</td>
+      <td>-18.97</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Baltimore Ravens</td>
+      <td>1568.25</td>
+      <td>38</td>
+      <td>Detroit Lions</td>
+      <td>1599.79</td>
+      <td>6</td>
+      <td>51.35%</td>
+      <td>48.43%</td>
+      <td>0.23%</td>
+      <td>40.37</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Kansas City Chiefs</td>
+      <td>1664.46</td>
+      <td>31</td>
+      <td>Los Angeles Chargers</td>
+      <td>1500.19</td>
+      <td>17</td>
+      <td>76.45%</td>
+      <td>23.32%</td>
+      <td>0.23%</td>
+      <td>12.87</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Philadelphia Eagles</td>
+      <td>1631.37</td>
+      <td>31</td>
+      <td>Miami Dolphins</td>
+      <td>1561.60</td>
+      <td>17</td>
+      <td>65.39%</td>
+      <td>34.39%</td>
+      <td>0.23%</td>
+      <td>18.97</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Cleveland Browns</td>
+      <td>1517.08</td>
+      <td>39</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1421.32</td>
+      <td>38</td>
+      <td>57.60%</td>
+      <td>42.17%</td>
+      <td>0.23%</td>
+      <td>6.21</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1495.77</td>
+      <td>13</td>
+      <td>Atlanta Falcons</td>
+      <td>1428.38</td>
+      <td>16</td>
+      <td>65.08%</td>
+      <td>34.70%</td>
+      <td>0.23%</td>
+      <td>-16.61</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Indianapolis Colts</td>
+      <td>1421.32</td>
+      <td>38</td>
+      <td>Cleveland Browns</td>
+      <td>1517.08</td>
+      <td>39</td>
+      <td>42.17%</td>
+      <td>57.60%</td>
+      <td>0.23%</td>
+      <td>-6.21</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>New England Patriots</td>
+      <td>1403.67</td>
+      <td>29</td>
+      <td>Buffalo Bills</td>
+      <td>1644.53</td>
+      <td>25</td>
+      <td>24.03%</td>
+      <td>75.75%</td>
+      <td>0.23%</td>
+      <td>22.31</td>
+    </tr>
+    <tr>
+      <td>2023-10-22</td>
+      <td>Chicago Bears</td>
+      <td>1373.02</td>
+      <td>30</td>
+      <td>Las Vegas Raiders</td>
+      <td>1457.56</td>
+      <td>12</td>
+      <td>43.75%</td>
+      <td>56.02%</td>
+      <td>0.23%</td>
+      <td>35.01</td>
+    </tr>
+    <tr>
+      <td>2023-10-23</td>
+      <td>San Francisco 49ers</td>
+      <td>1688.60</td>
+      <td>17</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1486.73</td>
+      <td>22</td>
+      <td>71.41%</td>
+      <td>28.36%</td>
+      <td>0.23%</td>
+      <td>-23.52</td>
+    </tr>
+    <tr>
+      <td>2023-10-23</td>
+      <td>Minnesota Vikings</td>
+      <td>1486.73</td>
+      <td>22</td>
+      <td>San Francisco 49ers</td>
+      <td>1688.60</td>
+      <td>17</td>
+      <td>28.36%</td>
+      <td>71.41%</td>
+      <td>0.23%</td>
+      <td>23.52</td>
+    </tr>
+    <tr>
+      <td>2023-10-26</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1479.16</td>
+      <td>18</td>
+      <td>@ Buffalo Bills</td>
+      <td>1622.22</td>
+      <td>24</td>
+      <td>25.58%</td>
+      <td>74.19%</td>
+      <td>0.23%</td>
+      <td>-9.24</td>
+    </tr>
+    <tr>
+      <td>2023-10-26</td>
+      <td>Buffalo Bills</td>
+      <td>1622.22</td>
+      <td>24</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1479.16</td>
+      <td>18</td>
+      <td>74.19%</td>
+      <td>25.58%</td>
+      <td>0.23%</td>
+      <td>9.24</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Baltimore Ravens</td>
+      <td>1608.62</td>
+      <td>31</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1372.13</td>
+      <td>24</td>
+      <td>75.28%</td>
+      <td>24.49%</td>
+      <td>0.23%</td>
+      <td>9.56</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Cincinnati Bengals</td>
+      <td>1552.68</td>
+      <td>31</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1665.08</td>
+      <td>17</td>
+      <td>29.08%</td>
+      <td>70.69%</td>
+      <td>0.23%</td>
+      <td>38.96</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Cleveland Browns</td>
+      <td>1523.29</td>
+      <td>20</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1533.58</td>
+      <td>24</td>
+      <td>42.47%</td>
+      <td>57.31%</td>
+      <td>0.23%</td>
+      <td>-12.52</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Philadelphia Eagles</td>
+      <td>1650.34</td>
+      <td>38</td>
+      <td>@ Washington Commanders</td>
+      <td>1429.41</td>
+      <td>31</td>
+      <td>73.59%</td>
+      <td>26.19%</td>
+      <td>0.23%</td>
+      <td>10.21</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>New York Jets</td>
+      <td>1483.05</td>
+      <td>13</td>
+      <td>@ New York Giants</td>
+      <td>1413.71</td>
+      <td>10</td>
+      <td>53.86%</td>
+      <td>45.92%</td>
+      <td>0.23%</td>
+      <td>11.72</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>New England Patriots</td>
+      <td>1425.98</td>
+      <td>17</td>
+      <td>@ Miami Dolphins</td>
+      <td>1542.63</td>
+      <td>31</td>
+      <td>28.58%</td>
+      <td>71.19%</td>
+      <td>0.23%</td>
+      <td>-15.77</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1563.76</td>
+      <td>20</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1520.62</td>
+      <td>10</td>
+      <td>50.10%</td>
+      <td>49.68%</td>
+      <td>0.23%</td>
+      <td>23.15</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>New Orleans Saints</td>
+      <td>1480.95</td>
+      <td>38</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1415.11</td>
+      <td>27</td>
+      <td>53.36%</td>
+      <td>46.42%</td>
+      <td>0.23%</td>
+      <td>22.68</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Atlanta Falcons</td>
+      <td>1444.98</td>
+      <td>23</td>
+      <td>@ Tennessee Titans</td>
+      <td>1444.58</td>
+      <td>28</td>
+      <td>43.98%</td>
+      <td>55.80%</td>
+      <td>0.23%</td>
+      <td>-14.49</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Minnesota Vikings</td>
+      <td>1510.25</td>
+      <td>24</td>
+      <td>@ Green Bay Packers</td>
+      <td>1477.43</td>
+      <td>10</td>
+      <td>48.61%</td>
+      <td>51.16%</td>
+      <td>0.23%</td>
+      <td>28.20</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Los Angeles Rams</td>
+      <td>1466.36</td>
+      <td>20</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1598.73</td>
+      <td>43</td>
+      <td>26.77%</td>
+      <td>73.01%</td>
+      <td>0.23%</td>
+      <td>-18.93</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Houston Texans</td>
+      <td>1464.03</td>
+      <td>13</td>
+      <td>@ Carolina Panthers</td>
+      <td>1377.25</td>
+      <td>15</td>
+      <td>56.34%</td>
+      <td>43.43%</td>
+      <td>0.23%</td>
+      <td>-11.74</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1520.62</td>
+      <td>10</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1563.76</td>
+      <td>20</td>
+      <td>49.68%</td>
+      <td>50.10%</td>
+      <td>0.23%</td>
+      <td>-23.14</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Carolina Panthers</td>
+      <td>1377.25</td>
+      <td>15</td>
+      <td>Houston Texans</td>
+      <td>1464.03</td>
+      <td>13</td>
+      <td>43.43%</td>
+      <td>56.34%</td>
+      <td>0.23%</td>
+      <td>11.73</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Dallas Cowboys</td>
+      <td>1598.73</td>
+      <td>43</td>
+      <td>Los Angeles Rams</td>
+      <td>1466.36</td>
+      <td>20</td>
+      <td>73.01%</td>
+      <td>26.77%</td>
+      <td>0.23%</td>
+      <td>18.94</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Green Bay Packers</td>
+      <td>1477.43</td>
+      <td>10</td>
+      <td>Minnesota Vikings</td>
+      <td>1510.25</td>
+      <td>24</td>
+      <td>51.16%</td>
+      <td>48.61%</td>
+      <td>0.23%</td>
+      <td>-28.20</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Tennessee Titans</td>
+      <td>1444.58</td>
+      <td>28</td>
+      <td>Atlanta Falcons</td>
+      <td>1444.98</td>
+      <td>23</td>
+      <td>55.80%</td>
+      <td>43.98%</td>
+      <td>0.23%</td>
+      <td>14.49</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Arizona Cardinals</td>
+      <td>1372.13</td>
+      <td>24</td>
+      <td>Baltimore Ravens</td>
+      <td>1608.62</td>
+      <td>31</td>
+      <td>24.49%</td>
+      <td>75.28%</td>
+      <td>0.23%</td>
+      <td>-9.55</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>San Francisco 49ers</td>
+      <td>1665.08</td>
+      <td>17</td>
+      <td>Cincinnati Bengals</td>
+      <td>1552.68</td>
+      <td>31</td>
+      <td>70.69%</td>
+      <td>29.08%</td>
+      <td>0.23%</td>
+      <td>-38.95</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Denver Broncos</td>
+      <td>1379.43</td>
+      <td>24</td>
+      <td>Kansas City Chiefs</td>
+      <td>1677.33</td>
+      <td>9</td>
+      <td>18.55%</td>
+      <td>81.22%</td>
+      <td>0.23%</td>
+      <td>46.33</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Los Angeles Chargers</td>
+      <td>1487.32</td>
+      <td>30</td>
+      <td>Chicago Bears</td>
+      <td>1408.03</td>
+      <td>13</td>
+      <td>66.61%</td>
+      <td>33.16%</td>
+      <td>0.23%</td>
+      <td>20.16</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Washington Commanders</td>
+      <td>1429.41</td>
+      <td>31</td>
+      <td>Philadelphia Eagles</td>
+      <td>1650.34</td>
+      <td>38</td>
+      <td>26.19%</td>
+      <td>73.59%</td>
+      <td>0.23%</td>
+      <td>-10.22</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>New York Giants</td>
+      <td>1413.71</td>
+      <td>10</td>
+      <td>New York Jets</td>
+      <td>1483.05</td>
+      <td>13</td>
+      <td>45.92%</td>
+      <td>53.86%</td>
+      <td>0.23%</td>
+      <td>-11.72</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Miami Dolphins</td>
+      <td>1542.63</td>
+      <td>31</td>
+      <td>New England Patriots</td>
+      <td>1425.98</td>
+      <td>17</td>
+      <td>71.19%</td>
+      <td>28.58%</td>
+      <td>0.23%</td>
+      <td>15.77</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Kansas City Chiefs</td>
+      <td>1677.33</td>
+      <td>9</td>
+      <td>@ Denver Broncos</td>
+      <td>1379.43</td>
+      <td>24</td>
+      <td>81.22%</td>
+      <td>18.55%</td>
+      <td>0.23%</td>
+      <td>-46.33</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Indianapolis Colts</td>
+      <td>1415.11</td>
+      <td>27</td>
+      <td>New Orleans Saints</td>
+      <td>1480.95</td>
+      <td>38</td>
+      <td>46.42%</td>
+      <td>53.36%</td>
+      <td>0.23%</td>
+      <td>-22.69</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Chicago Bears</td>
+      <td>1408.03</td>
+      <td>13</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1487.32</td>
+      <td>30</td>
+      <td>33.16%</td>
+      <td>66.61%</td>
+      <td>0.23%</td>
+      <td>-20.16</td>
+    </tr>
+    <tr>
+      <td>2023-10-29</td>
+      <td>Seattle Seahawks</td>
+      <td>1533.58</td>
+      <td>24</td>
+      <td>Cleveland Browns</td>
+      <td>1523.29</td>
+      <td>20</td>
+      <td>57.31%</td>
+      <td>42.47%</td>
+      <td>0.23%</td>
+      <td>12.52</td>
+    </tr>
+    <tr>
+      <td>2023-10-30</td>
+      <td>Detroit Lions</td>
+      <td>1559.42</td>
+      <td>26</td>
+      <td>Las Vegas Raiders</td>
+      <td>1422.55</td>
+      <td>14</td>
+      <td>73.51%</td>
+      <td>26.26%</td>
+      <td>0.23%</td>
+      <td>13.42</td>
+    </tr>
+    <tr>
+      <td>2023-10-30</td>
+      <td>Las Vegas Raiders</td>
+      <td>1422.55</td>
+      <td>14</td>
+      <td>@ Detroit Lions</td>
+      <td>1559.42</td>
+      <td>26</td>
+      <td>26.26%</td>
+      <td>73.51%</td>
+      <td>0.23%</td>
+      <td>-13.42</td>
+    </tr>
+    <tr>
+      <td>2023-11-02</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1497.48</td>
+      <td>20</td>
+      <td>Tennessee Titans</td>
+      <td>1459.07</td>
+      <td>16</td>
+      <td>61.21%</td>
+      <td>38.57%</td>
+      <td>0.23%</td>
+      <td>11.37</td>
+    </tr>
+    <tr>
+      <td>2023-11-02</td>
+      <td>Tennessee Titans</td>
+      <td>1459.07</td>
+      <td>16</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1497.48</td>
+      <td>20</td>
+      <td>38.57%</td>
+      <td>61.21%</td>
+      <td>0.23%</td>
+      <td>-11.37</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1469.92</td>
+      <td>37</td>
+      <td>@ Houston Texans</td>
+      <td>1452.29</td>
+      <td>39</td>
+      <td>46.43%</td>
+      <td>53.34%</td>
+      <td>0.23%</td>
+      <td>-9.67</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>New England Patriots</td>
+      <td>1410.21</td>
+      <td>17</td>
+      <td>Washington Commanders</td>
+      <td>1419.19</td>
+      <td>20</td>
+      <td>54.58%</td>
+      <td>45.20%</td>
+      <td>0.23%</td>
+      <td>-13.93</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Baltimore Ravens</td>
+      <td>1618.18</td>
+      <td>37</td>
+      <td>Seattle Seahawks</td>
+      <td>1546.10</td>
+      <td>3</td>
+      <td>65.69%</td>
+      <td>34.09%</td>
+      <td>0.23%</td>
+      <td>29.30</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Carolina Panthers</td>
+      <td>1388.98</td>
+      <td>13</td>
+      <td>Indianapolis Colts</td>
+      <td>1392.42</td>
+      <td>27</td>
+      <td>55.37%</td>
+      <td>44.41%</td>
+      <td>0.23%</td>
+      <td>-30.51</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Philadelphia Eagles</td>
+      <td>1660.55</td>
+      <td>28</td>
+      <td>Dallas Cowboys</td>
+      <td>1617.67</td>
+      <td>23</td>
+      <td>61.82%</td>
+      <td>37.96%</td>
+      <td>0.23%</td>
+      <td>12.52</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Las Vegas Raiders</td>
+      <td>1409.13</td>
+      <td>30</td>
+      <td>New York Giants</td>
+      <td>1401.99</td>
+      <td>6</td>
+      <td>56.86%</td>
+      <td>42.91%</td>
+      <td>0.23%</td>
+      <td>30.98</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Cincinnati Bengals</td>
+      <td>1591.64</td>
+      <td>24</td>
+      <td>Buffalo Bills</td>
+      <td>1631.46</td>
+      <td>18</td>
+      <td>50.15%</td>
+      <td>49.62%</td>
+      <td>0.23%</td>
+      <td>17.91</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Miami Dolphins</td>
+      <td>1558.40</td>
+      <td>14</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1631.00</td>
+      <td>21</td>
+      <td>34.02%</td>
+      <td>65.75%</td>
+      <td>0.23%</td>
+      <td>-13.28</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Houston Texans</td>
+      <td>1452.29</td>
+      <td>39</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1469.92</td>
+      <td>37</td>
+      <td>53.34%</td>
+      <td>46.43%</td>
+      <td>0.23%</td>
+      <td>9.68</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Green Bay Packers</td>
+      <td>1449.23</td>
+      <td>20</td>
+      <td>Los Angeles Rams</td>
+      <td>1447.43</td>
+      <td>3</td>
+      <td>56.11%</td>
+      <td>43.66%</td>
+      <td>0.23%</td>
+      <td>26.53</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Cleveland Browns</td>
+      <td>1510.77</td>
+      <td>27</td>
+      <td>Arizona Cardinals</td>
+      <td>1362.58</td>
+      <td>0</td>
+      <td>74.75%</td>
+      <td>25.02%</td>
+      <td>0.23%</td>
+      <td>19.18</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Los Angeles Rams</td>
+      <td>1447.43</td>
+      <td>3</td>
+      <td>@ Green Bay Packers</td>
+      <td>1449.23</td>
+      <td>20</td>
+      <td>43.66%</td>
+      <td>56.11%</td>
+      <td>0.23%</td>
+      <td>-26.53</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Arizona Cardinals</td>
+      <td>1362.58</td>
+      <td>0</td>
+      <td>@ Cleveland Browns</td>
+      <td>1510.77</td>
+      <td>27</td>
+      <td>25.02%</td>
+      <td>74.75%</td>
+      <td>0.23%</td>
+      <td>-19.18</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>New Orleans Saints</td>
+      <td>1503.63</td>
+      <td>24</td>
+      <td>Chicago Bears</td>
+      <td>1387.87</td>
+      <td>17</td>
+      <td>71.09%</td>
+      <td>28.68%</td>
+      <td>0.23%</td>
+      <td>11.19</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Kansas City Chiefs</td>
+      <td>1631.00</td>
+      <td>21</td>
+      <td>Miami Dolphins</td>
+      <td>1558.40</td>
+      <td>14</td>
+      <td>65.75%</td>
+      <td>34.02%</td>
+      <td>0.23%</td>
+      <td>13.27</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Atlanta Falcons</td>
+      <td>1430.49</td>
+      <td>28</td>
+      <td>Minnesota Vikings</td>
+      <td>1538.45</td>
+      <td>31</td>
+      <td>40.47%</td>
+      <td>59.31%</td>
+      <td>0.23%</td>
+      <td>-10.34</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Minnesota Vikings</td>
+      <td>1538.45</td>
+      <td>31</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1430.49</td>
+      <td>28</td>
+      <td>59.31%</td>
+      <td>40.47%</td>
+      <td>0.23%</td>
+      <td>10.33</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Chicago Bears</td>
+      <td>1387.87</td>
+      <td>17</td>
+      <td>@ New Orleans Saints</td>
+      <td>1503.63</td>
+      <td>24</td>
+      <td>28.68%</td>
+      <td>71.09%</td>
+      <td>0.23%</td>
+      <td>-11.19</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Washington Commanders</td>
+      <td>1419.19</td>
+      <td>20</td>
+      <td>@ New England Patriots</td>
+      <td>1410.21</td>
+      <td>17</td>
+      <td>45.20%</td>
+      <td>54.58%</td>
+      <td>0.23%</td>
+      <td>13.92</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Seattle Seahawks</td>
+      <td>1546.10</td>
+      <td>3</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1618.18</td>
+      <td>37</td>
+      <td>34.09%</td>
+      <td>65.69%</td>
+      <td>0.23%</td>
+      <td>-29.31</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Indianapolis Colts</td>
+      <td>1392.42</td>
+      <td>27</td>
+      <td>@ Carolina Panthers</td>
+      <td>1388.98</td>
+      <td>13</td>
+      <td>44.41%</td>
+      <td>55.37%</td>
+      <td>0.23%</td>
+      <td>30.52</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Dallas Cowboys</td>
+      <td>1617.67</td>
+      <td>23</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1660.55</td>
+      <td>28</td>
+      <td>37.96%</td>
+      <td>61.82%</td>
+      <td>0.23%</td>
+      <td>-12.51</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>Buffalo Bills</td>
+      <td>1631.46</td>
+      <td>18</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1591.64</td>
+      <td>24</td>
+      <td>49.62%</td>
+      <td>50.15%</td>
+      <td>0.23%</td>
+      <td>-17.91</td>
+    </tr>
+    <tr>
+      <td>2023-11-05</td>
+      <td>New York Giants</td>
+      <td>1401.99</td>
+      <td>6</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1409.13</td>
+      <td>30</td>
+      <td>42.91%</td>
+      <td>56.86%</td>
+      <td>0.23%</td>
+      <td>-30.98</td>
+    </tr>
+    <tr>
+      <td>2023-11-06</td>
+      <td>New York Jets</td>
+      <td>1494.77</td>
+      <td>6</td>
+      <td>Los Angeles Chargers</td>
+      <td>1507.48</td>
+      <td>27</td>
+      <td>54.05%</td>
+      <td>45.73%</td>
+      <td>0.23%</td>
+      <td>-36.48</td>
+    </tr>
+    <tr>
+      <td>2023-11-06</td>
+      <td>Los Angeles Chargers</td>
+      <td>1507.48</td>
+      <td>27</td>
+      <td>@ New York Jets</td>
+      <td>1494.77</td>
+      <td>6</td>
+      <td>45.73%</td>
+      <td>54.05%</td>
+      <td>0.23%</td>
+      <td>36.48</td>
+    </tr>
+    <tr>
+      <td>2023-11-09</td>
+      <td>Carolina Panthers</td>
+      <td>1358.47</td>
+      <td>13</td>
+      <td>@ Chicago Bears</td>
+      <td>1376.68</td>
+      <td>16</td>
+      <td>41.36%</td>
+      <td>58.42%</td>
+      <td>0.23%</td>
+      <td>-10.56</td>
+    </tr>
+    <tr>
+      <td>2023-11-09</td>
+      <td>Chicago Bears</td>
+      <td>1376.68</td>
+      <td>16</td>
+      <td>Carolina Panthers</td>
+      <td>1358.47</td>
+      <td>13</td>
+      <td>58.42%</td>
+      <td>41.36%</td>
+      <td>0.23%</td>
+      <td>10.55</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Cincinnati Bengals</td>
+      <td>1609.55</td>
+      <td>27</td>
+      <td>Houston Texans</td>
+      <td>1461.97</td>
+      <td>30</td>
+      <td>74.69%</td>
+      <td>25.09%</td>
+      <td>0.23%</td>
+      <td>-19.05</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1586.91</td>
+      <td>3</td>
+      <td>San Francisco 49ers</td>
+      <td>1626.13</td>
+      <td>34</td>
+      <td>50.24%</td>
+      <td>49.53%</td>
+      <td>0.23%</td>
+      <td>-41.21</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1460.25</td>
+      <td>20</td>
+      <td>Tennessee Titans</td>
+      <td>1447.70</td>
+      <td>6</td>
+      <td>57.63%</td>
+      <td>42.15%</td>
+      <td>0.23%</td>
+      <td>23.24</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Minnesota Vikings</td>
+      <td>1548.78</td>
+      <td>27</td>
+      <td>New Orleans Saints</td>
+      <td>1514.82</td>
+      <td>19</td>
+      <td>60.60%</td>
+      <td>39.18%</td>
+      <td>0.23%</td>
+      <td>16.33</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Los Angeles Chargers</td>
+      <td>1543.96</td>
+      <td>38</td>
+      <td>Detroit Lions</td>
+      <td>1572.84</td>
+      <td>41</td>
+      <td>51.73%</td>
+      <td>48.05%</td>
+      <td>0.23%</td>
+      <td>-13.20</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Arizona Cardinals</td>
+      <td>1343.40</td>
+      <td>25</td>
+      <td>Atlanta Falcons</td>
+      <td>1420.15</td>
+      <td>23</td>
+      <td>44.86%</td>
+      <td>54.92%</td>
+      <td>0.23%</td>
+      <td>11.44</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Dallas Cowboys</td>
+      <td>1605.16</td>
+      <td>49</td>
+      <td>New York Giants</td>
+      <td>1371.01</td>
+      <td>17</td>
+      <td>82.87%</td>
+      <td>16.91%</td>
+      <td>0.23%</td>
+      <td>14.11</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Seattle Seahawks</td>
+      <td>1516.79</td>
+      <td>29</td>
+      <td>Washington Commanders</td>
+      <td>1433.11</td>
+      <td>26</td>
+      <td>67.17%</td>
+      <td>32.60%</td>
+      <td>0.23%</td>
+      <td>8.33</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Las Vegas Raiders</td>
+      <td>1440.11</td>
+      <td>16</td>
+      <td>New York Jets</td>
+      <td>1458.29</td>
+      <td>12</td>
+      <td>53.26%</td>
+      <td>46.51%</td>
+      <td>0.23%</td>
+      <td>13.71</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Green Bay Packers</td>
+      <td>1475.76</td>
+      <td>19</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1508.85</td>
+      <td>23</td>
+      <td>39.29%</td>
+      <td>60.48%</td>
+      <td>0.23%</td>
+      <td>-11.58</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>New England Patriots</td>
+      <td>1396.28</td>
+      <td>6</td>
+      <td>Indianapolis Colts</td>
+      <td>1422.94</td>
+      <td>10</td>
+      <td>52.05%</td>
+      <td>47.73%</td>
+      <td>0.23%</td>
+      <td>-15.33</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Baltimore Ravens</td>
+      <td>1647.48</td>
+      <td>31</td>
+      <td>Cleveland Browns</td>
+      <td>1529.95</td>
+      <td>33</td>
+      <td>71.30%</td>
+      <td>28.47%</td>
+      <td>0.23%</td>
+      <td>-14.85</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1508.85</td>
+      <td>23</td>
+      <td>Green Bay Packers</td>
+      <td>1475.76</td>
+      <td>19</td>
+      <td>60.48%</td>
+      <td>39.29%</td>
+      <td>0.23%</td>
+      <td>11.58</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>San Francisco 49ers</td>
+      <td>1626.13</td>
+      <td>34</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1586.91</td>
+      <td>3</td>
+      <td>49.53%</td>
+      <td>50.24%</td>
+      <td>0.23%</td>
+      <td>41.21</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Houston Texans</td>
+      <td>1461.97</td>
+      <td>30</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1609.55</td>
+      <td>27</td>
+      <td>25.09%</td>
+      <td>74.69%</td>
+      <td>0.23%</td>
+      <td>19.05</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Cleveland Browns</td>
+      <td>1529.95</td>
+      <td>33</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1647.48</td>
+      <td>31</td>
+      <td>28.47%</td>
+      <td>71.30%</td>
+      <td>0.23%</td>
+      <td>14.85</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Tennessee Titans</td>
+      <td>1447.70</td>
+      <td>6</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1460.25</td>
+      <td>20</td>
+      <td>42.15%</td>
+      <td>57.63%</td>
+      <td>0.23%</td>
+      <td>-23.24</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>New Orleans Saints</td>
+      <td>1514.82</td>
+      <td>19</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1548.78</td>
+      <td>27</td>
+      <td>39.18%</td>
+      <td>60.60%</td>
+      <td>0.23%</td>
+      <td>-16.33</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Detroit Lions</td>
+      <td>1572.84</td>
+      <td>41</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1543.96</td>
+      <td>38</td>
+      <td>48.05%</td>
+      <td>51.73%</td>
+      <td>0.23%</td>
+      <td>13.20</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Atlanta Falcons</td>
+      <td>1420.15</td>
+      <td>23</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1343.40</td>
+      <td>25</td>
+      <td>54.92%</td>
+      <td>44.86%</td>
+      <td>0.23%</td>
+      <td>-11.44</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>New York Giants</td>
+      <td>1371.01</td>
+      <td>17</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1605.16</td>
+      <td>49</td>
+      <td>16.91%</td>
+      <td>82.87%</td>
+      <td>0.23%</td>
+      <td>-14.11</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Washington Commanders</td>
+      <td>1433.11</td>
+      <td>26</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1516.79</td>
+      <td>29</td>
+      <td>32.60%</td>
+      <td>67.17%</td>
+      <td>0.23%</td>
+      <td>-8.32</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>New York Jets</td>
+      <td>1458.29</td>
+      <td>12</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1440.11</td>
+      <td>16</td>
+      <td>46.51%</td>
+      <td>53.26%</td>
+      <td>0.23%</td>
+      <td>-13.71</td>
+    </tr>
+    <tr>
+      <td>2023-11-12</td>
+      <td>Indianapolis Colts</td>
+      <td>1422.94</td>
+      <td>10</td>
+      <td>@ New England Patriots</td>
+      <td>1396.28</td>
+      <td>6</td>
+      <td>47.73%</td>
+      <td>52.05%</td>
+      <td>0.23%</td>
+      <td>15.33</td>
+    </tr>
+    <tr>
+      <td>2023-11-13</td>
+      <td>Buffalo Bills</td>
+      <td>1613.55</td>
+      <td>22</td>
+      <td>Denver Broncos</td>
+      <td>1425.76</td>
+      <td>24</td>
+      <td>78.78%</td>
+      <td>20.99%</td>
+      <td>0.23%</td>
+      <td>-16.40</td>
+    </tr>
+    <tr>
+      <td>2023-11-13</td>
+      <td>Denver Broncos</td>
+      <td>1425.76</td>
+      <td>24</td>
+      <td>@ Buffalo Bills</td>
+      <td>1613.55</td>
+      <td>22</td>
+      <td>20.99%</td>
+      <td>78.78%</td>
+      <td>0.23%</td>
+      <td>16.41</td>
+    </tr>
+    <tr>
+      <td>2023-11-16</td>
+      <td>Baltimore Ravens</td>
+      <td>1632.63</td>
+      <td>34</td>
+      <td>Cincinnati Bengals</td>
+      <td>1590.50</td>
+      <td>20</td>
+      <td>61.71%</td>
+      <td>38.06%</td>
+      <td>0.23%</td>
+      <td>20.99</td>
+    </tr>
+    <tr>
+      <td>2023-11-16</td>
+      <td>Cincinnati Bengals</td>
+      <td>1590.50</td>
+      <td>20</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1632.63</td>
+      <td>34</td>
+      <td>38.06%</td>
+      <td>61.71%</td>
+      <td>0.23%</td>
+      <td>-21.00</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1520.43</td>
+      <td>10</td>
+      <td>@ Cleveland Browns</td>
+      <td>1544.80</td>
+      <td>13</td>
+      <td>40.50%</td>
+      <td>59.27%</td>
+      <td>0.23%</td>
+      <td>-10.34</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Los Angeles Chargers</td>
+      <td>1530.76</td>
+      <td>20</td>
+      <td>@ Green Bay Packers</td>
+      <td>1464.18</td>
+      <td>23</td>
+      <td>53.46%</td>
+      <td>46.31%</td>
+      <td>0.23%</td>
+      <td>-13.64</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Tennessee Titans</td>
+      <td>1424.46</td>
+      <td>14</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1545.70</td>
+      <td>34</td>
+      <td>28.04%</td>
+      <td>71.73%</td>
+      <td>0.23%</td>
+      <td>-18.50</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Las Vegas Raiders</td>
+      <td>1453.82</td>
+      <td>13</td>
+      <td>@ Miami Dolphins</td>
+      <td>1545.12</td>
+      <td>20</td>
+      <td>31.65%</td>
+      <td>68.13%</td>
+      <td>0.23%</td>
+      <td>-12.35</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Dallas Cowboys</td>
+      <td>1619.27</td>
+      <td>33</td>
+      <td>@ Carolina Panthers</td>
+      <td>1347.91</td>
+      <td>10</td>
+      <td>78.80%</td>
+      <td>20.97%</td>
+      <td>0.23%</td>
+      <td>14.83</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Chicago Bears</td>
+      <td>1387.23</td>
+      <td>26</td>
+      <td>@ Detroit Lions</td>
+      <td>1586.04</td>
+      <td>31</td>
+      <td>19.96%</td>
+      <td>79.82%</td>
+      <td>0.23%</td>
+      <td>-6.58</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1483.49</td>
+      <td>14</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1667.34</td>
+      <td>27</td>
+      <td>21.37%</td>
+      <td>78.40%</td>
+      <td>0.23%</td>
+      <td>-11.37</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>New York Giants</td>
+      <td>1356.90</td>
+      <td>31</td>
+      <td>@ Washington Commanders</td>
+      <td>1424.79</td>
+      <td>19</td>
+      <td>34.63%</td>
+      <td>65.14%</td>
+      <td>0.23%</td>
+      <td>33.23</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Denver Broncos</td>
+      <td>1442.17</td>
+      <td>21</td>
+      <td>Minnesota Vikings</td>
+      <td>1565.11</td>
+      <td>20</td>
+      <td>38.41%</td>
+      <td>61.37%</td>
+      <td>0.23%</td>
+      <td>9.04</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Buffalo Bills</td>
+      <td>1597.15</td>
+      <td>32</td>
+      <td>New York Jets</td>
+      <td>1444.58</td>
+      <td>6</td>
+      <td>75.22%</td>
+      <td>24.55%</td>
+      <td>0.23%</td>
+      <td>18.46</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Los Angeles Rams</td>
+      <td>1420.90</td>
+      <td>17</td>
+      <td>Seattle Seahawks</td>
+      <td>1525.12</td>
+      <td>16</td>
+      <td>40.99%</td>
+      <td>58.79%</td>
+      <td>0.23%</td>
+      <td>8.66</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Minnesota Vikings</td>
+      <td>1565.11</td>
+      <td>20</td>
+      <td>@ Denver Broncos</td>
+      <td>1442.17</td>
+      <td>21</td>
+      <td>61.37%</td>
+      <td>38.41%</td>
+      <td>0.23%</td>
+      <td>-9.04</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Washington Commanders</td>
+      <td>1424.79</td>
+      <td>19</td>
+      <td>New York Giants</td>
+      <td>1356.90</td>
+      <td>31</td>
+      <td>65.14%</td>
+      <td>34.63%</td>
+      <td>0.23%</td>
+      <td>-33.24</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Houston Texans</td>
+      <td>1481.02</td>
+      <td>21</td>
+      <td>Arizona Cardinals</td>
+      <td>1354.84</td>
+      <td>16</td>
+      <td>72.30%</td>
+      <td>27.47%</td>
+      <td>0.23%</td>
+      <td>9.06</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Arizona Cardinals</td>
+      <td>1354.84</td>
+      <td>16</td>
+      <td>@ Houston Texans</td>
+      <td>1481.02</td>
+      <td>21</td>
+      <td>27.47%</td>
+      <td>72.30%</td>
+      <td>0.23%</td>
+      <td>-9.06</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Detroit Lions</td>
+      <td>1586.04</td>
+      <td>31</td>
+      <td>Chicago Bears</td>
+      <td>1387.23</td>
+      <td>26</td>
+      <td>79.82%</td>
+      <td>19.96%</td>
+      <td>0.23%</td>
+      <td>6.58</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1545.70</td>
+      <td>34</td>
+      <td>Tennessee Titans</td>
+      <td>1424.46</td>
+      <td>14</td>
+      <td>71.73%</td>
+      <td>28.04%</td>
+      <td>0.23%</td>
+      <td>18.49</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Green Bay Packers</td>
+      <td>1464.18</td>
+      <td>23</td>
+      <td>Los Angeles Chargers</td>
+      <td>1530.76</td>
+      <td>20</td>
+      <td>46.31%</td>
+      <td>53.46%</td>
+      <td>0.23%</td>
+      <td>13.64</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Cleveland Browns</td>
+      <td>1544.80</td>
+      <td>13</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1520.43</td>
+      <td>10</td>
+      <td>59.27%</td>
+      <td>40.50%</td>
+      <td>0.23%</td>
+      <td>10.34</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Carolina Panthers</td>
+      <td>1347.91</td>
+      <td>10</td>
+      <td>Dallas Cowboys</td>
+      <td>1619.27</td>
+      <td>33</td>
+      <td>20.97%</td>
+      <td>78.80%</td>
+      <td>0.23%</td>
+      <td>-14.84</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>New York Jets</td>
+      <td>1444.58</td>
+      <td>6</td>
+      <td>@ Buffalo Bills</td>
+      <td>1597.15</td>
+      <td>32</td>
+      <td>24.55%</td>
+      <td>75.22%</td>
+      <td>0.23%</td>
+      <td>-18.47</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Seattle Seahawks</td>
+      <td>1525.12</td>
+      <td>16</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1420.90</td>
+      <td>17</td>
+      <td>58.79%</td>
+      <td>40.99%</td>
+      <td>0.23%</td>
+      <td>-8.66</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>Miami Dolphins</td>
+      <td>1545.12</td>
+      <td>20</td>
+      <td>Las Vegas Raiders</td>
+      <td>1453.82</td>
+      <td>13</td>
+      <td>68.13%</td>
+      <td>31.65%</td>
+      <td>0.23%</td>
+      <td>12.35</td>
+    </tr>
+    <tr>
+      <td>2023-11-19</td>
+      <td>San Francisco 49ers</td>
+      <td>1667.34</td>
+      <td>27</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1483.49</td>
+      <td>14</td>
+      <td>78.40%</td>
+      <td>21.37%</td>
+      <td>0.23%</td>
+      <td>11.37</td>
+    </tr>
+    <tr>
+      <td>2023-11-20</td>
+      <td>Kansas City Chiefs</td>
+      <td>1644.27</td>
+      <td>17</td>
+      <td>Philadelphia Eagles</td>
+      <td>1673.07</td>
+      <td>21</td>
+      <td>51.74%</td>
+      <td>48.03%</td>
+      <td>0.23%</td>
+      <td>-15.25</td>
+    </tr>
+    <tr>
+      <td>2023-11-20</td>
+      <td>Philadelphia Eagles</td>
+      <td>1673.07</td>
+      <td>21</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1644.27</td>
+      <td>17</td>
+      <td>48.03%</td>
+      <td>51.74%</td>
+      <td>0.23%</td>
+      <td>15.24</td>
+    </tr>
+    <tr>
+      <td>2023-11-23</td>
+      <td>Dallas Cowboys</td>
+      <td>1634.10</td>
+      <td>45</td>
+      <td>Washington Commanders</td>
+      <td>1391.55</td>
+      <td>10</td>
+      <td>83.54%</td>
+      <td>16.24%</td>
+      <td>0.23%</td>
+      <td>14.18</td>
+    </tr>
+    <tr>
+      <td>2023-11-23</td>
+      <td>Seattle Seahawks</td>
+      <td>1516.46</td>
+      <td>13</td>
+      <td>San Francisco 49ers</td>
+      <td>1678.71</td>
+      <td>31</td>
+      <td>33.21%</td>
+      <td>66.56%</td>
+      <td>0.23%</td>
+      <td>-20.78</td>
+    </tr>
+    <tr>
+      <td>2023-11-23</td>
+      <td>Green Bay Packers</td>
+      <td>1477.82</td>
+      <td>29</td>
+      <td>@ Detroit Lions</td>
+      <td>1592.62</td>
+      <td>22</td>
+      <td>28.80%</td>
+      <td>70.98%</td>
+      <td>0.23%</td>
+      <td>27.65</td>
+    </tr>
+    <tr>
+      <td>2023-11-23</td>
+      <td>Washington Commanders</td>
+      <td>1391.55</td>
+      <td>10</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1634.10</td>
+      <td>45</td>
+      <td>16.24%</td>
+      <td>83.54%</td>
+      <td>0.23%</td>
+      <td>-14.17</td>
+    </tr>
+    <tr>
+      <td>2023-11-23</td>
+      <td>San Francisco 49ers</td>
+      <td>1678.71</td>
+      <td>31</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1516.46</td>
+      <td>13</td>
+      <td>66.56%</td>
+      <td>33.21%</td>
+      <td>0.23%</td>
+      <td>20.77</td>
+    </tr>
+    <tr>
+      <td>2023-11-23</td>
+      <td>Detroit Lions</td>
+      <td>1592.62</td>
+      <td>22</td>
+      <td>Green Bay Packers</td>
+      <td>1477.82</td>
+      <td>29</td>
+      <td>70.98%</td>
+      <td>28.80%</td>
+      <td>0.23%</td>
+      <td>-27.65</td>
+    </tr>
+    <tr>
+      <td>2023-11-24</td>
+      <td>New York Jets</td>
+      <td>1426.11</td>
+      <td>13</td>
+      <td>Miami Dolphins</td>
+      <td>1557.47</td>
+      <td>34</td>
+      <td>37.27%</td>
+      <td>62.51%</td>
+      <td>0.23%</td>
+      <td>-25.17</td>
+    </tr>
+    <tr>
+      <td>2023-11-24</td>
+      <td>Miami Dolphins</td>
+      <td>1557.47</td>
+      <td>34</td>
+      <td>@ New York Jets</td>
+      <td>1426.11</td>
+      <td>13</td>
+      <td>62.51%</td>
+      <td>37.27%</td>
+      <td>0.23%</td>
+      <td>25.18</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>New England Patriots</td>
+      <td>1380.95</td>
+      <td>7</td>
+      <td>@ New York Giants</td>
+      <td>1390.13</td>
+      <td>10</td>
+      <td>42.62%</td>
+      <td>57.15%</td>
+      <td>0.23%</td>
+      <td>-10.88</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Los Angeles Chargers</td>
+      <td>1517.12</td>
+      <td>10</td>
+      <td>Baltimore Ravens</td>
+      <td>1653.62</td>
+      <td>20</td>
+      <td>36.58%</td>
+      <td>63.20%</td>
+      <td>0.23%</td>
+      <td>-17.05</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Tennessee Titans</td>
+      <td>1405.96</td>
+      <td>17</td>
+      <td>Carolina Panthers</td>
+      <td>1333.07</td>
+      <td>10</td>
+      <td>65.79%</td>
+      <td>33.98%</td>
+      <td>0.23%</td>
+      <td>13.26</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>New Orleans Saints</td>
+      <td>1498.49</td>
+      <td>15</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1408.71</td>
+      <td>24</td>
+      <td>56.76%</td>
+      <td>43.01%</td>
+      <td>0.23%</td>
+      <td>-25.08</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1472.12</td>
+      <td>20</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1438.27</td>
+      <td>27</td>
+      <td>48.76%</td>
+      <td>51.01%</td>
+      <td>0.23%</td>
+      <td>-19.00</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Los Angeles Rams</td>
+      <td>1429.56</td>
+      <td>37</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1345.78</td>
+      <td>14</td>
+      <td>55.91%</td>
+      <td>43.86%</td>
+      <td>0.23%</td>
+      <td>31.00</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Kansas City Chiefs</td>
+      <td>1629.02</td>
+      <td>31</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1441.47</td>
+      <td>17</td>
+      <td>69.71%</td>
+      <td>30.06%</td>
+      <td>0.23%</td>
+      <td>16.59</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Buffalo Bills</td>
+      <td>1615.61</td>
+      <td>34</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1688.31</td>
+      <td>37</td>
+      <td>34.01%</td>
+      <td>65.77%</td>
+      <td>0.23%</td>
+      <td>-8.68</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Baltimore Ravens</td>
+      <td>1653.62</td>
+      <td>20</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1517.12</td>
+      <td>10</td>
+      <td>63.20%</td>
+      <td>36.58%</td>
+      <td>0.23%</td>
+      <td>17.06</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Atlanta Falcons</td>
+      <td>1408.71</td>
+      <td>24</td>
+      <td>New Orleans Saints</td>
+      <td>1498.49</td>
+      <td>15</td>
+      <td>43.01%</td>
+      <td>56.76%</td>
+      <td>0.23%</td>
+      <td>25.09</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1564.19</td>
+      <td>24</td>
+      <td>@ Houston Texans</td>
+      <td>1490.08</td>
+      <td>21</td>
+      <td>54.54%</td>
+      <td>45.23%</td>
+      <td>0.23%</td>
+      <td>11.55</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Cleveland Browns</td>
+      <td>1555.14</td>
+      <td>12</td>
+      <td>@ Denver Broncos</td>
+      <td>1451.21</td>
+      <td>29</td>
+      <td>58.75%</td>
+      <td>41.03%</td>
+      <td>0.23%</td>
+      <td>-35.68</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Philadelphia Eagles</td>
+      <td>1688.31</td>
+      <td>37</td>
+      <td>Buffalo Bills</td>
+      <td>1615.61</td>
+      <td>34</td>
+      <td>65.77%</td>
+      <td>34.01%</td>
+      <td>0.23%</td>
+      <td>8.69</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Las Vegas Raiders</td>
+      <td>1441.47</td>
+      <td>17</td>
+      <td>Kansas City Chiefs</td>
+      <td>1629.02</td>
+      <td>31</td>
+      <td>30.06%</td>
+      <td>69.71%</td>
+      <td>0.23%</td>
+      <td>-16.59</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Arizona Cardinals</td>
+      <td>1345.78</td>
+      <td>14</td>
+      <td>Los Angeles Rams</td>
+      <td>1429.56</td>
+      <td>37</td>
+      <td>43.86%</td>
+      <td>55.91%</td>
+      <td>0.23%</td>
+      <td>-31.00</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Denver Broncos</td>
+      <td>1451.21</td>
+      <td>29</td>
+      <td>Cleveland Browns</td>
+      <td>1555.14</td>
+      <td>12</td>
+      <td>41.03%</td>
+      <td>58.75%</td>
+      <td>0.23%</td>
+      <td>35.68</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>New York Giants</td>
+      <td>1390.13</td>
+      <td>10</td>
+      <td>New England Patriots</td>
+      <td>1380.95</td>
+      <td>7</td>
+      <td>57.15%</td>
+      <td>42.62%</td>
+      <td>0.23%</td>
+      <td>10.88</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Houston Texans</td>
+      <td>1490.08</td>
+      <td>21</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1564.19</td>
+      <td>24</td>
+      <td>45.23%</td>
+      <td>54.54%</td>
+      <td>0.23%</td>
+      <td>-11.54</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Indianapolis Colts</td>
+      <td>1438.27</td>
+      <td>27</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1472.12</td>
+      <td>20</td>
+      <td>51.01%</td>
+      <td>48.76%</td>
+      <td>0.23%</td>
+      <td>19.01</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Cincinnati Bengals</td>
+      <td>1569.50</td>
+      <td>10</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1510.09</td>
+      <td>16</td>
+      <td>64.03%</td>
+      <td>35.75%</td>
+      <td>0.23%</td>
+      <td>-23.10</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Carolina Panthers</td>
+      <td>1333.07</td>
+      <td>10</td>
+      <td>@ Tennessee Titans</td>
+      <td>1405.96</td>
+      <td>17</td>
+      <td>33.98%</td>
+      <td>65.79%</td>
+      <td>0.23%</td>
+      <td>-13.26</td>
+    </tr>
+    <tr>
+      <td>2023-11-26</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1510.09</td>
+      <td>16</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1569.50</td>
+      <td>10</td>
+      <td>35.75%</td>
+      <td>64.03%</td>
+      <td>0.23%</td>
+      <td>23.10</td>
+    </tr>
+    <tr>
+      <td>2023-11-27</td>
+      <td>Chicago Bears</td>
+      <td>1380.65</td>
+      <td>12</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1556.07</td>
+      <td>10</td>
+      <td>22.20%</td>
+      <td>77.58%</td>
+      <td>0.23%</td>
+      <td>16.16</td>
+    </tr>
+    <tr>
+      <td>2023-11-27</td>
+      <td>Minnesota Vikings</td>
+      <td>1556.07</td>
+      <td>10</td>
+      <td>Chicago Bears</td>
+      <td>1380.65</td>
+      <td>12</td>
+      <td>77.58%</td>
+      <td>22.20%</td>
+      <td>0.23%</td>
+      <td>-16.15</td>
+    </tr>
+    <tr>
+      <td>2023-11-30</td>
+      <td>Seattle Seahawks</td>
+      <td>1495.68</td>
+      <td>35</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1648.28</td>
+      <td>41</td>
+      <td>24.55%</td>
+      <td>75.23%</td>
+      <td>0.23%</td>
+      <td>-8.86</td>
+    </tr>
+    <tr>
+      <td>2023-11-30</td>
+      <td>Dallas Cowboys</td>
+      <td>1648.28</td>
+      <td>41</td>
+      <td>Seattle Seahawks</td>
+      <td>1495.68</td>
+      <td>35</td>
+      <td>75.23%</td>
+      <td>24.55%</td>
+      <td>0.23%</td>
+      <td>8.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Atlanta Falcons</td>
+      <td>1433.80</td>
+      <td>13</td>
+      <td>@ New York Jets</td>
+      <td>1400.94</td>
+      <td>8</td>
+      <td>48.62%</td>
+      <td>51.16%</td>
+      <td>0.23%</td>
+      <td>16.85</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Denver Broncos</td>
+      <td>1486.89</td>
+      <td>17</td>
+      <td>@ Houston Texans</td>
+      <td>1478.54</td>
+      <td>22</td>
+      <td>45.11%</td>
+      <td>54.67%</td>
+      <td>0.23%</td>
+      <td>-14.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Indianapolis Colts</td>
+      <td>1457.28</td>
+      <td>31</td>
+      <td>@ Tennessee Titans</td>
+      <td>1419.22</td>
+      <td>28</td>
+      <td>49.37%</td>
+      <td>50.41%</td>
+      <td>0.23%</td>
+      <td>12.86</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Green Bay Packers</td>
+      <td>1505.47</td>
+      <td>27</td>
+      <td>Kansas City Chiefs</td>
+      <td>1645.61</td>
+      <td>19</td>
+      <td>36.09%</td>
+      <td>63.68%</td>
+      <td>0.23%</td>
+      <td>26.53</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Philadelphia Eagles</td>
+      <td>1697.00</td>
+      <td>19</td>
+      <td>San Francisco 49ers</td>
+      <td>1699.48</td>
+      <td>42</td>
+      <td>55.50%</td>
+      <td>44.27%</td>
+      <td>0.23%</td>
+      <td>-39.21</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Los Angeles Rams</td>
+      <td>1460.56</td>
+      <td>36</td>
+      <td>Cleveland Browns</td>
+      <td>1519.46</td>
+      <td>19</td>
+      <td>47.41%</td>
+      <td>52.36%</td>
+      <td>0.23%</td>
+      <td>31.80</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1453.12</td>
+      <td>21</td>
+      <td>Carolina Panthers</td>
+      <td>1319.81</td>
+      <td>18</td>
+      <td>73.11%</td>
+      <td>26.66%</td>
+      <td>0.23%</td>
+      <td>6.81</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1533.19</td>
+      <td>10</td>
+      <td>Arizona Cardinals</td>
+      <td>1314.78</td>
+      <td>24</td>
+      <td>81.56%</td>
+      <td>18.22%</td>
+      <td>0.23%</td>
+      <td>-44.94</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>New England Patriots</td>
+      <td>1370.07</td>
+      <td>0</td>
+      <td>Los Angeles Chargers</td>
+      <td>1500.07</td>
+      <td>6</td>
+      <td>37.45%</td>
+      <td>62.32%</td>
+      <td>0.23%</td>
+      <td>-13.52</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Washington Commanders</td>
+      <td>1377.38</td>
+      <td>15</td>
+      <td>Miami Dolphins</td>
+      <td>1582.65</td>
+      <td>45</td>
+      <td>27.96%</td>
+      <td>71.81%</td>
+      <td>0.23%</td>
+      <td>-22.59</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>New Orleans Saints</td>
+      <td>1473.41</td>
+      <td>28</td>
+      <td>Detroit Lions</td>
+      <td>1564.97</td>
+      <td>33</td>
+      <td>42.76%</td>
+      <td>57.01%</td>
+      <td>0.23%</td>
+      <td>-14.10</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Houston Texans</td>
+      <td>1478.54</td>
+      <td>22</td>
+      <td>Denver Broncos</td>
+      <td>1486.89</td>
+      <td>17</td>
+      <td>54.67%</td>
+      <td>45.11%</td>
+      <td>0.23%</td>
+      <td>14.86</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>New York Jets</td>
+      <td>1400.94</td>
+      <td>8</td>
+      <td>Atlanta Falcons</td>
+      <td>1433.80</td>
+      <td>13</td>
+      <td>51.16%</td>
+      <td>48.62%</td>
+      <td>0.23%</td>
+      <td>-16.85</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Tennessee Titans</td>
+      <td>1419.22</td>
+      <td>28</td>
+      <td>Indianapolis Colts</td>
+      <td>1457.28</td>
+      <td>31</td>
+      <td>50.41%</td>
+      <td>49.37%</td>
+      <td>0.23%</td>
+      <td>-12.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Carolina Panthers</td>
+      <td>1319.81</td>
+      <td>18</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1453.12</td>
+      <td>21</td>
+      <td>26.66%</td>
+      <td>73.11%</td>
+      <td>0.23%</td>
+      <td>-6.81</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Kansas City Chiefs</td>
+      <td>1645.61</td>
+      <td>19</td>
+      <td>@ Green Bay Packers</td>
+      <td>1505.47</td>
+      <td>27</td>
+      <td>63.68%</td>
+      <td>36.09%</td>
+      <td>0.23%</td>
+      <td>-26.53</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Arizona Cardinals</td>
+      <td>1314.78</td>
+      <td>24</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1533.19</td>
+      <td>10</td>
+      <td>18.22%</td>
+      <td>81.56%</td>
+      <td>0.23%</td>
+      <td>44.95</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Los Angeles Chargers</td>
+      <td>1500.07</td>
+      <td>6</td>
+      <td>@ New England Patriots</td>
+      <td>1370.07</td>
+      <td>0</td>
+      <td>62.32%</td>
+      <td>37.45%</td>
+      <td>0.23%</td>
+      <td>13.52</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Miami Dolphins</td>
+      <td>1582.65</td>
+      <td>45</td>
+      <td>@ Washington Commanders</td>
+      <td>1377.38</td>
+      <td>15</td>
+      <td>71.81%</td>
+      <td>27.96%</td>
+      <td>0.23%</td>
+      <td>22.59</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>San Francisco 49ers</td>
+      <td>1699.48</td>
+      <td>42</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1697.00</td>
+      <td>19</td>
+      <td>44.27%</td>
+      <td>55.50%</td>
+      <td>0.23%</td>
+      <td>39.21</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Detroit Lions</td>
+      <td>1564.97</td>
+      <td>33</td>
+      <td>@ New Orleans Saints</td>
+      <td>1473.41</td>
+      <td>28</td>
+      <td>57.01%</td>
+      <td>42.76%</td>
+      <td>0.23%</td>
+      <td>14.09</td>
+    </tr>
+    <tr>
+      <td>2023-12-03</td>
+      <td>Cleveland Browns</td>
+      <td>1519.46</td>
+      <td>19</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1460.56</td>
+      <td>36</td>
+      <td>52.36%</td>
+      <td>47.41%</td>
+      <td>0.23%</td>
+      <td>-31.80</td>
+    </tr>
+    <tr>
+      <td>2023-12-04</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1575.74</td>
+      <td>31</td>
+      <td>Cincinnati Bengals</td>
+      <td>1546.40</td>
+      <td>34</td>
+      <td>59.96%</td>
+      <td>39.81%</td>
+      <td>0.23%</td>
+      <td>-15.30</td>
+    </tr>
+    <tr>
+      <td>2023-12-04</td>
+      <td>Cincinnati Bengals</td>
+      <td>1546.40</td>
+      <td>34</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1575.74</td>
+      <td>31</td>
+      <td>39.81%</td>
+      <td>59.96%</td>
+      <td>0.23%</td>
+      <td>15.30</td>
+    </tr>
+    <tr>
+      <td>2023-12-07</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1488.25</td>
+      <td>18</td>
+      <td>New England Patriots</td>
+      <td>1356.55</td>
+      <td>21</td>
+      <td>72.93%</td>
+      <td>26.84%</td>
+      <td>0.23%</td>
+      <td>-18.61</td>
+    </tr>
+    <tr>
+      <td>2023-12-07</td>
+      <td>New England Patriots</td>
+      <td>1356.55</td>
+      <td>21</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1488.25</td>
+      <td>18</td>
+      <td>26.84%</td>
+      <td>72.93%</td>
+      <td>0.23%</td>
+      <td>18.60</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Cleveland Browns</td>
+      <td>1487.66</td>
+      <td>31</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1560.44</td>
+      <td>27</td>
+      <td>45.42%</td>
+      <td>54.35%</td>
+      <td>0.23%</td>
+      <td>16.01</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Cincinnati Bengals</td>
+      <td>1561.70</td>
+      <td>34</td>
+      <td>Indianapolis Colts</td>
+      <td>1470.14</td>
+      <td>14</td>
+      <td>68.16%</td>
+      <td>31.62%</td>
+      <td>0.23%</td>
+      <td>20.85</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Chicago Bears</td>
+      <td>1396.81</td>
+      <td>28</td>
+      <td>Detroit Lions</td>
+      <td>1579.06</td>
+      <td>13</td>
+      <td>30.71%</td>
+      <td>69.06%</td>
+      <td>0.23%</td>
+      <td>39.39</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>New Orleans Saints</td>
+      <td>1459.31</td>
+      <td>28</td>
+      <td>Carolina Panthers</td>
+      <td>1313.00</td>
+      <td>6</td>
+      <td>74.55%</td>
+      <td>25.22%</td>
+      <td>0.23%</td>
+      <td>17.45</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Baltimore Ravens</td>
+      <td>1670.68</td>
+      <td>37</td>
+      <td>Los Angeles Rams</td>
+      <td>1492.36</td>
+      <td>31</td>
+      <td>77.86%</td>
+      <td>21.91%</td>
+      <td>0.23%</td>
+      <td>7.91</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Atlanta Falcons</td>
+      <td>1450.65</td>
+      <td>25</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1459.93</td>
+      <td>29</td>
+      <td>54.54%</td>
+      <td>45.24%</td>
+      <td>0.23%</td>
+      <td>-16.07</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Las Vegas Raiders</td>
+      <td>1424.88</td>
+      <td>0</td>
+      <td>Minnesota Vikings</td>
+      <td>1539.92</td>
+      <td>3</td>
+      <td>39.49%</td>
+      <td>60.28%</td>
+      <td>0.23%</td>
+      <td>-10.08</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>San Francisco 49ers</td>
+      <td>1738.69</td>
+      <td>28</td>
+      <td>Seattle Seahawks</td>
+      <td>1486.82</td>
+      <td>16</td>
+      <td>84.25%</td>
+      <td>15.52%</td>
+      <td>0.23%</td>
+      <td>7.94</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Kansas City Chiefs</td>
+      <td>1619.08</td>
+      <td>17</td>
+      <td>Buffalo Bills</td>
+      <td>1606.93</td>
+      <td>20</td>
+      <td>57.57%</td>
+      <td>42.20%</td>
+      <td>0.23%</td>
+      <td>-14.68</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Los Angeles Chargers</td>
+      <td>1513.59</td>
+      <td>7</td>
+      <td>Denver Broncos</td>
+      <td>1472.02</td>
+      <td>24</td>
+      <td>61.64%</td>
+      <td>38.14%</td>
+      <td>0.23%</td>
+      <td>-37.43</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>New York Jets</td>
+      <td>1384.09</td>
+      <td>30</td>
+      <td>Houston Texans</td>
+      <td>1493.40</td>
+      <td>6</td>
+      <td>40.28%</td>
+      <td>59.49%</td>
+      <td>0.23%</td>
+      <td>42.92</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Detroit Lions</td>
+      <td>1579.06</td>
+      <td>13</td>
+      <td>@ Chicago Bears</td>
+      <td>1396.81</td>
+      <td>28</td>
+      <td>69.06%</td>
+      <td>30.71%</td>
+      <td>0.23%</td>
+      <td>-39.40</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Seattle Seahawks</td>
+      <td>1486.82</td>
+      <td>16</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1738.69</td>
+      <td>28</td>
+      <td>15.52%</td>
+      <td>84.25%</td>
+      <td>0.23%</td>
+      <td>-7.94</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Indianapolis Colts</td>
+      <td>1470.14</td>
+      <td>14</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1561.70</td>
+      <td>34</td>
+      <td>31.62%</td>
+      <td>68.16%</td>
+      <td>0.23%</td>
+      <td>-20.84</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1560.44</td>
+      <td>27</td>
+      <td>@ Cleveland Browns</td>
+      <td>1487.66</td>
+      <td>31</td>
+      <td>54.35%</td>
+      <td>45.42%</td>
+      <td>0.23%</td>
+      <td>-16.01</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Houston Texans</td>
+      <td>1493.40</td>
+      <td>6</td>
+      <td>@ New York Jets</td>
+      <td>1384.09</td>
+      <td>30</td>
+      <td>59.49%</td>
+      <td>40.28%</td>
+      <td>0.23%</td>
+      <td>-42.93</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Los Angeles Rams</td>
+      <td>1492.36</td>
+      <td>31</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1670.68</td>
+      <td>37</td>
+      <td>21.91%</td>
+      <td>77.86%</td>
+      <td>0.23%</td>
+      <td>-7.92</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Minnesota Vikings</td>
+      <td>1539.92</td>
+      <td>3</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1424.88</td>
+      <td>0</td>
+      <td>60.28%</td>
+      <td>39.49%</td>
+      <td>0.23%</td>
+      <td>10.08</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Carolina Panthers</td>
+      <td>1313.00</td>
+      <td>6</td>
+      <td>@ New Orleans Saints</td>
+      <td>1459.31</td>
+      <td>28</td>
+      <td>25.22%</td>
+      <td>74.55%</td>
+      <td>0.23%</td>
+      <td>-17.45</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Buffalo Bills</td>
+      <td>1606.93</td>
+      <td>20</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1619.08</td>
+      <td>17</td>
+      <td>42.20%</td>
+      <td>57.57%</td>
+      <td>0.23%</td>
+      <td>14.68</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Denver Broncos</td>
+      <td>1472.02</td>
+      <td>24</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1513.59</td>
+      <td>7</td>
+      <td>38.14%</td>
+      <td>61.64%</td>
+      <td>0.23%</td>
+      <td>37.43</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Dallas Cowboys</td>
+      <td>1657.15</td>
+      <td>33</td>
+      <td>Philadelphia Eagles</td>
+      <td>1657.79</td>
+      <td>13</td>
+      <td>55.76%</td>
+      <td>44.01%</td>
+      <td>0.23%</td>
+      <td>29.00</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1459.93</td>
+      <td>29</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1450.65</td>
+      <td>25</td>
+      <td>45.24%</td>
+      <td>54.54%</td>
+      <td>0.23%</td>
+      <td>16.06</td>
+    </tr>
+    <tr>
+      <td>2023-12-10</td>
+      <td>Philadelphia Eagles</td>
+      <td>1657.79</td>
+      <td>13</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1657.15</td>
+      <td>33</td>
+      <td>44.01%</td>
+      <td>55.76%</td>
+      <td>0.23%</td>
+      <td>-29.01</td>
+    </tr>
+    <tr>
+      <td>2023-12-11</td>
+      <td>Green Bay Packers</td>
+      <td>1532.00</td>
+      <td>22</td>
+      <td>@ New York Giants</td>
+      <td>1401.01</td>
+      <td>24</td>
+      <td>62.46%</td>
+      <td>37.32%</td>
+      <td>0.23%</td>
+      <td>-13.01</td>
+    </tr>
+    <tr>
+      <td>2023-12-11</td>
+      <td>Tennessee Titans</td>
+      <td>1406.35</td>
+      <td>28</td>
+      <td>@ Miami Dolphins</td>
+      <td>1605.24</td>
+      <td>27</td>
+      <td>19.95%</td>
+      <td>79.82%</td>
+      <td>0.23%</td>
+      <td>11.76</td>
+    </tr>
+    <tr>
+      <td>2023-12-11</td>
+      <td>Miami Dolphins</td>
+      <td>1605.24</td>
+      <td>27</td>
+      <td>Tennessee Titans</td>
+      <td>1406.35</td>
+      <td>28</td>
+      <td>79.82%</td>
+      <td>19.95%</td>
+      <td>0.23%</td>
+      <td>-11.76</td>
+    </tr>
+    <tr>
+      <td>2023-12-11</td>
+      <td>New York Giants</td>
+      <td>1401.01</td>
+      <td>24</td>
+      <td>Green Bay Packers</td>
+      <td>1532.00</td>
+      <td>22</td>
+      <td>37.32%</td>
+      <td>62.46%</td>
+      <td>0.23%</td>
+      <td>13.01</td>
+    </tr>
+    <tr>
+      <td>2023-12-14</td>
+      <td>Los Angeles Chargers</td>
+      <td>1476.16</td>
+      <td>21</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1414.80</td>
+      <td>63</td>
+      <td>52.72%</td>
+      <td>47.06%</td>
+      <td>0.23%</td>
+      <td>-50.33</td>
+    </tr>
+    <tr>
+      <td>2023-12-14</td>
+      <td>Las Vegas Raiders</td>
+      <td>1414.80</td>
+      <td>63</td>
+      <td>Los Angeles Chargers</td>
+      <td>1476.16</td>
+      <td>21</td>
+      <td>47.06%</td>
+      <td>52.72%</td>
+      <td>0.23%</td>
+      <td>50.33</td>
+    </tr>
+    <tr>
+      <td>2023-12-16</td>
+      <td>Minnesota Vikings</td>
+      <td>1550.00</td>
+      <td>24</td>
+      <td>@ Cincinnati Bengals</td>
+      <td>1582.55</td>
+      <td>27</td>
+      <td>39.37%</td>
+      <td>60.40%</td>
+      <td>0.23%</td>
+      <td>-10.05</td>
+    </tr>
+    <tr>
+      <td>2023-12-16</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1469.64</td>
+      <td>13</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1449.30</td>
+      <td>30</td>
+      <td>46.82%</td>
+      <td>52.95%</td>
+      <td>0.23%</td>
+      <td>-28.44</td>
+    </tr>
+    <tr>
+      <td>2023-12-16</td>
+      <td>Denver Broncos</td>
+      <td>1509.45</td>
+      <td>17</td>
+      <td>@ Detroit Lions</td>
+      <td>1539.66</td>
+      <td>42</td>
+      <td>39.69%</td>
+      <td>60.08%</td>
+      <td>0.23%</td>
+      <td>-29.25</td>
+    </tr>
+    <tr>
+      <td>2023-12-16</td>
+      <td>Detroit Lions</td>
+      <td>1539.66</td>
+      <td>42</td>
+      <td>Denver Broncos</td>
+      <td>1509.45</td>
+      <td>17</td>
+      <td>60.08%</td>
+      <td>39.69%</td>
+      <td>0.23%</td>
+      <td>29.26</td>
+    </tr>
+    <tr>
+      <td>2023-12-16</td>
+      <td>Indianapolis Colts</td>
+      <td>1449.30</td>
+      <td>30</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1469.64</td>
+      <td>13</td>
+      <td>52.95%</td>
+      <td>46.82%</td>
+      <td>0.23%</td>
+      <td>28.44</td>
+    </tr>
+    <tr>
+      <td>2023-12-16</td>
+      <td>Cincinnati Bengals</td>
+      <td>1582.55</td>
+      <td>27</td>
+      <td>Minnesota Vikings</td>
+      <td>1550.00</td>
+      <td>24</td>
+      <td>60.40%</td>
+      <td>39.37%</td>
+      <td>0.23%</td>
+      <td>10.05</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1544.43</td>
+      <td>7</td>
+      <td>Baltimore Ravens</td>
+      <td>1678.59</td>
+      <td>23</td>
+      <td>36.89%</td>
+      <td>62.88%</td>
+      <td>0.23%</td>
+      <td>-21.76</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Cleveland Browns</td>
+      <td>1503.67</td>
+      <td>20</td>
+      <td>Chicago Bears</td>
+      <td>1436.20</td>
+      <td>17</td>
+      <td>65.09%</td>
+      <td>34.69%</td>
+      <td>0.23%</td>
+      <td>8.86</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Atlanta Falcons</td>
+      <td>1434.58</td>
+      <td>7</td>
+      <td>@ Carolina Panthers</td>
+      <td>1295.55</td>
+      <td>9</td>
+      <td>63.53%</td>
+      <td>36.24%</td>
+      <td>0.23%</td>
+      <td>-13.23</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Chicago Bears</td>
+      <td>1436.20</td>
+      <td>17</td>
+      <td>@ Cleveland Browns</td>
+      <td>1503.67</td>
+      <td>20</td>
+      <td>34.69%</td>
+      <td>65.09%</td>
+      <td>0.23%</td>
+      <td>-8.86</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1475.99</td>
+      <td>34</td>
+      <td>@ Green Bay Packers</td>
+      <td>1518.99</td>
+      <td>20</td>
+      <td>37.94%</td>
+      <td>61.83%</td>
+      <td>0.23%</td>
+      <td>34.08</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Houston Texans</td>
+      <td>1450.47</td>
+      <td>19</td>
+      <td>@ Tennessee Titans</td>
+      <td>1418.11</td>
+      <td>16</td>
+      <td>48.55%</td>
+      <td>51.23%</td>
+      <td>0.23%</td>
+      <td>13.07</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Kansas City Chiefs</td>
+      <td>1604.40</td>
+      <td>27</td>
+      <td>@ New England Patriots</td>
+      <td>1375.15</td>
+      <td>17</td>
+      <td>74.50%</td>
+      <td>25.27%</td>
+      <td>0.23%</td>
+      <td>11.78</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>New York Jets</td>
+      <td>1427.01</td>
+      <td>0</td>
+      <td>@ Miami Dolphins</td>
+      <td>1593.48</td>
+      <td>30</td>
+      <td>23.10%</td>
+      <td>76.67%</td>
+      <td>0.23%</td>
+      <td>-18.66</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>New York Giants</td>
+      <td>1414.02</td>
+      <td>6</td>
+      <td>@ New Orleans Saints</td>
+      <td>1476.76</td>
+      <td>24</td>
+      <td>35.31%</td>
+      <td>64.47%</td>
+      <td>0.23%</td>
+      <td>-22.08</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>San Francisco 49ers</td>
+      <td>1746.63</td>
+      <td>45</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1359.73</td>
+      <td>29</td>
+      <td>87.77%</td>
+      <td>12.01%</td>
+      <td>0.23%</td>
+      <td>7.09</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Washington Commanders</td>
+      <td>1354.79</td>
+      <td>20</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1484.44</td>
+      <td>28</td>
+      <td>27.08%</td>
+      <td>72.70%</td>
+      <td>0.23%</td>
+      <td>-11.30</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Dallas Cowboys</td>
+      <td>1686.15</td>
+      <td>10</td>
+      <td>@ Buffalo Bills</td>
+      <td>1621.61</td>
+      <td>31</td>
+      <td>53.17%</td>
+      <td>46.60%</td>
+      <td>0.23%</td>
+      <td>-35.89</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Carolina Panthers</td>
+      <td>1295.55</td>
+      <td>9</td>
+      <td>Atlanta Falcons</td>
+      <td>1434.58</td>
+      <td>7</td>
+      <td>36.24%</td>
+      <td>63.53%</td>
+      <td>0.23%</td>
+      <td>13.24</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Baltimore Ravens</td>
+      <td>1678.59</td>
+      <td>23</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1544.43</td>
+      <td>7</td>
+      <td>62.88%</td>
+      <td>36.89%</td>
+      <td>0.23%</td>
+      <td>21.76</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Buffalo Bills</td>
+      <td>1621.61</td>
+      <td>31</td>
+      <td>Dallas Cowboys</td>
+      <td>1686.15</td>
+      <td>10</td>
+      <td>46.60%</td>
+      <td>53.17%</td>
+      <td>0.23%</td>
+      <td>35.90</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Los Angeles Rams</td>
+      <td>1484.44</td>
+      <td>28</td>
+      <td>Washington Commanders</td>
+      <td>1354.79</td>
+      <td>20</td>
+      <td>72.70%</td>
+      <td>27.08%</td>
+      <td>0.23%</td>
+      <td>11.30</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Arizona Cardinals</td>
+      <td>1359.73</td>
+      <td>29</td>
+      <td>San Francisco 49ers</td>
+      <td>1746.63</td>
+      <td>45</td>
+      <td>12.01%</td>
+      <td>87.77%</td>
+      <td>0.23%</td>
+      <td>-7.09</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>New Orleans Saints</td>
+      <td>1476.76</td>
+      <td>24</td>
+      <td>New York Giants</td>
+      <td>1414.02</td>
+      <td>6</td>
+      <td>64.47%</td>
+      <td>35.31%</td>
+      <td>0.23%</td>
+      <td>22.09</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Miami Dolphins</td>
+      <td>1593.48</td>
+      <td>30</td>
+      <td>New York Jets</td>
+      <td>1427.01</td>
+      <td>0</td>
+      <td>76.67%</td>
+      <td>23.10%</td>
+      <td>0.23%</td>
+      <td>18.66</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>New England Patriots</td>
+      <td>1375.15</td>
+      <td>17</td>
+      <td>Kansas City Chiefs</td>
+      <td>1604.40</td>
+      <td>27</td>
+      <td>25.27%</td>
+      <td>74.50%</td>
+      <td>0.23%</td>
+      <td>-11.79</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Tennessee Titans</td>
+      <td>1418.11</td>
+      <td>16</td>
+      <td>Houston Texans</td>
+      <td>1450.47</td>
+      <td>19</td>
+      <td>51.23%</td>
+      <td>48.55%</td>
+      <td>0.23%</td>
+      <td>-13.07</td>
+    </tr>
+    <tr>
+      <td>2023-12-17</td>
+      <td>Green Bay Packers</td>
+      <td>1518.99</td>
+      <td>20</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1475.99</td>
+      <td>34</td>
+      <td>61.83%</td>
+      <td>37.94%</td>
+      <td>0.23%</td>
+      <td>-34.07</td>
+    </tr>
+    <tr>
+      <td>2023-12-18</td>
+      <td>Seattle Seahawks</td>
+      <td>1478.88</td>
+      <td>20</td>
+      <td>Philadelphia Eagles</td>
+      <td>1628.78</td>
+      <td>17</td>
+      <td>34.81%</td>
+      <td>64.97%</td>
+      <td>0.23%</td>
+      <td>16.57</td>
+    </tr>
+    <tr>
+      <td>2023-12-18</td>
+      <td>Philadelphia Eagles</td>
+      <td>1628.78</td>
+      <td>17</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1478.88</td>
+      <td>20</td>
+      <td>64.97%</td>
+      <td>34.81%</td>
+      <td>0.23%</td>
+      <td>-16.57</td>
+    </tr>
+    <tr>
+      <td>2023-12-21</td>
+      <td>New Orleans Saints</td>
+      <td>1498.85</td>
+      <td>22</td>
+      <td>@ Los Angeles Rams</td>
+      <td>1495.74</td>
+      <td>30</td>
+      <td>44.36%</td>
+      <td>55.41%</td>
+      <td>0.23%</td>
+      <td>-18.49</td>
+    </tr>
+    <tr>
+      <td>2023-12-21</td>
+      <td>Los Angeles Rams</td>
+      <td>1495.74</td>
+      <td>30</td>
+      <td>New Orleans Saints</td>
+      <td>1498.85</td>
+      <td>22</td>
+      <td>55.41%</td>
+      <td>44.36%</td>
+      <td>0.23%</td>
+      <td>18.49</td>
+    </tr>
+    <tr>
+      <td>2023-12-23</td>
+      <td>Buffalo Bills</td>
+      <td>1657.51</td>
+      <td>24</td>
+      <td>@ Los Angeles Chargers</td>
+      <td>1425.83</td>
+      <td>22</td>
+      <td>74.77%</td>
+      <td>25.01%</td>
+      <td>0.23%</td>
+      <td>5.21</td>
+    </tr>
+    <tr>
+      <td>2023-12-23</td>
+      <td>Cincinnati Bengals</td>
+      <td>1592.60</td>
+      <td>11</td>
+      <td>@ Pittsburgh Steelers</td>
+      <td>1441.20</td>
+      <td>34</td>
+      <td>65.16%</td>
+      <td>34.61%</td>
+      <td>0.23%</td>
+      <td>-46.02</td>
+    </tr>
+    <tr>
+      <td>2023-12-23</td>
+      <td>Los Angeles Chargers</td>
+      <td>1425.83</td>
+      <td>22</td>
+      <td>Buffalo Bills</td>
+      <td>1657.51</td>
+      <td>24</td>
+      <td>25.01%</td>
+      <td>74.77%</td>
+      <td>0.23%</td>
+      <td>-5.22</td>
+    </tr>
+    <tr>
+      <td>2023-12-23</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1441.20</td>
+      <td>34</td>
+      <td>Cincinnati Bengals</td>
+      <td>1592.60</td>
+      <td>11</td>
+      <td>34.61%</td>
+      <td>65.16%</td>
+      <td>0.23%</td>
+      <td>46.02</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Green Bay Packers</td>
+      <td>1484.92</td>
+      <td>33</td>
+      <td>@ Carolina Panthers</td>
+      <td>1308.79</td>
+      <td>30</td>
+      <td>68.31%</td>
+      <td>31.46%</td>
+      <td>0.23%</td>
+      <td>8.03</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Denver Broncos</td>
+      <td>1480.20</td>
+      <td>23</td>
+      <td>New England Patriots</td>
+      <td>1363.36</td>
+      <td>26</td>
+      <td>71.22%</td>
+      <td>28.56%</td>
+      <td>0.23%</td>
+      <td>-18.17</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1510.07</td>
+      <td>30</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1522.67</td>
+      <td>12</td>
+      <td>54.06%</td>
+      <td>45.71%</td>
+      <td>0.23%</td>
+      <td>28.58</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Tennessee Titans</td>
+      <td>1405.04</td>
+      <td>17</td>
+      <td>Seattle Seahawks</td>
+      <td>1495.45</td>
+      <td>20</td>
+      <td>42.92%</td>
+      <td>56.85%</td>
+      <td>0.23%</td>
+      <td>-10.96</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>New York Jets</td>
+      <td>1408.35</td>
+      <td>30</td>
+      <td>Washington Commanders</td>
+      <td>1343.49</td>
+      <td>28</td>
+      <td>64.75%</td>
+      <td>35.03%</td>
+      <td>0.23%</td>
+      <td>7.30</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Indianapolis Colts</td>
+      <td>1477.74</td>
+      <td>10</td>
+      <td>@ Atlanta Falcons</td>
+      <td>1421.35</td>
+      <td>29</td>
+      <td>52.00%</td>
+      <td>47.77%</td>
+      <td>0.23%</td>
+      <td>-33.39</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Minnesota Vikings</td>
+      <td>1539.95</td>
+      <td>24</td>
+      <td>Detroit Lions</td>
+      <td>1568.92</td>
+      <td>30</td>
+      <td>51.72%</td>
+      <td>48.06%</td>
+      <td>0.23%</td>
+      <td>-18.67</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Houston Texans</td>
+      <td>1463.54</td>
+      <td>22</td>
+      <td>Cleveland Browns</td>
+      <td>1512.53</td>
+      <td>36</td>
+      <td>48.84%</td>
+      <td>50.94%</td>
+      <td>0.23%</td>
+      <td>-26.92</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Carolina Panthers</td>
+      <td>1308.79</td>
+      <td>30</td>
+      <td>Green Bay Packers</td>
+      <td>1484.92</td>
+      <td>33</td>
+      <td>31.46%</td>
+      <td>68.31%</td>
+      <td>0.23%</td>
+      <td>-8.04</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Miami Dolphins</td>
+      <td>1612.14</td>
+      <td>22</td>
+      <td>Dallas Cowboys</td>
+      <td>1650.26</td>
+      <td>20</td>
+      <td>50.40%</td>
+      <td>49.37%</td>
+      <td>0.23%</td>
+      <td>10.29</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Atlanta Falcons</td>
+      <td>1421.35</td>
+      <td>29</td>
+      <td>Indianapolis Colts</td>
+      <td>1477.74</td>
+      <td>10</td>
+      <td>47.77%</td>
+      <td>52.00%</td>
+      <td>0.23%</td>
+      <td>33.39</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Washington Commanders</td>
+      <td>1343.49</td>
+      <td>28</td>
+      <td>@ New York Jets</td>
+      <td>1408.35</td>
+      <td>30</td>
+      <td>35.03%</td>
+      <td>64.75%</td>
+      <td>0.23%</td>
+      <td>-7.30</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Cleveland Browns</td>
+      <td>1512.53</td>
+      <td>36</td>
+      <td>@ Houston Texans</td>
+      <td>1463.54</td>
+      <td>22</td>
+      <td>50.94%</td>
+      <td>48.84%</td>
+      <td>0.23%</td>
+      <td>26.92</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Detroit Lions</td>
+      <td>1568.92</td>
+      <td>30</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1539.95</td>
+      <td>24</td>
+      <td>48.06%</td>
+      <td>51.72%</td>
+      <td>0.23%</td>
+      <td>18.66</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Seattle Seahawks</td>
+      <td>1495.45</td>
+      <td>20</td>
+      <td>@ Tennessee Titans</td>
+      <td>1405.04</td>
+      <td>17</td>
+      <td>56.85%</td>
+      <td>42.92%</td>
+      <td>0.23%</td>
+      <td>10.96</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1522.67</td>
+      <td>12</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1510.07</td>
+      <td>30</td>
+      <td>45.71%</td>
+      <td>54.06%</td>
+      <td>0.23%</td>
+      <td>-28.58</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Arizona Cardinals</td>
+      <td>1352.64</td>
+      <td>16</td>
+      <td>@ Chicago Bears</td>
+      <td>1427.34</td>
+      <td>27</td>
+      <td>33.75%</td>
+      <td>66.02%</td>
+      <td>0.23%</td>
+      <td>-16.51</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Chicago Bears</td>
+      <td>1427.34</td>
+      <td>27</td>
+      <td>Arizona Cardinals</td>
+      <td>1352.64</td>
+      <td>16</td>
+      <td>66.02%</td>
+      <td>33.75%</td>
+      <td>0.23%</td>
+      <td>16.51</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>New England Patriots</td>
+      <td>1363.36</td>
+      <td>26</td>
+      <td>@ Denver Broncos</td>
+      <td>1480.20</td>
+      <td>23</td>
+      <td>28.56%</td>
+      <td>71.22%</td>
+      <td>0.23%</td>
+      <td>18.17</td>
+    </tr>
+    <tr>
+      <td>2023-12-24</td>
+      <td>Dallas Cowboys</td>
+      <td>1650.26</td>
+      <td>20</td>
+      <td>@ Miami Dolphins</td>
+      <td>1612.14</td>
+      <td>22</td>
+      <td>49.37%</td>
+      <td>50.40%</td>
+      <td>0.23%</td>
+      <td>-10.29</td>
+    </tr>
+    <tr>
+      <td>2023-12-25</td>
+      <td>Las Vegas Raiders</td>
+      <td>1465.13</td>
+      <td>20</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1616.18</td>
+      <td>14</td>
+      <td>24.71%</td>
+      <td>75.06%</td>
+      <td>0.23%</td>
+      <td>27.08</td>
+    </tr>
+    <tr>
+      <td>2023-12-25</td>
+      <td>New York Giants</td>
+      <td>1391.94</td>
+      <td>25</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1612.21</td>
+      <td>33</td>
+      <td>18.06%</td>
+      <td>81.72%</td>
+      <td>0.23%</td>
+      <td>-7.54</td>
+    </tr>
+    <tr>
+      <td>2023-12-25</td>
+      <td>San Francisco 49ers</td>
+      <td>1753.72</td>
+      <td>19</td>
+      <td>Baltimore Ravens</td>
+      <td>1700.35</td>
+      <td>33</td>
+      <td>63.23%</td>
+      <td>36.55%</td>
+      <td>0.23%</td>
+      <td>-34.85</td>
+    </tr>
+    <tr>
+      <td>2023-12-25</td>
+      <td>Philadelphia Eagles</td>
+      <td>1612.21</td>
+      <td>33</td>
+      <td>New York Giants</td>
+      <td>1391.94</td>
+      <td>25</td>
+      <td>81.72%</td>
+      <td>18.06%</td>
+      <td>0.23%</td>
+      <td>7.53</td>
+    </tr>
+    <tr>
+      <td>2023-12-25</td>
+      <td>Kansas City Chiefs</td>
+      <td>1616.18</td>
+      <td>14</td>
+      <td>Las Vegas Raiders</td>
+      <td>1465.13</td>
+      <td>20</td>
+      <td>75.06%</td>
+      <td>24.71%</td>
+      <td>0.23%</td>
+      <td>-27.08</td>
+    </tr>
+    <tr>
+      <td>2023-12-25</td>
+      <td>Baltimore Ravens</td>
+      <td>1700.35</td>
+      <td>33</td>
+      <td>@ San Francisco 49ers</td>
+      <td>1753.72</td>
+      <td>19</td>
+      <td>36.55%</td>
+      <td>63.23%</td>
+      <td>0.23%</td>
+      <td>34.84</td>
+    </tr>
+    <tr>
+      <td>2023-12-28</td>
+      <td>Cleveland Browns</td>
+      <td>1539.45</td>
+      <td>37</td>
+      <td>New York Jets</td>
+      <td>1415.65</td>
+      <td>20</td>
+      <td>72.03%</td>
+      <td>27.75%</td>
+      <td>0.23%</td>
+      <td>16.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-28</td>
+      <td>New York Jets</td>
+      <td>1415.65</td>
+      <td>20</td>
+      <td>@ Cleveland Browns</td>
+      <td>1539.45</td>
+      <td>37</td>
+      <td>27.75%</td>
+      <td>72.03%</td>
+      <td>0.23%</td>
+      <td>-16.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-30</td>
+      <td>Detroit Lions</td>
+      <td>1587.58</td>
+      <td>19</td>
+      <td>@ Dallas Cowboys</td>
+      <td>1639.97</td>
+      <td>20</td>
+      <td>36.68%</td>
+      <td>63.10%</td>
+      <td>0.23%</td>
+      <td>-5.41</td>
+    </tr>
+    <tr>
+      <td>2023-12-30</td>
+      <td>Dallas Cowboys</td>
+      <td>1639.97</td>
+      <td>20</td>
+      <td>Detroit Lions</td>
+      <td>1587.58</td>
+      <td>19</td>
+      <td>63.10%</td>
+      <td>36.68%</td>
+      <td>0.23%</td>
+      <td>5.41</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>New Orleans Saints</td>
+      <td>1480.36</td>
+      <td>23</td>
+      <td>@ Tampa Bay Buccaneers</td>
+      <td>1538.65</td>
+      <td>13</td>
+      <td>35.89%</td>
+      <td>63.88%</td>
+      <td>0.23%</td>
+      <td>29.75</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>San Francisco 49ers</td>
+      <td>1718.87</td>
+      <td>27</td>
+      <td>@ Washington Commanders</td>
+      <td>1336.19</td>
+      <td>10</td>
+      <td>87.51%</td>
+      <td>12.27%</td>
+      <td>0.23%</td>
+      <td>7.47</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Los Angeles Rams</td>
+      <td>1514.23</td>
+      <td>26</td>
+      <td>@ New York Giants</td>
+      <td>1384.40</td>
+      <td>25</td>
+      <td>62.30%</td>
+      <td>37.47%</td>
+      <td>0.23%</td>
+      <td>5.52</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Miami Dolphins</td>
+      <td>1622.43</td>
+      <td>19</td>
+      <td>@ Baltimore Ravens</td>
+      <td>1735.19</td>
+      <td>56</td>
+      <td>29.04%</td>
+      <td>70.74%</td>
+      <td>0.23%</td>
+      <td>-26.05</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Arizona Cardinals</td>
+      <td>1336.13</td>
+      <td>35</td>
+      <td>@ Philadelphia Eagles</td>
+      <td>1619.74</td>
+      <td>31</td>
+      <td>13.27%</td>
+      <td>86.50%</td>
+      <td>0.23%</td>
+      <td>25.49</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Las Vegas Raiders</td>
+      <td>1492.21</td>
+      <td>20</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1444.35</td>
+      <td>23</td>
+      <td>50.78%</td>
+      <td>49.00%</td>
+      <td>0.23%</td>
+      <td>-12.96</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Carolina Panthers</td>
+      <td>1300.75</td>
+      <td>0</td>
+      <td>@ Jacksonville Jaguars</td>
+      <td>1494.09</td>
+      <td>26</td>
+      <td>20.47%</td>
+      <td>79.31%</td>
+      <td>0.23%</td>
+      <td>-15.40</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>New England Patriots</td>
+      <td>1381.53</td>
+      <td>21</td>
+      <td>@ Buffalo Bills</td>
+      <td>1662.72</td>
+      <td>27</td>
+      <td>13.43%</td>
+      <td>86.34%</td>
+      <td>0.23%</td>
+      <td>-4.86</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Atlanta Falcons</td>
+      <td>1454.74</td>
+      <td>17</td>
+      <td>@ Chicago Bears</td>
+      <td>1443.85</td>
+      <td>37</td>
+      <td>45.47%</td>
+      <td>54.30%</td>
+      <td>0.23%</td>
+      <td>-29.96</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1487.22</td>
+      <td>30</td>
+      <td>@ Seattle Seahawks</td>
+      <td>1506.41</td>
+      <td>23</td>
+      <td>41.22%</td>
+      <td>58.55%</td>
+      <td>0.23%</td>
+      <td>22.82</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Tennessee Titans</td>
+      <td>1394.08</td>
+      <td>3</td>
+      <td>@ Houston Texans</td>
+      <td>1436.62</td>
+      <td>26</td>
+      <td>38.01%</td>
+      <td>61.77%</td>
+      <td>0.23%</td>
+      <td>-26.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Los Angeles Chargers</td>
+      <td>1420.61</td>
+      <td>9</td>
+      <td>@ Denver Broncos</td>
+      <td>1462.03</td>
+      <td>16</td>
+      <td>38.16%</td>
+      <td>61.62%</td>
+      <td>0.23%</td>
+      <td>-14.88</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Kansas City Chiefs</td>
+      <td>1589.10</td>
+      <td>25</td>
+      <td>Cincinnati Bengals</td>
+      <td>1546.58</td>
+      <td>17</td>
+      <td>61.77%</td>
+      <td>38.01%</td>
+      <td>0.23%</td>
+      <td>15.85</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Chicago Bears</td>
+      <td>1443.85</td>
+      <td>37</td>
+      <td>Atlanta Falcons</td>
+      <td>1454.74</td>
+      <td>17</td>
+      <td>54.30%</td>
+      <td>45.47%</td>
+      <td>0.23%</td>
+      <td>29.96</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Buffalo Bills</td>
+      <td>1662.72</td>
+      <td>27</td>
+      <td>New England Patriots</td>
+      <td>1381.53</td>
+      <td>21</td>
+      <td>86.34%</td>
+      <td>13.43%</td>
+      <td>0.23%</td>
+      <td>4.86</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1494.09</td>
+      <td>26</td>
+      <td>Carolina Panthers</td>
+      <td>1300.75</td>
+      <td>0</td>
+      <td>79.31%</td>
+      <td>20.47%</td>
+      <td>0.23%</td>
+      <td>15.40</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Indianapolis Colts</td>
+      <td>1444.35</td>
+      <td>23</td>
+      <td>Las Vegas Raiders</td>
+      <td>1492.21</td>
+      <td>20</td>
+      <td>49.00%</td>
+      <td>50.78%</td>
+      <td>0.23%</td>
+      <td>12.95</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Cincinnati Bengals</td>
+      <td>1546.58</td>
+      <td>17</td>
+      <td>@ Kansas City Chiefs</td>
+      <td>1589.10</td>
+      <td>25</td>
+      <td>38.01%</td>
+      <td>61.77%</td>
+      <td>0.23%</td>
+      <td>-15.85</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Philadelphia Eagles</td>
+      <td>1619.74</td>
+      <td>31</td>
+      <td>Arizona Cardinals</td>
+      <td>1336.13</td>
+      <td>35</td>
+      <td>86.50%</td>
+      <td>13.27%</td>
+      <td>0.23%</td>
+      <td>-25.48</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Houston Texans</td>
+      <td>1436.62</td>
+      <td>26</td>
+      <td>Tennessee Titans</td>
+      <td>1394.08</td>
+      <td>3</td>
+      <td>61.77%</td>
+      <td>38.01%</td>
+      <td>0.23%</td>
+      <td>26.87</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Baltimore Ravens</td>
+      <td>1735.19</td>
+      <td>56</td>
+      <td>Miami Dolphins</td>
+      <td>1622.43</td>
+      <td>19</td>
+      <td>70.74%</td>
+      <td>29.04%</td>
+      <td>0.23%</td>
+      <td>26.05</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1538.65</td>
+      <td>13</td>
+      <td>New Orleans Saints</td>
+      <td>1480.36</td>
+      <td>23</td>
+      <td>63.88%</td>
+      <td>35.89%</td>
+      <td>0.23%</td>
+      <td>-29.75</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>New York Giants</td>
+      <td>1384.40</td>
+      <td>25</td>
+      <td>Los Angeles Rams</td>
+      <td>1514.23</td>
+      <td>26</td>
+      <td>37.47%</td>
+      <td>62.30%</td>
+      <td>0.23%</td>
+      <td>-5.52</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Minnesota Vikings</td>
+      <td>1521.28</td>
+      <td>10</td>
+      <td>Green Bay Packers</td>
+      <td>1492.95</td>
+      <td>33</td>
+      <td>59.82%</td>
+      <td>39.95%</td>
+      <td>0.23%</td>
+      <td>-42.25</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Denver Broncos</td>
+      <td>1462.03</td>
+      <td>16</td>
+      <td>Los Angeles Chargers</td>
+      <td>1420.61</td>
+      <td>9</td>
+      <td>61.62%</td>
+      <td>38.16%</td>
+      <td>0.23%</td>
+      <td>14.89</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Green Bay Packers</td>
+      <td>1492.95</td>
+      <td>33</td>
+      <td>@ Minnesota Vikings</td>
+      <td>1521.28</td>
+      <td>10</td>
+      <td>39.95%</td>
+      <td>59.82%</td>
+      <td>0.23%</td>
+      <td>42.26</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Seattle Seahawks</td>
+      <td>1506.41</td>
+      <td>23</td>
+      <td>Pittsburgh Steelers</td>
+      <td>1487.22</td>
+      <td>30</td>
+      <td>58.55%</td>
+      <td>41.22%</td>
+      <td>0.23%</td>
+      <td>-22.82</td>
+    </tr>
+    <tr>
+      <td>2023-12-31</td>
+      <td>Washington Commanders</td>
+      <td>1336.19</td>
+      <td>10</td>
+      <td>San Francisco 49ers</td>
+      <td>1718.87</td>
+      <td>27</td>
+      <td>12.27%</td>
+      <td>87.51%</td>
+      <td>0.23%</td>
+      <td>-7.46</td>
+    </tr>
+    <tr>
+      <td>2024-01-06</td>
+      <td>Houston Texans</td>
+      <td>1463.49</td>
+      <td>23</td>
+      <td>@ Indianapolis Colts</td>
+      <td>1457.30</td>
+      <td>19</td>
+      <td>44.80%</td>
+      <td>54.98%</td>
+      <td>0.23%</td>
+      <td>16.19</td>
+    </tr>
+    <tr>
+      <td>2024-01-06</td>
+      <td>Indianapolis Colts</td>
+      <td>1457.30</td>
+      <td>19</td>
+      <td>Houston Texans</td>
+      <td>1463.49</td>
+      <td>23</td>
+      <td>54.98%</td>
+      <td>44.80%</td>
+      <td>0.23%</td>
+      <td>-16.19</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Denver Broncos</td>
+      <td>1476.92</td>
+      <td>14</td>
+      <td>@ Las Vegas Raiders</td>
+      <td>1479.25</td>
+      <td>27</td>
+      <td>43.59%</td>
+      <td>56.19%</td>
+      <td>0.23%</td>
+      <td>-23.17</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Dallas Cowboys</td>
+      <td>1645.38</td>
+      <td>38</td>
+      <td>@ Washington Commanders</td>
+      <td>1328.73</td>
+      <td>10</td>
+      <td>82.80%</td>
+      <td>16.98%</td>
+      <td>0.23%</td>
+      <td>13.25</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Seattle Seahawks</td>
+      <td>1483.59</td>
+      <td>21</td>
+      <td>@ Arizona Cardinals</td>
+      <td>1361.62</td>
+      <td>20</td>
+      <td>61.23%</td>
+      <td>38.54%</td>
+      <td>0.23%</td>
+      <td>5.68</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Chicago Bears</td>
+      <td>1473.81</td>
+      <td>9</td>
+      <td>@ Green Bay Packers</td>
+      <td>1535.21</td>
+      <td>17</td>
+      <td>35.48%</td>
+      <td>64.29%</td>
+      <td>0.23%</td>
+      <td>-14.79</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1509.49</td>
+      <td>20</td>
+      <td>@ Tennessee Titans</td>
+      <td>1367.21</td>
+      <td>28</td>
+      <td>63.96%</td>
+      <td>35.81%</td>
+      <td>0.23%</td>
+      <td>-26.65</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Minnesota Vikings</td>
+      <td>1479.03</td>
+      <td>20</td>
+      <td>@ Detroit Lions</td>
+      <td>1582.17</td>
+      <td>30</td>
+      <td>30.19%</td>
+      <td>69.58%</td>
+      <td>0.23%</td>
+      <td>-14.08</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1508.90</td>
+      <td>9</td>
+      <td>@ Carolina Panthers</td>
+      <td>1285.35</td>
+      <td>0</td>
+      <td>73.88%</td>
+      <td>25.90%</td>
+      <td>0.23%</td>
+      <td>11.45</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Atlanta Falcons</td>
+      <td>1424.78</td>
+      <td>17</td>
+      <td>@ New Orleans Saints</td>
+      <td>1510.11</td>
+      <td>48</td>
+      <td>32.40%</td>
+      <td>67.38%</td>
+      <td>0.23%</td>
+      <td>-26.60</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>New York Jets</td>
+      <td>1398.78</td>
+      <td>17</td>
+      <td>@ New England Patriots</td>
+      <td>1376.67</td>
+      <td>3</td>
+      <td>47.07%</td>
+      <td>52.70%</td>
+      <td>0.23%</td>
+      <td>29.05</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Miami Dolphins</td>
+      <td>1596.38</td>
+      <td>14</td>
+      <td>Buffalo Bills</td>
+      <td>1667.58</td>
+      <td>21</td>
+      <td>45.65%</td>
+      <td>54.12%</td>
+      <td>0.23%</td>
+      <td>-17.80</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>New York Giants</td>
+      <td>1378.88</td>
+      <td>27</td>
+      <td>Philadelphia Eagles</td>
+      <td>1594.26</td>
+      <td>10</td>
+      <td>26.81%</td>
+      <td>72.97%</td>
+      <td>0.23%</td>
+      <td>44.31</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Las Vegas Raiders</td>
+      <td>1479.25</td>
+      <td>27</td>
+      <td>Denver Broncos</td>
+      <td>1476.92</td>
+      <td>14</td>
+      <td>56.19%</td>
+      <td>43.59%</td>
+      <td>0.23%</td>
+      <td>23.16</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Washington Commanders</td>
+      <td>1328.73</td>
+      <td>10</td>
+      <td>Dallas Cowboys</td>
+      <td>1645.38</td>
+      <td>38</td>
+      <td>16.98%</td>
+      <td>82.80%</td>
+      <td>0.23%</td>
+      <td>-13.26</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Arizona Cardinals</td>
+      <td>1361.62</td>
+      <td>20</td>
+      <td>Seattle Seahawks</td>
+      <td>1483.59</td>
+      <td>21</td>
+      <td>38.54%</td>
+      <td>61.23%</td>
+      <td>0.23%</td>
+      <td>-5.68</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Green Bay Packers</td>
+      <td>1535.21</td>
+      <td>17</td>
+      <td>Chicago Bears</td>
+      <td>1473.81</td>
+      <td>9</td>
+      <td>64.29%</td>
+      <td>35.48%</td>
+      <td>0.23%</td>
+      <td>14.80</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>New England Patriots</td>
+      <td>1376.67</td>
+      <td>3</td>
+      <td>New York Jets</td>
+      <td>1398.78</td>
+      <td>17</td>
+      <td>52.70%</td>
+      <td>47.07%</td>
+      <td>0.23%</td>
+      <td>-29.05</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Tennessee Titans</td>
+      <td>1367.21</td>
+      <td>28</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1509.49</td>
+      <td>20</td>
+      <td>35.81%</td>
+      <td>63.96%</td>
+      <td>0.23%</td>
+      <td>26.65</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Detroit Lions</td>
+      <td>1582.17</td>
+      <td>30</td>
+      <td>Minnesota Vikings</td>
+      <td>1479.03</td>
+      <td>20</td>
+      <td>69.58%</td>
+      <td>30.19%</td>
+      <td>0.23%</td>
+      <td>14.08</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Carolina Panthers</td>
+      <td>1285.35</td>
+      <td>0</td>
+      <td>Tampa Bay Buccaneers</td>
+      <td>1508.90</td>
+      <td>9</td>
+      <td>25.90%</td>
+      <td>73.88%</td>
+      <td>0.23%</td>
+      <td>-11.45</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>New Orleans Saints</td>
+      <td>1510.11</td>
+      <td>48</td>
+      <td>Atlanta Falcons</td>
+      <td>1424.78</td>
+      <td>17</td>
+      <td>67.38%</td>
+      <td>32.40%</td>
+      <td>0.23%</td>
+      <td>26.60</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Philadelphia Eagles</td>
+      <td>1594.26</td>
+      <td>10</td>
+      <td>@ New York Giants</td>
+      <td>1378.88</td>
+      <td>27</td>
+      <td>72.97%</td>
+      <td>26.81%</td>
+      <td>0.23%</td>
+      <td>-44.31</td>
+    </tr>
+    <tr>
+      <td>2024-01-07</td>
+      <td>Buffalo Bills</td>
+      <td>1667.58</td>
+      <td>21</td>
+      <td>@ Miami Dolphins</td>
+      <td>1596.38</td>
+      <td>14</td>
+      <td>54.12%</td>
+      <td>45.65%</td>
+      <td>0.23%</td>
+      <td>17.80</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

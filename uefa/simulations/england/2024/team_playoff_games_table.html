@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            width: 95%;
+        }
+        table.sortable th, table.sortable td {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        table.sortable th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .filter-controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .filter-controls select {
+            padding: 4px;
+            margin-left: 8px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+    <script src="https://unpkg.com/tablesort@5.2.1/dist/sorts/tablesort.number.min.js"></script>
+</head>
+<body>
+    <div class="filter-controls">
+        <label for="teamFilter">Filter by Team:
+            <select id="teamFilter">
+                <option value="AFC Wimbledon">AFC Wimbledon</option><option value="Bristol City">Bristol City</option><option value="Charlton Athletic">Charlton Athletic</option><option value="Chesterfield">Chesterfield</option><option value="Coventry City">Coventry City</option><option value="Forest Green Rovers">Forest Green Rovers</option><option value="Halifax Town">Halifax Town</option><option value="Leyton Orient">Leyton Orient</option><option value="Notts County">Notts County</option><option value="Oldham Athletic">Oldham Athletic</option><option value="Rochdale">Rochdale</option><option value="Sheffield United">Sheffield United</option><option value="Southend United">Southend United</option><option value="Stockport">Stockport</option><option value="Sunderland">Sunderland</option><option value="Walsall">Walsall</option><option value="Wycombe Wanderers">Wycombe Wanderers</option><option value="York City">York City</option>
+            </select>
+        </label>
+    </div>
+
+    <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">Selected Team</th>
+      <th colspan="3" halign="left">Opponent</th>
+      <th colspan="3" halign="left">Win Probabilities</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Opponent</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Win Pct.</th>
+      <th>Loss Pct.</th>
+      <th>Tie Pct.</th>
+      <th>Elo Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-05-08</td>
+      <td>Bristol City</td>
+      <td>1845.39</td>
+      <td>0</td>
+      <td>Sheffield United</td>
+      <td>1894.37</td>
+      <td>3</td>
+      <td>30.22%</td>
+      <td>38.04%</td>
+      <td>31.74%</td>
+      <td>-11.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-08</td>
+      <td>Sheffield United</td>
+      <td>1894.37</td>
+      <td>3</td>
+      <td>@ Bristol City</td>
+      <td>1845.39</td>
+      <td>0</td>
+      <td>38.04%</td>
+      <td>30.22%</td>
+      <td>31.74%</td>
+      <td>11.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-09</td>
+      <td>Coventry City</td>
+      <td>1850.89</td>
+      <td>1</td>
+      <td>Sunderland</td>
+      <td>1833.03</td>
+      <td>2</td>
+      <td>39.62%</td>
+      <td>28.86%</td>
+      <td>31.52%</td>
+      <td>-7.72</td>
+    </tr>
+    <tr>
+      <td>2025-05-09</td>
+      <td>Sunderland</td>
+      <td>1833.03</td>
+      <td>2</td>
+      <td>@ Coventry City</td>
+      <td>1850.89</td>
+      <td>1</td>
+      <td>28.86%</td>
+      <td>39.62%</td>
+      <td>31.52%</td>
+      <td>7.71</td>
+    </tr>
+    <tr>
+      <td>2025-05-10</td>
+      <td>Leyton Orient</td>
+      <td>1691.08</td>
+      <td>2</td>
+      <td>Stockport</td>
+      <td>1718.60</td>
+      <td>2</td>
+      <td>33.10%</td>
+      <td>34.95%</td>
+      <td>31.95%</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>2025-05-10</td>
+      <td>Notts County</td>
+      <td>1453.93</td>
+      <td>0</td>
+      <td>AFC Wimbledon</td>
+      <td>1469.05</td>
+      <td>1</td>
+      <td>34.87%</td>
+      <td>33.17%</td>
+      <td>31.96%</td>
+      <td>-7.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-10</td>
+      <td>AFC Wimbledon</td>
+      <td>1469.05</td>
+      <td>1</td>
+      <td>@ Notts County</td>
+      <td>1453.93</td>
+      <td>0</td>
+      <td>33.17%</td>
+      <td>34.87%</td>
+      <td>31.96%</td>
+      <td>7.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-10</td>
+      <td>Stockport</td>
+      <td>1718.60</td>
+      <td>2</td>
+      <td>@ Leyton Orient</td>
+      <td>1691.08</td>
+      <td>2</td>
+      <td>34.95%</td>
+      <td>33.10%</td>
+      <td>31.95%</td>
+      <td>-0.06</td>
+    </tr>
+    <tr>
+      <td>2025-05-11</td>
+      <td>Charlton Athletic</td>
+      <td>1705.55</td>
+      <td>0</td>
+      <td>@ Wycombe Wanderers</td>
+      <td>1699.31</td>
+      <td>0</td>
+      <td>31.95%</td>
+      <td>36.15%</td>
+      <td>31.90%</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <td>2025-05-11</td>
+      <td>Walsall</td>
+      <td>1458.30</td>
+      <td>2</td>
+      <td>@ Chesterfield</td>
+      <td>1446.59</td>
+      <td>0</td>
+      <td>32.70%</td>
+      <td>35.36%</td>
+      <td>31.94%</td>
+      <td>10.08</td>
+    </tr>
+    <tr>
+      <td>2025-05-11</td>
+      <td>Chesterfield</td>
+      <td>1446.59</td>
+      <td>0</td>
+      <td>Walsall</td>
+      <td>1458.30</td>
+      <td>2</td>
+      <td>35.36%</td>
+      <td>32.70%</td>
+      <td>31.94%</td>
+      <td>-10.08</td>
+    </tr>
+    <tr>
+      <td>2025-05-11</td>
+      <td>Wycombe Wanderers</td>
+      <td>1699.31</td>
+      <td>0</td>
+      <td>Charlton Athletic</td>
+      <td>1705.55</td>
+      <td>0</td>
+      <td>36.15%</td>
+      <td>31.95%</td>
+      <td>31.90%</td>
+      <td>-0.15</td>
+    </tr>
+    <tr>
+      <td>2025-05-12</td>
+      <td>Bristol City</td>
+      <td>1834.33</td>
+      <td>0</td>
+      <td>@ Sheffield United</td>
+      <td>1905.43</td>
+      <td>3</td>
+      <td>23.26%</td>
+      <td>47.19%</td>
+      <td>29.55%</td>
+      <td>-8.90</td>
+    </tr>
+    <tr>
+      <td>2025-05-12</td>
+      <td>Sheffield United</td>
+      <td>1905.43</td>
+      <td>3</td>
+      <td>Bristol City</td>
+      <td>1834.33</td>
+      <td>0</td>
+      <td>47.19%</td>
+      <td>23.26%</td>
+      <td>29.55%</td>
+      <td>8.90</td>
+    </tr>
+    <tr>
+      <td>2025-05-13</td>
+      <td>Coventry City</td>
+      <td>1843.17</td>
+      <td>1</td>
+      <td>@ Sunderland</td>
+      <td>1840.74</td>
+      <td>1</td>
+      <td>31.44%</td>
+      <td>36.70%</td>
+      <td>31.86%</td>
+      <td>0.19</td>
+    </tr>
+    <tr>
+      <td>2025-05-13</td>
+      <td>Sunderland</td>
+      <td>1840.74</td>
+      <td>1</td>
+      <td>Coventry City</td>
+      <td>1843.17</td>
+      <td>1</td>
+      <td>36.70%</td>
+      <td>31.44%</td>
+      <td>31.86%</td>
+      <td>-0.18</td>
+    </tr>
+    <tr>
+      <td>2025-05-14</td>
+      <td>Stockport</td>
+      <td>1718.54</td>
+      <td>1</td>
+      <td>Leyton Orient</td>
+      <td>1691.15</td>
+      <td>4</td>
+      <td>40.99%</td>
+      <td>27.73%</td>
+      <td>31.28%</td>
+      <td>-13.69</td>
+    </tr>
+    <tr>
+      <td>2025-05-14</td>
+      <td>Halifax Town</td>
+      <td>1234.00</td>
+      <td>0</td>
+      <td>@ Oldham Athletic</td>
+      <td>1254.47</td>
+      <td>4</td>
+      <td>28.55%</td>
+      <td>39.99%</td>
+      <td>31.46%</td>
+      <td>-12.23</td>
+    </tr>
+    <tr>
+      <td>2025-05-14</td>
+      <td>Leyton Orient</td>
+      <td>1691.15</td>
+      <td>4</td>
+      <td>@ Stockport</td>
+      <td>1718.54</td>
+      <td>1</td>
+      <td>27.73%</td>
+      <td>40.99%</td>
+      <td>31.28%</td>
+      <td>13.68</td>
+    </tr>
+    <tr>
+      <td>2025-05-14</td>
+      <td>Oldham Athletic</td>
+      <td>1254.47</td>
+      <td>4</td>
+      <td>Halifax Town</td>
+      <td>1234.00</td>
+      <td>0</td>
+      <td>39.99%</td>
+      <td>28.55%</td>
+      <td>31.46%</td>
+      <td>12.23</td>
+    </tr>
+    <tr>
+      <td>2025-05-15</td>
+      <td>Charlton Athletic</td>
+      <td>1705.69</td>
+      <td>1</td>
+      <td>Wycombe Wanderers</td>
+      <td>1699.16</td>
+      <td>0</td>
+      <td>37.99%</td>
+      <td>30.27%</td>
+      <td>31.74%</td>
+      <td>6.39</td>
+    </tr>
+    <tr>
+      <td>2025-05-15</td>
+      <td>Rochdale</td>
+      <td>1279.57</td>
+      <td>3</td>
+      <td>Southend United</td>
+      <td>1274.62</td>
+      <td>4</td>
+      <td>37.76%</td>
+      <td>30.47%</td>
+      <td>31.77%</td>
+      <td>-7.45</td>
+    </tr>
+    <tr>
+      <td>2025-05-15</td>
+      <td>Southend United</td>
+      <td>1274.62</td>
+      <td>4</td>
+      <td>@ Rochdale</td>
+      <td>1279.57</td>
+      <td>3</td>
+      <td>30.47%</td>
+      <td>37.76%</td>
+      <td>31.77%</td>
+      <td>7.46</td>
+    </tr>
+    <tr>
+      <td>2025-05-15</td>
+      <td>Wycombe Wanderers</td>
+      <td>1699.16</td>
+      <td>0</td>
+      <td>@ Charlton Athletic</td>
+      <td>1705.69</td>
+      <td>1</td>
+      <td>30.27%</td>
+      <td>37.99%</td>
+      <td>31.74%</td>
+      <td>-6.39</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Chesterfield</td>
+      <td>1436.51</td>
+      <td>1</td>
+      <td>@ Walsall</td>
+      <td>1468.38</td>
+      <td>2</td>
+      <td>27.22%</td>
+      <td>41.63%</td>
+      <td>31.15%</td>
+      <td>-5.89</td>
+    </tr>
+    <tr>
+      <td>2025-05-16</td>
+      <td>Walsall</td>
+      <td>1468.38</td>
+      <td>2</td>
+      <td>Chesterfield</td>
+      <td>1436.51</td>
+      <td>1</td>
+      <td>41.63%</td>
+      <td>27.22%</td>
+      <td>31.15%</td>
+      <td>5.89</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>Notts County</td>
+      <td>1446.87</td>
+      <td>0</td>
+      <td>@ AFC Wimbledon</td>
+      <td>1476.11</td>
+      <td>1</td>
+      <td>27.52%</td>
+      <td>41.25%</td>
+      <td>31.23%</td>
+      <td>-5.94</td>
+    </tr>
+    <tr>
+      <td>2025-05-17</td>
+      <td>AFC Wimbledon</td>
+      <td>1476.11</td>
+      <td>1</td>
+      <td>Notts County</td>
+      <td>1446.87</td>
+      <td>0</td>
+      <td>41.25%</td>
+      <td>27.52%</td>
+      <td>31.23%</td>
+      <td>5.94</td>
+    </tr>
+    <tr>
+      <td>2025-05-20</td>
+      <td>York City</td>
+      <td>1346.90</td>
+      <td>0</td>
+      <td>Oldham Athletic</td>
+      <td>1266.70</td>
+      <td>3</td>
+      <td>48.47%</td>
+      <td>22.46%</td>
+      <td>29.07%</td>
+      <td>-15.43</td>
+    </tr>
+    <tr>
+      <td>2025-05-20</td>
+      <td>Oldham Athletic</td>
+      <td>1266.70</td>
+      <td>3</td>
+      <td>@ York City</td>
+      <td>1346.90</td>
+      <td>0</td>
+      <td>22.46%</td>
+      <td>48.47%</td>
+      <td>29.07%</td>
+      <td>15.43</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Southend United</td>
+      <td>1282.08</td>
+      <td>4</td>
+      <td>@ Forest Green Rovers</td>
+      <td>1320.18</td>
+      <td>2</td>
+      <td>26.54%</td>
+      <td>42.52%</td>
+      <td>30.95%</td>
+      <td>11.47</td>
+    </tr>
+    <tr>
+      <td>2025-05-21</td>
+      <td>Forest Green Rovers</td>
+      <td>1320.18</td>
+      <td>2</td>
+      <td>Southend United</td>
+      <td>1282.08</td>
+      <td>4</td>
+      <td>42.52%</td>
+      <td>26.54%</td>
+      <td>30.95%</td>
+      <td>-11.47</td>
+    </tr>
+    <tr>
+      <td>2025-05-24</td>
+      <td>Sunderland</td>
+      <td>1840.56</td>
+      <td>2</td>
+      <td>@ Sheffield United</td>
+      <td>1914.33</td>
+      <td>1</td>
+      <td>23.02%</td>
+      <td>47.57%</td>
+      <td>29.41%</td>
+      <td>8.79</td>
+    </tr>
+    <tr>
+      <td>2025-05-24</td>
+      <td>Sheffield United</td>
+      <td>1914.33</td>
+      <td>1</td>
+      <td>Sunderland</td>
+      <td>1840.56</td>
+      <td>2</td>
+      <td>47.57%</td>
+      <td>23.02%</td>
+      <td>29.41%</td>
+      <td>-8.79</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Leyton Orient</td>
+      <td>1704.83</td>
+      <td>0</td>
+      <td>@ Charlton Athletic</td>
+      <td>1712.08</td>
+      <td>1</td>
+      <td>30.18%</td>
+      <td>38.09%</td>
+      <td>31.73%</td>
+      <td>-6.37</td>
+    </tr>
+    <tr>
+      <td>2025-05-25</td>
+      <td>Charlton Athletic</td>
+      <td>1712.08</td>
+      <td>1</td>
+      <td>Leyton Orient</td>
+      <td>1704.83</td>
+      <td>0</td>
+      <td>38.09%</td>
+      <td>30.18%</td>
+      <td>31.73%</td>
+      <td>6.38</td>
+    </tr>
+    <tr>
+      <td>2025-05-26</td>
+      <td>Walsall</td>
+      <td>1474.27</td>
+      <td>0</td>
+      <td>@ AFC Wimbledon</td>
+      <td>1482.05</td>
+      <td>1</td>
+      <td>30.11%</td>
+      <td>38.17%</td>
+      <td>31.72%</td>
+      <td>-6.37</td>
+    </tr>
+    <tr>
+      <td>2025-05-26</td>
+      <td>AFC Wimbledon</td>
+      <td>1482.05</td>
+      <td>1</td>
+      <td>Walsall</td>
+      <td>1474.27</td>
+      <td>0</td>
+      <td>38.17%</td>
+      <td>30.11%</td>
+      <td>31.72%</td>
+      <td>6.37</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Oldham Athletic</td>
+      <td>1282.13</td>
+      <td>3</td>
+      <td>Southend United</td>
+      <td>1293.55</td>
+      <td>2</td>
+      <td>35.40%</td>
+      <td>32.66%</td>
+      <td>31.94%</td>
+      <td>6.75</td>
+    </tr>
+    <tr>
+      <td>2025-06-01</td>
+      <td>Southend United</td>
+      <td>1293.55</td>
+      <td>2</td>
+      <td>@ Oldham Athletic</td>
+      <td>1282.13</td>
+      <td>3</td>
+      <td>32.66%</td>
+      <td>35.40%</td>
+      <td>31.94%</td>
+      <td>-6.75</td>
+    </tr>
+  </tbody>
+</table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Tablesort(document.querySelector('table.sortable'));
+
+            const teamFilter = document.getElementById("teamFilter");
+            const rows = Array.from(document.querySelectorAll("table.sortable tbody tr"));
+            const teamColIndex = Array.from(document.querySelectorAll("table.sortable thead tr:nth-child(2) th"))
+                .findIndex(th => th.textContent.trim() === "Team");
+
+            teamFilter.addEventListener("change", function () {
+                const selected = this.value;
+                rows.forEach(row => {
+                    const team = row.cells[teamColIndex].textContent.trim();
+                    row.style.display = !selected || team === selected ? "" : "none";
+                });
+            });
+            
+            teamFilter.dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>

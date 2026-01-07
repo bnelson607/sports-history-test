@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table.sortable {
+                border-collapse: collapse;
+                margin: auto;
+                font-family: Arial, sans-serif;
+                width: 95%;
+            }
+            table.sortable th, table.sortable td {
+                border: 1px solid #ccc;
+                padding: 4px 8px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            table.sortable th {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+            h2 {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        <script src="../../tablesort.min.js"></script>
+        <script src="../../tablesort.number.min.js"></script>
+    </head>
+    <body>
+        <table border="1" class="dataframe sortable">
+  <thead>
+    <tr>
+      <th colspan="3" halign="left"></th>
+      <th colspan="3" halign="left">Winning Team</th>
+      <th colspan="3" halign="left">Losing Team</th>
+    </tr>
+    <tr>
+      <th>Rank</th>
+      <th>Date</th>
+      <th>Underdog Win Pct.</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+      <th>Team</th>
+      <th>Elo</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2023-12-31</td>
+      <td>13.27%</td>
+      <td>Arizona Cardinals</td>
+      <td>1336.13</td>
+      <td>35</td>
+      <td>Philadelphia Eagles (H)</td>
+      <td>1619.74</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2023-12-03</td>
+      <td>18.22%</td>
+      <td>Arizona Cardinals</td>
+      <td>1314.78</td>
+      <td>24</td>
+      <td>Pittsburgh Steelers (H)</td>
+      <td>1533.19</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2023-10-29</td>
+      <td>18.55%</td>
+      <td>Denver Broncos (H)</td>
+      <td>1379.43</td>
+      <td>24</td>
+      <td>Kansas City Chiefs</td>
+      <td>1677.33</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2023-12-11</td>
+      <td>19.95%</td>
+      <td>Tennessee Titans</td>
+      <td>1406.35</td>
+      <td>28</td>
+      <td>Miami Dolphins (H)</td>
+      <td>1605.24</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2023-11-13</td>
+      <td>20.99%</td>
+      <td>Denver Broncos</td>
+      <td>1425.76</td>
+      <td>24</td>
+      <td>Buffalo Bills (H)</td>
+      <td>1613.55</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2023-11-27</td>
+      <td>22.20%</td>
+      <td>Chicago Bears</td>
+      <td>1380.65</td>
+      <td>12</td>
+      <td>Minnesota Vikings (H)</td>
+      <td>1556.07</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2023-09-24</td>
+      <td>23.13%</td>
+      <td>Houston Texans</td>
+      <td>1358.25</td>
+      <td>37</td>
+      <td>Jacksonville Jaguars (H)</td>
+      <td>1524.38</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2023-10-08</td>
+      <td>23.26%</td>
+      <td>Jacksonville Jaguars</td>
+      <td>1499.42</td>
+      <td>25</td>
+      <td>Buffalo Bills (H)</td>
+      <td>1664.31</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2023-10-22</td>
+      <td>24.03%</td>
+      <td>New England Patriots (H)</td>
+      <td>1403.67</td>
+      <td>29</td>
+      <td>Buffalo Bills</td>
+      <td>1644.53</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2023-12-25</td>
+      <td>24.71%</td>
+      <td>Las Vegas Raiders</td>
+      <td>1465.13</td>
+      <td>20</td>
+      <td>Kansas City Chiefs (H)</td>
+      <td>1616.18</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2023-11-12</td>
+      <td>25.09%</td>
+      <td>Houston Texans</td>
+      <td>1461.97</td>
+      <td>30</td>
+      <td>Cincinnati Bengals (H)</td>
+      <td>1609.55</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>2023-09-24</td>
+      <td>25.75%</td>
+      <td>Arizona Cardinals (H)</td>
+      <td>1403.98</td>
+      <td>28</td>
+      <td>Dallas Cowboys</td>
+      <td>1628.88</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>2024-01-07</td>
+      <td>26.81%</td>
+      <td>New York Giants (H)</td>
+      <td>1378.88</td>
+      <td>27</td>
+      <td>Philadelphia Eagles</td>
+      <td>1594.26</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2023-10-05</td>
+      <td>26.82%</td>
+      <td>Chicago Bears</td>
+      <td>1340.90</td>
+      <td>40</td>
+      <td>Washington Commanders (H)</td>
+      <td>1472.78</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>2023-12-07</td>
+      <td>26.84%</td>
+      <td>New England Patriots</td>
+      <td>1356.55</td>
+      <td>21</td>
+      <td>Pittsburgh Steelers (H)</td>
+      <td>1488.25</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>2023-09-24</td>
+      <td>27.34%</td>
+      <td>Indianapolis Colts</td>
+      <td>1421.09</td>
+      <td>22</td>
+      <td>Baltimore Ravens (H)</td>
+      <td>1548.42</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2023-10-23</td>
+      <td>28.36%</td>
+      <td>Minnesota Vikings (H)</td>
+      <td>1486.73</td>
+      <td>22</td>
+      <td>San Francisco 49ers</td>
+      <td>1688.60</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>2023-10-15</td>
+      <td>28.43%</td>
+      <td>Cleveland Browns (H)</td>
+      <td>1502.22</td>
+      <td>19</td>
+      <td>San Francisco 49ers</td>
+      <td>1703.46</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>2023-11-12</td>
+      <td>28.47%</td>
+      <td>Cleveland Browns</td>
+      <td>1529.95</td>
+      <td>33</td>
+      <td>Baltimore Ravens (H)</td>
+      <td>1647.48</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>2023-12-24</td>
+      <td>28.56%</td>
+      <td>New England Patriots</td>
+      <td>1363.36</td>
+      <td>26</td>
+      <td>Denver Broncos (H)</td>
+      <td>1480.20</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2023-10-15</td>
+      <td>28.62%</td>
+      <td>New York Jets (H)</td>
+      <td>1457.38</td>
+      <td>20</td>
+      <td>Philadelphia Eagles</td>
+      <td>1657.03</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>2023-11-23</td>
+      <td>28.80%</td>
+      <td>Green Bay Packers</td>
+      <td>1477.82</td>
+      <td>29</td>
+      <td>Detroit Lions (H)</td>
+      <td>1592.62</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>2023-10-29</td>
+      <td>29.08%</td>
+      <td>Cincinnati Bengals</td>
+      <td>1552.68</td>
+      <td>31</td>
+      <td>San Francisco 49ers (H)</td>
+      <td>1665.08</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>2023-09-07</td>
+      <td>30.49%</td>
+      <td>Detroit Lions</td>
+      <td>1515.18</td>
+      <td>21</td>
+      <td>Kansas City Chiefs (H)</td>
+      <td>1615.87</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>2023-12-10</td>
+      <td>30.71%</td>
+      <td>Chicago Bears (H)</td>
+      <td>1396.81</td>
+      <td>28</td>
+      <td>Detroit Lions</td>
+      <td>1579.06</td>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Tablesort(document.querySelector('table.sortable'));
+            });
+        </script>
+    </body>
+    </html>
