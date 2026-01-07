@@ -30,7 +30,7 @@
                 <section class="sport-card" id="england-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/england/">England Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="england-sidebar-placeholder"></div>
+                        <div id="england-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/england/">England Season Simulation Archive</a></p>
                 </section>
@@ -38,7 +38,7 @@
                 <section class="sport-card" id="germany-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/germany/">Germany Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="germany-sidebar-placeholder"></div>
+                        <div id="germany-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/germany/">Germany Season Simulation Archive</a></p>
                 </section>
@@ -46,7 +46,7 @@
                 <section class="sport-card" id="spain-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/spain/">Spain Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="spain-sidebar-placeholder"></div>
+                        <div id="spain-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/spain/">Spain Season Simulation Archive</a></p>
                 </section>
@@ -58,7 +58,7 @@
                 <section class="sport-card" id="france-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/France/">France Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="france-sidebar-placeholder"></div>
+                        <div id="france-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/france/">France Season Simulation Archive</a></p>
                 </section>
@@ -66,7 +66,7 @@
                 <section class="sport-card" id="italy-snapshot">
                     <h2><a href="/sports-history-test/uefa/projections/italy/">Italy Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="italy-sidebar-placeholder"></div>
+                        <div id="italy-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/uefa/simulations/italy/">Italy Season Simulation Archive</a></p>
                 </section>
@@ -108,16 +108,16 @@
             });
 
             // Sidebar Summaries
-            const sidebarSummaries = {
-                england: '/sports-history-test/uefa/sidebar_summaries/england_sidebar_summary.html',
-                france: '/sports-history-test/uefa/sidebar_summaries/france_sidebar_summary.html',
-                germany: '/sports-history-test/uefa/sidebar_summaries/germany_sidebar_summary.html',
-                italy: '/sports-history-test/uefa/sidebar_summaries/italy_sidebar_summary.html',
-                spain: '/sports-history-test/uefa/sidebar_summaries/spain_sidebar_summary.html',
+            const homepageSummaries = {
+                england: '/sports-history-test/uefa/homepage_summaries/england_homepage_summary.html',
+                france: '/sports-history-test/uefa/homepage_summaries/france_homepage_summary.html',
+                germany: '/sports-history-test/uefa/homepage_summaries/germany_homepage_summary.html',
+                italy: '/sports-history-test/uefa/homepage_summaries/italy_homepage_summary.html',
+                spain: '/sports-history-test/uefa/homepage_summaries/spain_homepage_summary.html',
             };
         
-            for (const [sport, file] of Object.entries(sidebarSummaries)) {
-                const placeholder = document.getElementById(sport + '-sidebar-placeholder');
+            for (const [sport, file] of Object.entries(homepageSummaries)) {
+                const placeholder = document.getElementById(sport + '-homepage-placeholder');
                 if (!placeholder) continue;  // safely skip if no snapshot exists
                 fetch(file)
                     .then(response => response.text())
