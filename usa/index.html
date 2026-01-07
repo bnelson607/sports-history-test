@@ -30,8 +30,8 @@
 
                 <section class="sport-card" id="mlb-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/mlb/">2026 MLB Projections</a></h2>
-                    <div class="sidebar-table-wrapper">
-                        <div id="mlb-sidebar-placeholder"></div>
+                    <div class="homepage-table-wrapper">
+                        <div id="mlb-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/mlb/">MLB Season Simulation Archive</a></p>
                 </section>
@@ -39,7 +39,7 @@
                 <section class="sport-card" id="nhl-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/nhl/">2025-26 NHL Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="nhl-sidebar-placeholder"></div>
+                        <div id="nhl-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/nhl/">NHL Season Simulation Archive</a></p>
                 </section>
@@ -47,7 +47,7 @@
                 <section class="sport-card" id="mls-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/mls/">2025-26 NHL Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="mls-sidebar-placeholder"></div>
+                        <div id="mls-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/mls/">MLS Season Simulation Archive</a></p>
                 </section>
@@ -55,7 +55,7 @@
                 <section class="sport-card" id="wnba-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/wnba/">2025-26 NHL Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="wnba-sidebar-placeholder"></div>
+                        <div id="wnba-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/wnba/">WNBA Season Simulation Archive</a></p>
                 </section>
@@ -68,7 +68,7 @@
                 <section class="sport-card" id="nfl-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/nfl/">2025 NFL Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="nfl-sidebar-placeholder"></div>
+                        <div id="nfl-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/nfl/">NFL Season Simulation Archive</a></p>
                 </section>
@@ -76,7 +76,7 @@
                 <section class="sport-card" id="nba-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/nba/">2025-26 NBA Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="nba-sidebar-placeholder"></div>
+                        <div id="nba-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/nba/">NBA Season Simulation Archive</a></p>
                 </section>
@@ -84,7 +84,7 @@
                 <section class="sport-card" id="usl-snapshot">
                     <h2><a href="/sports-history-test/usa/projections/usl/">2025-26 USL Projections</a></h2>
                     <div class="sidebar-table-wrapper">
-                        <div id="usl-sidebar-placeholder"></div>
+                        <div id="usl-homepage-placeholder"></div>
                     </div>
                     <p style="text-align: right;"><a href="/sports-history-test/usa/simulations/usl/">USL Season Simulation Archive</a></p>
                 </section>
@@ -127,19 +127,19 @@
                 });
             });
 
-            // Sidebar Summaries
-            const sidebarSummaries = {
-                mlb: '/sports-history-test/usa/sidebar_summaries/mlb_sidebar_summary.html',
-                nfl: '/sports-history-test/usa/sidebar_summaries/nfl_sidebar_summary.html',
-                nhl: '/sports-history-test/usa/sidebar_summaries/nhl_sidebar_summary.html',
-                nba: '/sports-history-test/usa/sidebar_summaries/nba_sidebar_summary.html',
-                wnba: '/sports-history-test/usa/sidebar_summaries/wnba_sidebar_summary.html',
-                mls: '/sports-history-test/usa/sidebar_summaries/mls_sidebar_summary.html',
-                usl: '/sports-history-test/usa/sidebar_summaries/usl_sidebar_summary.html'
+            // homepage Summaries
+            const homepageSummaries = {
+                mlb: '/sports-history-test/usa/homepage_summaries/mlb_homepage_summary.html',
+                nfl: '/sports-history-test/usa/homepage_summaries/nfl_homepage_summary.html',
+                nhl: '/sports-history-test/usa/homepage_summaries/nhl_homepage_summary.html',
+                nba: '/sports-history-test/usa/homepage_summaries/nba_homepage_summary.html',
+                wnba: '/sports-history-test/usa/homepage_summaries/wnba_homepage_summary.html',
+                mls: '/sports-history-test/usa/homepage_summaries/mls_homepage_summary.html',
+                usl: '/sports-history-test/usa/homepage_summaries/usl_homepage_summary.html'
             };
         
-            for (const [sport, file] of Object.entries(sidebarSummaries)) {
-                const placeholder = document.getElementById(sport + '-sidebar-placeholder');
+            for (const [sport, file] of Object.entries(homepageSummaries)) {
+                const placeholder = document.getElementById(sport + '-homepage-placeholder');
                 if (!placeholder) continue;  // safely skip if no snapshot exists
                 fetch(file)
                     .then(response => response.text())
