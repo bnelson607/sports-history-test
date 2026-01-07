@@ -657,6 +657,11 @@ nav.ncaa-nav .dropbtn {
     margin-bottom: 10px;
 }
 
+.main-left p a,
+.main-right p a {    /* Change font size of season archive links on home page */
+  font-size: 1.2rem;
+}
+
 /* Sidebar table: same style as power rankings but allows 4 columns */
 .sidebar-table {
     table-layout: fixed;              /* Ensures column widths are respected */
