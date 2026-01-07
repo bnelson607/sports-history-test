@@ -564,7 +564,7 @@ nav.ncaa-nav .dropbtn {
 ------------------------------------*/
 .content,
 .article-list-page,
-.site-updates {
+.sport-card {
   background-color: white;
   border-left: 6px solid #002744;
   border-radius: 8px;
@@ -647,26 +647,26 @@ nav.ncaa-nav .dropbtn {
 }
 
 /* Homepage updates list */
-.site-updates {
+.sport-card {
     margin-bottom: 30px;            /* Space at bottom of homepage updates */
 }
 
-.site-updates ul {
+.sport-card ul {
     list-style-type: none;          /* Remove bullets */
     padding-left: 0;                /* Remove default padding */
     margin: 0;
 }
 
-.site-updates li {
+.sport-card li {
     margin-bottom: 6px;             /* Space between items */
 }
 
-.site-updates a {
+.sport-card a {
     text-decoration: none;          /* Remove underline */
     color: #0055a5;                 /* Brighter link color */
 }
 
-.site-updates a:hover {
+.sport-card a:hover {
     text-decoration: underline;     /* Underline on hover */
 }
 
